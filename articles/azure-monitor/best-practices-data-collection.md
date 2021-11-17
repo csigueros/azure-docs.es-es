@@ -5,23 +5,21 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/18/2021
-ms.openlocfilehash: 408103657b3d1485d8807768e83cc1d9721fd22b
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: b5522cb26f7f8fe486b4b690938a23c7e75c746a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130181586"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132315965"
 ---
 # <a name="azure-monitor-best-practices---configure-data-collection"></a>Procedimientos recomendados de Azure Monitor: configuración de la recopilación de datos
 Este artículo forma parte del escenario de [recomendaciones para configurar Azure Monitor](best-practices.md). Describe los pasos recomendados para configurar la recopilación de datos necesaria para habilitar las características de Azure Monitor para las aplicaciones y los recursos híbridos y de Azure.
 
-
 > [!IMPORTANT]
 > Las características de Azure Monitor y su configuración variarán en función de los requisitos empresariales que se equilibran con el costo de las características habilitadas. En cada paso siguiente se identificará si existe algún costo potencial y debe evaluar estos costos antes de continuar. Consulte [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) para obtener información detallada sobre los precios.
-> 
 
 ## <a name="create-log-analytics-workspace"></a>Creación de un área de trabajo de Log Analytics
-Necesita al menos un área de trabajo de Log Analytics para habilitar los [registros de Azure Monitor](logs/data-platform-logs.md), lo que es necesario para recopilar estos datos como registros de recursos de Azure, recopilar datos del sistema operativo invitado de Azure Virtual Machines y para la mayoría de la información de Azure Monitor. Otros servicios, como Azure Sentinel y Azure Security Center, también usan un área de trabajo de Log Analytics y pueden compartir la misma que se usa para Azure Monitor. Puede empezar con una sola área de trabajo para admitir esta supervisión, pero consulte [Diseño de la implementación de registros de Azure Monitor](logs/design-logs-deployment.md) para obtener instrucciones sobre cuándo usar varias áreas de trabajo.
+Necesita al menos un área de trabajo de Log Analytics para habilitar los [registros de Azure Monitor](logs/data-platform-logs.md), lo que es necesario para recopilar estos datos como registros de recursos de Azure, recopilar datos del sistema operativo invitado de Azure Virtual Machines y para la mayoría de la información de Azure Monitor. Otros servicios, como Microsoft Sentinel y Microsoft Defender para la nube, también usan un área de trabajo de Log Analytics y pueden compartir la misma que se usa para Azure Monitor. Puede empezar con una sola área de trabajo para admitir esta supervisión, pero consulte [Diseño de la implementación de registros de Azure Monitor](logs/design-logs-deployment.md) para obtener instrucciones sobre cuándo usar varias áreas de trabajo.
 
 No hay ningún costo por la creación de un área de trabajo de Log Analytics, pero se puede realizar un cargo adicional una vez configurados los datos que se van a recopilar. Consulte [Administración del uso y los costos con los registros de Azure Monitor](logs/manage-cost-storage.md) para más información.  
 
@@ -30,7 +28,7 @@ Consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](log
 ## <a name="collect-data-from-azure-resources"></a>Recopilación de datos a partir de recursos de Azure
 La supervisión de los recursos de Azure está disponible automáticamente sin necesidad de configuración, pero debe realizar los pasos de configuración para recopilar datos de supervisión adicionales. En la tabla siguiente se muestran los pasos de configuración necesarios para recopilar todos los datos disponibles de los recursos de Azure, incluido el paso en el que se envían los datos a Métricas de Azure Monitor y Registros de Azure Monitor. Cada uno de los pasos se describe en detalle en las secciones que aparecen a continuación.
 
-[ ![Supervisión de la implementación de recursos de Azure](media/best-practices-data-collection/best-practices-azure-resources.png)](media/best-practices-data-collection/best-practices-azure-resources.png#lightbox)
+[![Supervisión de la implementación de recursos de Azure](media/best-practices-data-collection/best-practices-azure-resources.png)](media/best-practices-data-collection/best-practices-azure-resources.png#lightbox)
 
 ### <a name="collect-tenant-and-subscription-logs"></a>Recopilación de registros de inquilinos y de suscripciones
 Aunque los [registros de Azure Active Directory](../active-directory/reports-monitoring/overview-reports.md) del inquilino y el [registro de actividad](essentials/platform-logs-overview.md) de la suscripción se recopilan automáticamente, al enviarlos a un área de trabajo de Log Analytics, se pueden analizar estos eventos con otros datos de registro mediante consultas de registro en Log Analytics. Esto también le permite crear alertas de consulta de registro, que es la única manera de alertar sobre los registros de Azure Active Directory y proporcionar una lógica más compleja que las alertas del registro de actividad.

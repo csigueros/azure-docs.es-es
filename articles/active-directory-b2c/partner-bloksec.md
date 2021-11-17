@@ -12,20 +12,18 @@ ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a983da4159f41ae6dfe261b7f42ce20c2d2fa3a4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8e955a50ed85710c0a3a33680b1edc4ef5873da6
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128594752"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135512"
 ---
 # <a name="tutorial-configure-azure-active-directory-b2c-with-bloksec-for-passwordless-authentication"></a>Tutorial: Configurar Azure Active Directory B2C con BlokSec para la autenticación sin contraseña
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 ::: zone pivot="b2c-custom-policy"
-
-
 
 ::: zone-end
 
@@ -56,9 +54,10 @@ En el siguiente diagrama de arquitectura se muestra la implementación.
 
 ## <a name="onboard-to-bloksec"></a>Incorporación a BlokSec
 
-Solicite un inquilino de demostración con BlokSec rellenando [el formulario](https://bloksec.com/request-a-demo/). En el campo de mensaje indica que le gustaría incorporar con Azure AD B2C. Descargue e instale la aplicación móvil BlokSec yuID gratuita desde la tienda de aplicaciones. Una vez preparado el inquilino de demostración, recibirá un correo electrónico. En el dispositivo móvil donde está instalada la aplicación BlokSec, seleccione el vínculo para registrar la cuenta de administrador con la aplicación yuID.
+Solicite un inquilino de demostración con BlokSec rellenando [el formulario](https://bloksec.com/). En el campo de mensaje indica que le gustaría incorporar con Azure AD B2C. Descargue e instale la aplicación móvil BlokSec yuID gratuita desde la tienda de aplicaciones. Una vez preparado el inquilino de demostración, recibirá un correo electrónico. En el dispositivo móvil donde está instalada la aplicación BlokSec, seleccione el vínculo para registrar la cuenta de administrador con la aplicación yuID.
 
 ::: zone pivot="b2c-user-flow"
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesitará lo siguiente:
@@ -73,6 +72,7 @@ Para empezar, necesitará lo siguiente:
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesitará lo siguiente:
@@ -96,7 +96,7 @@ Para empezar, necesitará lo siguiente:
 
 3. Complete los detalles de la aplicación como se muestra a continuación y envíe:  
 
-   |Propiedad  |Value  |
+   |Propiedad  |Valor  |
    |---------|---------|
    |  Nombre         |Azure AD B2C o el nombre de aplicación deseado|
    |Tipo de SSO         | OIDC|
@@ -116,8 +116,8 @@ Para empezar, necesitará lo siguiente:
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/#home) como administrador global del inquilino de Azure AD B2C.
 1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
 1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
-1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**. 
-1. Vaya a **Panel > Azure Active Directory B2C > Proveedores de identidades**.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, a continuación, busque y seleccione **Azure AD B2C**.
+1. Vaya a **Panel** > **Azure Active Directory B2C** > **Proveedores de identidad**.
 1. Seleccione **Proveedor de OpenID Connect**.
 1. Seleccione **Agregar**.
 
@@ -127,10 +127,10 @@ Para empezar, necesitará lo siguiente:
 
 1. Rellene el formulario para configurar el proveedor de identidades:
 
-|Propiedad  |Value  |
+|Propiedad  |Valor  |
 |:---------|:---------|
 |Nombre     |Escriba BlokSec yuID – Passwordless (BlokSec yuID: sin contraseña) o un nombre de su elección.|
-|URL de metadatos|https://api.bloksec.io/oidc/.well-known/openid-configuration|         
+|URL de metadatos| `https://api.bloksec.io/oidc/.well-known/openid-configuration` |
 |Id. de cliente|El identificador de aplicación de la interfaz de usuario de administrador de BlokSec capturada en la **parte 1**.|
 |Secreto del cliente|El secreto de aplicación de la interfaz de usuario de administrador de BlokSec capturada en la **parte 1**.|
 |Ámbito|Perfil de correo electrónico de OpenID|
@@ -181,13 +181,13 @@ Ahora debería ver BlokSec como un nuevo proveedor de identidades de Open ID Con
 
 1. Seleccione **Ejecutar el flujo de usuario**.
 
-1. En el formulario, escriba la dirección URL de respuesta, por ejemplo, https://jwt.ms
+1. En el formulario, escriba la dirección URL de respuesta, como `https://jwt.ms`.
 
 1. El explorador se redirigirá a la página de inicio de sesión de BlokSec. Escriba el nombre de cuenta registrado durante el registro del usuario. El usuario recibirá una notificación push en su dispositivo móvil donde está instalada la aplicación BlokSec yuID. Al abrir la notificación, se presentará al usuario un desafío de autenticación.
 
-1. Una vez aceptado el desafío de autenticación, el explorador redirigirá al usuario a la dirección URL de respuesta.  
+1. Una vez aceptado el desafío de autenticación, el explorador redirigirá al usuario a la dirección URL de respuesta.
 
-## <a name="next-steps"></a>Pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, consulte los artículos siguientes:
 
@@ -324,7 +324,8 @@ En el siguiente código XML se muestran los dos primeros pasos de orquestación 
 
 La directiva de usuario de confianza, por ejemplo [SignUpSignIn.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/SocialAndLocalAccounts/SignUpOrSignin.xml), especifica el recorrido del usuario que ejecutará Azure AD B2C. Busque el elemento **DefaultUserJourney** en el usuario de confianza. Actualice **ReferenceId** para que coincida con el identificador del recorrido del usuario, en el que agregó el proveedor de identidades.
 
-En el ejemplo siguiente, para el recorrido de usuario `CustomSignUpOrSignIn`, ReferenceId está establecido en `CustomSignUpOrSignIn`:  
+En el ejemplo siguiente, para el recorrido de usuario `CustomSignUpOrSignIn`, ReferenceId está establecido en `CustomSignUpOrSignIn`:
+
 ```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="CustomSignUpSignIn" />
@@ -350,7 +351,7 @@ Seleccione **Cargar directiva personalizada** y, a continuación, cargue los dos
 
 Si el proceso de inicio de sesión se completa correctamente, el explorador se redirige a `https://jwt.ms`, que muestra el contenido del token devuelto por Azure AD B2C.
 
-## <a name="next-steps"></a>Pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, consulte los artículos siguientes:
 

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/04/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 7cd9ca0eba60500d38a24460afa9bc1b766259a0
-ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
+ms.openlocfilehash: 010c117218edccd31fb397785358a35c1774754a
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131867322"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027496"
 ---
 # <a name="start-or-stop-your-azure-spring-cloud-service-instance"></a>Inicio o detención de una instancia de servicio de Azure Spring Cloud
 
@@ -33,7 +33,7 @@ Para reducir aún más los costos, puede detener completamente la instancia de s
 
 Solo puede iniciar, ver o eliminar una instancia de servicio de Azure Spring Cloud detenida. Debe iniciar la instancia de servicio antes de realizar cualquier operación de actualización, como crear o escalar una aplicación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una instancia de servicio existente en Azure Spring Cloud. Para crear una instancia de servicio, vea [Inicio rápido: Compilación e implementación de aplicaciones en Azure Spring Cloud](./quickstart.md).
 - (Opcional) Versión 2.11.2 o posterior de la [CLI de Azure](/cli/azure/install-azure-cli).
@@ -47,7 +47,7 @@ En Azure Portal, siga estos pasos para detener una instancia de Azure Spring Clo
 1. Vaya a la página de información general del servicio Azure Spring Cloud.
 2. Seleccione **Detener** para detener una instancia en ejecución.
 
-:::image type="content" source="media/stop-start-service/spring-cloud-stop-service.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra la página de información general de Azure Spring Cloud con el botón Detener y el valor Estado resaltados":::.
+   :::image type="content" source="media/stop-start-service/spring-cloud-stop-service.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra la página de información general de Azure Spring Cloud con el botón Detener y el valor Estado resaltados":::.
 
 3. Una vez detenida la instancia, se mostrará el estado **Correcto (Detenido)** .
 
@@ -58,7 +58,7 @@ En Azure Portal, siga estos pasos para iniciar una instancia de Azure Spring Clo
 1. Vaya a la página de información general del servicio Azure Spring Cloud.
 2. Seleccione **Iniciar** para iniciar una instancia detenida.
 
-:::image type="content" source="media/stop-start-service/spring-cloud-start-service.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra la página de información general de Azure Spring Cloud con el botón Iniciar y el valor Estado resaltados":::.
+   :::image type="content" source="media/stop-start-service/spring-cloud-start-service.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra la página de información general de Azure Spring Cloud con el botón Iniciar y el valor Estado resaltados":::.
 
 3. Una vez iniciada la instancia, se mostrará el estado **Correcto (En ejecución)** .
 

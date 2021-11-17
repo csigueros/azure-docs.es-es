@@ -1,19 +1,19 @@
 ---
 title: Introducción a la versión preliminar de Azure Container Apps
 description: Información sobre los escenarios y usos comunes de Azure Container Apps
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: overview
 ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a7ae5038dfcb419ff658f0ea8780e343189c3a61
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 720d243796781ea2be2f01796c1892e64132f58a
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131503987"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028617"
 ---
 # <a name="azure-container-apps-preview-overview"></a>Introducción a la versión preliminar de Azure Container Apps
 

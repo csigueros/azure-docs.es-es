@@ -1,24 +1,24 @@
 ---
 title: 'Inicio rápido: implementación de la primera aplicación de Azure Spring Cloud'
-description: En este inicio rápido, se implementa una aplicación de Spring Cloud en Azure Spring Cloud.
+description: En este inicio rápido, se implementa una aplicación en Azure Spring Cloud.
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/12/2021
+ms.date: 10/18/2021
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 33718af136a6f9675e7cc9360f7f18dd79935e09
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: bdd778f9bad5bbafb48aa52c8059cdeadd3a0fc5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984517"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241274"
 ---
-# <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Inicio rápido: implementación de la primera aplicación de Azure Spring Cloud
+# <a name="quickstart-deploy-your-first-application-in-azure-spring-cloud"></a>Inicio rápido: implementación de la primera aplicación de Azure Spring Cloud
 
 ::: zone pivot="programming-language-csharp"
-En este inicio rápido se explica cómo implementar una sencilla aplicación de microservicios de Azure Spring Cloud para que se ejecute en Azure.
+En este inicio rápido se explica cómo implementar una sencilla aplicación para que se ejecute en Azure Spring Cloud.
 
 >[!NOTE]
 > La compatibilidad de Steeltoe con Azure Spring Cloud se ofrece actualmente como versión preliminar pública. Las ofertas de versión preliminar pública permiten a los clientes experimentar con nuevas características antes de su publicación oficial.  Los servicios y las características en versión preliminar pública no están diseñados para su uso en producción.  Para obtener más información sobre el soporte técnico durante las versiones preliminares, revise las [preguntas frecuentes](https://azure.microsoft.com/support/faq/) o envíe una [solicitud de soporte técnico](../azure-portal/supportability/how-to-create-azure-support-request.md).
@@ -245,7 +245,7 @@ El procedimiento siguiente genera e implementa el proyecto que creó anteriormen
 
    La opción `--main-entry` identifica el archivo *.dll* que contiene el punto de entrada de la aplicación. Una vez que el servicio carga el archivo *.zip*, extrae todos los archivos y carpetas e intenta ejecutar el punto de entrada en el archivo *.dll* especificado por `--main-entry`.
 
-   La implementación de la aplicación tarda unos minutos en finalizar. Para confirmar que se ha implementado, vaya a la hoja **Aplicaciones** de Azure Portal.
+   La implementación de la aplicación tarda unos minutos en finalizar. Para confirmar que se ha implementado, vaya a la sección **Aplicaciones** de Azure Portal.
 
 ## <a name="test-the-app"></a>Prueba de la aplicación
 
@@ -314,7 +314,8 @@ Para ver las características avanzadas de análisis de registros, vaya a la pes
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-En este inicio rápido se explica cómo implementar una sencilla aplicación de microservicios de Azure Spring Cloud para que se ejecute en Azure.
+
+En este inicio rápido se explica cómo implementar una sencilla aplicación en Azure Spring Cloud.
 
 El código de aplicación que se usa en este tutorial es una aplicación sencilla compilada con Spring Initializr. Cuando haya completado este ejemplo, se podrá acceder en línea a la aplicación de ejemplo proporcionada y se podrá administrar mediante Azure Portal.
 
@@ -346,7 +347,7 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5
 ```
 En la imagen siguiente se muestra la configuración de Initializr recomendada para este proyecto de ejemplo. 
 
-Observe que en este ejemplo se usa la versión 8 de Java.  Si desea usar la versión 11, cambie la opción en los **metadatos del proyecto**.
+Este ejemplo usa la versión 8 de Java.  Si desea usar la versión 11, cambie la opción en los **metadatos del proyecto**.
 
 ![Página de Initializr](media/spring-cloud-quickstart-java/initializr-page.png)
 
@@ -389,7 +390,7 @@ En el procedimiento siguiente se crea una instancia de Azure Spring Cloud desde 
 5. Rellene el formulario en la página **Crear** de Azure Spring Cloud.  Tenga en cuenta las directrices siguientes:
 
     - **Suscripción**: seleccione la suscripción a la que desea que se facture este recurso.
-    - **Grupo de recursos**: se recomienda crear grupos de recursos para los nuevos recursos. Se usarán en los pasos posteriores como **\<resource group name\>** .
+    - **Grupo de recursos**: se recomienda crear grupos de recursos para los nuevos recursos. Usará este grupo de recursos en pasos posteriores como **\<resource group name\>** .
     - **Detalles o nombre del servicio**: Especifique **\<service instance name\>** .  El nombre debe tener entre 4 y 32 caracteres, y solo puede contener números, letras minúsculas y guiones.  El primer carácter del nombre del servicio debe ser una letra y el último debe ser una letra o un número.
     - **Ubicación**: seleccione la región de la instancia de servicio.
 
@@ -426,7 +427,7 @@ El siguiente procedimiento compila e implementa la aplicación mediante la CLI d
     mvn clean package -DskipTests
     ```
 
-1. Cree la aplicación con el punto de conexión público asignado. Si seleccionó la versión 11 de Java al generar el proyecto de Spring Cloud, incluya el modificador --runtime-version=Java_11.
+1. Cree la aplicación con el punto de conexión público asignado. Si seleccionó la versión 11 de Java al generar el proyecto de Spring Cloud, incluya el modificador `--runtime-version=Java_11`.
 
     ```azurecli
     az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --assign-endpoint true
@@ -438,7 +439,7 @@ El siguiente procedimiento compila e implementa la aplicación mediante la CLI d
     az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name> --artifact-path <jar file path>/hellospring-0.0.1-SNAPSHOT.jar
     ```
 
-1. La implementación de la aplicación tarda unos minutos en finalizar. Para confirmar que se ha implementado, vaya a la hoja **Aplicaciones** de Azure Portal. Debería ver el estado de la aplicación.
+1. La implementación de la aplicación tarda unos minutos en finalizar. Para confirmar que se ha implementado, vaya a la sección **Aplicaciones** de Azure Portal. Debería ver el estado de la aplicación.
 
 #### <a name="intellij"></a>[IntelliJ](#tab/IntelliJ)
 
@@ -457,19 +458,32 @@ Para realizar la implementación en Azure, debe iniciar sesión con su cuenta de
 
 1. Vaya al explorador de proyectos de IntelliJ, haga clic con el botón derecho en el proyecto y, después, seleccione **Azure** -> **Deploy to Azure Spring Cloud** (Implementar en Azure Spring Cloud).
 
-    [![Implementación en Azure 1](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png)](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png#lightbox)
+    [ ![Dónde implementar el proyecto en Azure](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png) ](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png#lightbox)
 
 1. Acepte el nombre de la aplicación en el campo **Name** (Nombre). El **nombre** hace referencia a la configuración, no al nombre de la aplicación. Normalmente, los usuarios no tienen que cambiarlo.
-1. En el cuadro de texto **Artefacto**, seleccione *Maven : com.example:hellospring-0.0.1-SNAPSHOT*.
-1. En el cuadro de texto **Suscripción**, compruebe su suscripción.
-1. En el cuadro de texto **Spring Cloud**, seleccione la instancia de Azure Spring Cloud que creó en el artículo sobre el [aprovisionamiento de una instancia de Azure Spring Cloud](./quickstart-provision-service-instance.md).
-1. En **Punto de conexión público**, seleccione *Habilitar*.
-1. En el cuadro de texto **Aplicación:** , seleccione **Crear aplicación...** .
-1. Escriba *hellospring* y, después, seleccione **Aceptar**.
+1. En el cuadro de texto **Artefacto**, seleccione **Maven:com.example:hellospring-0.0.1-SNAPSHOT**.
+1. En el cuadro de texto **Suscripción**, compruebe que su suscripción sea correcta.
+1. En el cuadro de texto **Servicio**, seleccione la instancia de Azure Spring Cloud que creó en el artículo sobre el [aprovisionamiento de una instancia de Azure Spring Cloud](./quickstart-provision-service-instance.md).
+1. En el cuadro de texto **Aplicación**, seleccione **+** para crear una aplicación nueva.
 
-    [ ![Implementación en Azure: OK (Aceptar)](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png) ](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png#lightbox)
+    ![Dónde seleccionar para crear una nueva aplicación IntelliJ](media/spring-cloud-quickstart-java/intellij-create-new-app.png)
 
-1. Para iniciar la implementación, seleccione el botón **Ejecutar** en la parte inferior del cuadro de diálogo **Deploy Azure Spring Cloud app** (Implementar una aplicación de Azure Spring Cloud). El complemento ejecutará el comando `mvn package` en la aplicación `hellospring` e implementará el archivo .jar que ha generado el comando `package`.
+1. En el cuadro de texto **Nombre de la aplicación:** , escriba *hellospring*, y active la casilla **Más opciones de configuración**.
+1. Seleccione el botón **Habilitar** situado junto a **Punto de conexión público**. El botón cambiará a *Deshabilitar \<to be enabled\>* .
+1. Si usó Java 11, seleccione **Java 11** en **Entorno de ejecución**.
+1. Seleccione **Aceptar**.
+
+    ![Este es el aspecto de la habilitación del punto de conexión público después de seleccionarla](media/spring-cloud-quickstart-java/intellij-create-new-app-2.png)
+
+1. En **Antes del inicio**, seleccione la línea **Ejecución del objetivo de Maven "hellospring:package"** y, a continuación, seleccione el lápiz para editar la línea de comandos.
+
+    ![Edite el objetivo de Maven](media/spring-cloud-quickstart-java/intellij-edit-maven-goal.png)
+
+1. En el cuadro de texto **Línea de comandos**, escriba *-DskipTests* después de *paquete*, y a continuación, seleccione **Aceptar**.
+
+    ![Implementación en Azure: OK (Aceptar)](media/spring-cloud-quickstart-java/intellij-maven-goal-command-line.png)
+
+1. Para iniciar la implementación, seleccione el botón **Ejecutar** en la parte inferior del cuadro de diálogo **Deploy Azure Spring Cloud app** (Implementar una aplicación de Azure Spring Cloud). El complemento ejecutará el comando `mvn package -DskipTests` en la aplicación `hellospring` e implementará el archivo .jar que ha generado el comando `package`.
 
 ---
 

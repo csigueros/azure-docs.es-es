@@ -1,22 +1,22 @@
 ---
 title: Reenvío de la información de las alertas
 description: Puede enviar información de alertas a los sistemas asociados mediante las reglas de reenvío.
-ms.date: 08/29/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: eb902036a286be50dc1f29ccca894f3d422cc59c
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: d863ab9de5e030ddd54ba1b4b40efc01e844f419
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129612222"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278861"
 ---
 # <a name="forward-alert-information"></a>Reenvío de la información de las alertas
 
-Puede enviar información de alertas a los asociados que están integrados con Azure Defender para IoT, a los servidores de syslog, a las direcciones de correo electrónico y más. Trabajar con reglas de reenvío le permite enviar rápidamente información de alertas a las partes interesadas en seguridad.
+Puede enviar información de alertas a los asociados que están integrados con Microsoft Defender para IoT, a los servidores de syslog, a las direcciones de correo electrónico y más. Trabajar con reglas de reenvío le permite enviar rápidamente información de alertas a las partes interesadas en seguridad.
 
 Defina los criterios por los que se desencadenará una regla de reenvío. El uso de criterios en las reglas de reenvío ayuda a identificar y administrar el volumen de información que se envía del sensor a los sistemas externos.
 
-Syslog y otras acciones de reenvío predeterminadas se entregan a través del sistema. Es posible que haya más acciones de reenvío disponibles al integrarse con proveedores asociados, como Microsoft Azure Sentinel, ServiceNow o Splunk.
+Syslog y otras acciones de reenvío predeterminadas se entregan a través del sistema. Es posible que haya más acciones de reenvío disponibles al integrarse con proveedores asociados, como Microsoft Sentinel, ServiceNow o Splunk.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/alert-information-screen.png" alt-text="Información de alertas.":::
 
@@ -54,7 +54,7 @@ Si la validación está habilitada y no se puede comprobar el certificado, se de
 
 Las siguientes reglas de reenvío permiten el cifrado y la validación de certificados:
 - Syslog CEF
-- Azure Sentinel
+- Microsoft Sentinel
 - QRadar
 
 ## <a name="create-forwarding-rules"></a>Creación de reglas de reenvío
@@ -151,14 +151,14 @@ Escriba los siguientes parámetros:
 | Fecha y hora | Fecha y hora en que el equipo servidor de syslog recibió la información. |
 | Priority | User.Alert |
 | Hostname | Dirección IP del sensor |
-| Message | CEF:0 <br />Azure Defender para IoT <br />Nombre del sensor: el nombre del dispositivo de sensor. <br />Versión del sensor <br />Título de la alerta: el título de la alerta. <br />msg: el mensaje de la alerta. <br />protocol: el protocolo de la alerta. <br />severity:  **advertencia**, **leve**, **grave** o **crítica**. <br />type:  **infracción del protocolo**, **infracción de la directiva**, **malware**, **anomalía** u **operativa**. <br /> start: el momento en que se detectó la alerta. <br />Puede variar en función de la hora de la máquina del servidor de syslog y depende de la configuración de zona horaria de la regla de reenvío. <br />src_ip: dirección IP del dispositivo de origen.  <br />dst_ip: dirección IP del dispositivo de destino.<br />cat: el grupo de alertas asociado a la alerta.  |
+| Message | CEF:0 <br />Microsoft Defender para IoT <br />Nombre del sensor: el nombre del dispositivo de sensor. <br />Versión del sensor <br />Título de la alerta: el título de la alerta. <br />msg: el mensaje de la alerta. <br />protocol: el protocolo de la alerta. <br />severity:  **advertencia**, **leve**, **grave** o **crítica**. <br />type:  **infracción del protocolo**, **infracción de la directiva**, **malware**, **anomalía** u **operativa**. <br /> start: el momento en que se detectó la alerta. <br />Puede variar en función de la hora de la máquina del servidor de syslog y depende de la configuración de zona horaria de la regla de reenvío. <br />src_ip: dirección IP del dispositivo de origen.  <br />dst_ip: dirección IP del dispositivo de destino.<br />cat: el grupo de alertas asociado a la alerta.  |
 
 | Formato de salida LEEF de syslog | Descripción |
 |--|--|
 | Fecha y hora | Fecha y hora en que el equipo servidor de syslog recibió la información. |  
 | Priority | User.Alert |
 | Hostname | Dirección IP del sensor |
-| Message | Nombre del sensor: el nombre del dispositivo de Azure Defender para IoT. <br />LEEF:1.0 <br />Azure Defender para IoT <br />Sensor  <br />Versión del sensor <br />Alerta de Azure Defender para IoT <br />título: el título de la alerta. <br />msg: el mensaje de la alerta. <br />protocol: el protocolo de la alerta.<br />severity:  **advertencia**, **leve**, **grave** o **crítica**. <br />type: el tipo de la alerta: **Infracción del protocolo**, **infracción de la directiva**, **malware**, **anomalía** u **operativa**. <br />start: la hora de la alerta.Puede ser diferente de la hora en la máquina del servidor de syslog. (Esto depende de la configuración de zona horaria). <br />src_ip: dirección IP del dispositivo de origen.<br />dst_ip: dirección IP del dispositivo de destino. <br />cat: el grupo de alertas asociado a la alerta. |
+| Message | Nombre del sensor: el nombre del dispositivo Microsoft Defender para IoT. <br />LEEF:1.0 <br />Microsoft Defender para IoT <br />Sensor  <br />Versión del sensor <br />Alerta de Microsoft Defender para IoT <br />título: el título de la alerta. <br />msg: el mensaje de la alerta. <br />protocol: el protocolo de la alerta.<br />severity:  **advertencia**, **leve**, **grave** o **crítica**. <br />type: el tipo de la alerta: **Infracción del protocolo**, **infracción de la directiva**, **malware**, **anomalía** u **operativa**. <br />start: la hora de la alerta.Puede ser diferente de la hora en la máquina del servidor de syslog. (Esto depende de la configuración de zona horaria). <br />src_ip: dirección IP del dispositivo de origen.<br />dst_ip: dirección IP del dispositivo de destino. <br />cat: el grupo de alertas asociado a la alerta. |
 
 Después de escribir la información, seleccione **Enviar**.
 

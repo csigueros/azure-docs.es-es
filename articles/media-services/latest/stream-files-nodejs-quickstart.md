@@ -1,24 +1,24 @@
 ---
-title: Procedimientos para codificar y hacer streaming de archivos de vídeo con Node.JS
-description: Procedimientos para hacer streaming de archivos de vídeo con Node.JS Siga los pasos de este tutorial para crear una cuenta de Azure Media Services, codificar un archivo y transmitirlo a Azure Media Player.
+title: Codificación y transmisión de archivos de vídeo con Node.js
+description: Obtenga información sobre cómo transmitir archivos de vídeo con Node.js. Siga los pasos de este tutorial para crear una cuenta de Azure Media Services, codificar un archivo y transmitirlo a Azure Media Player.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-keywords: azure media services, stream, Node.JS
+keywords: azure media services, stream, Node.js
 ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 5bb061af37f6f6d7e6e27cf25f0faa63bca7353c
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: f8eafe88168f908025321d1e3ce6304fa34c03ab
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109193"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179935"
 ---
-# <a name="how-to-encode-and-stream-video-files-with-nodejs"></a>Procedimientos para codificar y hacer streaming de archivos de vídeo con Node.JS
+# <a name="how-to-encode-and-stream-video-files-with-nodejs"></a>Codificación y transmisión de archivos de vídeo con Node.js
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -26,10 +26,10 @@ Este inicio rápido muestra lo fácil que es codificar e iniciar el streaming de
 
 Al finalizar este inicio rápido, sabrá:
 
-- Cómo codificar con Node.JS
-- Cómo hacer streaming con Node.JS
-- Cómo cargar cualquier archivo desde una dirección URL HTTPS con Node.JS
-- Cómo usar un reproductor de cliente HLS o DASH con Node.JS
+- Cómo codificar con Node.js
+- Cómo hacer streaming con Node.js
+- Cómo cargar un archivo desde una dirección URL HTTPS con Node.js
+- Cómo usar un reproductor de cliente HLS o DASH con Node.js
 
 En el ejemplo de este artículo se codifica contenido que se hace accesible a través de una dirección URL HTTPS. Tenga en cuenta que, actualmente, AMS v3 no admite la codificación de transferencia fragmentada a través de direcciones URL de HTTPS.
 

@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: avgupta
-ms.openlocfilehash: 4edbeadd2615fc8d58761bc5b15a93ae626a6613
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 133c788b3bbe787f87cea3e5c72699c8dd0c4f6f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130265600"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132316192"
 ---
 # <a name="reload-secrets-and-certificates-from-key-vault-automatically"></a>Recarga de secretos y certificados desde Key Vault automáticamente
 
@@ -26,7 +26,6 @@ Como práctica de seguridad recomendada, los [secretos](../key-vault/secrets/tut
 - Recargar periódicamente algunos o todos los secretos y certificados de Key Vault.
 
 En la primera opción, tendrá que actualizar el par de clave-valor de Sentinel en App Configuration cada vez que rote los secretos y certificados en Key Vault. Este enfoque funciona bien cuando se quiere forzar una recarga inmediata de secretos y certificados en la aplicación. Sin embargo, cuando los secretos y certificados se rotan automáticamente en Key Vault, la aplicación puede experimentar errores si no actualiza el par de clave-valor de Sentinel a tiempo. La segunda opción le permite automatizar completamente este proceso. Puede configurar la aplicación para recargar secretos y certificados desde Key Vault dentro del retraso aceptable desde el momento de la rotación. Este tutorial le guía por la segunda opción.
-
 
 ## <a name="prerequisites"></a>Requisitos previos
 

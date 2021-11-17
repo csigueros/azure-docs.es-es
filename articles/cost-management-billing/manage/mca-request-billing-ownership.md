@@ -7,56 +7,82 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 11/09/2021
 ms.author: banders
-ms.openlocfilehash: af3b4eabfb47fb64e9e3912c8edcf939d17e04f2
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 482db68e048c645eddf16849b32e39f1dc397d09
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131476250"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179386"
 ---
 # <a name="transfer-azure-subscription-billing-ownership-for-a-microsoft-customer-agreement"></a>Transferencia de la propiedad de facturación de la suscripción de Azure en un Contrato de cliente de Microsoft
 
-Deberá transferir la propiedad de facturación de las suscripciones de Azure cuando:
-- Quiera trasladar las responsabilidades de facturación de las suscripciones a un propietario de facturación diferente.
-- Va a transferir las suscripciones de Azure de un contrato de licencia a otro. Por ejemplo, de un Contrato Enterprise o un Contrato Microsoft Online Subscription (MOSA) a un Contrato de cliente de Microsoft. [Compruebe si tiene acceso a un contrato de cliente de Microsoft](#check-for-access).
+Transfiera la propiedad de facturación de las suscripciones de Azure cuando:
 
-La persona a la que solicite la propiedad de facturación debe tener uno de los roles siguientes:
+- Quiera trasladar las responsabilidades de facturación de las suscripciones a un propietario de facturación diferente.
+- Va a transferir las suscripciones de Azure de un contrato de licencia a otro. Por ejemplo, de un Contrato Enterprise o un Contrato Microsoft Online Subscription (MOSA) a un Contrato de cliente de Microsoft.
+
+[Compruebe si tiene acceso a un contrato de cliente de Microsoft](#check-for-access).
+
+La transición solo mueve la responsabilidad de facturación de las suscripciones de Azure: los recursos de Azure vinculados a las suscripciones no se mueven, por lo que la transición no interrumpirá los servicios de Azure.
+
+Este proceso contiene las siguientes tareas, en las que le guiaremos paso a paso:
+
+1. Solicitud de propiedad de la facturación
+2. Revisión y aprobación de la solicitud de transferencia
+3. Comprobación del estado de la solicitud de transferencia
+
+Antes de empezar, asegúrese de que la persona a la que solicita la propiedad de facturación tiene uno de los siguientes roles:
+
 - Para un Contrato de cliente de Microsoft, la persona debe tener un rol de propietario o colaborador para la cuenta de facturación o para el perfil de facturación o la sección de factura correspondiente. Para más información, consulte [Tareas y roles de facturación](understand-mca-roles.md#invoice-section-roles-and-tasks).
 - En el caso de un Contrato Enterprise, el usuario debe tener un rol Propietario de la cuenta.
 - En el caso de un Contrato Microsoft Online Subscription, el usuario debe ser un administrador de cuenta.
 
+Cuando esté listo, siga estas instrucciones. También puede ir junto con el siguiente vídeo que describe cada paso del proceso.
+
+>[!VIDEO https://www.youtube.com/embed/gfiUI2YLsgc]
+
 ## <a name="request-billing-ownership"></a>Solicitud de propiedad de la facturación
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como propietario o colaborador de la sección de factura de una cuenta de facturación para un contrato de cliente de Microsoft.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como propietario o colaborador de la sección de factura de una cuenta de facturación para un contrato de cliente de Microsoft. Use las mismas credenciales que usó para aceptar la Contrato de cliente de Microsoft.
 1. Busque **Administración de costos + facturación**.  
     ![Captura de pantalla que muestra la búsqueda en Azure Portal de Administración de costos + facturación](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
-1. En la página de ámbitos de facturación, seleccione **Ámbitos de facturación** y, después, la cuenta de facturación que se utilizará para pagar el uso de las suscripciones. La cuenta de facturación será del tipo **Contrato de cliente de Microsoft**.  
-    [![Captura de pantalla que muestra la búsqueda en Azure Portal de Administración de costos + facturación](./media/mca-request-billing-ownership/list-of-scopes.png)](./media/mca-request-billing-ownership/list-of-scopes.png#lightbox)
+1. En la página de ámbitos de facturación, seleccione **Ámbitos de facturación** y, después, la cuenta de facturación que se utilizará para pagar el uso de Azure en las suscripciones. Seleccione la cuenta de facturación etiquetada **Contrato de cliente de Microsoft**.  
+    [![Captura de pantalla que muestra la búsqueda en Azure Portal de Administración de costos + facturación](./media/mca-request-billing-ownership/list-of-scopes.png)](./media/mca-request-billing-ownership/list-of-scopes.png#lightbox)  
     > [!NOTE]
-    > Azure Portal recuerda el último ámbito de facturación al que tiene acceso y muestra el ámbito la próxima vez que llega a la página Administración de costos + facturación. No verá la página de ámbitos de facturación si ha visitado Administración de costos y facturación anteriormente. Si es así, compruebe que se encuentra en el [ámbito correcto](#check-for-access). En caso contrario, [cambie el ámbito](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) para seleccionar la cuenta de facturación de un Contrato de cliente de Microsoft.
+    >Azure Portal recuerda el último ámbito de facturación al que tiene acceso y muestra el ámbito la próxima vez que llega a la página Administración de costos + facturación. No verá la página de ámbitos de facturación si ha visitado Administración de costos y facturación anteriormente. Si es así, compruebe que se encuentra en el [ámbito correcto](#check-for-access). En caso contrario, [cambie el ámbito](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) para seleccionar la cuenta de facturación de un Contrato de cliente de Microsoft.
 1. Seleccione **Perfiles de facturación** en el lado izquierdo.  
     [![Captura de pantalla que muestra la selección de perfiles de facturación](./media/mca-request-billing-ownership/mca-select-profiles.png)](./media/mca-request-billing-ownership/mca-select-profiles.png#lightbox)
-    > [!Note]
+    > [!NOTE]
     > Si no ve los perfiles de facturación, no se encuentra en el ámbito de facturación adecuado. Tiene que seleccionar una cuenta de facturación de un Contrato de cliente de Microsoft y después seleccione los perfiles de facturación. Para obtener información sobre cómo cambiar los ámbitos, consulte [Cambio de ámbitos de facturación en Azure Portal](view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
 1. Seleccione un **perfil de facturación** en la lista. Cuando se asume la propiedad de las suscripciones, se facturará por su uso en este perfil de facturación.
 1. Seleccione **Secciones de factura** en el lado izquierdo.  
     [![Captura de pantalla que muestra la selección de las secciones de la factura](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)](./media/mca-request-billing-ownership/mca-select-invoice-sections.png#lightbox)   
-1. Seleccione una sección de la factura en la lista. Cuando se asume la propiedad de las suscripciones, se asignará su uso a esta sección de la factura del perfil de facturación.
+1. Seleccione una sección de la factura en la lista. Cada perfil de facturación contiene una sección de factura de forma predeterminada. Seleccione la factura a la que desea mover la facturación de la suscripción de Azure, a la que se transfiere el consumo de la suscripción de Azure.
 1. Seleccione **Solicitudes de transferencia** en el lado inferior izquierdo y, luego, **Agregar una nueva solicitud**.  
     [![Captura de pantalla que muestra la selección de solicitudes de transferencia](./media/mca-request-billing-ownership/mca-select-transfer-requests.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests.png#lightbox)
-1. Escriba la dirección de correo electrónico del usuario al que solicita la propiedad de la facturación. Seleccione **Enviar solicitud de transferencia**.  
+1. Escriba la dirección de correo electrónico del usuario al que solicita la propiedad de la facturación. El usuario debe tener un rol de administrador de cuenta para las suscripciones antiguas. Seleccione **Enviar solicitud de transferencia**.  
     [![Captura de pantalla que muestra el envío de una solicitud de transferencia](./media/mca-request-billing-ownership/mca-send-transfer-requests.png)](./media/mca-request-billing-ownership/mca-send-transfer-requests.png#lightbox)
+
+## <a name="review-and-approve-transfer-request"></a>Revisión y aprobación de la solicitud de transferencia
+
 1. El usuario recibe un correo electrónico con instrucciones para revisar la solicitud de transferencia.  
     ![Captura de pantalla que muestra un correo electrónico de solicitud de transferencia](./media/mca-request-billing-ownership/mca-review-transfer-request-email.png)
-1. Para aprobar la solicitud de transferencia, el usuario selecciona el vínculo en el correo electrónico y sigue las instrucciones.
-    [![Captura de pantalla que muestra la revisión de la solicitud de transferencia](./media/mca-request-billing-ownership/review-transfer-requests.png)](./media/mca-request-billing-ownership/review-transfer-requests.png#lightbox) El usuario puede seleccionar la cuenta de facturación desde la que desea transferir productos de Azure. Una vez seleccionada, se muestran los productos que se pueden transferir. **Nota:** las suscripciones deshabilitadas no se pueden transferir y se mostrarán en la lista de productos de Azure que no se pueden transferir, si procede. Una vez seleccionados los productos de Azure que se van a transferir, seleccione **Validar**.
+1. Para aprobar la solicitud de transferencia, el usuario selecciona el vínculo en el correo electrónico y sigue las instrucciones.  
+
+    El usuario selecciona la cuenta de facturación desde la que quiere transferir productos de Azure. Una vez seleccionada, se muestran los productos que se pueden transferir. Una vez seleccionados los productos de Azure que se van a transferir, seleccione **Validar**.
+
+    >[!NOTE]
+    > las suscripciones deshabilitadas no se pueden transferir y se mostrarán en la lista de productos de Azure que no se pueden transferir, si procede. 
+
+    [Captura de pantalla que muestra un correo electrónico de solicitud de transferencia![](./media/mca-request-billing-ownership/review-transfer-requests.png)](./media/mca-request-billing-ownership/review-transfer-requests.png#lightbox)
 1. El área **Transfer Validation Result** (Resultado de validación de transferencia) mostrará el impacto de los productos de Azure que se van a transferir. Estos son los posibles estados:
     * **Superado**: se ha superado la validación de este producto de Azure y se puede transferir.
     * **Advertencia**: hay una advertencia para el producto de Azure seleccionado. Aunque el producto se puede transferir, el usuario debe tener en cuenta que esto tendrá consecuencias, por si desea realizar acciones encaminadas a reducirlas. Por ejemplo, la suscripción de Azure que se va a transferir se beneficia de una instancia reservada de máquina virtual. Después de la transferencia, dicha suscripción dejará de recibir esa ventaja. Para maximizar el ahorro, asegúrese de que la instancia reservada de máquina virtual esté asociada a otra suscripción que puede usar sus ventajas. En su lugar, el usuario también puede elegir volver a la página de selección y anular la selección de esta suscripción de Azure.
     * **Error**: el producto de Azure seleccionado no se puede transferir debido a un error. El usuario tendrá que volver a la página de selección y anular la selección de este producto para transferir los restantes productos de Azure seleccionados.  
     ![Captura de pantalla que muestra la experiencia de validación](./media/mca-request-billing-ownership/validate-transfer-request.png)
+1. Una vez completada la validación como **Correcto**, seleccione **Transferir**. Verá un mensaje `Transfer is in progress` y, cuando haya finalizado, se mostrará un mensaje `Transfer completed successfully`.
 
 ## <a name="check-the-transfer-request-status"></a>Comprobación del estado de una solicitud de transferencia
 
@@ -139,7 +165,7 @@ En las siguientes secciones se proporciona información adicional acerca de la t
 
 Si tiene un plan de soporte técnico de Azure y transfiere todas las suscripciones de Azure a un nuevo contrato, debe cancelar el plan de soporte técnico porque no se transfiere con las suscripciones. Por ejemplo, al transferir un Contrato Microsoft Online Subscription (una suscripción de Azure comprada en la web) al Contrato de cliente de Microsoft. Para cancelar el plan de soporte técnico:
 
-Debe usar sus credenciales de administrador de cuenta de la cuenta anterior si las credenciales difieren de las usadas para acceder a la nueva cuenta del Contrato de cliente de Microsoft.
+Use sus credenciales de administrador de cuenta de la cuenta anterior si las credenciales difieren de las usadas para acceder a la nueva cuenta del Contrato de cliente de Microsoft.
 
 1.  Inicie sesión en Azure Portal en https://portal.azure.com.
 1.  Vaya a **Administración de costos + facturación**.
@@ -156,7 +182,7 @@ Debe usar sus credenciales de administrador de cuenta de la cuenta anterior si l
 
 Es posible que quiera acceder a las facturas de su cuenta antigua del Contrato Microsoft Online Subscription (una suscripción de Azure comprada en la web) después de transferir la propiedad de facturación a la nueva cuenta del Contrato de cliente de Microsoft. Para ello, siga estos pasos:
 
-Debe usar sus credenciales de administrador de cuenta de la cuenta anterior si las credenciales difieren de las usadas para acceder a la nueva cuenta del Contrato de cliente de Microsoft.
+Use sus credenciales de administrador de cuenta de la cuenta anterior si las credenciales difieren de las usadas para acceder a la nueva cuenta del Contrato de cliente de Microsoft.
 
 1.  Inicie sesión en Azure Portal en https://portal.azure.com/.
 1.  Vaya a **Administración de costos + facturación**.

@@ -11,12 +11,12 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
-ms.openlocfilehash: 941e99ba438d2f9819ccde34d922fb79075f73e9
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 2916b7c8042a96e35ad138ae5ae20c389c62e751
+ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131553944"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131866646"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creación de conjuntos de datos de Azure Machine Learning
 
@@ -97,8 +97,7 @@ Si el área de trabajo está en una red virtual, debe configurar el conjunto de 
 Para que Azure Machine Learning pueda acceder a los datos, se deben crear conjuntos de datos a partir de las rutas de acceso de los [almacenes de datos de Azure Machine Learning](how-to-access-data.md) o las direcciones URL web. 
 
 > [!TIP] 
-> Puede crear conjuntos de datos directamente desde las direcciones URL de almacenamiento con el acceso a datos basado en identidad. Más información en [Conexión al almacenamiento mediante el acceso a datos basado en identidad (versión preliminar)](how-to-identity-based-data-access.md).<br><br>
-Esta funcionalidad es una característica [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) en versión preliminar y puede cambiar en cualquier momento. 
+> Puede crear conjuntos de datos directamente desde las direcciones URL de almacenamiento con el acceso a datos basado en identidad. Más información en [Conexión al almacenamiento mediante el acceso a datos basado en identidad](how-to-identity-based-data-access.md).
 
  
 Para crear conjuntos de datos a partir de un almacén de datos con el SDK para Python:

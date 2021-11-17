@@ -1,18 +1,18 @@
 ---
 title: 'Inicio rápido: Introducción a los agentes de seguridad'
-description: En este inicio rápido, conocerá la arquitectura de agente de seguridad de los agentes que se usan en el servicio Azure Defender para IoT.
+description: En este inicio rápido, conocerá la arquitectura de agente de seguridad de los agentes que se usan en el servicio Microsoft Defender para IoT.
 ms.topic: quickstart
-ms.date: 4/4/2021
-ms.openlocfilehash: 0937cccb0335f4eee16ca3590babe9574320b89f
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 11/09/2021
+ms.openlocfilehash: 0fba4f592bdfa0ca055fcccb4808bb8d5dbd37b5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011484"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281767"
 ---
 # <a name="quickstart-security-agent-reference-architecture"></a>Inicio rápido: Arquitectura de referencia de los agentes de seguridad
 
-Azure Defender para IoT proporciona una arquitectura de referencia a agentes de seguridad que registran, procesan, agregan y envían datos de seguridad mediante IoT Hub.
+Microsoft Defender para IoT proporciona una arquitectura de referencia a agentes de seguridad que registran, procesan, agregan y envían datos de seguridad mediante IoT Hub.
 
 Los agentes de seguridad están diseñados para funcionar en un entorno de IoT restringido, y son tremendamente personalizables en cuanto a todo el valor que aportan en comparación con los recursos que consumen.
 
@@ -44,11 +44,9 @@ Defender para IoT ofrece diferentes instaladores de agente de 32 y 64 bits de Wi
 | 32 bits | C | C# |  |
 | 64 bits | C# o C | C# | Se recomienda usar el agente de C para dispositivos con recursos de dispositivo mínimos o más restringidos. |
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo encontrará información general de alto nivel sobre la arquitectura de Defender-IoT-micro-agent de Defender para IoT y los instaladores disponibles.
-Para más información sobre la implementación de Defender para IoT, consulte: 
+En este artículo, ha recibido información general de alto nivel sobre la arquitectura IoT Defender-IoT-micro-agent y los instaladores disponibles. Para continuar con la introducción a la implementación de Defender para IoT, revise los métodos de autenticación del agente de seguridad que están disponibles.
 
 > [!div class="nextstepaction"]
 > [Métodos de autenticación del agente de seguridad](concept-security-agent-authentication-methods.md)

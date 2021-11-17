@@ -1,5 +1,5 @@
 ---
-title: Obtención de puntos de conexión y creación de cadenas de conexión para un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
+title: Obtención de puntos de conexión y creación de cadenas de conexión para un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc.
 titleSuffix: Azure Arc-enabled data services
 description: Obtenga puntos de conexión y cree cadenas de conexión para un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc.
 services: azure-arc
@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: f340cf95072015a3896291484ef1289a9d34d6ed
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 35a7a184ae3b699d5ed4d25c1cb6b78269dcea11
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131564107"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132279314"
 ---
 # <a name="get-connection-endpoints--create-the-connection-strings-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Obtención de puntos de conexión y creación de las cadenas de conexión para un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 
@@ -95,10 +95,11 @@ kubectl get postgresqls/postgres01 -n arc
 ```
 
 Estos comandos producirán una salida como la siguiente. Puede usar esa información para formar las cadenas de conexión:
+
 ```console
 NAME         STATE   READY-PODS   PRIMARY-ENDPOINT     AGE
 postgres01   Ready   3/3          12.345.567.89:5432   9d
-``` 
+```
 
 ## <a name="form-connection-strings"></a>Formación de cadenas de conexión
 

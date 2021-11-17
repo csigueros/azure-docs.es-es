@@ -1,18 +1,18 @@
 ---
 title: Qué es una arquitectura de solución basada en agente
-description: Obtenga información sobre el flujo de información y la arquitectura con agente de Azure Defender para IoT.
+description: Obtenga información sobre el flujo de información y la arquitectura con agente de Microsoft Defender para IoT.
 ms.topic: overview
-ms.date: 1/25/2021
-ms.openlocfilehash: e21dc7c7b0c82378d90335e4d4ceb71373a56267
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 11/09/2021
+ms.openlocfilehash: 4bedabced290c16e9172bee58d0f68a995bb5ebd
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011475"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331611"
 ---
 # <a name="what-is-agent-based-solution-for-device-builders"></a>Qué es una solución basada en agente para los generadores de dispositivos
 
-En este artículo se describe la arquitectura del sistema funcional de la solución con agente Azure Defender para IoT. Azure Defender para IoT ofrece dos conjuntos de funcionalidades que se adaptan a las necesidades de su entorno: la solución sin agente para organizaciones y la solución basada en agente para los generadores de dispositivos.
+En este artículo se describe la arquitectura del sistema funcional de la solución con agente Azure Defender para IoT. Microsoft Defender para IoT ofrece dos conjuntos de funcionalidades que se adaptan a las necesidades de su entorno: la solución sin agente para organizaciones y la solución basada en agente para los generadores de dispositivos.
 
 ## <a name="iot-hub-built-in-security"></a>Seguridad integrada de IoT Hub
 
@@ -36,4 +36,4 @@ Las recomendaciones y alertas de Defender para IoT (salida de la canalización d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte [Preguntas más frecuentes sobre el agente de Azure Defender para IoT](resources-agent-frequently-asked-questions.md).
+Consulte las [Preguntas más frecuentes sobre el agente de Microsoft Defender para IoT](resources-agent-frequently-asked-questions.md).

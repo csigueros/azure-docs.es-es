@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 8e58a31d37e4b6aece877e8a2d920e7abc91d8f8
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 07c8b711ae32311cceba0c6ebe3353974b867356
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710959"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061784"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Introducción a la cuenta de facturación de Azure actualizada
 
@@ -190,6 +190,34 @@ En las siguientes secciones se proporciona más información sobre su nueva expe
 **Las facturas anteriores están disponibles en la nueva experiencia** Las facturas generadas antes de que se actualizara la cuenta siguen estando disponibles en Azure Portal.
 
 **Las facturas de la cuenta se actualizan a mediados de mes** Si su cuenta se actualiza a mediados de mes, recibirá una factura por los cargos acumulados hasta el día en que se realice dicha actualización. Recibirá otra factura por los cargos del resto del mes. Por ejemplo, su cuenta tiene una suscripción y se actualiza el 15 de septiembre. Recibirá una factura por los cargos acumulados hasta el 15 de septiembre. Y recibirá otra factura por los cargos acumulados durante el período comprendido entre el 15 y el 30 de septiembre. Después de septiembre, recibirá una factura al mes.
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+### <a name="you-get-an-email-to-accept-the-terms-of-the-microsoft-customer-agreement-but-the-link-in-the-email-doesnt-work"></a>Recibe un correo electrónico para aceptar los términos del Contrato de cliente de Microsoft, pero el vínculo del correo electrónico no funciona
+
+Una vez actualizada la cuenta de facturación de Azure, recibirá un correo electrónico de Microsoft para aceptar los términos del Contrato de cliente de Microsoft. El vínculo del correo electrónico podría no funcionar por cualquiera de los siguientes motivos:
+
+- Tiene acceso para realizar la administración de la facturación a través de uno de sus otros correos electrónicos. 
+
+    Esto suele ocurrir cuando recibe un correo electrónico en el que se le pide que acepte los términos del Contrato de cliente de Microsoft. Haga clic en el vínculo y verá un mensaje de error: `You don't have permission to accept the agreement. This typically happens when you sign in with an email, which doesn’t have permission to accept the agreement. Check you’ve signed in with the correct email address. If you are still seeing the error, see Why I can't accept an agreement`. Compruebe que ha iniciado sesión con la dirección de correo electrónico que tiene permiso para realizar la administración de la facturación.
+
+- Tiene acceso a la factura mediante una identidad diferente. 
+
+    Algunos clientes tienen dos identidades con la misma dirección de correo electrónico: una cuenta profesional y una cuenta de Microsoft. Normalmente, solo una de sus identidades tiene permisos para realizar la administración de la facturación. Si inicia sesión con la identidad que no tiene permiso, no podrá aceptar los términos y condiciones. Compruebe que está usando la identidad correcta para iniciar sesión.
+
+- Ha iniciado sesión en el inquilino de Azure Active Directory (Azure AD) incorrecto. 
+
+    Su cuenta de facturación está asociada a un inquilino de Azure AD. Si ha iniciado sesión en un inquilino incorrecto, no podrá aceptar los términos y condiciones. Compruebe que ha iniciado sesión en el inquilino de Azure AD correcto. Si no ha iniciado sesión en el inquilino correcto, use lo siguiente para cambiar el inquilino en Azure Portal:
+
+    1. Seleccione el correo electrónico en la parte superior derecha de la página.
+
+    2. Seleccione **Cambiar directorio**.
+
+        ![Captura de pantalla que muestra la selección de Cambiar directorio en el portal](./media/mosp-new-customer-experience/select-switch-directory.png)
+
+    3. Seleccione **Cambiar** en un directorio en la sección **Todos los directorios**.
+
+        ![Captura de pantalla que muestra la selección de un directorio en el portal](./media/mosp-new-customer-experience/select-directory.png)
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 

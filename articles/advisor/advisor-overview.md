@@ -3,12 +3,12 @@ title: Introducción a Azure Advisor
 description: Utilice Azure Advisor para optimizar las implementaciones de Azure.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 6d418e1fc574f1317617cc16969c43f569944418
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 48423a56983f052e9e048fca111fd77b9188a577
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132316211"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132494369"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introducción a Azure Advisor
 
@@ -57,7 +57,7 @@ Puede acceder a las recomendaciones de Advisor como *Propietario*, *Colaborador*
 
 Advisor proporciona recomendaciones sobre Application Gateway, App Services, conjuntos de disponibilidad, Azure Cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, direcciones IP públicas de Azure, Azure Synapse Analytics, servidores SQL Server, cuentas de almacenamiento, perfiles de Traffic Manager y máquinas virtuales.
 
-Azure Advisor también incluye recomendaciones procedentes de [Microsoft Defender para la nube](../security-center/security-center-recommendations.md), que pueden abarcar recomendaciones de tipos de recursos adicionales.
+Azure Advisor también incluye recomendaciones procedentes de [Microsoft Defender para la nube](../defender-for-cloud/defender-for-cloud-introduction.md), que pueden abarcar recomendaciones de tipos de recursos adicionales.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>¿Se puede posponer o descartar una recomendación?
 

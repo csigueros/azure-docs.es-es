@@ -1,14 +1,14 @@
 ---
 title: SDL de Horizon
-description: El SDK de Horizon permite que los desarrolladores de Azure Defender para IoT diseñen complementos de disección que descodifiquen el tráfico de red para que se pueda procesar mediante los programas de análisis de red automatizados de Defender para IoT.
-ms.date: 1/13/2021
+description: El SDK de Horizon permite que los desarrolladores de Microsoft Defender para IoT diseñen complementos de disección que descodifiquen el tráfico de red para que se pueda procesar mediante los programas de análisis de red automatizados de Defender para IoT.
+ms.date: 11/09/2021
 ms.topic: article
-ms.openlocfilehash: a6b9f69daeb39b79ccdabea273efe825f6a9d1ff
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
+ms.openlocfilehash: 9affe81bc905e2852732b3892aaac26003c1e8f5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114673994"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286761"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>Disección del protocolo propietario de Horizon
 
@@ -24,7 +24,7 @@ Este entorno ofrece las siguientes soluciones para clientes y partners tecnológ
 
 - La seguridad de permitir el desarrollo propietario sin divulgar información confidencial.
 
-El SDK de Horizon permite que los desarrolladores de Azure Defender para IoT diseñen complementos de disección que descodifiquen el tráfico de red para que se pueda procesar mediante los programas de análisis de red automatizados de Defender para IoT.
+El SDK de Horizon permite que los desarrolladores de Microsoft Defender para IoT diseñen complementos de disección que descodifiquen el tráfico de red para que se pueda procesar mediante los programas de análisis de red automatizados de Defender para IoT.
 
 Las herramientas de disección de protocolos se desarrollan como complementos externos y se integran con una amplia gama de servicios de Defender para IoT. Por ejemplo, los servicios que proporcionan funcionalidades de supervisión, alertas e informes.
 
@@ -1617,7 +1617,7 @@ La ventana **Overview** (Información general) de la consola de Horizon proporci
 | Campo | Descripción |
 |--|--|
 | Application | Nombre del complemento que ha cargado. |
-| :::image type="content" source="media/references-horizon-sdk/switch.png" alt-text="Interruptor de activado y desactivado."::: | **Active** o **desactive** el complemento. Defender para IoT no controlará el tráfico del protocolo definido en el complemento al desactivar el complemento. |
+| :::image type="content" source="media/references-horizon-sdk/switch.png" alt-text="El conmutador de encendido y apagado"::: | **Active** o **desactive** el complemento. Defender para IoT no controlará el tráfico del protocolo definido en el complemento al desactivar el complemento. |
 | Hora | Hora en la que se analizaron los datos por última vez. Se actualiza cada 5 segundos. |
 | PPS | Número de paquetes por segundo. |
 | Ancho de banda | Ancho de banda promedio detectado en los últimos 5 segundos. |

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.topic: overview
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/28/2021
+ms.date: 10/27/2021
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c40295803d9389bfa1534880aa6cbb4bb0426d2
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 518c13780cf7de9e31f3a22e7ecb0440aa0128bc
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130233741"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456050"
 ---
 # <a name="what-are-flagged-sign-ins-in-azure-active-directory"></a>¿Qué son los inicios de sesión con marca en Azure Active Directory?
 
@@ -77,11 +77,11 @@ Para más información sobre el uso de Graph API en los inicios de sesión, cons
 
 
  
-## <a name="who-can-create-flagged-sign-ins"></a>¿Quién puede crear inicios de sesión con marca?
+## <a name="who-can-create-it"></a>¿Quién puede crearlo?
 
 Todos los usuarios que inicie sesión en Azure AD a través de la página web pueden usar inicios de sesión con marca para la revisión. Tanto los usuarios miembros como los usuarios invitados pueden marcar los errores de inicio de sesión para que se revisen. 
 
-## <a name="who-can-review-flagged-sign-ins"></a>¿Quién puede revisar los inicios de sesión marcados?
+## <a name="who-can-review-it"></a>¿Quién puede revisarlo?
 
 La revisión de los eventos de inicio de sesión marcados requiere permisos para leer los eventos de Informe de inicio de sesión en el portal de Azure AD. Para más información, consulte la sección [¿Quién puede acceder a ellos?](concept-sign-ins.md#who-can-access-it)
 

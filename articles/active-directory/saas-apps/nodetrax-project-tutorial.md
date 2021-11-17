@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/06/2021
 ms.author: jeedes
-ms.openlocfilehash: dce966b66acd254acbb7aa6207b1ae49aa1238f7
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 2a6571f2576648b26606ccc3d60f324c59ed49bb
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130007637"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132307296"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-nodetrax-project"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Nodetrax Project
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Nodetrax Project
 Para configurar y probar el inicio de sesión único de Azure AD con Nodetrax Project, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Nodetrax Project](#configure-nodetrax-project-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación del usuario de prueba de Nodetrax Project](#create-nodetrax-project-test-user)** : para tener un homólogo de B.Simon en Nodetrax Project vinculado a la representación del usuario en Azure AD.
@@ -147,4 +147,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Nodetrax Project, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Nodetrax Project, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender para la nube](/cloud-app-security/proxy-deployment-aad).

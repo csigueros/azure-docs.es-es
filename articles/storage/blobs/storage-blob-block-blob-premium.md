@@ -8,12 +8,12 @@ ms.date: 10/14/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: b2999019ce991ef8a8bbb9e1087b22190a6c54bb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8f394bb69197e9268fb986f7a8b971206aa74fc4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131022462"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444845"
 ---
 # <a name="premium-block-blob-storage-accounts"></a>Cuentas de almacenamiento de blobs en bloques Prémium
 
@@ -23,15 +23,11 @@ Las cuentas de almacenamiento de blobs en bloques Premium hacen que los datos es
 
 Las cuentas de almacenamiento de blobs en bloques Premium son ideales para cargas de trabajo que requieren tiempos de respuesta rápidos y coherentes o tienen un gran número de operaciones de entrada y salida por segundo (IOP). Entre las cargas de trabajo de ejemplo se incluyen:
 
-- **Cargas de trabajo interactivas**. Las aplicaciones altamente interactivas y en tiempo real deben escribir datos rápidamente. Las aplicaciones de comercio electrónico y de mapas a menudo requieren actualizaciones y comentarios a los usuarios instantáneos. Por ejemplo, en una aplicación de comercio electrónico, es probable que los elementos que se ven con menos frecuencia no estén almacenados en caché. Sin embargo, deben mostrarse al cliente a petición de forma instantánea. 
-
-  Las aplicaciones de edición interactiva o los juegos en línea multijugador mantienen una experiencia de calidad al proporcionar actualizaciones en tiempo real. En el sector de los servicios financieros, una fracción de segundo podría ser la diferencia entre ganar o perder sumas masivas de dinero.  
+- **Cargas de trabajo interactivas**. Las aplicaciones altamente interactivas y en tiempo real deben escribir datos rápidamente. Las aplicaciones de comercio electrónico y de mapas a menudo requieren actualizaciones y comentarios a los usuarios instantáneos. Por ejemplo, en una aplicación de comercio electrónico, es probable que los elementos que se ven con menos frecuencia no estén almacenados en caché. Sin embargo, deben mostrarse al cliente a petición de forma instantánea. Las aplicaciones de edición interactiva o los juegos en línea multijugador mantienen una experiencia de calidad al proporcionar actualizaciones en tiempo real.  
 
 - **IoT y análisis de streaming**. En un escenario de IoT, se podría insertar un gran número de operaciones más pequeñas en la nube cada segundo. Se podrían tomar grandes cantidades de datos, agregarlos con fines de análisis y, finalmente, eliminarlos de forma casi inmediata. Las funcionalidades de alto nivel de ingesta del almacenamiento de blob en bloques Premium lo hacen especialmente eficaz para este tipo de carga de trabajo.
 
 - **Inteligencia artificial y Aprendizaje automático (IA y ML)** . Este tema trata sobre el uso y procesamiento de diferentes tipos de datos como objetos visuales, voz y texto. Este tipo de informática de alto rendimiento de la carga de trabajo se ocupa de grandes cantidades de datos que requieren una respuesta rápida y tiempos de ingesta eficientes para el análisis de datos.
-
-- **Transformación de datos**. Los procesos que requieren edición, modificación y conversión constante de datos requieren actualizaciones instantáneas. Para una representación de los datos precisa, los consumidores de estos datos deben ver los cambios reflejados inmediatamente.
 
 ## <a name="cost-effectiveness"></a>Rentabilidad
   
@@ -65,7 +61,7 @@ Por ejemplo, suponiendo que la cuenta se encuentra en la región Este de EE. UU
 Esta sección contiene ejemplos reales de cómo algunos de nuestros asociados de Azure Storage usan el almacenamiento de blobs en bloques Premium. Algunos de ellos también habilitan Azure Data Lake Storage Gen2, que presenta una estructura jerárquica de archivos que puede mejorar aún más el rendimiento de las transacciones en determinados escenarios. 
 
 > [!TIP]
-> Si la cuenta de almacenamiento se va a usar para el análisis, se recomienda usar Azure Data Lake Storage Gen2 junto con una cuenta de almacenamiento de blobs en bloques prémium. 
+> Si tiene un caso de uso de análisis, se recomienda usar Azure Data Lake Storage Gen2 junto con una cuenta de almacenamiento de blobs en bloques Premium. 
 
 En esta sección se incluyen los ejemplos siguientes:
 
@@ -97,7 +93,7 @@ Los usuarios pueden ser mucho más productivos con el software de visualización
  
 Hemos visto que las empresas del sector de mapas usan editores de mapas para detectar problemas con los mapas. Estos editores usan datos que se generan a partir de los datos del sistema de posicionamiento global (GPS) del cliente. Para crear superposiciones de mapas, el software de edición representa pequeñas secciones de un mapa realizando rápidamente búsquedas clave. 
 
-En un caso, antes de usar el almacenamiento de blobs en bloques Premium, un asociado usaba HDInsight con HBase con el respaldo del almacenamiento estándar de uso general v2. Sin embargo, resultaba costoso mantener clústeres grandes en ejecución todo el tiempo. Este asociado decidió dejar esta arquitectura y, en su lugar, usó el almacenamiento de blobs en bloques Premium por las rápidas búsquedas de claves. Para crear superposiciones, usaron las API REST para representar los mosaicos correspondientes a las coordenadas GPS. La cuenta de almacenamiento de blobs en bloques Premium les proporcionó una solución rentable y las latencias eran mucho más predecibles.
+En un caso, antes de usar el almacenamiento de blobs en bloques Premium, un asociado usaba clústeres de HBase con el respaldo del almacenamiento estándar de uso general v2. Sin embargo, resultaba costoso mantener clústeres grandes en ejecución todo el tiempo. Este asociado decidió dejar esta arquitectura y, en su lugar, usó el almacenamiento de blobs en bloques Premium por las rápidas búsquedas de claves. Para crear superposiciones, usaron las API REST para representar los mosaicos correspondientes a las coordenadas GPS. La cuenta de almacenamiento de blobs en bloques Premium les proporcionó una solución rentable y las latencias eran mucho más predecibles.
 
 ### <a name="e-commerce-businesses"></a>Empresas de comercio electrónico
 
@@ -109,9 +105,7 @@ En casi todos los sectores, es necesario que las empresas consulten y analicen s
 
 Los científicos de datos, los analistas y los desarrolladores pueden obtener información sensible al tiempo más rápido mediante la ejecución de consultas en datos almacenados en una cuenta de almacenamiento de blobs en bloques prémium. Los ejecutivos pueden cargar sus paneles mucho más rápidamente cuando los datos que aparecen en esos paneles proceden de una cuenta de almacenamiento de blobs en bloques Premium en lugar de una cuenta estándar de uso general v2. 
 
-En un caso, se utilizaban Presto y Spark para generar información a partir de tablas de Hive. Los analistas deben analizar rápidamente los datos de telemetría de millones de dispositivos para comprender mejor cómo se usan sus productos y tomar decisiones sobre el lanzamiento de productos. Escalan el almacenamiento y el proceso de forma independiente para permitir datos de escala de petabytes y acceso puntual a los datos. 
-
-El almacenamiento de datos en bases de datos SQL es costoso. Para reducir el costo y aumentar el área de superficie consultable, usan una cuenta de almacenamiento de blobs en bloques Premium habilitada para Azure Data Lake Storage Gen2 y realizan cálculos en Presto y Spark. De este modo, incluso los datos a los que se accede con menos frecuencia tienen toda la capacidad de proceso que tienen los datos a los que se accede con frecuencia. 
+En un escenario, los analistas tiene que analizar rápidamente los datos de telemetría de millones de dispositivos para comprender mejor cómo se usan sus productos y tomar decisiones sobre el lanzamiento de productos. El almacenamiento de datos en bases de datos SQL es costoso. Para reducir el costo y aumentar el área de la superficie consultable, usan una cuenta de almacenamiento de blobs en bloques Premium habilitada para Azure Data Lake Storage Gen2 y realizan cálculos en Presto y Spark para generar conclusiones a partir de tablas de Hive. De este modo, incluso los datos a los que se accede con menos frecuencia tienen la misma capacidad de proceso que tienen los datos a los que se accede con frecuencia.
 
 Para cerrar la brecha entre el rendimiento de fracciones de segundo de SQL y las operaciones de entrada y salida por segundo (IOPS) de Presto para el almacenamiento externo, la coherencia y la velocidad son fundamentales, especialmente cuando se trabaja con archivos pequeños de columnas de fila optimizadas (ORC). Una cuenta de almacenamiento de blobs en bloques Premium, cuando se usa con Data Lake Storage Gen2, ha demostrado repetidamente una mejora del rendimiento 3X con respecto a una cuenta estándar de uso general v2 en este escenario. Las consultas se ejecutan lo suficientemente rápido como para parecer locales a la máquina de proceso. 
 
@@ -119,11 +113,11 @@ En otro caso, un asociado almacena y consulta los registros que se generan a par
 
 ### <a name="data-processing-pipelines"></a>Canalizaciones de procesamiento de datos
 
-En casi todos los sectores, es necesario que las empresas procesen los datos. Los datos sin procesar de varios orígenes se deben limpiar y procesar para que sean útiles para el consumo en el flujo descendente en aspectos como los paneles de datos que ayudan a los usuarios a tomar decisiones. 
+En casi todos los sectores, es necesario que las empresas procesen los datos. Los datos sin procesar de varios orígenes se deben limpiar y procesar para que sean útiles para el consumo en el flujo descendente en herramientas como los paneles de datos que ayudan a los usuarios a tomar decisiones. 
 
 Aunque la velocidad de procesamiento no siempre es la principal preocupación al procesar datos, algunos sectores la requieren. Por ejemplo, las empresas del sector de servicios financieros a menudo necesitan procesar los datos de forma confiable y rápida. Para detectar fraudes, esas empresas deben procesar entradas de diversos orígenes, identificar riesgos para sus clientes y tomar medidas rápidas. 
 
-En algunos casos, hemos visto utilizar varias cuentas de almacenamiento para almacenar datos de varios orígenes. A continuación, algunos de estos datos se mueven a una cuenta de almacenamiento de blobs en bloques Premium habilitada para Data Lake Storage, donde una aplicación de procesamiento de datos lee con frecuencia los datos recién llegados. Las llamadas de lista de directorios de esta cuenta eran mucho más rápidas y se realizaban de forma mucho más coherente de lo que lo harían en una cuenta estándar de uso general v2. Esta velocidad garantiza que los datos recién llegados se han puesto a disposición de los sistemas de procesamiento del flujo descendente lo antes posible. Esto les ayudó a detectar y, a continuación, a actuar rápidamente ante posibles riesgos de seguridad.
+En algunos casos, hemos visto que los asociados usan varias cuentas de almacenamiento estándar para almacenar datos de varios orígenes. A continuación, algunos de estos datos se mueven a una cuenta de almacenamiento de blobs en bloques Premium habilitada para Data Lake Storage, donde una aplicación de procesamiento de datos lee con frecuencia los datos recién llegados. Las llamadas de lista de directorios de esta cuenta eran mucho más rápidas y se realizaban de forma mucho más coherente de lo que lo harían en una cuenta estándar de uso general v2. La velocidad y coherencia que ofrece la cuenta garantiza que los nuevos datos siempre estén disponibles para los sistemas de procesamiento del flujo descendente lo antes posible. Esto les ayudó a detectar y actuar rápidamente ante posibles riesgos de seguridad.
      
 ### <a name="internet-of-things-iot"></a>Internet de las cosas (IoT)
 
@@ -143,7 +137,7 @@ También tenemos asociados en el sector de los semiconductores con casos de uso 
 
 Para admitir análisis interactivos casi en tiempo real, un sistema debe ingerir y procesar grandes cantidades de datos y, a continuación, hacer que los datos estén disponibles para los sistemas del flujo descendente. El uso de una cuenta de almacenamiento de blobs en bloques Premium habilitada para Data Lake Storage Gen2 es perfecto para estos tipos de escenarios.
 
-Las empresas del sector multimedia y de entretenimiento pueden generar un gran número de registros y datos de telemetría en un breve período de tiempo a medida que difunden un evento. Algunos de nuestros asociados confían en varios asociados de red de entrega de contenido (CDN) para el streaming. Deben tomar decisiones casi en tiempo real sobre a qué asociados de red CDN asignar el tráfico. Por lo tanto, los datos deben estar disponibles para realizar consultas unos segundos después de su ingesta. Para facilitar esta rápida toma de decisiones, usan datos almacenados con en el almacenamiento de blobs en bloques Premium y procesan los datos en Azure Data Explorer (ADX). Todos los datos de telemetría que se cargan en el almacenamiento se transforman en ADX, donde se pueden almacenar en un formato conocido que los operadores y ejecutivos pueden consultar de forma rápida y confiable.
+Las empresas del sector multimedia y de entretenimiento pueden generar un gran número de registros y datos de telemetría en un breve período de tiempo a medida que difunden un evento. Algunos de nuestros asociados confían en varios asociados de red de entrega de contenido (CDN) para el streaming. Deben tomar decisiones casi en tiempo real sobre a qué asociados de red CDN asignar el tráfico. Por lo tanto, los datos deben estar disponibles para realizar consultas unos segundos después de su ingesta. Para facilitar esta rápida toma de decisiones, usan datos almacenados en el almacenamiento de blobs en bloques Premium y procesan los datos en Azure Data Explorer (ADX). Todos los datos de telemetría que se cargan en el almacenamiento se transforman en ADX, donde se pueden almacenar en un formato conocido que los operadores y ejecutivos pueden consultar de forma rápida y confiable.
 
 Los datos se cargan en varias cuentas de Blob Storage de rendimiento Premium. Cada cuenta está conectada a un recurso de Event Grid y Event Hubs. ADX recupera los datos de Blob Storage, realiza las transformaciones necesarias para normalizar los datos (por ejemplo: descomprimir archivos ZIP o convertir de JSON a CSV). A continuación, los datos están disponibles para su consulta mediante ADX y los paneles mostrados en Grafana. Los operadores, ejecutivos y otros usuarios usan los paneles de Grafana. El cliente conserva sus registros originales en el almacenamiento de rendimiento Premium o los copia en una cuenta de almacenamiento de uso general v2, donde se pueden almacenar en el nivel de acceso de acceso frecuente o esporádico para la retención a largo plazo y su análisis futuro.
 

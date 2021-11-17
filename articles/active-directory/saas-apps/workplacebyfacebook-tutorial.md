@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/15/2021
 ms.author: jeedes
-ms.openlocfilehash: e6dd9403912d6fddf0b0c6a8d3953756c7432ea6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 477dcc9935185861f551f89e7376f705c29ccb29
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131040033"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132285103"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Workplace by Facebook
 
@@ -27,7 +27,7 @@ En este tutorial, obtendrá información sobre cómo integrar Workplace by Faceb
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -43,7 +43,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Workplace by Facebook admite el inicio de sesión único iniciado por **SP**.
 * Workplace by Facebook admite el **aprovisionamiento Just-In-Time**.
-* Workplace by Facebook admite el **[aprovisionamiento automático de usuarios](workplacebyfacebook-provisioning-tutorial.md)** .
+* Workplace by Facebook admite el **[aprovisionamiento automático de usuarios](workplace-by-facebook-provisioning-tutorial.md)** .
 * Ahora se puede configurar la aplicación Workplace by Facebook con Azure AD para habilitar el inicio de sesión único. En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 
@@ -83,11 +83,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    a. En el cuadro de texto **URL de inicio de sesión** (que se encuentra en WorkPlace como Dirección URL del destinatario), escriba una dirección URL con el siguiente patrón: `https://.workplace.com/work/saml.php`
+    a. En el cuadro de texto **URL de inicio de sesión** (que se encuentra en WorkPlace como Dirección URL del destinatario), escriba una dirección URL con el siguiente patrón: `https://.facebook.com/work/saml.php`
 
-    b. En el cuadro de texto **Identificador (Id. de entidad)** (que se encuentra en WorkPlace como Dirección URL de la audiencia), escriba una dirección URL con el siguiente patrón: `https://www.workplace.com/company/`
+    b. En el cuadro de texto **Identificador (Id. de entidad)** (que se encuentra en WorkPlace como Dirección URL de la audiencia), escriba una dirección URL con el siguiente patrón: `https://www.facebook.com/company/`
 
-    c. En el cuadro de texto **URL de respuesta** (que se encuentra en WorkPlace como Servicio de consumidor de aserciones), escriba una dirección URL con el siguiente patrón: `https://.workplace.com/work/saml.php`
+    c. En el cuadro de texto **URL de respuesta** (que se encuentra en WorkPlace como Servicio de consumidor de aserciones), escriba una dirección URL con el siguiente patrón: `https://.facebook.com/work/saml.php`
 
     > [!NOTE]
     > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Consulte la página de autenticación del panel de la empresa Workplace para obtener los valores correctos de la comunidad Workplace; esta operación se explica más adelante en el tutorial.
@@ -233,4 +233,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Workplace by Facebook, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Workplace by Facebook, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

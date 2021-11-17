@@ -8,20 +8,20 @@ ms.subservice: core
 ms.topic: sample
 author: likebupt
 ms.author: keli19
-ms.date: 10/14/2020
+ms.date: 10/21/2021
 ms.custom: designer
-ms.openlocfilehash: a99595405872ff1b341dfc9277583417564ef6b7
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: fa10f97bdbb571c9526e9e611fb0def04ab36b53
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112465086"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131559644"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Conjuntos de datos y canalizaciones de ejemplo en el diseñador de Azure Machine Learning
 
 Use los ejemplos integrados en el diseñador de Azure Machine Learning para empezar a crear rápidamente sus propias canalizaciones de aprendizaje automático. El [repositorio de GitHub](https://github.com/Azure/MachineLearningDesigner) del diseñador de Azure Machine Learning contiene documentación detallada para ayudarle a conocer algunos escenarios comunes de aprendizaje automático.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/)
 * Un área de trabajo de Azure Machine Learning 
@@ -50,12 +50,12 @@ Aquí se muestra cómo usar un ejemplo de diseñador:
 
    1. Seleccione **Enviar** en la parte superior del lienzo para enviar una ejecución de una canalización.
 
-   En función de la canalización de ejemplo y de la configuración del proceso, es posible que las ejecuciones tarden un poco en finalizar. La configuración del proceso predeterminada tiene un tamaño de nodo mínimo de 0, lo que significa que el diseñador debe asignar recursos después de estar inactivo. Las ejecuciones de canalización repetidas tardarán menos en terminar, dado que los recursos del proceso ya están asignados. Además, el diseñador usa resultados almacenados en la caché en cada módulo para mejorar aún más la eficiencia.
+   En función de la canalización de ejemplo y de la configuración del proceso, es posible que las ejecuciones tarden un poco en finalizar. La configuración del proceso predeterminada tiene un tamaño de nodo mínimo de 0, lo que significa que el diseñador debe asignar recursos después de estar inactivo. Las ejecuciones de canalización repetidas tardarán menos en terminar, dado que los recursos del proceso ya están asignados. Además, el diseñador usa resultados almacenados en la caché de cada componente para mejorar aún más la eficiencia.
 
 
-1. Una vez que finalice la ejecución de la canalización, puede consultarla y ver la salida de cada módulo, con el fin de obtener más información. Use los siguientes pasos para ver las salidas de los módulos:
+1. Una vez que finalice la ejecución de la canalización, puede consultarla y ver la salida de cada componente, con el fin de obtener más información. Use los siguientes pasos para ver las salidas de los componentes:
 
-   1. Haga clic con el botón derecho en el módulo del lienzo cuya salida quisiera ver.
+   1. Haga clic con el botón derecho en el componente del lienzo cuya salida quisiera ver.
    1. Seleccione **Visualize** (Visualizar).
 
 
@@ -72,27 +72,27 @@ Explore estos ejemplos de regresión integrados.
 
 ## <a name="classification"></a>clasificación
 
-Explore estos ejemplos de clasificación integrados. Para más información sobre los ejemplos, ábralos y vea los comentarios del módulo en el diseñador.
+Explore estos ejemplos de clasificación integrados. Para más información sobre los ejemplos, ábralos y vea los comentarios del componente en el diseñador.
 
 | Título de ejemplo | Descripción | 
 | --- | --- |
 | [Clasificación binaria con selección de características. Predicción de ingresos](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-feature-selection-income-prediction.md) | Se predicen los ingresos como altos o bajos, mediante un árbol de decisión impulsado de dos clases. Use la correlación de Pearson para seleccionar las características.
-| [Clasificación binaria con un script de Python personalizado. Predicción del riesgo de crédito](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-python-credit-prediction.md) | Clasifique las aplicaciones de crédito como de riesgo alto o bajo. Use el módulo para ejecutar script de Python para ponderar los datos.
+| [Clasificación binaria con un script de Python personalizado. Predicción del riesgo de crédito](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-python-credit-prediction.md) | Clasifique las aplicaciones de crédito como de riesgo alto o bajo. Use el componente para ejecutar script de Python para ponderar los datos.
 | [Clasificación binaria. Predicción de las relaciones de cliente](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-customer-relationship-prediction.md) | Se predice el abandono de los clientes mediante árboles de decisión impulsados de dos clases. Use SMOTE para muestrear los datos sesgados.
 | [Clasificación de texto. Conjunto de datos de Wikipedia SP 500](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/text-classification-wiki.md) | Clasifique los tipos de empresa de los artículos de Wikipedia con regresión logística multiclase. |
 | Clasificación multiclase. Reconocimiento de letras | Cree un conjunto de clasificadores binarios para clasificar las letras escritas. |
 
 ## <a name="computer-vision"></a>Visión del equipo
 
-Explore estos ejemplos de Computer Vision integrados. Para más información sobre los ejemplos, ábralos y vea los comentarios del módulo en el diseñador.
+Explore estos ejemplos de Computer Vision integrados. Para más información sobre los ejemplos, ábralos y vea los comentarios del componente en el diseñador.
 
 | Título de ejemplo | Descripción | 
 | --- | --- |
-| Clasificación de imágenes mediante DenseNet | Use los módulos de Computer Vision para compilar un modelo de clasificación de imágenes basado en PyTorch DenseNet.| 
+| Clasificación de imágenes mediante DenseNet | Use los componentes de Computer Vision para compilar un modelo de clasificación de imágenes basado en PyTorch DenseNet.| 
 
 ## <a name="recommender"></a>Recomendador
 
-Explore estos ejemplos integrados de recomendación. Para más información sobre los ejemplos, ábralos y vea los comentarios del módulo en el diseñador.
+Explore estos ejemplos integrados de recomendación. Para más información sobre los ejemplos, ábralos y vea los comentarios del componente en el diseñador.
 
 | Título de ejemplo | Descripción | 
 | --- | --- |
@@ -101,7 +101,7 @@ Explore estos ejemplos integrados de recomendación. Para más información sobr
 
 ## <a name="utility"></a>Utilidad
 
-Obtenga más información sobre los ejemplos que muestran las características y utilidades de aprendizaje automático. Para más información sobre los ejemplos, ábralos y vea los comentarios del módulo en el diseñador.
+Obtenga más información sobre los ejemplos que muestran las características y utilidades de aprendizaje automático. Para más información sobre los ejemplos, ábralos y vea los comentarios del componente en el diseñador.
 
 | Título de ejemplo | Descripción | 
 | --- | --- |
@@ -115,7 +115,7 @@ Obtenga más información sobre los ejemplos que muestran las características y
 
 Cuando se crea una canalización nueva en el diseñador de Azure Machine Learning, de manera predeterminada se incluyen diversos conjuntos de datos de ejemplo. Las canalizaciones de ejemplo de la página principal del diseñador utilizan estos conjuntos de datos de ejemplo. 
 
-Los conjuntos de datos de ejemplo están disponibles en la categoría **Datasets**-**Samples**. Puede encontrar esto en la paleta del módulo a la izquierda del lienzo del diseñador. Puede usar cualquiera de estos conjuntos de datos en su propia canalización arrastrándolo al lienzo.
+Los conjuntos de datos de ejemplo están disponibles en la categoría **Datasets**-**Samples**. Puede encontrar esto en la paleta del componente a la izquierda del lienzo del diseñador. Puede usar cualquiera de estos conjuntos de datos en su propia canalización arrastrándolo al lienzo.
 
 | Nombre del&nbsp; conjunto de datos&nbsp;&nbsp;&nbsp;&nbsp;| Descripción del conjunto de datos |
 |-------------|:--------------------|
@@ -142,4 +142,3 @@ Los conjuntos de datos de ejemplo están disponibles en la categoría **Datasets
 ## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda los aspectos fundamentales del análisis predictivo y del aprendizaje automático con el [Tutorial: Predicción del precio de un automóvil con el diseñador](tutorial-designer-automobile-price-train-score.md)
-

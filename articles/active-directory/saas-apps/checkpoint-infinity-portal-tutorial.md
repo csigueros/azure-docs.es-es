@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 3dbb0cde804ac913a139cdffdd142fa6e22b5206
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 275a345b1b35d7b33babf94c4cdaa075e3ad7df7
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129993747"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132342497"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-check-point-infinity-portal"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure AD con Check Point Infinity Portal
 
@@ -62,7 +62,7 @@ Utilice un usuario de prueba llamado **B.Simon** para configurar y probar el ini
 Para configurar y probar el inicio de sesión único de Azure AD con Check Point Infinity Portal, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Check Point Infinity Portal](#configure-check-point-infinity-portal-sso)** , para configurar los valores del inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Check Point Infinity Portal](#create-check-point-infinity-portal-test-user)** , para tener un homólogo de B.Simon en Check Point Infinity Portal que esté vinculado a la representación del usuario en Azure AD.
@@ -245,4 +245,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Check Point Infinity Portal, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Check Point Infinity Portal, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

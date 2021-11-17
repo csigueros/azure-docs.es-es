@@ -2,14 +2,14 @@
 title: Envío de mensajes de seguridad de dispositivos de Defender para IoT
 description: Aprenda a enviar mensajes de seguridad mediante Defender para IoT.
 ms.topic: how-to
-ms.date: 2/8/2021
+ms.date: 11/09/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 791e49c4e8f0e503c67f24e440fc229998b7b9da
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7be4d8491983ce041b4434c08039629519c7e393
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680513"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283892"
 ---
 # <a name="send-security-messages-sdk"></a>SDK de Send Security Message
 
@@ -221,7 +221,7 @@ public void SendSecurityMessage(string message)
 - Lea la [información general](overview.md) del servicio Defender for IoT.
 - Más información sobre Defender para IoT [Qué es una solución basada en agente para los generadores de dispositivos](architecture-agent-based.md)
 - Habilite el [servicio](quickstart-onboard-iot-hub.md)
-- Leer [Preguntas más frecuentes sobre el agente de Azure Defender para IoT](resources-agent-frequently-asked-questions.md)
+- Lea las [Preguntas más frecuentes sobre el agente de Microsoft Defender para IoT](resources-agent-frequently-asked-questions.md).
 - Aprenda a acceder a [datos de seguridad sin procesar](how-to-security-data-access.md)
 - Obtenga información acerca de las [recomendaciones](concept-recommendations.md)
 - Obtenga información acerca de las [alertas](concept-security-alerts.md)

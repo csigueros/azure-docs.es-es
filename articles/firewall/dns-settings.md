@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/28/2021
+ms.date: 11/08/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e3c1da0e21f13357c5c537da2530e012101423dd
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 44a9da990b1f44f151ab6492cbca65d1b445ae65
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129215707"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059552"
 ---
 # <a name="azure-firewall-dns-settings"></a>Configuración DNS de Azure Firewall
 
@@ -75,9 +75,9 @@ Si habilita el filtrado de FQDN en reglas de red y no configura máquinas virtua
 
 Hay dos tipos de función de almacenamiento en caché que se producen cuando Azure Firewall es un proxy DNS:
 
-- **Caché positiva**: la resolución de DNS se realiza correctamente. El firewall usa el TTL (período de vida) del paquete o el objeto. 
+- **Caché positiva**: la resolución de DNS se realiza correctamente. El firewall almacena en la caché estas respuestas según el TTL (período de vida) de la respuesta hasta un máximo de 1 hora. 
 
-- **Caché negativa**: la resolución de DNS no obtiene respuesta ni resolución. El firewall almacena en caché esta información durante una hora.
+- **Caché negativa**: la resolución de DNS no obtiene respuesta ni resolución. El firewall almacena en la caché estas respuestas según el TTL de la respuesta hasta un máximo de 30 minutos.
 
 El proxy DNS almacena todas las direcciones IP resueltas de FQDN en reglas de red. Como procedimiento recomendado, use FQDN que se resuelvan en una dirección IP.
 

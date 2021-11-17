@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 2aa4dcc0aa4ecdd3b620aef874a0b5b9ceef4c96
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: c85659a6c9e89145494d4683da37bd2f13cbd379
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112963553"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234872"
 ---
 # <a name="gpu-acceleration-for-azure-iot-edge-for-linux-on-windows-preview"></a>Aceleración de GPU en Azure IoT Edge para Linux en Windows (versión preliminar)
 
@@ -62,7 +62,7 @@ Una vez que se registre, siga las instrucciones de la pestaña **2. Programa pi
 Para las **GPU T4**, Microsoft recomienda instalar un controlador de mitigación de dispositivos del proveedor de GPU. Aunque es opcional, la instalación de un controlador de mitigación puede mejorar la seguridad de la implementación. Para obtener más información, vea [Implementación de dispositivos gráficos mediante la asignación directa de dispositivos](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda#optional---install-the-partitioning-driver).
 
 > [!WARNING]
-> La habilitación del acceso directo de dispositivos de hardware puede aumentar los riesgos de seguridad. Se recomienda instalar un controlador de mitigación de dispositivos del proveedor de GPU.
+> La habilitación del acceso directo de dispositivos de hardware puede aumentar los riesgos de seguridad. Microsoft recomienda usar un controlador de mitigación de dispositivos del proveedor de GPU, si procede. Para obtener más información, vea [Implementación de dispositivos gráficos mediante la asignación discreta de dispositivos](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda).
 
 ### <a name="geforcequadro-gpus"></a>GPU GeForce/Quadro
 
@@ -70,7 +70,7 @@ Para las **GPU GeForce/Quadro**, descargue e instale el [controlador habilitado 
 
 ## <a name="using-gpu-acceleration-for-your-linux-on-windows-deployment"></a>Uso de la aceleración de GPU para la implementación de Linux en Windows
 
-Ahora está listo para implementar y ejecutar módulos de Linux con aceleración de GPU en el entorno de Windows por medio de Azure IoT Edge para Linux en Windows. Puede encontrar más detalles sobre el proceso de implementación en [Instalación de Azure IoT Edge para Linux en Windows](how-to-install-iot-edge-on-windows.md).
+Ahora está listo para implementar y ejecutar módulos de Linux con aceleración de GPU en el entorno de Windows por medio de Azure IoT Edge para Linux en Windows. Puede encontrar más detalles sobre el proceso de implementación en la [guía para aprovisionar una única instancia de IoT Edge para Linux en un dispositivo Windows mediante claves simétricas](how-to-provision-single-device-linux-on-windows-symmetric.md) o [mediante certificados X.509](how-to-provision-single-device-linux-on-windows-x509.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

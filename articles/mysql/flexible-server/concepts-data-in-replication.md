@@ -6,14 +6,14 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/08/2021
-ms.openlocfilehash: 071672c5c2d3c741abd14dad94c8c150e427a3ce
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 5c0a63d140bb06bb14bb9c81dd17b0b057c3c8f4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464780"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131422793"
 ---
-# <a name="replicate-data-into-azure-database-for-mysql-flexible--server-preview"></a>Replicación de datos en el servidor flexible de Azure Database for MySQL (versión preliminar)
+# <a name="replicate-data-into-azure-database-for-mysql-flexible--server"></a>Replicación de datos en Azure Database for MySQL: servidor flexible
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -21,7 +21,7 @@ La replicación de datos de entrada permite sincronizar datos de una instancia e
 
 > [!Note]
 > Actualmente, la replicación basada en GTID no se admite para los servidores flexibles de Azure Database for MySQL.<br>
-> No se admite la configuración de la replicación de los datos de entrada para servidores de alta disponibilidad con redundancia de zona. 
+> No se admite la configuración de la replicación de datos de entrada para servidores de alta disponibilidad con redundancia de zona.
 
 ## <a name="when-to-use-data-in-replication"></a>Cuándo utilizar la replicación de datos de entrada
 
@@ -29,7 +29,7 @@ Los escenarios principales que se deben tener en cuenta para usar la replicació
 
 - **Sincronización de datos híbrida:** con la replicación de datos de entrada, se pueden mantener los datos sincronizados entre los servidores locales y el servidor flexible de Azure Database for MySQL. Esta sincronización resulta útil para crear aplicaciones híbridas. Este método resulta atractivo cuando se tiene un servidor de base de datos local existente, pero quiere mover los datos a una región más cercana a los usuarios finales.
 - **Sincronización de varias nubes:** para soluciones de nube complejas, use la replicación de datos de entrada a fin de sincronizar datos entre el servidor flexible de Azure Database for MySQL y distintos proveedores de nube, incluidas las máquinas virtuales y los servicios de base de datos hospedados en dichas nubes.
-- **Migración:** los clientes pueden realizar una migración de tiempo mínimo con herramientas de código abierto como [MyDumper/MyLoader](https://centminmod.com/mydumper.html) con la replicación de datos de entrada. Con la replicación de datos de entrada es posible realizar una migración total selectiva de la carga de producción desde la base de datos de origen a la de destino. 
+- **Migración:** los clientes pueden realizar una migración de tiempo mínimo con herramientas de código abierto como [MyDumper/MyLoader](https://centminmod.com/mydumper.html) con la replicación de datos de entrada. Con la replicación de datos de entrada es posible realizar una migración total selectiva de la carga de producción desde la base de datos de origen a la de destino.
 
 Para los escenarios de migración, use [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) (DMS).
 
@@ -39,12 +39,12 @@ Para los escenarios de migración, use [Azure Database Migration Service](https:
 
 La [*base de datos del sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) del servidor de origen no se replica. Además, los cambios en las cuentas y en los permisos del servidor de origen no se replican. Si crea una cuenta en el servidor de origen y esta cuenta necesita acceder al servidor de réplica, cree manualmente la misma cuenta en el servidor de réplica. Para reconocer qué tablas se encuentran en la base de datos del sistema, vea el [manual de MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
 
-### <a name="data-in-replication-not-supported-on-ha-enabled-servers"></a>No se admite la replicación de datos de entrada en servidores habilitados para la alta disponibilidad. 
-No se admite la configuración de la replicación de datos de entrada para servidores de alta disponibilidad con redundancia de zona. En los servidores en los que se ha habilitado la alta disponibilidad, los procedimientos almacenados `mysql.az_replication_*` para la replicación no estarán disponibles. 
+### <a name="data-in-replication-not-supported-on-ha-enabled-servers"></a>No se admite la replicación de datos de entrada en servidores habilitados para la alta disponibilidad.
+No se admite la configuración de la replicación de datos de entrada para servidores de alta disponibilidad con redundancia de zona. En los servidores en los que se ha habilitado la alta disponibilidad, los procedimientos almacenados `mysql.az_replication_*` para la replicación no estarán disponibles.
 
 ### <a name="filtering"></a>Filtrado
 
-La modificación del parámetro `replicate_wild_ignore_table` que se usaba para crear un filtro de replicación para las tablas no se admite actualmente para Azure Database for MySQL con la opción de servidor flexible. 
+La modificación del parámetro `replicate_wild_ignore_table` que se usaba para crear un filtro de replicación para las tablas no se admite actualmente para Azure Database for MySQL con la opción de servidor flexible.
 
 ### <a name="requirements"></a>Requisitos
 

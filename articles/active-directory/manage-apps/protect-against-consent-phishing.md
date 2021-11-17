@@ -13,12 +13,12 @@ ms.date: 08/09/2021
 ms.custom: template-concept
 ms.author: cchiedo
 ms.reviewer: tilarso
-ms.openlocfilehash: dc860dce0f75648488ff692a0024a850bf4c76ad
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 497d508b0e338f410dbed19c4ba931a97c6c03f7
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129615702"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132292383"
 ---
 # <a name="protecting-against-consent-phishing-in-azure-active-directory"></a>Protección contra la suplantación de identidad de consentimiento en Azure Active Directory
 
@@ -65,7 +65,7 @@ El objetivo de Microsoft es que los administradores tengan el control, para lo c
     - Compruebe si hay errores de ortografía y gramática. Si un mensaje de correo electrónico o la pantalla de consentimiento de la aplicación tienen errores ortográficos y gramaticales, es probable que se trate de una aplicación sospechosa. En ese caso, puede notificarlo directamente en el [mensaje de consentimiento](../develop/application-consent-experience.md#building-blocks-of-the-consent-prompt) con el vínculo "*Notificarlo aquí*". Microsoft investigará si se trata de una aplicación malintencionada y, si se confirma, la deshabilitará.
     - No confíe en nombres de aplicación y direcciones URL de dominio como fuente de autenticidad. A los atacantes les gusta suplantar nombres y dominios de aplicaciones para dar la impresión de que proceden de compañías o servicios legítimos y lograr el consentimiento para una aplicación malintencionada. En su lugar, valide el origen de la dirección URL del dominio y use aplicaciones de [publicadores verificados](../develop/publisher-verification-overview.md) siempre que sea posible.
     - Bloquee los [correos electrónicos de suplantación de identidad en el consentimiento con Microsoft Defender para Office 365](/microsoft-365/security/office-365-security/set-up-anti-phishing-policies#impersonation-settings-in-anti-phishing-policies-in-microsoft-defender-for-office-365) mediante la protección contra campañas de suplantación de identidad en las que un atacante suplanta a un usuario conocido de su organización.
-    - Configure directivas de seguridad de aplicaciones en la nube de Microsoft como  [directivas de actividad](/cloud-app-security/user-activity-policies),  [directivas de detección de anomalías](/cloud-app-security/anomaly-detection-policy) y  [directivas de aplicación de OAuth](/cloud-app-security/app-permission-policy) para ayudar a administrar y a tomar medidas en caso de actividades anómalas de la aplicación en su organización.
+    - Configure directivas de Microsoft Defender para aplicaciones en la nube como  [directivas de actividad](/cloud-app-security/user-activity-policies),  [directivas de detección de anomalías](/cloud-app-security/anomaly-detection-policy) y  [directivas de aplicación de OAuth](/cloud-app-security/app-permission-policy) para ayudar a administrar y a tomar medidas en caso de actividades anómalas de la aplicación en su organización.
     - Investigue y busque ataques de suplantación de identidad en el consentimiento siguiendo las instrucciones de [búsqueda avanzada con Microsoft 365 Defender](/microsoft-365/security/defender/advanced-hunting-overview).
 * Permitir el acceso a las aplicaciones de confianza y protegerse de las que no lo son
     - Use aplicaciones cuyo publicador sea verificado. La [verificación del publicador](../develop/publisher-verification-overview.md) ayuda a los administradores y a los usuarios finales a reconocer la autenticidad de los desarrolladores de aplicaciones a través de un proceso de escrutinio respaldado por Microsoft.

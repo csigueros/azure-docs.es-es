@@ -9,12 +9,12 @@ ms.subservice: automl
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q2, automl
-ms.openlocfilehash: 93bad9fa76940a31a26fca624507038a773bfd91
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 3b638535784e35089050f3f7e55d85232800ef06
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132343275"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561563"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Evaluación de los resultados del experimento de aprendizaje automático automatizado
 
@@ -272,7 +272,7 @@ Vea las definiciones de las métricas de la sección de [métricas de clasificac
 Cada predicción de un modelo de detección de objetos de imagen o segmentación de instancias está asociada a una puntuación de confianza.
 Las predicciones con una puntuación de confianza mayor que el umbral de puntuación se devuelven como predicciones y se usan en el cálculo de métricas, cuyo valor predeterminado es específico del modelo y se puede consultar desde la página de [optimización de hiperparámetros](how-to-auto-train-image-models.md#model-specific-hyperparameters) (hiperparámetro `box_score_threshold`).
 
-El cálculo de métricas de un modelo de segmentación de instancias y detección de objetos de imagen se basa en una medida de superposición definida por una métrica denominada **IoU** ([Intersection over Union](https://en.wikipedia.org/wiki/Jaccard_index)), que se calcula dividiendo el área de superposición entre la verdad terreno y las predicciones por el área de unión de la verdad terreno y las predicciones. La IoU calculada a partir de cada predicción se compara con un **umbral de superposición** denominado umbral de IoU que determina cuánto debe superponerse una predicción con la verdad terreno anotada de un usuario para que se considere una predicción positiva. Si la IoU calculada a partir de la predicción es menor que el umbral de superposición, la predicción no se consideraría una predicción positiva de la clase asociada.
+El cálculo de métricas de un modelo de segmentación de instancias y detección de objetos de imagen se basa en una medida de superposición definida por una métrica denominada **IoU** ([Intersection over Union](https://en.wikipedia.org/wiki/Jaccard_index)), que se calcula dividiendo el área de superposición entre la verdad terreno y las predicciones por el área de unión de la verdad terreno y las predicciones. La IoU calculada a partir de cada predicción se compara con un **umbral de superposición** denominado umbral de IoU que determina cuánto debe superponerse una predicción con la verdad terreno anotada de un usuario para que se considere como una predicción positiva. Si la IoU calculada a partir de la predicción es menor que el umbral de superposición, la predicción no se consideraría como una predicción positiva en la clase asociada.
 
 La métrica principal para la evaluación de modelos de detección de objetos de imagen y segmentación de instancias es la **precisión media (mAP)**. mAP es el valor medio de la precisión media (AP) en todas las clases. Los modelos de detección de objetos de ML automatizado admiten el cálculo de mAP con los dos métodos populares siguientes.
 

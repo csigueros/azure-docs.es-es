@@ -2,23 +2,24 @@
 title: Asignación de roles a nombres de entidad de seguridad de servicio de Contrato Enterprise de Azure
 description: Este artículo le ayuda a asignar roles a nombres de entidad de seguridad de servicio mediante PowerShell y las API REST.
 author: bandersmsft
-ms.reviewer: ruturajd
+ms.reviewer: sapnakeshari
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/12/2021
+ms.date: 10/22/2021
 ms.author: banders
-ms.openlocfilehash: 79e32c7514e561cc3c245464038130f5d4bef763
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 65f37b3f071286d143dc83674a7c7108a37cff44
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130001017"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260389"
 ---
 # <a name="assign-roles-to-azure-enterprise-agreement-service-principal-names"></a>Asignación de roles a nombres de entidad de seguridad de servicio de Contrato Enterprise de Azure
 
-Puede administrar su inscripción de Contrato Enterprise (EA) en [Azure Enterprise Portal](https://ea.azure.com/). Puede crear roles diferentes para administrar la organización, ver los costos y crear suscripciones. Este artículo le ayuda a automatizar algunas de esas tareas mediante Azure PowerShell y las API REST con nombres de entidad de seguridad de servicio (SPN) de Azure.
+Puede administrar su inscripción de Contrato Enterprise (EA) en [Azure Enterprise Portal](https://ea.azure.com/). Los clientes de Direct Enterprise ahora pueden administrar la inscripción en el Contrato Enterprise (EA) en [Azure Portal](https://portal.azure.com/).
+Puede crear roles diferentes para administrar la organización, ver los costos y crear suscripciones. Este artículo le ayuda a automatizar algunas de esas tareas mediante Azure PowerShell y las API REST con nombres de entidad de seguridad de servicio (SPN) de Azure.
 
 Antes de comenzar, asegúrese de que está familiarizado con los siguientes artículos:
 

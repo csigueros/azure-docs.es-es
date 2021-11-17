@@ -1,18 +1,18 @@
 ---
-title: Solución de problemas de microagente de Defender IoT (versión preliminar)
+title: Solución de problemas del microagente de IoT para Defender for Cloud (versión preliminar)
 description: Aprenda a controlar errores imprevistos o inexplicables.
-ms.date: 4/5/2021
+ms.date: 11/09/2021
 ms.topic: reference
-ms.openlocfilehash: 23722195f4a7f7a19f10962ce648bc1a6e2a4012
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 94fd4c75a24b37bbc50ca582ca7bb64de87a042c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018746"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283968"
 ---
-# <a name="defender-iot-micro-agent-troubleshooting-preview"></a>Solución de problemas de microagente de Defender IoT (versión preliminar)
+# <a name="defender-for-cloud-iot-micro-agent-troubleshooting-preview"></a>Solución de problemas del microagente de IoT para Defender for Cloud (versión preliminar)
 
-Si se produce un error inesperado, puede usar estos métodos de solución de problemas para intentar resolver el problema. Si necesita ayuda, también puede ponerse en contacto con el equipo de producto de Azure Defender para IoT.   
+Si se produce un error inesperado, puede usar estos métodos de solución de problemas para intentar resolver el problema. Si necesita ayuda, también puede ponerse en contacto con el equipo de producto de Azure Defender for Cloud.   
 
 ## <a name="service-status"></a>Estado del servicio 
 
@@ -38,7 +38,7 @@ Sabrá que el servicio se bloquea si el tiempo de actividad del proceso es infer
 
 ## <a name="validate-micro-agent-root-privileges"></a>Validación de los privilegios raíz del microagente
 
-Use el siguiente comando para comprobar que el servicio de microagente de Defender para IoT se ejecuta con privilegios raíz.
+Use el siguiente comando para comprobar que el servicio de microagente de Defender for Cloud para IoT se ejecuta con privilegios raíz.
 
 ```bash
 ps -aux | grep " defender-iot-micro-agent"

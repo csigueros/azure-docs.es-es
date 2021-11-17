@@ -4,12 +4,12 @@ description: Aprenda a deshabilitar y a habilitar las funciones de Azure Functio
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: devx-track-csharp, devx-track-azurepowershell
-ms.openlocfilehash: 24ee2ce703287e62f1271c14f639048bb88da404
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e2df38182dd8b199ca13d7e5a9b7484aee004f52
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128663694"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265388"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Deshabilitamiento de funciones en Azure Functions
 
@@ -177,7 +177,7 @@ Tenga en cuenta las consideraciones siguientes al deshabilitar funciones:
 
 + Cuando se deshabilita una función desencadenada mediante HTTP utilizando los métodos que se describen en este artículo, el punto de conexión puede seguir estando accesible si se ejecuta en el equipo local.  
 
-+ En este momento, los nombres de función que contienen un guion (`-`) no se pueden deshabilitar cuando se ejecutan en Linux en un plan dedicado (App Service). Si tiene que deshabilitar las funciones cuando se ejecutan en Linux en un plan dedicado, no use guiones en los nombres de función.
++ En este momento, los nombres de función que contienen un guion (`-`) no se pueden deshabilitar cuando se ejecutan en un plan de Linux. Si necesita deshabilitar las funciones cuando se ejecutan en un plan de Linux, no use guiones en los nombres de función.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

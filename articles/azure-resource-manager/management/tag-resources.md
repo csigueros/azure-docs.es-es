@@ -4,12 +4,12 @@ description: Muestra cómo aplicar etiquetas para organizar los recursos de Azur
 ms.topic: conceptual
 ms.date: 07/29/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: cf8b4ceb70eec2ac6dbb79b8193276997f8e06f1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2ecb43876582e21fbee97e4d51732b16727b6c92
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128664530"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248222"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Uso de etiquetas para organizar los recursos de Azure y la jerarquía de administración
 
@@ -848,6 +848,7 @@ Se aplican las siguientes limitaciones a las etiquetas:
 
    > [!NOTE]
    > * Las zonas Azure DNS y Traffic Manager no admiten el uso de espacios en la etiqueta o una etiqueta que empieza por un número.
+   > * Los nombres de etiqueta de Azure DNS no admiten caracteres especiales ni Unicode. El valor puede contener todos los caracteres.
    >
    > * Azure Front Door no admite el uso de `#` o `:` en el nombre de la etiqueta.
    >

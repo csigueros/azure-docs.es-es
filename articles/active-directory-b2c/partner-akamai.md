@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/15/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 09f35e9621f6704fb33720a43afb38fd99e9eec6
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: ea95f9194913b4df00f0b75e7e44ab301b000b95
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123213900"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283228"
 ---
 # <a name="tutorial-configure-akamai-with-azure-active-directory-b2c"></a>Tutorial: Configuración de Akamai con Azure Active Directory B2C
 
@@ -44,7 +44,7 @@ Para empezar, necesitará lo siguiente:
 - [Un inquilino de Azure AD B2C](tutorial-create-tenant.md) vinculado a la suscripción de Azure.
 
 - Una cuenta del [firewall de aplicaciones web de Akamai](https://www.akamai.com/us/en/akamai-free-trials.jsp).
- 
+
 ## <a name="scenario-description"></a>Descripción del escenario
 
 La integración de la solución de firewall de aplicaciones web de Akamai incluye los siguientes componentes:
@@ -65,25 +65,25 @@ La integración de la solución de firewall de aplicaciones web de Akamai incluy
 
 [Regístrese](https://www.akamai.com) y cree una cuenta de Akamai.
 
-### <a name="create-and-configure-property"></a>Creación y configuración de una propiedad 
+### <a name="create-and-configure-property"></a>Creación y configuración de una propiedad
 
 1. [Cree una propiedad](https://control.akamai.com/wh/CUSTOMER/AKAMAI/en-US/WEBHELP/property-manager/property-manager-help/GUID-14BB87F2-282F-4C4A-8043-B422344884E6.html).
 
-2. Configure la configuración de la propiedad como:  
+2. Configure la configuración de la propiedad como:
 
-| Propiedad | Value |
-|:---------------|:---------------|
-|Versión de la propiedad | Seleccione TLS estándar o mejorado (opción preferida) |
-|Nombres de host de la propiedad | Agregue un nombre de host de la propiedad. Este es el nombre del dominio personalizado, por ejemplo: login.domain.com. <BR> Cree o modifique un certificado con la configuración adecuada para el nombre de dominio personalizado. Para obtener más información, vea [this](https://learn.akamai.com/en-us/webhelp/property-manager/https-delivery-with-property-manager/GUID-9EE0EB6A-E62B-4F5F-9340-60CBD093A429.html). |
+    | Propiedad | Value |
+    |:---------------|:---------------|
+    |Versión de la propiedad | Seleccione TLS estándar o mejorado (opción preferida) |
+    |Nombres de host de la propiedad | Agregue un nombre de host de la propiedad. Este es el nombre del dominio personalizado, por ejemplo: login.domain.com. <BR> Cree o modifique un certificado con la configuración adecuada para el nombre de dominio personalizado. Para obtener más información, vea [this](https://learn.akamai.com/en-us/webhelp/property-manager/https-delivery-with-property-manager/GUID-9EE0EB6A-E62B-4F5F-9340-60CBD093A429.html). |
 
 3. Establezca los valores de configuración de la propiedad del servidor de origen como:
 
-|Propiedad| Value |
-|:-----------|:-----------|
-| Tipo de origen | Su origen |
-| Nombre de host del servidor de origen | yourafddomain.azurefd.net |
-| Encabezado host de reenvío | Encabezado de host de entrante |
-| Nombre de host de la clave de caché| Encabezado de host de entrante  |
+    |Propiedad| Value |
+    |:-----------|:-----------|
+    | Tipo de origen | Su origen |
+    | Nombre de host del servidor de origen | yourafddomain.azurefd.net |
+    | Encabezado host de reenvío | Encabezado host entrante |
+    | Nombre de host de la clave de caché| Encabezado host entrante |
 
 ### <a name="configure-dns"></a>Configurar el DNS
 
@@ -99,13 +99,15 @@ Cree un registro CNAME en el DNS, como login.domain.com, que apunte al nombre de
 
 Obtenga más información sobre [cómo funciona el control y las opciones de configuración](https://control.akamai.com/dl/security/GUID-81C0214B-602A-4663-839D-68BCBFF41292.html).
 
+<!-- docutune:ignore "Security Center" -->
+
 ### <a name="test-the-settings"></a>Prueba de la configuración
 
 Compruebe lo siguiente para asegurarse de que todo el tráfico hacia Azure AD B2C está pasando por el dominio personalizado:
 
 - Asegúrese de que todas las solicitudes entrantes en el dominio personalizado de Azure AD B2C se enrutan a través del firewall de aplicaciones web de Akamai y mediante una conexión TLS válida.
 - Asegúrese de que Azure AD B2C establece correctamente todas las cookies para el dominio personalizado.
-- El panel del firewall de aplicaciones web de Akamai disponible en la consola de Security Center muestra gráficos de todo el tráfico que pasa a través del firewall de aplicaciones web junto con cualquier tráfico de ataque.
+- El panel del firewall de aplicaciones web de Akamai disponible en la consola de Defender for Cloud muestra gráficos de todo el tráfico que pasa a través del firewall de aplicaciones web junto con cualquier tráfico de ataque.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 1b0d4c88bc9408fa6b7c9a3f848e3ce7d402b4c9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e5b65a22677612b2ef4a7cb495e80b467ac0531d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124802418"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132326424"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-khoros-care"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Khoros Care
 
@@ -41,7 +41,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Khoros Care admite el inicio de sesión único iniciado por **SP e IDP**.
 * Khoros Care admite el aprovisionamiento de usuarios **Just-In-Time**
-* Una vez configurado Khoros Care, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado Khoros Care, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-khoros-care-from-the-gallery"></a>Incorporación de Khoros Care desde la galería
 
@@ -61,7 +61,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Khoros Care medi
 Para configurar y probar el inicio de sesión único de Azure AD con Khoros Care, complete los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Khoros Care](#configure-khoros-care-sso)** , para configurar los valores de inicio de sesión único en el lado de la aplicación.
     1. **[Creación de un usuario de prueba de Khoros Care](#create-khoros-care-test-user)** , para tener un homólogo de B.Simon en Khoros Care que esté vinculado a la representación del usuario en Azure AD.
@@ -163,4 +163,4 @@ Al hacer clic en el icono de Khoros Care en el panel de acceso, debería iniciar
 
 - [Pruebe Khoros Care con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)

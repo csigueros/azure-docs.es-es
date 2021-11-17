@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/25/2020
 ms.author: mbullwin
-ms.openlocfilehash: 216c45bf097718f6a696e64c8bd9c8718fc0185e
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 84510afb4a6bac20f7b0496bf99a3e2a5d2571f9
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445137"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132040387"
 ---
 Comience a usar la biblioteca cliente de Anomaly Detector para Python. Siga estos pasos para instalar el inicio del paquete con los algoritmos que proporciona el servicio. El servicio de Anomaly Detector le permite detectar anomalías en los datos de serie temporal mediante el uso automático de los mejores modelos, independientemente del sector, el escenario o el volumen de datos.
 
@@ -25,7 +25,7 @@ Use la biblioteca cliente de Anomaly Detector para Python para las siguientes ac
 
 [Documentación de referencia de la biblioteca](https://go.microsoft.com/fwlink/?linkid=2090370) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Paquete (PyPi)](https://pypi.org/project/azure-ai-anomalydetector/) | [Buscar el ejemplo de código en GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/anomalydetector/azure-ai-anomalydetector/samples)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [Python 3.x](https://www.python.org/)
 * La [biblioteca de análisis de datos de Pandas](https://pandas.pydata.org/)
@@ -117,6 +117,12 @@ Cree un objeto `DetectRequest` con la serie temporal y la `TimeGranularity` (o p
 ```python
 request = DetectRequest(series=series, granularity=TimeGranularity.daily)
 ```
+
+Descripciones de argumentos de entrada: "series": necesario en la solicitud. debe ser tipo matriz o lista y tener más de 12 puntos y no más de 8640 puntos. debe ordenarse por marca de tiempo en orden ascendente y no puede tener una marca de tiempo duplicada. "granularidad": se requiere en la solicitud. solo puede ser uno de los siguientes: ['daily', 'minutely', 'hourly', 'weekly', 'monthly', 'yearly', 'secondly'].
+"customInterval": debe ser un entero >0.
+"period": debe ser un entero >0.
+"maxAnomalyRatio": debe ser inferior al 50 % de los puntos de la serie (0 < maxAnomalyRatio < 0,5).
+"sensitivity": debe ser un entero entre 0 y 99.
 
 ## <a name="detect-anomalies-in-the-entire-data-set"></a>Detectar anomalías en todo el conjunto de datos
 

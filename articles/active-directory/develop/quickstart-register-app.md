@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 06/14/2021
+ms.date: 10/27/2021
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2, contperf-fy21q4
-ms.openlocfilehash: c608856e6238844638e63c3a719b3d534b98d33b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 966f30306189e82f29e2be3baf742f21ffd688c4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128615327"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131451735"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft
 
@@ -119,7 +119,7 @@ Puede agregar certificados y secretos de cliente (una cadena) como credenciales 
 Un certificado, que a veces se denomina _clave pública_, es el tipo de credencial recomendado porque se considera más seguro que los secretos de cliente. Para más información sobre el uso de un certificado como método de autenticación en la aplicación, consulte [Credenciales de certificado para la autenticación de aplicaciones en la plataforma de identidad de Microsoft](active-directory-certificate-credentials.md).
 
 1. En Azure Portal, seleccione la aplicación en **Registros de aplicaciones**.
-1. Seleccione **Certificados y secretos** > **Cargar certificado**.
+1. Seleccione **Certificates & secrets** (Certificados y secretos) > **Certificados** > **Cargar certificado**.
 1. Seleccione el archivo que quiere cargar. Debe ser uno de los siguientes tipos de archivo: _.cer_, _.pem_, _.crt_.
 1. Seleccione **Agregar**.
 
@@ -130,7 +130,7 @@ El secreto de cliente, a veces denominado _contraseña de aplicación_, es un va
 Los secretos de cliente se consideran menos seguros que las credenciales de certificado. Los desarrolladores de aplicaciones a veces usan secretos de cliente durante el desarrollo de aplicaciones locales debido a su facilidad de uso. Sin embargo, debe usar credenciales de certificado para cualquier aplicación que se ejecute en producción.
 
 1. En Azure Portal, seleccione la aplicación en **Registros de aplicaciones**.
-1. Seleccione **Certificados y secretos** > **Nuevo secreto de cliente**.
+1. Seleccione **Certificates & secrets** > **Client secrets** > **New client secret** (Certificados y secretos > Secretos de cliente > Nuevo secreto de cliente).
 1. Agregue una descripción para el secreto de cliente.
 1. Seleccione una expiración para el secreto o especifique una duración personalizada.
     - La duración del secreto de cliente se limita a dos años (24 meses) o menos. No se puede especificar una duración personalizada superior a 24 meses.

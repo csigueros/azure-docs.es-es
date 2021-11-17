@@ -2,19 +2,19 @@
 title: Eliminación de un método de pago de la facturación de Azure
 description: Describe cómo eliminar un método de pago usado por una suscripción de Azure.
 author: bandersmsft
-ms.reviewer: judupont
+ms.reviewer: lishepar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 11/10/2021
 ms.author: banders
-ms.openlocfilehash: 1ba1a97acfe2345ed5632ae6f84caacc525f13e4
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 6050b98d54cf46bf83168d7d33b9ca44d2bd6eda
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129544818"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132180031"
 ---
 # <a name="delete-an-azure-billing-payment-method"></a>Eliminación de un método de pago de la facturación de Azure
 
@@ -84,8 +84,7 @@ Si la suscripción a MOSP está utilizando el método de pago, siga estos pasos.
 1. Vaya a **Administración de costos + facturación**.
 1. Si fuera necesario, seleccione un ámbito de facturación.
 1. En la lista de menús de la izquierda, en **Facturación**, seleccione **Métodos de pago**.
-1. En el área Métodos de pago, seleccione la _línea_ en la que está su método de pago. No seleccione el vínculo del método de pago. Es posible que se indique visualmente que ha seleccionado el método de pago.
-1. Seleccione **Eliminar**.  
+1. En el área Métodos de pago, en la fila en la que está el método de pago, seleccione el símbolo de puntos suspensivos ( **...** ) y, a continuación, seleccione **Eliminar**.
     :::image type="content" source="./media/delete-azure-payment-method/delete-mosp-payment-method.png" alt-text="Ejemplo que muestra una acción correctiva necesaria para desasociar un método de pago de MOSP" :::
 1. Si se cumplen todas las condiciones, en el área Delete a payment method (Eliminar un método de pago), seleccione **Delete** (Eliminar). Si la opción Delete (Eliminar) no está disponible, vaya al paso siguiente.
 1. Se muestra una lista de condiciones. Realice las acciones de la lista. Seleccione el vínculo que se muestra en el área Delete a payment method (Eliminar un método de pago).  

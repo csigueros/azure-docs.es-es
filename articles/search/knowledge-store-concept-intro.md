@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: 1463c4e879b364f8242d55aa58b424a8cc6f9cf9
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 659e625aa98a92c2730e76bd847dfdddc3c955bf
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129706793"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577334"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Almacén de conocimiento en Azure Cognitive Search
 
@@ -25,7 +25,7 @@ Si ha usado aptitudes cognitivas en el pasado, ya sabe que los *conjuntos de apt
 
 Físicamente, un almacén de conocimiento es [Azure Storage](../storage/common/storage-account-overview.md), ya sea Azure Table Storage, Azure Blob Storage o ambos. Cualquier herramienta o proceso que pueda conectarse a Azure Storage puede consumir el contenido de un almacén de conocimiento.
 
-Visto a través del Explorador de Storage, un almacén de conocimiento es simplemente una colección de tablas, objetos o archivos. En el ejemplo siguiente se muestra un almacén de conocimiento compuesto por tres tablas con campos que se arrastran desde el origen de datos o se crean mediante enriquecimientos (vea "sentiment score" y "translated_text").
+Visto a través Storage Browser, un almacén de conocimiento se parece a cualquier otra colección de tablas, objetos o archivos. En el ejemplo siguiente se muestra un almacén de conocimiento compuesto por tres tablas con campos que se arrastran desde el origen de datos o se crean mediante enriquecimientos (vea "sentiment score" y "translated_text").
 
 :::image type="content" source="media/knowledge-store-concept-intro/kstore-in-storage-explorer.png" alt-text="Lectura y escritura de aptitudes desde el árbol de enriquecimiento" border="true":::
 
@@ -45,14 +45,14 @@ En el vídeo siguiente se explican estas ventajas y mucho más.
 
 Un almacén de conocimiento se define dentro de una definición de conjunto de aptitudes y consta de dos componentes: 
 
-+ una cadena de conexión a Azure Storage
++ Una cadena de conexión a Azure Storage.
 
 + [**Proyecciones**](knowledge-store-projection-overview.md) que determinan si el almacén de conocimiento consta de tablas, objetos o archivos. 
 
 El elemento proyecciones es una matriz. Puede crear varios conjuntos de combinaciones de tabla-objeto-archivo dentro de un almacén de conocimiento.
 
 ```json
-"knowledgeStore":{
+"knowledgeStore": {
    "storageConnectionString":"<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>",
    "projections":[
       {
@@ -66,6 +66,10 @@ El elemento proyecciones es una matriz. Puede crear varios conjuntos de combinac
 El tipo de proyección que especifique en esta estructura determina el tipo de almacenamiento que usará el almacén de conocimiento.
 
 + `tables` proyecta el contenido enriquecido en Table Storage. Defina una proyección de tabla cuando necesite estructuras de informes tabulares para escribir entradas en herramientas analíticas o realizar exportaciones de tramas de datos en otros almacenes de datos. Puede especificar varios elementos `tables` en el mismo grupo de proyección para obtener un subconjunto o una sección transversal de documentos enriquecidos. Dentro del mismo grupo de proyección, las relaciones entre las tablas se conservan para que pueda trabajar con todas ellas.
+
+  El contenido proyectado no se agrega ni se normaliza. En la captura de pantalla siguiente se muestra una tabla, ordenada por frase clave, con el documento primario indicado en la columna adyacente. A diferencia de la ingesta de datos durante la indexación, no hay ningún análisis lingüístico ni agregación de contenido. Las formas plurales y las diferencias en las mayúsculas y minúsculas se consideran instancias únicas.
+
+  :::image type="content" source="media/kstore-keyphrases-per-document.png" alt-text="Captura de pantalla de frases y documentos clave en una tabla" border="true":::
 
 + `objects` proyecta el documento JSON en Blob Storage. La representación física de un elemento `object` es una estructura JSON jerárquica que representa un documento enriquecido.
 
@@ -118,7 +122,7 @@ Para los desarrolladores de .NET, use la [clase KnowledgeStore](/dotnet/api/azur
 
 Una vez que el enriquecimiento existe en el almacenamiento, puede usarse cualquier herramienta o tecnología que se conecte a Azure Blob o Table Storage para explorar, analizar o consumir el contenido. La lista siguiente es un comienzo:
 
-+ El [Explorador de Storage](knowledge-store-view-storage-explorer.md) para ver la estructura y el contenido de los documentos enriquecidos. Considere esto como la herramienta de base de referencia para ver el contenido del almacén de conocimientos.
++ El [Explorador de almacenamiento](knowledge-store-view-storage-explorer.md) para ver la estructura y el contenido de los documentos enriquecidos. Considere esto como la herramienta de base de referencia para ver el contenido del almacén de conocimientos.
 
 + [Power BI](knowledge-store-connect-power-bi.md) para crear informes y realizar análisis. 
 

@@ -7,12 +7,12 @@ ms.service: azure-video-analyzer
 ms.topic: tutorial
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b3de27af4dab9dd8968f97487cb120dbcd0d08c8
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 341c3df126d0ff949c3ba40e5d679bb2e3147ff6
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131554495"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488646"
 ---
 # <a name="tutorial-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Tutorial: Vídeo en directo con Computer Vision para análisis espacial (versión preliminar)
 
@@ -160,7 +160,7 @@ En el archivo de plantilla de implementación:
 1. `IpcMode` en createOptions de los módulos `avaedge` y `spatialanalysis` debe ser igual y estar establecido en **host**.
 1. Para que el simulador RTSP funcione, asegúrese de que ha configurado los límites del volumen al usar un dispositivo de Azure Stack Edge.
 
-   1. [Conéctese al recurso compartido de SMB](../../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) y copie el [archivo de vídeo con la tienda minorista de ejemplo](https://lvamedia.blob.core.windows.net/public/retailshop-15fps.mkv) en el recurso compartido local.
+   1. [Conéctese al recurso compartido de SMB](../../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) y copie el [archivo de vídeo con la tienda minorista de ejemplo](https://avamedia.blob.core.windows.net/public/retailshop-15fps.mkv) en el recurso compartido local.
 
       > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWMIPP]
 

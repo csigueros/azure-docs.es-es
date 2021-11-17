@@ -5,12 +5,12 @@ metadata:
   ms.topic: article
   ms.service: backup
   ms.date: 08/19/2021
-  ms.openlocfilehash: 7ccfe8d814cc06e7c637b6de3a8df6edb43f52bd
-  ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+  ms.openlocfilehash: d9ca7573375e3e6bf584d1b79f8f6a8f9ba64f4d
+  ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/15/2021
-  ms.locfileid: "130069451"
+  ms.lasthandoff: 11/09/2021
+  ms.locfileid: "132062897"
 title: Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure
 summary: >
   En este artículo se responde a preguntas comunes sobre la copia de seguridad de máquinas virtuales de Azure con el servicio [Azure Backup](./backup-overview.md).
@@ -22,7 +22,7 @@ sections:
       Cuando se crea una máquina virtual, puede habilitar la copia de seguridad de máquinas virtuales que ejecutan [sistemas operativos admitidos](backup-support-matrix-iaas.md#supported-backup-actions).
   - question: ¿Por qué la copia de seguridad inicial tarda tanto en completarse?
     answer: >
-      La copia de seguridad inicial siempre es una copia de seguridad completa y el tiempo que tarde dependerá del tamaño de los datos y del momento de procesamiento de la copia de seguridad.
+      La copia de seguridad inicial siempre es una copia de seguridad completa y su duración dependerá del tamaño de los datos y del momento de procesamiento de la copia de seguridad.
 
 
       Para mejorar el rendimiento de la copia de seguridad, consulte [Procedimientos recomendados de copia de seguridad](./backup-azure-vms-introduction.md#best-practices); [Consideraciones de copia de seguridad](./backup-azure-vms-introduction.md#backup-and-restore-considerations) y [Rendimiento de copia de seguridad](./backup-azure-vms-introduction.md#backup-performance)
@@ -95,7 +95,7 @@ sections:
   - question: ¿Cuál es el intervalo de retención mínimo permitido para un punto de copia de seguridad diaria?
     answer: La directiva de copia de seguridad de máquina virtual de Azure admite un intervalo de retención mínimo desde siete días hasta 9999 días. Cualquier modificación de una directiva de copia de seguridad de máquina virtual existente con menos de siete días requerirá una actualización para cumplir el intervalo mínimo de retención de siete días.
   - question: ¿Qué ocurre si cambio las mayúsculas y minúsculas del nombre de la máquina virtual o del grupo de recursos de la máquina virtual?
-    answer: Si cambia las mayúsculas y minúsculas de la máquina virtual o del grupo de recursos de la máquina virtual, no cambiarán las mayúsculas y minúsculas del nombre del elemento de copia de seguridad. Sin embargo, este es el comportamiento esperado de Azure Backup. El cambio de mayúsculas y minúsculas no aparecerá en el elemento de copia de seguridad, pero se actualizará en el back-end.
+    answer: Si cambia las mayúsculas y minúsculas de la máquina virtual o del grupo de recursos de la máquina virtual, no cambiarán las mayúsculas y minúsculas del nombre del elemento de copia de seguridad; este es el comportamiento esperado de Azure Backup. El cambio de mayúsculas y minúsculas no aparecerá en el elemento de copia de seguridad, pero se actualizará en el back-end.
   - question: ¿Puedo realizar copias de seguridad o restaurar discos selectivos conectados a una máquina virtual?
     answer: >
       Azure Backup admite ahora la copia de seguridad y restauración de discos selectivos mediante la solución de copia de seguridad de máquinas virtuales de Azure. Para obtener más información, consulte las [copias de seguridad y restauración de los discos selectivos para VM de Azure](selective-disk-backup-restore.md).
@@ -119,7 +119,7 @@ sections:
       La creación de una instantánea de máquina virtual tarda unos minutos y habrá una interferencia mínima en el rendimiento de la aplicación en esta fase. Sin embargo, la transferencia de datos a un almacén tarda un par de horas. por lo que se recomienda programar copias de seguridad fuera del horario comercial. Obtenga más información sobre los [procedimientos recomendados para copias de seguridad y restauración](./backup-azure-vms-introduction.md#backup-and-restore-considerations).
   - question: ¿Se hará una copia de seguridad automática del nuevo disco agregado a la máquina virtual?
     answer: >
-      Sí, el nuevo disco agregado a una máquina virtual se incluye automáticamente en la siguiente copia de seguridad.
+      Sí, un nuevo disco agregado a la máquina virtual se incluye automáticamente en la siguiente copia de seguridad.
 - name: Restauración
   questions:
   - question: ¿Cómo decidir si es necesario restaurar solo los discos o una máquina virtual completa?
@@ -167,9 +167,9 @@ sections:
     answer: >
       Sí, puede acceder a la máquina virtual una vez restaurada aunque tenga una relación rota con el controlador de dominio. Para más información, consulte este [artículo](./backup-azure-arm-restore-vms.md#post-restore-steps).
   - question: ¿Puedo cancelar un trabajo de restauración en curso?
-    answer: No, no puede cancelar el trabajo de restauración que está en curso.
+    answer: No, no puede cancelar un trabajo de restauración que está en curso.
   - question: ¿Por qué la operación de restauración tarda tanto tiempo en completarse?
-    answer: El tiempo total de restauración depende de las operaciones de entrada/salida por segundo (IOPS) y el rendimiento de la cuenta de almacenamiento. El tiempo total de la restauración puede verse afectado si la cuenta de almacenamiento de destino se carga con otras operaciones de lectura y escritura de aplicación. Para mejorar la operación de restauración, seleccione una cuenta de almacenamiento que no tenga cargados otros datos de aplicación.
+    answer: El tiempo total de restauración depende de la velocidad de las operaciones de entrada/salida por segundo (IOPS) y el rendimiento de la cuenta de almacenamiento. El tiempo total de la restauración puede verse afectado si la cuenta de almacenamiento de destino se carga con otras operaciones de lectura y escritura de aplicación. Para mejorar la velocidad de la operación de restauración, seleccione una cuenta de almacenamiento que no tenga cargados otros datos de aplicación.
   - question: ¿Cómo se controlan los conflictos del tipo de restauración "Crear nueva máquina virtual" con las directivas de gobernanza?
     answer: >
       Azure Backup usa discos "adjuntar" de los puntos de recuperación y no mira las referencias de imagen ni las galerías. Por lo tanto, en la directiva puede comprobar si "storageProfile.osDisk.createOption es Attach", y la condición de script será:

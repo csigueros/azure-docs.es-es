@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 07/30/2021
 ms.custom: monitoring
-ms.openlocfilehash: 54155f2bacd9a593a1288c8d1f95a5843dca2602
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 222c78803e268cef95dc322952874f58346c2919
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2021
-ms.locfileid: "132134784"
+ms.locfileid: "132180163"
 ---
 # <a name="best-practices-for-monitoring-azure-blob-storage"></a>Procedimientos recomendados para supervisar Azure Blob Storage
 
@@ -177,7 +177,9 @@ En primer lugar, descodifique cada cadena de token de SAS. En el ejemplo siguien
 
 A continuación, puede pasar esa cadena al cmdlet [Get-FileHash](/powershell/module/microsoft.powershell.utility/get-filehash) de PowerShell. Para obtener un ejemplo, consulte [Ejemplo 4: Cálculo del hash de una cadena](/powershell/module/microsoft.powershell.utility/get-filehash#example-4--compute-the-hash-of-a-string).
 
-Como alternativa, puede pasar la cadena descodificada a la función [hash_sha256()](/data-explorer/kusto/query/sha256hashfunction) como parte de una consulta Kusto.
+Como alternativa, puede pasar la cadena descodificada a la función [hash_sha256()](/azure/data-explorer/kusto/query/sha256hashfunction) como parte de una consulta cuando utiliza Azure Data Explorer.
+
+Los tokens de SAS no contienen información de identidad. Una manera de realizar un seguimiento de las actividades de los usuarios u organizaciones es mantener una asignación de usuarios u organizaciones a varios hashes de token de SAS.
 
 ## <a name="optimize-cost-for-infrequent-queries"></a>Optimización del coste de las consultas poco frecuentes
 

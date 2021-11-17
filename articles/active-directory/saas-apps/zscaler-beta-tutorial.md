@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 7670be8fa34a304d0c7bce3f6a6f3d456d2be397
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 96a73d9bba60f14c4f9b70aca9cf546cd3cb7e3f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124800354"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132323593"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Tutorial: Integración de Azure Active Directory con Zscaler Beta
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Zscaler Beta med
 Para configurar y probar el inicio de sesión único de Azure AD con Zscaler Beta, haga lo siguiente:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-   1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+   1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Zscaler Beta](#configure-zscaler-beta-sso)** : para configurar el inicio de sesión único en la aplicación.
    1. **[Creación de un usuario de prueba de Zscaler Beta](#create-zscaler-beta-test-user)** : para tener un homólogo de Britta Simon en Zscaler Beta que esté vinculado a la representación del usuario en Azure AD.
@@ -188,7 +188,7 @@ En esta sección va a permitir que B.Simon acceda a Zscaler Beta mediante el ini
 
    b. Seleccione **Activar**.
 
-## <a name="configure-proxy-settings&quot;></a>Configuración de los valores de proxy
+## <a name="configure-proxy-settings"></a>Configuración de los valores de proxy
 
 Para definir la configuración de proxy en Internet Explorer, siga estos pasos.
 
@@ -196,7 +196,7 @@ Para definir la configuración de proxy en Internet Explorer, siga estos pasos.
 
 2. Seleccione **Opciones de Internet** en el menú **Herramientas** para abrir el cuadro de diálogo **Opciones de Internet**.
 
-   ![Cuadro de diálogo Opciones de Internet](./media/zscaler-beta-tutorial/connection.png &quot;Opciones de Internet")
+   ![Cuadro de diálogo Opciones de Internet](./media/zscaler-beta-tutorial/connection.png "Opciones de Internet")
 
 3. Seleccione la pestaña **Conexiones**.
 
@@ -242,4 +242,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Zscaler Beta, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Zscaler Beta, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

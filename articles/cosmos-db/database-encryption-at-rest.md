@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 10/26/2021
 ms.custom: seodec18
-ms.openlocfilehash: abe4bb3a53e3177857cb8041fd255ec916985054
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d90817c4e49a61728d2c8a73628fdb33efe7123b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93089872"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446379"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Cifrado de datos de Azure Cosmos DB 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -41,7 +41,7 @@ El flujo básico de una solicitud de usuario es el siguiente:
 A. No hay costo adicional.
 
 ### <a name="q-who-manages-the-encryption-keys"></a>P: ¿Quién administra las claves de cifrado?
-A. Las administra Microsoft.
+R: Los datos almacenados en su cuenta de Azure Cosmos se cifran de forma automática e ininterrumpida con claves administradas por Microsoft con claves administradas por el servicio. También puede optar por agregar una segunda capa de cifrado con las claves que administra con [claves administradas por el cliente o CMK](how-to-setup-cmk.md).
 
 ### <a name="q-how-often-are-encryption-keys-rotated"></a>P: ¿Con qué frecuencia se alternan las claves de cifrado?
 A. Microsoft cuenta con un conjunto de directrices internas para la rotación de claves de cifrado y Cosmos DB las sigue. Estas directrices específicas no se han publicado. Microsoft sí que publica el [Ciclo de vida de desarrollo de seguridad (SDL) de Microsoft](https://www.microsoft.com/sdl/default.aspx), que se considera un subconjunto de orientaciones internas e incluye procedimientos recomendados para desarrolladores de gran utilidad.

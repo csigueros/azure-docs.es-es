@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 99d682cc6d2ae1d7bbdb039953df60aa22dbe00f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: eb9e81f48df2661fd07f001bdc3259c13a18c369
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124745662"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132316344"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wisdom-by-invictus"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Wisdom by Invictus
 
@@ -42,7 +42,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Wisdom by Invictus admite el inicio de sesión único iniciado por **SP e IDP**.
-* Una vez configurado Wisdom by Invictus, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado Wisdom by Invictus, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-wisdom-by-invictus-from-the-gallery"></a>Incorporación de Wisdom by Invictus desde la galería
 
@@ -62,7 +62,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Wisdom by Invict
 Para configurar y probar el inicio de sesión único de Azure AD con Wisdom by Invictus, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Wisdom by Invictus](#configure-wisdom-by-invictus-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación del usuario de prueba de Wisdom by Invictus](#create-wisdom-by-invictus-test-user)** , para tener un homólogo de B.Simon en Wisdom by Invictus vinculado a la representación del usuario en Azure AD.
@@ -144,6 +144,6 @@ Al hacer clic en el icono de Wisdom by Invictus del Panel de acceso, debería in
 
 - [Pruebe Wisdom by Invictus con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)
 
 - [Protección de Wisdom by Invictus con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)

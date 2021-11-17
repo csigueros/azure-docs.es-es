@@ -7,14 +7,14 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 07/14/2021
+ms.date: 11/08/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2e85fa72288ab31fd8e61fcda731debb3517057f
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: ba9fac9fef3e418cc48bc3185ca91af89dd7946f
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114393387"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057069"
 ---
 # <a name="monitor-and-debug-with-insights-in-azure-cosmos-db"></a>Supervisión y depuración con las conclusiones en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -27,13 +27,13 @@ Este artículo lo guía a través de casos de uso comunes y cómo se pueden util
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y vaya hasta la cuenta de Azure Cosmos DB.
 
-1. Puede ver las métricas de la cuenta en el panel **Métricas** o en el panel **Conclusiones (versión preliminar**.
+1. Puede ver las métricas de la cuenta en el panel **Métricas** o en el panel **Conclusiones**.
 
    * **Métricas:** en este panel se proporcionan métricas numéricas que se recopilan a intervalos periódicos y que describen algún aspecto de un sistema en un momento determinado. Por ejemplo, puede consultar y supervisar la [métrica de latencia del lado servidor](monitor-server-side-latency.md), la [métrica de uso de unidades de solicitud normalizadas](monitor-normalized-request-units.md), entre otras.
 
-   * **Conclusiones (versión preliminar):** en este panel se proporciona una experiencia de supervisión personalizada para Azure Cosmos DB. Utilizan las mismas métricas y registros que se recopilan en Azure Monitor y muestran una vista agregada correspondiente a la cuenta.
+   * **Conclusiones:** en este panel se proporciona una experiencia de supervisión personalizada para Azure Cosmos DB. Utilizan las mismas métricas y registros que se recopilan en Azure Monitor y muestran una vista agregada correspondiente a la cuenta.
 
-1. Abra el panel **Conclusiones (versión preliminar)** . De manera predeterminada, el panel Conclusiones muestra las métricas de rendimiento, solicitudes, almacenamiento, disponibilidad, latencia, sistema y administración de cuentas para cada contenedor de la cuenta. Puede seleccionar el **Intervalo de tiempo**, la **Base de datos** y el **Contenedor** cuyas conclusiones desea consultar. La pestaña **Información general** muestra el uso de RU/s, el uso de datos, el uso de índices, las solicitudes limitadas y el consumo normalizado de RU/s para la base de datos y el contenedor seleccionados.
+1. Abra el panel **Conclusiones**. De manera predeterminada, el panel Conclusiones muestra las métricas de rendimiento, solicitudes, almacenamiento, disponibilidad, latencia, sistema y administración de cuentas para cada contenedor de la cuenta. Puede seleccionar el **Intervalo de tiempo**, la **Base de datos** y el **Contenedor** cuyas conclusiones desea consultar. La pestaña **Información general** muestra el uso de RU/s, el uso de datos, el uso de índices, las solicitudes limitadas y el consumo normalizado de RU/s para la base de datos y el contenedor seleccionados.
 
    :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Métricas de rendimiento de Cosmos DB en Azure Portal" lightbox="./media/use-metrics/performance-metrics.png" :::
 
@@ -65,7 +65,7 @@ El código de estado de error más común es 429 (limitación de tasa/limitació
 
 ## <a name="determine-the-throughput-consumption-by-a-partition-key-range"></a>Determinación del consumo de rendimiento por un intervalo de claves de partición
 
-Tener una buena cardinalidad de las claves de partición es esencial para cualquier aplicación escalable. A fin de determinar la distribución de rendimiento de cualquier contenedor particionado dividido en identificadores de intervalos de claves de partición, vaya al panel **Conclusiones (versión preliminar)** . Abra la pestaña **Rendimiento**. En el gráfico se muestra el consumo normalizado de RU/s en intervalos de claves de partición distintos.
+Tener una buena cardinalidad de las claves de partición es esencial para cualquier aplicación escalable. A fin de determinar la distribución de rendimiento de cualquier contenedor particionado dividido en identificadores de intervalos de claves de partición, vaya al panel **Conclusiones**. Abra la pestaña **Rendimiento**. En el gráfico se muestra el consumo normalizado de RU/s en intervalos de claves de partición distintos.
 
 :::image type="content" source="media/use-metrics/throughput-consumption-partition-key-range.png" alt-text="Consumo de rendimiento normalizado por identificadores de intervalos de claves de partición" lightbox="media/use-metrics/throughput-consumption-partition-key-range.png":::
 
@@ -73,7 +73,7 @@ Este gráfico le permite identificar si hay una partición activa. Una distribuc
 
 ## <a name="determine-the-data-and-index-usage"></a>Determinación del uso de índices y los datos
 
-Es importante determinar la distribución de almacenamiento de cualquier contenedor con particiones por uso de datos, uso de índices y uso de documentos. Puede minimizar el uso de índices, maximizar el uso de datos y optimizar las consultas. Para obtener esta información, vaya al panel **Conclusiones (versión preliminar)** y abra la pestaña **Almacenamiento**:
+Es importante determinar la distribución de almacenamiento de cualquier contenedor con particiones por uso de datos, uso de índices y uso de documentos. Puede minimizar el uso de índices, maximizar el uso de datos y optimizar las consultas. Para obtener esta información, vaya al panel **Conclusiones** y abra la pestaña **Almacenamiento**:
 
 :::image type="content" source="media/use-metrics/data-index-consumption.png" alt-text="Consumo de datos, índices y documentos" lightbox="media/use-metrics/data-index-consumption.png" :::
 

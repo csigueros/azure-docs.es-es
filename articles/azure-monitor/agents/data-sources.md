@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
-ms.openlocfilehash: 537163b4a78954443eeb7799dc624837ba03e2bd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cac077bf962e8d021fb554acb5576d9d5665ebe6
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102036629"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284747"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Orígenes de datos de supervisión para Azure Monitor
 Azure Monitor se basa en una [plataforma de datos de supervisión común](../data-platform.md) que incluye [registros](../logs/data-platform-logs.md) y [métricas](../essentials/data-platform-metrics.md). La recopilación de datos en esta plataforma permite que los datos de múltiples recursos se analicen juntos mediante un conjunto común de herramientas en Azure Monitor. Los datos de supervisión también pueden enviarse a otras ubicaciones para admitir determinados escenarios, y algunos recursos pueden realizar operaciones de escritura en otras ubicaciones para poder recopilarse en registros o métricas.
@@ -179,7 +179,7 @@ Las [soluciones de supervisión](../insights/solutions.md) y [perspectivas](../m
 |:---|:---|:---|
 | Registros de Azure Monitor | Almacena datos de supervisión para AKS, como inventario, registros y eventos. Los datos de métrica también se almacenan en los registros para poder aprovechar su funcionalidad de análisis en el portal. | [Descripción del rendimiento del clúster de AKS con Container Insights](../containers/container-insights-analyze.md) |
 | Métricas de Azure Monitor | Los datos de métricas se almacenan en la base de datos de métricas para favorecer la visualización y las alertas. | [Visualización de métricas del contenedor en el Explorador de métricas](../containers/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
-| Azure Kubernetes Service | Proporciona acceso directo a los registros de contenedor de Azure Kubernetes Service (AKS) (stdout/stderror), eventos y métricas de pod en el portal. | [Visualización de registros de Kubernetes, eventos y métricas de pod en tiempo real](../containers/container-insights-livedata-overview.md) |
+| Azure Kubernetes Service | Proporciona acceso directo a los registros de contenedor de Azure Kubernetes Service (AKS) (stdout/stderror), eventos y métricas de pod en el portal. | [Visualización de los registros de Kubernetes, los eventos y las métricas de pods en tiempo real](../containers/container-insights-livedata-overview.md) |
 
 ### <a name="vm-insights"></a>VM Insights
 [VM Insights](../vm/vminsights-overview.md) proporciona una experiencia personalizada para la supervisión de máquinas virtuales. Se incluye una descripción de los datos recopilados por VM Insights en la sección [Sistema operativo (invitado)](#operating-system-guest) anterior.
@@ -200,8 +200,8 @@ Otros servicios de Azure escriben datos en la plataforma de datos de Azure Monit
 
 | Servicio | Destination | Descripción | Referencia |
 |:---|:---|:---|:---|
-| [Azure Security Center](../../security-center/index.yml) | Registros de Azure Monitor | Azure Security Center almacena los datos de seguridad que recopila en el área de trabajo de Log Analytics, que permite que estos se analicen con otros datos de registro recopilados por Azure Monitor.  | [Recopilación de datos en Azure Security Center](../../security-center/security-center-enable-data-collection.md) |
-| [Azure Sentinel](../../sentinel/index.yml) | Registros de Azure Monitor | Azure Sentinel almacena los datos que recopila a partir de diferentes orígenes de datos en el área de trabajo de Log Analytics, que permite que estos se analicen con otros datos de registro recopilados por Azure Monitor.  | [Conexión con orígenes de datos](../../sentinel/quickstart-onboard.md) |
+| [Microsoft Defender for Cloud](../../security-center/index.yml) | Registros de Azure Monitor | Microsoft Defender for Cloud almacena los datos de seguridad que recopila en el área de trabajo de Log Analytics, que permite que estos se analicen con otros datos de registro recopilados por Azure Monitor.  | [Recopilación de datos en Microsoft Defender for Cloud](../../security-center/security-center-enable-data-collection.md) |
+| [Microsoft Sentinel](../../sentinel/index.yml) | Registros de Azure Monitor | Microsoft Sentinel almacena los datos que recopila a partir de diferentes orígenes de datos en el área de trabajo de Log Analytics, que permite que estos se analicen con otros datos de registro recopilados por Azure Monitor.  | [Conexión con orígenes de datos](../../sentinel/quickstart-onboard.md) |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

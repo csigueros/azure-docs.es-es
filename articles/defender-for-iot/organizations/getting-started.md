@@ -2,19 +2,19 @@
 title: 'Inicio rápido: Introducción'
 description: En este inicio rápido, aprenderá a usar el flujo de trabajo básico para la implementación de Defender para IoT.
 ms.topic: quickstart
-ms.date: 06/06/2021
-ms.openlocfilehash: 223337469a309fd1f28ef1bf469f2998a5af43ba
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.date: 11/09/2021
+ms.openlocfilehash: 85bd254236a6d08d8f232e14e5a41dab99f0af04
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130138471"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283873"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>Inicio rápido: Introducción a Defender para IoT
 
-En este artículo se proporciona información general de los pasos para configurar Azure Defender para IoT. El proceso requiere que realice lo siguiente:
+En este artículo se proporciona información general de los pasos para configurar Microsoft Defender para IoT. El proceso requiere que realice lo siguiente:
 
-- Registre la suscripción y los sensores en el portal de Azure Defender para IoT.
+- Registre la suscripción y los sensores en Defender para IoT en Azure Portal.
 - Instale el software de la consola de administración local y el sensor.
 - Realice la activación inicial del sensor y la consola de administración.
 
@@ -25,9 +25,10 @@ En este artículo se proporciona información general de los pasos para configur
 Algunos de los pasos de configuración requieren permisos de usuario específicos.
 
 Los permisos de usuario administrativo son necesarios para activar el sensor y la consola de administración, cargar certificados SSL/TLS y generar nuevas contraseñas.
-### <a name="for-the-defender-for-iot-portal"></a>Portal de Defender para IoT
 
-En la tabla siguiente se describen los permisos de acceso de usuarios para las herramientas del portal de Azure Defender para IoT:
+### <a name="for-defender-for-iot-in-the-azure-portal"></a>Para Defender para IoT en Azure Portal
+
+En la tabla siguiente se describen los permisos de acceso de usuarios para las herramientas del portal de Azure:
 
 | Permiso | Lector de seguridad | Administrador de seguridad | Colaborador de la suscripción | Propietario de la suscripción |
 |--|--|--|--|--|
@@ -47,15 +48,15 @@ Investigue lo siguiente:
 - Requisitos para crear certificados
 - Otros detalles de la red.
 
-Para más información, vea [Acerca de la configuración de red de Azure Defender para IoT](how-to-set-up-your-network.md).
+Para más información, consulte [Acerca de la configuración de red de Microsoft Defender para IoT](how-to-set-up-your-network.md).
 
 **Aclaración de qué sensores y dispositivos de la consola de administración son necesarios para controlar la carga de red**
 
-Azure Defender para IoT admite implementaciones físicas y virtuales. En el caso de las implementaciones físicas, puede comprar varios dispositivos certificados. Para más información, vea [Identificación de los dispositivos necesarios](how-to-identify-required-appliances.md).
+Microsoft Defender para IoT admite implementaciones físicas y virtuales. En el caso de las implementaciones físicas, puede comprar varios dispositivos certificados. Para más información, vea [Identificación de los dispositivos necesarios](how-to-identify-required-appliances.md).
 
 Se recomienda calcular el número aproximado de dispositivos que se van a supervisar. Más adelante, cuando registre su suscripción de Azure en el portal, se le pedirá que escriba este número. Los números se pueden agregar en intervalos de 1000; por ejemplo, 1000, 2000, 3000, etc. El número de dispositivos supervisados se denomina *dispositivos confirmados*.
 
-## <a name="register-with-azure-defender-for-iot"></a>Registro en Azure Defender para IoT
+## <a name="register-with-microsoft-defender-for-iot"></a>Registro con Microsoft Defender para IoT
 
 El registro incluye:
 
@@ -67,7 +68,7 @@ También puede usar una suscripción de prueba para supervisar 1000 dispositivo
 
 **Para realizar el registro**:
 
-1. Vaya al portal de Azure Defender para IoT.
+1. Vaya a [Defender para IoT: Introducción](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) en Azure Portal.
 
 1. Seleccione **Onboard subscription** (Incorporar suscripción).
 
@@ -81,13 +82,13 @@ Para obtener información sobre cómo retirar una suscripción, consulte [Retira
 
 Después de adquirir su dispositivo de la consola de administración local:
 
-- Descargue el paquete ISO del portal de Azure Defender para IoT.
+- Descargue el paquete ISO desde Azure Portal.
 - Instale el software.
 - Active y lleve a cabo la configuración inicial de la consola de administración.
 
 **Para realizar la instalación y la configuración**:
 
-1. Seleccione **Introducción** en el portal de Defender para IoT.
+1. Vaya a [Defender para IoT: Introducción](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) en Azure Portal.
 
 1. Seleccione la pestaña **On-premises management console** (Consola de administración local).
 
@@ -99,29 +100,29 @@ Después de adquirir su dispositivo de la consola de administración local:
 
 ## <a name="onboard-a-sensor"></a>Incorporación de sensores ##
 
-Incorpore un sensor; para ello, debe registrarlo en Azure Defender para IoT y descargar un archivo de activación de sensor:
+Para incorporar un sensor, debe registrarlo en Microsoft Defender para IoT y descargar un archivo de activación de sensor.
 
 1. Defina un nombre para el sensor y asócielo con una suscripción.
 
 1. Elija un modo de conexión del sensor:
 
-   - **Sensores conectados a la nube**: la información que detectan los sensores se muestra en la consola del sensor. Además, se proporciona información de alertas mediante un centro de IoT, que puede compartirse con otros servicios de Azure, como Azure Sentinel.  También puede elegir insertar automáticamente paquetes de inteligencia sobre amenazas desde el portal de Azure Defender para IoT a los sensores. Para más información, consulte [Investigación y paquetes de inteligencia sobre amenazas](how-to-work-with-threat-intelligence-packages.md).
+   - **Sensores conectados a la nube**: la información que detectan los sensores se muestra en la consola del sensor. Además, se proporciona información de alertas mediante un centro de IoT, que puede compartirse con otros servicios de Azure, como Microsoft Sentinel. También puede elegir insertar automáticamente paquetes de inteligencia sobre amenazas desde Defender para IoT a los sensores. Para más información, consulte [Investigación y paquetes de inteligencia sobre amenazas](how-to-work-with-threat-intelligence-packages.md).
 
    - **Locally managed sensors** (Sensores administrados de forma local): la información que detectan los sensores se muestra en la consola del sensor. Si trabaja en una red aislada y quiere una vista unificada de toda la información detectada por varios sensores administrados de forma local, trabaje con la consola de administración local.
 
-1. Seleccione un sitio al que asociar el sensor dentro de un centro de IoT. Elija un centro de IoT que sirva como puerta de enlace entre este sensor y Azure Defender para IoT. Defina el nombre para mostrar y la zona. También puede agregar etiquetas descriptivas. El nombre para mostrar, la zona y las etiquetas son entradas descriptivas en la página [Sites and sensors](how-to-manage-sensors-on-the-cloud.md#view-onboarded-sensors) (Sitios y sensores).
+1. Seleccione un sitio al que asociar el sensor dentro de un centro de IoT. Elija un centro de IoT que sirva como puerta de enlace entre este sensor y Microsoft Defender para IoT. Defina el nombre para mostrar y la zona. También puede agregar etiquetas descriptivas. El nombre para mostrar, la zona y las etiquetas son entradas descriptivas en la página [Sites and sensors](how-to-manage-sensors-on-the-cloud.md#view-onboarded-sensors) (Sitios y sensores).
 
 1. Seleccione **Registrar**.
 
 1. Seleccione **Download activation file** (Descargar archivo de activación).
 
-Para más información sobre la incorporación, consulte [Incorporación y administración de sensores en el portal de Defender para IoT](how-to-manage-sensors-on-the-cloud.md).
+Para más información sobre la incorporación, consulte [Incorporación y administración de sensores con Defender para IoT](how-to-manage-sensors-on-the-cloud.md).
 
 ## <a name="install-and-set-up-the-sensor"></a>Instalación y configuración del sensor
 
-Descargue el paquete ISO del portal de Azure Defender para IoT, instale el software y configure el sensor.
+Descargue el paquete ISO de Azure Portal, instale el software y configure el sensor.
 
-1. Seleccione **Introducción** en el portal de Defender para IoT.
+1. Vaya a [Defender para IoT: Introducción](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) en Azure Portal.
 
 1. Seleccione **Set up sensor** (Configurar sensor).
 
@@ -143,12 +144,12 @@ Se recomienda agrupar varios sensores que supervisan las mismas redes en una zon
 
 Para más información, vea [Conexión de los sensores a la consola de administración local](how-to-activate-and-set-up-your-on-premises-management-console.md#connect-sensors-to-the-on-premises-management-console).
 
-## <a name="populate-azure-sentinel-with-alert-information-optional"></a>Rellenar Azure Sentinel con la información de alertas (opcional)
+## <a name="populate-microsoft-sentinel-with-alert-information-optional"></a>Rellenado de Microsoft Sentinel con información de alerta (opcional)
 
-Configure Azure Sentinel para enviar ahí la información sobre las alertas. Vea [Conexión de los datos de Defender para IoT con Azure Sentinel](how-to-configure-with-sentinel.md).  
+Envíe información de alertas a Microsoft Sentinel mediante la configuración de Microsoft Sentinel. Consulte [Conexión de los datos de Defender para IoT con Microsoft Sentinel](how-to-configure-with-sentinel.md).  
 
 ## <a name="next-steps"></a>Pasos siguientes ##
 
-[Bienvenido a Azure Defender para IoT](overview.md)
+[Bienvenida a Microsoft Defender para IoT](overview.md)
 
-[Arquitectura de Azure Defender para IoT](architecture.md)
+[Arquitectura de Microsoft Defender para IoT](architecture.md)

@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/28/2021
 ms.topic: tutorial
-ms.openlocfilehash: f335df520b8d47a9439575a5d2f337d28a9bebc6
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 31f9e30d938f70852eac5c5185626828e5305897
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129357550"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427178"
 ---
 # <a name="tutorial-create-automation-powershell-runbook-using-managed-identity"></a>Tutorial: Creación de un runbook de PowerShell de Automation mediante una identidad administrada
 
-Este tutorial le guía a través de la creación de un [runbook de PowerShell](../automation-runbook-types.md#powershell-runbooks) en Azure Automation que usa [identidades administradas](../automation-security-overview.md#managed-identities-preview), en lugar de la cuenta de ejecución, para interactuar con los recursos. Los runbooks de PowerShell están basados en Windows PowerShell. Una identidad administrada de Azure Active Directory (Azure AD) permite al runbook acceder fácilmente a otros recursos protegidos por Azure AD.
+Este tutorial le guía a través de la creación de un [runbook de PowerShell](../automation-runbook-types.md#powershell-runbooks) en Azure Automation que usa una [identidad administrada](../automation-security-overview.md#managed-identities), en lugar de la cuenta de ejecución, para interactuar con los recursos. Los runbooks de PowerShell están basados en Windows PowerShell. Una identidad administrada de Azure Active Directory (Azure AD) permite al runbook acceder fácilmente a otros recursos protegidos por Azure AD.
 
 En este tutorial, aprenderá a:
 
@@ -267,11 +267,7 @@ Remove-AzRoleAssignment `
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha creado un [runbook de PowerShell](../automation-runbook-types.md#powershell-runbooks) en Azure Automation que usa [identidades administradas](../automation-security-overview.md#managed-identities-preview), en lugar de la cuenta de ejecución, para interactuar con los recursos. Para ver los runbooks de flujo de trabajo de PowerShell, consulte:
+En este tutorial ha creado un [runbook de PowerShell](../automation-runbook-types.md#powershell-runbooks) en Azure Automation que usa una [identidad administrada](../automation-security-overview.md#managed-identities), en lugar de la cuenta de ejecución, para interactuar con los recursos. Para ver los runbooks de flujo de trabajo de PowerShell, consulte:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Creación de un runbook de flujo de trabajo de PowerShell](automation-tutorial-runbook-textual.md)
-
-
-
-

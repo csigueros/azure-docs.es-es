@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac4f2982166fabf7a49a92966ca783a260ca875a
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: bdca219a352527114123cdf0179a5eb7fc486852
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130038733"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435905"
 ---
 # <a name="azure-active-directory-security-operations-for-privileged-identity-management-pim"></a>Operaciones de seguridad de Azure Active Directory para Privileged Identity Management (PIM)
 
@@ -26,7 +26,7 @@ La seguridad de los recursos empresariales depende de la integridad de las cuent
 
 En el caso de los servicios en la nube, la prevención y la respuesta son responsabilidades conjuntas del proveedor de los servicios en la nube y del cliente. 
 
-Tradicionalmente, la seguridad de la organización se ha centrado en los puntos de entrada y salida de una red, como el perímetro de seguridad. Sin embargo, las aplicaciones SaaS y los dispositivos personales han hecho que este enfoque sea menos eficaz. En Azure Active Directory (Azure AD), se ha reemplazado el perímetro de seguridad de la red por la autenticación en la capa de identidad de la organización. A medida que se asignan roles administrativos con privilegios a los usuarios, su acceso debe protegerse en los entornos locales, de nube e híbridos. 
+Tradicionalmente, la seguridad de la organización se ha centrado en los puntos de entrada y salida de una red, como el perímetro de seguridad. Sin embargo, las aplicaciones SaaS y los dispositivos personales han hecho que este enfoque sea menos eficaz. En Azure Active Directory (Azure AD), se ha reemplazado el perímetro de seguridad de la red por la autenticación en la capa de identidad de la organización. A medida que se asignan roles administrativos con privilegios a los usuarios, su acceso debe protegerse en los entornos locales, de nube e híbridos.
 
 Usted es totalmente responsable de todas las capas de seguridad de su entorno de TI local. Cuando se usan servicios en la nube de Azure, la prevención y la respuesta son responsabilidades conjuntas de Microsoft como proveedor de servicios en la nube y de usted como cliente. 
 

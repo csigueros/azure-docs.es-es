@@ -5,12 +5,12 @@ description: Obtenga información sobre las cuotas predeterminadas, los tamaños
 services: container-service
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: 6e965bd958b23598f7b11dcf9a12dafb33f26680
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: fb0cf8fc6c3f8cdc2b68d26ca81ca6e240b65a2a
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123437910"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131843848"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Cuotas, restricciones de tamaño de máquinas virtuales y disponibilidad de regiones en Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ En este artículo se detallan los límites de recursos predeterminados para los 
 A la infraestructura aprovisionada se le aplican las demás limitaciones de red, proceso y almacenamiento. Consulte [límites de suscripción y servicios de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) para conocer los límites pertinentes.
 
 > [!IMPORTANT]
-> Al actualizar un clúster de AKS, se consumen recursos adicionales temporalmente. Estos recursos incluyen las direcciones IP disponibles en una subred de red virtual o una cuota de vCPU de máquina virtual. 
+> Al actualizar un clúster de AKS, se consumen recursos adicionales temporalmente. Estos recursos incluyen las direcciones IP disponibles en una subred de red virtual o una cuota de vCPU de la máquina virtual. 
 >
 > En el caso de los contenedores de Windows Server, puede realizar una operación de actualización para aplicar las actualizaciones de nodo más recientes. Si no tiene el espacio de direcciones IP disponible o la cuota de vCPU necesaria para administrar estos recursos temporales, se producirá un error en el proceso de actualización del clúster. Para obtener más información sobre el proceso de actualización del nodo de Windows Server, consulte [Actualización de un grupo de nodos en AKS][nodepool-upgrade].
 
@@ -37,21 +37,9 @@ La lista de tamaños de máquina virtual admitidos en AKS está evolucionando co
 
 ## <a name="restricted-vm-sizes"></a>Tamaños de VM restringidos
 
-Cada nodo en un clúster de AKS contiene una cantidad fija de recursos de proceso, como la vCPU y la memoria. Si un nodo de AKS no tiene suficientes recursos de proceso, es posible que los pods no se ejecuten correctamente. Para asegurarse de que los pods de *kube-system*  necesarios y las aplicaciones puedan programarse de manera confiable, **no use las siguientes SKU de máquina virtual en AKS**:
+Es posible que los tamaños de máquina virtual con menos de 2 CPU no se puedan usar con AKS.
 
-- Standard_A0
-- Standard_A1
-- Standard_A1_v2
-- Standard_B1ls
-- Standard_B1s
-- Standard_B1ms
-- Standard_F1
-- Standard_F1s
-- Standard_A2
-- Standard_D1
-- Standard_D1_v2
-- Standard_DS1
-- Standard_DS1_v2
+Cada nodo en un clúster de AKS contiene una cantidad fija de recursos de proceso, como la vCPU y la memoria. Si un nodo de AKS no tiene suficientes recursos de proceso, es posible que los pods no se ejecuten correctamente. Para asegurarse de que los pods de *kube-system* necesarios y las aplicaciones puedan programarse de manera confiable, AKS requiere que los nodos usen tamaños de máquina virtual con > 2 CPU.
 
 Para obtener más información sobre los tipos de VM y sus recursos de proceso, consulte [Tamaños de las máquinas virtuales en Azure][vm-skus].
 

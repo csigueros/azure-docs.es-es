@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: f8d8547c2d4900e6258f7360c50d8dfc17157832
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68e046d0a19af2d8a4f6a413b527c9bf49c0e6ec
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100517251"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137146"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Introducción a la continuidad empresarial con Azure Database for PostgreSQL con un único servidor
 
@@ -44,8 +44,7 @@ Puede utilizar las copias de seguridad del servicio para recuperar un servidor a
 
 Puede realizar una **restauración a un momento dado** para crear una copia del servidor en un momento dado conocido correcto. Este momento dado debe estar incluido en el período de retención de la copia de seguridad que configuró para el servidor. Después de restaurar los datos en el nuevo servidor, puede reemplazar el servidor original por el servidor recientemente restaurado o copiar los datos necesarios del servidor restaurado en el servidor original.
 
-> [!IMPORTANT]
-> Los servidores eliminados **no se pueden** restaurar. Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. Use el [bloqueo de recursos de Azure](../azure-resource-manager/management/lock-resources.md) para evitar la eliminación accidental del servidor.
+Se recomienda que use el [bloqueo de recursos de Azure](../azure-resource-manager/management/lock-resources.md) para evitar la eliminación accidental del servidor. Si eliminó accidentalmente el servidor, es posible que pueda restaurarlo si la eliminación se produjo en los últimos 5 días. Para más información, consulte [Restauración de un servidor descartado de Azure Database for PostgreSQL](howto-restore-dropped-server.md).
 
 ## <a name="recover-from-an-azure-data-center-outage"></a>Recuperación de una interrupción del centro de datos de Azure
 

@@ -8,12 +8,12 @@ ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
-ms.openlocfilehash: faeaf58537da4a40716f0c2e76b205980b727bf9
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a929e5d4bccc3a6b2d27125de6aad4472364d67e
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114459112"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179140"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Solucione los problemas por los que no se muestran los datos de los dispositivos en Azure IoT Central.
 
@@ -158,6 +158,18 @@ Si ve problemas relacionados con el flujo de autenticación:
 | 412 | La etiqueta `ETag` de la solicitud no coincide con la etiqueta `ETag` del recurso existente, según las especificaciones de RFC7232. | [Abra una incidencia en el departamento de asistencia al cliente](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
 | 429 | El servicio está limitando las operaciones. Para conocer los límites de servicio específicos, consulte [Límites de IoT Hub Device Provisioning Service](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | Reduzca la frecuencia de los mensajes y divida las responsabilidades entre más dispositivos. |
 | 500 | Se ha producido un error interno. | [Abra una incidencia en el departamento de asistencia al cliente](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) para comprobar si pueden ayudarle. |
+
+### <a name="detailed-authorization-error-codes"></a>Códigos de error de autorización detallados
+
+| Error | Subcódigo de error | Notas |
+| - | - | - |
+| 401 No autorizado | 401002 | El dispositivo usa credenciales no válidas o expiradas. DPS notifica este error. |
+| 401 No autorizado | 400209 | El dispositivo está esperando la aprobación de un operador o un operador lo ha bloqueado. |
+| 401 IoTHubUnauthorized |  | El dispositivo usa el token de seguridad expirado. Este error lo notifica IoT Hub. |
+| 401 IoTHubUnauthorized | DEVICE_DISABLED | El dispositivo está deshabilitado en este centro de IoT y se ha movido a otro centro de IoT. Vuelva a aprovisionar el dispositivo. |
+| 401 IoTHubUnauthorized | DEVICE_BLOCKED | Un operador ha bloqueado este dispositivo. |
+
+
 
 ### <a name="file-upload-error-codes"></a>Códigos de error de carga de archivos
 

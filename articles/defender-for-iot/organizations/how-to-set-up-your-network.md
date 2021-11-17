@@ -1,28 +1,28 @@
 ---
 title: Configuración de la red
 description: Obtenga información sobre la arquitectura de la solución, la preparación de la red, los requisitos previos y otra información necesaria para asegurarse de que ha configurado correctamente la red para que funcione con dispositivos de Azure Defender para IoT.
-ms.date: 07/25/2021
+ms.date: 11/07/2021
 ms.topic: how-to
-ms.openlocfilehash: 7dc9e41b3bfdcbeab86aaabbdf0c97b0339b3df3
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 150612e8e9d429e9fc2b8eb74f3ea7167a41495c
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434095"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028370"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Acerca de la configuración de red de Azure Defender para IoT
 
 Azure Defender para IoT ofrece supervisión continua de amenazas y detección de dispositivos de ICS. En la plataforma se incluyen los componentes siguientes:
 
-**Sensores de Defender para IoT**: los sensores recopilan el tráfico de ICS mediante la supervisión pasiva (sin agente). Los sensores, pasivos y no intrusivos, tienen un impacto nulo sobre el rendimiento en las redes y los dispositivos de OT e IoT. El sensor se conecta a un puerto SPAN o a un TAP de red e inicia inmediatamente la supervisión de la red. Las detecciones se muestran en la consola del sensor. Allí puede verlos, investigarlos y analizarlos en un mapa de red, un inventario de dispositivos y una amplia variedad de informes. Algunos ejemplos son los informes de evaluación de riesgos, las consultas de minería de datos y los vectores de ataque. 
+**Sensores de Defender para IoT**: los sensores recopilan el tráfico de ICS mediante la supervisión pasiva (sin agente). Los sensores, pasivos y no intrusivos, tienen un impacto nulo sobre el rendimiento en las redes y los dispositivos de OT e IoT. El sensor se conecta a un puerto SPAN o a un TAP de red e inicia inmediatamente la supervisión de la red. Las detecciones se muestran en la consola del sensor. Allí puede verlos, investigarlos y analizarlos en un mapa de red, un inventario de dispositivos y una amplia variedad de informes. Algunos ejemplos son los informes de evaluación de riesgos, las consultas de minería de datos y los vectores de ataque.
 
-**Consola de administración local de Defender para IoT**: la consola de administración local proporciona una vista consolidada de todos los dispositivos de red. Ofrece una vista en tiempo real de las alertas y los indicadores de riesgo clave de OT e IoT en todas sus instalaciones. Al estar integrada estrechamente con los cuadernos de estrategias y flujos de trabajo de SOC, facilita la priorización de las actividades de mitigación y la correlación entre sitios de las amenazas. 
+**Consola de administración local de Defender para IoT**: la consola de administración local proporciona una vista consolidada de todos los dispositivos de red. Ofrece una vista en tiempo real de las alertas y los indicadores de riesgo clave de OT e IoT en todas sus instalaciones. Al estar integrada estrechamente con los cuadernos de estrategias y flujos de trabajo de SOC, facilita la priorización de las actividades de mitigación y la correlación entre sitios de las amenazas.
 
-**Portal de Defender para IoT**: la aplicación Defender para IoT puede ayudarle a comprar dispositivos de soluciones, instalar y actualizar software, y actualizar paquetes de TI. 
+**Portal de Defender para IoT**: la aplicación Defender para IoT puede ayudarle a comprar dispositivos de soluciones, instalar y actualizar software, y actualizar paquetes de TI.
 
 En este artículo se proporciona información sobre la arquitectura de la solución, la preparación de la red, los requisitos previos y otra información necesaria para permitirle configurar correctamente la red a fin de que funcione con dispositivos de Defender para IoT. Los lectores que trabajan con la información de este artículo deben tener experiencia en el funcionamiento y la administración de redes de OT e IoT. Algunos ejemplos son ingenieros de automatización, jefes de planta, proveedores de servicios de infraestructura de red de OT, equipos de ciberseguridad, CISO o CIO.
 
-Para recibir asistencia, póngase en contacto con el [Soporte técnico de Microsoft](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+Para recibir asistencia, póngase en contacto con el [Soporte técnico de Microsoft](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
 ## <a name="on-site-deployment-tasks"></a>Tareas de implementación en el sitio
 
@@ -92,7 +92,7 @@ Los exploradores siguientes son compatibles con las aplicaciones web de los sens
 
 - Firefox (versión más reciente)
 
-Para más información acerca de los exploradores admitidos, consulte [Exploradores recomendados](../../azure-portal/azure-portal-supported-browsers-devices.md#recommended-browsers).
+Para más información sobre los exploradores admitidos, consulte [Exploradores recomendados](../../azure-portal/azure-portal-supported-browsers-devices.md#recommended-browsers).
 
 ### <a name="set-up-certificates"></a>Configurar los certificados
 
@@ -102,22 +102,42 @@ Tras la instalación del sensor y la consola de administración local, se genera
 
 Compruebe que la directiva de seguridad de la organización permite el acceso a lo siguiente:
 
+#### <a name="user-access-to-the-sensor-and-management-console"></a>Acceso de usuario al sensor y la consola de administración
+
 | Protocolo | Transporte | Entrada o salida | Port | Utilizado | Propósito | Source | Destination |
 |--|--|--|--|--|--|--|--|
-| HTTPS | TCP | ENTRADA/SALIDA | 443 | Consola web del sensor y la consola de administración local | Acceso a la consola web | Cliente | Consola del sensor y de administración local |
-| SSH | TCP | ENTRADA/SALIDA | 22 | CLI | Acceso a la CLI | Cliente | Consola del sensor y de administración local |
-| SSL | TCP | ENTRADA/SALIDA | 443 | Consola del sensor y de administración local | Conexión entre la plataforma de CyberX y la plataforma de administración central | sensor | Consola de administración local |
-| NTP | UDP | IN | 123 | Sincronización de hora | Consola de administración local usada como NTP al sensor | sensor | Consola de administración local |
-| NTP | UDP | ENTRADA/SALIDA | 123 | Sincronización de hora | Sensor conectado al servidor NTP externo si no hay instalada ninguna consola de administración local | sensor | NTP |
-| SMTP | TCP | OUT | 25 | Correo electrónico | Conexión entre la plataforma de CyberX, la plataforma de administración central y el servidor de correo | Sensor y consola de administración local | Servidor de correo electrónico |
-| syslog | UDP | OUT | 514 | LEEF | Registros que se envían desde la consola de administración local al servidor de Syslog | Consola de administración local y sensor | Servidor de Syslog |
-| DNS |  | ENTRADA/SALIDA | 53 | DNS | Puerto del servidor DNS | Consola de administración local y sensor | Servidor DNS |
-| LDAP | TCP | ENTRADA/SALIDA | 389 | Active Directory | Conexión entre la plataforma de CyberX y la plataforma de administración a Active Directory | Consola de administración local y sensor | Servidor LDAP |
-| LDAPS | TCP | ENTRADA/SALIDA | 636 | Active Directory | Conexión entre la plataforma de CyberX y la plataforma de administración a Active Directory | Consola de administración local y sensor | Servidor LDAPS |
-| SNMP | UDP | OUT | 161 | Supervisión | Recopiladores SNMP remotos | Consola de administración local y sensor | Servidor SNMP |
-| WMI | UDP | OUT | 135 | monitoring | Supervisión de puntos de conexión de Windows | Sensor | Elemento de red relevante |
-| Protocolo de túnel | TCP | IN | 9000 <br /><br />- Además del puerto 443 <br /><br />Del usuario final a la consola de administración local. <br /><br />- Puerto 22 del sensor a la consola de administración local  | monitoring | Protocolo de túnel | Sensor | Consola de administración local |
-| HTTP| TCP | OUT | 80 | Validación de certificados  | Descarga del archivo CRL | Sensor | Servidor CRL |
+| HTTPS | TCP | Entrada o salida | 443 | Para acceder al sensor y a la consola web de la consola de administración local. | Acceso a la consola web | Cliente | Consola del sensor y de administración local |
+| SSH | TCP | Entrada o salida | 22 | CLI | Para acceder a la CLI. | Cliente | Consola del sensor y de administración local |
+
+#### <a name="sensor-access-to-azure-portal"></a>Acceso del sensor a Azure Portal
+
+| Protocolo | Transporte | Entrada o salida | Port | Utilizado | Propósito | Source | Destination |
+|--|--|--|--|--|--|--|--|
+| HTTPS/Websocket | TCP | Entrada o salida | 443 | Proporciona al sensor acceso Azure Portal. (Opcional) El acceso se puede conceder a través de un proxy. | Acceso a Azure Portal | Sensor | Azure portal |
+
+#### <a name="sensor-access-to-the-on-premises-management-console"></a>Acceso del sensor a la consola de administración local
+
+| Protocolo | Transporte | Entrada o salida | Port | Utilizado | Propósito | Source | Destination |
+|--|--|--|--|--|--|--|--|
+| SSL | TCP | Entrada o salida | 443 | Dé acceso al sensor a la consola de administración local. | Conexión entre el sensor y la consola de administración local | Sensor | Consola de administración local |
+| NTP | UDP | Entrada o salida | 123 | Sincronización de hora | Conecta NTP a la consola de administración local. | Sensor | Consola de administración local |
+
+#### <a name="additional-firewall-rules-for-external-services-optional"></a>Reglas de firewall adicionales para servicios externos (opcional)
+
+Abra estos puertos para permitir servicios adicionales para Defender para IoT.
+
+| Protocolo | Transporte | Entrada o salida | Port | Utilizado | Propósito | Source | Destination |
+|--|--|--|--|--|--|--|--|
+| HTTP | TCP | Fuera | 80 | La descarga de CRL para la validación de certificados al cargar certificados. | Acceso al servidor CRL | Consola del sensor y de administración local | Servidor CRL |
+| LDAP | TCP | Entrada o salida | 389 | Active Directory | Permite a Active Directory la administración de usuarios que tienen acceso para iniciar sesión en el sistema. | Consola de administración local y sensor | Servidor LDAP |
+| LDAPS | TCP | Entrada o salida | 636 | Active Directory | Permite a Active Directory la administración de usuarios que tienen acceso para iniciar sesión en el sistema. | Consola de administración local y sensor | Servidor LDAPS |
+| [SNMP](how-to-set-up-snmp-mib-monitoring.md) | UDP | Fuera | 161 | Supervisión | Supervisa el estado del sensor. | Consola de administración local y sensor | Servidor SNMP |
+| SMTP | TCP | Fuera | 25 | Email | Se usa para abrir el servidor de correo del cliente, con el fin de enviar correos electrónicos para alertas y eventos. | Sensor y consola de administración local | Servidor de correo electrónico |
+| syslog | UDP | Fuera | 514 | LEEF | Registros que se envían desde la consola de administración local al servidor de Syslog. | Consola de administración local y sensor | Servidor de Syslog |
+| DNS | TCP/UDP | Entrada o salida | 53 | DNS | Puerto del servidor DNS | Consola de administración local y sensor | Servidor DNS |
+| [WMI](how-to-configure-windows-endpoint-monitoring.md) | TCP/UDP | Fuera | 135, 1025-65535 | Supervisión | Supervisión de puntos de conexión de Windows | Sensor | Elemento de red relevante |
+| Protocolo de túnel | TCP | En | 9000 </br></br> además del puerto 443 </br></br> Permite el acceso desde el sensor o el usuario final a la consola de administración local. </br></br> Puerto 22 del sensor a la consola de administración local | Supervisión | Protocolo de túnel | Sensor | Consola de administración local |
+| Proxy | TCP/UDP | Entrada o salida | 443 | Proxy | Para conectar el sensor a un servidor proxy | Consola de administración local y sensor | Servidor proxy |
 
 ### <a name="plan-rack-installation"></a>Planificación de la instalación del bastidor
 
@@ -128,10 +148,15 @@ Para planificar la instalación del bastidor, realice lo siguiente:
 1. Asigne el espacio del bastidor para el dispositivo.
 
 1. Tenga disponible alimentación de CA para el dispositivo.
+
 1. Prepare el cable de LAN para conectar la administración al conmutador de red.
-1. Prepare los cables de LAN para conectar los puertos de SPAN (reflejo) del conmutador y los TAP de red al dispositivo de Defender para IoT.
+
+1. Prepare los cables LAN para conectar los puertos SPAN (reflejo) del conmutador y las pulsaciones de red al dispositivo Defender para IoT.
+
 1. Configure, conecte y valide los puertos SPAN en los conmutadores reflejados, tal y como se describe en la sesión de revisión de arquitectura.
+
 1. Conecte el puerto SPAN configurado a un equipo que ejecute Wireshark y compruebe que el puerto está configurado correctamente.
+
 1. Abra todos los puertos de firewall pertinentes.
 
 ## <a name="about-passive-network-monitoring"></a>Acerca de la supervisión de red pasiva
@@ -573,7 +598,7 @@ Revise esta lista antes de la implementación del sitio:
 
 Una introducción al diagrama de red industrial permitirá definir la ubicación adecuada para el equipo de Defender para IoT.
 
-1.  **Diagrama de red global**: consulte un diagrama de red global del entorno de OT industrial. Por ejemplo:
+1. **Diagrama de red global**: consulte un diagrama de red global del entorno de OT industrial. Por ejemplo:
 
     :::image type="content" source="media/how-to-set-up-your-network/backbone-switch.png" alt-text="Diagrama del entorno de OT industrial para la red global.":::
 
@@ -582,7 +607,7 @@ Una introducción al diagrama de red industrial permitirá definir la ubicación
 
 1. **Dispositivos confirmados**: proporcione el número aproximado de dispositivos de red que se van a supervisar. Necesitará esta información al incorporar la suscripción al portal de Azure Defender para IoT. Durante el proceso de incorporación, se le pedirá que escriba el número de dispositivos en incrementos de 1000.
 
-1. **Lista de subredes (opcional)** : proporcione una lista de subredes para las redes de producción y una descripción (opcional). 
+1. **Lista de subredes (opcional)** : proporcione una lista de subredes para las redes de producción y una descripción (opcional).
 
     |  **#**  | **Nombre de subred** | **Descripción** |
     |--| --------------- | --------------- |
@@ -622,25 +647,25 @@ Una introducción al diagrama de red industrial permitirá definir la ubicación
     - Rockwell Automation: Ethernet o IP
 
     - Emerson: DeltaV, Ovation
-    
-1.  **Conexión en serie**: ¿Hay dispositivos que se comunican a través de una conexión en serie en la red? Sí o no 
 
-    En caso afirmativo, especifique el protocolo de comunicación en serie: ________________ 
+1. **Conexión en serie**: ¿Hay dispositivos que se comunican a través de una conexión en serie en la red? Sí o no
 
-    En caso afirmativo, marque en el diagrama de red qué dispositivos se comunican con los protocolos en serie y dónde se encuentran: 
- 
-    *Agregue el diagrama de red con una conexión serie marcada.* 
+    En caso afirmativo, especifique el protocolo de comunicación en serie: ________________
 
-1. **Calidad de servicio**: para Calidad de servicio (QoS), la configuración predeterminada del sensor es de 1.5 Mbps. Especifique si quiere cambiarlo: ________________ 
+    En caso afirmativo, marque en el diagrama de red qué dispositivos se comunican con los protocolos en serie y dónde se encuentran:
 
-   Unidad de negocio (BU): ________________ 
+    *Agregue el diagrama de red con una conexión serie marcada.*
 
-1.  **Sensor**: especificaciones del equipo del sitio
+1. **Calidad de servicio**: para Calidad de servicio (QoS), la configuración predeterminada del sensor es de 1.5 Mbps. Especifique si quiere cambiarlo: ________________
+
+   Unidad de negocio (BU): ________________
+
+1. **Sensor**: especificaciones del equipo del sitio
 
     El dispositivo del sensor está conectado al puerto SPAN del conmutador a través de un adaptador de red. Está conectado a la red corporativa del cliente para su administración a través de otro adaptador de red dedicado.
-    
-    Proporcione los detalles de la dirección de la NIC del sensor que se conectará a la red corporativa: 
-    
+
+    Proporcione los detalles de la dirección de la NIC del sensor que se conectará a la red corporativa:
+
     | Elemento | Dispositivo 1 | Dispositivo 2 | Dispositivo 3 |
     |--|--|--|--|
     | Dirección IP del dispositivo |  |  |  |
@@ -649,7 +674,7 @@ Una introducción al diagrama de red industrial permitirá definir la ubicación
     | DNS |  |  |  |
     | Nombre de host |  |  |  |
 
-1.  **iDRAC/iLO/administración de servidor**
+1. **iDRAC/iLO/administración de servidor**
 
     | Elemento | Dispositivo 1 | Dispositivo 2 | Dispositivo 3 |
     |--|--|--|--|
@@ -658,7 +683,7 @@ Una introducción al diagrama de red industrial permitirá definir la ubicación
     | Puerta de enlace predeterminada |  |  |  |
     | DNS |  |  |  |
 
-1. **Consola de administración local** 
+1. **Consola de administración local**
 
     | Elemento | Activo | Pasivo (cuando se usa alta disponibilidad) |
     |--|--|--|
@@ -683,18 +708,18 @@ Una introducción al diagrama de red industrial permitirá definir la ubicación
 1. **Certificado SSL de la consola de administración local**
 
     ¿Tiene previsto usar un certificado SSL? Sí o no
-    
+
     En caso afirmativo, ¿qué servicio usará para generarlo? ¿Qué atributos incluirá en el certificado (por ejemplo, dominio o dirección IP)?
 
 1. **Autenticación SMTP**
 
     ¿Tiene previsto usar SMTP para reenviar alertas a un servidor de correo electrónico? Sí o no
-    
+
     En caso afirmativo, ¿qué método de autenticación usará?  
-    
+
 1. **Active Directory o usuarios locales**
 
-    Póngase en contacto con un administrador de Active Directory para crear un grupo de usuarios del sitio de Active Directory o usuarios locales. Asegúrese de que los usuarios estén listos para el día de la implementación. 
+    Póngase en contacto con un administrador de Active Directory para crear un grupo de usuarios del sitio de Active Directory o usuarios locales. Asegúrese de que los usuarios estén listos para el día de la implementación.
 
 1. Tipos de dispositivos de IoT en la red
 

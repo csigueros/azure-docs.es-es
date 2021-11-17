@@ -5,18 +5,14 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: 907ae75b17bcb7496c2ad3e76a8e4da1bd44b1fa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fd68df35eed106edf707a8356e066e736aa913f7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728116"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470934"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Tutorial: Solución de problemas de una aplicación de App Service con Azure Monitor
-
-> [!NOTE]
-> La integración de Azure Monitor con App Service se encuentra en [versión preliminar](https://aka.ms/appsvcblog-azmon).
->
 
 En este tutorial se muestra cómo solucionar los problemas de una aplicación de [App Service](overview.md) mediante [Azure Monitor](../azure-monitor/overview.md). La aplicación de ejemplo incluye código destinado a agotar la memoria y provocar errores HTTP 500, de modo que puede diagnosticar y corregir el problema mediante Azure Monitor. Cuando haya terminado, tendrá una aplicación de ejemplo que se ejecuta en App Service en Linux integrado con [Azure Monitor](../azure-monitor/overview.md).
 
@@ -58,7 +54,7 @@ git remote add azure <url-from-app-webapp-create>
 git push azure main
 ```
 
-## <a name="configure-azure-monitor-preview"></a>Configuración de Azure Monitor (versión preliminar)
+## <a name="configure-azure-monitor"></a>Configuración de Azure Monitor
 
 ### <a name="create-a-log-analytics-workspace"></a>Creación de un área de trabajo de Log Analytics
 
@@ -132,7 +128,7 @@ En Azure Portal, seleccione el área de trabajo de Log Analytics.
 
 ### <a name="log-queries"></a>Consultas de registros
 
-Las consultas de registro ayudan a aprovechar al máximo el valor de los datos recopilados en registros de Azure Monitor. Las consultas de registro se usan para identificar los registros tanto en AppServiceHTTPLogs como en AppServiceConsoleLogs. Consulte [Introducción a las consultas de registro](../azure-monitor/logs/log-query-overview.md) para más información sobre las consultas de registro.
+Las consultas de registro ayudan a aplicar al máximo el valor de los datos recopilados en los registros de Azure Monitor. Las consultas de registro se usan para identificar los registros tanto en AppServiceHTTPLogs como en AppServiceConsoleLogs. Consulte [Introducción a las consultas de registro](../azure-monitor/logs/log-query-overview.md) para más información sobre las consultas de registro.
 
 ### <a name="view-appservicehttplogs-with-log-query"></a>Visualización de AppServiceHTTPLogs con una consulta de registro
 

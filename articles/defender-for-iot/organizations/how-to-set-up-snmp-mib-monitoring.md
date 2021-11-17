@@ -1,14 +1,14 @@
 ---
 title: Configuración de la supervisión de MIB del protocolo simple de administración de redes
 description: Puede realizar la supervisión del estado del sensor mediante SNMP. El sensor responde a las consultas SNMP enviadas desde un servidor de supervisión autorizado.
-ms.date: 12/14/2020
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 14803fd2f9c088fb4454f97ff1524e8d651ccd05
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: dc9baa68c39ec049f1ca717f1bb34a364d6bad10
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113019522"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278728"
 ---
 # <a name="set-up-snmp-mib-monitoring"></a>Configuración de la supervisión de MIB del protocolo simple de administración de redes
 
@@ -33,7 +33,7 @@ Antes de empezar a configurar la supervisión SNMP, debe abrir el puerto UDP 161
 | Uso de disco | 1.3.6.1.4.1.53313.3.4 | GAUGE32 | Indicación de 0 a 100 |
 | Estado del servicio | 1.3.6.1.4.1.53313.5  |STRING | En línea o sin conexión si uno de los cuatro componentes esenciales está fuera de servicio |
 | Estado del servicio | 1.3.6.1.4.1.53313.5  |STRING | En línea o sin conexión si uno de los cuatro componentes esenciales está fuera de servicio |
-| Conexión local o en la nube | 1.3.6.1.4.1.53313.6   |STRING | Indica si el sensor está conectado al portal de Defender para IoT o si se administra solo en el entorno local |
+| Conexión local o en la nube | 1.3.6.1.4.1.53313.6   |STRING | Indica si el sensor está conectado a de Defender para IoT en Azure o si se administra solo en el entorno local. |
 | Estado de licencia | 1.3.6.1.4.1.53313.5  |STRING | Indica si el archivo de activación ha expirado o no |
 
    - Las claves no existentes responden con NULL, HTTP 200, basándose en [Stack Overflow](https://stackoverflow.com/questions/51419026/querying-for-non-existing-record-returns-null-with-http-200).

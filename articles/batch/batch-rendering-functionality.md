@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: c39417697dd88d3faa64ce47493ab5e7c08faa0d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 57925df3babc22a6cfdff2f81d23bbbd60767cc6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481353"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131461615"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Funcionalidades de representación de Azure Batch
 
@@ -20,7 +20,7 @@ Para obtener información general sobre los conceptos de Batch, incluidos grupos
 
 ## <a name="batch-pools-using-custom-vm-images-and-standard-application-licensing"></a>Grupos de Batch con imágenes de máquina virtual personalizadas y licencias de aplicaciones estándar
 
-Al igual que con otras cargas de trabajo y tipos de aplicación, se puede crear una imagen de máquina virtual personalizada con las aplicaciones de representación y los complementos necesarios. La imagen de máquina virtual personalizada se coloca en [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) y [se puede usar para crear grupos de Batch](batch-sig-images.md).
+Al igual que con otras cargas de trabajo y tipos de aplicación, se puede crear una imagen de máquina virtual personalizada con las aplicaciones y complementos de representación necesarios. La imagen de máquina virtual personalizada se coloca en [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) y [se puede usar para crear grupos de Batch](batch-sig-images.md).
 
 Las cadenas de línea de comandos de la tarea deberán hacer referencia a las aplicaciones y las rutas de acceso que se usan al crear la imagen de máquina virtual personalizada.
 
@@ -46,8 +46,8 @@ Azure Portal y Batch Explorer proporcionan herramientas de GUI para seleccionar 
 
 Hay otras opciones disponibles si se requieren aplicaciones adicionales en las VM del grupo:
 
-* Una imagen personalizada de Shared Image Gallery:
-  * Con esta opción, puede configurar la máquina virtual con las aplicaciones exactas y las versiones específicas que necesite. Para más información, consulte [Creación de un grupo con Shared Image Gallery](batch-sig-images.md). Autodesk y Chaos Group han modificado Arnold y V-Ray, respectivamente, para la validación frente a un servicio de licencias de Azure Batch. Asegúrese de que tiene las versiones compatibles de estas aplicaciones, de lo contrario, la licencia de pago por uso no funcionará. Las versiones actuales de Maya o 3ds Max no requieren un servidor de licencias con la ejecución desatendida (en modo de lote/línea de comandos). Póngase en contacto con el soporte técnico de Azure si no está seguro de cómo continuar con esta opción.
+* Una imagen personalizada de Azure Compute Gallery:
+  * Con esta opción, puede configurar la máquina virtual con las aplicaciones exactas y las versiones específicas que necesite. Para más información, consulte [Creación de un grupo con Azure Compute Gallery](batch-sig-images.md). Autodesk y Chaos Group han modificado Arnold y V-Ray, respectivamente, para la validación frente a un servicio de licencias de Azure Batch. Asegúrese de que tiene las versiones compatibles de estas aplicaciones, de lo contrario, la licencia de pago por uso no funcionará. Las versiones actuales de Maya o 3ds Max no requieren un servidor de licencias con la ejecución desatendida (en modo de lote/línea de comandos). Póngase en contacto con el soporte técnico de Azure si no está seguro de cómo continuar con esta opción.
 * [Paquetes de aplicación](./batch-application-packages.md):
   * Empaquete los archivos de aplicación en uno o varios archivos ZIP, cargue desde Azure Portal y especifique el paquete en la configuración del grupo. Cuando se crean VM del grupo, los archivos ZIP se descargan y se extraen los archivos.
 * Archivos de recursos:

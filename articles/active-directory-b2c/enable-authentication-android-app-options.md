@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/05/2021
+ms.date: 11/11/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 415f31c0b6627b290c86f3581eee0723ad20bcb9
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 8631c5c0852f915596e3b51c76054301eca64c02
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130040272"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132289209"
 ---
 # <a name="configure-authentication-options-in-an-android-app-by-using-azure-ad-b2c"></a>Configuración de las opciones de autenticación en una aplicación de Android mediante Azure AD B2C 
 
@@ -275,7 +275,26 @@ b2cApp.acquireToken(parameters);
 
 --- 
 
+## <a name="embedded-web-view-experience"></a>Experiencia de vista web insertada
 
+Se requieren exploradores web para la autenticación no interactiva. De forma predeterminada, la biblioteca MSAL usa la vista web del sistema. Durante el inicio de sesión, la biblioteca MSAL muestra la vista web del sistema Android con la interfaz de usuario de Azure AD B2C.  
+
+Para obtener más información, consulte el artículo [Habilitación de SSO entre aplicaciones en Android mediante MSAL](../active-directory/develop/msal-android-single-sign-on.md#sso-through-system-browser).
+
+En función de sus requisitos, puede usar la vista web insertada. Hay diferencias de comportamiento visual y de inicio de sesión único entre la vista web insertada y la vista web del sistema en MSAL.
+
+![Captura de pantalla que muestra la diferencia entre la experiencia de vista web del sistema y la experiencia de vista web insertada.](./media/enable-authentication-android-app-options/system-web-browser-vs-embedded-view.png)
+
+> [!IMPORTANT]
+> Se recomienda usar el valor predeterminado de la plataforma, que normalmente es el explorador del sistema. El explorador del sistema la mejor opción para recordar a los usuarios que han iniciado sesión antes. Algunos proveedores de identidades, como Google, no admiten una experiencia de vista insertada.
+
+Para cambiar este comportamiento, abra el archivo *app/src/main/res/raw/auth_config_b2c.json*. A continuación, agregue el atributo `authorization_user_agent` con el valor `WEBVIEW`. En el ejemplo siguiente se muestra cómo cambiar el tipo de vista web a vista insertada:
+
+```json
+{
+  "authorization_user_agent": "WEBVIEW" 
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

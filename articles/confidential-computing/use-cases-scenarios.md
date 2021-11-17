@@ -2,19 +2,19 @@
 title: Escenarios y casos de uso comunes de computación confidencial de Azure
 description: Descripción de cómo se usa la computación confidencial en un escenario.
 services: virtual-machines
-author: stempesta
+author: JBCook
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 11/04/2021
-ms.author: stempesta
+ms.author: jencook
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 2fd30934f71df8a84bf718445972ab9d0ff2d469
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 408f619f34942839bedcc75c6ab66044b4f90323
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132347829"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131852732"
 ---
 # <a name="use-cases-and-scenarios"></a>Casos de uso y escenarios
 La computación confidencial se aplica a diversos casos de uso para proteger los datos en sectores regulados, como la administración pública, los servicios financieros y los institutos sanitarios. Por ejemplo, impedir el acceso a datos confidenciales ayuda a proteger la identidad digital de los ciudadanos de todas las partes implicadas, incluido el proveedor de servicios en la nube que los almacena. Los mismos datos confidenciales pueden contener datos biométricos que se utilizan para buscar y quitar imágenes conocidas de explotación de menores, evitar la trata de personas y ayudar en las investigaciones forenses digitales.

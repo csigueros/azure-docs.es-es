@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
-ms.openlocfilehash: 6b00111265ea8f7441fb7164deed2d295d50e82f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 35f57b29f20e4b9ca0105c2395a34376e25a8c8a
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093517"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132489121"
 ---
 # <a name="how-to-prepare-data-and-define-a-schema-for-custom-ner"></a>Preparación de datos y definición de un esquema para NER personalizado
 
@@ -66,7 +66,7 @@ Como requisito previo para crear un proyecto, los datos de entrenamiento deben c
 * [Creación y carga de archivos desde Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
 * [Creación y carga de archivos mediante el Explorador de Azure Storage](/azure/vs-azure-tools-storage-explorer-blobs)
 
-Solo puede usar archivos `.txt`. Si los datos están en otro formato, puede usar el [comando de análisis CLUtils](https://github.com/microsoft/CogSLanguageUtilities/blob/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md) para cambiar el formato del archivo.
+Solo puede usar archivos `.txt`. Si los datos están en otro formato, puede usar el [comando de análisis CLUtils](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/main/CustomTextAnalytics.CLUtils/Solution/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md) para cambiar el formato del archivo.
 
  Puede cargar un conjunto de datos anotado o cargar uno sin anotar y [etiquetar los datos](../how-to/tag-data.md) en Language Studio. 
  

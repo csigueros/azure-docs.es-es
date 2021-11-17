@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: b607037d56ab0c9d9bd119b12f4dc3a7200ff981
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bdda831f07d91ad13553814e198cac743314671a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744918"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284823"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Niveles de zoom y cuadrícula de mosaico
 
@@ -33,7 +33,7 @@ Cada nivel de zoom adicional divide por cuatro los mosaicos del anterior, de for
 
 Los controles de mapa interactivo de Azure Maps para web y Android admiten 25 niveles de zoom, numerados de 0 a 24. Aunque los datos de carretera solo estarán disponibles en los niveles de zoom cuando los mosaicos estén disponibles.
 
-En la tabla siguiente se proporciona la lista completa de valores para los niveles de zoom en los que el tamaño del mosaico es un cuadrado de 512 píxeles por lado con una latitud 0:
+En la tabla siguiente se proporciona la lista completa de valores para los niveles de zoom en los que el tamaño del mosaico es un cuadrado de **512** píxeles por lado con una latitud 0:
 
 |Nivel de zoom|Metros/píxel|Metros/lado de mosaico|
 |--- |--- |--- |

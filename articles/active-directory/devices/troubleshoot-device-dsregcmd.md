@@ -9,14 +9,14 @@ ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: ravenn
+ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ade33d37584595bcc5c4e9ce1d1fda6edadd67a4
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: 8e80a7a27a084734183f28edad7816edbcbe2ebb
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2021
-ms.locfileid: "132158078"
+ms.locfileid: "132136130"
 ---
 # <a name="troubleshoot-devices-by-using-the-dsregcmd-command"></a>Solución de problemas de dispositivos con el comando dsregcmd
 
@@ -67,7 +67,7 @@ El estado solo se muestra cuando el dispositivo está unido a Azure AD o a Azur
 - **TpmProtected**:el estado se establece en *YES* (Sí) si la clave privada del dispositivo está almacenada en un Módulo de plataforma segura (TPM) de hardware.
 - **DeviceAuthStatus**: realiza una comprobación para determinar el mantenimiento del dispositivo en Azure AD. Los estados de mantenimiento incluidos son:  
   * *SUCCESS* si el dispositivo está presente y habilitado en Azure AD.  
-  * *FAILED* si el dispositivo está deshabilitado o eliminado. Para obtener más información sobre este problema, vea [Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-11-devices). 
+  * *FAILED* si el dispositivo está deshabilitado o eliminado. Para obtener más información sobre este problema, vea [Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-devices).  
   * *FAILED. ERROR* si la prueba no se pudo ejecutar. Esta prueba requiere conectividad de red a Azure AD.
     > [!NOTE]
     > El campo **DeviceAuthStatus** se agregó en la actualización de mayo de 2021 de Windows 10 (versión 21H1).  

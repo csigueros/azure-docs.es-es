@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2021
 ms.author: jeedes
-ms.openlocfilehash: 25806847c677eaa3751eef55bf4859d65bf6da2c
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 163e2aae9355d24873cd9864c84cefe71a57ab18
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132329109"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459258"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-software-ag-cloud"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Software AG Cloud
 
@@ -25,7 +25,7 @@ En este tutorial, aprenderá a integrar Software AG Cloud con Azure Active Direc
 * Permitir que los usuarios inicien sesión automáticamente en Software AG Cloud con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -157,4 +157,4 @@ Suponiendo que Microsoft Azure esté configurado como un proveedor en Software A
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Software AG Cloud, puede aplicar el control de sesión que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Software AG Cloud, puede aplicar el control de sesión que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

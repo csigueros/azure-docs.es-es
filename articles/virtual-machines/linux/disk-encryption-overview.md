@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 564593dd6c3fe7e30d1e3a362f4c11c52adbc82c
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 8fa9941d068b6062e8e0350aa9d711aa29808ee5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689723"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132342668"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VM Linux
 
@@ -24,9 +24,9 @@ Azure Disk Encryption ayuda a custodiar y proteger sus datos con el fin de satis
 
 Azure Disk Encryption es resistente a zona, de la misma manera que Virtual Machines. Para obtener detalles, vea [Servicios de Azure compatibles con Availability Zones](../../availability-zones/az-region.md).
 
-Si utiliza [Azure Security Center](../../security-center/index.yml), se le alertará si tiene VM que no estén cifradas. Estas alertas se muestran con gravedad alta y se recomienda cifrar estas máquinas virtuales.
+Si utiliza [Microsoft Defender for Cloud](../../security-center/index.yml), se le avisará si tiene máquinas virtuales que no estén cifradas. Estas alertas se muestran con gravedad alta y se recomienda cifrar estas máquinas virtuales.
 
-![Alerta de cifrado de discos en Azure Security Center](media/disk-encryption/security-center-disk-encryption-fig1.png)
+![Alerta de cifrado de disco de Microsoft Defender for Cloud](media/disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!WARNING]
 > - Si ya ha usado Azure Disk Encryption con Azure AD para cifrar una VM, debe seguir usando esta opción para cifrar la VM. Para más información, consulte [Azure Disk Encryption con Azure AD (versión anterior)](disk-encryption-overview-aad.md). 

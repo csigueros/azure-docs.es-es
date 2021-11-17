@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: dbeb1a776aa5d813806cec6622e1ad1e515ccfc5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7f6cd42395b0255a7c0bd68285dd532363b2141f
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128623691"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179822"
 ---
 # <a name="automatically-renew-reservations"></a>Renovación automática de reservas
 
@@ -89,7 +89,7 @@ Los correos electrónicos de notificación de renovación se envían 30 días an
 
 Se envían correos electrónicos a diferentes personas según en función del método de compra:
 
-- Clientes con Contrato Enterprise: los correos electrónicos se envían al conjunto de contactos de notificaciones en el portal de EA.
+- Clientes de EA: los correos electrónicos se envían a los contactos de notificación establecidos en el portal de EA o a los administradores empresariales que se inscriben automáticamente para recibir notificaciones de uso.
 - Clientes de suscripciones individuales con tarifas de pago por uso: los correos electrónicos se envían a los usuarios que están configurados como administradores de cuenta.
 - Clientes con el programa Proveedor de soluciones en la nube: los correos electrónicos se envían al contacto de notificaciones del asociado.
 

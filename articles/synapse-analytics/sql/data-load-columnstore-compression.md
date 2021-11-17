@@ -2,21 +2,21 @@
 title: Mejora en el rendimiento del índice de almacén de columnas
 description: Reduzca los requisitos de memoria o aumente la memoria disponible para maximizar el número de filas que un índice de almacén de columnas comprime en cada grupo de filas.
 services: synapse-analytics
-author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
-ms.author: jrasnick
-ms.reviewer: igorstan
+ms.date: 10/18/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: ''
 ms.custom: azure-synapse
-ms.openlocfilehash: 750fc421cd644ec41384d43705b41602df24719b
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 95d3a7c44608cd44eaa95be44572b56c4231e57f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860986"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130237840"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Maximización de la calidad de un grupo de filas para mejorar el rendimiento de un índice de almacén de columnas
 
@@ -42,13 +42,13 @@ Para obtener más información sobre la carga masiva, consulte [Carga de datos e
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Cómo supervisar la calidad del grupo de filas
 
-La vista de administración dinámica sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?view=azure-sqldw-latest&preserve-view=true) contiene la definición de vista que coincide con SQL Database) que expone información útil, como el número de filas en los grupos de filas y el motivo del recorte (si es que se recortó). Puede crear la siguiente vista como una forma práctica para consultar esta DMV a fin de obtener información sobre el recorte del grupo de filas.
+La vista de administración dinámica (DMV) ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?view=azure-sqldw-latest&preserve-view=true)) contiene la definición de vista que coincide con la base de datos SQL que expone información útil, como el número de filas en grupos de filas y el motivo del recorte (si es que lo hubo). Puede crear la siguiente vista como una forma práctica para consultar esta DMV a fin de obtener información sobre el recorte del grupo de filas.
 
 ```sql
-create view dbo.vCS_rg_physical_stats
-as
-with cte
-as
+CREATE VIEW dbo.vCS_rg_physical_stats
+AS
+WITH cte
+AS
 (
 select   tb.[name]                    AS [logical_table_name]
 ,        rg.[row_group_id]            AS [row_group_id]
@@ -65,11 +65,11 @@ JOIN    sys.[dm_pdw_nodes_db_column_store_row_group_physical_stats] rg      ON  
                                                                             AND rg.[pdw_node_id]   = nt.[pdw_node_id]
                                         AND rg.[distribution_id]    = nt.[distribution_id]
 )
-select *
-from cte;
+SELECT *
+FROM cte;
 ```
 
-trim_reason_desc indica si el grupo de filas se ha recortado (trim_reason_desc = NO_TRIM implica que no ha habido ningún recorte y que el grupo de filas es de calidad óptima). Los siguientes motivos de recorte indican el recorte prematuro del grupo de filas:
+La columna `trim_reason_desc` indica si el grupo de filas se recortó (trim_reason_desc = NO_TRIM significa que no hubo recorte y que el grupo de filas tiene una calidad óptima). Los siguientes motivos de recorte indican el recorte prematuro del grupo de filas:
 
 - BULKLOAD: Este motivo de recorte se usa cuando el lote entrante de filas de la carga tenía menos de 1 millón de filas. El motor creará grupos de filas comprimidos si hay más de 100.000 filas que se van a insertar (en lugar de insertar en el almacén delta), pero establece el motivo de recorte en BULKLOAD. En este escenario, considere la posibilidad de aumentar la carga por lotes para incluir más filas. Además, vuelva a evaluar el esquema de partición para asegurarse de que no es demasiado granular si los grupos de filas no pueden abarcar los límites de partición.
 - MEMORY_LIMITATION: Para crear grupos de filas con 1 millón de filas, el motor necesita una determinada cantidad de memoria de trabajo. Cuando la memoria disponible de la sesión de carga es inferior a la memoria de trabajo necesaria, los grupos de filas se recortan prematuramente. En las siguientes secciones se explica cómo estimar la memoria necesaria y asignar más.
@@ -88,8 +88,6 @@ La memoria máxima requerida para comprimir un grupo de filas es, aproximadament
 > Donde las columnas de cadena corta emplean tipos de datos de cadena de <= 32 bytes y las de cadena larga usan tipos de datos de cadena de > 32 bytes.
 
 Las cadenas largas que se comprimen con un método de compresión diseñado para comprimir texto. Este método de compresión utiliza un *diccionario* para almacenar patrones de texto. El tamaño máximo de un diccionario es de 16 MB. Hay solo un diccionario para cada columna de cadena larga del grupo de filas.
-
-Para ver una discusión en profundidad sobre los requisitos de memoria del almacén de columnas, eche un vistazo al vídeo [Escalado de SQL de Synapse: configuración y directrices](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Formas de reducir los requisitos de memoria
 

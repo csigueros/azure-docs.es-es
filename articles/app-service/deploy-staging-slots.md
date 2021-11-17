@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit, devx-track-azurepowershell
-ms.openlocfilehash: 77e374e43722554a215675fd09d0317899d7992f
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: feea2bdccd5f4e7ea4c18b7dd155ee0f105b6c8f
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129709062"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132027572"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -217,7 +217,7 @@ Para más información sobre la personalización del elemento `applicationInitia
 
 También puede personalizar el comportamiento de la preparación con una o ambas de las siguientes [opciones de configuración de la aplicación](configure-common.md):
 
-- `WEBSITE_SWAP_WARMUP_PING_PATH`: ruta de acceso para hacer ping y así preparar el sitio. Agregue esta configuración de aplicación especificando una ruta de acceso personalizada que comience con una barra diagonal como valor. Un ejemplo es `/statuscheck`. El valor predeterminado es `/`. 
+- `WEBSITE_SWAP_WARMUP_PING_PATH`: la ruta de acceso para hacer ping a través de HTTP para preparar el sitio. Agregue esta configuración de aplicación especificando una ruta de acceso personalizada que comience con una barra diagonal como valor. Un ejemplo es `/statuscheck`. El valor predeterminado es `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: códigos de respuesta HTTP válidos para la operación de preparación. Agregue esta configuración de aplicación con una lista de códigos HTTP separados por comas. Un ejemplo sería `200,202`. Si el código de estado devuelto no está en la lista, las operaciones de preparación e intercambio se detienen. Por defecto, todos los códigos de respuesta son válidos.
 - `WEBSITE_WARMUP_PATH`: una ruta de acceso relativa en el sitio al que se debe hacer ping cada vez que se reinicie (no solo durante los intercambios de ranura). Los valores del ejemplo incluyen `/statuscheck` o la ruta de acceso raíz, `/`.
 

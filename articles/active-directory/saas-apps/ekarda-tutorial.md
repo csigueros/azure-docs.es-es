@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: b1bc72ab4608841f0c4cc191f296186e5402f3ba
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e5b0abc3cd6aa0850f48bced115f0b43d326b081
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124835634"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286001"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ekarda
 
@@ -184,4 +184,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de configurar ekarda, puede aplicar el control de sesión. Esta precaución protege frente a la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del control de aplicaciones de acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Después de configurar ekarda, puede aplicar el control de sesión. Esta precaución protege frente a la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del control de aplicaciones de acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

@@ -10,12 +10,12 @@ ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b53e5397c9e4e04a7049d18f9e9efdcfc62a921
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 6c5c7b8ed515fc3148f42b06c3c81f6060816e79
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130037802"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281388"
 ---
 # <a name="identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Identity Protection y acceso condicional para Azure AD B2C
 
@@ -28,7 +28,7 @@ Si ya está familiarizado con [Identity Protection](../active-directory/identity
 > [!NOTE]
 > Se requiere Azure AD B2C **Premium P2** para crear directivas de inicio de sesión de riesgo. Los inquilinos **Premium P1** pueden crear una directiva basada en la ubicación, la aplicación, el usuario o directivas basadas en grupos. Para más información, consulte la sección [Cambio del plan de tarifa de Azure AD](billing.md#change-your-azure-ad-pricing-tier).
 
-## <a name="benefits-of-identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Ventajas de Identity Protection y el acceso condicional para Azure AD B2C  
+## <a name="benefits-of-identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Ventajas de Identity Protection y el acceso condicional para Azure AD B2C
 
 Al emparejar las directivas de acceso condicional con la detección de riesgos de Identity Protection, puede responder a las autenticaciones de riesgo con la acción de directiva adecuada.
 
@@ -41,7 +41,7 @@ Al emparejar las directivas de acceso condicional con la detección de riesgos d
 
 Identity Protection y el acceso condicional generalmente funcionan en Azure AD B2C de la misma manera que en Azure AD, con las siguientes excepciones:
 
-- Security Center no está disponible en Azure AD B2C.
+- Microsoft Defender for Cloud no está disponible en Azure AD B2C.
 
 - Identity Protection y el acceso condicional no se admiten en flujos de servidor a servidor de ROPC en los inquilinos de Azure AD B2C.
 
@@ -50,7 +50,6 @@ Identity Protection y el acceso condicional generalmente funcionan en Azure AD 
 - En los inquilinos de Azure AD B2C hay disponible un subconjunto de las detecciones de riesgo de Identity Protection. Consulte [Investigación del riesgo con Identity Protection](identity-protection-investigate-risk.md)y [Adición de acceso condicional a flujos de usuario](conditional-access-user-flow.md).
 
 - La característica de cumplimiento de dispositivos del acceso condicional no está disponible en los inquilinos de Azure AD B2C.
-
 
 ## <a name="integrate-conditional-access-with-user-flows-and-custom-policies"></a>Integración del acceso condicional con los flujos de usuario y las directivas personalizadas
 

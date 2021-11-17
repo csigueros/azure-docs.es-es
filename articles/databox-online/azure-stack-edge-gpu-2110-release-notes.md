@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/26/2021
 ms.author: alkohli
-ms.openlocfilehash: 7d8bde85114829ab00256810ff96dbf3840c2884
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 36c7e05e2cce3e93fcd35521582190f2d7cef2b5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090857"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469168"
 ---
 # <a name="azure-stack-edge-2110-release-notes"></a>Notas de la versión 2110 de Azure Stack Edge
 
@@ -48,6 +48,11 @@ En la tabla siguiente se enumeran los problemas detectados en versiones anterior
 |**3.**|IoT Edge |Los módulos implementados a través de IoT Edge no pueden usar la red de host. | 
 |**4.**|Kubernetes + actualización |Las versiones de software anteriores, como las de 2008, tienen un problema de actualización de condición de carrera que hace que la actualización genere un error con ClusterConnectionException. |
 |**5.**|Panel de Kubernetes | No se admite el punto de conexión *HTTPS* del panel de Kubernetes con el certificado SSL. | 
+|**6.**|Máquinas virtuales |Se ha agregado una comprobación de duplicación de dirección IP estática para la NIC de administración de la máquina virtual durante la implementación de VNF. Se devuelve un mensaje de error explícito. | 
+|**7.**|Máquinas virtuales |Se ha quitado la comprobación de reserva de dirección IP para las cuatro primeras direcciones IP del espacio de direcciones.  | 
+|**8.**|Proceso perimetral de acceso múltiple |Se ha corregido el problema de expiración del token local de Azure Resource Manager durante la implementación de VNF. En versiones anteriores, cuando la descarga del disco duro virtual tardaba mucho tiempo, se producía un error en la implementación de VNF, ya que expiraba el token de Azure Resource Manager.  | 
+|**9.**|Proceso perimetral de acceso múltiple |Se ha agregado un tiempo de espera para las llamadas de Azure Resource Manager durante la implementación de VNF. En versiones anteriores, la implementación de VNF tardaba mucho tiempo si las llamadas de Azure Resource Manager no se realizaban correctamente.   | 
+|**10.**|Proceso perimetral de acceso múltiple |El proceso perimetral de acceso múltiple limpia las implementaciones de plantillas de Azure Resource Manager una vez completada la descarga del disco duro virtual. En versiones anteriores, el usuario recibía el error de cuota de implementación superada después de muchas implementaciones de VNF. La cuota predeterminada era de 800 implementaciones por grupo de recursos.  | 
 
 
 

@@ -4,12 +4,12 @@ description: Aprenda a habilitar el cifrado de discos en nodos de clústeres adm
 ms.topic: how-to
 ms.date: 11/8/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d1d1db17d6914904d9995883903c50982de84daa
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: cd16cdea3a5c8fa4f235ff14ab75bdd07e348db0
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132486948"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132349981"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-managed-cluster-nodes"></a>Habilitación del cifrado de disco para nodos de clústeres administrados de Service Fabric
 
@@ -60,7 +60,7 @@ Siga estos pasos y consulte esta [plantilla de ejemplo](https://github.com/Azure
    New-AzResourceGroupDeployment -Name $resourceGroupName -ResourceGroupName $resourceGroupName -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug -Verbose 
    ```
 
-   Puede comprobar el estado del cifrado de disco en el conjunto de escalado subyacente de un tipo de nodo mediante el comando `Get-AzVmss`. En primer lugar, debe buscar el nombre del grupo de recursos de apoyo del clúster administrado (que contiene la red virtual subyacente, el equilibrador de carga, la dirección IP pública, el grupo de seguridad de red, los conjuntos de escalado y las cuentas de almacenamiento). Asegúrese de modificar `NodeTypeNAme` a cualquier nombre de tipo de nodo de clúster que desee comprobar (como se especifica en la plantilla de implementación).
+   Puede comprobar el estado del cifrado de disco en el conjunto de escalado subyacente de un tipo de nodo mediante el comando `Get-AzVmssDiskEncryption`. En primer lugar, debe buscar el nombre del grupo de recursos de apoyo del clúster administrado (que contiene la red virtual subyacente, el equilibrador de carga, la dirección IP pública, el grupo de seguridad de red, los conjuntos de escalado y las cuentas de almacenamiento). Asegúrese de modificar `VmssName` a cualquier nombre de tipo de nodo de clúster que desee comprobar (como se especifica en la plantilla de implementación).
 
    ```powershell
    $NodeTypeName = "NT2"

@@ -1,17 +1,16 @@
 ---
-title: Novedades de Azure Defender para IoT
+title: Novedades de Microsoft Defender para IoT
 description: Este artículo le permite conocer las novedades de la versión más reciente de Defender para IoT.
 ms.topic: overview
-ms.date: 10/20/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: a4a39ef6d48ecd2466c6642fcaa91611d2f44da6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/09/2021
+ms.openlocfilehash: 955e9feb6d7f47c325421a9bf680c2151a9200f6
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131073080"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283633"
 ---
-# <a name="whats-new-in-azure-defender-for-iot"></a>Novedades de Azure Defender para IoT  
+# <a name="whats-new-in-microsoft-defender-for-iot"></a>Novedades de Microsoft Defender para IoT
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
@@ -19,13 +18,13 @@ En este artículo se enumeran las nuevas características y mejoras de caracter�
 
 Las características mencionadas se encuentran en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen otros términos legales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
 
-## <a name="versioning-and-support-for-azure-defender-for-iot"></a>Control de versiones y compatibilidad con Azure Defender para IoT
+## <a name="versioning-and-support-for-defender-for-iot"></a>Control de versiones y compatibilidad con Defender para IoT
 
 A continuación se enumeran la compatibilidad, las directivas de cambios importantes de Defender para IoT y las versiones de Azure Defender para IoT que están disponibles actualmente.
 
 ### <a name="servicing-information-and-timelines"></a>Información y escalas de tiempo de mantenimiento
 
-Microsoft planea publicar actualizaciones de Azure Defender para IoT al menos una vez por trimestre. Cada versión de disponibilidad general del sensor de Azure Defender para IoT y la consola de administración local tienen nueve meses de soporte técnico después de su publicación. Las correcciones y las nuevas funcionalidades se aplicarán a la versión de disponibilidad general actual que se encuentre actualmente con soporte técnico y no se aplicarán a las versiones anteriores de disponibilidad general.
+Microsoft planea publicar actualizaciones de Defender para IoT al menos una vez por trimestre. Cada versión de disponibilidad general del sensor de Defender para IoT y la consola de administración local tienen nueve meses de soporte técnico después de su publicación. Las correcciones y las nuevas funcionalidades se aplicarán a la versión de disponibilidad general actual que se encuentre actualmente con soporte técnico y no se aplicarán a las versiones anteriores de disponibilidad general.
 
 ### <a name="versions-and-support-dates"></a>Versiones y fechas de soporte técnico
 
@@ -61,7 +60,7 @@ Si el estado de la clave se detecta como Programa o el estado de ejecución se d
 
 #### <a name="visibility-and-risk-assessment"></a>Visibilidad y evaluación de riesgos
 
-- Use el Inventario de dispositivos para ver el estado de PLC de los PLC de la organización, así como la información contextual del dispositivo. Use el cuadro de diálogo Configuración del inventario de dispositivos para agregar esta columna al inventario.
+- Use el Inventario de dispositivos para ver el estado de PLC de los PLC de la organización y la información contextual del dispositivo. Use el cuadro de diálogo Configuración del inventario de dispositivos para agregar esta columna al inventario.
 
     :::image type="content" source="media/release-notes/device-inventory-plc.png" alt-text="Inventario de dispositivos que muestra el modo de funcionamiento del PLC.":::
 
@@ -77,17 +76,29 @@ Si el estado de la clave se detecta como Programa o el estado de ejecución se d
 
 ### <a name="pcap-api"></a>PCAP API
 
-La nueva PCAP API permite al usuario recuperar archivos PCAP del sensor a través de la consola de administración local con o sin acceso directo al propio sensor. Para ello se usa la consola de administración como proxy.
+La nueva PCAP API permite al usuario recuperar archivos PCAP del sensor a través de la consola de administración local con o sin acceso directo al propio sensor.
 
 ### <a name="on-premises-management-console-audit"></a>Auditoría de la consola de administración local
 
-Los registros de auditoría de la implementación del sensor ya están disponibles en la consola de administración local.
+Los registros de auditoría de la consola de administración local ahora se pueden exportar para facilitar las investigaciones sobre qué cambios se realizaron y quién los hizo.
 
 ### <a name="webhook-extended"></a>Webhook extendido
 
-Webhook extendido se puede usar para enviar toda la información de la alerta de webhook, así como datos adicionales al punto de conexión.
+Webhook extendido se puede usar para enviar datos adicionales al punto de conexión. La característica extendida incluye toda la información de la alerta de webhook y agrega la información siguiente al informe:
 
-### <a name="unicode-support-for-certificate-passphrases"></a>Compatibilidad con Unicode en las frases de contraseña de certificado 
+- sensorID
+- sensorName
+- zoneID
+- zoneName
+- siteID
+- siteName
+- sourceDeviceAddress
+- destinationDeviceAddress
+- remediationSteps
+- handled
+- additionalInformation
+
+### <a name="unicode-support-for-certificate-passphrases"></a>Compatibilidad con Unicode en las frases de contraseña de certificado
 
 Ahora se admiten caracteres Unicode al trabajar con frases de contraseña del certificado del sensor. Para más información, consulte [Acerca de los certificados](how-to-deploy-certificates.md#about-certificates).
 
@@ -126,7 +137,7 @@ Hay nuevos campos disponibles para los usuarios que trabajan con las API de aler
 - Dirección de origen y destino
 - Pasos para la corrección
 - Nombre del sensor definido por el usuario
-- Nombre de la zona asociada al sensor 
+- Nombre de la zona asociada al sensor
 - Nombre del sitio asociado al sensor
 
 **Sensor**
@@ -171,6 +182,7 @@ Esta característica está disponible en la consola de administración local con
 - [Incorporación](#onboarding)
 - [Facilidad de uso](#usability)
 - [Otras actualizaciones](#other-updates)
+
 ### <a name="security"></a>Seguridad
 
 En esta versión, se han realizado mejoras en la recuperación de certificados y contraseñas.

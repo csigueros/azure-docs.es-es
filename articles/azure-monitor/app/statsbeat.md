@@ -1,14 +1,14 @@
 ---
 title: Statsbeat en Azure Application Insights | Microsoft Docs
-description: Estadísticas sobre la instrumentación automática y los SDK de Application Insights
+description: Estadísticas sobre la instrumentación automática y los SDK de Application Insights
 ms.topic: conceptual
 ms.date: 09/20/2021
-ms.openlocfilehash: 440f6651f759bce9340763ea141c8057d5a1e4b8
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 55e727bc05007c69f0144c7f95e17e38f907742e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130167771"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426893"
 ---
 # <a name="statsbeat-in-azure-application-insights"></a>Statsbeat en Azure Application Insights
 
@@ -57,10 +57,12 @@ Statsbeat recopila métricas esenciales y no esenciales.
 
 ### <a name="non-essential-statsbeat"></a>Statsbeat no esencial
 
-- Seguimiento del éxito y el error de la persistencia del disco
-- Statsbeat de red de métricas en vivo
-- Statsbeat de red del servicio de metadatos de Azure
-- Statsbeat de red de Profiler
+Seguimiento del error de E/S de disco al usar la persistencia de disco para la telemetría recuperable
+
+|Nombre de la métrica|Unidad|Dimensiones compatibles|
+|-----|-----|-----|
+|Recuento de errores de lectura|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`|
+|Recuento de errores de escritura|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`|
 
 ### <a name="configure-statsbeat"></a>Statsbeat de configuración
 

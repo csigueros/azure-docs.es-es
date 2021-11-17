@@ -1,6 +1,6 @@
 ---
-title: Coexistencia de SQL Server HADR y la Ventaja híbrida de Azure de nivel de ámbito
-description: En este artículo explica cómo coexisten el beneficio de SQL Server HADR Software Assurance y la Ventaja híbrida de Azure a nivel de alcance.
+title: Coexistencia de HADR de SQL Server y Ventaja híbrida de Azure administrada centralmente
+description: En este artículo se explica cómo coexisten la ventaja de Software Assurance de HADR de SQL Server y Ventaja híbrida de Azure administrada centralmente.
 keywords: ''
 author: bandersmsft
 ms.author: banders
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: ahb
 ms.reviewer: chrisrin
-ms.openlocfilehash: 97c338134430156fefa5d874d44e27c8dc34a496
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: f475fa19c06eb2ecc8ed863db06f5a647308ee00
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129547296"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229434"
 ---
-# <a name="sql-server-hadr-and-scope-level-azure-hybrid-benefit-coexistence"></a>Coexistencia de SQL Server HADR y la Ventaja híbrida de Azure de nivel de ámbito
+# <a name="sql-server-hadr-and-centrally-managed-azure-hybrid-benefit-coexistence"></a>Coexistencia de HADR de SQL Server y Ventaja híbrida de Azure administrada centralmente
 
 Una de las ventajas de Software Assurance (SA) es que permite a los clientes de Azure instalar y ejecutar instancias pasivas de SQL Server para la recuperación ante desastres en previsión de un evento de conmutación por error. La administración de nivel de ámbito de la Ventaja híbrida de Azure admite la ventaja de HADR de SQL Server al garantizar que las réplicas de recuperación ante desastres calificadas no consuman las licencias de SQL Server asignadas. Como resultado, no tiene que administrar las réplicas por separado. 
 
@@ -37,6 +37,6 @@ Los precios que se muestran en la siguiente imagen son solo a modo de ejemplo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte [Preguntas frecuentes sobre la administración del nivel de ámbito de Ventaja híbrida de Azure](faq-azure-hybrid-benefit-scope.yml).
-- Obtenga información sobre cómo se aplican los descuentos en [¿Qué es la administración de nivel de ámbito de la Ventaja híbrida de Azure?](sql-server-hadr-licenses.md)
+- Consulte [Preguntas frecuentes sobre la administración centralizada de Ventaja híbrida de Azure](faq-azure-hybrid-benefit-scope.yml).
+- Descubra cómo se aplican los descuentos en [¿Qué es la administración centralizada de Ventaja híbrida de Azure?](sql-server-hadr-licenses.md)
 - Obtenga información sobre cómo realizar la [transición desde la experiencia de la Ventaja híbrida de Azure existente](transition-existing.md).

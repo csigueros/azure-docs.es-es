@@ -4,12 +4,12 @@ description: Se describe cómo implementar recursos en el ámbito de un grupo de
 ms.topic: conceptual
 ms.date: 09/14/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 5dbf94c6f99e875e3694b96a3f01474c89348397
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ea8ee72cebc8a44d3e87ab80ab22d04b4fdc9f66
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128654183"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319318"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Implementaciones de grupos de administración con plantillas de Resource Manager
 
@@ -388,5 +388,5 @@ En una implementación de nivel de grupo de administración, puede establecer co
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener información sobre la asignación de roles, vea [Asignación de roles de Azure mediante plantillas de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
-* Para un ejemplo de implementación de la configuración del área de trabajo para Azure Security Center, consulte [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
+* Para obtener un ejemplo de implementación de la configuración del área de trabajo para Microsoft Defender for Cloud, vea [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * También puede implementar plantillas en el [nivel de suscripción](deploy-to-subscription.md) y en el [nivel de inquilino](deploy-to-tenant.md).

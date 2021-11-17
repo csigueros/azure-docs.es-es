@@ -1,5 +1,5 @@
 ---
-title: Archivo de inclusión
+title: archivo de inclusión
 description: archivo de inclusión
 services: service-bus-messaging
 author: spelluru
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/07/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 058ce3899e5857c136859426f0972efc9fd0b92f
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 7ec263b7e6c5c5f2191f207cf40ddc43b69fa6ad
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716006"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132096896"
 ---
 En la siguiente tabla se muestra la información de cuotas específica de la mensajería de Azure Service Bus. Para obtener información sobre los precios y otras cuotas de Service Bus, vea [Precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
@@ -29,7 +29,7 @@ En la siguiente tabla se muestra la información de cuotas específica de la men
 | Tamaño máximo de cualquier nombre de entidad de mensajería: espacio de nombres, suscripción o regla de suscripción |Entidad |- |50 caracteres. |
 | Tamaño máximo de un identificador de mensaje | Entidad |- | 128 |
 | Tamaño máximo de un identificador de sesión de mensaje | Entidad |- | 128 |
-| Tamaño de mensaje de una cola, un tema o una entidad de suscripción |Entidad |Los mensajes entrantes que superan estas cuotas se rechazan y el código que llama recibe una excepción. | 256 KB para el [nivel Estándar](../articles/service-bus-messaging/service-bus-premium-messaging.md)<br/> 1 MB para el [nivel Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />El tamaño del mensaje incluye el tamaño de las propiedades (sistema y usuario) y el tamaño de la carga útil. El tamaño de las propiedades del sistema varía en función de su escenario. |
+| Tamaño de mensaje de una cola, un tema o una entidad de suscripción |Entidad |Los mensajes entrantes que superan estas cuotas se rechazan y el código que llama recibe una excepción. | 256 KB para el [nivel Estándar](../articles/service-bus-messaging/service-bus-premium-messaging.md)<br/> 100 MB para el [nivel Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />El tamaño del mensaje incluye el tamaño de las propiedades (sistema y usuario) y el tamaño de la carga útil. El tamaño de las propiedades del sistema varía en función de su escenario. |
 | Tamaño de propiedad de mensaje para una cola, un tema o una entidad de suscripción |Entidad | Se genera la excepción `SerializationException`. | <p>El tamaño máximo de propiedad de mensaje para cada propiedad es 32 KB.</p><p>El tamaño acumulado de todas las propiedades no puede superar 64 KB. Este límite se aplica a todo el encabezado del mensaje asincrónico, que contiene tanto las propiedades de usuario como las propiedades del sistema, como el número de secuencia, la etiqueta y el identificador del mensaje.</p><p>Número máximo de propiedades de encabezado en el contenedor de propiedades: **byte/int.MaxValue**.</p> |
 | Número de suscripciones por tema |Entidad |Se rechazan las posteriores solicitudes de creación de suscripciones adicionales para el tema. Como resultado, si se configura a través del portal, se muestra un mensaje de error. Si se realiza una llamada desde la API de administración, el código de llamada recibe una excepción. |2000 por tema para el nivel Estándar y el nivel Premium. |
 | Número de filtros SQL por tema |Entidad |Se rechazan las posteriores solicitudes de creación de filtros adicionales en el tema y el código que realiza la llamada recibe una excepción. |2\.000 |

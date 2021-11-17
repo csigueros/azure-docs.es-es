@@ -7,12 +7,12 @@ ms.service: virtual-network-manager
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: template-concept, ignite-fall-2021
-ms.openlocfilehash: c56df99e68dc40886f01a65fe101fa142a04c43e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d533ae6860850830640f052f4737b61c199d952e
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093104"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851785"
 ---
 # <a name="security-admin-rules-in-azure-virtual-network-manager-preview"></a>Reglas de administración de seguridad en Azure Virtual Network Manager (versión preliminar)
 
@@ -25,10 +25,14 @@ Azure Virtual Network Manager proporciona dos tipos diferentes de configuracione
 
 ## <a name="security-admin-rules"></a>Reglas de administrador de seguridad
 
-Una regla de administración de seguridad permite aplicar criterios de directiva de seguridad que coincidan con las condiciones establecidas. Solo puede definir reglas administrativas de seguridad para los recursos dentro del ámbito de la instancia de Azure Virtual Network Manager. Estas reglas de seguridad tienen una prioridad más alta que las reglas del grupo de seguridad de red (NSG) y se evaluarán antes que las reglas de NSG. Por ejemplo, un administrador puede denegar todos los puertos o protocolos de alto riesgo de Internet con reglas de administrador de seguridad, y estas reglas invalidarán las reglas de NSG permitidas creadas en el nivel de máquina virtual o subred.
+Una regla de administración de seguridad permite aplicar criterios de directiva de seguridad que coincidan con las condiciones establecidas. Solo puede definir reglas administrativas de seguridad para los recursos dentro del ámbito de la instancia de Azure Virtual Network Manager. Estas reglas de seguridad tienen una prioridad más alta que las reglas del grupo de seguridad de red (NSG) y se evaluarán antes que las reglas de NSG. Tenga en cuenta también que las reglas de administración de seguridad no cambian las reglas de NSG. Consulte la ilustración siguiente.
+
+:::image type="content" source="./media/concept-security-admins/traffic-evaluation.png" alt-text="Diagrama en el que se muestra cómo se evalúa el tráfico con reglas de administración de seguridad y NSG":::.
+
+Las reglas de administración de seguridad se pueden usar para aplicar reglas de seguridad. Por ejemplo, un administrador puede denegar todos los puertos o protocolos de alto riesgo de Internet con reglas de administrador de seguridad, ya que estas reglas se evaluarán antes que todas las reglas de NSG.
 
 > [!IMPORTANT]
-> Algunos servicios tienen directivas de intención de red para asegurarse de que el tráfico de red funciona según sea necesario para sus servicios. Al usar reglas de administración de seguridad, podría interrumpir las directivas de intención de red creadas para esos servicios. Por ejemplo, la creación de una regla de administración de denegación puede bloquear parte del tráfico permitido por el servicio *instancia administrada de SQL*, que se define mediante su directiva de intención de red. Asegúrese de revisar el entorno antes de aplicar una configuración de administrador de seguridad. 
+> Algunos servicios tienen directivas de intención de red para asegurarse de que el tráfico de red funciona según sea necesario para sus servicios. Al usar reglas de administración de seguridad, podría interrumpir las directivas de intención de red creadas para esos servicios. Por ejemplo, la creación de una regla de administración de denegación puede bloquear parte del tráfico permitido por el servicio *instancia administrada de SQL*, que se define mediante su directiva de intención de red. Asegúrese de revisar el entorno antes de aplicar una configuración de administrador de seguridad. Para más información, vea [¿Cómo puedo permitir explícitamente el tráfico SQLMI antes de tener reglas de denegación?](faq.md#how-can-i-explicitly-allow-sqlmi-traffic-before-having-deny-rules)
 
 Estos son los campos que puede definir en una regla de administración de seguridad:
 

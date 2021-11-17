@@ -6,12 +6,12 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1d0454c4de9831e4ed4062607a04a8cc7bec6210
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 80bac3de850cb4260ed2e91e6b98063adac6d6fe
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129987620"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236739"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Administración de un plan de App Service en Azure
 
@@ -20,7 +20,7 @@ Un [plan de Azure App Service](overview-hosting-plans.md) proporciona los recurs
 ## <a name="create-an-app-service-plan"></a>Creación de un plan de App Service
 
 > [!TIP]
-> Si no desea crear un plan en una instancia de App Service Environment, puede seleccionarlo en la **región** y seguir el resto de los pasos, tal como se describe a continuación.
+> Si no quiere crear un plan en una instancia de App Service Environment, puede seleccionarlo en la **región** y seguir el resto de los pasos, tal como se describe a continuación.
 
 Puede crear un plan de App Service vacío o como parte de la creación de la aplicación.
 

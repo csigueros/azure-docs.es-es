@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 61419ec7e3e123ba1ab74a1400ee2c92c0e4c7aa
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 020296957e09743610ab46db74e663d86901d116
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131553348"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179574"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configuración y envío de ejecuciones de entrenamiento
 
@@ -81,7 +81,7 @@ El código de ejemplo de este artículo da por sentado que ya ha creado un desti
 
 [!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
-## <a name="create-an-environment"></a>Creación de un entorno
+## <a name="create-an-environment"></a><a name="environment"></a>Creación de un entorno
 Los [entornos](concept-environments.md) de Azure Machine Learning son una encapsulación del entorno en el que se produce el entrenamiento del aprendizaje automático. Especifican los paquetes, la imagen de Docker, las variables de entorno y la configuración de software de Python en torno a los scripts de entrenamiento y puntuación. También especifican los entornos de ejecución (Python, Spark o Docker).
 
 Puede definir su propio entorno o usar un entorno mantenido de Azure ML. Los [entornos mantenidos](./how-to-use-environments.md#use-a-curated-environment) son entornos predefinidos que están disponibles en el área de trabajo de forma predeterminada. Estos entornos están respaldados por imágenes de Docker en caché, lo que reduce el costo de preparación de la ejecución. Consulte [Entornos mantenidos de Azure Machine Learning](./resource-curated-environments.md) para obtener la lista completa de entornos mantenidos disponibles.
@@ -113,7 +113,7 @@ myenv.python.user_managed_dependencies = True
 
 ## <a name="create-the-script-run-configuration"></a>Creación de la configuración de ejecución de script
 
-Ahora que tiene un destino de proceso (`my_compute_target`) y un entorno (`myenv`), cree una configuración de ejecución de script que ejecute el script de entrenamiento (`train.py`) ubicado en el directorio `project_folder`:
+Ahora que tiene un destino de proceso (`my_compute_target`, consulte [Requisitos previos](#prerequisites) y un entorno (`myenv`, consulte [Creación de un entorno](#environment)), cree una configuración de ejecución de script que ejecute el script de entrenamiento (`train.py`) ubicado en el directorio `project_folder`:
 
 ```python
 from azureml.core import ScriptRunConfig

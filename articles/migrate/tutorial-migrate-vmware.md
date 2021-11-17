@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 8f653f8e41d45310cf6d90aebf0484b2a0ea7360
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 2c0c2017ab4750187d4619761154a2adc6002357
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272986"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324752"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migración de máquinas virtuales de VMware a Azure (sin agente)
 
@@ -210,10 +210,10 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
 - Para un mayor rendimiento:
     - De forma predeterminada, los discos de datos se crean con el almacenamiento en caché de host establecido en "None". Revise y ajuste el almacenamiento en caché del disco de datos según sus necesidades de carga de trabajo. [Más información](../virtual-machines/premium-storage-performance.md#disk-caching).  
 - Para aumentar la seguridad:
-    - Bloquee y limite el acceso de tráfico de entrada con la [administración Just-In-Time de Azure Security Center](../security-center/security-center-just-in-time.md).
+    - Bloquee y limite el acceso del tráfico entrante con [Microsoft Defender para la nube: administración Just-In-Time](../security-center/security-center-just-in-time.md).
     - Restrinja el tráfico de red a los puntos de conexión de administración con [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md).
     - Implemente [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ayudar a proteger discos y datos frente al robo y acceso no autorizado.
-    - Obtenga más información sobre la [protección de recursos IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) y visite [Azure Security Center](https://azure.microsoft.com/services/security-center/).
+    - Obtenga más información sobre la [protección de recursos IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) y visite [Microsoft Defender para la nube](https://azure.microsoft.com/services/security-center/).
 - Para supervisión y administración:
 -  Considere la posibilidad de implementar [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) para supervisar el gasto y el uso de recursos.
 

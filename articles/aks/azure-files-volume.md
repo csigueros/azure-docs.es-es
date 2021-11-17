@@ -5,12 +5,12 @@ description: Aprenda a crear manualmente un volumen con Azure Files para usarlo 
 services: container-service
 ms.topic: article
 ms.date: 07/08/2021
-ms.openlocfilehash: c68783cd614ca5dc1a569f17365992a378d225b9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d303e00c7f1a7ef76bb048048123b65eb42de402
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732215"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179954"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Creación manual y uso de un volumen con un recurso compartido de Azure Files en Azure Kubernetes Service (AKS)
 
@@ -61,7 +61,7 @@ Tome nota del nombre de la cuenta de almacenamiento y la clave que se muestran a
 
 Kubernetes necesita credenciales para acceder al recurso compartido de archivos creado en el paso anterior. Estas credenciales se almacenan en un [secreto de Kubernetes][kubernetes-secret], al que se hace referencia al crear un pod de Kubernetes.
 
-Use el comando `kubectl create secret` para crear el secreto. En el ejemplo siguiente se crea un recurso compartido denominado *azure-secret* y rellena los valores de *azurestorageaccountname* y *azurestorageaccountkey* en el paso anterior. Para usar una cuenta de almacenamiento de Azure existente, proporcione su nombre y su clave.
+Use el comando `kubectl create secret` para crear el secreto. En el ejemplo siguiente se crea un secreto denominado *azure-secret* y rellena los valores de *azurestorageaccountname* y *azurestorageaccountkey* en el paso anterior. Para usar una cuenta de almacenamiento de Azure existente, proporcione su nombre y su clave.
 
 ```console
 kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_PERS_STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=$STORAGE_KEY

@@ -5,12 +5,12 @@ ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: fa2f6c4ec9a64dacc719f62f6a87c6d9d6e112d2
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 67331e8b39a7c059da31215dd971988009a0ee36
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132319338"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491988"
 ---
 # <a name="tutorial-record-and-stream-inference-metadata-with-video"></a>Tutorial: Grabación y transmisión de metadatos de inferencia con vídeo
 
@@ -53,7 +53,7 @@ Como se muestra en el diagrama, se usará un nodo de [origen RTSP](../pipeline.m
 
 * La primera ruta de acceso es a un nodo de extensión HTTP. El nodo de extensión HTTP desempeña el rol de un proxy. Convierte cada 10 fotogramas de vídeo en el tipo de imagen especificado. Luego, retransmite la imagen mediante HTTP a otro módulo perimetral que ejecuta un modelo de IA detrás de un punto de conexión HTTP. En este ejemplo, el módulo perimetral se crea mediante el modelo YOLOv3, que puede detectar muchos tipos de objetos. El nodo procesador de extensiones HTTP recopila los resultados de la detección y envía estos resultados y todos los fotogramas del vídeo (no solo cada 10 fotogramas) al nodo de seguimiento de objetos. El nodo de seguimiento de objetos usa técnicas de flujo óptico para realizar un seguimiento del objeto en los 9 fotogramas a los que no se les aplicó el modelo de IA. El nodo de seguimiento publica sus resultados en el nodo receptor de vídeo y el nodo receptor de IoT Hub. El nodo [receptor de vídeo](../pipeline.md#video-sink) usará los metadatos de inferencia del nodo de seguimiento de objetos que se reproducirán con el vídeo grabado. El nodo [receptor de mensajes de IoT Hub](../pipeline.md#iot-hub-message-sink) envía esos eventos al [centro de IoT Edge](../../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 
-* La segunda ruta de acceso abarca directamente desde el origen RTSP al nodo receptor de vídeo para realizar una grabación de vídeo continua. En este tutorial se va a usar un [vídeo de ejemplo de un ](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv)de vídeo de ejemplo de un cruce de autopistas.
+* La segunda ruta de acceso abarca directamente desde el origen RTSP al nodo receptor de vídeo para realizar una grabación de vídeo continua. En este tutorial se va a usar un [vídeo de ejemplo de un ](https://avamedia.blob.core.windows.net/public/camera-300s.mkv)de vídeo de ejemplo de un cruce de autopistas.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 

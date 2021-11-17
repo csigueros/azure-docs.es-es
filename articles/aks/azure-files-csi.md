@@ -3,14 +3,14 @@ title: Uso de controladores de interfaz de almacenamiento de contenedores (CSI) 
 description: Aprenda a usar los controladores de interfaz de almacenamiento de contenedores (CSI) para Azure Files en un clúster de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 11/09/2021
 author: palma21
-ms.openlocfilehash: c60b2301e6f0ea2767128224c4e76a677df69e0d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f1a0abb0a89ba9e2c913b29ccc17b591c7fa0d39
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746004"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137284"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks"></a>Uso de controladores de Container Storage Interface (CSI) de Azure Files en Azure Kubernetes Service (AKS)
 
@@ -258,7 +258,10 @@ kubectl apply -f private-pvc.yaml
 
 [Azure Files admite el protocolo NFS v4.1](../storage/files/storage-files-how-to-create-nfs-shares.md). La compatibilidad con NFS 4.1 de Azure Files proporciona un sistema de archivos NFS totalmente administrado como un servicio basado en una plataforma de almacenamiento resistente distribuida de alta disponibilidad y alta durabilidad.
 
- Esta opción está optimizada para cargas de trabajo de acceso aleatorio con actualizaciones de datos en contexto y proporciona compatibilidad completa con el sistema de archivos POSIX. En esta sección se muestra cómo usar recursos compartidos de archivos NFS con el controlador CSI de Azure Files en un clúster de AKS.
+Esta opción está optimizada para cargas de trabajo de acceso aleatorio con actualizaciones de datos en contexto y proporciona compatibilidad completa con el sistema de archivos POSIX. En esta sección se muestra cómo usar recursos compartidos de archivos NFS con el controlador CSI de Azure Files en un clúster de AKS.
+
+> [!NOTE]
+> Asegúrese de que la identidad del clúster `Control plane` (con el nombre `AKS Cluster Name`) tiene el permiso `Contributor` en el grupo de recursos de red virtual.
 
 ### <a name="create-nfs-file-share-storage-class"></a>Creación de una clase de almacenamiento de recursos compartidos de archivos NFS
 

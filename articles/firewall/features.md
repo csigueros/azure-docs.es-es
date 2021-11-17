@@ -1,5 +1,5 @@
 ---
-title: Características de Azure Firewall
+title: Características de Azure Firewall Estándar
 description: Conozca las características de Azure Firewall
 services: firewall
 author: vhorne
@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 07/30/2021
 ms.author: victorh
-ms.openlocfilehash: 348a52aaee7569a4f98a4d67b83d1d957fd89f62
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 0c9b871197085a6a220482c3b9d1d35f25d5b427
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130242224"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136760"
 ---
-# <a name="azure-firewall-features"></a>Características de Azure Firewall
+# <a name="azure-firewall-standard-features"></a>Características de Azure Firewall Estándar
 
-[Azure Firewall](overview.md) es un servicio de seguridad de red administrado y basado en la nube que protege los recursos de red virtual de Azure.
+[Azure Firewall](overview.md) Estándar es un servicio de seguridad de red administrado y basado en la nube que protege los recursos de red virtual de Azure.
 
-![Información general de firewalls](media/overview/firewall-threat.png)
+:::image type="content" source="media/features/firewall-standard.png" alt-text="Características de Azure Firewall Estándar":::
 
 Azure Firewall incluye las siguientes características:
 
@@ -30,6 +30,10 @@ Azure Firewall incluye las siguientes características:
 - Etiquetas FQDN
 - Etiquetas de servicio
 - Información sobre amenazas
+- Proxy DNS
+- DNS personalizado
+- Nombre de dominio completo en las reglas de red
+- Implementación sin dirección IP pública en modo de túnel forzado
 - Compatibilidad con SNAT saliente
 - Compatibilidad con DNAT entrante
 - Varias direcciones IP públicas
@@ -82,6 +86,30 @@ Una [etiqueta de servicio](service-tags.md) representa un grupo de prefijos de d
 ## <a name="threat-intelligence"></a>Información sobre amenazas
 
 El filtrado basado en [inteligencia sobre amenazas](threat-intel.md) puede habilitarse para que el firewall alerte y deniegue el tráfico desde y hacia los dominios y las direcciones IP malintencionados. La direcciones IP y los dominios proceden de la fuente Inteligencia sobre amenazas de Microsoft.
+
+## <a name="dns-proxy"></a>Proxy DNS
+
+Con el proxy DNS habilitado, Azure Firewall puede procesar y reenviar consultas DNS desde una red virtual al servidor DNS que desee. Esta funcionalidad es fundamental y es necesaria para tener un filtrado de FQDN confiable en las reglas de red. Puede habilitar el proxy DNS en la configuración de Azure Firewall y en la configuración de directiva de firewall. Para más información sobre el proxy DNS, consulte [Configuración del DNS de Azure Firewall](dns-settings.md).
+
+## <a name="custom-dns"></a>DNS personalizado
+
+Un DNS personalizado le permite configurar Azure Firewall para usar su propio servidor DNS, al tiempo que garantiza que las dependencias de salida del firewall se siguen resolviendo con Azure DNS. Puede configurar un único servidor DNS o varios servidores en Azure Firewall y en la configuración DNS de directiva de firewall. Obtenga más información sobre los DNS personalizados, consulte [Configuración de DNS de Azure Firewall](dns-settings.md).
+
+Azure Firewall también puede resolver nombres mediante el DNS privado de Azure. La red virtual donde reside Azure Firewall debe estar vinculada a la zona privada de Azure. Para obtener más información, consulte [Uso de Azure Firewall como reenviador DNS con Private Link](https://github.com/adstuart/azure-privatelink-dns-azurefirewall).
+
+## <a name="fqdn-in-network-rules"></a>Nombre de dominio completo en las reglas de red
+
+Puede usar nombres de dominio completos (FQDN) en reglas de red de acuerdo con la resolución DNS en la directiva de firewall y Azure Firewall. 
+
+Los FQDN especificados en las colecciones de reglas se traducen a direcciones IP en función de la configuración del DNS del firewall. Esta funcionalidad permite filtrar el tráfico saliente mediante FQDN con cualquier protocolo TCP o UDP (incluidos NTP, SSH y RDP, entre otros). Como esta funcionalidad se basa en la resolución DNS, se recomienda encarecidamente habilitar el proxy DNS para asegurarse de que la resolución de nombres sea coherente con las máquinas virtuales y el firewall protegidos.
+
+## <a name="deploy-azure-firewall-without-public-ip-address-in-forced-tunnel-mode"></a>Implementación de Azure Firewall sin dirección IP pública en modo de túnel forzado
+
+El servicio de Azure Firewall requiere una dirección IP pública con fines operativos. Aunque son seguras, algunas implementaciones prefieren no exponer una dirección IP pública directamente en Internet. 
+
+En tales casos, puede implementar Azure Firewall en modo de túnel forzado. Esta configuración crea una NIC de administración que usa Azure Firewall para sus operaciones. La red de inquilino de Datapath se puede configurar sin una dirección IP pública y el tráfico de Internet se puede tunelizar de manera forzada a otro firewall o bloquearse completamente.
+
+El modo de túnel forzado no se puede configurar en entorno de ejecución. Puede volver a implementar el firewall o usar la instalación de detención e inicio para volver a configurar un Azure Firewall existente en modo de túnel forzado. Los firewalls implementados en centros de conectividad seguros siempre se implementan en modo de túnel forzado.
 
 ## <a name="outbound-snat-support"></a>Compatibilidad con SNAT saliente
 

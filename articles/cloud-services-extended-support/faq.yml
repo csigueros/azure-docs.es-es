@@ -9,12 +9,12 @@ metadata:
   ms.reviewer: mimckitt
   ms.date: 10/13/2020
   ms.custom: references_regions
-  ms.openlocfilehash: bb2ee07d3d5c603df11d5b17b6afea496f4b31c8
-  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+  ms.openlocfilehash: bf35360b41fe136ec0ea3af8c846e398465d1a81
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/03/2021
-  ms.locfileid: "123424103"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130235779"
 title: Preguntas más frecuentes sobre Azure Cloud Services (soporte extendido)
 summary: En este artículo se tratan las preguntas frecuentes relacionadas con Azure Cloud Services (soporte extendido).
 sections:
@@ -51,6 +51,10 @@ sections:
   - question: >
       ¿Cómo cambian los roles web y de trabajo?
     answer: "No hay ningún cambio en el diseño, la arquitectura o los componentes de los roles web y de trabajo. \n"
+  - question: >
+      El escalado de instancia de rol sigue fallando, ¿cómo se mitiga este problema?
+    answer: >
+      Cuando se suceden varias llamadas a escala en el mismo servicio en la nube (para distintos roles) aproximadamente al mismo tiempo, debido a una condición de carrera, los componentes de la Plataforma Microsoft dejan de sincronizarse, lo que provoca errores. Microsoft está tratando de resolver este problema. La solución alternativa sugerida para el provisional es no escalar automáticamente todos los roles de manera simultánea.
   - question: >
       ¿Cómo cambian las instancias de rol?
     answer: "No hay ningún cambio en el diseño, la arquitectura o los componentes de las instancias de rol. \n"
@@ -151,4 +155,10 @@ sections:
       Al especificar secretos o certificados que se instalarán en una instancia de Cloud Services, ¿debe el recurso de KeyVault estar en la misma región que el recurso de Cloud Services?
     answer: >
       Sí. La razón por la que aplicamos límites de región es impedir que los usuarios creen arquitecturas que tengan dependencias entre regiones. El aislamiento regional es un principio de diseño clave de aplicaciones basadas en la nube. Sin embargo, puede usar la extensión de Key Vault para obtener compatibilidad entre suscripciones y regiones para los certificados. Consulte la documentación [aquí](./enable-key-vault-virtual-machine.md).
+- name: Problemas conocidos
+  questions:
+  - question: >
+      El escalado de instancia de rol sigue fallando, ¿cómo se mitiga este problema?
+    answer: >
+      Cuando se suceden varias llamadas a escala en el mismo servicio en la nube (para distintos roles) aproximadamente al mismo tiempo, debido a una condición de carrera, los componentes de la Plataforma Microsoft dejan de sincronizarse, lo que provoca errores. Microsoft está tratando de resolver este problema. La solución alternativa sugerida para el provisional es no escalar automáticamente todos los roles de manera simultánea.
 additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\nPara empezar a usar Cloud Services (soporte extendido), consulte [Implementación de una instancia de Cloud Services (soporte extendido) mediante PowerShell](deploy-powershell.md)."

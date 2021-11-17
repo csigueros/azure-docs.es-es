@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 01/28/2021
+ms.date: 10/21/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 46f8df4b48dcd887bf5500ba5189374c2331047c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: cfbc4c469ca25247c6fb74246133a8dc972a68a9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408018"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262781"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Solución de problemas de verificación del editor
 Si no puede completar el proceso o experimenta u observa un comportamiento inesperado con la [verificación del editor](publisher-verification-overview.md), o si recibe errores, debe empezar por hacer lo siguiente: 
@@ -29,7 +29,7 @@ Si no puede completar el proceso o experimenta u observa un comportamiento inesp
 
 1. Revise la lista de [problemas comunes](#common-issues).
 
-1. Reproduzca la solicitud mediante [Explorador de gráficos](#making-microsoft-graph-api-calls) para recopilar información adicional y descartar cualquier problema en la interfaz de usuario.
+1. Reproduzca la solicitud mediante el [Probador de Graph](#making-microsoft-graph-api-calls) a fin de recopilar más información y descartar cualquier problema en la interfaz de usuario.
 
 ## <a name="common-issues"></a>Problemas comunes
 A continuación se muestran algunos problemas comunes que pueden producirse durante el proceso. 
@@ -159,7 +159,7 @@ La causa más habitual es que el usuario que inició sesión no sea miembro del 
 
 El id. de MPN proporcionado (`MPNID`) no es válido. Proporcione una id. de MPN válido e inténtelo de nuevo.
     
-Normalmente se produce cuando se proporciona un identificador de MPN que corresponde a una cuenta de ubicación de asociado (PLA). Solo se admiten cuentas de asociado globales. Consulte la [estructura de las cuentas del Centro de partners](/partner-center/account-structure) para obtener más detalles.
+Por lo general, se produce cuando se proporciona un identificador de MPN que corresponde a una cuenta de ubicación de asociado (PLA). Solo se admiten cuentas de asociado globales. Consulte la [estructura de las cuentas del Centro de partners](/partner-center/account-structure) para obtener más detalles.
 
 ### <a name="mpnaccountinvalid"></a>MPNAccountInvalid
 
@@ -189,7 +189,7 @@ Normalmente se debe a que se proporciona el identificador de MPN incorrecto.
 
 No se encuentra la aplicación de destino (`AppId`). Proporcione un identificador de aplicación válido e inténtelo de nuevo.
     
-Normalmente se produce cuando la verificación se realiza a través de Graph API y el identificador de aplicación proporcionado no es correcto. Nota: Se debe proporcionar el identificador de la aplicación, no el valor de AppId/ClientId.
+Por lo general, se produce cuando la comprobación se realiza a través de Graph API y el identificador de la aplicación que se proporciona no es correcto. Nota: Se debe proporcionar el identificador de la aplicación, no el valor de AppId/ClientId.
 
 ### <a name="b2ctenantnotallowed"></a>B2CTenantNotAllowed
 
@@ -233,11 +233,11 @@ El mensaje de error será: "Debido a un cambio de configuración realizado por e
 
 ### <a name="unabletoaddpublisher"></a>UnableToAddPublisher
 
-El mensaje de error es: "No se puede agregar un editor comprobado a esta aplicación. Póngase en contacto con el administrador para obtener ayuda".
+Se muestra uno de estos mensajes de error: "No se puede agregar un editor comprobado a esta aplicación. Póngase en contacto con el administrador para obtener ayuda", o bien "No puede agregar un editor comprobado a esta aplicación. Póngase en contacto con el administrador para obtener ayuda".
 
 En primer lugar, compruebe que ha cumplido los [requisitos de comprobación del editor](publisher-verification-overview.md#requirements).
 
-Cuando se realiza una solicitud para agregar un editor comprobado, se usan varias señales para realizar una evaluación de riesgos de seguridad. Si se determina que la solicitud representa un riesgo, se devolverá un error. Por motivos de seguridad, Microsoft no revela los criterios específicos que se usan para determinar si una solicitud representa un riesgo o no.
+Cuando se realiza una solicitud para agregar un editor comprobado, se usan varias señales para realizar una evaluación de riesgos de seguridad. Si se determina que la solicitud representa un riesgo, se devolverá un error. Por motivos de seguridad, Microsoft no revela los criterios específicos que se usan para determinar si una solicitud representa un riesgo o no. Si recibió este error y cree que la evaluación "de riesgo" es incorrecta, intente esperar y volver a enviar la solicitud de comprobación. Algunos clientes informaron que la operación se realizó correctamente después de varios intentos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

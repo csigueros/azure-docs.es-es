@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/09/2020
 ms.author: jeedes
-ms.openlocfilehash: c73c988eb6d950a77ccd626968fe48cc9c9f40f2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 1bedf50cbaad385a6432d15908a8ec33369ac83b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124773367"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132349117"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-burp-suite-enterprise-edition"></a>Tutorial: Integración de inicio de sesión único (SSO) de Azure Active Directory con Burp Suite Enterprise Edition
 
@@ -62,7 +62,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Burp Suite Enter
 Para configurar y probar el inicio de sesión único de Azure AD con Burp Suite Enterprise Edition, complete los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Burp Suite Enterprise Edition](#configure-burp-suite-enterprise-edition-sso)** , para configurar los valores del inicio de sesión único en el lado de la aplicación.
     1. **[Creación de un usuario de prueba de Burp Suite Enterprise Edition](#create-burp-suite-enterprise-edition-test-user)** , para tener un homólogo de B.Simon en Burp Suite Enterprise Edition que esté vinculado a la representación de usuario en Azure AD.
@@ -149,4 +149,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Burp Suite Enterprise Edition, puede aplicar el control de sesión que protege a su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Burp Suite Enterprise Edition, puede aplicar el control de sesión que protege a su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

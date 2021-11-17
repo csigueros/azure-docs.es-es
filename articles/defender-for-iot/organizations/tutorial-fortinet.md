@@ -1,27 +1,27 @@
 ---
-title: Integración de Fortinet con Azure Defender para IoT
-description: En este tutorial, aprenderá a integrar Azure Defender para IoT con Fortinet.
+title: Integración de Fortinet con Microsoft Defender para IoT
+description: En este tutorial, aprenderá a integrar Microsoft Defender para IoT con Fortinet.
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 10/25/2021
+ms.date: 11/09/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 81bbedf86c3559b8f668dcfcf26cb0d9dab21af0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0556cab649a87b7c0309671acc60d9756a3d03c6
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131070914"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283664"
 ---
-# <a name="tutorial-integrate-fortinet-with-azure-defender-for-iot"></a>Tutorial: Integración de Fortinet con Azure Defender para IoT
+# <a name="tutorial-integrate-fortinet-with-microsoft-defender-for-iot"></a>Tutorial: Integración de Fortinet con Microsoft Defender para IoT
 
-Este tutorial le ayudará a aprender a integrar Fortinet con Azure Defender para IoT.
+En este tutorial, aprenderá a integrar y usar Fortinet con Microsoft Defender para IoT.
 
-Azure Defender para IoT mitiga los riesgos de IIoT, ICS y SCADA con motores de autoaprendizaje preparados para ICS que proporcionan información detallada sobre dispositivos, puntos vulnerables y amenazas para ICS.  Defender para IoT lo consigue sin depender de agentes, reglas, firmas, aptitudes especializadas o conocimientos previos del entorno.
+Microsoft Defender para IoT mitiga los riesgos de IIoT, ICS y SCADA con motores de autoaprendizaje preparados para ICS que proporcionan información detallada sobre dispositivos, puntos vulnerables y amenazas para ICS.  Defender para IoT lo consigue sin depender de agentes, reglas, firmas, aptitudes especializadas o conocimientos previos del entorno.
 
-Defenders para IoT y Fortinet han establecido una asociación tecnológica que detecta y detiene los ataques a IoT y a las redes ICS.
+Defender para IoT y Fortinet han establecido una asociación tecnológica que detecta y detiene los ataques a IoT y a las redes ICS.
 
-Fortinet y Azure Defender para IoT impiden lo siguiente:
+Fortinet y Microsoft Defender para IoT impiden lo siguiente:
 
 - Cambios no autorizados en los controladores lógicos programables (PLC).
 
@@ -58,7 +58,7 @@ No hay ningún requisito previo para este tutorial.
 
 ## <a name="create-an-api-key-in-fortinet"></a>Creación de una clave de API en Fortinet
 
-Una clave de interfaz de programación de aplicaciones (API) es un código generado de forma única que permite a una API identificar la aplicación o el usuario que solicita acceso a ella. Se necesita una clave de API para que Azure Defender para IoT y Fortinet se comuniquen correctamente.
+Una clave de interfaz de programación de aplicaciones (API) es un código generado de forma única que permite a una API identificar la aplicación o el usuario que solicita acceso a ella. Se necesita una clave de API para que Microsoft Defender para IoT y Fortinet se comuniquen correctamente.
 
 **Para crear una clave de API en Fortinet**:
 
@@ -105,7 +105,7 @@ El firewall de FortiGate se puede utilizar para bloquear el tráfico sospechoso.
 
 **Para establecer una regla de reenvío que bloquee las alertas relacionadas con malware**:
 
-1. Inicie sesión en la consola de administración de Azure Defender para IoT.
+1. Inicie sesión en la consola de administración de Microsoft Defender para IoT.
 
 1. En el panel izquierdo, seleccione **Reenvío**.
 

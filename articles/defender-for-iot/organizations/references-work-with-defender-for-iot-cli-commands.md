@@ -1,14 +1,14 @@
 ---
 title: Uso de los comandos de la CLI de Defender para IoT
 description: En este artículo se describen los comandos de la CLI de Defender para IoT de sensores y consolas de administración locales.
-ms.date: 05/20/2021
+ms.date: 11/09/2021
 ms.topic: article
-ms.openlocfilehash: bac3e84d77436e9dfc500baa9f729ba847c49bd4
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 4561f0e9697826fff808d03e3bf38f0d546d7c8a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018425"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347187"
 ---
 # <a name="work-with-defender-for-iot-cli-commands"></a>Uso de los comandos de la CLI de Defender para IoT
 
@@ -101,7 +101,7 @@ El atributo que se puede definir en el comando es la dirección IP del servidor 
 
 ## <a name="network-configuration"></a>Network configuration (Configuración de red)
 
-En la tabla siguiente se describen los comandos disponibles para configurar las opciones de red de Azure Defender para IoT:
+En la tabla siguiente se describen los comandos disponibles a fin de configurar las opciones de red de Microsoft Defender para IoT:
 
 |Nombre|Get-Help|Descripción|
 |-----------|-------|-----------|

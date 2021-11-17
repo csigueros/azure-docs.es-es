@@ -4,14 +4,14 @@ description: Información general sobre la configuración de varias instancias d
 author: vicancy
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 10/13/2021
+ms.date: 11/08/2021
 ms.author: lianwei
-ms.openlocfilehash: 3c14294a2a7d2ff2cb2f1f362b0474353c86b7ca
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 14a6661196f7bfa16d3611137d1517c41f21b00d
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131431016"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132156517"
 ---
 # <a name="resiliency-and-disaster-recovery-in-azure-web-pubsub-service"></a>Resistencia y recuperación ante desastres en el servicio Azure Web PubSub
 
@@ -29,7 +29,7 @@ Dentro de cada par, el servidor de aplicaciones y el servicio Web PubSub se encu
 
 Para ilustrar mejor la arquitectura, designamos el servicio Web PubSub como servicio **principal** para el servidor de aplicaciones del mismo par. Y designamos los servicios Web PubSub de otros pares como servicios **secundarios** para el servidor de aplicaciones.
 
-El servidor de aplicaciones puede usar la [API de comprobación de estado del servicio](/rest/api/webpubsub/health-api/get-service-status) para detectar si sus servicios **principal** y **secundario** son correctos o no. Por ejemplo, para un servicio Web PubSub denominado `demo`, el punto de conexión `https://demo.webpubsub.azure.com/api/health` devuelve 200 cuando el estado del servicio es correcto. El servidor de aplicaciones puede llamar periódicamente a los puntos de conexión o llamar a los puntos de conexión a petición para comprobar si los puntos de conexión están en buen estado. Los clientes de WebSocket normalmente **negocian** primero con su servidor de aplicaciones para obtener la dirección URL que se conecta al servicio Web PubSub y la aplicación usa este paso de **negociación** para conmutar por error los clientes a otros servicios **secundarios** en buen estado. Los pasos detallados se indican a continuación:
+El servidor de aplicaciones puede usar la [API de comprobación de estado del servicio](/rest/api/webpubsub/dataplane/health-api/get-service-status) para detectar si sus servicios **principal** y **secundario** son correctos o no. Por ejemplo, para un servicio Web PubSub denominado `demo`, el punto de conexión `https://demo.webpubsub.azure.com/api/health` devuelve 200 cuando el estado del servicio es correcto. El servidor de aplicaciones puede llamar periódicamente a los puntos de conexión o llamar a los puntos de conexión a petición para comprobar si los puntos de conexión están en buen estado. Los clientes de WebSocket normalmente **negocian** primero con su servidor de aplicaciones para obtener la dirección URL que se conecta al servicio Web PubSub y la aplicación usa este paso de **negociación** para conmutar por error los clientes a otros servicios **secundarios** en buen estado. Los pasos detallados se indican a continuación:
 
 1. Cuando un cliente **negocia** con el servidor de aplicaciones, este solo DEBE devolver los puntos de conexión del servicio Web PubSub, por lo que, en caso normal, los clientes solo se conectan a los puntos de conexión principales.
 1. Cuando la instancia principal está inactiva, **negotiate** DEBE devolver un punto de conexión secundario en buen estado para que el cliente pueda realizar conexiones, y el cliente se conecta al punto de conexión secundario.
@@ -42,7 +42,7 @@ Con esta topología, todavía se puede entregar el mensaje de un servidor a todo
 Todavía no hemos integrado la estrategia en el SDK, por lo que por ahora la aplicación debe implementar esta estrategia por sí misma. 
 
 En resumen, lo que el lado de la aplicación debe implementar es:
-1. Comprobación de estado. La aplicación puede comprobar si el servicio está en buen estado mediante [la API de comprobación de estado del servicio](/rest/api/webpubsub/health-api/get-service-status) periódicamente en segundo plano o a petición para cada llamada de **negociación**.
+1. Comprobación de estado. La aplicación puede comprobar si el servicio está en buen estado mediante [la API de comprobación de estado del servicio](/rest/api/webpubsub/dataplane/health-api/get-service-status) periódicamente en segundo plano o a petición para cada llamada de **negociación**.
 1. Lógica de negociación. La aplicación devuelve un punto de conexión **principal** correcto de forma predeterminada. Cuando el punto de conexión **principal** está inactivo, la aplicación devuelve un punto de conexión **secundario** correcto.
 1. Lógica de difusión. Al enviar mensajes a varios clientes, la aplicación debe asegurarse de que difunde mensajes a todos los puntos de conexión **correctos**.
 

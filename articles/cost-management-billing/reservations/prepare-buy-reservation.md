@@ -2,18 +2,18 @@
 title: Adquisición de una reserva de Azure
 description: Para comprar una reserva de Azure, es importante que conozca algunos aspectos importantes.
 author: bandersmsft
-ms.reviewer: primattal
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 10/21/2021
 ms.author: banders
-ms.openlocfilehash: bbd57ed54171785ab8f2aedea93fa8c56cc0319c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f7c9551b3edee5c4e491cd4218e7b7973f01f287
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128653383"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244160"
 ---
 # <a name="buy-a-reservation"></a>Adquisición de una reserva
 
@@ -23,7 +23,9 @@ Las reservas de Azure le ayudan a ahorrar dinero, ya que se compromete a planes 
 
 Para comprar una reserva, debe tener un rol de propietario o comprador de la reserva en una suscripción de Azure de tipo Enterprise (MS-AZR-0017P o MS-AZR-0148P) o de pago por uso (MS-AZR-0003P o MS-AZR-0023P), o bien un Contrato de cliente de Microsoft. Los proveedores de soluciones en la nube pueden usar Azure Portal o el  [Centro de partners](/partner-center/azure-reservations) para comprar reservas de Azure.
 
-Los clientes de Contrato Enterprise (EA) pueden limitar sus compras a los administradores de EA mediante la desactivación de la opción **Add Reserved Instances** (Agregar instancias reservadas) en EA Portal. Los administradores de EA deben tener acceso de propietario o comprador de reservas en al menos una suscripción de EA para comprar una reserva. La opción es útil para las empresas que requieren que un equipo centralizado compre las reservas.
+Los clientes de Contrato Enterprise (EA) pueden limitar sus compras a los administradores de EA mediante la desactivación de la opción **Add Reserved Instances** (Agregar instancias reservadas) en EA Portal. Los clientes directos de EA ya pueden deshabilitar la configuración de instancia reservada en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Vaya al menú Directivas para cambiar la configuración.
+
+Los administradores de EA deben tener acceso de propietario o comprador de reservas en al menos una suscripción de EA para comprar una reserva. La opción es útil para las empresas que requieren que un equipo centralizado compre las reservas.
 
 Los descuentos por reserva se aplican solo a los recursos asociados con las suscripciones compradas a través de un contrato Enterprise, Proveedor de soluciones en la nube (CSP), Microsoft Customer Agreement y de planes individuales con tarifas de pago por uso.
 

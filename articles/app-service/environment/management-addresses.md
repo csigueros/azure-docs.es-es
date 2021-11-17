@@ -1,18 +1,18 @@
 ---
 title: Direcciones de administración
 description: Busque las direcciones de administración utilizadas para controlar una instancia de App Service Environment. Configúrelas en una tabla de rutas para evitar problemas de enrutamiento asimétrico.
-author: ccompy
+author: madsd
 ms.assetid: a7738a24-89ef-43d3-bff1-77f43d5a3952
 ms.topic: article
 ms.date: 11/10/2021
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18, references_regions, devx-track-azurecli
-ms.openlocfilehash: 9b292eb1115b2f0c4ecce5f8c778b2e85188be72
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: c39045f222d43a3b40b5d21c7bd0827172c3c90f
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132327621"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524120"
 ---
 # <a name="app-service-environment-management-addresses"></a>Direcciones de administración de App Service Environment
 > [!NOTE]

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: jlu, shreyamalik
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93d44065255dcb9f4977e93dd596eb3b80c1faa2
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 292860ed26a39205f221c213f392b4b120006d13
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533169"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132344776"
 ---
 # <a name="monitor-and-troubleshoot-continuous-access-evaluation"></a>Supervisión y solución de problemas de evaluación continua de acceso
 
@@ -34,7 +34,7 @@ Los administradores tendrán la oportunidad de supervisar los inicios de sesión
 
 Desde aquí, se mostrará a los administradores información sobre los eventos de inicio de sesión de sus usuarios. Seleccione cualquier inicio de sesión para ver detalles sobre la sesión, como qué directivas de acceso condicional se han aplicado y si se ha habilitado CAE. 
 
-Un intento de inicio de sesión determinado puede mostrarse en la pestaña interactiva o no interactiva. Es posible que los administradores tengan que comprobar las dos pestañas a medida que realicen el seguimiento de los inicios de sesión de sus usuarios.
+Hay varias solicitudes de inicio de sesión para cada autenticación. Algunas se mostrarán en la pestaña interactiva, mientras que otras se mostrarán en la no interactiva. CAE solo se mostrará como true para una de las solicitudes y puede estar en la pestaña interactiva o en la no interactiva. Los administradores deben comprobar ambas pestañas para confirmar si la autenticación del usuario está habilitada o no en CAE. 
 
 ### <a name="searching-for-specific-sign-in-attempts"></a>Búsqueda de intentos de inicio de sesión específicos
 

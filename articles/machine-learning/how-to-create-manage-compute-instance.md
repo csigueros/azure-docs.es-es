@@ -10,13 +10,13 @@ ms.custom: devx-track-azurecli, references_regions
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 09/22/2021
-ms.openlocfilehash: 4897b557626be5071a21d2cc1a6a8194eaed8994
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.date: 10/21/2021
+ms.openlocfilehash: 8515ad8c9a3db24c8504094cf7273cd149b7ab2d
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154287"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131559188"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creación y administración de una instancia de proceso de Azure Machine Learning
 
@@ -419,7 +419,7 @@ Inicie, detenga, reinicie y elimine una instancia de proceso. Una instancia de p
 Puede [crear una programación](#schedule) para que la instancia de proceso se inicie y detenga automáticamente a una hora y un día de la semana.
 
 > [!TIP]
-> La instancia de proceso tiene un disco de SO de 120 GB. Si se queda sin espacio en disco, [use el terminal](how-to-access-terminal.md) para borrar al menos entre 1 y 2 GB antes de detener o reiniciar la instancia de proceso. No detenga la instancia de proceso mediante la emisión del comando sudo shutdown desde el terminal.
+> La instancia de proceso tiene un disco de SO de 120 GB. Si se queda sin espacio en disco, [use el terminal](how-to-access-terminal.md) para borrar al menos entre 1 y 2 GB antes de detener o reiniciar la instancia de proceso. No detenga la instancia de proceso mediante la emisión del comando sudo shutdown desde el terminal. El tamaño del disco temporal en la instancia de proceso depende del tamaño de máquina virtual elegido y se monta en /mnt.
 
 # <a name="python"></a>[Python](#tab/python)
 

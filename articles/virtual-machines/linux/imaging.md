@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 0378c3a8859092f65dca2b8e8147f9be6889e3e6
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: d08c55a1449d159438b652bd45bbdc50e02fb126
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130251306"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427938"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Creación y uso de imágenes de Linux en Azure
 
@@ -32,7 +32,7 @@ Azure permite llevar un disco duro virtual a la plataforma, con el fin de usarlo
 
 Los discos administrados de Azure son discos duros virtuales únicos. Puede tomar un disco duro virtual existente y crear un disco administrado a partir de él, o bien crear un disco administrado vacío desde cero. Puede crear máquinas virtuales a partir de discos administrados. Para ello, debe conectar el disco a la máquina virtual, pero solo puede usar un disco duro virtual con una máquina virtual. No puede modificar las propiedades del sistema operativo, Azure solo intentará encender la máquina virtual y empezar a usar ese disco. 
 
-Las imágenes de Azure pueden estar compuestas de varios discos de sistema operativo y discos de datos. Cuando se usa una imagen administrada para crear una máquina virtual, la plataforma realiza una copia de la imagen y la usa para crear la máquina virtual, por lo que las imágenes administradas permiten reutilizar la misma imagen para varias máquinas virtuales. Azure también proporciona funcionalidades de administración avanzadas para imágenes, como la replicación global y el control de versiones a través de [Shared Image Gallery](../shared-image-galleries.md). 
+Las imágenes de Azure pueden estar compuestas de varios discos de sistema operativo y discos de datos. Cuando se usa una imagen administrada para crear una máquina virtual, la plataforma realiza una copia de la imagen y la usa para crear la máquina virtual, por lo que las imágenes administradas permiten reutilizar la misma imagen para varias máquinas virtuales. Azure también proporciona funcionalidades de administración avanzadas para imágenes, como la replicación global y el control de versiones a través de [Azure Compute Gallery](../shared-image-galleries.md) (anteriormente denominado Shared Image Gallery). 
 
 
 
@@ -42,9 +42,9 @@ Azure ofrece dos tipos principales de imágenes, generalizadas y especializadas.
 
 | Escenario      | Tipo de imagen  | Opciones de almacenamiento |
 | ------------- |:-------------:| :-------------:| 
-| Creación de una imagen que pueda configurarse para que la usen varias máquinas virtuales y que se pueda establecer el nombre de host, agregar un usuario administrador y realizar otras tareas durante el primer arranque. | Generalizada | Shared Image Gallery o imágenes administradas independientes |
-| Creación de una imagen a partir de una instantánea de máquina virtual o de una copia de seguridad | Especializada |Shared Image Gallery o un disco administrado |
-| Creación rápida de una imagen que no necesite ninguna configuración para crear varias máquinas virtuales |Especializada |Galería de imágenes compartidas |
+| Creación de una imagen que pueda configurarse para que la usen varias máquinas virtuales y que se pueda establecer el nombre de host, agregar un usuario administrador y realizar otras tareas durante el primer arranque. | Generalizada | Azure Compute Gallery o imágenes administradas independientes |
+| Creación de una imagen a partir de una instantánea de máquina virtual o de una copia de seguridad | Especializada |Azure Compute Gallery o un disco administrado |
+| Creación rápida de una imagen que no necesite ninguna configuración para crear varias máquinas virtuales |Especializada |Azure Compute Gallery |
 
 
 ### <a name="generalized-images"></a>Imágenes generalizadas
@@ -68,7 +68,7 @@ Para estas imágenes no se necesitan agentes de aprovisionamiento; sin embargo, 
 Al usar la imagen de Linux, tiene dos opciones:
 
 - Imágenes administradas para la creación de una máquina virtual simple en un entorno de desarrollo y de prueba.
-- [Shared Image Gallery](../shared-image-galleries.md) para crear y compartir imágenes a escala.
+- [Azure Compute Gallery](../shared-image-galleries.md) para crear y compartir imágenes a escala.
 
 
 ### <a name="managed-images"></a>Imágenes administradas
@@ -77,9 +77,9 @@ Las imágenes administradas se pueden usar para crear varias máquinas virtuales
 
 Las imágenes administradas se pueden usar para los entornos de desarrollo y prueba cuando se necesiten dos imágenes generalizadas simples para usarlas en una sola región y suscripción. 
 
-### <a name="azure-shared-image-gallery-sig"></a>Azure Shared Image Gallery (SIG)
+### <a name="azure-compute-gallery"></a>Azure Compute Gallery
 
-Las [galerías de imágenes compartidas](../shared-image-galleries.md) se recomiendan para crear, administrar y compartir imágenes a escala. Las galerías de imágenes compartidas le ayudan a crear cierta estructura y organización en torno a las imágenes.  
+Las galerías de [Azure Compute Gallery](../shared-image-galleries.md) (anteriormente conocido como Shared Image Gallery) se recomiendan para crear, administrar y compartir imágenes a escala. Las galerías le ayudan a crear cierta estructura y organización en torno a las imágenes.  
 
 - Compatibilidad con imágenes generalizadas y especializadas.
 - Compatibilidad con imágenes de generación 1 y 2.
@@ -89,7 +89,7 @@ Las [galerías de imágenes compartidas](../shared-image-galleries.md) se recomi
 - Uso compartido entre suscripciones e, incluso entre inquilinos de Active Directory (AD), mediante Azure RBAC.
 - Escalado de las implementaciones con réplicas de imagen en cada región.
 
-En un nivel alto, se crea un SIG, que consta de:
+En un nivel alto, se crea una galería, que consta de:
 - Definiciones de imágenes: son contenedores que albergan grupos de imágenes.
 - Versiones de imágenes: son las imágenes reales.
 
@@ -113,4 +113,5 @@ Si necesita crear su propia imagen, asegúrese de que cumple los [requisitos pre
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a crear una instancia de [Shared Image Gallery](tutorial-custom-images.md).
+Aprenda a crear una instancia de [Azure Compute Gallery](tutorial-custom-images.md).
+

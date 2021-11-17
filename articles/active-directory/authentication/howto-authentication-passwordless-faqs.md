@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d146be642050c169dabf009352a34ad595fab84
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 853174bd96f0a88f8513df848aab7a3d34aceb28
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108746430"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131451851"
 ---
 # <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad"></a>Preguntas más frecuentes sobre la implementación híbrida de claves de seguridad FIDO2 en Azure AD 
 
@@ -208,7 +208,7 @@ Si tiene varios bosques de AD DS, tendrá un objeto *KerberosDomain* para cada 
 
 Para ver todos los objetos, use los cmdlets de PowerShell del servidor Kerberos de Azure AD que se incluyen con la versión más reciente de Azure AD Connect.
 
-Para obtener más información, incluidas las instrucciones para ver los objetos, consulte la sección sobre cómo [crear objetos del servidor Kerberos](howto-authentication-passwordless-security-key-on-premises.md#create-kerberos-server-object).
+Para más información, e instrucciones sobre cómo ver los objetos, consulte [Creación de objetos de servidor de Kerberos](howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object).
 
 ### <a name="why-cant-we-have-the-public-key-registered-to-on-premises-ad-ds-so-there-is-no-dependency-on-the-internet"></a>¿Por qué no puedo registrar la clave pública en la instancia de AD DS local para no tener que depender de Internet?
 
@@ -219,7 +219,7 @@ Hemos recibido comentarios sobre la complejidad del modelo de implementación de
 Las claves *krbtgt* de cifrado del servidor Kerberos de Azure AD se deben rotar periódicamente, al igual que con cualquier otro controlador de dominio. Se recomienda seguir la misma programación que para girar las demás claves *krbtgt* de AD DS.
 
 > [!NOTE]
-> Aunque hay otras herramientas para rotar las claves *krbtgt*, debe [usar los cmdlets de PowerShell para rotar las claves *krbtgt*](howto-authentication-passwordless-security-key-on-premises.md#rotating-the-azure-ad-kerberos-server-key) del servidor Kerberos de Azure AD. Este método garantiza que las claves se actualicen en el entorno de AD DS local y en Azure AD.
+> Aunque hay otras herramientas para rotar las claves *krbtgt*, debe [usar los cmdlets de PowerShell para rotar las claves *krbtgt*](howto-authentication-passwordless-security-key-on-premises.md#rotate-the-azure-ad-kerberos-server-key) del servidor Kerberos de Azure AD. Este método garantiza que las claves se actualicen en el entorno de AD DS local y en Azure AD.
 
 ### <a name="why-do-we-need-azure-ad-connect-does-it-write-any-info-back-to-ad-ds-from-azure-ad"></a>¿Por qué necesitamos Azure AD Connect? ¿Se vuelve a escribir información en AD DS desde Azure AD?
 

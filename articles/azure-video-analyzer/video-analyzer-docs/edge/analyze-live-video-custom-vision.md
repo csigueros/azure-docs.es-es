@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f6999b30816f0750657d8c5990291892d3148cbd
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: e87b1f70df4864a82f13b9e30cf93c2c5ca9eb14
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093020"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484255"
 ---
 # <a name="tutorial-analyze-live-video-with-azure-video-analyzer-on-iot-edge-and-azure-custom-vision"></a>Tutorial: Análisis de vídeo en directo con Azure Video Analyzer en IoT Edge y Azure Custom Vision
 
@@ -65,7 +65,7 @@ Consulte los artículos siguientes antes de empezar:
 
 ## <a name="review-the-sample-video"></a>Revisión del vídeo de ejemplo
 
-En este tutorial se usa un archivo de [vídeo de inferencia de coches de juguete](https://lvamedia.blob.core.windows.net/public/t2.mkv) para simular streaming en vivo. Puede examinar el vídeo mediante una aplicación como [VLC Media Player](https://www.videolan.org/vlc/). Seleccione **Ctrl+N** y, después, pegue un vínculo al [vídeo de inferencia de coches de juguete](https://lvamedia.blob.core.windows.net/public/t2.mkv) para iniciar la reproducción. Cuando vea el vídeo, observe que, en el marcador de 36 segundos, aparece un camión de juguete. El modelo personalizado se ha entrenado para detectar este camión de juguete concreto.
+En este tutorial se usa un archivo de [vídeo de inferencia de coches de juguete](https://avamedia.blob.core.windows.net/public/t2.mkv) para simular streaming en vivo. Puede examinar el vídeo mediante una aplicación como [VLC Media Player](https://www.videolan.org/vlc/). Seleccione **Ctrl+N** y, después, pegue un vínculo al [vídeo de inferencia de coches de juguete](https://avamedia.blob.core.windows.net/public/t2.mkv) para iniciar la reproducción. Cuando vea el vídeo, observe que, en el marcador de 36 segundos, aparece un camión de juguete. El modelo personalizado se ha entrenado para detectar este camión de juguete concreto.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LPwK]
 
@@ -90,7 +90,7 @@ Para crear un detector de camiones de juguete, siga los pasos descritos en [Inic
 
 Notas adicionales:
 
-- En este tutorial, no use las imágenes de ejemplo que se proporcionan en la [sección de requisitos previos](../../../cognitive-services/custom-vision-service/get-started-build-detector.md#prerequisites) del artículo de inicio rápido. En su lugar, hemos usado un conjunto de imágenes determinado para crear un modelo de Custom Vision de detector de juguetes. Use [estas imágenes](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) cuando se le pida que [elija las imágenes de entrenamiento](../../../cognitive-services/custom-vision-service/get-started-build-detector.md#choose-training-images) en el [inicio rápido](../../../cognitive-services/custom-vision-service/get-started-build-detector.md).
+- En este tutorial, no use las imágenes de ejemplo que se proporcionan en la [sección de requisitos previos](../../../cognitive-services/custom-vision-service/get-started-build-detector.md#prerequisites) del artículo de inicio rápido. En su lugar, hemos usado un conjunto de imágenes determinado para crear un modelo de Custom Vision de detector de juguetes. Use [estas imágenes](https://avamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) cuando se le pida que [elija las imágenes de entrenamiento](../../../cognitive-services/custom-vision-service/get-started-build-detector.md#choose-training-images) en el [inicio rápido](../../../cognitive-services/custom-vision-service/get-started-build-detector.md).
 - En la sección de etiquetado de imágenes del inicio rápido, asegúrese de que asigna al camión de juguete que se ve en la imagen la etiqueta "delivery truck" (camión de entrega).
 - Asegúrese de seleccionar General (compacto) como opción en Dominios al crear el proyecto de Custom Vision.
 

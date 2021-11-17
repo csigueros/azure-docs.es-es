@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse en escenarios empresariales
 description: Las funcionalidades de Azure Lighthouse se pueden usar para simplificar la administración entre inquilinos en empresas que utilizan varios inquilinos de Azure AD.
-ms.date: 09/08/2021
+ms.date: 10/21/2021
 ms.topic: conceptual
-ms.openlocfilehash: f83e5d84eee0c3ed7f159778630e3598274e4916
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7d0accd765049c671d8d61a76d7c6449260b0140
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124768788"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249654"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse en escenarios empresariales
 
@@ -49,6 +49,12 @@ Las suscripciones (o los grupos de recursos de una suscripción) se pueden incor
 Dado que lo habitual es que los usuarios empresariales tengan acceso directo a los inquilinos de la empresa y que no es preciso comercializar ni promocionar una oferta de administración, por lo general es más rápido y sencillo realizar la implementación directamente con plantillas de Azure Resource Manager. Aunque en la [guía de incorporación](../how-to/onboard-customer.md) se hace referencia a los proveedores de servicios y los clientes, las empresas pueden usar los mismos procesos para incorporar a sus inquilinos.
 
 Si lo prefiere, en una empresa, los inquilinos se pueden incorporar mediante la [publicación de una oferta de servicios administrados en Azure Marketplace](../how-to/publish-managed-services-offers.md). Para asegurarse de que la oferta solo está disponible para los inquilinos adecuados, asegúrese de que los planes están marcados como privados. Con un plan privado, puede especificar los identificadores de suscripción de cada inquilino que planee incorporar y nadie más podrá obtener su oferta.
+
+## <a name="azure-ad-b2c"></a>Azure AD B2C
+
+[Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/overview.md) proporciona la identidad de negocio a cliente como servicio. Cuando delega un grupo de recursos a través de Azure Lighthouse, puede utilizar Azure Monitor para enrutar los registros de auditoría e inicio de sesión de Azure Active Directory B2C (Azure AD B2C) a soluciones de supervisión distintas. Puede conservar los registros para su uso a largo plazo o integrarlos en herramientas de Administración de eventos e información de seguridad (SIEM) de terceros para sacar conclusiones sobre su entorno.
+
+Para más información, consulte [Supervisión de Azure AD B2C con Azure Monitor](../../active-directory-b2c/azure-monitor.md).
 
 ## <a name="terminology-notes"></a>Notas terminológicas
 

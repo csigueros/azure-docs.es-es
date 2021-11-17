@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 11/10/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 43949ff051357868e6a291436d343332bfec71d3
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 93b4487d2bf4d4af1638917f5d88f906dc3b758a
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131424522"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179501"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Verificación de correo electrónico personalizado con Mailjet
 
@@ -177,6 +177,8 @@ Con la cuenta de Mailjet creada y la clave de API de Mailjet almacenada en una c
     1. Seleccione **Guardar**.
 1. En la parte superior derecha, seleccione **Save & Publish** (Guardar y publicar) y después **Yes, publish changes** (Sí, publicar cambios).
 1. Anote el valor de **Template ID** (Identificador de la plantilla) de la plantilla que creó para usarlo en un paso posterior. Este identificador se especifica al [agregar la transformación de notificaciones](#add-the-claims-transformation).
+
+[!INCLUDE [active-directory-b2c-important-for-custom-email-provider](../../includes/active-directory-b2c-important-for-custom-email-provider.md)]
 
 ## <a name="add-azure-ad-b2c-claim-types"></a>Incorporación de tipos de notificaciones de Azure AD B2C
 
@@ -401,7 +403,7 @@ Al igual que hizo con los perfiles técnicos de OTP, agregue los siguientes perf
 
 ## <a name="make-a-reference-to-the-displaycontrol"></a>Referencia al elemento DisplayControl
 
-En el paso final, agregue una referencia al elemento DisplayControl que creó. Reemplace sus perfiles técnicos autoafirmados `LocalAccountSignUpWithLogonEmail` y `LocalAccountDiscoveryUsingEmailAddress` existentes por lo siguiente. Si usó una versión anterior de la directiva de Azure AD B2C. Estos perfiles técnicos usan `DisplayClaims` con una referencia al elemento DisplayControl.
+En el paso final, agregue una referencia al elemento DisplayControl que creó. Invalide los perfiles técnicos existentes y autoafirmados `LocalAccountSignUpWithLogonEmail` y `LocalAccountDiscoveryUsingEmailAddress` configurados en la directiva base con el siguiente fragmento de código XML. Si usó una versión anterior de la directiva Azure AD B2C, estos perfiles técnicos usan `DisplayClaims` con una referencia a `DisplayControl`.
 
 Para más información, consulte [Definición de un perfil técnico de RESTful en una directiva personalizada en Azure Active Directory B2C](restful-technical-profile.md) y [Controles de visualización](display-controls.md).
 
@@ -476,7 +478,7 @@ Para localizar el correo electrónico, debe enviar las cadenas localizadas a Mai
     <!--
     <BuildingBlocks> -->
       <Localization Enabled="true">
-        <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+        <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
           <SupportedLanguage>en</SupportedLanguage>
           <SupportedLanguage>es</SupportedLanguage>
         </SupportedLanguages>
@@ -571,9 +573,7 @@ El elemento Localization permite incluir varios idiomas o configuraciones region
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede encontrar un ejemplo de una directiva de verificación de correo electrónico personalizado en GitHub:
-
-- [Verificación de correo electrónico personalizado: DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
+- Puede encontrar un ejemplo de una directiva personalizada de [verificación de correo electrónico personalizado: DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol/policy/Mailjet) en GitHub.
 - Para obtener información sobre el uso de una API REST personalizada o de cualquier proveedor de correo electrónico SMTP basado en HTTP, consulte [Definición de un perfil técnico de RESTful en una directiva personalizada en Azure Active Directory B2C](restful-technical-profile.md).
 
 ::: zone-end

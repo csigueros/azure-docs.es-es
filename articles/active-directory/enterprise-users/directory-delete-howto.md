@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/13/2021
+ms.date: 10/20/2021
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee31a8df6d94093565dbc6bb66c1774f0c34c249
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 3b6763ba1b465a0689ab076da69b0efc40d6bd9f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129987031"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262629"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Eliminar un inquilino en Azure Active Directory
 
@@ -27,8 +27,9 @@ Cuando se elimina una organización (inquilino) de Azure AD, también se elimina
 
 ## <a name="prepare-the-organization"></a>Preparar la organización
 
-No puede eliminar una organización de Azure AD hasta que pase varias comprobaciones. Estas comprobaciones reducen el riesgo de que la eliminación de una organización de Azure AD afecte negativamente a los usuarios; por ejemplo, en la capacidad de iniciar sesión en Microsoft 365 o de acceder a los recursos de Azure. Por ejemplo, si se elimina de forma involuntaria una organización con una suscripción, los usuarios no pueden acceder a los recursos de Azure de esa suscripción. Se comprueban las condiciones siguientes:
+No puede eliminar una organización de Azure AD hasta que pase varias comprobaciones. Estas comprobaciones reducen el riesgo de que la eliminación de una organización de Azure AD afecte negativamente a los usuarios; por ejemplo, en la capacidad de iniciar sesión en Microsoft 365 o de acceder a los recursos de Azure. Por ejemplo, si se elimina de forma involuntaria una organización con una suscripción, los usuarios no pueden acceder a los recursos de Azure de esa suscripción. Se deben comprobar estas condiciones:
 
+* Debe haber pagado todas las facturas e importes pendientes o vencidos.
 * No puede haber ningún usuario en el inquilino de Azure AD, excepto un administrador global que eliminará la organización. Se deben eliminar los demás usuarios para poder eliminar la organización. Si los usuarios se sincronizan localmente, se deberá desactivar primero la sincronización y eliminar los usuarios de la organización en la nube mediante Azure Portal o cmdlets de Azure PowerShell.
 * No puede haber aplicaciones en la organización. Las aplicaciones se deben eliminar antes de poder eliminar la organización.
 * No puede haber proveedores de autenticación multifactor vinculados a la organización.

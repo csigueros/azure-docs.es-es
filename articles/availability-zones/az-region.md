@@ -8,12 +8,12 @@ ms.date: 10/01/2021
 ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: references_regions
-ms.openlocfilehash: 58d483c56f27dd346c672f2ec2013dce934993ee
-ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
+ms.openlocfilehash: 2c039bb9cabdd1d4786d4f0d76d591887781e2b5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131866532"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132302128"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Servicios de Azure compatibles con zonas de disponibilidad
 
@@ -180,7 +180,7 @@ En el catálogo de productos, los servicios siempre disponibles se enumeran como
 | Azure Blueprint  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
 | Azure Bot Services  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
 | Azure Front Door  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
-| Azure Defender para IoT  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
+| Microsoft Defender para IoT  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
 | Azure Front Door  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
 | Azure Information Protection  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
 | Azure Lighthouse  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
@@ -189,7 +189,7 @@ En el catálogo de productos, los servicios siempre disponibles se enumeran como
 | Azure Performance Diagnostics  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
 | Azure Policy  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
 | Azure Resource Graph  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
-| Azure Sentinel  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
+| Microsoft Sentinel  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
 | Azure Stack  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
 | Azure Stack Edge  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
 | Azure Cloud Shell  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
@@ -199,9 +199,9 @@ En el catálogo de productos, los servicios siempre disponibles se enumeran como
 | Microsoft Intune  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
 | Azure Peering Service  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
 | Azure portal  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
-| Microsoft Cloud App Security  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
+| Microsoft Defender para aplicaciones en la nube  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
 | Microsoft Graph  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
-| Azure Security Center  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
+| Microsoft Defender for Cloud  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
 | Administrador de tráfico de Azure  | ![Icono que indica que este servicio siempre está disponible.](media/icon-always-available.svg) |
 
 Para obtener una lista de los servicios de Azure que admiten zonas de disponibilidad por región de Azure, consulte la [documentación de zonas de disponibilidad](az-overview.md).

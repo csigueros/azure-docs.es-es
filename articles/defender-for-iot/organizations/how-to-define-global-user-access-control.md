@@ -1,14 +1,14 @@
 ---
 title: Definición del control de acceso de usuarios globales
 description: En las organizaciones grandes, los permisos de usuario pueden ser complejos y estar determinados por una estructura organizativa global, además de la estructura de la zona y del sitio estándar.
-ms.date: 12/08/2020
+ms.date: 11/09/2021
 ms.topic: article
-ms.openlocfilehash: 8f5f8df56a5dcb4152fc0ae9fcae3d504d6cf3e2
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 70437ceeadba0b1c8af9559037ccf718d7a251d4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020482"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283835"
 ---
 # <a name="define-global-access-control"></a>Definición del control de acceso global
 
@@ -16,7 +16,7 @@ En las organizaciones grandes, los permisos de usuario pueden ser complejos y es
 
 Para admitir la demanda de permisos de acceso de usuarios que son globales y más complejos, puede crear una topología empresarial global basada en unidades de negocio, regiones y sitios. A continuación, puede definir permisos de acceso de usuarios en torno a estas entidades.
 
-Trabajar con las herramientas de acceso para la topología empresarial ayuda a las organizaciones a implementar estrategias de confianza cero al controlar mejor dónde los usuarios administran y analizan los dispositivos en la plataforma de Azure Defender para IoT.
+Trabajar con las herramientas de acceso para la topología empresarial ayuda a las organizaciones a implementar estrategias de confianza cero al controlar mejor dónde los usuarios administran y analizan los dispositivos en la plataforma de Microsoft Defender para IoT.
 
 ## <a name="about-access-groups"></a>Acerca de los grupos de acceso
 

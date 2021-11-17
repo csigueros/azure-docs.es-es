@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: yossi-y
 ms.author: yossiy
 ms.date: 10/17/2021
-ms.openlocfilehash: f5dc1ad57b745ee26f9edb1b9c31091a1aaec42c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8088b85ceefef2d3ffb11e7713fefd115c84b781
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131069983"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435175"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 La exportación de datos del área de trabajo de Log Analytics en Azure Monitor permite exportar continuamente los datos de las tablas seleccionadas del área de trabajo de Log Analytics en una cuenta de Azure Storage o Azure Event Hubs a medida que se recopilan. En este artículo se ofrecen detalles sobre esta característica y pasos para configurar la exportación de datos en las áreas de trabajo.
@@ -38,7 +38,7 @@ La exportación de datos del área de trabajo de Log Analytics permite exportar 
 - Las tablas de registro personalizadas existentes no se admiten en la exportación. Se admite una nueva versión de registro personalizada disponible en marzo de 2022.
 - Si la regla de exportación de datos incluye una tabla no admitida, la operación se realizará correctamente, pero no se exportará ningún dato de esa tabla hasta que se admita. 
 - Si la regla de exportación de datos incluye una tabla que no existe, se producirá un error `Table <tableName> does not exist in the workspace`.
-- Puede definir hasta 10 reglas habilitadas en el área de trabajo. Se permiten reglas adicionales cuando se deshabilitan. 
+- Puede definir hasta 10 reglas habilitadas en el área de trabajo. Se permiten más reglas cuando se deshabilitan. 
 - El destino debe ser único en todas las reglas de exportación del área de trabajo.
 - Los destinos deben estar en la misma región que el área de trabajo de Log Analytics.
 - Los nombres de tablas no pueden tener más de 60 caracteres cuando se exporta a la cuenta de almacenamiento y 47 caracteres cuando se exporta al centro de eventos. Las tablas con nombres más largos no se exportarán.
@@ -73,7 +73,7 @@ La exportación de datos del área de trabajo de Log Analytics permite exportar 
     - Oeste de EE. UU. 2
 
 ## <a name="data-completeness"></a>Integridad de los datos
-La exportación de datos continuará reintentando el envío de datos durante un máximo de 30 minutos, en el caso de que el destino no esté disponible. Si sigue sin estar disponible después de 30 minutos, los datos se descartarán hasta que el destino esté disponible.
+La exportación de datos continuará reintentando el envío de datos durante un máximo de 30 minutos si el destino no está disponible. Si sigue sin estar disponible después de 30 minutos, los datos se descartarán hasta que el destino esté disponible.
 
 ## <a name="cost"></a>Coste
 Actualmente no hay cargos adicionales por la característica de exportación de datos. Los precios de la exportación de datos se anunciarán en el futuro y habrá un periodo de aviso antes del inicio de la facturación. Si decide seguir usando la exportación de datos después del período de aviso, se le facturará según la tarifa aplicable.
@@ -84,7 +84,7 @@ El destino de exportación de datos debe crearse antes de crear la regla de expo
 
 ### <a name="storage-account"></a>Cuenta de almacenamiento
 
-Debe tener permisos de "escritura" en el área de trabajo y el destino para poder configurar la regla de exportación de datos. Recuerde que no debe usar una cuenta de almacenamiento existente que tenga otros datos que no sean de supervisión almacenados en ella, para poder controlar mejor el acceso a esos datos y evitar alcanzar el límite de la tasa de ingestión de almacenamiento. 
+Debe tener permisos de "escritura" en el área de trabajo y el destino para poder configurar la regla de exportación de datos. No use una cuenta de almacenamiento existente que tenga otros datos que no sean de supervisión almacenados en ella, para poder controlar mejor el acceso a esos datos y evitar alcanzar el límite de la tasa de ingestión de almacenamiento. 
 
 Para enviar los datos al almacenamiento inmutable, establezca la directiva de inmutabilidad para la cuenta de almacenamiento, tal como se escribe en [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../../storage/blobs/immutable-policy-configure-version-scope.md). Debe seguir todos los pasos que aparecen en este artículo, incluida la habilitación de las escrituras de blobs en anexos protegidos.
 
@@ -148,34 +148,34 @@ La regla de exportación de datos define las tablas cuyos datos se exportarán y
 
 Los destinos de exportación de datos tienen límites y se deben supervisar para minimizar la limitación, los errores y la latencia de la exportación. Consulte los temas sobre [escalabilidad de las cuentas de almacenamiento](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) y [cuotas de espacio de nombres del centro de eventos](../../event-hubs/event-hubs-quotas.md).
 
-#### <a name="recommendations-for-storage-account"></a>Recomendaciones para la cuenta de almacenamiento 
+#### <a name="monitoring-storage-account"></a>Supervisión de una cuenta de almacenamiento
 
 1. Use una cuenta de almacenamiento independiente para la exportación.
-1. Configure la alerta en la métrica siguiente con la siguiente configuración: 
+1. Configure la alerta en función de la siguiente métrica: 
 
     | Ámbito | Espacio de nombres de métrica | Métrica | Agregación | Umbral |
     |:---|:---|:---|:---|:---|
-    | storage-name | Cuenta | Entrada | Sum | 80 % de la tasa máxima de entrada de almacenamiento. Por ejemplo: 60 Gbps para la versión 2 de uso general en la región Oeste de EE. UU. |
+    | storage-name | Cuenta | Entrada | Sum | 80 % de entrada máxima por período de evaluación de alertas. Por ejemplo: el límite es 60 Gbps para la versión 2 de uso general en la región Oeste de EE. UU. El umbral es de 14 400 Gb por período de evaluación de 5 minutos. |
   
 1. Acciones de corrección de alertas
     - Use una cuenta de almacenamiento independiente para la exportación.
     - Las cuentas estándar de Azure Storage admiten límites de entrada más altos por solicitud. Para solicitar un aumento, póngase en contacto con [Soporte técnico de Azure](https://azure.microsoft.com/support/faq/).
     - Dividir tablas entre cuentas de almacenamiento adicionales.
 
-#### <a name="recommendations-for-event-hub"></a>Recomendaciones para el centro de eventos
+#### <a name="monitoring-event-hub"></a>Supervisión del centro de eventos
 
-1. Configuración de [alertas de métricas](../../event-hubs/monitor-event-hubs-reference.md):
+1. Configure las alertas en función de las siguientes [métricas](../../event-hubs/monitor-event-hubs-reference.md):
   
     | Ámbito | Espacio de nombres de métrica | Métrica | Agregación | Umbral |
     |:---|:---|:---|:---|:---|
-    | namespaces-name | Métricas estándar del centro de eventos | Bytes de entrada | Sum | 80 % de entrada máxima por 5 minutos. Por ejemplo, es 1 MB/s por unidad (TU o PU) |
-    | namespaces-name | Métricas estándar del centro de eventos | Solicitudes entrantes | Count | 80 % de eventos como máximo por 5 minutos. Por ejemplo, es 1000/s por unidad (TU o PU) |
-    | namespaces-name | Métricas estándar del centro de eventos | Cuota de errores superada | Count | Entre el 1 % y el 5 % de la solicitud |
+    | namespaces-name | Métricas estándar del centro de eventos | Bytes de entrada | Sum | 80 % de entrada máxima por período de evaluación de alertas. Por ejemplo, el límite es de 1 MB/s por unidad (TU o PU) y 5 unidades usadas. El umbral es de 1200 MB por período de evaluación de 5 minutos. |
+    | namespaces-name | Métricas estándar del centro de eventos | Solicitudes entrantes | Count | 80 % de número máximo de eventos por período de evaluación de alertas. Por ejemplo, el límite es de 1000/s por unidad (TU o PU) y 5 unidades usadas. El umbral es de 1 200 000 Gb por período de evaluación de 5 minutos. |
+    | namespaces-name | Métricas estándar del centro de eventos | Cuota de errores superada | Count | 1 % de la solicitud. Por ejemplo, las solicitudes por período de 5 minutos son 600 000. El umbral es de 6000 MB por período de evaluación de 5 minutos. |
 
 1. Acciones de corrección de alertas
    - Configure la característica de [inflado automático](../../event-hubs/event-hubs-auto-inflate.md) para escalar verticalmente y aumentar el número de unidades de procesamiento de forma automática y, de este modo, satisfacer las necesidades de uso.
    - Comprobación del aumento de las unidades de procesamiento para dar cabida a la carga
-   - Dividir tablas entre espacios de nombres adicionales
+   - División de tablas entre otros espacios de nombres
    - Usar los niveles "Premium" o "Dedicado" para obtener un mayor rendimiento
 
 La regla de exportación debe incluir las tablas que tenga en el área de trabajo. Ejecute esta consulta para obtener una lista de tablas disponibles en el área de trabajo.
@@ -633,7 +633,7 @@ Si la regla de exportación de datos incluye una tabla que no existe, se produci
 
 
 ## <a name="supported-tables"></a>Tablas admitidas
-Las tablas admitidas se limitan actualmente a las que se especifican a continuación. Todos los datos de la tabla se exportarán a menos que se especifiquen limitaciones. Esta lista se actualiza a medida que se agrega compatibilidad con tablas adicionales.
+Las tablas admitidas se limitan actualmente a las que se especifican a continuación. Todos los datos de la tabla se exportarán a menos que se especifiquen limitaciones. Esta lista se actualiza a medida que se agregan más tablas.
 
 | Tabla | Limitaciones |
 |:---|:---|

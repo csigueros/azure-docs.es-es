@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2021
 ms.author: jeedes
-ms.openlocfilehash: 81c56e4656c42901cfa32d5485db5113ecb21bf5
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: f7f6e25b1c276fdda310f394a9b939ea7f860cfa
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132299896"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132000593"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-r-and-d-tax-credit-services--10-wk-implementation"></a>Tutorial: integración del inicio de sesión único de Azure AD con R and D Tax Credit Services (implementación 10-wk)
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar R and D Tax Credit Services con Azure Ac
 * Permitir que los usuarios inicien sesión automáticamente en R and D Tax Credit Services con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -136,4 +136,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado R and D Tax Credit Services, puede aplicar el control de sesión, que protege a la organización en tiempo real contra la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender for Cloud](/cloud-app-security/proxy-deployment-aad).
+Una vez que haya configurado R and D Tax Credit Services, puede aplicar el control de sesión, que protege a la organización en tiempo real contra la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

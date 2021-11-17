@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45d03495d0866674352de35c337303a92ff3263b
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: 1aa931198c380fe020e4b71ff82cc908aa3adba8
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835192"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248837"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?
 En Azure Active Directory (Azure AD), a todos los usuarios se les otorga un conjunto de permisos predeterminados. El acceso de un usuario consta del tipo de usuario, sus [asignaciones de roles](active-directory-users-assign-role-azure-portal.md) y su propiedad de objetos individuales. En este artículo se describen dichos permisos predeterminados y contiene una comparación de los valores predeterminados de los usuarios miembros e invitados. Los permisos de usuario predeterminados solo se pueden cambiar en la configuración de usuario de Azure AD.
@@ -30,7 +30,7 @@ El conjunto de permisos predeterminados recibido depende de si el usuario es mie
 
 ## <a name="compare-member-and-guest-default-permissions"></a>Comparación de los permisos predeterminados de miembros e invitados
 
-**Ámbito** | **Permisos de usuarios miembros** | **Permisos de usuarios invitados predeterminados** | **Permisos de usuarios administrados restringidos (versión preliminar)**
+**Ámbito** | **Permisos de usuarios miembros** | **Permisos de usuarios invitados predeterminados** | **Permisos de usuarios administrados restringidos**
 ------------ | --------- | ---------- | ----------
 Usuarios y contactos | <ul><li>Enumerar la lista de todos los usuarios y contactos<li>Leer todas las propiedades públicas de usuarios y contactos</li><li>Invitar a los invitados<li>Cambiar la contraseña propia<li>Administrar el número de teléfono móvil propio<li>Administrar la fotografía propia<li>Invalidar tokens de actualización propios</li></ul> | <ul><li>Leer las propiedades propias<li>Leer el nombre para mostrar, el correo electrónico, el nombre de inicio de sesión, la fotografía, el nombre principal de usuario y las propiedades de tipo de usuario de otros usuarios y contactos<li>Cambiar la contraseña propia<li>Buscar otro usuario por ObjectId (si se permite)<li>Leer información de administrador y subordinado directo de otros usuarios</li></ul> | <ul><li>Leer las propiedades propias<li>Cambiar la contraseña propia</li><li>Administrar el número de teléfono móvil propio</li></ul>
 Grupos | <ul><li>Crear grupos de seguridad<li>Crear grupos de Microsoft 365<li>Enumerar una lista de todos los grupos<li>Leer todas las propiedades de los grupos<li>Leer las pertenencias a grupos no ocultos<li>Leer las pertenencias a grupos de Microsoft 365 ocultos para los grupos a los que se ha unido<li>Administrar las propiedades, la propiedad y la pertenencia de los grupos propiedad del usuario<li>Agregar invitados a los grupos que se poseen<li>Administrar la configuración de pertenencia dinámica<li>Eliminar los grupos que se poseen<li>Restaurar los grupos de Microsoft 365 que se poseen</li></ul> | <ul><li>Leer las propiedades de los grupos no ocultos, incluida la pertenencia y la propiedad (incluso de grupos no unidos)<li>Leer las pertenencias a grupos de Microsoft 365 ocultos para los grupos a los que se ha unido<li>Buscar grupos por Nombre para mostrar o Id. de objeto (si se permite)</li></ul> | <ul><li>Leer el id. de objeto de los grupos unidos<li>Leer la pertenencia y la propiedad de los grupos unidos en algunas aplicaciones de Microsoft 365 (si se permite)</li></ul>
@@ -64,11 +64,11 @@ Capacidad para leer otros usuarios | Esta configuración solo está disponible e
 Los permisos predeterminados de los usuarios invitados se pueden restringir de las maneras siguientes:
 
 >[!NOTE]
->La configuración de restricciones de acceso para los usuarios invitados reemplazó a la opción **Los permisos de los usuarios invitados están limitados**. Para instrucciones sobre cómo usar esta característica, consulte [Restricción de los permisos de acceso de usuario invitado (versión preliminar) en Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md).
+>La configuración de restricciones de acceso para los usuarios invitados reemplazó a la opción **Los permisos de los usuarios invitados están limitados**. Para instrucciones sobre cómo usar esta característica, consulte [Restricción de los permisos de acceso de usuario invitado en Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md).
 
 Permiso | Explicación del valor
 ---------- | ------------
-Restricciones de acceso de usuarios invitados (versión preliminar) | Establecer esta opción en **Los usuarios invitados tienen el mismo acceso que los miembros** concede de manera predeterminada todos los permisos de usuario miembro a los usuarios invitados.<p>Establecer esta opción en **El acceso de los usuarios invitados está restringido a las propiedades y pertenencias de sus propios objetos de directorio** restringe de manera predeterminada el acceso de un invitado solo a su propio perfil de usuario. Ya no se permite el acceso a otros usuarios ni siquiera al buscar por Nombre principal de usuario, Id. de objeto o Nombre para mostrar. Además, ya no se permite el acceso a la información de grupos, incluidas las pertenencias a grupos.<p>**Nota**: Esta configuración no impide el acceso a unidos grupos de otros servicios de Microsoft 365 como Microsoft Teams. Consulte [Acceso de invitado en Microsoft Teams](/MicrosoftTeams/guest-access) para más información.<p>Los usuarios invitados se pueden seguir agregando a los roles Administrador independientemente de esta configuración de permiso.
+Restricciones de acceso de usuarios invitados | Establecer esta opción en **Los usuarios invitados tienen el mismo acceso que los miembros** concede de manera predeterminada todos los permisos de usuario miembro a los usuarios invitados.<p>Establecer esta opción en **El acceso de los usuarios invitados está restringido a las propiedades y pertenencias de sus propios objetos de directorio** restringe de manera predeterminada el acceso de un invitado solo a su propio perfil de usuario. Ya no se permite el acceso a otros usuarios ni siquiera al buscar por Nombre principal de usuario, Id. de objeto o Nombre para mostrar. Además, ya no se permite el acceso a la información de grupos, incluidas las pertenencias a grupos.<p>**Nota**: Esta configuración no impide el acceso a unidos grupos de otros servicios de Microsoft 365 como Microsoft Teams. Consulte [Acceso de invitado en Microsoft Teams](/MicrosoftTeams/guest-access) para más información.<p>Los usuarios invitados se pueden seguir agregando a los roles Administrador independientemente de esta configuración de permiso.
 Los invitados pueden invitar | Establecer esta opción en Sí permite que los invitados inviten a otros usuarios. Consulte [Delegación de invitaciones de la colaboración B2B de Azure Active Directory](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings) para más información.
 Los miembros pueden invitar | Establecer esta opción en Sí permite que miembros que no son administradores de su directorio inventen a otros usuarios. Consulte [Delegación de invitaciones de la colaboración B2B de Azure Active Directory](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings) para más información.
 Los administradores y los usuarios del rol de invitador de personas pueden invitar | Establecer esta opción en Sí permite que los administradores y usuarios con el rol "Invitador de usuarios invitados" inviten a otros usuarios. Cuando se establece en Sí, los usuarios con el rol Invitador de usuarios invitados todavía podrán invitar a otros usuarios, independientemente de la configuración Los miembros pueden invitar. Consulte [Delegación de invitaciones de la colaboración B2B de Azure Active Directory](../external-identities/delegate-invitations.md#assign-the-guest-inviter-role-to-a-user) para más información.
@@ -149,7 +149,7 @@ Los usuarios pueden realizar las siguientes acciones en los grupos que poseen.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre la configuración de restricciones de acceso para los usuarios invitados, consulte [Restricción de los permisos de acceso de usuario invitado (versión preliminar) en Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md).
+* Para más información sobre la configuración de restricciones de acceso para los usuarios invitados, consulte [Restricción de los permisos de acceso de usuario invitado en Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md).
 * Para obtener más información sobre cómo asignar roles de administrador de Azure AD, vea [Asignación de roles de administrador a un usuario en Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * Para más información acerca de cómo se controla el acceso a los recursos en Microsoft Azure, consulte [Descripción de acceso a los recursos de Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Para más información acerca de cómo se relaciona Azure Active Directory con la suscripción de Azure, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

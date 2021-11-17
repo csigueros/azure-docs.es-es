@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: fcbe52a8c390d41abbaa0a97b88bb360df595d60
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: c46803ae300acfe36163edcb92770c069ae67382
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131554001"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179902"
 ---
 # <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Configuración de un entorno de desarrollo con Azure Databricks y AutoML en Azure Machine Learning 
 
@@ -53,7 +53,7 @@ Use estos valores de configuración:
 | Configuración |Se aplica a| Value |
 |----|---|---|
 | Cluster Name |Siempre| nombredelclúster |
-| Versión de Databricks Runtime |Siempre| Entorno de ejecución 7.3 LTS o inferior: no ML|
+| Versión de Databricks Runtime |Siempre| Runtime 7.3 LTS: no ML|
 | Versión de Python |Siempre| 3 |
 | Tipo de trabajo <br>(determina el número máximo de iteraciones simultáneas) |Machine Learning Automatizado<br>solo| Se prefieren las máquinas virtuales optimizadas para memoria |
 | Trabajos |Siempre| 2 o más |
@@ -97,7 +97,7 @@ Para usar ML automatizado, vaya a [Incorporación del SDK de Azure ML con ML aut
   ![SDK de Azure Machine Learning para Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg) 
 
 ## <a name="add-the-azure-ml-sdk-with-automl-to-databricks"></a>Incorporación del SDK de Azure ML con AutoML a Databricks
-Si el clúster se ha creado con Databricks Runtime 7.1 - 7.3 LTS (*no* ML), ejecute el comando siguiente en la primera celda del cuaderno para instalar el SDK de AML.
+Si el clúster se ha creado con Databricks Runtime 7.3 - 7.3 LTS (*no* ML), ejecute el comando siguiente en la primera celda del cuaderno para instalar el SDK de AML.
 
 ```
 %pip install --upgrade --force-reinstall -r https://aka.ms/automl_linux_requirements.txt

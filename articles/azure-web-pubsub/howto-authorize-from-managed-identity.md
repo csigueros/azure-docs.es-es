@@ -3,15 +3,15 @@ title: Autorización de la solicitud a recursos de Web PubSub con Azure AD desd
 description: En este artículo se proporciona información sobre la autorización de solicitudes a recursos de Web PubSub con Azure AD desde identidades administradas.
 author: terencefan
 ms.author: tefa
-ms.date: 09/06/2021
+ms.date: 11/08/2021
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.openlocfilehash: 8df789836bd0067868d4f9e6d90e640473a96f33
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 7f0b5cff34b74953970672d0d48c4f027f4811b0
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478159"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997749"
 ---
 # <a name="authorize-request-to-web-pubsub-resources-with-azure-ad-from-managed-identities"></a>Autorización de la solicitud a recursos de Web PubSub con Azure AD desde identidades administradas
 El servicio Azure Web PubSub admite la autorización de Azure Active Directory (Azure AD) desde [identidades administradas de recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md). 
@@ -20,7 +20,7 @@ En este artículo se muestra cómo configurar el recurso y los códigos de Web P
 
 ## <a name="configure-managed-identities"></a>Configuración de identidades administradas
 
-El primer paso es configurar identidades administradas.
+El primer paso es configurar las identidades administradas.
 
 Aquí hay un ejemplo para configurar `System-assigned managed identity` en `Virtual Machine` mediante Azure Portal.
 
@@ -69,13 +69,13 @@ En este ejemplo se muestra cómo asignar un `Web PubSub Service Owner` rol a una
 
 1. Haga clic en **Siguiente**.
 
-   ![Captura de pantalla de cómo se agrega la asignación de roles.](./media/aad-authorization/add-role-assignment.png)
+   ![Captura de pantalla de la adición de la asignación de roles](./media/aad-authorization/add-role-assignment.png)
 
-1. En la pestaña **Miembros**, en **Asignar acceso a**, seleccione **Identidad administrada**.
+1. En la pestaña **Miembros**, en la sección **Asignar acceso a**, seleccione **Identidad administrada**.
 
 1. Haga clic en **Seleccionar miembros**.
 
-1. En el panel **Select managed identities** (Selección de identidades administradas), elija **Identidad administrada asignada por el sistema > Máquina virtual**.
+1. En el panel **Selección de identidades administradas**, elija **Identidad administrada asignada por el sistema > Máquina virtual**.
 
 1. Busque y seleccione la máquina virtual a la que quiere asignar el rol.
 
@@ -83,13 +83,13 @@ En este ejemplo se muestra cómo asignar un `Web PubSub Service Owner` rol a una
 
 2. Haga clic en **Siguiente**.
 
-   ![Captura de pantalla de la asignación de roles a identidades administradas.](./media/aad-authorization/assign-role-to-managed-identities.png)
+   ![Captura de pantalla de la asignación de roles a identidades administradas](./media/aad-authorization/assign-role-to-managed-identities.png)
 
-3. Haga clic en **Review + assign** (Revisar y asignar) para confirmar el cambio.
+3. Haga clic en **Revisar y asignar** para confirmar el cambio.
 
 > [!IMPORTANT]
 > Las asignaciones de roles de Azure pueden tardar hasta 30 minutos en propagarse.
-Para más información sobre cómo asignar y administrar asignaciones de roles de Azure, consulte estos artículos:
+Para obtener más información sobre cómo asignar y administrar asignaciones de roles de Azure, consulte estos artículos:
 - [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md)
 - [Asignación de roles de Azure mediante la API REST](../role-based-access-control/role-assignments-rest.md)
 - [Asignación de roles de Azure mediante Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)

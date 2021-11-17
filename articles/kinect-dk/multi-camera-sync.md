@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: azure, kinect, especificaciones, hardware, DK, funcionalidades, profundidad, color, RGB, IMU, micrófono, matriz, profundidad
-ms.openlocfilehash: eabf77896777f39efcfd61adb3040bca8642716e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5e4936e5c7b795745b7f1b131efbf99a562d8ed0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102039961"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254691"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Sincronización de varios dispositivos de Azure Kinect DK
 
@@ -85,7 +85,7 @@ En el bucle de captura de imágenes, evite establecer repetidamente la misma con
 
 Cuando varias cámaras de profundidad muestran campos de visión en superposición, cada cámara debe mostrar su propio láser asociado. Para evitar que los láseres interfieran entre sí, las capturas de la cámara deben desplazarse entre ellas 160 μs o más.
 
-Para cada captura de la cámara de profundidad, el láser se enciende nueve veces y está activo solo durante 125 &mu;s cada vez. A continuación, el láser está inactivo durante 14505 &mu;s o 23905 &mu;s, según el modo de funcionamiento. Este comportamiento significa que el punto inicial del cálculo de desplazamiento es de 125 &mu;s.
+Para cada captura de la cámara de profundidad, el láser se enciende nueve veces y está activo solo durante 125 &mu;s cada vez. A continuación, el láser está inactivo durante 1450 &mu;s o 2390 &mu;s, según el modo de funcionamiento. Este comportamiento significa que el punto inicial del cálculo de desplazamiento es de 125 &mu;s.
 
 Además, las diferencias entre el reloj de la cámara y el reloj de firmware del dispositivo aumentan el desplazamiento mínimo a 160 &mu;s. Para calcular un desplazamiento más preciso para la configuración, tenga en cuenta el modo de profundidad que está usando y consulte la [tabla del tiempo sin procesar del sensor de profundidad](hardware-specification.md#depth-sensor-raw-timing). Con los datos de esta tabla, puede calcular el desplazamiento mínimo (el tiempo de exposición de cada cámara) mediante la siguiente ecuación:
 
@@ -96,7 +96,7 @@ Cuando se usa un desplazamiento de 160 &mu;s, se pueden configurar hasta nueve 
 En el software, use ```depth_delay_off_color_usec``` o ```subordinate_delay_off_master_usec``` para asegurarse de que cada láser de IR se active en su propia ventana de 160 &mu;s o que tenga un campo de visión diferente.
 
 > [!NOTE]  
-> El ancho real del pulso es 125 us;sin embargo, está fijado en 160 us para dar cierto margen. Tomando NFOV UNBINNED como ejemplo, cada pulso 125 us va seguido de 1450 us de inactividad. Al sumar estos (9 x 125) + (8 x 1450) da como resultado el tiempo de exposición de 12,8 ms. Para intercalar las exposiciones de los dos dispositivos, asegúrese de que el primer pulso de la segunda cámara entre dentro del primer período de inactividad de la primera cámara. El retraso entre la primera y la segunda cámara puede ser tan pequeño como 125 us (el ancho de un pulso), pero recomendamos cierto margen; por lo tanto, 160 us. Con 160 us se pueden intercalar los períodos de exposición de un máximo de 10 cámaras.
+> El ancho real del pulso es 125&mu;s; sin embargo, está fijado en 160 us para dar cierto margen. Tomando NFOV UNBINNED como ejemplo, cada pulso de 125&mu;s va seguido de un período de inactividad de 1450&mu;s. Al sumar estos (9 x 125) + (8 x 1450) da como resultado el tiempo de exposición de 12,8 ms. Para intercalar las exposiciones de los dos dispositivos, asegúrese de que el primer pulso de la segunda cámara entre dentro del primer período de inactividad de la primera cámara. El retraso entre la primera y la segunda cámara puede ser tan pequeño como 125&mu;us (el ancho de un pulso), pero recomendamos cierto margen; por lo tanto, 160&mu;s. Con 160&mu;s se pueden intercalar los períodos de exposición de 10 cámaras como máximo.
 
 ## <a name="prepare-your-devices-and-other-hardware"></a>Preparación de los dispositivos y demás hardware
 

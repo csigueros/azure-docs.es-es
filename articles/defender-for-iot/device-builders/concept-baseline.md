@@ -1,16 +1,16 @@
 ---
 title: Comprobaciones personalizadas y de línea de base
-description: Obtenga información sobre el concepto de línea de base de Azure Defender para IoT.
+description: Obtenga información sobre el concepto de línea base de Microsoft Defender para IoT.
 ms.topic: conceptual
-ms.date: 10/07/2019
-ms.openlocfilehash: 1b8b9d62918e40262da6b3df48d0fece842e050f
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 11/09/2021
+ms.openlocfilehash: 80cb204008c60964ed90c63885ce8b99d23ca30b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018297"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284139"
 ---
-# <a name="azure-defender-for-iot-baseline-and-custom-checks"></a>Comprobaciones personalizadas y línea de base de Azure Defender para IoT
+# <a name="microsoft-defender-for-iot-baseline-and-custom-checks"></a>Comprobaciones personalizadas y línea base de Microsoft Defender para IoT
 
 En este artículo se explica la línea de base de Defender para IoT y se resumen todas las propiedades asociadas de las comprobaciones personalizadas de línea de base.
 

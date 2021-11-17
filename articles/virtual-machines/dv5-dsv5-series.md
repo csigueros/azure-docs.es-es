@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 10/20/2021
-ms.openlocfilehash: 35738fe541d237b6bf271ea2892a67049f820fbf
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: 1185a217e33e653f199fbd99874fbc10b7ff05e1
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/12/2021
-ms.locfileid: "132402321"
+ms.locfileid: "132372063"
 ---
 # <a name="dv5-and-dsv5-series"></a>Series Dv5 y Dsv5
 
@@ -38,7 +38,7 @@ Las máquinas virtuales de la serie Dv5 no tienen ningún almacenamiento tempor
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): obligatorio <br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
-[Virtualización anidada](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): compatible <br>
+[Virtualización anidada](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md): compatible <br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Nº máx. NIC|Ancho de banda de red máx. (Mbps) |
@@ -68,19 +68,19 @@ Las máquinas virtuales de la serie Dsv5 no tienen ningún almacenamiento tempo
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): obligatorio <br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
-[Virtualización anidada](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): compatible <br>
+[Virtualización anidada](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md): compatible <br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Rendimiento máx. de disco de expansión sin caché: IOPS/MBps<sup>3</sup> | Nº máx. NIC | Ancho de banda de red máx. (Mbps) |
 |---|---|---|---|---|---|---|---|---|
-| Standard_D2s_v5<sup>1,2</sup> | 2  | 8   | Solo almacenamiento remoto | 4  | 3750/85    | 10 000/1200 | 2 | 12500 |
-| Standard_D4s_v5               | 4  | 16  | Solo almacenamiento remoto | 8  | 6400/145   | 20 000/1200 | 2 | 12500 |
-| Standard_D8s_v5               | 8  | 32  | Solo almacenamiento remoto | 16 | 12 800/290  | 20 000/1200 | 4 | 12500 |
-| Standard_D16s_v5              | 16 | 64  | Solo almacenamiento remoto | 32 | 25 600/600  | 40 000/1200 | 8 | 12500 |
-| Standard_D32s_v5              | 32 | 128 | Solo almacenamiento remoto | 32 | 51 200/865  | 80000/2000 | 8 | 16000 |
-| Standard_D48s_v5              | 48 | 192 | Solo almacenamiento remoto | 32 | 76 800/1315 | 80 000/3000 | 8 | 24000 |
-| Standard_D64s_v5              | 64 | 256 | Solo almacenamiento remoto | 32 | 80 000/1735 | 80 000/3000 | 8 | 30000 |
-| Standard_D96s_v5              | 96 | 384 | Solo almacenamiento remoto | 32 | 80 000/2600 | 80 000/4000 | 8 | 35000 |
+| Standard_D2s_v5<sup>1,2</sup> | 2  | 8   | Solo almacenamiento remoto | 4  | 3750/85    | 10000/1200 | 2 | 12500 |
+| Standard_D4s_v5               | 4  | 16  | Solo almacenamiento remoto | 8  | 6400/145   | 20000/1200 | 2 | 12500 |
+| Standard_D8s_v5               | 8  | 32  | Solo almacenamiento remoto | 16 | 12800/290  | 20000/1200 | 4 | 12500 |
+| Standard_D16s_v5              | 16 | 64  | Solo almacenamiento remoto | 32 | 25600/600  | 40000/1200 | 8 | 12500 |
+| Standard_D32s_v5              | 32 | 128 | Solo almacenamiento remoto | 32 | 51200/865  | 80000/2000 | 8 | 16000 |
+| Standard_D48s_v5              | 48 | 192 | Solo almacenamiento remoto | 32 | 76800/1315 | 80000/3000 | 8 | 24000 |
+| Standard_D64s_v5              | 64 | 256 | Solo almacenamiento remoto | 32 | 80000/1735 | 80000/3000 | 8 | 30000 |
+| Standard_D96s_v5              | 96 | 384 | Solo almacenamiento remoto | 32 | 80000/2600 | 80000/4000 | 8 | 35000 |
 
 <sup>1</sup> Las redes aceleradas son necesarias y están activadas de forma predeterminada en todas las máquinas virtuales de la serie Dsv5.<br>
 <sup>2</sup> Las redes aceleradas se pueden aplicar a dos NIC.<br>

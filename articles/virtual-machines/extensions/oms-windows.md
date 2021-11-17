@@ -9,12 +9,12 @@ ms.author: amjads
 ms.collection: windows
 ms.date: 11/02/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b34ecc7b2ef83f6f9e3f609163f193825f7cce8b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 41a46f2ccb925a51aec92bad94d1c1e2164745f4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131452117"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312046"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Log Analytics para Windows
 
@@ -50,9 +50,9 @@ En la tabla siguiente se proporciona una asignación de la versión de la extens
 | 8.0.11072 | 1.0.11072 | Septiembre de 2017 | |
 | 8.0.11049 | 1.0.11049 | Febrero de 2017 | |
 
-### <a name="azure-security-center"></a>Azure Security Center
+### <a name="microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud
 
-Azure Security Center aprovisiona automáticamente el agente de Log Analytics y lo conecta con el área de trabajo predeterminada de Log Analytics de la suscripción de Azure. Si utiliza Azure Security Center, no siga los pasos de este documento. Si lo hace, sobrescribirá el área de trabajo configurada e interrumpirá la conexión con Azure Security Center.
+Microsoft Defender for Cloud aprovisiona automáticamente el agente de Log Analytics y lo conecta con el área de trabajo predeterminada de Log Analytics de la suscripción de Azure. Si usa Microsoft Defender for Cloud, no siga los pasos descritos en este documento. Si lo hace, sobrescribirá el área de trabajo configurada e interrumpirá la conexión con Microsoft Defender for Cloud.
 
 ### <a name="internet-connectivity"></a>Conectividad de Internet
 

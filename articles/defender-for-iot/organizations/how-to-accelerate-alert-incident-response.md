@@ -1,18 +1,18 @@
 ---
 title: Aceleración de los flujos de trabajo de alertas
 description: Mejore los flujos de trabajo de alertas e incidentes.
-ms.date: 12/02/2020
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: fa8e00fb8b3fdbb01d23aa7213c3bf21db7e9479
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: e570cff67630a483d6926f6090165708a5ca17b4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113021202"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283987"
 ---
 # <a name="accelerate-alert-workflows"></a>Aceleración de los flujos de trabajo de alertas
 
-En este artículo se describe cómo acelerar los flujos de trabajo de alertas mediante comentarios de alertas, grupos de alertas y reglas de alerta personalizadas en Azure Defender para IoT.  Estas herramientas le ayudan a:
+En este artículo se describe cómo acelerar los flujos de trabajo de alertas mediante comentarios de alertas, grupos de alertas y reglas de alerta personalizadas en Microsoft Defender para IoT.  Estas herramientas le ayudan a:
 
 - Analizar y administrar el gran volumen de eventos de alerta detectados en la red.
 
@@ -114,8 +114,7 @@ Puede agregar reglas de alertas personalizadas basadas en lo siguiente:
 - Condición basada en la categoría elegida, por ejemplo, una función asociada a un protocolo, un nombre de archivo, un puerto o un número de transporte.
 - Condición basada en la referencia de fecha y hora, por ejemplo, si se realizó una detección en un día concreto o en una determinada parte del día.
 
-Si el sensor detecta la actividad descrita en la regla, se envía la alerta.
-Información que los sensores individuales detectan. Por ejemplo, defina una regla que indique a un sensor que desencadene una alerta basada en una dirección IP de origen, una dirección IP de destino o un comando (dentro de un protocolo). Cuando el sensor detecta el tráfico definido en la regla, se genera una alerta o un evento.
+Si el sensor detecta la actividad descrita en la regla, se envía la alerta. Información que los sensores individuales detectan. Por ejemplo, defina una regla que indique a un sensor que desencadene una alerta basada en una dirección IP de origen, una dirección IP de destino o un comando (dentro de un protocolo). Cuando el sensor detecta el tráfico definido en la regla, se genera una alerta o un evento.
 
 También puede usar acciones de reglas de alerta para indicar a Defender para IoT que haga lo siguiente:
 

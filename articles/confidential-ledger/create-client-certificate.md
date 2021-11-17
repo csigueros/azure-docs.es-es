@@ -7,16 +7,16 @@ ms.service: confidential-ledger
 ms.topic: overview
 ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 125f56a6c96e37394e4e9e2565093c847e592108
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 216a626bfaaf86a8c2237b5d871ab7895d921127
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113585940"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476402"
 ---
 # <a name="creating-a-client-certificate"></a>Creación de un certificado de cliente
 
-Las API de Confidential Ledger requieren autenticación basada en certificados de cliente. Solo los certificados agregados a una lista de permitidos durante la creación de Ledger o la actualización de Ledger se pueden usar para llamar a las API funcionales de Confidential Ledger.
+Las API de Azure Confidential Ledger requieren autenticación basada en certificados de cliente. Solo los certificados agregados a una lista de permitidos durante la creación de libros de contabilidad o la actualización de libros de contabilidad se pueden usar para llamar a las API funcionales de Confidential Ledger.
 
 Necesitará un certificado en formato PEM. Puede crear más de un certificado y agregarlos o eliminarlos mediante la API de actualización de Ledger.
 
@@ -36,4 +36,4 @@ openssl req -new -key "privkey_name.pem" -x509 -nodes -days 365 -out "cert.pem" 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Información general de Microsoft Azure Confidential Ledger](overview.md)
+- [Introducción a Microsoft Azure Confidential Ledger](overview.md)

@@ -3,15 +3,15 @@ title: Ejecución de runbooks de Azure Automation en una instancia de Hybrid Run
 description: En este artículo se describe cómo ejecutar runbooks en máquinas del centro de datos local o en otro proveedor de nube con la instancia de Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/01/2021
+ms.date: 11/11/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71f13679a1f19672368a7b72987e28813232f846
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 368622d7f0ea914541ce1385405a40e28ca2576b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131465562"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132282203"
 ---
 # <a name="run-automation-runbooks-on-a-hybrid-runbook-worker"></a>Ejecución de runbooks de Automation en una instancia de Hybrid Runbook Worker
 
@@ -109,7 +109,7 @@ Realice los pasos siguientes para usar una identidad administrada para los recur
 
     Si desea que el runbook se ejecute con la identidad administrada asignada por el sistema, deje el código tal y como está. Si prefiere usar una identidad administrada asignada por el usuario, haga lo siguiente:
     1. En la línea 5, quite `$AzureContext = (Connect-AzAccount -Identity).context`.
-    1. Reemplace el valor por `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`.
+    1. Reemplácelo por `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`.
     1. Escriba el id. de cliente.
 
 ### <a name="use-runbook-authentication-with-run-as-account"></a>Uso de la autenticación de runbooks con la cuenta de ejecución
@@ -199,7 +199,9 @@ Set-Content -Value $Cert -Path $CertPath -Force -Encoding Byte | Write-Verbose
 
 Write-Output ("Importing certificate into $env:computername local machine root store from " + $CertPath)
 $SecurePassword = ConvertTo-SecureString $Password -AsPlainText -Force
-Import-PfxCertificate -FilePath $CertPath -CertStoreLocation Cert:\LocalMachine\My -Password $SecurePassword -Exportable | Write-Verbose
+Import-PfxCertificate -FilePath $CertPath -CertStoreLocation Cert:\LocalMachine\My -Password $SecurePassword | Write-Verbose
+
+Remove-Item -Path $CertPath -ErrorAction SilentlyContinue | Out-Null
 
 # Test to see if authentication to Azure Resource Manager is working
 $RunAsConnection = Get-AutomationConnection -Name "AzureRunAsConnection"
@@ -227,6 +229,11 @@ Para finalizar la preparación de la cuenta de ejecución:
 1. Publique el runbook.
 1. Ejecute el runbook y establezca como destino el grupo de Hybrid Runbook Worker que ejecuta y autentica los runbooks con la cuenta de ejecución. 
 1. Examine el flujo de trabajo para ver si informa del intento de importar el certificado al almacén de la máquina local, seguido de varias líneas. Este comportamiento depende de cuántas cuentas de Automation se definan en la suscripción y del grado de éxito de la autenticación.
+
+>[!NOTE]
+>  En caso de acceso sin restricciones, un usuario con derechos de colaborador de máquina virtual o que tenga permisos para ejecutar comandos en la máquina de Hybrid Worker puede utilizar el certificado de ejecución de la cuenta de Automation de la máquina de Hybrid Worker, utilizando otros orígenes como los cmdlets de Azure que podrían permitir potencialmente el acceso de un usuario malintencionado como colaborador de la suscripción. Esto podría poner en peligro la seguridad del entorno de Azure. </br> </br>
+>  Se recomienda dividir las tareas dentro del equipo y conceder los permisos o acceso necesarios a los usuarios según su trabajo. No proporcione permisos sin restricciones a la máquina que hospeda el rol de trabajo de runbook.
+
 
 ## <a name="work-with-signed-runbooks-on-a-windows-hybrid-runbook-worker"></a>Trabajo con runbooks firmados en Hybrid Runbook Worker en Windows
 

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: johnkem
 ms.service: chaos-studio
-ms.openlocfilehash: b4df4b7f06c999bfc29154fbbed4133c2664dad8
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: d843b91864723fa0195430ac0f293fc7159d2adc
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132372461"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131478260"
 ---
 # <a name="azure-chaos-studio-preview-limitations-and-known-issues"></a>Limitaciones y problemas conocidos de la versión preliminar de Azure Chaos Studio
 
@@ -32,7 +32,6 @@ Durante la versión preliminar pública de Azure Chaos Studio, hay algunas limit
     * **MacOS:** Safari, Google Chrome, Firefox
 
 ## <a name="known-issues"></a>Problemas conocidos
-* La experiencia **Habilitar el destino basado en el agente** en Azure Portal tampoco asigna la identidad administrada asignada por el usuario a la máquina virtual o al conjunto de escalado de máquinas virtuales. Esto debe hacerse manualmente o se producirá un error basado en el agente en un experimento con el error: "Compruebe que el destino está correctamente incorporado y que se proporcionan los permisos de lectura adecuados al MSI del experimento". Esto puede hacerse después de habilitar el destino basado en el agente, pero puede requerir un reinicio.
 * La incorporación de un destino en Azure Portal puede producir un error si se desplaza fuera de la vista Destinos antes de que se complete la incorporación.
 * Al crear un experimento, después de hacer clic en **Revisar y crear** hay un retraso antes de que el experimento creado aparezca en la lista de experimentos; los usuarios deberán actualizar para ver el experimento en la lista.
 * Al seleccionar recursos de destino para un error basado en agente en el diseñador de experimentos, es posible seleccionar máquinas virtuales o conjuntos de escalado de máquinas virtuales con un sistema operativo no compatible con el error seleccionado.
@@ -40,5 +39,5 @@ Durante la versión preliminar pública de Azure Chaos Studio, hay algunas limit
 
 ## <a name="next-steps"></a>Pasos siguientes
 Empiece a crear y ejecutar experimentos del caos para mejorar la resistencia de las aplicaciones con Chaos Studio mediante los vínculos siguientes.
-- [Crear y ejecutar tu primer experimento](chaos-studio-tutorial-service-direct-portal.md)
+- [Crear y ejecutar tu primer experimento](chaos-studio-tutorial-service-direct.md)
 - [Más información sobre la ingeniería de caos](chaos-studio-chaos-engineering-overview.md)

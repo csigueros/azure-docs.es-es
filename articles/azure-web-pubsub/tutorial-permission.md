@@ -5,13 +5,13 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial
-ms.date: 08/26/2021
-ms.openlocfilehash: e2f2b7ec00250287b71b3882b7078b249262db70
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 11/01/2021
+ms.openlocfilehash: 027cd7197167a3667748c2c470e17b83aa3bf03d
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124769871"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131578732"
 ---
 # <a name="tutorial-add-authentication-and-permissions-to-your-application-when-using-azure-web-pubsub"></a>Tutorial: Adición de autenticación y permisos a la aplicación al usar Azure Web PubSub
 
@@ -101,7 +101,16 @@ En primer lugar, agregue la autenticación de GitHub a la sala de chat para que 
     1. Rellene el nombre de la aplicación y la dirección URL de la página principal (la dirección URL puede ser cualquier cosa que quiera) y establezca **dirección URL de devolución de llamada de autorización** en `http://localhost:8080/auth/github/callback`. Esta dirección URL coincide con la API de devolución de llamada expuesta en el servidor.
     1. Una vez registrada la aplicación, copie el identificador de cliente y seleccione **Generate a new client secret** (Generar un nuevo secreto de cliente).
 
-    A continuación, ejecute `node server <connection-string> <client-id> <client-secret>` y abra `http://localhost:8080/auth/github`. Puede que se le redirija a GitHub para iniciar sesión. Después de iniciar sesión, se le redirigirá a la aplicación de chat.
+    Ejecute el siguiente comando para probar la configuración (no olvide reemplazar `<connection-string>`, `<client-id>` y `<client-secret>` por sus valores).
+
+    ```bash
+    export WebPubSubConnectionString="<connection-string>"
+    export GitHubClientId="<client-id>"
+    export GitHubClientSecret="<client-secret>"
+    node server
+    ```
+    
+    Ahora, abra `http://localhost:8080/auth/github`. Puede que se le redirija a GitHub para iniciar sesión. Después de iniciar sesión, se le redirigirá a la aplicación de chat.
 
 1.  Actualice el salón de chat para que use la identidad que obtiene de GitHub, en lugar de solicitar al usuario un nombre de usuario.
 
@@ -131,7 +140,7 @@ En primer lugar, agregue la autenticación de GitHub a la sala de chat para que 
       let options = {
         userId: req.user.username
       };
-      let token = await serviceClient.getAuthenticationToken(options);
+      let token = await serviceClient.getClientAccessToken(options);
       res.json({
         url: token.url
       });
@@ -164,7 +173,7 @@ En primer lugar, es necesario separar los mensajes del sistema y del usuario en 
 Cambie el archivo `server.js` para enviar mensajes diferentes a grupos diferentes:
 
 ```javascript
-let handler = new WebPubSubEventHandler(hubName, ['*'], {
+let handler = new WebPubSubEventHandler(hubName, {
   path: '/eventhandler',
   handleConnect: (req, res) => {
     res.success({
@@ -255,12 +264,12 @@ De manera predeterminada, el cliente no tiene permiso para enviar a ningún grup
 ```javascript
 app.get('/negotiate', async (req, res) => {
   ...
-  if (req.user.username === process.argv[5]) options.claims = { role: ['webpubsub.sendToGroup.system'] };
-  let token = await serviceClient.getAuthenticationToken(options);
+  if (req.user.username === process.argv[2]) options.claims = { role: ['webpubsub.sendToGroup.system'] };
+  let token = await serviceClient.getClientAccessToken(options);
 });
 ```
 
-Ahora ejecute `node server <connection-string> <client-id> <client-secret> <admin-id>`. Podrá ver que puede enviar un mensaje del sistema a cada cliente cuando inicie sesión como `<admin-id>`.
+Ahora ejecute `node server <admin-id>`. Podrá ver que puede enviar un mensaje del sistema a cada cliente cuando inicie sesión como `<admin-id>`.
 
 Pero si inicia sesión como un usuario diferente, al seleccionar el **mensaje del sistema**, no ocurrirá nada. Puede que desee que el servicio le muestre un error para que sepa que la operación no está permitida. Para proporcionar estos comentarios, puede establecer `ackId` cuándo va a publicar el mensaje. Cada vez que se especifique el elemento `ackId`, Web PubSub devolverá un mensaje de confirmación con un elemento `ackId` coincidente para indicar si la operación se ha producido correctamente o no.
 

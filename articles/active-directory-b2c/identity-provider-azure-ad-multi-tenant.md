@@ -3,22 +3,22 @@ title: Configuración del inicio de sesión para Azure AD multiinquilino mediant
 titleSuffix: Azure AD B2C
 description: Adición de un proveedor de identidades de Azure AD multiinquilino mediante directivas personalizadas en Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 10/21/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f41736ac221ee7d7cdce5ac776e70f96aa16536e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 553608a5574edaf904e9c9ac0986a3d0f8af9278
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128575102"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227978"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión para Azure Active Directory multiinquilino mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -34,9 +34,12 @@ ms.locfileid: "128575102"
 
 En este artículo se muestra cómo habilitar el inicio de sesión de los usuarios usando el punto de conexión multiinquilino de Azure Active Directory (Azure AD). Esto permite a los usuarios de varios inquilinos de Azure AD iniciar sesión en Azure AD B2C sin tener que configurar un proveedor de identidades para cada inquilino. Sin embargo, los miembros invitados en cualquiera de estos inquilinos **no** podrán iniciar sesión. Para ello, tendrá que [configurar individualmente cada inquilino](identity-provider-azure-ad-single-tenant.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
+> [!NOTE]
+> En este artículo, se supone que el paquete de inicio **SocialAndLocalAccounts** se usa en los pasos anteriores mencionados en los requisitos previos.  
 
 ## <a name="register-an-azure-ad-app"></a>Registrar una aplicación de Azure AD
 
@@ -74,7 +77,7 @@ Si quiere obtener las notificaciones `family_name` y `given_name` de Azure AD, 
 1. Seleccione **Agregar notificación opcional**.
 1. En **Tipo de token**, seleccione **ID**.
 1. Seleccione las notificaciones opcionales que va a agregar, `family_name` y `given_name`.
-1. Haga clic en **Agregar**.
+1. Seleccione **Agregar**. Si aparece **Turn on the Microsoft Graph email permission (required for claims to appear in token)** (Activar el permiso de correo electrónico de Microsoft Graph [necesario para que aparezcan las notificaciones]), habilítelo y, luego, seleccione de nuevo **Agregar**.
 
 ## <a name="optional-verify-your-app-authenticity"></a>[Opcional] Comprobación de la autenticidad de la aplicación
 
@@ -101,7 +104,7 @@ Para permitir que los usuarios inicien sesión con una cuenta de Azure AD, debe
 
 Para definir Azure AD como proveedor de notificaciones, agregue el elemento **ClaimsProvider** al archivo de extensión de la directiva.
 
-1. Abra el archivo *TrustFrameworkExtensions.xml*.
+1. Abra el archivo *SocialAndLocalAccounts/**TrustFrameworkExtensions.xml***.
 1. Busque el elemento **ClaimsProviders**. Si no existe, agréguelo debajo del elemento raíz.
 1. Agregue un nuevo elemento **ClaimsProvider** tal como se muestra a continuación:
 
@@ -168,7 +171,7 @@ Para obtener los valores, examine los metadatos de descubrimiento de OpenID Conn
 
 Siga estos pasos para cada inquilino de Azure AD que se deba usar para iniciar sesión:
 
-1. Abra el explorador y vaya a la dirección URL de metadatos de OpenID Connect para el inquilino. Busque el objeto **issuer** y anote su valor. Debe tener un aspecto similar a `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/`.
+1. Abra el explorador y vaya a la dirección URL de metadatos de OpenID Connect para el inquilino. Busque el objeto **issuer** y anote su valor. Debe tener un aspecto similar a `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/.well-known/openid-configuration`.
 1. Copie y pegue el valor en la clave **ValidTokenIssuerPrefixes**. Separe varios emisores con una coma. Un ejemplo con dos emisores aparece en el ejemplo de código XML `ClaimsProvider` anterior.
 
 [!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]

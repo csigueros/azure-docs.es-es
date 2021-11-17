@@ -1,18 +1,18 @@
 ---
 title: Información general del microagente de Defender para IoT para Azure RTOS
-description: Obtenga más información sobre la compatibilidad y la implementación del microagente de Defender para IoT para Azure RTOS como parte de Azure Defender para IoT.
+description: Obtenga más información sobre la compatibilidad y la implementación del microagente de Defender para IoT para Azure RTOS como parte de Microsoft Defender para IoT.
 ms.topic: conceptual
-ms.date: 07/01/2021
-ms.openlocfilehash: cf905eb9cff7840eeaac70e731421ba2252193e6
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.date: 11/09/2021
+ms.openlocfilehash: 5bb2ed36d40b5ae92aa41303eb53d995c410e67d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113303659"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278918"
 ---
 # <a name="overview-defender-for-iot-defender-iot-micro-agent-for-azure-rtos"></a>Información general: microagente de Defender para IoT de Defender para IoT para Azure RTOS
 
-El micromódulo de Azure Defender para IoT proporciona una solución de seguridad completa para dispositivos que usan Azure RTOS. Proporciona cobertura para amenazas comunes y posibles actividades malintencionadas en dispositivos del sistema operativo en tiempo real (RTOS). Azure RTOS ahora se incluye con el microagente de Defender para IoT de Azure IoT integrado.
+El micromódulo de Microsoft Defender para IoT proporciona una solución de seguridad completa para dispositivos que usan Azure RTOS. Proporciona cobertura para amenazas comunes y posibles actividades malintencionadas en dispositivos del sistema operativo en tiempo real (RTOS). Azure RTOS ahora se incluye con el microagente de Defender para IoT de Azure IoT integrado.
 
 :::image type="content" source="./media/architecture/azure-rtos-security-monitoring.png" alt-text="Visualización de Defender para IoT para Azure RTOS.":::
 

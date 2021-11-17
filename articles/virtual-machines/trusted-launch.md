@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: 03bbb681c61f28c2b4fbed580094fd8f47017de0
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 0db7b5a92820e299658d793e66edba1e6e84c087
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131466778"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281464"
 ---
 # <a name="trusted-launch-for-azure-virtual-machines"></a>Inicio seguro para máquinas virtuales de Azure
 
@@ -91,7 +91,7 @@ La raíz del inicio seguro es el arranque seguro para la máquina virtual. Este 
 
 El inicio seguro también presenta vTPM para las máquinas virtuales de Azure. Esta es una versión virtualizada de un [módulo de plataforma segura](/windows/security/information-protection/tpm/trusted-platform-module-overview) de hardware, compatible con la especificación TPM2.0. Sirve como almacén seguro dedicado para claves y medidas. El inicio seguro proporciona la máquina virtual con su propia instancia de TPM dedicada, que se ejecuta en un entorno seguro fuera del alcance de cualquier máquina virtual. vTPM permite la [atestación](/windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation) midiendo la cadena de arranque completa de la máquina virtual (UEFI, SO, sistema y controladores). 
 
-El inicio seguro usa vTPM para realizar la atestación remota por parte de la nube. Se usa para las comprobaciones de estado de la plataforma y para tomar decisiones basadas en confianza. Como comprobación de estado, el inicio seguro puede certificar criptográficamente que la máquina virtual se ha arrancado correctamente. Si se produce un error en el proceso, posiblemente porque la máquina virtual ejecuta un componente no autorizado, Azure Security Center emitirá alertas de integridad. Las alertas incluyen detalles sobre los componentes que no superaron las comprobaciones de integridad.
+El inicio seguro usa vTPM para realizar la atestación remota por parte de la nube. Se usa para las comprobaciones de estado de la plataforma y para tomar decisiones basadas en confianza. Como comprobación de estado, el inicio seguro puede certificar criptográficamente que la máquina virtual se ha arrancado correctamente. Si se produce un error en el proceso, posiblemente porque la máquina virtual ejecuta un componente no autorizado, Microsoft Defender for Cloud emitirá alertas de integridad. Las alertas incluyen detalles sobre los componentes que no superaron las comprobaciones de integridad.
 
 ## <a name="virtualization-based-security"></a>Seguridad de virtualización
 
@@ -102,20 +102,20 @@ HVCI es una mitigación del sistema eficaz que protege los procesos del modo ker
 Con el inicio seguro y SBV, puede habilitar Credential Guard de Windows Defender. Esta característica aísla y protege los secretos para que solo el software del sistema con privilegios pueda acceder a ellos. Ayuda a evitar el acceso no autorizado a secretos y ataques de robo de credenciales, como ataques Pass-the-Hash (PtH). Para obtener más información, consulte [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard).
 
 
-## <a name="security-center-integration"></a>Integración en Security Center
+## <a name="defender-for-cloud-integration"></a>Integración de Defender for Cloud
 
-El inicio seguro se integra con Azure Security Center para asegurarse de que las máquinas virtuales estén configuradas correctamente. Azure Security Center evaluará continuamente las máquinas virtuales compatibles y emitirá recomendaciones pertinentes.
+El inicio de confianza se integra con Microsoft Defender for Cloud para asegurarse de que las máquinas virtuales están configuradas correctamente. Microsoft Defender for Cloud evaluará continuamente las máquinas virtuales compatibles y emitirá recomendaciones pertinentes.
 
-- **Recomendación para habilitar el arranque seguro**: esta recomendación solo se aplica a las máquinas virtuales que admiten el inicio seguro. Azure Security Center identificará las máquinas virtuales que pueden habilitar el arranque seguro, pero que lo han deshabilitado. Emitirá una recomendación de gravedad baja para habilitarlo.
-- **Recomendación para habilitar vTPM**: si la máquina virtual tiene vTPM habilitado, Azure Security Center puede usarla para realizar la atestación de invitados e identificar patrones de amenazas avanzados. Si Azure Security Center identifica las máquinas virtuales que admiten el inicio seguro y tienen deshabilitado vTPM, emitirá una recomendación de gravedad baja para habilitarlo. 
-- **Recomendación para instalar la extensión de atestación de invitado**: si la máquina virtual tiene habilitado el arranque seguro y vTPM, pero no tiene instalada la extensión de atestación de invitado, Azure Security Center emitirá una recomendación de gravedad baja para instalar en ella la extensión de atestación de invitado. Esta extensión permite a Azure Security Center atestiguar y supervisar de forma proactiva la integridad de arranque de las máquinas virtuales. La integridad del arranque se atestigua mediante la atestación remota.  
-- **Evaluación del estado de atestación**: si la máquina virtual tiene vTPM habilitado y la extensión de atestación instalada, Azure Security Center puede validar de forma remota que la máquina virtual se ha arrancado de forma correcta. Esto se conoce como atestación remota. Azure Security Center emite una evaluación, que indica el estado de la atestación remota.
+- **Recomendación para habilitar el arranque seguro**: esta recomendación solo se aplica a las máquinas virtuales que admiten el inicio seguro. Microsoft Defender for Cloud identificará las máquinas virtuales que pueden habilitar el arranque seguro, pero que lo han deshabilitado. Emitirá una recomendación de gravedad baja para habilitarlo.
+- **Recomendación para habilitar vTPM**: si la máquina virtual tiene vTPM habilitado, Microsoft Defender for Cloud puede usarla para realizar la atestación de invitados e identificar patrones de amenazas avanzados. Si Microsoft Defender for Cloud identifica las máquinas virtuales que admiten el inicio seguro y tienen deshabilitado vTPM, emitirá una recomendación de gravedad baja para habilitarlo. 
+- **Recomendación para instalar la extensión de atestación de invitado**: si la máquina virtual tiene habilitado el arranque seguro y vTPM, pero no tiene instalada la extensión de atestación de invitado, Microsoft Defender for Cloud emitirá una recomendación de gravedad baja para instalar en ella la extensión de atestación de invitado. Esta extensión permite a Microsoft Defender for Cloud atestiguar y supervisar de forma proactiva la integridad de arranque de las máquinas virtuales. La integridad del arranque se atestigua mediante la atestación remota.  
+- **Evaluación del estado de atestación**: si la máquina virtual tiene vTPM habilitado y la extensión de atestación instalada, Microsoft Defender for Cloud puede validar de forma remota que la máquina virtual se ha arrancado de forma correcta. Esto se conoce como atestación remota. Microsoft Defender for Cloud emite una evaluación que indica el estado de la atestación remota.
 
-## <a name="azure-defender-integration"></a>Integración de Azure Defender
+## <a name="microsoft-defender-for-cloud-integration"></a>Integración de Microsoft Defender for Cloud
 
-Si las máquinas virtuales están configuradas correctamente con el inicio seguro, Azure Defender puede detectarlas y enviarle una alerta de los problemas de estado de la máquina virtual.
+Si las máquinas virtuales están configuradas correctamente con el inicio seguro, Microsoft Defender for Cloud puede detectarlas y enviarle una alerta de los problemas de estado de la máquina virtual.
 
-- **Alerta de error de atestación de VM**: Azure Defender realizará periódicamente la atestación en las máquinas virtuales. Esto también ocurre después de que la máquina virtual se arranque. Si se produce un error en la atestación, se desencadena una alerta de gravedad media.
+- **Alerta de error de atestación de máquina virtual**: Microsoft Defender for Cloud realizará periódicamente la atestación en las máquinas virtuales. Esto también ocurre después de que la máquina virtual se arranque. Si se produce un error en la atestación, se desencadena una alerta de gravedad media.
     La atestación de la máquina virtual puede producir un error por las razones siguientes:
     - La información atestada, que incluye un registro de arranque, se desvía de una línea base de confianza. Esto puede indicar que los módulos que no son de confianza se han cargado y que el sistema operativo puede estar en peligro.
     - No se pudo comprobar que la oferta de atestación se originó en el vTPM de la máquina virtual atestada. Esto puede indicar que el malware está presente y puede estar interceptando tráfico a vTPM.
@@ -123,7 +123,7 @@ Si las máquinas virtuales están configuradas correctamente con el inicio segur
     > [!NOTE]
     >  Esta alerta está disponible para las máquinas virtuales con vTPM habilitado y la extensión de atestación instalada. El arranque seguro debe estar habilitado para que se supere la atestación. Se producirá un error en la atestación si el arranque seguro está deshabilitado. Si debe deshabilitar el arranque seguro, puede suprimir esta alerta para evitar falsos positivos.
 
-- **Alerta para el módulo de kernel de Linux que no es de confianza**: para el inicio seguro con arranque seguro habilitado, es posible que una máquina virtual arranque incluso si se produce un error en la validación de un controlador de kernel y se prohíbe la carga. Si esto ocurre, Azure Defender emitirá una alerta de gravedad baja. Aunque no hay ninguna amenaza inmediata, ya que no se ha cargado el controlador que no es de confianza, se deben investigar estos eventos. Tenga en cuenta lo siguiente.
+- **Alerta para el módulo de kernel de Linux que no es de confianza**: para el inicio seguro con arranque seguro habilitado, es posible que una máquina virtual arranque incluso si se produce un error en la validación de un controlador de kernel y se prohíbe la carga. Si esto sucede, Microsoft Defender for Cloud emitirá una alerta de gravedad baja. Aunque no hay ninguna amenaza inmediata, ya que no se ha cargado el controlador que no es de confianza, se deben investigar estos eventos. Tenga en cuenta lo siguiente.
     - ¿Qué controlador de kernel produjo un error? ¿Estoy familiarizado con este controlador y espero que se cargue?
     - ¿Es esta la versión exacta del controlador que se espera? ¿Los archivos binarios del controlador están intactos? Si se trata de un controlador de terceros, ¿el proveedor pasó las pruebas de cumplimiento del sistema operativo para que se firme?
 
@@ -146,13 +146,14 @@ En la cadena de arranque seguro, cada paso del proceso de arranque comprueba una
 
 ### <a name="what-happens-when-an-integrity-fault-is-detected"></a>¿Qué ocurre cuando se detecta un error de integridad?
 
-El inicio seguro para máquinas virtuales de Azure se supervisa para detectar amenazas avanzadas. Si se detectan estas amenazas, se desencadenará una alerta. Las alertas solo están disponibles en el [nivel Estándar](../security-center/security-center-pricing.md) de Azure Security Center.
-Azure Security Center realiza la atestación periódicamente. Si se produce un error en la atestación, se desencadena una alerta de gravedad media. La atestación del inicio seguro puede producir un error por las razones siguientes: 
+El inicio seguro para máquinas virtuales de Azure se supervisa para detectar amenazas avanzadas. Si se detectan estas amenazas, se desencadenará una alerta. Las alertas solo están disponibles si están habilitadas las [características de seguridad mejoradas de Defender for Cloud](../security-center/enable-enhanced-security.md).
+
+Defender for Cloud realiza periódicamente la atestación. Si se produce un error en la atestación, se desencadena una alerta de gravedad media. La atestación del inicio seguro puede producir un error por las razones siguientes:
+
 - La información atestada, que incluye un registro de la base de cálculo de confianza (TCB), se desvía de una línea base de confianza (como cuando el arranque seguro está habilitado). Esto puede indicar que los módulos que no son de confianza se han cargado y que el sistema operativo puede estar en peligro.
-- No se pudo comprobar que la oferta de atestación se originó en el vTPM de la máquina virtual atestada. Esto puede indicar que el malware está presente y puede estar interceptando tráfico a vTPM. 
+- No se pudo comprobar que la oferta de atestación se originó en el vTPM de la máquina virtual atestada. Esto puede indicar que el malware está presente y puede estar interceptando tráfico a vTPM.
 - La extensión de atestación en la máquina virtual no responde. Esto puede indicar un ataque por denegación de servicio por malware o un administrador del sistema operativo.
 
-  
 ### <a name="how-does-trusted-launch-compared-to-hyper-v-shielded-vm"></a>¿Cómo se compara el inicio seguro con la máquina virtual blindada de Hyper-V?
 
 Actualmente, la máquina virtual blindada de Hyper-V solo está disponible en Hyper-V. Normalmente, la [máquina virtual blindada de Hyper-V](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) se implementa junto con el tejido protegido. Un tejido protegido consta de un Servicio de protección de host (HGS), uno o más hosts protegidos y un conjunto de máquinas virtuales blindadas. Las máquinas virtuales blindadas de Hyper-V están destinadas a usarse en tejidos en los que los datos y el estado de la máquina virtual deben estar protegidos de los administradores del tejido y del software que no es de confianza y que podrían estar ejecutándose en los hosts de Hyper-V. Por otro lado, el inicio seguro se puede implementar como una máquina virtual independiente o conjuntos de escalado de máquinas virtuales en Azure sin necesidad de implementación y administración adicionales de HGS. Las demás características de inicio seguro se pueden habilitar con un simple cambio en el código de implementación o una casilla en Azure Portal.  

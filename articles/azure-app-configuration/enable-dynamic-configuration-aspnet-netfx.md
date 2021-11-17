@@ -9,24 +9,24 @@ ms.custom: devx-track-csharp
 ms.topic: tutorial
 ms.date: 10/12/2021
 ms.author: zhenlwa
-ms.openlocfilehash: 94df4c9fb17f94c317e46b2bef9d2208fa592884
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 9631d083353382177afbb284cd92de53e44e94a4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130271346"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301938"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-web-application-net-framework"></a>Tutorial: Uso de la configuración dinámica en una aplicación web ASP.NET (.NET Framework)
 
 Los datos de App Configuration pueden cargarse como configuración de aplicación en una aplicación de .NET Framework. Para obtener más información, consulte el [inicio rápido](./quickstart-dotnet-app.md). Sin embargo, según el diseño de .NET Framework, la configuración de la aplicación solo se puede actualizar tras el reinicio de la aplicación. El proveedor .NET de App Configuration es una biblioteca .NET Standard. Admite el almacenamiento en caché y la actualización dinámica de la configuración sin reiniciar la aplicación. En este tutorial se muestra cómo puede implementar actualizaciones dinámicas de configuración en una aplicación ASP.NET Web Forms. Esta misma técnica se aplica a las aplicaciones MVC de .NET Framework.
 
-En este tutorial, obtendrá información sobre cómo:
+En este tutorial aprenderá a:
 
 > [!div class="checklist"]
 > * Configurar la aplicación web ASP.NET para actualizar su configuración como respuesta a los cambios en un almacén de App Configuration.
 > * Insertar la configuración más reciente en las solicitudes a la aplicación.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [Visual Studio](https://visualstudio.microsoft.com/vs)
@@ -38,7 +38,7 @@ En este tutorial, obtendrá información sobre cómo:
 
 7. Seleccione **Operaciones** > **Explorador de configuración** > **Crear** > **Clave-valor** para agregar los siguientes pares clave-valor:
 
-    | Key                                | Value                               |
+    | Clave                                | Value                               |
     |------------------------------------|-------------------------------------|
     | *TestApp:Settings:BackgroundColor* | *Blanco*                             |
     | *TestApp:Settings:FontColor*       | *Negro*                             |
@@ -188,7 +188,7 @@ En este tutorial, obtendrá información sobre cómo:
 
 1. En Azure Portal, vaya al **Explorador de configuración** del almacén de App Configuration y actualice el valor de las claves siguientes. No olvide actualizar la clave de Sentinel *TestApp:Settings:Sentinel* al final.
 
-    | Key                                | Value                                                        |
+    | Clave                                | Value                                                        |
     |------------------------------------|--------------------------------------------------------------|
     | *TestApp:Settings:BackgroundColor* | *Verde*                                                      |
     | *TestApp:Settings:FontColor*       | *LightGray*                                                  |

@@ -21,6 +21,9 @@
         - name: Acceso condicional
           tocHref: /azure/active-directory/conditional-access/
           topicHref: /azure/active-directory/conditional-access/
+        - name: Sincronización en la nube
+          tocHref: /azure/active-directory/cloud-sync/
+          topicHref: /azure/active-directory/cloud-sync/
         - name: Authentication
           tocHref: /azure/active-directory/authentication/
           topicHref: /azure/active-directory/authentication/
@@ -283,9 +286,6 @@
         - name: Administración
           tocHref: /azure/azure-resource-manager/management/
           topicHref: /azure/azure-resource-manager/management/
-        - name: Solución de los problemas de las implementaciones
-          tocHref: /azure/azure-resource-manager/troubleshooting/
-          topicHref: /azure/azure-resource-manager/troubleshooting/
         - name: Aplicaciones administradas
           tocHref: /azure/azure-resource-manager/managed-applications/
           topicHref: /azure/azure-resource-manager/managed-applications/
@@ -428,9 +428,6 @@
         - name: Knowledge Exploration
           tocHref: /azure/cognitive-services/kes/
           topicHref: /azure/cognitive-services/kes/overview
-        - name: Servicio de lenguaje
-          tocHref: /azure/cognitive-services/language-service/
-          topicHref: /azure/cognitive-services/language-service/
         - name: Language Understanding (LUIS)
           tocHref: /azure/cognitive-services/LUIS/
           topicHref: /azure/cognitive-services/LUIS/
@@ -776,9 +773,6 @@
             - name: Servicios de IP
               tocHref: /azure/virtual-network/ip-services
               topicHref: /azure/virtual-network/ip-services
-        - name: Administrador de redes virtuales
-          tocHref: /azure/virtual-network-manager/
-          topicHref: /azure/virtual-network-manager/
         - name: Red WAN virtual
           tocHref: /azure/virtual-wan/
           topicHref: /azure/virtual-wan/
@@ -871,13 +865,13 @@
             - name: HSM administrado
               tocHref: /azure/key-vault/managed-hsm/
               topicHref: /azure/key-vault/managed-hsm/
-        - name: Security Center
-          tocHref: /azure/security-center/
-          topicHref: /azure/security-center/
-        - name: Azure Sentinel
+        - name: "Microsoft\_Defender for Cloud"
+          tocHref: /azure/defender-for-cloud/
+          topicHref: /azure/defender-for-cloud/
+        - name: Microsoft Sentinel
           tocHref: /azure/sentinel/
           topicHref: /azure/sentinel/
-        - name: Defender para IoT
+        - name: Microsoft Defender para IoT
           tocHref: /azure/defender-for-iot/
           topicHref: /azure/defender-for-iot/
         - name: Atestación
@@ -1033,13 +1027,12 @@
         - name: Video Analyzer
           tocHref: /azure/azure-video-analyzer/video-analyzer-docs/
           topicHref: /azure/azure-video-analyzer/video-analyzer-docs/
-          items:
-            - name: Edge
-              tocHref: /azure/azure-video-analyzer/video-analyzer-docs/edge
-              topicHref: /azure/azure-video-analyzer/video-analyzer-docs/edge
-            - name: Nube
-              tocHref: /azure/azure-video-analyzer/video-analyzer-docs/cloud
-              topicHref: /azure/azure-video-analyzer/video-analyzer-docs/cloud
         - name: Video Analyzer for Media
           tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
           topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
+    - name: Oferta de Azure DevTest (ventaja de los suscriptores a Visual Studio)
+      tocHref: /azure/devtest/offer/
+      topicHref: /azure/devtest/offer/overview-what-is-devtest-offer-visual-studio
+    - name: Conector de servicio
+      tocHref: /azure/service-connector/
+      topicHref: /azure/service-connector/

@@ -1,18 +1,18 @@
 ---
 title: Configuración de la supervisión de puntos de conexión de Windows
 description: Enriquecimiento de los datos resueltos en dispositivos mediante el trabajo con la supervisión de puntos de conexión de Windows (WMI).
-ms.date: 05/03/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 4d701cfda88a2c257b001a52a19853a937661714
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 7b59c0b5dcb14b57ee5e4e12c2dc3e925e30d37d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020905"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281842"
 ---
 # <a name="configure-windows-endpoint-monitoring-wmi"></a>Configuración de la supervisión de puntos de conexión de Windows (WMI)
 
-Con la funcionalidad de supervisión de puntos de conexión de Windows, puede configurar Azure Defender para IoT para sondear de forma selectiva los sistemas Windows. Esta actividad le proporciona información más precisa y específica sobre los dispositivos, por ejemplo, los niveles de Service Pack.
+Con la funcionalidad de supervisión de puntos de conexión de Windows, puede configurar Microsoft Defender para IoT para sondear de forma selectiva los sistemas Windows. Esta actividad le proporciona información más precisa y específica sobre los dispositivos, por ejemplo, los niveles de Service Pack.
 
 Puede configurar el sondeo con intervalos y hosts específicos, y que se realice solo con la frecuencia que se desee. El sondeo selectivo se realiza mediante el Instrumental de administración de Windows (WMI), que es el lenguaje de scripting estándar de Microsoft para administrar sistemas Windows.
 

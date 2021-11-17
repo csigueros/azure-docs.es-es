@@ -1,22 +1,22 @@
 ---
 title: 'Tutorial: Conexión de una solución de un extremo a otro.'
 titleSuffix: Azure Digital Twins
-description: Tutorial para crear soluciones de Azure Digital Twins de un extremo a otro controladas por los datos de los dispositivos.
+description: Siga este tutorial para aprender a crear una solución de Azure Digital Twins de un extremo a otro controlada por datos de dispositivos.
 author: baanders
 ms.author: baanders
-ms.date: 8/23/2021
+ms.date: 10/19/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 9d19a74dc7bacc996fe328679d9c3e12766bfadf
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9233f33818e9961cc5daf8cf35b14457172ecae3
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128626197"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131504842"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Creación de soluciones de un extremo a otro
 
-Para configurar una solución de un extremo a otro controlada por los datos en directo de su entorno, puede conectar su instancia de Azure Digital Twins a otros servicios de Azure para la administración tanto de los dispositivos como de los datos.
+En este tutorial de Azure Digital Twins se describe cómo crear una solución completa que muestra la funcionalidad del servicio. Para configurar una solución de un extremo a otro controlada por los datos en directo de su entorno, puede conectar su instancia de Azure Digital Twins a otros servicios de Azure para la administración tanto de los dispositivos como de los datos.
 
 En este tutorial:
 > [!div class="checklist"]
@@ -51,7 +51,7 @@ Estos son los complementos que implementa la aplicación de ejemplo *AdtSampleAp
 * Ejemplos de uso del [SDK de .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) (se encuentran en *CommandLoop.cs*).
 * Interfaz de consola para llamar a la API de Azure Digital Twins.
 * *SampleClientApp*: una solución de Azure Digital Twins de ejemplo.
-* *SampleFunctionsApp*: una aplicación de Azure Functions que actualiza su grafo de Azure Digital Twins con los datos de telemetría de los eventos de IoT Hub y Azure Digital Twins.
+* *SampleFunctionsApp*: una aplicación de Azure Functions que actualiza su grafo de Azure Digital Twins según los datos de telemetría de los eventos de IoT Hub y Azure Digital Twins.
 
 ### <a name="instantiate-the-pre-created-twin-graph"></a>Instanciación del grafo de gemelos creado previamente
 
@@ -393,7 +393,7 @@ De nuevo en la página *Crear suscripción de eventos*, seleccione **Crear**.
 
 ## <a name="run-the-simulation-and-see-the-results"></a>Ejecución de la simulación y visualización de los resultados
 
-Ahora, los eventos deben poder fluir desde el dispositivo simulado a Azure Digital Twins y a través del grafo de Azure Digital Twins para actualizar los gemelos según corresponda. En esta sección, volverá a ejecutar el simulador de dispositivos para iniciar el flujo de eventos completo que ha configurado y consultará Azure Digital Twins para ver los resultados en directo.
+Ahora, los eventos tienen la capacidad de fluir desde el dispositivo simulado a Azure Digital Twins y a través del grafo de Azure Digital Twins para actualizar los gemelos según corresponda. En esta sección, volverá a ejecutar el simulador de dispositivos para iniciar el flujo de eventos completo que ha configurado y consultará Azure Digital Twins para ver los resultados en directo.
 
 Vaya a la ventana de Visual Studio en que esté abierto el proyecto _**DeviceSimulator**_ y ejecútelo.
 

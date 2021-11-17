@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79e0dc10aa9cb5fb67812cca31d2cd892afcccbe
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 6dc3ec13715fe0c58ffbf23cf377f0ea5d29d6de
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208102"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132292402"
 ---
 # <a name="secure-user-based-service-accounts-in-active-directory"></a>Protección de cuentas de servicio basadas en el usuario
 
@@ -81,7 +81,7 @@ Get-ADUser -Filter * -Properties PasswordNeverExpires | where {$_.PasswordNeverE
 
 ```
 
-También puede auditar el acceso a recursos confidenciales y archivar los registros de auditoría en un sistema de administración de eventos e información de seguridad (SIEM). Si usa sistemas como Azure Log Analytics o Azure Sentinel, puede buscar y analizar cuentas de servicio.
+También puede auditar el acceso a recursos confidenciales y archivar los registros de auditoría en un sistema de administración de eventos e información de seguridad (SIEM). Si usa sistemas como Azure Log Analytics o Microsoft Sentinel, puede buscar y analizar cuentas de servicio.
 
 ## <a name="assess-the-security-of-on-premises-user-accounts"></a>Evaluación de la seguridad de las cuentas de usuario locales
 
@@ -99,7 +99,7 @@ En la tabla siguiente se resumen los posibles problemas de seguridad y las mitig
 | - | - |
 | Administración de contraseñas.| <li>Asegúrese de que la complejidad de las contraseñas y el cambio de las contraseñas se rijan por un proceso sólido que garantice actualizaciones periódicas y requisitos de contraseña seguros.<li>Coordine los cambios de contraseñas con una actualización de contraseñas para minimizar el tiempo de inactividad del servicio. |
 | La cuenta pertenece a grupos con privilegios.| <li>Revise las pertenencias a grupos.<li>Quite la cuenta de los grupos con privilegios.<li>Conceda a la cuenta solo los derechos y permisos necesarios para ejecutar su servicio (consulte al proveedor de servicios). Por ejemplo, es posible que pueda denegar el inicio de sesión localmente o denegar el inicio de sesión interactivo. |
-| La cuenta tiene permisos de lectura y escritura para recursos confidenciales.| <li>Audite el acceso a recursos confidenciales.<li>Archive los registros de auditoría en un SIEM (Azure Log Analytics o Azure Sentinel) para su análisis.<li>Corrija los permisos de recursos si se detecta un nivel de acceso no deseado. |
+| La cuenta tiene permisos de lectura y escritura para recursos confidenciales.| <li>Audite el acceso a recursos confidenciales.<li>Archive los registros de auditoría en un SIEM (Azure Log Analytics o Microsoft Sentinel) para su análisis.<li>Corrija los permisos de recursos si se detecta un nivel de acceso no deseado. |
 | | |
 
 

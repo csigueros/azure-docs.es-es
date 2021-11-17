@@ -6,18 +6,18 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/27/2021
-ms.openlocfilehash: ec97cba6afd1a335791b51ed905af2f713ce6a19
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.date: 10/19/2021
+ms.openlocfilehash: dba76c0b2d25c8bc962dd847e0d2ffdaa5bdd3eb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130179813"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234234"
 ---
 # <a name="use-private-endpoints-for-your-azure-purview-account"></a>Uso de puntos de conexión privados para la cuenta de Azure Purview
 
 > [!IMPORTANT]
-> Si creó un punto de conexión privado del _portal_ para su cuenta de Purview **antes del 27 de septiembre de 2021 a las 15:30 UTC**, deberá realizar las acciones necesarias como se detalla en [Reconfiguración de DNS para puntos de conexión privados del portal](#reconfigure-dns-for-portal-private-endpoints). **Estas acciones deben completarse antes del 11 de octubre de 2021. Si no lo hace, los puntos de conexión privados del portal existentes dejarán de funcionar**.
+> Si creó un punto de conexión privado del _portal_ para su cuenta de Purview **antes del 27 de septiembre de 2021 a las 15:30 UTC**, deberá realizar las acciones necesarias como se detalla en [Reconfiguración de DNS para puntos de conexión privados del portal](#reconfigure-dns-for-portal-private-endpoints). **Estas acciones deben completarse antes del 12 de noviembre de 2021. Si no lo hace, los puntos de conexión privados del portal existentes dejarán de funcionar**.
 
 
 En este artículo se describe cómo configurar los puntos de conexión privados para Azure Purview.
@@ -77,25 +77,25 @@ Si creó un punto de conexión privado del _portal_ para su cuenta de Purview **
 
 1. En Azure Portal, busque la cuenta de Purview. En el menú de la izquierda, haga clic en **Redes** y seleccione **Conexiones de punto de conexión privado**. Haga clic en cada punto de conexión privado de la lista y siga los pasos que se indican a continuación.
 
-    :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-1.png" alt-text="Captura de pantalla que muestra el punto de conexión privado de Purview.":::
+    :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-1.png" alt-text="Captura de pantalla que muestra el punto de conexión privado de Purview."lightbox="media/catalog-private-link/purview-pe-dns-updates-1.png":::
 
 2. Si el recurso secundario de destino es el _portal_, revise la **configuración de DNS**; de lo contrario, vuelva al paso anterior y seleccione el siguiente punto de conexión privado hasta que haya revisado todos los puntos de conexión privados y haya validado todos los puntos de conexión privados asociados al portal.
 
-    :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-2.png" alt-text="Captura de pantalla que muestra el punto de conexión privado de Purview del portal.":::
+    :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-2.png" alt-text="Captura de pantalla que muestra el punto de conexión privado de Purview del portal."lightbox="media/catalog-private-link/purview-pe-dns-updates-2.png":::
 
 3. En la ventana **Configuración de DNS**, compruebe los siguientes valores:
    
     - Si hay registros en la sección **Registros DNS personalizados**, siga los pasos que se describen en [Escenarios de corrección 1](#scenario-1) y [Escenario de corrección 2](#scenario-2).
     
-        :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-3.png" alt-text="Captura de pantalla que muestra la configuración de DNS personalizada del punto de conexión privado de Purview del portal.":::
+        :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-3.png" alt-text="Captura de pantalla que muestra la configuración de DNS personalizada del punto de conexión privado de Purview del portal."lightbox="media/catalog-private-link/purview-pe-dns-updates-3.png":::
 
     - Si hay registros en la sección **Nombre de configuración** y la zona DNS es `privatelink.purviewstudio.azure.com`, no se requieren acciones para este punto de conexión privado. Vuelva al **paso 1** y revise los restantes puntos de conexión privados del portal.
   
-        :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-4.png" alt-text="Captura de pantalla que muestra el punto de conexión privado de Purview del portal con la nueva zona DNS.":::
+        :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-4.png" alt-text="Captura de pantalla que muestra el punto de conexión privado de Purview del portal con la nueva zona DNS."lightbox="media/catalog-private-link/purview-pe-dns-updates-4.png":::
     
     - Si hay registros en la sección **Nombre de configuración** y la zona DNS es `privatelink.purview.azure.com`, siga los pasos que se describen en [Escenario de corrección 3](#scenario-3).
 
-        :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-5.png" alt-text="Captura de pantalla que muestra el punto de conexión privado de Purview del portal con la anterior zona DNS.":::
+        :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-5.png" alt-text="Captura de pantalla que muestra el punto de conexión privado de Purview del portal con la anterior zona DNS."lightbox="media/catalog-private-link/purview-pe-dns-updates-5.png":::
 
 ### <a name="remediation-scenarios"></a>Escenarios de corrección
 
@@ -103,7 +103,7 @@ Si creó un punto de conexión privado del _portal_ para su cuenta de Purview **
 
 Si **ha añadido directamente los registros A de DNS necesarios al sistema DNS o al archivo host de las máquinas**, **no se requiere ninguna acción**.
     
-:::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-host.png" alt-text="Captura de pantalla que muestra el archivo host con registros A.":::
+:::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-host.png" alt-text="Captura de pantalla que muestra el archivo host con registros A."lightbox="media/catalog-private-link/purview-pe-dns-updates-host.png":::
 
 #### <a name="scenario-2"></a>Escenario 2
 
@@ -123,7 +123,7 @@ Si ha configurado la **integración de zonas DNS privadas de Azure para la cuent
        
     1. Vaya a [Azure Portal](https://portal.azure.com) y, a continuación, haga clic en su cuenta de Azure Purview. En **Configuración**, seleccione **Redes** y luego **Conexiones de punto de conexión privado**.
 
-        :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal.png" alt-text="Captura de pantalla que muestra cómo crear un punto de conexión privado del portal.":::
+        :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal.png" alt-text="Captura de pantalla que muestra cómo crear un punto de conexión privado del portal."lightbox="media/catalog-private-link/purview-pe-reconfigure-portal.png":::
 
     2. Seleccione **+ Punto de conexión privado** para crear uno.
 
@@ -135,7 +135,7 @@ Si ha configurado la **integración de zonas DNS privadas de Azure para la cuent
 
     6. En la pestaña **Configuración**, seleccione la red virtual y, a continuación, seleccione la zona DNS privada de Azure para crear una nueva zona DNS de Azure.
             
-        :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal-dns.png" alt-text="Captura de pantalla que muestra cómo crear un punto de conexión privado del portal y una configuración de DNS.":::
+        :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal-dns.png" alt-text="Captura de pantalla que muestra cómo crear un punto de conexión privado del portal y una configuración de DNS."lightbox="media/catalog-private-link/purview-pe-reconfigure-portal-dns.png":::
 
     7. Vaya a la página de resumen y seleccione **Crear** para crear el punto de conexión privado del portal.
 

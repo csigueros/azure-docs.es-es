@@ -2,17 +2,15 @@
 title: Solución de problemas de Hybrid Runbook Worker basado en extensiones en Azure Automation
 description: En este artículo se explica cómo solucionar los problemas que surgen con instancias de Hybrid Runbook Worker basadas en extensiones de Azure Automation.
 services: automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/28/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 278f49ab45bd5ed65b39209f2ca81c0e3ff9ad30
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 3cdb8f63c16c9479d27bcb44147d78d1a8e4a7aa
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129293523"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132489896"
 ---
 # <a name="troubleshoot-vm-extension-based-hybrid-runbook-worker-issues-in-automation"></a>Solución de problemas de Hybrid Runbook Worker basado en extensiones de máquina virtual en Automation
 

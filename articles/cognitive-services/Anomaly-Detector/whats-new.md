@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 06/23/2021
-ms.openlocfilehash: 07a47b432470b683680c315f2d1d741cc607774f
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 9bb87788a12a8ec58e3d9cc0035eeefa0b35656b
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129214606"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134718"
 ---
 # <a name="whats-new-in-anomaly-detector"></a>Novedades de Anomaly Detector
 
@@ -19,6 +19,9 @@ Conozca las novedades del servicio. Estos elementos incluyen notas de la versió
 También se han agregado vínculos a contenido generado por el usuario. Esos elementos se marcarán con la etiqueta **[UGC]** . Algunos se hospedan en sitios web que son externos a Microsoft, por lo que Microsoft no es responsable de su contenido. Tenga precaución al utilizar estos recursos. Póngase en contacto con AnomalyDetector@microsoft.com o genere una incidencia en GitHub si quiere que eliminemos el contenido.
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="november-2021"></a>Noviembre de 2021
+* Anomaly Detector multivariante está disponible en seis regiones más: Norte de Emiratos Árabes Unidos, Centro de Francia, Centro-norte de EE. UU., Norte de Suiza, Norte de Sudáfrica, Oeste de la India. Ahora se admiten 26 regiones en total.
 
 ### <a name="september-2021"></a>Septiembre de 2021
 * Anomaly Detector (univariante) disponible en Jio Oeste de la India.

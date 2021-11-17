@@ -3,13 +3,13 @@ title: Administración de una solicitud de soporte técnico de Azure
 description: Aprenda a ver solicitudes de soporte técnico y a enviar mensajes, cargar archivos y administrar opciones.
 tags: billing
 ms.topic: how-to
-ms.date: 11/02/2021
-ms.openlocfilehash: 361ab4b643dac6fb54fae8d236dfac38ee024701
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.date: 11/10/2021
+ms.openlocfilehash: c74a6245da9023889be151415bce72ba0129881c
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131508351"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179915"
 ---
 # <a name="manage-an-azure-support-request"></a>Administración de una solicitud de soporte técnico de Azure
 
@@ -54,7 +54,7 @@ En esta página, puede buscar, filtrar y ordenar solicitudes de soporte técnico
 
 ## <a name="allow-collection-of-advanced-diagnostic-information"></a>Permiso para la recopilación de información de diagnóstico avanzada
 
-Al crear una solicitud de soporte técnico se puede seleccionar **Sí** o **No** en la sección **Información de diagnóstico avanzada**. Esta opción determina si Soporte técnico de Azure puede recopilar [información de diagnóstico](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) como, por ejemplo, [archivos de registro](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs), de los recursos de Azure que pueda ayudar a resolver el problema.
+Al crear una solicitud de soporte técnico se puede seleccionar **Sí** o **No** en la sección **Información de diagnóstico avanzada**. Esta opción determina si Soporte técnico de Azure puede recopilar [información de diagnóstico](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) como, por ejemplo, [archivos de registro](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs), de los recursos de Azure que pueda ayudar a resolver el problema. El soporte técnico de Azure solo puede acceder a la información de diagnóstico avanzada si su caso se creó a través de Azure Portal y ha concedido permiso para permitirlo.
 
 Para cambiar la selección de **Información de diagnóstico avanzada** una vez creada la solicitud:
 

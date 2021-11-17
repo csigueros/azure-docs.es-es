@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2021
 ms.author: duau
-ms.openlocfilehash: 1fb1aafed996fa79177157f6c20e6727ee532e7d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5dcc4c893be44c9ebb05139118e7936bbdf5b41d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128563122"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223564"
 ---
 # <a name="caching-with-azure-front-door"></a>Almacenamiento en caché con Azure Front Door
 En el documento siguiente se especifican los comportamientos de Front Door con reglas de enrutamiento que han habilitado el almacenamiento en caché. Front Door es una red Content Delivery Network (CDN) moderna con aceleración de sitios dinámicos y equilibrio de carga; también admite comportamientos de almacenamiento en caché como cualquier otra red CDN.
@@ -136,7 +136,7 @@ La duración y el comportamiento de la caché se pueden configurar tanto en la r
 
 > [!NOTE]
 > * La *duración de la caché* establecida en la regla de enrutamiento del diseñador de Front Door es la **duración de la caché mínima**. Esta invalidación no funciona si el encabezado de control de la caché del origen tiene un TTL mayor que el valor de invalidación.
-> * El contenido almacenado en caché se puede expulsar de Azure Front Door antes de que haya expirado si no se solicita con la frecuencia suficiente para acomodar el contenido solicitado con más frecuencia.
+> * Azure Front Door no garantiza la cantidad mínima de tiempo que el objeto se almacenará en la caché. Los contenidos almacenados en caché se pueden expulsar de la caché perimetral antes de que hayan expirado si no se solicitan con tanta frecuencia con el fin de dejar espacio a los contenidos solicitados con más frecuencia.
 >
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -2,13 +2,13 @@
 title: Alertas de seguridad personalizadas para IoT Hub
 description: Obtenga información sobre las alertas de seguridad personalizables y la corrección recomendada mediante las características y el servicio de Defender para IoT Hub.
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.openlocfilehash: 3d72ee2d4cd91d0a922a7af61fbafd2cdb9a349a
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.date: 10/18/2021
+ms.openlocfilehash: e91587df3dbfb50700f95eaefea3bf80c2e18e04
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132319004"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249730"
 ---
 # <a name="defender-for-iot-hub-custom-security-alerts"></a>Alertas de seguridad personalizadas de Defender para IoT Hub
 
@@ -22,7 +22,7 @@ Las siguientes listas de alertas de Defender para IoT se pueden definir en funci
 
 ### <a name="low-severity"></a>Low severity
 
-| Nombre de la alerta | severity | Origen de datos | Descripción | Tipo de alerta |
+| Nombre de la alerta | Gravedad | Origen de datos | Descripción | Tipo de alerta |
 |--|--|--|--|--|
 | Alerta personalizada: el número de mensajes de la nube al dispositivo en el protocolo AMQP está fuera del intervalo permitido. | Bajo | IoT Hub | El número de mensajes de nube a dispositivo (protocolo AMQP) dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente. | IoT_CA_AmqpC2DMessagesNotInAllowedRange |
 | Alerta personalizada: el número de mensajes de la nube al dispositivo rechazados en el protocolo AMQP está fuera del intervalo permitido. | Bajo | IoT Hub | El número de mensajes de nube a dispositivo (protocolo AMQP) rechazados por el dispositivo dentro de un período de tiempo específico está fuera del intervalo configurado y permitido actualmente. | IoT_CA_AmqpC2DRejectedMessagesNotInAllowedRange |

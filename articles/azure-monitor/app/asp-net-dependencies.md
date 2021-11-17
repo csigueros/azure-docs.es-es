@@ -4,12 +4,12 @@ description: Supervise las llamadas de dependencia de su aplicación web o local
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e832da335453151ee60a458cb259d4add15d6e1d
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: a2052b4b4d5822d583101d27e873bf19ceeca49c
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228182"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486120"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Seguimiento de dependencias en Azure Application Insights 
 
@@ -29,7 +29,7 @@ Los SDK de Application Insights para .NET y .NET Core se suministran con `Depend
 |[Azure Storage (blobs, tablas, colas)](https://www.nuget.org/packages/WindowsAzure.Storage/) | Llamadas realizadas con el cliente de Azure Storage. |
 |[SDK de cliente de EventHub](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | Versión 1.1.0 y posteriores. |
 |[SDK de cliente de Service Bus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Versión 3.0.0 y posteriores. |
-|Azure Cosmos DB | Se realiza un seguimiento automático solo si se usa HTTP/HTTPS. Application Insights no capturará el modo TCP. |
+|Azure Cosmos DB | Se realiza un seguimiento automático solo si se usa HTTP/HTTPS. Application Insights no capturará el modo TCP. |
 
 Si falta una dependencia o está usando un SDK diferente, asegúrese de que se encuentra en la lista de [dependencias recopiladas automáticamente](./auto-collect-dependencies.md). Si la dependencia no se recopila automáticamente, todavía puede realizar un seguimiento manual con una [llamada a TrackDependency ](./api-custom-events-metrics.md#trackdependency).
 
@@ -216,7 +216,7 @@ dependencies
 En la vista de consulta de Log Analytics `timestamp` representa el momento en que se inició la llamada a TrackDependency(), que se produjo inmediatamente después de recibir la respuesta de la llamada de dependencia. Para calcular la hora de inicio de la llamada de dependencia, debería tomar `timestamp` y restarle el valor de `duration` registrado para la llamada de dependencia.
 
 ## <a name="open-source-sdk"></a>SDK de código abierto
-Como todos los SDK de Application Insights, el módulo de recolección de dependencias también es de código abierto. Puede leer y contribuir al código o notificar sobre problemas en [el repositorio oficial de GitHub](https://github.com/Microsoft/ApplicationInsights-dotnet-server).
+Como todos los SDK de Application Insights, el módulo de recolección de dependencias también es de código abierto. Puede leer y contribuir al código o notificar sobre problemas en [el repositorio oficial de GitHub](https://github.com/Microsoft/ApplicationInsights-dotnet).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -2,21 +2,21 @@
 title: Mejora del rendimiento del índice de almacén de columnas para el grupo de SQL dedicado
 description: Reduzca los requisitos de memoria o aumente la memoria disponible para maximizar el número de filas en cada grupo de filas del grupo de SQL dedicado.
 services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 03/22/2019
-ms.author: jrasnick
-ms.reviewer: igorstan
+ms.date: 10/18/2021
+ms.author: wiassaf
+ms.reviewer: ''
 ms.custom: azure-synapse
-ms.openlocfilehash: 1336359bdd0768ba1d1554554d266cacfb483a43
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: c461128daf0c6ca9fcaa09ba9b87ecc884405f0b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566518"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249312"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore-indexes-in-dedicated-sql-pool"></a>Maximización de la calidad del grupo de filas para los índices de almacén de columnas en el grupo de SQL dedicado 
 
@@ -83,9 +83,7 @@ trim_reason_desc indica si el grupo de filas se ha recortado (trim_reason_desc =
 
 ## <a name="how-to-estimate-memory-requirements"></a>Cómo calcular los requisitos de memoria
 
-<!--
-To view an estimate of the memory requirements to compress a rowgroup of maximum size into a columnstore index, download and run the view [dbo.vCS_mon_mem_grant](). This view shows the size of the memory grant that a rowgroup requires for compression in to the columnstore.
--->
+Si desea ver una estimación de los requisitos de memoria para comprimir un grupo de filas de tamaño máximo en un índice de almacén de columnas, considere la posibilidad de crear la vista de ejemplo [dbo.vCS_mon_mem_grant](..\sql\data-load-columnstore-compression.md). Esta consulta muestra el tamaño de la concesión de memoria que requiere un grupo de filas para su compresión en el almacén de columnas.
 
 La memoria máxima requerida para comprimir un grupo de filas es aproximadamente:
 
@@ -98,8 +96,6 @@ La memoria máxima requerida para comprimir un grupo de filas es aproximadamente
 > Las columnas de cadena corta emplean tipos de datos de cadena de ≤32 bytes y las de cadena larga usan tipos de datos de cadena de >32 bytes.
 
 Las cadenas largas que se comprimen con un método de compresión diseñado para comprimir texto. Este método de compresión utiliza un *diccionario* para almacenar patrones de texto. El tamaño máximo de un diccionario es de 16 MB. Hay solo un diccionario para cada columna de cadena larga del grupo de filas.
-
-Para ver un análisis en profundidad de los requisitos de memoria del almacén de columnas, eche un vistazo al vídeo [Escalado de grupo de SQL dedicado: configuración y directrices](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Formas de reducir los requisitos de memoria
 

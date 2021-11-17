@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021
-ms.openlocfilehash: 8c2286b73435fae063da0d9f39eb78d9ebef350d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7a9f0692f45f1d97824d4428e6a777e38b372d8a
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091035"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132025938"
 ---
 # <a name="how-to-create-custom-text-classification-projects"></a>Creación de proyectos de clasificación personalizada de texto
 
@@ -104,9 +104,9 @@ Para usar la clasificación personalizada, deberá [crear una cuenta de Azure St
 
 A continuación, deberá asignar los [roles correctos](#roles-for-your-storage-account) para que la cuenta de almacenamiento se conecte al recurso de idioma. 
 
-## <a name="roles-for-your-azure-resource"></a>Roles para el recurso de Azure
+## <a name="roles-for-your-azure-language-resource"></a>Roles para el recurso de lenguaje de Azure
 
-Debe tener asignado el rol Propietario o Colaborador en el recurso de Azure.
+Debe tener asignado el rol de **propietario** o **colaborador** en el recurso de lenguaje de Azure.
 
 ## <a name="enable-identity-management-for-your-resource"></a>Habilitación de la administración de identidades para el recurso
 

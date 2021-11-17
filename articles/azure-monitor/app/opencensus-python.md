@@ -2,17 +2,17 @@
 title: Supervisión de aplicaciones de Python con Azure Monitor | Microsoft Docs
 description: Se proporcionan instrucciones para conectar Python de OpenCensus con Azure Monitor.
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 10/12/2021
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
 author: lzchen
 ms.author: lechen
-ms.openlocfilehash: 14aef56cc84b505afcc58f7f3662ed133bf829c5
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 12c455eb2cd3114b043e19ddd37ca3497143914b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130162719"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244988"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configuración de Azure Monitor para la aplicación de Python
 
@@ -24,7 +24,10 @@ NO SE ADMITE ningún otro SDK de telemetría para Python y NO se recomienda que 
 
 Es posible que haya observado que OpenCensus se converge en [OpenTelemetry](https://opentelemetry.io/). Sin embargo, se recomienda OpenCensus mientras OpenTelemetry madura gradualmente.
 
-## <a name="prerequisites"></a>Requisitos previos
+> [!NOTE]
+> Hay disponible una [oferta de Python basada en OpenTelemetry](opentelemetry-enable.md?tabs=python) en versión preliminar. [Más información](opentelemetry-overview.md).
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 - Instalación de Python. En este artículo se usa [Python 3.7.0](https://www.python.org/downloads/release/python-370/), aunque es probable que las versiones anteriores funcionen con cambios menores. El SDK de Python para OpenCensus solo admite Python v2.7 y v3.4 y versiones posteriores.

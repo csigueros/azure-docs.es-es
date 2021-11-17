@@ -6,12 +6,12 @@ ms.date: 05/25/2021
 ms.topic: overview
 description: En este artículo se proporciona una introducción a Kubernetes habilitado para Azure Arc.
 keywords: Kubernetes, Arc, Azure, containers
-ms.openlocfilehash: 1ff4a2c74e34dad29287e32dd33be5133d735c67
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 7338664698e40a1e4a1280cc08ee57a922518d79
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132056366"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312845"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes"></a>¿Qué es Kubernetes habilitado para Azure Arc?
 
@@ -42,7 +42,7 @@ Kubernetes habilitado para Azure Arc admite los siguientes escenarios:
 
 * Visualización y supervisión de clústeres mediante Azure Monitor para contenedores.
 
-* Aplicación de la protección contra amenazas con Azure Defender para Kubernetes.
+* Aplicación de la protección contra amenazas mediante Microsoft Defender para Kubernetes.
 
 * Aplicación de las definiciones de directiva mediante Azure Policy para Kubernetes.
 

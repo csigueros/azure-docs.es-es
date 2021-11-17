@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: 99f3bb2dc2095e8c9ae89afe78b4522dcdc23a07
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: c954f411d14aaa0f33bf4a3423a67ae64204f932
+ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130265369"
+ms.lasthandoff: 11/06/2021
+ms.locfileid: "131892865"
 ---
 # <a name="azure-functions-networking-options"></a>Opciones de redes de Azure Functions
 
@@ -70,8 +70,8 @@ Azure Functions admite dos tipos de integración de redes virtuales:
 
 La integración de red virtual de Azure Functions usa una infraestructura compartida con las aplicaciones web de App Service. Para obtener más información sobre los dos tipos de integración de red virtual, vea:
 
-* [Integración de red virtual regional](../app-service/overview-vnet-integration.md#regional-vnet-integration)
-* [Integración de red virtual con requisito de puerta de enlace](../app-service/overview-vnet-integration.md#gateway-required-vnet-integration)
+* [Integración de red virtual regional](../app-service/overview-vnet-integration.md#regional-virtual-network-integration)
+* [Integración de red virtual con requisito de puerta de enlace](../app-service/overview-vnet-integration.md#gateway-required-virtual-network-integration)
 
 Para obtener información sobre cómo configurar la integración de red virtual, consulte [Habilitación de la integración con red virtual](#enable-vnet-integration).
 

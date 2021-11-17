@@ -5,17 +5,17 @@ services: sentinel
 author: batamig
 ms.author: bagol
 ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: 10914037b239bf2301881a18c6095ba9364af4ae
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 91838bc13fc8efe7f2fbae17dd6276ee78aa1bb8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132517337"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132308093"
 ---
 # <a name="large-scale-security-analytics-using-microsoft-sentinel-notebooks-and-azure-synapse-integration-public-preview"></a>Análisis de seguridad a gran escala usando la integración de Microsoft Sentinel Notebooks y Azure Synapse (versión preliminar pública)
 

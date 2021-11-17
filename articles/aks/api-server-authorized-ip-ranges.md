@@ -4,12 +4,12 @@ description: Aprenda a proteger el clúster mediante un intervalo de direcciones
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: c64d2e683ade2413e9c548ea548b2e1a6e0efef6
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 96c9e21c210a9aab4bc0b69d8e50b4a015c78993
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542969"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227423"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Protección del acceso al servidor de API con intervalos de direcciones IP autorizadas en Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ Es preciso que esté instalada y configurada la versión 2.0.76 de la CLI de A
 
 La característica de intervalos IP autorizados por el servidor de la API tiene las siguientes limitaciones:
 - En los clústeres creados después de que los intervalos de direcciones IP autorizados por el servidor de API se hayan pasado de la versión preliminar en octubre de 2019, los intervalos de direcciones IP autorizados del servidor de API solo se admiten en el equilibrador de carga de SKU *Estándar*. Los clústeres existentes con la SKU *Básica* del equilibrador de carga y los intervalos IP autorizados del servidor de API seguirán funcionando tal cual, pero no se podrán migrar a un equilibrador de carga de SKU *Estándar*. Los clústeres existentes también seguirán funcionando si se actualiza la versión de Kubernetes o el plano de control. Los intervalos de direcciones IP autorizados del servidor de API no se admiten para los clústeres privados.
-- Esta característica no es compatible con los clústeres que usan la [dirección IP pública por nodo](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools).
+- Cuando se usa esta característica con clústeres que emplean [Public IP per Node](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools) (IP pública por nodo), los grupos de nodos con esta opción habilitada deben usar prefijos de IP pública y esos prefijos deben agregarse como intervalos autorizados.
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>Información general sobre los intervalos de direcciones IP autorizadas por el servidor de API
 

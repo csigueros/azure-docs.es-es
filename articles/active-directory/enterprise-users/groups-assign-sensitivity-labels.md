@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c026a571a087008d86e34e8c2806745a06ae89cb
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 96db7b21433a9bb3c1ed314c2b8ad612a5e335f3
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129986765"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132136034"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Asignación de etiquetas de confidencialidad a grupos de Microsoft 365 en Azure Active Directory
 
@@ -35,7 +35,7 @@ Para aplicar etiquetas publicadas a grupos, primero debe habilitar la caracterí
 1. Abra una ventana de Windows PowerShell en el equipo. La puede abrir sin privilegios elevados.
 1. Ejecute los comandos siguientes para prepararse para ejecutar los cmdlets.
 
-    ```PowerShell
+    ```powershell
     Install-Module AzureADPreview
     Import-Module AzureADPreview
     Connect-AzureAD
@@ -44,8 +44,8 @@ Para aplicar etiquetas publicadas a grupos, primero debe habilitar la caracterí
     En la página **Iniciar sesión en tu cuenta**, escriba la cuenta y la contraseña de administrador para conectarse al servicio y seleccione **Iniciar sesión**.
 1. Capture la configuración de grupo actual para la organización de Azure AD.
 
-    ```PowerShell
-    $setting = (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ)
+    ```powershell
+    $grpUnifiedSetting = (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ)
     $template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
     $setting = $template.CreateDirectorySetting()
     ```
@@ -55,20 +55,26 @@ Para aplicar etiquetas publicadas a grupos, primero debe habilitar la caracterí
 
 1. A continuación, muestre la configuración actual del grupo.
 
-    ```PowerShell
+    ```powershell
     $Setting.Values
     ```
 
-1. Después, habilite la característica:
+1. Habilite la característica:
 
-    ```PowerShell
+    ```powershell
     $Setting["EnableMIPLabels"] = "True"
     ```
+ 
+1. Compruebe el nuevo valor aplicado:
 
-1. Finalmente, guarde los cambios y aplique la configuración:
+    ```powershell
+    $Setting.Values
+    ```
+    
+1. Guarde los cambios y aplique la configuración:
 
-    ```PowerShell
-    New-AzureADDirectorySetting -DirectorySetting $setting
+    ```powershell
+    Set-AzureADDirectorySetting -Id grpUnifiedSetting.Id -DirectorySetting $setting
     ```
 
 También deberá sincronizar las etiquetas de confidencialidad con Azure AD. Puede encontrar instrucciones en [Cómo habilitar etiquetas de confidencialidad para contenedores y sincronizarlas](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).

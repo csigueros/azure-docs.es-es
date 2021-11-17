@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 0834fa6fd7eff41f37eb8f16dc3429189be284cb
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: f16060e58783a96c95c71361908d6bfbc74e36ba
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688681"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281445"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Tutorial: Supervisión de una máquina virtual Windows en Azure
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles
@@ -143,7 +143,7 @@ En este tutorial ha configurado y visto el rendimiento de la máquina virtual. H
 > * Visualización de las métricas de la máquina virtual
 > * Crear una alerta
 
-Pase al siguiente tutorial para obtener información sobre Azure Security Center.
+Avance al siguiente tutorial para obtener información sobre Microsoft Defender for Cloud.
 
 > [!div class="nextstepaction"]
 > [Administración de la seguridad de máquinas virtuales](../../security/fundamentals/overview.md)

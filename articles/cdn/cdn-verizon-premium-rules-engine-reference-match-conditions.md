@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/26/2020
 ms.author: duau
-ms.openlocfilehash: 61576e21bbf8fa260a5003bee62ac40b63d342c7
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 2c0c509b2e2fedabb779e135fc3234d116df6b57
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131446740"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132282070"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Condiciones de coincidencia del motor de reglas de Azure CDN de Verizon Premium
 
@@ -60,7 +60,7 @@ Estas condiciones de coincidencia están diseñadas para identificar solicitudes
 | [¿Es un smartphone?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Smartphone.htm) | Identifica las solicitudes en las que el dispositivo es un smartphone.
 | [¿Es una tablet?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Tablet.htm) | Identifica las solicitudes en las que el dispositivo es una tablet. |
 | [¿Tiene pantalla táctil?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Touchscreen.htm) | Identifica las solicitudes en las que el dispositivo señalador principal del dispositivo es una pantalla táctil. |
-| [¿Es un Windows Phone?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Windows-Phone.htm) | Identifica solicitudes en las que el dispositivo es un Windows Mobile 6.5/Windows Phone 7 o posterior. |
+| [¿Es un Windows Phone?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Windows-Phone.htm) | Identifica solicitudes en las que el dispositivo es un Windows Mobile 6.5/Windows Phone 7 o posteriores. |
 | [¿Es un dispositivo inalámbrico?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Wireless-Device.htm) | Identifica las solicitudes en las que el dispositivo es inalámbrico. 
 | Nombre de marca | Identifica las solicitudes en las que el nombre de marca del dispositivo coincide con un: <br> **-** Valor específico ([literal de nombre de marketing](https://docs.vdms.com/cdn/Content/HRE/M/D-Marketing-Name-Literal.htm)) <br> **-** Expresión regular ([expresión regular del nombre de marca](https://docs.vdms.com/cdn/Content/HRE/M/D-Marketing-Name-Regex.htm)) <br> **-** Patrón específico ([carácter comodín del nombre de marca](https://docs.vdms.com/cdn/Content/HRE/M/D-Marketing-Name-Wildcard.htm)) |
 | Explorador móvil | Identifica las solicitudes en las que el explorador del dispositivo coincide con un: <br> **-** Valor específico ([literal de explorador móvil](https://docs.vdms.com/cdn/Content/HRE/M/D-Mobile-Browser-Literal.htm)) <br> **-** Expresión regular ([expresión regular del explorador móvil](https://docs.vdms.com/cdn/Content/HRE/M/D-Mobile-Browser-Regex.htm)) <br> **-** Patrón específico ([carácter comodín del explorador móvil](https://docs.vdms.com/cdn/Content/HRE/M/D-Mobile-Browser-Wildcard.htm)) |

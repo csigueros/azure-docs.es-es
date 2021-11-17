@@ -9,12 +9,12 @@ ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 09/24/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 367a0b7f231fcdd88a28237e83916995fd58062b
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 485ace0d04375a406c8013d60d45635a596964a1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129219375"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319532"
 ---
 # <a name="manually-promote-a-resource-manager-template-to-each-environment"></a>Promoción manual de una plantilla de Resource Manager para cada entorno
 
@@ -36,7 +36,7 @@ Siga los pasos a continuación a fin de promover una plantilla de Resource Mana
 
    :::image type="content" source="media/continuous-integration-delivery/custom-deployment-edit-template.png" alt-text="Editar plantilla":::
 
-1. En la sección de configuración, escriba los valores de configuración, como las credenciales del servicio vinculado. Cuando haya terminado, seleccione **Comprar** para implementar la plantilla de Resource Manager.
+1. En la sección de configuración, escriba los valores de configuración, como las credenciales del servicio vinculado, necesarios para la implementación. Cuando haya terminado, seleccione **Revisar y crear** para implementar la plantilla de Resource Manager.
 
    :::image type="content" source="media/continuous-integration-delivery/continuous-integration-image5.png" alt-text="Sección de configuración":::
 
@@ -47,4 +47,4 @@ Siga los pasos a continuación a fin de promover una plantilla de Resource Mana
 - [Uso de parámetros personalizados con una plantilla de Resource Manager](continuous-integration-delivery-resource-manager-custom-parameters.md)
 - [Plantillas vinculadas de Resource Manager](continuous-integration-delivery-linked-templates.md)
 - [Uso de un entorno de producción de revisión](continuous-integration-delivery-hotfix-environment.md)
-- [Script de muestra anterior y posterior a la implementación](continuous-integration-delivery-sample-script.md)
+- [Script anterior y posterior a la implementación](continuous-integration-delivery-sample-script.md)

@@ -1,20 +1,20 @@
 ---
 title: 'Inicio rápido: creación de una máquina virtual Intel SGX en Azure Portal'
 description: Para empezar a trabajar con sus implementaciones, aprenda a crear rápidamente una máquina virtual Intel SGX en Azure Portal.
-author: JBCook
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/1/2021
-ms.author: JenCook
+ms.author: stempesta
 ms.custom: mode-portal, ignite-fall-2021
-ms.openlocfilehash: 51a91b6bb5ff5991ad2d92a41f7f70ef39c2a0c2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 68eec52333636c54ab9598d4823e4e794e50a3c4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131033286"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331953"
 ---
 # <a name="quickstart-create-intel-sgx-vm-in-the-azure-portal"></a>Inicio rápido: creación de una máquina virtual Intel SGX en Azure Portal
 
@@ -140,9 +140,9 @@ Para más información acerca de cómo conectarse a máquinas virtuales Linux, c
 ## <a name="install-azure-dcap-client"></a>Instalación del cliente DCAP de Azure
 
 > [!NOTE]
-> Trusted Hardware Identity Management (THIM) es un servicio gratuito de Azure que le ayuda a administrar las identidades de hardware de diferentes entornos de ejecución de confianza (TEE). Captura la garantía del Servicio de certificación de aprovisionamiento de Intel (PCS) y la almacena en caché. El servicio aplica un nivel mínimo de base de proceso de confianza (TCB) como línea de base de seguridad de Azure, con fines de atestación.
+> Trusted Hardware Identity Management (THIM) es un servicio gratuito de Azure que le ayuda a administrar las identidades de hardware de diferentes entornos de ejecución de confianza (TEE). Captura la garantía del Servicio de certificación de aprovisionamiento de Intel (PCS) y la almacena en caché. El servicio aplica un nivel mínimo de base de proceso de confianza (TCB) como línea de base de seguridad de Azure, con fines de atestación. En el caso de las máquinas virtuales de Azure de las series DCsv3 y DCdsv3, los certificados de Intel solo se pueden capturar desde THIM, ya que no es posible realizar llamadas directas al servicio de Intel desde las máquinas virtuales. 
 
-Se recomienda a los usuarios de máquinas virtuales de Azure de las series DCsv2, DCsv3 y DCdsv3 que instalen el cliente DCAP de Azure para interactuar con THIM y capturar el material de TEE para la generación de citas durante el proceso de atestación. Para más información sobre la atestación, consulte [Atestación de Microsoft Azur](/azure/attestation/overview) o [Atestación de ECDSA](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html).
+Con el lanzamiento de los procesadores escalables Intel® Xeon, la compatibilidad con la atestación remota está cambiando. DCsv3 y DCdsv3 solo admiten la [atestación basada en ECDSA](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html) y los usuarios deben instalar el cliente [DCAP de Azure](https://github.com/Microsoft/Azure-DCAP-Client) para interactuar con THIM y capturar el material de TEE para la generación de citas durante el proceso de atestación. DCsv2 sigue siendo compatible con la [atestación basada en EPID](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html). 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -158,3 +158,6 @@ Descubra cómo puede crear aplicaciones de computación confidencial. Para ello,
 
 > [!div class="nextstepaction"]
 > [Compilación de ejemplos del SDK de Open Enclave](https://github.com/openenclave/openenclave/blob/master/samples/README.md)
+
+Microsoft Azure Attestation es un marco de atestación basado en ECDSA gratuito, para comprobar de forma remota la confiabilidad de varios TEE y la integridad de los archivos binarios que se ejecutan dentro de ellos. [Más información](/azure/attestation/overview)
+

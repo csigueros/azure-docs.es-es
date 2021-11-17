@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 11/02/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6596b5a61c4c65bdfd5172c4acd1c50b960097dd
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: dff3c04ee74d17aeb0b96d8d0e2348a9667f9729
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124763165"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456316"
 ---
 # <a name="features-and-licenses-for-azure-ad-multi-factor-authentication"></a>Características y licencias de Azure AD Multi-Factor Authentication
 
@@ -60,7 +60,7 @@ En la tabla siguiente se proporciona una lista de las características que está
 
 ## <a name="compare-multi-factor-authentication-policies"></a>Comparación de las directivas de autenticación multifactor
 
-En la tabla siguiente se proporcionan consideraciones de implementación para las distintas directivas de autenticación multifactor.
+Nuestro enfoque recomendado para aplicar MFA es usar el [acceso condicional](../conditional-access/overview.md). Revise la tabla siguiente para determinar qué funcionalidades se incluyen en las licencias.
 
 | Directiva de | Valores predeterminados de seguridad | Acceso condicional | MFA por usuario |
 | --- |:---:|:---:|:---:|

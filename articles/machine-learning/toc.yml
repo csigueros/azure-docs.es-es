@@ -205,6 +205,8 @@
           href: concept-data-ingestion.md
         - name: Procesamiento de datos
           href: concept-optimize-data-processing.md
+        - name: Acceso a datos de red de Studio
+          href: concept-network-data-access.md
     - name: Seguridad
       items:
         - name: Introducción sobre la seguridad en la empresa

@@ -5,13 +5,13 @@ author: chenyl
 ms.author: chenyl
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 08/31/2021
-ms.openlocfilehash: 045d7946a94ba9658dcdc235e1d30e36b4c4e09b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/08/2021
+ms.openlocfilehash: 8e801391e5ac2ebe2a4dee276f525885ff84f449
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128626995"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997806"
 ---
 #  <a name="the-azure-web-pubsub-supported-protobuf-websocket-subprotocol"></a>Subprotocolo protobuf de WebSocket compatible con Azure Web PubSub
      
@@ -69,23 +69,24 @@ message UpstreamMessage {
 
     message SendToGroupMessage {
         string group = 1;
-        optional int32 ack_id = 2;
+        optional uint64 ack_id = 2;
         MessageData data = 3;
     }
 
     message EventMessage {
         string event = 1;
         MessageData data = 2;
+        optional uint64 ack_id = 3;
     }
     
     message JoinGroupMessage {
         string group = 1;
-        optional int32 ack_id = 2;
+        optional uint64 ack_id = 2;
     }
 
     message LeaveGroupMessage {
         string group = 1;
-        optional int32 ack_id = 2;
+        optional uint64 ack_id = 2;
     }
 }
 
@@ -104,7 +105,7 @@ Formato:
 
 Establezca `join_group_message.group` para el nombre del grupo.
 
-* `ackId` es opcional. Es un entero incremental para este mensaje de comando. Si se especifica `ackId`, el servicio envía un [mensaje de respuesta de confirmación](#ack-response) al cliente cuando se ejecuta el comando.
+* `ackId` es la identidad de cada solicitud y debe ser única. El servicio envía un [mensaje de respuesta de confirmación](#ack-response) para notificar el resultado del proceso de la solicitud. Puede encontrar más detalles en [AckId y Ack Response](./concept-client-protocols.md#ackid-and-ack-response)
 
 ### <a name="leave-groups"></a>Salida de grupos
 
@@ -112,13 +113,13 @@ Formato:
 
 Establezca `leave_group_message.group` para el nombre del grupo.
 
-* `ackId` es opcional. Es un entero incremental para este mensaje de comando. Si se especifica `ackId`, el servicio envía un [mensaje de respuesta de confirmación](#ack-response) al cliente cuando se ejecuta el comando.
+* `ackId` es la identidad de cada solicitud y debe ser única. El servicio envía un [mensaje de respuesta de confirmación](#ack-response) para notificar el resultado del proceso de la solicitud. Puede encontrar más detalles en [AckId y Ack Response](./concept-client-protocols.md#ackid-and-ack-response)
 
 ### <a name="publish-messages"></a>Publicar mensajes
 
 Formato:
 
-* `ackId` es opcional. Es un entero incremental para este mensaje de comando. Si se especifica `ackId`, el servicio envía un [mensaje de respuesta de confirmación](#ack-response) al cliente cuando se ejecuta el comando.
+* `ackId` es la identidad de cada solicitud y debe ser única. El servicio envía un [mensaje de respuesta de confirmación](#ack-response) para notificar el resultado del proceso de la solicitud. Puede encontrar más detalles en [AckId y Ack Response](./concept-client-protocols.md#ackid-and-ack-response)
 
 Hay un valor `dataType` implícito que puede ser `protobuf`, `text` o `binary`, en función del valor `data` de `MessageData` que se establezca. Los clientes receptores pueden usar `dataType` para controlar el contenido correctamente.
 
@@ -347,7 +348,7 @@ message DownstreamMessage {
     }
     
     message AckMessage {
-        int32 ack_id = 1;
+        uint64 ack_id = 1;
         bool success = 2;
         optional ErrorMessage error = 3;
     

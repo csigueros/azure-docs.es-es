@@ -2,13 +2,16 @@
 title: Restauración de bases de datos de SQL Server en una máquina virtual de Azure
 description: En este artículo se describe cómo restaurar bases de datos SQL Server que se ejecutan en una máquina virtual de Azure y cuyas copias de seguridad se realizan con Azure Backup. También puede usar la restauración entre regiones para restaurar las bases de datos en una región secundaria.
 ms.topic: conceptual
-ms.date: 08/06/2021
-ms.openlocfilehash: 312cf2918356c44b010097de4abf66be03f172a2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 11/02/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: 0e687cbae798a480eaf417de04b653b88d2e2c94
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724550"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131431119"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restauración de bases de datos SQL Server en máquinas virtuales de Azure
 
@@ -50,26 +53,16 @@ Para realizar la restauración, necesita los siguientes permisos:
 
 Realice la restauración como sigue:
 
-1. Abra el almacén en el que está registrada la VM con SQL Server.
-2. En el panel del almacén, en **Uso**, seleccione **Elementos de copia de seguridad**.
-3. En **Elementos de copia de seguridad**, en **Tipo de administración de copia de seguridad**, seleccione **SQL en máquina virtual de Azure**.
+1. En Azure Portal, vaya al **Centro de copia de seguridad** y haga clic en **Restaurar**.
 
-    ![Seleccionar SQL en la máquina virtual de Azure](./media/backup-azure-sql-database/sql-restore-backup-items.png)
+   :::image type="content" source="./media/backup-azure-sql-database/backup-center-restore-inline.png" alt-text="Captura de pantalla que muestra el inicio del proceso de restauración." lightbox="./media/backup-azure-sql-database/backup-center-restore-expanded.png":::
 
-4. Seleccione la base de datos que se va a restaurar.
+1. Seleccione **SQL en Azure VM** como tipo de origen de datos, seleccione la base de datos que desea restaurar y haga clic en **Continuar**.
 
-    ![Selección de la base de datos que se va a restaurar](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
+   :::image type="content" source="./media/backup-azure-sql-database/sql-restore.png" alt-text="Captura de pantalla que muestra cómo seleccionar el tipo de origen de datos.":::
 
-5. Revise el menú de la base de datos. Proporciona información sobre la copia de seguridad de la base de datos, como:
-
-    - Los puntos de restauración más antiguos y más recientes.
-    - El estado de copia de seguridad de registros de las 24 últimas horas, para bases de datos con el modelo de recuperación optimizado para cargas masivas de registros y el modelo de recuperación optimizado para cargas completas de registros, y configuradas para copias de seguridad del registro de transacciones.
-
-6. Seleccione **Restaurar**.
-
-    ![Seleccione Restaurar](./media/backup-azure-sql-database/restore-db.png)
-
-7. En **Restaurar configuración**, especifique dónde o cómo quiere restaurar los datos:
+1. En **Restaurar configuración**, especifique dónde o cómo quiere restaurar los datos:
+   
    - **Ubicación alternativa**: restaura la base de datos en una ubicación alternativa y mantiene la base de datos de origen original.
    - **Sobrescribir la base de datos**: restaura los datos en la misma instancia de SQL Server que el origen. Esta opción sobrescribe la base de datos original.
 
@@ -77,7 +70,6 @@ Realice la restauración como sigue:
         > Si la base de datos seleccionada pertenece a un grupo de disponibilidad AlwaysOn, SQL no permite sobrescribir la base de datos. Solo está disponible **Ubicación alternativa**.
         >
    - **Restaurar como archivos**: En lugar de restaurar como una base de datos, restaure los archivos de copia de seguridad que se pueden recuperar como base de datos más tarde en cualquier máquina en la que los archivos están presentes mediante SQL Server Management Studio.
-     ![Menú Restaurar configuración](./media/backup-azure-sql-database/restore-configuration.png)
 
 ### <a name="restore-to-an-alternate-location"></a>Restauración a una ubicación alternativa
 
@@ -87,9 +79,9 @@ Realice la restauración como sigue:
 1. Si procede, seleccione **Overwrite if the DB with the same name already exists on selected SQL instance** (Sobrescribir si ya existe una base de datos con el mismo nombre en la instancia de SQL seleccionada).
 1. Seleccione **Punto de restauración** y seleccione si [restaurar a un momento dado](#restore-to-a-specific-point-in-time) o [restaurar a un punto de recuperación específico](#restore-to-a-specific-restore-point).
 
-    ![Selección de Punto de restauración](./media/backup-azure-sql-database/select-restore-point.png)
+   :::image type="content" source="./media/backup-azure-sql-database/sql-alternate-location-recovery.png" alt-text="Captura de pantalla que muestra la selección del punto de restauración.":::
 
-    ![Restauración a un momento dado](./media/backup-azure-sql-database/restore-to-point-in-time.png)
+   :::image type="content" source="./media/backup-azure-sql-database/restore-points-sql-inline.png" alt-text="Captura de pantalla que muestra la restauración a un momento dado." lightbox="./media/backup-azure-sql-database/restore-points-sql-expanded.png":::
 
 1. En el menú **Configuración avanzada**:
 
@@ -119,16 +111,17 @@ Realice la restauración como sigue:
 Para restaurar datos de copia de seguridad como archivos .bak en lugar de una base de datos, seleccione **Restaurar como archivos**. Cuando los archivos se vuelcan a una ruta de acceso especificada, puede llevar estos archivos a cualquier máquina en la que quiera restaurarlos como base de datos. Dado que puede mover estos archivos a cualquier máquina, ahora puede restaurar los datos entre suscripciones y regiones.
 
 1. En **¿Dónde y cómo se realiza la restauración?** , seleccione **Restaurar como archivos**.
-1. Seleccione el nombre de SQL Server en el que quiere restaurar los archivos de copia de seguridad.
+1. Elija el nombre del servidor SQL Server en el que desea restaurar los archivos de copia de seguridad.
 1. En **Destination path on the server** (Ruta de acceso de destino en el servidor), especifique la ruta de acceso de carpetas en el servidor seleccionado en el paso 2. Se trata de la ubicación en la que el servicio volcará todos los archivos de copia de seguridad necesarios. Típicamente, una ruta de acceso a un recurso compartido de red o una ruta de acceso de un recurso compartido de archivos de Azure montado cuando se especifica como una ruta de acceso de destino facilita el acceso a estos archivos de parte de otras máquinas en la red o en el mismo recurso compartido de archivos de Azure montado en ellas.<BR>
 
-    >Para restaurar los archivos de copia de seguridad de base de datos de un recurso compartido de archivos de Azure montado en la máquina virtual registrada de destino, asegúrese de que NT AUTHORITY\SYSTEM tenga acceso al recurso compartido de archivos. Puede realizar los pasos que se indican a continuación para conceder los permisos de lectura y escritura al AFS montado en la máquina virtual:
-    >
-    >- Ejecutar `PsExec -s cmd` para entrar en el shell de NT AUTHORITY\SYSTEM
-    >   - Ejecute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
-    >   - Comprobar el acceso con `dir \\<storageacct>.file.core.windows.net\<filesharename>`
-    >- Iniciar una restauración como archivos desde el almacén de copia de seguridad en `\\<storageacct>.file.core.windows.net\<filesharename>` como ruta de acceso.<BR>
-    Puede descargar PsExec de la página [Sysinternals](/sysinternals/downloads/psexec).
+   >[!Note]
+   >Para restaurar los archivos de copia de seguridad de base de datos de un recurso compartido de archivos de Azure montado en la máquina virtual registrada de destino, asegúrese de que NT AUTHORITY\SYSTEM tenga acceso al recurso compartido de archivos. Puede realizar los pasos que se indican a continuación para conceder los permisos de lectura y escritura al AFS montado en la máquina virtual:
+   >
+   >- Ejecutar `PsExec -s cmd` para entrar en el shell de NT AUTHORITY\SYSTEM
+   >   - Ejecute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
+   >   - Comprobar el acceso con `dir \\<storageacct>.file.core.windows.net\<filesharename>`
+   >- Iniciar una restauración como archivos desde el almacén de copia de seguridad en `\\<storageacct>.file.core.windows.net\<filesharename>` como ruta de acceso.<BR>
+   >Puede descargar PsExec de la página [Sysinternals](/sysinternals/downloads/psexec).
 
 1. Seleccione **Aceptar**.
 
@@ -201,14 +194,14 @@ La experiencia del usuario de restauración de la región secundaria será simil
 
 >[!NOTE]
 >- Una vez que se desencadena la restauración y se ha iniciado la fase de transferencia de datos, no se puede cancelar el trabajo de restauración.
->- El nivel de acceso o rol necesario para realizar la operación de restauración en varias regiones es el rol _Operador de copia de seguridad en la suscripción_ y el acceso de _Colaborador (escritura)_ en las máquinas virtuales de origen y de destino. Para ver los trabajos de copia de seguridad, el permiso mínimo necesario en la suscripción es _ Lector de archivo de copias de seguridad_.
+>- El rol y el nivel de acceso necesarios para realizar la operación de restauración en varias regiones son el rol _Operador de copia de seguridad_ en la suscripción y el acceso de _Colaborador (escritura)_ en las máquinas virtuales de origen y de destino. Para ver los trabajos de copias de seguridad, _Lector de copia de seguridad_ es el permiso mínimo necesario en la suscripción.
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>Supervisión de trabajos de restauración en la región secundaria
 
-1. En el portal, vaya a **Almacén de Recovery Services** > **Trabajos de copia de seguridad**.
-1. Seleccione **Región secundaria** para ver los elementos de la región secundaria.
+1. En Azure Portal, vaya al **Centro de copia de seguridad** > **Trabajos de copia de seguridad**.
+1. Filtre la operación por **CrossRegionRestore** para ver los trabajos de la región secundaria.
 
-    ![Trabajos de copia de seguridad filtrados](./media/backup-azure-sql-database/backup-jobs-secondary-region.png)
+   :::image type="content" source="./media/backup-azure-sql-database/backup-center-jobs-inline.png" alt-text="Captura de pantalla que muestra los trabajos de copia de seguridad filtrados." lightbox="./media/backup-azure-sql-database/backup-center-jobs-expanded.png":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

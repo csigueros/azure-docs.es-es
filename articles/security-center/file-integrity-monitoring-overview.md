@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 08/19/2021
 ms.author: memildin
-ms.openlocfilehash: 72493aafed4256f5d494d1a111b9ac44c4e71868
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: af2d2b1c1932cd46d4b823c23bf62b30eff5688b
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131457254"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132060740"
 ---
 # <a name="file-integrity-monitoring-in-microsoft-defender-for-cloud"></a>Supervisión de la integridad de los archivos en Microsoft Defender para la nube
 
@@ -197,7 +197,7 @@ Se abre la hoja **Cambiar detalles** al escribir un cambio en el campo de búsqu
       - Contenido del archivo
       - Servicios de Windows
 
-      En cada pestaña se muestran las entidades que se pueden editar de esa categoría. En cada entidad de la lista, Defender for Cloud identifica si FIM está habilitado (true) o deshabilitado (false).  Al editar la entidad, puede habilitar o deshabilitar FIM.
+      En cada pestaña se muestran las entidades que se pueden editar de esa categoría. En cada entidad de la lista, Defender for Cloud identifica si FIM está habilitado (true) o deshabilitado (false). Edite la entidad para habilitar o deshabilitar FIM.
 
     :::image type="content" source="./media/file-integrity-monitoring-overview/file-integrity-monitoring-workspace-configuration.png" alt-text="Configuración del área de trabajo para la supervisión de la integridad de los archivos en Microsoft Defender for Cloud.":::
 

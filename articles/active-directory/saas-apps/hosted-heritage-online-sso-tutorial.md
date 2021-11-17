@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 087272765d725e50ac9157fb71fbde3c9d7d5314
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 5cfe1581bd79c7b9e745647d9bf3f85a4e6bda5a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003427"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132295732"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-hosted-heritage-online-sso"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Hosted Heritage Online SSO
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Hosted Heritage 
 Para configurar y probar el inicio de sesión único de Azure AD con Hosted Heritage Online SSO, realice los pasos siguientes:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Hosted Heritage Online SSO](#configure-hosted-heritage-online-sso-sso)** , para configurar el inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Hosted Heritage Online SSO](#create-hosted-heritage-online-sso-test-user)** , para tener un homólogo de B.Simon en Hosted Heritage Online SSO que esté vinculado a la representación del usuario en Azure AD.
@@ -130,4 +130,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que se ha configurado Hosted Heritage Online SSO, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que se ha configurado Hosted Heritage Online SSO, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

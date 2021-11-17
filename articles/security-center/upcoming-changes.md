@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 10/13/2021
+ms.date: 11/09/2021
 ms.author: memildin
-ms.openlocfilehash: 275dfc8d33be95db1d6712157686ee5dc89bd0be
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: fa80d1891799aa1266a309552f5715e755cec8ab
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131449324"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132057278"
 ---
 # <a name="important-upcoming-changes-to-microsoft-defender-for-cloud"></a>Próximos cambios importantes en Microsoft Defender for Cloud
 
@@ -34,7 +34,7 @@ Si busca las notas de la versión más recientes, puede encontrarlas en [Novedad
 | [La implementación heredada de ISO 27001 se está reemplazando por la nueva ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| Noviembre de 2021|
 | [Cambios en las recomendaciones para administrar soluciones de protección de puntos de conexión](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | Noviembre de 2021| 
 | [La visualización de inventario de las máquinas locales usará una plantilla diferente para el nombre del recurso](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name)    | Noviembre de 2021    |
-| [Varios cambios en las recomendaciones de identidad](#multiple-changes-to-identity-recommendations)                                                                                          | Noviembre de 2021    |
+| [Varios cambios en las recomendaciones de identidad](#multiple-changes-to-identity-recommendations)                                                                                          | Diciembre de 2021    |
 | [Cambios en una alerta de seguridad de Microsoft Defender para Storage](#changes-to-a-security-alert-from-microsoft-defender-for-storage)  | Noviembre de 2021    |
 | [Mejoras en la recomendación para clasificar datos confidenciales en bases de datos SQL](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                              | T1 2022    |
 |||
@@ -81,7 +81,6 @@ Más información:
 - [Cómo evalúan estas recomendaciones el estado de las soluciones implementadas](endpoint-protection-recommendations-technical.md)
 
 
-
 ### <a name="inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name"></a>La visualización de inventario de las máquinas locales usará una plantilla diferente para el nombre del recurso
 
 **Fecha estimada del cambio:** noviembre de 2021
@@ -94,9 +93,9 @@ Para mejorar la presentación de los recursos en el [inventario de recursos](ass
 
 ### <a name="multiple-changes-to-identity-recommendations"></a>Varios cambios en las recomendaciones de identidad
 
-**Fecha estimada del cambio:** noviembre de 2021
+**Fecha estimada del cambio:** diciembre de 2021
 
-Defender for Cloud incluye varias recomendaciones para mejorar la administración de usuarios y cuentas. En noviembre, realizaremos los cambios que se describen a continuación.
+Defender for Cloud incluye varias recomendaciones para mejorar la administración de usuarios y cuentas. En diciembre, realizaremos los cambios que se describen a continuación.
 
 - **Intervalo de actualización mejorado**: actualmente, las recomendaciones de identidad tienen un intervalo de actualización de 24 horas. Esta actualización reducirá ese intervalo a 12 horas.
 

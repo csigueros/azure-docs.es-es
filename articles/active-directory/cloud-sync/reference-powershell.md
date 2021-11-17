@@ -7,30 +7,29 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 11/03/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12eebf9c43dff9b3a83458051f5a3980b5afcbe0
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: d45c331c8af6dda32b7a47dbdb517adf1d8a4d93
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111888993"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500305"
 ---
 # <a name="aadcloudsynctools-powershell-module-for-azure-ad-connect-cloud-sync"></a>Módulo AADCloudSyncTools de PowerShell para la sincronización en la nube de Azure AD Connect
 
 El módulo AADCloudSyncTools proporciona un conjunto de herramientas útiles que puede usar para administrar las implementaciones de sincronización en la nube de Azure AD Connect.
 
-## <a name="pre-requisites"></a>Requisitos previos
-Los siguientes requisitos previos son obligatorios:
+## <a name="prerequisites"></a>Prerrequisitos
+Se necesitan los siguientes requisitos previos:
 
 - Todos los requisitos previos de este módulo se pueden instalar automáticamente con `Install-AADCloudSyncToolsPrerequisites`.
-- Este módulo usa la autenticación MSAL, por lo que es necesario que el módulo MSAL.PS esté instalado. Para comprobarlo, en una ventana de PowerShell, ejecute `Get-module MSAL.PS -ListAvailable`. Si el módulo está instalado correctamente, obtendrá una respuesta. Puede usar `Install-AADCloudSyncToolsPrerequisites` para instalar la versión más reciente de MSAL.PS.
-- Aunque el módulo AzureAD de PowerShell no es un requisito previo para acceder a las funcionalidades de este módulo, es útil tenerlo, por lo que también se instala automáticamente con el uso de `Install-AADCloudSyncToolsPrerequisites`.
-- La instalación manual de módulos de PowerShell requiere el cumplimiento de TLS 1.2. Para asegurarse de que puede instalar los módulos, configure lo siguiente en la sesión de PowerShell mediante:
+- Este módulo usa la autenticación MSAL, por lo que requiere que el módulo MSAL.PS esté instalado. Para comprobarlo, en una ventana de PowerShell, ejecute `Get-module MSAL.PS -ListAvailable`. Si el módulo está instalado correctamente, obtendrá una respuesta. Puede usar `Install-AADCloudSyncToolsPrerequisites` para instalar la versión más reciente de MSAL.PS.
+- Aunque el módulo AzureAD de PowerShell no es un requisito previo para las funcionalidades de este módulo, es útil tenerlo, por lo que también se instala automáticamente con el uso de `Install-AADCloudSyncToolsPrerequisites`. 
+- La instalación de la Galería de PowerShell requiere el cumplimiento de TLS 1.2. El cmdlet `Install-AADCloudSyncToolsPrerequisites` establece el cumplimiento de TLS 1.2 antes de instalar todos los requisitos previos. Para asegurarse de que puede instalar los módulos manualmente, configure lo siguiente en la sesión de PowerShell antes de usar `Install-Module`:
   ```
-   Install-Module:
   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   ```
 
@@ -48,6 +47,10 @@ Para instalar y usar el módulo AADCloudSyncTools, siga estos pasos:
 8. Vuelva a importar el módulo siguiendo el paso 2.
 9. Ejecute `Install-AADCloudSyncToolsPrerequisites` para instalar los módulos MSAL y AzureAD.
 11. Todos los requisitos previos deben estar instalados correctamente. ![Módulo de instalación](media/reference-powershell/install-1.png)
+12. Cada vez que quiera usar el módulo AADCloudSyncTools en la nueva sesión de PowerShell, escriba o copie y pegue lo siguiente:
+```
+Import-module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Utility\AADCloudSyncTools"
+```
 
 
 ## <a name="aadcloudsynctools--cmdlets"></a>Cmdlets de AADCloudSyncTools
@@ -57,13 +60,13 @@ Usa el módulo MSAL.PS para solicitar un token para que el administrador de Azur
 
 ### <a name="export-aadcloudsynctoolslogs"></a>Export-AADCloudSyncToolsLogs
 Exporta y empaqueta todos los datos de solución de problemas en un archivo comprimido, como se indica a continuación:
- 1. Inicia un seguimiento detallado con Start-AADCloudSyncToolsVerboseLogs.  Puede encontrar estos registros de seguimiento en la carpeta C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace.
- 2. Recopila un registro de seguimiento durante 3 minutos.
-   Puede especificar otro tiempo con -TracingDurationMins u omitir el seguimiento detallado con -SkipVerboseTrace.
- 3. Detiene el seguimiento detallado con Stop-AADCloudSyncToolsVerboseLogs.
- 4. Recopila registros del Visor de eventos durante las últimas 24 horas.
- 5. Comprime todos los registros del agente, los registros detallados y los registros del visor de eventos en un archivo ZIP comprimido en la carpeta Documentos del usuario. 
- </br>Puede especificar otra carpeta de salida con -OutputPath \<folder path\>.
+ 1. Establece el seguimiento detallado y comienza a recopilar datos del agente de aprovisionamiento (igual que `Start-AADCloudSyncToolsVerboseLogs`).
+ <br>Puede encontrar estos registros de seguimiento en la carpeta `C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace`. </br>
+ 2. Detiene la recopilación de datos después de 3 minutos y deshabilita el seguimiento detallado (igual que `Stop-AADCloudSyncToolsVerboseLogs`).
+ <br>Puede especificar una duración diferente con `-TracingDurationMins` u omitir completamente el seguimiento detallado con `-SkipVerboseTrace`. </br>
+ 3. Recopila registros del Visor de eventos durante las últimas 24 horas.
+ 4. Comprime todos los registros del agente, los registros detallados y los registros del visor de eventos en un archivo ZIP comprimido en la carpeta Documentos del usuario.
+ <br>Puede especificar otra carpeta de salida con `-OutputPath <folder path>`. </br>
 
 ### <a name="get-aadcloudsynctoolsinfo"></a>Get-AADCloudSyncToolsInfo
 Muestra los detalles del inquilino de Azure AD y el estado de las variables internas.
@@ -122,4 +125,3 @@ Pausa la sincronización.
 
 - [¿Qué es el aprovisionamiento?](what-is-provisioning.md)
 - [¿Qué es la sincronización en la nube de Azure AD Connect?](what-is-cloud-sync.md)
-

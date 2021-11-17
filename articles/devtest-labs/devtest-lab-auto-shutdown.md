@@ -1,150 +1,148 @@
 ---
-title: Administración de directivas de apagado automático en máquinas virtuales de laboratorio de Azure DevTest Labs y de proceso de Azure Compute
-description: Aprenda a establecer una directiva de apagado automático para un laboratorio, de modo que las máquinas virtuales se apaguen automáticamente cuando no se estén usando.
+title: Configuración de la directiva de apagado automático para laboratorios y máquinas virtuales
+description: Descubra cómo establecer programaciones y directivas de apagado automático para Azure DevTest Labs o para máquinas virtuales individuales (VM) con el fin de apagar las máquinas virtuales a una hora concreta del día.
 ms.topic: how-to
-ms.date: 06/26/2020
-ms.openlocfilehash: 75fa8f07c7e3d67ea029413d427046e20d45cdea
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/01/2021
+ms.openlocfilehash: 622d9c2da013ad9eb8c3a0eef46a21999f54ee76
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128648589"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286742"
 ---
-# <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configuración del apagado automático de máquinas virtuales de laboratorio y proceso en Azure DevTest Labs
+# <a name="configure-auto-shutdown-for-labs-and-vms-in-devtest-labs"></a>Configuración del apagado automático de laboratorios y máquinas virtuales en DevTest Labs
 
-En este artículo se explica cómo configurar las opciones de apagado automático de las máquinas virtuales de laboratorio de DevTest Labs y de las máquinas virtuales de proceso de Compute.
+Como propietario de un laboratorio de Azure DevTest Labs, puede configurar una programación para que se apaguen todas las máquinas virtuales (VM) del laboratorio a una hora específica del día o de la noche. De esta forma, ahorra en los costos de ejecutar máquinas que no se usan.
 
-## <a name="configure-autoshutdown-for-lab-vms-devtest-labs"></a>Configuración del apagado automático de las máquinas virtuales de laboratorio (DevTest Labs)
+También puede establecer una directiva central de apagado automático para controlar si los usuarios del laboratorio pueden programar el apagado automático de sus propias máquinas virtuales individuales. Las directivas de apagado automático van desde permitir a los propietarios de máquinas virtuales controlar completamente las programaciones de apagado de la máquina virtual hasta no permitirles ningún control sobre las programaciones.
 
-Azure DevTest Labs permite controlar los costos y desperdiciar lo mínimo posible en sus laboratorios gracias a la posibilidad de administrar políticas (configuración) en cada uno de ellos. En este artículo se muestra cómo configurar la directiva de apagado automático para un laboratorio.  También se muestra cómo configurar las opciones de apagado automático de una máquina virtual de laboratorio. Para ver cómo establecer cada una de las directivas de laboratorio, vea [Definición de directivas de laboratorio en Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
+En este artículo se explica cómo establecer programaciones de apagado automático para laboratorios de DevTest Labs y para máquinas virtuales de laboratorio individuales. También se describe cómo establecer la directiva de apagado automático del laboratorio y cómo configurar las notificaciones de apagado automático.
 
-### <a name="set-autoshutdown-policy-for-a-lab"></a>Establecimiento de la directiva de apagado automático para un laboratorio
+## <a name="configure-lab-auto-shutdown-schedule"></a>Configuración de la programación de apagado automático del laboratorio
 
-Como propietario del laboratorio, puede configurar una programación de apagado para todas las máquinas virtuales de su laboratorio. Al hacerlo, puede ahorrar costos derivados de la ejecución de máquinas que no se usan (inactivas). Puede aplicar una directiva de apagado en todas las máquinas del laboratorio a nivel central y también ahorrarles a los usuarios del laboratorio el trabajo de configurar una programación para sus máquinas individuales. Esta característica permite establecer la directiva en la programación del laboratorio, con una configuración que cubre desde permitir que los usuarios del laboratorio tengan control total sobre la programación de apagado de su máquina virtual hasta no tener ningún control sobre el apagado. Como propietario del laboratorio, puede configurar esta directiva mediante los pasos siguientes:
+El apagado automático ayuda a minimizar el desperdicio del laboratorio, ya que todas las máquinas virtuales de un laboratorio se apagan a una hora específica del día o de la noche. Para ver o cambiar la programación de apagado automático de un laboratorio, siga estos pasos:
 
 1. En la página principal del laboratorio, seleccione **Configuration and policies** (Configuración y directivas).
-2. Seleccione **Auto shutdown policy** (Directiva de apagado automático) en la sección **Schedules** (Programaciones) del menú izquierdo.
-3. Seleccione una de las opciones. En las siguientes secciones, se proporcionan más detalles de estas opciones:
+1. En la sección **Programaciones** del menú izquierdo, seleccione **Apagado automático**.
+1. En la pantalla **Apagado automático**, en **Habilitado**, seleccione **Activado** para habilitar esta directiva o **Desactivado** para deshabilitarla.
+1. En **Apagado programado** y **Zona horaria**, si ha activado el apagado automático, especifique la hora y la zona horaria para apagar todas las máquinas virtuales del laboratorio.
+1. En la opción **¿Enviar notificación antes del apagado automático?** , seleccione **Sí** o **No** para enviar una notificación 30 minutos antes de la hora de apagado automático especificada. Si elige **Sí**, escriba un punto de conexión de URL de webhook en **Dirección URL de webhook**, o escriba direcciones de correo electrónico separadas por coma en **Dirección de correo electrónico** donde quiera que se publique o envíe la notificación. Para más información, consulte la sección [Notificaciones de apagado automático](#auto-shutdown-notifications).
+1. Seleccione **Guardar**.
 
-    ![Opciones de la directiva de apagado automático](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
+   ![Captura de pantalla que muestra la configuración de los detalles de apagado automático de un laboratorio.](media/devtest-lab-auto-shutdown/auto-shutdown.png)
+
+De forma predeterminada, esta programación se aplica a todas las máquinas virtuales del laboratorio. Para quitar esta configuración de una máquina virtual específica, si lo permite la directiva, abra el panel de administración de la máquina virtual y cambie la configuración de **Apagado automático**.
+
+> [!NOTE]
+> Si actualiza la programación de apagado automático de su laboratorio o de una máquina virtual antes que transcurran 30 minutos desde la hora de apagado programada anteriormente, la nueva hora de apagado entra en vigor al día siguiente.
+
+## <a name="configure-lab-auto-shutdown-policy"></a>Configuración de la directiva de apagado automático de un laboratorio
+
+Como propietario de un laboratorio, puede controlar su costo y reducir sus residuos mediante la administración de la configuración de la directiva de apagado automático del laboratorio. Para saber cómo configurar todas las directivas de laboratorio, consulte [Definición de las directivas de laboratorio en Azure DevTest Labs](devtest-lab-set-lab-policy.md).
 
 > [!IMPORTANT]
 > Los cambios en la directiva de apagado automático se aplican solo a las nuevas máquinas virtuales creadas en el laboratorio y no a las máquinas virtuales ya existentes.
 
-### <a name="configure-autoshutdown-settings"></a>Configuración del apagado automático
-
-La directiva de apagado automático ayuda a minimizar la pérdida del laboratorio, ya que permite especificar la hora de apagado de sus máquinas virtuales.
-
-Para ver o cambiar las directivas de un laboratorio, siga estos pasos:
-
 1. En la página principal del laboratorio, seleccione **Configuration and policies** (Configuración y directivas).
-2. Seleccione **Auto shutdown** (Apagado automático) en la sección **Schedules** (Programaciones) del menú izquierdo.
-3. Seleccione **Activado** para habilitar esta directiva, y **Desactivado** para deshabilitarla.
-     ![Detalles de apagado automático](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
-4. Si habilita esta directiva, especifique la hora local (y la zona horaria) para apagar todas las máquinas virtuales del laboratorio actual.
-5. Especifique **Yes** (Sí) o **No** en la opción para enviar una notificación 30 minutos antes de la hora especificada para el apagado automático. Si elige **Sí**, escriba un punto de conexión de URL del webhook o una dirección de correo electrónico para especificar dónde quiere que se publique o se envíe la notificación. El usuario recibe la notificación y se le ofrece la opción de retrasar el apagado. Para obtener más información, consulte la sección [Notificaciones](#notifications).
-6. Seleccione **Guardar**.
 
-    De manera predeterminada, una vez que se habilite, esta directiva se aplica a todas las máquinas virtuales del laboratorio actual. Para quitar esta configuración de una máquina virtual específica, abra el panel de administración de la máquina virtual y cambie la configuración de **Apagado automático**.
+1. En la sección **Programaciones** del menú izquierdo, seleccione **Directivas de apagado automático**.
 
-> [!NOTE]
-> Si actualiza la programación de apagado automático del laboratorio o de una máquina virtual de laboratorio específica en un plazo de 30 minutos a partir de la hora programada, se aplicará la hora de apagado actualizada en la programación del día siguiente.
+1. Seleccione una de las opciones.
 
-### <a name="user-sets-a-schedule-and-can-opt-out"></a>El usuario establece una programación y puede excluirse de ella
+   ![Captura de pantalla que muestra las opciones de directiva de apagado automático.](./media/devtest-lab-auto-shutdown/policy-options.png)
 
-Si establece esta directiva para el laboratorio, los usuarios del laboratorio pueden excluirse de la programación del laboratorio o invalidarla. Esta opción concede a los usuarios del laboratorio control completo sobre la programación del apagado automático de sus máquinas virtuales. Los usuarios del laboratorio no verán ningún cambio en su página de programación de apagado de la máquina virtual.
+   - **El usuario establece una programación y puede desactivarla**: los usuarios del laboratorio pueden invalidar o rechazar la programación del laboratorio. Esta opción concede a los propietarios de máquinas virtuales control total para establecer las programaciones de apagado automático de sus máquinas virtuales.
 
-![Opciones de la directiva de apagado automático: 1](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-1.png)
+   - **El usuario establece una programación y no puede desactivarla**: los usuarios del laboratorio pueden invalidar la programación del laboratorio, pero no pueden rechazar la directiva de apagado automático. Esta opción garantiza que todas las máquinas virtuales del laboratorio están bajo una programación de apagado automático. Los propietarios de máquinas virtuales pueden actualizar la hora de programación y configurar las notificaciones de apagado.
 
-### <a name="user-sets-a-schedule-and-cannot-opt-out"></a>El usuario establece una programación y no puede excluirse de ella
+   - **El usuario no tiene control sobre la programación establecida por el administrador del laboratorio**: los usuarios del laboratorio no pueden modificar ni rechazar la programación de apagado automático del laboratorio. Esta opción proporciona al administrador del laboratorio el control completo de la programación de todas las máquinas virtuales del laboratorio. Los propietarios del laboratorio solo pueden configurar notificaciones de apagado automático para sus máquinas virtuales.
 
-Si establece esta directiva para el laboratorio, los usuarios del laboratorio pueden invalidar la programación del laboratorio. Sin embargo, no se pueden excluir de la directiva de apagado automático. Esta opción garantiza que todas las máquinas del laboratorio están bajo una programación de apagado automático. Los usuarios del laboratorio pueden actualizar la programación de apagado automático de sus máquinas virtuales y configurar notificaciones de apagado.
+1. Seleccione **Guardar**.
 
-![Opciones de la directiva de apagado automático: 2](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-2.png)
+## <a name="configure-vm-auto-shutdown-settings"></a>Configuración de las opciones de apagado automático
 
-### <a name="user-has-no-control-over-the-schedule-set-by-lab-admin"></a>El usuario no tiene control sobre la programación establecida por el administrador del laboratorio
+En función de la directiva de apagado automático, también puede establecer una programación de apagado automático para cada máquina virtual del laboratorio.
 
-Si establece esta directiva para el laboratorio, los usuarios del laboratorio no pueden excluirse de la programación del laboratorio ni invalidarla. Esta opción ofrece al administrador del laboratorio control total sobre la programación de cada máquina del laboratorio. Los usuarios del laboratorio solo pueden configurar notificaciones de apagado automático para sus máquinas virtuales.
+1. En la página principal de la máquina virtual, en la sección **Operaciones** del menú izquierdo, seleccione **Apagado automático**.
+1. En la pantalla **Apagado automático**, en **Habilitado**, seleccione **Activado** para habilitar esta directiva o **Desactivado** para deshabilitarla.
+1. En **Apagado programado** y **Zona horaria**, si ha activado el apagado automático, especifique la hora y la zona horaria para apagar todas las máquinas virtuales del laboratorio.
+1. En la opción **¿Enviar notificación antes del apagado automático?** , seleccione **Sí** o **No** para enviar una notificación 30 minutos antes de la hora de apagado automático especificada. Si elige **Sí**, escriba un punto de conexión de URL de webhook en **Dirección URL de webhook**, o escriba una dirección de correo electrónico en **Dirección de correo electrónico** donde quiera que se publique o envíe la notificación. Para más información, consulte la sección [Notificaciones de apagado automático](#auto-shutdown-notifications).
+1. Seleccione **Guardar**.
 
-![Opciones de la directiva de apagado automático: 3](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-3.png)
-
-## <a name="configure-autoshutdown-for-compute-vms"></a>Configuración del apagado automático de máquinas virtuales de proceso
-
-1. En la página **Máquina virtual**, seleccione **Apagado automático** en el menú de la izquierda de la sección **Operaciones**.
-2. En la página **Apagado automático**, seleccione **Activado** para habilitar esta directiva y **Desactivado** para deshabilitarla.
-3. Si habilita esta directiva, especifique la **hora** (y la **zona horaria**) a la que se deben apagar las máquinas virtuales.
-4. Elija **Yes** (Sí) o **No** en la opción para enviar una notificación 30 minutos antes de la hora especificada para el apagado automático. Si elige **Sí**, escriba un punto de conexión de URL del webhook o una dirección de correo electrónico para especificar dónde quiere que se publique o se envíe la notificación. El usuario recibe la notificación y se le ofrece la opción de retrasar el apagado. Para obtener más información, consulte la sección [Notificaciones](#notifications).
-5. Seleccione **Guardar**.
-
-    ![Configuración del apagado automático de una máquina virtual de proceso](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)
+   ![Captura de pantalla que muestra la configuración de los detalles de apagado automático de una máquina virtual.](media/devtest-lab-auto-shutdown/compute-auto-shutdown.png)
 
 ### <a name="view-activity-logs-for-auto-shutdown-updates"></a>Visualización de registros de actividad para las actualizaciones del apagado automático
 
-Al actualizar la configuración del apagado automático, verá la actividad que figura en el registro de actividad de la máquina virtual.
+Al actualizar la configuración del apagado automático, verá la actividad anotada en el registro de actividad de la máquina virtual.
 
-1. En [Azure Portal](https://portal.azure.com), vaya a la página principal de la máquina virtual.
-2. Seleccione **Registro de actividad** en el menú de la izquierda.
-3. Quite **Recurso: mycomputevm** de los filtros.
-4. Confirme que ve la operación **Agregar o modificar programaciones** en el registro de actividad. Si no lo ve, espere unos minutos y actualice el registro de actividad.
+1. En la página principal de la máquina virtual, seleccione **Registro de actividad** en el menú izquierdo.
+1. Quite el filtro **Recurso**, aplique el filtro **Grupo de recursos** adecuado y vea las entradas de **Add or modify schedules** (Agregar o modificar programaciones).
 
-    ![Entrada de registro de actividad](./media/devtest-lab-auto-shutdown/activity-log-entry.png)
-5. Seleccione la operación **Agregar o modificar programaciones** para ver la información siguiente en la página **Resumen**:
+   ![Captura de pantalla que muestra Add or modify schedules (Agregar o modificar programaciones) en el registro de actividad.](media/devtest-lab-auto-shutdown/activity-log-entry.png)
 
-    - Nombre de la operación (Agregar o modificar programaciones)
-    - Fecha y hora en que se actualizó la configuración del apagado automático.
-    - La dirección de correo electrónico del usuario que actualizó la configuración.
+1. Seleccione la operación **Add or modify schedules** (Agregar o modificar programaciones) para abrir una página de resumen que muestre más detalles sobre la operación.
 
-        ![Resumen de entradas del registro de actividad](./media/devtest-lab-auto-shutdown/activity-log-entry-summary.png)
-6. Cambie a la pestaña **Historial de cambios** de la página **Agregar o modificar programaciones** y verá el historial de cambios de la configuración. En el ejemplo siguiente, la hora de apagado se cambió de 7 p.m. a 6 p.m. el 10 de abril de 2020 a las 15:18:47 EST. Y la configuración se deshabilitó a las 15:25:09 EST.
+## <a name="auto-shutdown-notifications"></a>Notificaciones de apagado automático
 
-    ![Registro de actividad - historial de cambios](./media/devtest-lab-auto-shutdown/activity-log-entry-change-history.png)
-7. Para ver más detalles sobre la operación, cambie a la pestaña **JSON** de la página **Agregar o modificar programaciones**.
+Al habilitar las notificaciones en la configuración de apagado automático, los usuarios del laboratorio reciben una notificación 30 minutos antes del apagado automático por si alguna de sus máquinas virtuales va a resultar afectada. La notificación proporciona a los usuarios la oportunidad de guardar su trabajo antes del apagado. Si la configuración de apagado automático especifica una dirección de correo electrónico, la notificación se envía a esa dirección de correo electrónico. Si la configuración especifica un webhook, la notificación se envía a la dirección URL del webhook.
 
-## <a name="notifications"></a>Notificaciones
+La notificación también puede proporcionar vínculos que permiten las siguientes acciones en cada máquina virtual si alguien necesita seguir trabajando:
 
-Una vez que se haya configurado el apagado automático, se enviarán notificaciones a los usuarios del laboratorio treinta minutos antes de que se active el apagado automático si alguna de sus máquinas virtuales se ve afectada. Esta opción proporciona a los usuarios del laboratorio la oportunidad de guardar su trabajo antes del apagado. La notificación también proporciona vínculos para cada máquina virtual con las siguientes acciones, en caso de que alguien deba seguir trabajando en su máquina virtual.
+- Omitir el apagado automático esta vez.
+- Posponer el apagado durante una hora.
+- Posponer el apagado durante dos horas.
 
-- Omitir el apagado automático de ese momento
-- Posponer el apagado durante una hora
-- Posponer el apagado durante dos horas
+Puede usar webhooks para implementar sus propias notificaciones. Se establecen integraciones que se suscriben a determinados eventos. Cuando se produce uno de esos eventos, se envía una carga HTTP POST a la dirección URL del webhook.
 
-Si se especificó un webhook, la notificación se envía a su dirección URL.  Si se especificó una dirección de correo electrónico en la configuración de apagado, se envía un mensaje a esa dirección. Los webhooks le permiten crear o configurar integraciones que se suscriben a ciertos eventos. Cuando se activa uno de esos eventos, DevTest Labs enviará una carga HTTP POST a la dirección URL configurada del webhook. Para obtener más información sobre cómo responder a webhooks, consulte [Introducción a los enlaces y desencadenadores HTTP de Azure Functions](../azure-functions/functions-bindings-http-webhook.md) o cómo [agregar un desencadenador HTTP para Azure Logic Apps](../connectors/connectors-native-http.md#add-an-http-trigger).
+Aplicaciones como [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y Slack tienen una amplia compatibilidad con webhooks. Para más información sobre cómo responder a webhooks, consulte [Introducción a los enlaces y desencadenadores HTTP de Azure Functions](../azure-functions/functions-bindings-http-webhook.md) y [Agregar un desencadenador HTTP para Azure Logic Apps](../connectors/connectors-native-http.md#add-an-http-trigger).
 
-Le recomendamos que use webhooks porque son ampliamente compatibles con diversas aplicaciones, como Azure Logic Apps y Slack.  Además, le permiten implementar su propio método para enviar notificaciones. A modo de ejemplo, este artículo le indicará cómo configurar la notificación de apagado automáticamente para enviar un correo electrónico al propietario de la máquina virtual mediante Azure Logic Apps. Primero, veamos rápidamente los pasos básicos para habilitar la notificación de apagado automático en su laboratorio.
+En el ejemplo siguiente se muestra cómo usar Logic Apps para configurar una notificación de apagado automático que envía un correo electrónico a los propietarios de máquinas virtuales.
 
 ### <a name="create-a-logic-app-that-sends-email-notifications"></a>Creación de una aplicación lógica que envía notificaciones por correo electrónico
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) ofrece muchos conectores que facilitan la integración de un servicio con otros clientes, como Office 365 y Twitter. En el nivel alto, los pasos para configurar una aplicación lógica para las notificaciones por correo electrónico se pueden dividir en cuatro fases:
+Logic Apps ofrece muchos conectores que facilitan la integración de un servicio con otros clientes, como Office 365 y Twitter. A nivel general, los pasos para configurar una aplicación lógica para la notificación por correo electrónico son los siguientes:
 
-- Cree una aplicación lógica.
-- Configure la plantilla integrada.
-- Intégrela con su cliente de correo electrónico.
-- Copie la dirección URL del webhook.
+1. Cree una aplicación lógica.
+1. Configure la plantilla integrada.
+1. Realice la integración con su cliente de correo electrónico.
+1. Obtenga la dirección URL del webhook que se usará en la configuración de la notificación de apagado automático.
 
-### <a name="create-a-logic-app"></a>Creación de una aplicación lógica
+Para empezar, cree una aplicación lógica en Azure con los pasos siguientes:
 
-Para comenzar, cree una aplicación lógica en su suscripción de Azure siguiendo estos pasos:
+1. En Azure Portal, escriba *logic apps* en el campo de búsqueda superior y, luego, seleccione **Logic Apps**.
 
-1. Seleccione **+ Create a resource** (+ Crear un recurso) en el menú de la izquierda, seleccione **Integration** (Integración) y seleccione **Logic App** (Aplicación lógica).
+1. En la página **Logic Apps**, seleccione en **Agregar**.
 
-    ![Nuevo menú de aplicaciones lógicas](./media/devtest-lab-auto-shutdown/new-logic-app.png)
-2. En la página **Aplicación lógica: crear**, siga estos pasos:
-    1. Escriba un **nombre** para la aplicación lógica.
-    2. Selección la **suscripción** de Azure.
-    3. Cree un **grupo de recursos** nuevo o seleccione uno existente.
-    4. Seleccione una **ubicación** para la aplicación lógica.
+1. En la página **Crear aplicación lógica**:
 
-        ![Aplicación lógica nueva: configuración](./media/devtest-lab-auto-shutdown/new-logic-app-page.png)
-3. En las **notificaciones**, seleccione **Go to resource** (Ir al recurso) en la notificación.
+   - Seleccione su **suscripción** de Azure.
+   - Seleccione un **Grupo de recursos** o cree uno nuevo.
+   - Escriba un valor en **Nombre de la aplicación lógica**.
+   - Seleccione una opción de **Región** para la aplicación lógica.
 
-    ![Ir al recurso](./media/devtest-lab-auto-shutdown/go-to-resource.png)
-4. Seleccione **Logic app designer** (Diseñador de aplicaciones lógicas) en la categoría **Deployment Tools** (Herramientas de implementación).
+   ![Captura de pantalla que muestra la página Crear aplicación lógica.](media/devtest-lab-auto-shutdown/new-logic-app-page.png)
 
-    ![Seleccionar solicitud o respuesta HTTP](./media/devtest-lab-auto-shutdown/select-http-request-response-option.png)
-5. En la página **HTTP Request-Response** (Solicitud-respuesta HTTP), seleccione **Use this template** (Usar esta plantilla).
+1. Seleccione **Revisar y crear** y, una vez superada la validación, seleccione **Crear**.
 
-    ![Seleccione Usar esta opción de plantilla](./media/devtest-lab-auto-shutdown/select-use-this-template.png)
-6. Copie el siguiente JSON en la sección **Request Body JSON Schema** (Esquema de JSON del cuerpo de la solicitud):
+1. Cuando finalice la implementación, seleccione **Go to resource** (Ir al recurso).
+
+A continuación, configure la plantilla integrada.
+
+1. En la página Aplicación lógica, seleccione **Diseñador de aplicación lógica** en **Herramientas de desarrollo** del panel de navegación izquierdo.
+
+1. En el menú superior, seleccione **Plantillas**.
+
+1. En **Plantillas**, seleccione **HTTP Request/Response** (Solicitud o respuesta HTTP).
+
+   ![Captura de pantalla que muestra la plantilla HTTP Request Response (Solicitud o respuesta HTTP).](media/devtest-lab-auto-shutdown/select-http-request-response-option.png)
+
+1. En la página **HTTP Request-Response** (Solicitud-respuesta HTTP), seleccione **Use this template** (Usar esta plantilla).
+
+   ![Captura de pantalla que muestra la selección de Usar esta plantilla.](./media/devtest-lab-auto-shutdown/select-use-this-template.png)
+
+1. Pegue el siguiente código JSON en la sección **Esquema JSON de cuerpo de solicitud**.
+
+   ![Captura de pantalla que muestra Esquema JSON de cuerpo de solicitud.](media/devtest-lab-auto-shutdown/request-json.png)
 
     ```json
     {
@@ -209,22 +207,30 @@ Para comenzar, cree una aplicación lógica en su suscripción de Azure siguiend
     }
     ```
 
-    ![Captura de pantalla que muestra "Esquema JSON de cuerpo de solicitud".](./media/devtest-lab-auto-shutdown/request-json.png)
-7. Seleccione **+ New step** (+ Nuevo paso) en el diseñador y siga estos pasos:
-    1. Busque **Office 365 Outlook - Send an email** (Office 365 Outlook: enviar un correo electrónico).
-    2. Seleccione **Send an email** (Enviar un correo electrónico) desde **Actions** (Acciones).
+Ahora, realice la integración con el cliente de correo electrónico.
 
-        ![Opción de enviar un correo electrónico](./media/devtest-lab-auto-shutdown/select-send-email.png)
-    3. Seleccione **Sign in** (Iniciar sesión) para iniciar sesión en su cuenta de correo electrónico.
-    4. Seleccione el campo **TO** (PARA) y elija el propietario.
-    5. Seleccione **SUBJECT** (ASUNTO) y escriba el asunto de la notificación por correo electrónico. Por ejemplo: "Apagado de la máquina vmName para el laboratorio: labName".
-    6. Seleccione **BODY** (CUERPO) y defina el contenido del cuerpo para la notificación por correo electrónico. Por ejemplo: "vmName está programado para apagarse en 15 minutos. Para omitir este apagado, haga clic en: dirección URL. Retrasar el apagado durante una hora: delayUrl60. Retrasar el apagado durante dos hora: delayUrl120".
+1. En el diseñador, seleccione **Nuevo paso**.
 
-        ![Esquema JSON del cuerpo de la solicitud](./media/devtest-lab-auto-shutdown/email-options.png)
-8. Seleccione **Guardar** en la barra de herramientas. Ya puede copiar la **dirección URL de HTTP POST**. Seleccione el botón para copiar la dirección URL en el Portapapeles.
+   ![Captura de pantalla que muestra Nuevo paso en el diseñador.](media/devtest-lab-auto-shutdown/new-step.png)
 
-    ![Dirección URL de Webhook](./media/devtest-lab-auto-shutdown/webhook-url.png)
+1. En la página **Elegir una operación**, escriba *Office 365 Outlook: enviar un correo electrónico* en el campo de búsqueda y, luego, en **Acciones**, seleccione **Enviar correo electrónico (V2)** .
+
+   ![Captura de pantalla que muestra la opción Enviar correo electrónico (V2).](media/devtest-lab-auto-shutdown/select-send-email.png)
+
+1. En el formulario **Enviar correo electrónico (V2)** , rellene los campos **Para**, **Asunto** y **Cuerpo**.
+
+   Seleccione **Agregar contenido dinámico** para rellenar automáticamente la notificación con los valores que usan la aplicación y los conectores. Por ejemplo, en **Para**, seleccione **propietario**. Rellene el campo **Asunto** con **vmName** y **labName**. Agregue contenido como los valores **skipUrl** y **delayUrl** al cuerpo del mensaje.
+
+   ![Captura de pantalla que muestra un correo electrónico de notificación de ejemplo.](media/devtest-lab-auto-shutdown/email-options.png)
+
+1. Seleccione **Guardar** en la barra de herramientas.
+
+Ahora puede copiar la dirección URL del webhook. Seleccione el paso **Cuando se recibe una solicitud HTTP** y, luego, elija el botón de copia para copiar la dirección URL de HTTP POST en el portapapeles. Pegue esta dirección URL del webhook en la configuración de notificación de apagado automático.
+
+![Captura de pantalla que muestra la copia de la dirección URL del webhook.](media/devtest-lab-auto-shutdown/webhook-url.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para saber cómo configurar todas las directivas, consulte [Administración de las directivas de un laboratorio de Azure DevTest Labs](devtest-lab-set-lab-policy.md).
+- [Inicio automático de máquinas virtuales del laboratorio](devtest-lab-auto-startup-vm.md)
+- [Definición de directivas de laboratorio en Azure DevTest Labs](devtest-lab-set-lab-policy.md)
+- [Recepción y respuesta de solicitudes HTTPS entrantes en Azure Logic Apps](/azure/connectors/connectors-native-reqres)

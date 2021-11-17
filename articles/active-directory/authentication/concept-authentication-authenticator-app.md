@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 10/29/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45663b7a2229de0600e60ec2e40c5b721440b997
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5e7a9dd7ba8cd719e95582fee3650cb99a84e057
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738934"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448561"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Métodos de autenticación en Azure Active Directory: aplicación Microsoft Authenticator
 
@@ -30,9 +30,9 @@ Para usar la aplicación Authenticator en una solicitud de inicio de sesión en 
 
 ## <a name="passwordless-sign-in"></a>Inicio de sesión sin contraseña
 
-En lugar de ver la petición de una contraseña después de escribir un nombre de usuario, el usuario que ha habilitado el inicio de sesión por teléfono desde la aplicación Microsoft Authenticator ve un mensaje que le solicita pulsar un número en la aplicación. Una vez seleccionado el número correcto, se completa el proceso de inicio de sesión.
+En lugar de ver una solicitud de contraseña después de escribir un nombre de usuario, un usuario que ha habilitado el inicio de sesión en el teléfono desde la aplicación Microsoft Authenticator ve un mensaje para indicar un número en su aplicación. Una vez seleccionado el número correcto, se completa el proceso de inicio de sesión.
 
-![Ejemplo de un inicio de sesión de explorador que solicita al usuario que apruebe el inicio de sesión](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
+![Ejemplo de un inicio de sesión de explorador que solicita al usuario que apruebe el inicio de sesión.](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
 Este método de autenticación proporciona un alto nivel de seguridad y elimina la necesidad de que el usuario proporcione una contraseña en el inicio de sesión. 
 
@@ -42,7 +42,7 @@ Para empezar a usar el inicio de sesión sin contraseña, consulte [Habilitar el
 
 La aplicación Authenticator puede ayudar a impedir el acceso no autorizado a las cuentas y detener las transacciones fraudulentas mediante el envío de una notificación al smartphone o a la tableta. Los usuarios ven la notificación y, si es legítima, seleccionan **Comprobar**. De lo contrario, pueden seleccionar **Denegar**.
 
-![Captura de pantalla del aviso de ejemplo en el explorador web para la notificación de la aplicación Authenticator para completar el proceso de inicio de sesión](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
+![Captura de pantalla del aviso de ejemplo en el explorador web para la notificación de la aplicación Authenticator para completar el proceso de inicio de sesión.](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
 
 > [!NOTE]
 > Si su organización tiene personal que trabaja en China o que va a viajar allí, el método *Notificación a través de aplicación móvil* en dispositivos Android no funciona en ese país o región, ya que los servicios de Google Play están bloqueados en la región. Sin embargo, las notificaciones de iOS funcionan. En el caso de los dispositivos Android, se deben poner a disposición de los usuarios métodos de autenticación alternativos.

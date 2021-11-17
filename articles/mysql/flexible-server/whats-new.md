@@ -7,22 +7,49 @@ ms.author: jtoland
 ms.custom: mvc, references_regions
 ms.topic: conceptual
 ms.date: 10/12/2021
-ms.openlocfilehash: 8406f9b551d80959db983a3837b441dc9f965782
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 33a62307ad42f27b347b7c48930f0046520f411b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131005278"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132315357"
 ---
-# <a name="whats-new-in-azure-database-for-mysql---flexible-server-preview"></a>Novedades de Azure Database for MySQL: servidor flexible (versión preliminar)
+# <a name="whats-new-in-azure-database-for-mysql---flexible-server-"></a>Novedades de la opción de servidor flexible de Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-[Azure Database for MySQL: servidor flexible](./overview.md#azure-database-for-mysql---flexible-server-preview) es un modo de implementación diseñado para proporcionar un control más granular y una mayor flexibilidad sobre las funciones de administración de bases de datos y las opciones de configuración, si se compara con el modo de implementación de servidor único. El servicio admite actualmente la versiones de la comunidad de MySQL 5.7 y 8.0.
+[Azure Database for MySQL: servidor flexible](./overview.md) es un modo de implementación diseñado para proporcionar un control más granular y una mayor flexibilidad sobre las funciones de administración de bases de datos y las opciones de configuración, si se compara con el modo de implementación de servidor único. El servicio admite actualmente la versiones de la comunidad de MySQL 5.7 y 8.0.
 
 En este artículo se resumen las nuevas versiones y características de Azure Database for MySQL: servidor flexible a partir de enero de 2021. Las listas aparecen en orden cronológico inverso, con las actualizaciones más recientes en primer lugar.
 
+## <a name="november-2021"></a>Noviembre de 2021
+- **Disponibilidad general del servidor flexible de Azure Database for MySQL**
+    
+  El servidor flexible de Azure Database for MySQL ya tiene **disponibilidad general** en más de [30 regiones de Azure](overview.md) de todo el mundo.
+
+- **Visualización de copias de seguridad completas disponibles en Azure Portal** Ya hay disponible una hoja Copia de seguridad y restauración dedicada en Azure Portal. En esta hoja se enumeran las copias de seguridad disponibles dentro del período de retención del servidor, lo que proporciona una vista de panel único para administrar las copias de seguridad de un servidor y las restauraciones consiguientes. Puede usar esta hoja para: 
+   1) Ver las marcas de tiempo de finalización de todas las copias de seguridad completas disponibles dentro del período de retención del servidor 
+   2) Realizar operaciones de restauración mediante estas copias de seguridad completas
+  
+- **Puntos de restauración más rápidos**
+  
+  Con la opción de punto de restauración más rápido, puede restaurar una instancia de servidor flexible en el tiempo más rápido posible un día determinado dentro del período de retención del servidor. Esta operación de restauración simplemente restaura la copia de seguridad de instantánea completa sin necesidad de restaurar ni recuperar registros. Con el punto de restauración más rápido, los clientes ven tres opciones mientras realizan restauraciones a un momento dado desde Azure Portal: punto de restauración más reciente, un punto de restauración personalizado y punto de restauración más rápido. [Más información](concepts-backup-restore.md#point-in-time-restore)
+  
+- **Hoja Preguntas frecuentes de Azure Portal**
+
+  La hoja Copia de seguridad y restauración también incluye una sección dedicada a enumerar las preguntas frecuentes, junto con sus respuestas. Esto debería proporcionar respuesta a la mayoría de las preguntas sobre la copia de seguridad directamente en Azure Portal. Además, al seleccionar el icono de signo de interrogación de Preguntas frecuentes en el menú superior, se proporciona acceso a más detalles relacionados.
+
+- **Restauración de un servidor flexible eliminado** El servicio ahora permite recuperar un recurso de servidor flexible de MySQL eliminado en un plazo de 5 días a partir del momento de la eliminación del servidor. Para obtener instrucciones detalladas sobre cómo restaurar un servidor eliminado, [vea los pasos documentados](../flexible-server/how-to-restore-dropped-server.md). Para proteger recursos de servidor después de la implementación frente a eliminaciones accidentales o cambios inesperados, se recomienda a los administradores aprovechar los [bloqueos de administración](../../azure-resource-manager/management/lock-resources.md).
+
+- **Problemas conocidos**
+
+En los servidores en los que está habilitada la opción de copia de seguridad con redundancia geográfica y alta disponibilidad se ha detectado un problema poco frecuente provocado por una condición de carrera que bloquea el reinicio del servidor en espera para finalizar. Como resultado de este problema, al conmutar por error la instancia de servidor flexible de Azure Database for MySQL habilitada para alta disponibilidad, esta puede quedarse bloqueada en estado de reinicio durante mucho tiempo. La corrección se va a implementar en producción en el siguiente ciclo de implementación.
+
 ## <a name="october-2021"></a>Octubre de 2021
+
+- **Los grupos de subprocesos ya están disponibles para el servidor flexible de Azure Database for MySQL**
+ 
+    Los grupos de subprocesos mejoran la escalabilidad del servidor flexible de Azure Database for MySQL. Con un grupo de subprocesos los usuarios ya pueden optimizar el rendimiento, así como lograr un mejor rendimiento y una menor latencia de las cargas de trabajo simultáneas elevadas. [Más información](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/achieve-up-to-a-50-performance-boost-in-azure-database-for-mysql/ba-p/2909691).
 
 - **Restauración de copias de seguridad con redundancia geográfica en una región emparejada geográficamente para escenarios de recuperación ante desastres**
 
@@ -54,8 +81,20 @@ En este artículo se resumen las nuevas versiones y características de Azure Da
     
     La compatibilidad de Terraform con MySQL con servidor flexible ya se ha publicado con la [versión 2.81.0 más reciente de azurerm](https://github.com/hashicorp/terraform-provider-azurerm/blob/v2.81.0/CHANGELOG.md). Puede encontrar el documento de referencia detallado para aprovisionar y administrar un servidor flexible de MySQL mediante Terraform [aquí](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_flexible_server). Los errores o problemas conocidos se pueden encontrar o notificar [aquí](https://github.com/hashicorp/terraform-provider-azurerm/issues).
 
+- **El parámetro estático innodb_log_file_size ahora es configurable.**
+
+    - Ahora se puede configurar [innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) en cualquiera de estos valores: 256 MB, 512 MB, 1 GB o 2 GB. Dado que es un parámetro estático, requerirá un reinicio del servidor. Si ha cambiado el parámetro innodb_log_file_size del valor predeterminado, compruebe si el valor de "mostrar el estado global como "innodb_buffer_pool_pages_dirty"" permanece en 0 durante 30 segundos para evitar el retraso del reinicio. Consulte [Parámetros del servidor en Azure Database for MySQL](./concepts-server-parameters.md) para más información.
+
+- **Disponibilidad en dos regiones de Azure adicionales**
+
+   La opción de servidor flexible de Azure Database for MySQL ya está disponible en las siguientes regiones de Azure:
+
+   - Oeste de EE. UU. 3
+   - Centro-norte de EE. UU. [Más información](overview.md#azure-regions).
+
 - **Problemas conocidos**
-    - Cuando una región primaria de Azure está fuera de servicio, no se pueden crear servidores con redundancia geográfica en la región emparejada geográficamente, ya que no se puede aprovisionar almacenamiento en la región primaria de Azure. Hay que esperar a que la región primaria esté lista para aprovisionar servidores con redundancia geográfica en la región emparejada geográficamente. 
+    - Cuando una región primaria de Azure está fuera de servicio, no se pueden crear servidores con redundancia geográfica en la región emparejada geográficamente, ya que no se puede aprovisionar almacenamiento en la región primaria de Azure. Hay que esperar a que la región primaria esté lista para aprovisionar servidores con redundancia geográfica en la región emparejada geográficamente.
+    
 
 ## <a name="september-2021"></a>Septiembre de 2021
 
@@ -214,7 +253,7 @@ Esta versión de Azure Database for MySQL: servidor flexible incluye las siguien
 
 - **Correcciones de errores de aprovisionamiento para la creación de servidores en una red virtual con acceso privado**
 
-  Se han corregido todos los errores de aprovisionamiento causados al crear un servidor en la red virtual. Con esta versión, los usuarios pueden crear correctamente servidores flexibles con acceso privado en todo momento.  
+  Se han corregido todos los errores de aprovisionamiento causados al crear un servidor en la red virtual. Con esta versión, los usuarios pueden crear correctamente servidores flexibles con acceso privado en todo momento.
 
 ## <a name="march-2021"></a>Marzo de 2021
 

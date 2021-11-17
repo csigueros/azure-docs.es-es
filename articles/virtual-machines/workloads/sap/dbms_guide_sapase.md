@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/15/2021
+ms.date: 11/02/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aabb53a573ee8a3ccc5d98ab8316fee560dbf625
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7f31a210894f6c4581c9deea54e18c5dac4d44b5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128603911"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462940"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Azure Virtual Machines de SAP ASE para la carga de trabajo de SAP
 
@@ -159,6 +159,13 @@ Un ejemplo de una configuración para un servidor pequeño de base de datos de S
 | Parámetro MaxMemory de ASE | 90 % de RAM física | 90 % de RAM física | Suponiendo una sola instancia |
 | N.º de dispositivos de copia de seguridad | 16 | 16 | --- |
 | N.º y tipo de discos de copia de seguridad | 4 | 4 | Use LVM2/Espacios de almacenamiento |
+
+
+Los volúmenes NFS v4.1 hospedados en Azure NetApp Files es otra alternativa para el almacenamiento de bases de datos de SAP ASE. La estructura principal de este tipo de configuración debe ser similar a
+
+![Configuración del almacenamiento en SAP ASE con ANF](./media/dbms-guide-sap-ase/anf-layout.png)
+
+En el ejemplo anterior, el SID de la base de datos era A11. Los tamaños y los niveles de rendimiento de los volúmenes basados en Azure NetApp Files dependen del volumen de base de datos y de la IOPS y el rendimiento que necesite. Para sapdata y saplog, se recomienda empezar con el nivel de rendimiento Ultra para poder proporcionar suficiente ancho de banda. Para muchas implementaciones que no son de producción, el nivel de rendimiento Premium puede ser suficiente. Para obtener más información sobre el tamaño específico y las limitaciones de Azure NetApp Files para el uso de la base de datos, lea el capítulo [Dimensionamiento de la base de datos HANA en Azure NetApp Files en volúmenes NFS v4.1 en Azure NetApp Files para SAP HANA](./hana-vm-operations-netapp.md).
 
 
 ### <a name="backup--restore-considerations-for-sap-ase-on-azure"></a>Consideraciones de copia de seguridad y restauración para SAP ASE en Azure

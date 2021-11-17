@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 0bd58a46bc67a7ca67cb262c7d7aeaa19d64b5ed
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 3b80c7c8c0a3fa0a61270146d7d3ec79a1d88774
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131427729"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132311552"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-greenlight-enterprise-business-controls-platform"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Greenlight Enterprise Business Controls Platform
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Greenlight Enterprise Business Controls 
 * Permitir que los usuarios inicien sesión automáticamente en Greenlight Enterprise Business Controls Platform con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -56,7 +56,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Greenlight Enter
 
 Para configurar y probar el inicio de sesión único de Azure AD con Greenlight Enterprise Business Controls Platform, siga estos pasos:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)**, para permitir que los usuarios puedan utilizar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Greenlight Enterprise Business Controls Platform](#configure-greenlight-enterprise-business-controls-platform-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
@@ -144,4 +144,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Greenlight Enterprise Business Controls Platform, puede aplicar controles de sesión que protejan la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Greenlight Enterprise Business Controls Platform, puede aplicar controles de sesión que protejan la filtración e infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender para la nube](/cloud-app-security/proxy-deployment-aad).

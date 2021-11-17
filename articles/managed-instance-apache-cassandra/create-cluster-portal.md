@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8c266f1fc338ca35b05730d9f737a836bdf8949d
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: 19f8a81f98e9d56c5c418f0d48b381f77cfb881c
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131893146"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131848442"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal"></a>Inicio rápido: Creación de un clúster de Azure Managed Instance for Apache Cassandra desde Azure Portal
 
@@ -66,7 +66,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
    * **Availability zone** (Zona de disponibilidad): active esta casilla si desea habilitar las zonas de disponibilidad.
    * **SKU Size** (Tamaño de SKU): elija entre los tamaños de SKU de máquina virtual disponibles.
    * **No. of disks** (Número de discos): elija el número de discos p30 que se conectarán a cada nodo de Cassandra.
-   * **No. of nodes** (Número de nodos): elija el número de nodos de Cassandra que se implementarán en este centro de datos.
+   * **SKU Size** (Tamaño de SKU): elija el número de nodos de Cassandra que se implementarán en este centro de datos.
 
    :::image type="content" source="./media/create-cluster-portal/create-datacenter-page.png" alt-text="Revisión del resumen para crear el centro de datos." lightbox="./media/create-cluster-portal/create-datacenter-page.png" border="true":::
 
