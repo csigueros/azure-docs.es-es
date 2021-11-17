@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/29/2021
+ms.date: 11/16/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 95cce7e79ea8eaf3a542b52ac5c04b954ed56e0e
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: c3dd0d64542dd9d25643fb811accde5d882af870
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131469110"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132556598"
 ---
 ::: zone target="docs"
 
@@ -36,7 +36,7 @@ En este tutorial, aprenderá sobre temas como:
 
 > [!div class="checklist"]
 >
-> * Prerrequisitos
+> * Requisitos previos
 > * Preparación para el envío
 > * Envío de Data Box a Microsoft
 > * Comprobación de la carga de datos en Azure
@@ -75,7 +75,7 @@ Los siguientes pasos vienen determinados por el lugar al que se vaya a devolver 
 
 Asegúrese de que la copia de datos en el dispositivo se ha completado y que la ejecución de **Preparación para el envío** se ha realizado correctamente. 
 
-Según la región a la que envíe el dispositivo, el procedimiento es distinto. En muchos países o regiones, puede usar el envío administrado por Microsoft o el autoadministrado.
+Según la región a la que envíe el dispositivo, el procedimiento es distinto. En muchos países o regiones, puede usar el [envío administrado por Microsoft](#microsoft-managed-shipping) o el [envío auto administrado](#self-managed-shipping).
 
 ### <a name="microsoft-managed-shipping"></a>Envío administrado por Microsoft
 
@@ -123,11 +123,11 @@ Si usa el envío administrado por Microsoft, siga las instrucciones correspondie
 
 [!INCLUDE [data-box-shipping-in-uae](../../includes/data-box-shipping-in-uae.md)]
 
+---
+
 ### <a name="self-managed-shipping"></a>Envío autoadministrado
 
 [!INCLUDE [data-box-shipping-self-managed](../../includes/data-box-shipping-self-managed.md)]
-
----
 
 ::: zone target="chromeless"
 

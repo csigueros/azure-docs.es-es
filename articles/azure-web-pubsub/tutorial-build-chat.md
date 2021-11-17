@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 11/01/2021
-ms.openlocfilehash: fd055903c0a5969c6facd881fc1b0f676c9596c8
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 38890a5bf968bf88678e0665847fb067708291c3
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131579224"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132547267"
 ---
 # <a name="tutorial-create-a-chat-app-with-azure-web-pubsub-service"></a>Tutorial: Creación de una aplicación de chat con el servicio Azure Web PubSub
 
@@ -81,7 +81,7 @@ En primer lugar, vamos a crear una aplicación ASP.NET Core vacía.
 
     ```bash
     dotnet new web
-    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
+    dotnet add package Azure.Messaging.WebPubSub
     ```
 
 2.  Después, agregue `app.UseStaticFiles();` antes de `app.UseRouting();` en `Startup.cs` para admitir los archivos estáticos. Quite el valor `endpoints.MapGet` predeterminado dentro de `app.UseEndpoints`.
@@ -153,7 +153,7 @@ Es posible que recuerde que en el [tutorial de publicación de mensajes y suscri
                 return;
             }
             var serviceClient = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
-            await context.Response.WriteAsync(serviceClient.GenerateClientAccessUri(userId: id).AbsoluteUri);
+            await context.Response.WriteAsync(serviceClient.GetClientAccessUri(userId: id).AbsoluteUri);
         });
     });
     ```
@@ -228,7 +228,7 @@ Es posible que recuerde que en el [tutorial de publicación de mensajes y suscri
 1.  Instale el SDK de Azure Web PubSub.
 
     ```bash
-    npm install --save @azure/web-pubsub@1.0.0-alpha.20211102.4
+    npm install --save @azure/web-pubsub
     ```
 
 2.  Agregue una API `/negotiate` al servidor para generar el token.
@@ -382,7 +382,7 @@ Es posible que recuerde que en el [tutorial de publicación de mensajes y suscri
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-messaging-webpubsub</artifactId>
-        <version>1.0.0-beta.2</version>
+        <version>1.0.0-beta.6</version>
     </dependency>
     ```
 
@@ -391,11 +391,11 @@ Es posible que recuerde que en el [tutorial de publicación de mensajes y suscri
     ```java
     package com.webpubsub.tutorial;
     
-    import com.azure.messaging.webpubsub.WebPubSubClientBuilder;
     import com.azure.messaging.webpubsub.WebPubSubServiceClient;
-    import com.azure.messaging.webpubsub.models.GetAuthenticationTokenOptions;
-    import com.azure.messaging.webpubsub.models.WebPubSubAuthenticationToken;
-    
+    import com.azure.messaging.webpubsub.WebPubSubServiceClientBuilder;
+    import com.azure.messaging.webpubsub.models.GetClientAccessTokenOptions;
+    import com.azure.messaging.webpubsub.models.WebPubSubClientAccessToken;
+    import com.azure.messaging.webpubsub.models.WebPubSubContentType;
     import io.javalin.Javalin;
     
     public class App {
@@ -407,7 +407,7 @@ Es posible que recuerde que en el [tutorial de publicación de mensajes y suscri
             }
     
             // create the service client
-            WebPubSubServiceClient client = new WebPubSubClientBuilder()
+            WebPubSubServiceClient service = new WebPubSubServiceClientBuilder()
                     .connectionString(args[0])
                     .hub("chat")
                     .buildClient();
@@ -426,9 +426,10 @@ Es posible que recuerde que en el [tutorial de publicación de mensajes y suscri
                     ctx.result("missing user id");
                     return;
                 }
-                GetAuthenticationTokenOptions option = new GetAuthenticationTokenOptions();
+                GetClientAccessTokenOptions option = new GetClientAccessTokenOptions();
                 option.setUserId(id);
-                WebPubSubAuthenticationToken token = client.getAuthenticationToken(option);
+                WebPubSubClientAccessToken token = service.getClientAccessToken(option);
+    
                 ctx.result(token.getUrl());
                 return;
             });
@@ -899,7 +900,7 @@ El valor `ce-type` de `message` siempre es `azure.webpubsub.user.message`; para 
         } else if ("azure.webpubsub.user.message".equals(event)) {
             String id = ctx.header("ce-userId");
             String message = ctx.body();
-            client.sendToAll(String.format("[%s] %s", id, message), WebPubSubContentType.TEXT_PLAIN);
+            service.sendToAll(String.format("[%s] %s", id, message), WebPubSubContentType.TEXT_PLAIN);
         }
         ctx.status(200);
     });
@@ -955,11 +956,11 @@ El valor `ce-type` de `message` siempre es `azure.webpubsub.user.message`; para 
         String event = ctx.header("ce-type");
         if ("azure.webpubsub.sys.connected".equals(event)) {
             String id = ctx.header("ce-userId");
-            client.sendToAll(String.format("[SYSTEM] %s joined", id), WebPubSubContentType.TEXT_PLAIN);
+            service.sendToAll(String.format("[SYSTEM] %s joined", id), WebPubSubContentType.TEXT_PLAIN);
         } else if ("azure.webpubsub.user.message".equals(event)) {
             String id = ctx.header("ce-userId");
             String message = ctx.body();
-            client.sendToAll(String.format("[%s] %s", id, message), WebPubSubContentType.TEXT_PLAIN);
+            service.sendToAll(String.format("[%s] %s", id, message), WebPubSubContentType.TEXT_PLAIN);
         }
         ctx.status(200);
     });

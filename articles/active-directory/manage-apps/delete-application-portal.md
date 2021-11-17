@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergleenl
-ms.openlocfilehash: 16bc055ed2b47ee5c212fa26387599a8d4ada7a8
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: c2ee107815186ac7877056ac8cec4954d30de747
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058216"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132547533"
 ---
-# <a name="quickstart-delete-an-enterprise-application-in-azure-active-directory"></a>Inicio rápido: Eliminación de una aplicación empresarial en Azure Active Directory
+# <a name="quickstart-delete-an-enterprise-application"></a>Inicio rápido: Eliminación de una aplicación empresarial
 
 En esta guía de inicio rápido, usará el centro de administración de Azure Active Directory para eliminar una aplicación que se agregó al inquilino de Azure Active Directory (Azure AD).
 

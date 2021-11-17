@@ -136,14 +136,14 @@
           href: deploy-disaster-recovery-using-vmware-hcx.md
         - name: Implementación de VMware SRM para la recuperación ante desastres
           href: disaster-recovery-using-vmware-site-recovery-manager.md
+        - name: Implementación de la recuperación ante desastres de Zerto
+          href: deploy-zerto-disaster-recovery.md
     - name: Implementación de escritorios virtuales
       items:
         - name: Implementación de Horizon en Azure VMware Solution
           href: azure-vmware-solution-horizon.md
         - name: Implementación de Citrix en Azure VMware Solution
           href: azure-vmware-solution-citrix.md
-        - name: Implementación de la recuperación ante desastres de Zerto
-          href: deploy-zerto-disaster-recovery.md
     - name: Traslado de recursos
       items:
         - name: Traslado de las suscripciones de Azure VMware Solution

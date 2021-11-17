@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Configuración del enrutamiento de mensajes para Azure IoT Hub mediante la CLI de Azure'
 description: 'Tutorial: Configure el enrutamiento de mensajes para Azure IoT Hub mediante la CLI de Azure. En función de las propiedades del mensaje, se enruta a una cuenta de almacenamiento o a una cola de Service Bus.'
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 8/20/2021
-ms.author: robinsh
+ms.author: lizross
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: bbcc5e60396f3c2e7265378291c5bde5135b8c37
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: e0d3e048a51ac959bad14cbf9f0c51996afef327
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457391"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549667"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Tutorial: Uso de la CLI de Azure para configurar el enrutamiento de mensajes de IoT Hub
 

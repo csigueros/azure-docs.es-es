@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: 24d30dc81b2b2a3da2ac5f172dabe77cf5b01f9c
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 02bbc4d6b0cc6f346111a8cd0145ef099dd33feb
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058283"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552021"
 ---
-# <a name="add-an-openid-connect-based-single-sign-on-application-in-azure-active-directory"></a>Adición de una aplicación de inicio de sesión único basado en OpenID Connect en Azure Active Directory
+# <a name="add-an-openid-connect-based-single-sign-on-application"></a>Adición de una aplicación de inicio de sesión único basado en OpenID Connect
 
 Agregue una aplicación que admita el inicio de sesión único (SSO) basado en [OpenID Connect (OIDC)](../develop/active-directory-v2-protocols.md) al inquilino de Azure Active Directory (Azure AD).
 
@@ -50,6 +50,6 @@ Para configurar el inicio de sesión único basado en OIDC para una aplicación:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre cómo planear una implementación de inicio de sesión único.
+Obtenga más información sobre cómo planear una implementación de inicio de sesión único.
 > [!div class="nextstepaction"]
 > [Planeamiento de la implementación del inicio de sesión único](plan-sso-deployment.md)

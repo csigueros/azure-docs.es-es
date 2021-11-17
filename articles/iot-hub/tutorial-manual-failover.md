@@ -1,22 +1,22 @@
 ---
 title: 'Tutorial: Conmutación por error manual de Azure IoT Hub | Microsoft Docs'
 description: 'Tutorial: Aprenda a realizar una conmutación por error manual de Azure IoT Hub en otra región y a confirmar que funciona, y después a devolverlo a la región original y volver a comprobarlo.'
-author: robinsh
+author: eross-msft
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 08/10/2021
-ms.author: robinsh
+ms.author: lizross
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 7d38566db882bdc2094961cb83c9bd117a328589
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 2687316551f7f1a7f11cd035130823c19d10b01a
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130258910"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550446"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Tutorial: Realización de una conmutación por error manual de una instancia de IoT Hub
 

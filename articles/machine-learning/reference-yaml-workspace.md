@@ -10,12 +10,12 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: ea641b24b43c7ad1d22e497f9d2558ccb163e81b
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: e14e46d2301f8a87ca59ab09f4d4deb29d8c16a6
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132060026"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561335"
 ---
 # <a name="cli-v2-workspace-yaml-schema"></a>Esquema YAML del área de trabajo de la CLI (v2)
 
@@ -55,23 +55,23 @@ Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://githu
 
 ## <a name="yaml-basic"></a>YAML: básico
 
-:::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/basic.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/workspace/basic.yml":::
 
 ## <a name="yaml-with-existing-resources"></a>YAML: con recursos existentes
 
-:::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/with-existing-resources.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/workspace/with-existing-resources.yml":::
 
 ## <a name="yaml-customer-managed-key"></a>YAML: clave administrada por el cliente
 
-:::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/cmk.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/workspace/cmk.yml":::
 
 ## <a name="yaml-private-link"></a>YAML: vínculo privado
 
-:::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/privatelink.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/workspace/privatelink.yml":::
 
 ## <a name="yaml-high-business-impact"></a>YAML: alto impacto para la empresa
 
-:::code language="yaml" source="~/azureml-examples-main/cli/resources/workspace/hbi.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/workspace/hbi.yml":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

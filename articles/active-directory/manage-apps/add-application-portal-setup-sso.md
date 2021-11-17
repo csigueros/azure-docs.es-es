@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 09/21/2021
 ms.author: davidmu
 ms.reviewer: ergleenl
-ms.openlocfilehash: b13c7ac86ec8d21f143f4069cf1d0c777bde4bda
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 337561853bb34c8ecc67483dc8b94448b0b853a1
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058367"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132548527"
 ---
-# <a name="quickstart-enable-single-sign-on-for-an-enterprise-application-in-azure-active-directory"></a>Inicio rápido: Habilitación del inicio de sesión único para una aplicación empresarial en Azure Active Directory
+# <a name="quickstart-enable-single-sign-on-for-an-enterprise-application"></a>Inicio rápido: Habilitación del inicio de sesión único para una aplicación empresarial
 
 En este inicio rápido, usará el centro de administración de Azure Active Directory para habilitar el inicio de sesión único de una aplicación empresarial agregada al inquilino de Azure Active Directory (Azure AD). Después de configurar el inicio de sesión único, los usuarios podrán iniciar sesión con sus credenciales de Azure AD. 
 
@@ -111,7 +111,7 @@ Para probar el inicio de sesión único:
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si tiene previsto completar el siguiente inicio rápido, mantenga la aplicación empresarial que ha creado. De lo contrario, puede considerar la posibilidad de eliminarla para limpiar el inquilino. Para más información, consulte [Eliminación de una aplicación](delete-application-portal.md).
+Si tiene previsto completar el siguiente inicio rápido, mantenga la aplicación empresarial que ha creado. De lo contrario, puede considerar la posibilidad de eliminarla para limpiar el inquilino. Para más información, consulte [Inicio rápido: Eliminación de una aplicación del inquilino](delete-application-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

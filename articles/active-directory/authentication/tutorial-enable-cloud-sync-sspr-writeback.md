@@ -11,12 +11,12 @@ author: justinha
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4, ignite-fall-2021
-ms.openlocfilehash: 1572e029e4ae6b9c89587a32e710162aa53177a6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 17bc0c700aee1a351371f35e7c84e95312214088
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030585"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550313"
 ---
 # <a name="tutorial-enable-cloud-sync-self-service-password-reset-writeback-to-an-on-premises-environment-preview"></a>Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña de sincronización en la nube en un entorno local (versión preliminar)
 
@@ -35,7 +35,7 @@ La escritura diferida del autoservicio de restablecimiento de contraseña de Azu
 - La habilitación de la escritura diferida de contraseñas en Azure AD Connect Cloud Sync requiere la ejecución de scripts de PowerShell firmados.
   - Asegúrese de que la directiva de ejecución de PowerShell permita la ejecución de scripts. 
   - La directiva de ejecución recomendada durante la instalación es "RemoteSigned". 
-  - Para más información sobre cómo establecer la directiva de ejecución de PowerShell, consulte [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy.md?view=powershell-7.1). 
+  - Para más información sobre cómo establecer la directiva de ejecución de PowerShell, consulte [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy). 
 
 
 ## <a name="deployment-steps"></a>Pasos de implementación

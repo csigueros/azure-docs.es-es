@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 10/11/2021
 ms.custom: contperf-fy22q2
-ms.openlocfilehash: 80a9701fb4d7ac3f93d7ba9c35cba2cc34dc7416
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: c7e0ddee8e42f76c034ce79c7200e48fcb8bae04
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130258551"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132555914"
 ---
 # <a name="get-started-with-azure-service-bus-queues-net"></a>Introducción a las colas de Azure Service Bus (.NET)
 En este inicio rápido, hará lo siguiente:
@@ -24,6 +24,7 @@ En este inicio rápido, hará lo siguiente:
 > En este inicio rápido se proporcionan instrucciones paso a paso para un escenario sencillo de envío de un lote de mensajes a una cola de Service Bus y la recepción de estos. Puede encontrar más ejemplos pregenerados de .NET para Azure Service Bus en el [repositorio del SDK de Azure para .NET en GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
 
 ## <a name="prerequisites"></a>Prerrequisitos
+Si no está familiarizado con el servicio, consulte la [información general sobre Service Bus](service-bus-messaging-overview.md) antes de seguir este artículo de inicio rápido. 
 
 - **Suscripción de Azure**. Para usar los servicios de Azure, entre los que se incluye Azure Service Bus, se necesita una suscripción. Si no tiene una cuenta de Azure existente, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/free/).
 - **Microsoft Visual Studio 2019**. La biblioteca cliente de Azure Service Bus usa las nuevas características que se introdujeron en C# 8.0.  Aunque puede seguir usando la biblioteca con versiones anteriores de C#, la nueva sintaxis no estará disponible. Para usar la sintaxis completa, se recomienda realizar la compilación con el SDK para .NET Core 3.0 o posterior y la versión de lenguaje establecida en `latest`. Si usa Visual Studio, las versiones anteriores a Visual Studio 2019 no son compatibles con las herramientas necesarias para compilar proyectos de C# 8.0.

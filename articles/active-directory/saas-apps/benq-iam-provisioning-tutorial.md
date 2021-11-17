@@ -12,16 +12,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/27/2021
 ms.author: thwimmer
-ms.openlocfilehash: 7a224a4370bed3ceca50d03091d42151af0408f5
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 3a1b83ecaa35f141563374b560c07b39827078f7
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129621474"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549933"
 ---
 # <a name="tutorial-configure-benq-iam-for-automatic-user-provisioning"></a>Tutorial: Configuración de BenQ IAM para el aprovisionamiento automático de usuarios
 
-En este tutorial se describen los pasos que debe realizar en BenQ IAM y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura, Azure AD aprovisiona y cancela el aprovisionamiento de usuarios y grupos de manera automática en [BenQ IAM](https://service-portaltest.benq.com/login) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
+En este tutorial se describen los pasos que debe realizar en BenQ IAM y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura, Azure AD aprovisiona y cancela el aprovisionamiento de usuarios y grupos de manera automática en [BenQ IAM](https://service-portal.benq.com/login) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas

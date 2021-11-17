@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: f6325dfceaa0ee6cedc60e5555b177e1f7a25d6c
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 6179330f62f1966d099cfca93fc3885895af5e40
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058287"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550805"
 ---
-# <a name="quickstart-configure-enterprise-application-properties-in-azure-active-directory"></a>Inicio rápido: Configuración de las propiedades de aplicaciones empresariales en Azure Active Directory
+# <a name="quickstart-configure-enterprise-application-properties"></a>Inicio rápido: Configuración de las propiedades de aplicaciones empresariales
 
 En este inicio rápido, usará el Centro de administración de Azure Active Directory para configurar las propiedades de una aplicación empresarial que haya agregado anteriormente al inquilino de Azure Active Directory (Azure AD).
 

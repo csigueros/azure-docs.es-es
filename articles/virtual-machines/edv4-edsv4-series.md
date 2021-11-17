@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 10/20/2021
-ms.openlocfilehash: f4138c2b2835ede93e0a33693f49ed75ee6bb499
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: eabaae542003c0c8c664cb820831bec40e47db91
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131449096"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132372101"
 ---
 # <a name="edv4-and-edsv4-series"></a>Series Edv4 y Edsv4
 
@@ -34,6 +34,7 @@ Los tamaños de la serie Edv4 se ejecutan en procesadores Intel&reg; Xeon&reg; P
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<sup>1</sup> <br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
+[Virtualización anidada](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md): compatible <br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal: IOPS/Mbps<sup>*</sup>  | Nº máx. NIC|Ancho de banda de red máx. (Mbps) |
@@ -62,6 +63,7 @@ Los tamaños de la serie Edsv4 se ejecutan en procesadores Intel&reg; Xeon&reg; 
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible <br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
+[Virtualización anidada](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md): compatible <br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal: IOPS/Mbps<sup>*</sup> | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Rendimiento máximo del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>1</sup> | Nº máx. NIC|Ancho de banda de red máx. (Mbps) |

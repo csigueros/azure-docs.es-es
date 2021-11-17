@@ -1,23 +1,23 @@
 ---
 title: Configuración y uso de métricas y registros con Azure IoT Hub
 description: 'Tutorial: Aprenda a configurar y usar las métricas y los registros con un centro de Azure IoT. Esto le proporcionará datos para su análisis que le ayudarán a diagnosticar los problemas que pueda tener el centro de conectividad.'
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 10/19/2021
-ms.author: robinsh
+ms.author: lizross
 ms.custom:
 - mvc
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: 8b7e15f6f390b6f8218abe9073e255d2383ba360
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 61b4ee2360d3559120399421ec424f30d6e8ea77
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130258986"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550199"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Tutorial: Configuración y uso de métricas y registros con un centro de IoT
 
