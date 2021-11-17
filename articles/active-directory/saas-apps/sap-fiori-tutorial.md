@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 547d96a9591b99318a74977106e99511c9c80507
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a32935bbba2c9d8d3a3c8183b81b14f4ac40f1fd
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101687114"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989136"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SAP Fiori
 
@@ -61,7 +61,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con SAP Fiori median
 Para configurar y probar el inicio de sesión único de Azure AD con SAP Fiori, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en SAP Fiori](#configure-sap-fiori-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación del usuario de prueba de SAP Fiori](#create-sap-fiori-test-user)** , para tener un homólogo de B. Simon en SAP Fiori vinculado a la representación del usuario en Azure AD.
@@ -83,7 +83,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
         login/create_sso2_ticket = 2
         login/accept_sso2_ticket = 1
         login/ticketcache_entries_max = 1000
-        login/ticketcache_off = 0  login/ticket_only_by_https = 0 
+        login/ticketcache_off = 0  login/ticket_only_by_https = 0
         icf/set_HTTPonly_flag_on_cookies = 3
         icf/user_recheck = 0  http/security_session_timeout = 1800
         http/security_context_cache_size = 2500
@@ -138,24 +138,24 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, si tiene el **archivo de metadatos del proveedor de servicios**, lleve a cabo los siguientes pasos:
 
-    a. Haga clic en **Cargar el archivo de metadatos**.
+    1. Haga clic en **Cargar el archivo de metadatos**.
 
-    ![Carga del archivo de metadatos](common/upload-metadata.png)
+        ![Carga del archivo de metadatos](common/upload-metadata.png)
 
-    b. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos y luego en **Cargar**.
+    1. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos y luego en **Cargar**.
 
-    ![Elección del archivo de metadatos](common/browse-upload-metadata.png)
+        ![Elección del archivo de metadatos](common/browse-upload-metadata.png)
 
-    c. Una vez que se haya cargado correctamente el archivo de metadatos, los valores de **Identificador** y **URL de respuesta** se rellenan automáticamente en el panel **Configuración básica de SAML**. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: `https://<your company instance of SAP Fiori>`.
+    1. Una vez que se haya cargado correctamente el archivo de metadatos, los valores de **Identificador** y **URL de respuesta** se rellenan automáticamente en el panel **Configuración básica de SAML**. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: `https://<your company instance of SAP Fiori>`.
 
-    > [!NOTE]
-    > Algunos clientes han informado sobre errores relacionados con la configuración incorrecta de los valores de **URL de respuesta**. Si ve este error, puede usar el siguiente script de PowerShell para establecer la dirección URL de respuesta correcta para la instancia:
-    >
-    > ```
-    > Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
-    > ``` 
-    > 
-    > Puede establecer el identificador de objeto `ServicePrincipal` usted mismo antes de ejecutar el script, o puede pasarlo aquí.
+        > [!NOTE]
+        > Algunos clientes han informado sobre errores relacionados con la configuración incorrecta de los valores de **URL de respuesta**. Si ve este error, puede usar el siguiente script de PowerShell para establecer la dirección URL de respuesta correcta para la instancia:
+        >
+        > ```powershell
+        > Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
+        > ```
+        >
+        > Puede establecer el identificador de objeto `ServicePrincipal` usted mismo antes de ejecutar el script, o puede pasarlo aquí.
 
 1. La aplicación SAP Fiori espera que las aserciones de SAML estén en un formato específico. Configure las siguientes notificaciones para esta aplicación. Para administrar estos valores de atributo, en el panel **Configurar el inicio de sesión único con SAML**, seleccione **Editar**.
 
@@ -171,10 +171,10 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     1. Seleccione **Guardar**.
 
-       ![El panel Administrar las notificaciones del usuario](./media/sapfiori-tutorial/nameidattribute.png)
+        ![El panel Administrar las notificaciones del usuario](./media/sapfiori-tutorial/nameidattribute.png)
 
-       ![La sección Transformación en el panel Administrar las notificaciones del usuario](./media/sapfiori-tutorial/nameidattribute1.png)
-    
+        ![La sección Transformación en el panel Administrar las notificaciones del usuario](./media/sapfiori-tutorial/nameidattribute1.png)
+
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
@@ -273,13 +273,13 @@ En esta sección, va a permitir que B. Simon acceda a SAP Fiori mediante el ini
 
     **Escenario 2**: Seleccione el identificador de usuario SAP según la dirección de correo electrónico configurada en SU01. En este caso, el identificador de correo electrónico debe configurarse en SU01 para cada usuario que necesite el inicio de sesión único.
 
-    1.  En SAP, en **Details of NameID Format "Unspecified"** (Detalles del formato de NameID "Sin especificar"), tome nota de los detalles:
+    1. En SAP, en **Details of NameID Format "Unspecified"** (Detalles del formato de NameID "Sin especificar"), tome nota de los detalles:
 
         ![El cuadro de diálogo de los detalles del formato de NameID "Sin especificar" en SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-nameiddetails1.png)
 
     1. En Azure Portal, en **User Attributes & Claims** (Atributos y notificaciones del usuario), tome nota de las notificaciones de Azure AD.
 
-       ![El cuadro de diálogo de atributos y notificaciones del usuario en Azure Portal](./media/sapfiori-tutorial/claimsaad2.png)
+        ![Cuadro de diálogo Atributos y notificaciones de usuario en Azure Portal](./media/sapfiori-tutorial/claimsaad2.png)
 
 1. Seleccione **Save** (Guardar) y, a continuación, **Enable** (Habilitar) para habilitar el proveedor de identidades.
 
@@ -297,18 +297,20 @@ En esta sección, creará un usuario llamado Britta Simon en SAP Fiori. Colabore
 
 1. Una vez activado el proveedor de identidades de Azure AD en SAP Fiori, intente obtener acceso a una de las siguientes direcciones URL para probar el inicio de sesión (no se le debería pedir ni nombre de usuario ni contraseña):
 
-    * https:\//\<sapurl\>/sap/bc/bsp/sap/it00/default.htm
-    * https:\//\<sapurl\>/sap/bc/bsp/sap/it00/default.htm
+    * `https://<sap-url>/sap/bc/bsp/sap/it00/default.htm`
+    * `https://<sap-url>/sap/bc/bsp/sap/it00/default.htm`
 
     > [!NOTE]
-    > Reemplace *sapurl* con el nombre de host real de SAP.
+    > Reemplace `<sap-url>` por el nombre de host real de SAP.
 
 1. La dirección URL de prueba le debe llevar a la siguiente página de aplicación de prueba en SAP. Si se abre la página es que el inicio de sesión único en Azure AD está correctamente configurado.
 
     ![La página de aplicación de prueba estándar en SAP](./media/sapfiori-tutorial/testingsso.png)
 
-1. Si se le pide un nombre de usuario y contraseña, habilite el trace de sistema para ayudar con el diagnostico del problema. Use la siguiente dirección URL para el trace: https:\//\<sapurl\>/sap/bc/webdynpro/sap/sec_diag_tool?sap-client=122&sap-language=EN#.
+1. Si se le pide un nombre de usuario y contraseña, habilite el trace de sistema para ayudar con el diagnostico del problema. Use la siguiente dirección URL para el seguimiento:
+
+    `https://<sap-url>/sap/bc/webdynpro/sap/sec_diag_tool?sap-client=122&sap-language=EN#`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado SAP Fiori, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado SAP Fiori, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Obtenga información sobre cómo aplicar el control de sesión con Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

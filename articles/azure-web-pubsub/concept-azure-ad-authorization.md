@@ -3,15 +3,15 @@ title: Autorización del acceso a Azure Web PubSub con Azure Active Directory
 description: En este artículo se proporciona información sobre cómo autorizar el acceso a recursos del servicio Azure Web PubSub mediante Azure Active Directory.
 author: terencefan
 ms.author: tefa
-ms.date: 11/08/2021
+ms.date: 09/06/2021
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.openlocfilehash: 386ef4d27a8fc2fbe4d9c3f209d2016fa1911761
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: be8c2aa41f8680df9156d7b86dd8eb2bf24ca514
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997464"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131478200"
 ---
 # <a name="authorize-access-to-web-pubsub-resources-using-azure-active-directory"></a>Autorización del acceso a recursos de Web PubSub mediante Azure Active Directory
 El servicio Azure Web PubSub admite Azure Active Directory (Azure AD) para autorizar las solicitudes a recursos de Web PubSub. Con Azure AD, puede usar el control de acceso basado en rol (RBAC) para conceder permisos a una entidad de seguridad<sup>[<a href="#security-principal">1</a>]</sup>. Azure AD autentica la entidad de seguridad y devuelve un token de OAuth 2.0. El token se puede usar entonces para autorizar una solicitud en el recurso de Web PubSub.

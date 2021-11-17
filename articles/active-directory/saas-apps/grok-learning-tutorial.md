@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: jeedes
-ms.openlocfilehash: cdf58b7f6a5be0e91143da346e5326cef4acd20c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d61f9cfb3918c8b3a775f68f71e0d2edd57076a8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124833456"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132309321"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-grok-learning"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Grok Learning
 
@@ -41,7 +41,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Grok Learning admite el inicio de sesión único iniciado por **SP y IDP**.
 * Grok Learning admite el aprovisionamiento de usuarios **Just-In-Time**.
-* Una vez configurado Grok Learning, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado Grok Learning, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-grok-learning-from-the-gallery"></a>Adición de Grok Learning desde la galería
 
@@ -62,7 +62,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Grok Learning me
 Para configurar y probar el inicio de sesión único de Azure AD con Grok Learning, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Grok Learning](#configure-grok-learning-sso)** : para configurar los valores del inicio de sesión único en la aplicación.
     * **[Creación de un usuario de prueba de Grok Learning](#create-grok-learning-test-user)** : para tener un homólogo de B.Simon en Grok Learning que esté vinculado a la representación del usuario en Azure AD.
@@ -165,4 +165,4 @@ Al hacer clic en el icono de Grok Learning en el panel de acceso, debería inici
 
 - [Prueba de Grok Learning con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)

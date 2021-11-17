@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: TomSh
-ms.openlocfilehash: 413e8387e6e6e1c1386aa9477aebe37b2488c098
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f5438d471b9f203761a1e2237e5a4c4f944c7043
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950562"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132337064"
 ---
 # <a name="introduction-to-azure-security"></a>Introducción a la seguridad de Azure
 
@@ -54,11 +54,11 @@ Las funcionalidades integradas se organizan en seis áreas funcionales: Operacio
 
 En esta sección se proporciona información adicional acerca de características fundamentales para las operaciones de seguridad y un resumen de estas funcionalidades.
 
-### <a name="azure-security-center"></a>Azure Security Center
+### <a name="microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud
 
-[Security Center](../../security-center/security-center-introduction.md) ayuda a evitar amenazas y a detectarlas y responder a ellas con más visibilidad y control sobre la seguridad de los recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
+[Defender for Cloud](../../security-center/security-center-introduction.md) ayuda a evitar amenazas y a detectarlas y responder a ellas con más visibilidad y control sobre la seguridad de sus recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
 
-Además, Security Center le ayuda con las operaciones de seguridad, al proporcionarle un único panel donde aparecen alertas y recomendaciones sobre las que puede actuar de inmediato. A menudo, puede corregir problemas con solo hacer clic dentro de la consola de Security Center.
+Además, Defender for Cloud le ayuda con las operaciones de seguridad, al proporcionarle un único panel donde aparecen alertas y recomendaciones sobre las que puede actuar de inmediato. A menudo, puede corregir problemas con solo hacer clic dentro de la consola de Defender for Cloud.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -86,7 +86,7 @@ Los registros de Azure Monitor pueden ser una herramienta útil en el análisis
 
 ### <a name="azure-advisor"></a>Azure Advisor
 
-[Azure Advisor](../../advisor/advisor-overview.md) es un consultor personalizado en la nube que le ayudará a optimizar las implementaciones de Azure. Analiza la telemetría de uso y configuración de los recursos y, posteriormente, recomienda soluciones que ayudan a mejorar el [rendimiento](../../advisor/advisor-performance-recommendations.md), la [seguridad](../../advisor/advisor-security-recommendations.md) y la [confiablidad](../../advisor/advisor-high-availability-recommendations.md) de los recursos, al mismo tiempo que busca oportunidades para [reducir el gasto general en Azure](../../advisor/advisor-cost-recommendations.md). Azure Advisor proporciona recomendaciones de seguridad, que pueden mejorar de forma notable la posición general de seguridad para las soluciones que se implementan en Azure. Estas recomendaciones se extraen del análisis de seguridad realizado por [Azure Security Center.](../../security-center/security-center-introduction.md)
+[Azure Advisor](../../advisor/advisor-overview.md) es un consultor personalizado en la nube que le ayudará a optimizar las implementaciones de Azure. Analiza la telemetría de uso y configuración de los recursos y, posteriormente, recomienda soluciones que ayudan a mejorar el [rendimiento](../../advisor/advisor-performance-recommendations.md), la [seguridad](../../advisor/advisor-security-recommendations.md) y la [confiablidad](../../advisor/advisor-high-availability-recommendations.md) de los recursos, al mismo tiempo que busca oportunidades para [reducir el gasto general en Azure](../../advisor/advisor-cost-recommendations.md). Azure Advisor proporciona recomendaciones de seguridad, que pueden mejorar de forma notable la posición general de seguridad para las soluciones que se implementan en Azure. Estas recomendaciones se extraen del análisis de seguridad realizado por [Microsoft Defender for Cloud.](../../security-center/security-center-introduction.md)
 
 ## <a name="applications"></a>APLICACIONES
 
@@ -230,7 +230,7 @@ Microsoft [Azure Application Gateway](../../application-gateway/overview.md) cue
 
 ![Application Gateway](./media/overview/azure-security-figure-2.png)
 
-Le permite optimizar la productividad de las granjas de servidores web al traspasar la carga de la terminación TLS con mayor actividad de la CPU a Application Gateway (lo que también se conoce como "descarga TLS&quot; o &quot;puente TLS"). Además, dispone de otras funcionalidades de enrutamiento de nivel 7, como la distribución round robin del tráfico entrante, la afinidad de sesiones basada en cookies, el enrutamiento basado en rutas de acceso URL y la capacidad de hospedar varios sitios web tras una única instancia de Application Gateway. Azure Application Gateway es un equilibrador de carga de nivel 7.
+Le permite optimizar la productividad de las granjas de servidores web al traspasar la carga de la terminación TLS con mayor actividad de la CPU a Application Gateway (lo que también se conoce como "descarga TLS" o "puente TLS"). Además, dispone de otras funcionalidades de enrutamiento de nivel 7, como la distribución round robin del tráfico entrante, la afinidad de sesiones basada en cookies, el enrutamiento basado en rutas de acceso URL y la capacidad de hospedar varios sitios web tras una única instancia de Application Gateway. Azure Application Gateway es un equilibrador de carga de nivel 7.
 
 Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local.
 
@@ -288,15 +288,15 @@ Puede habilitar las siguientes categorías de registro de diagnóstico para los 
 
 - Contador de regla: contiene entradas para el número de veces que se aplica cada regla NSG para denegar o permitir el tráfico.
 
-### <a name="security-center"></a>Security Center
+### <a name="defender-for-cloud"></a>Defender for Cloud
 
-[Azure Security Center](../../security-center/security-center-introduction.md) analiza continuamente el estado de seguridad de los recursos de Azure para los procedimientos recomendados de seguridad de red. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea [recomendaciones](../../security-center/security-center-recommendations.md) que lo guiarán por el proceso de configuración de los controles necesarios para reforzar y proteger sus recursos.
+[Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) analiza continuamente el estado de seguridad de los recursos de Azure para los procedimientos recomendados de seguridad de red. Cuando Defender for Cloud identifica posibles vulnerabilidades de seguridad, crea [recomendaciones](../../security-center/security-center-recommendations.md) que lo guían a través del proceso de configuración de los controles necesarios para fortalecer y proteger sus recursos.
 
 ## <a name="compute"></a>Proceso
 En esta sección se proporciona información adicional acerca de características fundamentales para esta área y un resumen de estas funcionalidades.
 
 ### <a name="antimalware--antivirus"></a>Antimalware y antivirus
-Con IaaS de Azure, puede usar software antimalware de proveedores de seguridad como Microsoft, Symantec, Trend Micro, McAfee y Kaspersky, para proteger las máquinas virtuales de archivos malintencionados, adware y otras amenazas. [Microsoft Antimalware](antimalware.md) para Azure Cloud Services y Virtual Machines es una funcionalidad de protección que permite identificar y eliminar virus, spyware y otro software malintencionado. Microsoft Antimalware activa alertas configurables cuando software no deseado o malintencionado intenta instalarse o ejecutarse en los sistemas de Azure. Microsoft Antimalware también puede implementarse mediante Azure Security Center.
+Con IaaS de Azure, puede usar software antimalware de proveedores de seguridad como Microsoft, Symantec, Trend Micro, McAfee y Kaspersky, para proteger las máquinas virtuales de archivos malintencionados, adware y otras amenazas. [Microsoft Antimalware](antimalware.md) para Azure Cloud Services y Virtual Machines es una funcionalidad de protección que permite identificar y eliminar virus, spyware y otro software malintencionado. Microsoft Antimalware activa alertas configurables cuando software no deseado o malintencionado intenta instalarse o ejecutarse en los sistemas de Azure. Microsoft Antimalware también se puede implementar mediante Microsoft Defender for Cloud.
 
 ### <a name="hardware-security-module"></a>Módulo de seguridad de hardware
 La autenticación y el cifrado no mejoran la seguridad a menos que las propias claves estén protegidas. Puede simplificar la administración y la seguridad de claves y secretos críticos guardándolos en [Azure Key Vault](../../key-vault/general/overview.md). Key Vault permite guardar claves en módulos de seguridad de hardware (HSM) que tienen la certificación FIPS 140-2 nivel 2. Sus claves de cifrado de SQL Server para copias de seguridad o [cifrado de datos transparente](/sql/relational-databases/security/encryption/transparent-data-encryption) se pueden almacenar en Key Vault con otras claves y secretos de sus aplicaciones. Los permisos y el acceso a estos elementos protegidos se administran con [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
@@ -324,7 +324,7 @@ Las máquinas virtuales necesita conectividad de red. Para satisfacer este requi
 Las actualizaciones de revisiones proporcionan la base para encontrar y corregir posibles problemas y simplificar el proceso de administración de actualizaciones de software al reducir el número de actualizaciones de software que debe implementar en su empresa y aumentar la capacidad de supervisar el cumplimiento.
 
 ### <a name="security-policy-management-and-reporting"></a>Informes y administración de directivas de seguridad
-[Security Center](../../security-center/security-center-introduction.md) ayuda a evitar amenazas y a detectarlas y responder a ellas, y proporciona una mayor visibilidad y control sobre la seguridad de sus recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integradas en las suscripciones de Azure, ayuda a detectar amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
+[Defender for Cloud](../../security-center/security-center-introduction.md) ayuda a evitar amenazas y a detectarlas y responder a ellas, y proporciona una mayor visibilidad y control sobre la seguridad de sus recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integradas en las suscripciones de Azure, ayuda a detectar amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
 
 ## <a name="identity-and-access-management"></a>Administración de identidades y acceso
 La protección de los sistemas, las aplicaciones y los datos comienza por los controles de acceso basado en identidad. Las características de administración de identidades y acceso que están integradas en los servicios y productos de Microsoft para empresas ayudan a proteger su información personal y profesional ante el acceso no autorizado al mismo tiempo que se pone a disposición de los usuarios legítimos cuando y donde la necesiten.
@@ -369,4 +369,4 @@ Microsoft utiliza varias tecnologías y procedimientos recomendados de seguridad
 
 - Comprenda la [responsabilidad compartida en la nube](shared-responsibility.md).
 
-- Aprenda cómo [Azure Security Center](../../security-center/security-center-introduction.md) le ayuda a evitar amenazas y a detectarlas y responder a ellas, gracias a la mayor visibilidad y control sobre la seguridad de todos sus recursos de Azure.
+- Obtenga información sobre cómo [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) puede ayudarle a evitar amenazas y a detectarlas y responder a ellas con más visibilidad y control sobre la seguridad de sus recursos de Azure.

@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/13/2021
-ms.openlocfilehash: 082b943aef3f82898b80d23d33a90d3f5ec3ebc6
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.date: 11/02/2021
+ms.openlocfilehash: 76036b42693b17480f4e5ede8d93d981bf40d739
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122515130"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429667"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Planeamiento de una aplicación administrada de Azure para una oferta de Aplicación de Azure
 
@@ -121,6 +121,10 @@ Puede configurar un plan de aplicación administrada para usar el modo de implem
 ## <a name="notification-endpoint-url"></a>Dirección URL del punto de conexión de notificaciones
 
 Opcionalmente, puede proporcionar un punto de conexión de webhook HTTPS para recibir notificaciones sobre todas las operaciones CRUD que están en las instancias de aplicación administrada de un plan.
+
+Azure anexa `/resource` al final del URI del webhook antes de llamarlo. Por lo tanto, la dirección URL del webhook debe terminar en `/resource`, a pesar de que no se debe incluir en el URI que se escribió en el cuadro **Dirección URL del punto de conexión de notificaciones** en el Centro de partners. Por ejemplo, si escribe `https://contoso.com` como el URI del punto de conexión de notificaciones, se produce una llamada a `https://contoso.com/resource`.
+
+Al escuchar eventos de las notificaciones de la aplicación administrada, asegúrese de que escucha `https://<url>/resource` y no solo la dirección URL establecida. Si desea una notificación de ejemplo, consulte [Esquema de la notificación](/azure/azure-resource-manager/managed-applications/publish-notifications#notification-schema).
 
 ## <a name="customize-allowed-customer-actions-optional"></a>Personalización de las acciones de cliente permitidas (opcional)
 

@@ -1,14 +1,14 @@
 ---
 title: Administración de sensores desde la consola de administración local
 description: Aprenda a administrar los sensores desde la consola de administración, incluida la actualización de las versiones de los sensores, la inserción de la configuración del sistema en sensores, la administración de certificados y también la habilitación y deshabilitación de motores en sensores.
-ms.date: 07/08/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: dbdee98fc1f7e6bc294bd54d72e64fa8f053eb8e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 1015810f8999671665cf48d74058e9ad3fc47558
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431195"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278842"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>Administración de sensores desde la consola de administración
 
@@ -76,7 +76,7 @@ Al actualizar una consola de administración local y sensores administrados, act
 
 1. Vaya a [Azure Portal](https://portal.azure.com/).
 
-1. Vaya a Azure Defender para IoT.
+1. Desplácese a Microsoft Defender para IoT.
 
 1. Vaya a la página **Actualizaciones**.
 
@@ -129,7 +129,7 @@ Si no puede actualizar el sensor, póngase en contacto con el equipo de soporte 
 
 El paquete de datos de la inteligencia sobre amenazas se proporciona con cada nueva versión de Defender para IoT o, si es necesario, entre versiones. El paquete contiene firmas (incluidas las firmas de malware), CVE y otro contenido de seguridad. 
 
-Puede cargar manualmente este archivo desde la página **Actualizaciones** del portal de Defender para IoT y actualizarlo automáticamente en los sensores. 
+Puede cargar manualmente este archivo en Azure Portal y actualizarlo automáticamente a los sensores. 
 
 **Para actualizar los datos de inteligencia sobre amenazas:**
 

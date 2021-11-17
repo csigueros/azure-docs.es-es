@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a crear y configurar almacenes de Rec
 ms.topic: conceptual
 ms.date: 08/06/2021
 ms.custom: references_regions
-ms.openlocfilehash: dde592064c5cd4f42bd8baf94854fa2f95f4945e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: afb8485fe8baca002102f82a6f44f535075cadf8
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131078282"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062631"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Creación y configuración de un almacén de Recovery Services
 
@@ -42,35 +42,18 @@ Azure Backup administra automáticamente el almacenamiento para el almacén. Deb
 
 ## <a name="set-cross-region-restore"></a>Establecimiento de la restauración entre regiones
 
-La opción **Restauración entre regiones (CRR)** permite restaurar datos en una [región de Azure emparejada](../best-practices-availability-paired-regions.md) secundaria.
+La opción Restauración entre regiones (CRR) permite restaurar datos en una región de Azure emparejada secundaria. Puede usarlo para realizar simulacros cuando haya un requisito de auditoría o cumplimiento (o) restaurar los datos si se produce un desastre en la región primaria.
 
-Admite los orígenes de datos siguientes:
-
-- Máquinas virtuales de Azure
-- Bases de datos SQL hospedadas en máquinas virtuales de Azure
-- Bases de datos de SAP HANA hospedadas en máquinas virtuales de Azure
-
-Usar Restauración entre regiones le permite hacer lo siguiente:
-
-- Obtener detalles cuando existen requisitos de cumplimiento o auditoría
-- Restaurar los datos si se produce un desastre en la región primaria
-
-Al restaurar una máquina virtual, puede restaurar la máquina virtual o su disco. Si va a restaurar a partir de bases de datos SQL o de SAP HANA hospedadas en máquinas virtuales de Azure, puede restaurar las bases de datos o sus archivos.
-
-Para elegir esta característica, seleccione la opción **Habilitar la restauración entre regiones** en el panel **Configuración de copia de seguridad**.
-
-Dado que este proceso se encuentra en el nivel de almacenamiento, hay [implicaciones de precios](https://azure.microsoft.com/pricing/details/backup/).
-
->[!NOTE]
->Antes de empezar:
->
->- Revise la [matriz de compatibilidad](backup-support-matrix.md#cross-region-restore) para obtener una lista de regiones y tipos administrados compatibles.
->- La característica de restauración entre regiones (CRR) para bases de datos de máquinas virtuales de Azure, SQL y SAP HANA está ahora disponible con carácter general en todas las regiones públicas y soberanas de Azure. Para obtener información sobre la disponibilidad de las regiones, consulte la [matriz de compatibilidad](backup-support-matrix.md#cross-region-restore).
->- CRR es una característica opcional de nivel de almacén para cualquier almacén GRS (está desactivada de forma predeterminada).
->- Tras la incorporación, los elementos de copia de seguridad pueden tardar hasta 48 horas en estar disponibles en las regiones secundarias.
->- Actualmente, se admite CRR para las máquinas virtuales de Azure, las máquinas virtuales de Azure Resource Manager y las máquinas virtuales de Azure cifradas. No se admitirán las máquinas virtuales de Azure clásicas. Si otros tipos de administración admiten CRR, se inscribirán **automáticamente**.
->- Una vez que la protección se inicia por primera vez, **actualmente no se puede revertir** la restauración entre regiones a GRS o LRS.
->- Actualmente, la región secundaria [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) está activa hasta 12 horas a partir de la región primaria, aunque la replicación del [almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) ](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) es de 15 minutos.
+Antes de empezar:
+- Se admite CRR:
+     - Solo para el almacén de Recovery Services con el [tipo de replicación GRS](#set-storage-redundancy).
+     - Máquinas virtuales de Azure (puede restaurar la máquina virtual o su disco) que son máquinas virtuales de Azure basadas en ARM y máquinas virtuales de Azure cifradas. No se admiten las máquinas virtuales clásicas.  
+     - Las bases de datos SQL/SAP HANA hospedadas en máquinas virtuales de Azure (puede restaurar bases de datos o sus archivos)
+     - Revise la [matriz de compatibilidad](backup-support-matrix.md#cross-region-restore) para obtener una lista de regiones y tipos administrados compatibles.
+- El uso de CRR incurrirá en cargos adicionales, [más información](https://azure.microsoft.com/pricing/details/backup/)
+- Tras la incorporación, los elementos de copia de seguridad pueden **tardar hasta 48 horas en estar disponibles en las regiones secundarias**.
+- Una vez que la protección se inicia por primera vez, actualmente no se puede revertir la restauración entre regiones a GRS o LRS.
+- Actualmente, la región secundaria RPO está activa hasta 12 horas a partir de la región primaria, aunque la replicación del [almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) ](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) es de 15 minutos.
 
 ### <a name="configure-cross-region-restore"></a>Configuración de la restauración entre regiones
 

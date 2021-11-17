@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: e639762cd1adb7bbbc3fb2ec31f4ce52710e46f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ada2c92b541a4a0d89aad1791d3bb9c97377f83
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101711950"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441654"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configuración de la recuperación ante desastres para la implementación de una aplicación de SAP NetWeaver de niveles múltiples
 
@@ -119,7 +119,7 @@ Para comenzar a replicar todas las máquinas virtuales de la aplicación SAP en 
 
 ## <a name="networking-configuration"></a>Configuración de red
 
-Si usa una dirección IP estática, puede especificar la dirección IP que desea que use la máquina virtual. Para establecer la dirección IP, vaya a **Configuración de proceso y red** > **Adaptador de red**.
+Si usa una dirección IP estática, puede especificar la dirección IP que desea que use la máquina virtual. Para establecer la dirección IP, vaya a **Configuración de red** > **Tarjeta de interfaz de red**.
 
 ![Captura de pantalla que muestra cómo establecer una dirección IP privada en el panel del adaptador de red de Site Recovery](./media/site-recovery-sap/sap-static-ip.png)
 

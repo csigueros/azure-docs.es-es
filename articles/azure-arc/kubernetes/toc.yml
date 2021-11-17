@@ -56,7 +56,7 @@
           href: extensions.md
         - name: Supervisión mediante Azure Monitor para contenedores
           href: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
-        - name: Aplicación de la protección contra amenazas con Azure Defender
+        - name: Aplicación de la protección contra amenazas mediante Microsoft Defender for Cloud
           href: ../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: Aplicación de directivas en clúster mediante Azure Policy
           href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json

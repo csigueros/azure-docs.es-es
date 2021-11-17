@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.author: trkeya
 author: trkeya
-ms.date: 09/09/2021
-ms.openlocfilehash: 7415e01f79c7982b2e56e1bb02fc84be13174388
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 10/26/2021
+ms.openlocfilehash: 3bcd8b99ea7361e0af05cd55f96741b0d5ab5db8
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131065159"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131847439"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 
@@ -21,6 +21,9 @@ Use este tipo si tiene una oferta en Azure Marketplace o AppSource, pero quiere 
 Si no está familiarizado con el concepto de plantilla de ARM, lea [¿Qué es Azure Resource Manager?](../azure-resource-manager/management/overview.md) y [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/syntax.md) para comprender mejor cómo compilar y probar sus propias plantillas.
 
 Para obtener información sobre una versión de prueba **hospedada** o de **aplicación lógica**, vea [¿Qué es una versión de prueba?](what-is-test-drive.md)
+
+> [!TIP]
+> Para ver la vista del cliente de la versión de prueba en el marketplace comercial, consulte [¿Qué es Azure Marketplace?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) y [¿Qué es Microsoft AppSource?](/marketplace/appsource-overview).
 
 ## <a name="technical-configuration"></a>Configuración técnica
 

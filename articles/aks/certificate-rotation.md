@@ -3,13 +3,13 @@ title: Rotación de certificados en Azure Kubernetes Service (AKS)
 description: Obtenga información sobre cómo rotar los certificados en un clúster de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 7/13/2021
-ms.openlocfilehash: ea488e281e52949eeb53fdeffb1dc26afb5a9b5e
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.date: 11/03/2021
+ms.openlocfilehash: 7651af1bc1b3229fa206dbb507a918d611b2eafc
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122066226"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131575776"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Rotación de certificados en Azure Kubernetes Service (AKS)
 
@@ -54,6 +54,28 @@ az vm run-command invoke -g MC_rg_myAKSCluster_region -n vm-name --command-id Ru
 ```console
 az vmss run-command invoke -g MC_rg_myAKSCluster_region -n vmss-name --instance-id 0 --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
 ```
+
+## <a name="certificate-auto-rotation"></a>Rotación automática de certificados
+
+Azure Kubernetes Service rotará automáticamente los certificados que no sean una entidad de certificación en el plano de control y en los nodos de agente antes de que expiren sin tiempo de inactividad para el clúster.
+
+Para que AKS rote automáticamente los certificados que no son de CA, el clúster debe tener un [Arranque de TLS](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-tls-bootstrapping/). El arranque de TLS está disponible actualmente en las siguientes regiones:
+
+* eastus2euap
+* centraluseuap
+* westcentralus
+* uksouth
+* estado
+* australiacentral
+* australiaest
+
+> [!IMPORTANT]
+>Una vez configurada una región, cree un nuevo clúster o actualice un clúster existente "az aks upgrade -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME" para establecer ese clúster en la rotación de certificados automáticos. 
+
+### <a name="limititation"></a>Limitación
+
+La rotación automática de certificados no se habilitará en un clúster que no sea de tipo rbac.
+
 
 ## <a name="rotate-your-cluster-certificates"></a>Rotar los certificados de clúster
 

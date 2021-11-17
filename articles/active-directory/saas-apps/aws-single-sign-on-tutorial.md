@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único de Azure Active Directory con AWS Single Sign-on | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con AWS Single Sign-on'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y AWS Single Sign-on.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/12/2021
+ms.date: 10/26/2021
 ms.author: jeedes
-ms.openlocfilehash: bda8218fb9d08da410b08f8b6f3a3e3cda53ec22
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4e7d0f8edb34f7c6a91eeb8bac6f04b97440f764
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124759701"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440854"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-sign-on"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con AWS Single Sign-on
+# <a name="tutorial-azure-ad-sso-integration-with-aws-single-sign-on"></a>Tutorial: Integración del inicio de sesión único de Azure AD con AWS Single Sign-on
 
 En este tutorial, aprenderá a integrar AWS Single Sign-on con Azure Active Directory (Azure AD). Al integrar AWS Single Sign-on con Azure AD, podrá:
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar AWS Single Sign-on con Azure Active Dir
 * Permitir que los usuarios inicien sesión automáticamente en AWS Single Sign-on con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con AWS Single Sign-
 Para configurar y probar el inicio de sesión único de Azure AD con AWS Single Sign-on, siga estos siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de AWS Single Sign-on](#configure-aws-single-sign-on-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de AWS Single Sign-on](#create-aws-single-sign-on-test-user)** , para tener un homólogo de B. Simon en AWS Single Sign-on que esté vinculado a la representación del usuario en Azure AD.
@@ -80,7 +80,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     a. Haga clic en **Cargar el archivo de metadatos**.
 
-    b. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos que ha descargado en la sección **Configuración del inicio de sesión único de AWS Single Sign-on** (punto 8) y haga clic en **Agregar**.
+    b. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos cuya descarga se ha explicado en la sección **[Configuración del inicio de sesión único de AWS Single Sign-on](#configure-aws-single-sign-on-sso)** y haga clic en **Agregar**.
 
     ![imagen2](common/browse-upload-metadata.png)
 

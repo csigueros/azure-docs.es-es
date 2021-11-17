@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 08/31/2021
-ms.openlocfilehash: da6a02c12c9e24d4091c632fbf73a0cc97255afa
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 2370e3895cc70a4303c9d91d300b47b32913ac7a
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130223108"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131996326"
 ---
 # <a name="collect-your-apache-spark-applications-logs-and-metrics-using-azure-event-hubs"></a>Recopilación de los registros de aplicaciones y las métricas de Apache Spark mediante Azure Event Hubs 
 
@@ -59,6 +59,7 @@ Para mayor descripción de los parámetros, puede consultar las [configuraciones
 | `spark.synapse.diagnostic.emitter.<destination>.secret`                     | Opcional. Cadena de conexión de la instancia de Azure Event Hubs. Este campo debe coincidir con este patrón `Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>;EntityPath=<PathName>`. |
 | `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault`            | Es necesario si `.secret` no se especifica. Nombre del [almacén de claves de Azure](../../key-vault/general/overview.md) donde se almacena el secreto (cadena de conexión).                                                                  |
 | `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault.secretName` | Requerido si se especifica `.secret.keyVault`. Nombre del almacén de claves de Azure donde se almacena el secreto (cadena de conexión).                                                                         |
+| `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault.linkedService` | Opcional. Nombre del servicio vinculado de Azure Key Vault. Cuando se habilita en la canalización de Synapse, esto es necesario para obtener el secreto de AKV. (Asegúrese de que MSI tiene permiso de lectura en AKV). |
 | `spark.synapse.diagnostic.emitter.<destination>.filter.eventName.match`     | Opcional. Nombres de eventos de Spark separados por comas, puede especificar qué eventos se recopilan. Por ejemplo: `SparkListenerApplicationStart,SparkListenerApplicationEnd` |
 | `spark.synapse.diagnostic.emitter.<destination>.filter.loggerName.match`    | Opcional. Nombres del registrador log4j separados por comas, puede especificar qué registros se recopilan. Por ejemplo: `org.apache.spark.SparkContext,org.example.Logger` |
 | `spark.synapse.diagnostic.emitter.<destination>.filter.metricName.match`    | Opcional. Sufijos de nombre de métrica de Spark separados por comas, puede especificar qué métricas se recopilan. Por ejemplo: `jvm.heap.used` |

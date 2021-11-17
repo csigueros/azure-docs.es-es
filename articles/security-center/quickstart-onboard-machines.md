@@ -8,13 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0e5c44033a5f03726dc7e1f1129287edef5350aa
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 390a628640389b2d2b89afbf36b4aab41f1eb115
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131014435"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131422318"
 ---
 # <a name="connect-your-non-azure-machines-to-microsoft-defender-for-cloud"></a>Conexión de máquinas que no son de Azure a Microsoft Defender for Cloud
 
@@ -28,6 +27,9 @@ Puede conectar equipos que no son de Azure de alguna de las maneras siguientes:
 - Desde las páginas de Cloud en Azure Portal (**Introducción** e **Inventario**)
 
 En esta página se describen cada una de ellas.
+
+> [!TIP]
+> Si va a conectar máquinas desde otros proveedores de nube, consulte [Conexión de las cuentas de AWS](quickstart-onboard-aws.md) o [Conexión de cuentas de GCP](quickstart-onboard-gcp.md).
 
 ::: zone pivot="azure-arc"
 

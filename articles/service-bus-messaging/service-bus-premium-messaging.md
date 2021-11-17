@@ -2,14 +2,14 @@
 title: Niveles premium y estándar de Azure Service Bus
 description: En este artículo se describen los niveles estándar y premium de Azure Service Bus. Compara estos niveles y proporciona diferencias técnicas.
 ms.topic: conceptual
-ms.date: 10/06/2021
+ms.date: 11/08/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 67439ad4c3d51dc354007b11008179d210aeaca6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0734e6d7d54966617e66a5ac5876df4a1da9264f
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131046819"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028788"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Niveles de mensajería Premium y Estándar de Service Bus
 
@@ -25,14 +25,11 @@ En la tabla siguiente, se resaltan algunas de las principales diferencias.
 | Rendimiento predecible |Latencia variable |
 | Precio fijo |Precios según la variante de pago por uso |
 | Posibilidad de escalar y de reducir verticalmente la carga de trabajo |N/D |
-| Tamaño de mensaje de hasta 1 MB. |Tamaño de mensaje de hasta 256 KB |
+| Tamaño de mensaje de hasta 100 MB Para más información, consulte [Compatibilidad con mensajes largos](#large-messages-support). |Tamaño de mensaje de hasta 256 KB |
 
 La **mensajería Premium de Service Bus** proporciona aislamiento de recursos en el nivel de CPU y memoria para que cada carga de trabajo de cliente se ejecute de forma aislada. Este contenedor de recursos se llama *unidad de mensajería*. A cada espacio de nombres premium se le asigna al menos una unidad de mensajería. Puede comprar 1, 2, 4, 8 o 16 unidades de mensajería para cada espacio de nombres Premium de Service Bus. Una sola carga de trabajo o entidad puede abarcar varias unidades de mensajería y el número de unidades de mensajería puede cambiarse a voluntad. El resultado es un rendimiento predecible y repetible para su solución basada en Service Bus.
 
 Este rendimiento no es solo más predecible y presenta mayor disponibilidad, sino que también es más rápido. Con la mensajería Premium, obtener el máximo rendimiento es mucho más rápido que en el nivel Estándar.
-
-> [!NOTE]
-> El límite de tamaño del lote para la mensajería Premium es 1 MB.
 
 ## <a name="premium-messaging-technical-differences"></a>Diferencias técnicas de la mensajería Premium
 

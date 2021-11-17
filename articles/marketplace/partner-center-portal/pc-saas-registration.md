@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 author: saasguide
 ms.author: souchak
-ms.openlocfilehash: 3e2c92d5fed23480f102f1c96631c3a8c9a2e2c8
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 78a66070c6bcf03f4a279163106048d87fe27f23
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129456506"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061389"
 ---
 # <a name="register-a-saas-application"></a>Registro de una aplicación SaaS
 
@@ -27,8 +27,8 @@ Para obtener más información sobre Azure AD (Active Directory), vea [¿Qué es
 Cualquier aplicación que quiera usar las funciones de Azure AD debe registrarse primero en un inquilino de Azure AD. Este proceso de registro implica proporcionar a Azure AD algunos detalles sobre la aplicación. Para registrar una aplicación nueva mediante Azure Portal, realice los pasos siguientes:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Si la cuenta proporciona acceso a más de uno, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
-3. En el panel de navegación izquierdo, haga clic en el servicio **Azure Active Directory**, haga clic en **Registros de aplicaciones** y haga clic en **Nuevo registro de aplicación**.
+2. Si la cuenta proporciona acceso a más de uno, seleccione su cuenta en la esquina superior derecha. Después, establezca la sesión del portal en el inquilino de Azure AD que desee.
+3. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory**, seleccione **Registros de aplicaciones** y, después, seleccione **Nuevo registro de aplicaciones**.
 
     ![Registros de aplicaciones SaaS de AD](./media/saas-offer-app-registration-v1.png)
 
@@ -41,9 +41,9 @@ Cualquier aplicación que quiera usar las funciones de Azure AD debe registrarse
 
         Para obtener ejemplos específicos de aplicaciones web, consulte las guías de inicio rápido de configuraciones que están disponibles en la sección [Introducción](../../active-directory/develop/quickstart-create-new-tenant.md) de la [Guía de desarrolladores de Azure AD](../../active-directory/develop/index.yml).
 
-5. Cuando termine, haga clic en **Registrar**.  Azure AD asigna un *identificador de aplicación* único a la nueva aplicación. Se recomienda registrar una aplicación que acceda solo a la API y como inquilino único.
+5. Cuando termine, seleccione **Registrar**.  Azure AD asigna un *identificador de aplicación* único a la nueva aplicación. Se recomienda registrar una aplicación que acceda solo a la API y como inquilino único.
 
-6. Para crear un secreto de cliente, vaya a la página **Certificados y secretos** y haga clic en **+ Nuevo secreto de cliente**.  Asegúrese de copiar el valor del secreto para usarlo en el código.
+6. Para crear un secreto de cliente, vaya a la página **Certificados y secretos** y seleccione **+ Nuevo secreto de cliente**.  Asegúrese de copiar el valor del secreto para usarlo en el código.
 
 El **identificador de aplicación de Azure AD** está asociado al identificador del editor, por lo que debe asegurarse de que en todas las ofertas se use el mismo *identificador de aplicación*.
 
@@ -52,9 +52,9 @@ El **identificador de aplicación de Azure AD** está asociado al identificador 
 
 ## <a name="how-to-get-the-publishers-authorization-token"></a>Cómo obtener el token de autorización del editor
 
-Una vez que haya registrado la aplicación, puede solicitar mediante programación el token de autorización del editor (token de acceso de Azure AD, mediante el punto de conexión V1 de Azure AD). El editor debe usar este token al llamar a las distintas API de suministro de SaaS. Este token es válido durante una hora únicamente. 
+Después de registrar la aplicación, puede solicitar mediante programación el token de autorización del editor (token de acceso de Azure AD, mediante el punto de conexión V1 de Azure AD). El editor debe usar este token al llamar a las distintas API de suministro de SaaS. Este token es válido durante una hora únicamente.
 
-Para más información sobre estos tokens, consulte [Tokens de acceso de Azure Active Directory](../../active-directory/develop/access-tokens.md).  Tenga en cuenta que, en el flujo siguiente, se usa el token del punto de conexión V1.
+Para más información sobre estos tokens, consulte [Tokens de acceso de Azure Active Directory](../../active-directory/develop/access-tokens.md).  En el flujo siguiente se usa el token de punto de conexión V1.
 
 ### <a name="get-the-token-with-an-http-post"></a>Obtención del token con una solicitud HTTP POST
 
@@ -111,7 +111,7 @@ Respuesta de ejemplo:
 
 | Elemento | Descripción |
 | ------- | ----------- |
-| `access_token` | Este elemento es el `<access_token>` (token de acceso) que pasará como parámetro de autorización al llamar a todas las API de suministro de SaaS y de medición de Marketplace. Al llamar a una API de REST protegida, el token se inserta en el campo `Authorization` del encabezado de la solicitud como un token de "portador", lo que permite a la API autenticar el llamador. | 
+| `access_token` | Este elemento es el `<access_token>` (token de acceso) que pasará como parámetro de autorización al llamar a todas las API de suministro de SaaS y de medición de Marketplace. Al llamar a una API de REST protegida, el token se inserta en el campo `Authorization` del encabezado de la solicitud como un token de "portador", lo que permite a la API autenticar el llamador. |
 | `expires_in` | El número de segundos que el token de acceso sigue siendo válido, antes de expirar, desde la hora de emisión. La hora de emisión puede encontrarse en la notificación `iat` del token. |
 | `expires_on` | La hora a la que expira el token de acceso. La fecha se representa como el número de segundos desde "1970-01-01T0:0:0Z UTC" (se corresponde con la notificación `exp` del token). |
 | `not_before` | El intervalo de tiempo cuando el token de acceso tiene efecto y se puede aceptar. La fecha se representa como el número de segundos desde "1970-01-01T0:0:0Z UTC" (se corresponde con la notificación `nbf` del token). |
@@ -120,4 +120,4 @@ Respuesta de ejemplo:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-La aplicación protegida por Azure AD ahora puede usar la [API de suministro de SaaS versión 2](./pc-saas-fulfillment-api-v2.md).
+Ahora, la aplicación protegida con Azure AD puede usar las [API SaaS Fulfillment Subscription, versión 2](pc-saas-fulfillment-subscription-api.md) y las [API SaaS Fulfillment Operations, versión 2](pc-saas-fulfillment-operations-api.md).

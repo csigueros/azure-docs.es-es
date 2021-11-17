@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo puede transmitir registros de func
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2, devx-track-azurepowershell
-ms.openlocfilehash: 6abf93be2d63434996fa2de7f400c742f9962575
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 6073654abbcd8a157f7552e21d1e74ee4f535684
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114668465"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245083"
 ---
 # <a name="enable-streaming-execution-logs-in-azure-functions"></a>Habilitación de los registros de ejecución de secuencias en Azure Functions
 
@@ -39,7 +39,7 @@ Esto conecta la aplicación con el servicio de secuencias de registro, y los reg
 
 ### <a name="live-metrics-stream"></a>Secuencia de métricas en directo
 
-Para ver Live Metrics Stream de su aplicación, seleccione la pestaña **Información general** de la aplicación de funciones. Cuando haya habilitado Application Insights, verá un vínculo a **Application Insights** en **Características configuradas**. Este vínculo lo llevará a la página Application Insights correspondiente a la aplicación.
+Para ver Live Metrics Stream de su aplicación, seleccione la pestaña **Información general** de la aplicación de funciones. Cuando haya habilitado Application Insights, verá un vínculo a **Application Insights** en **Características configuradas**. Este vínculo lo llevará a la página Application Insights correspondiente a la aplicación.
 
 En Application Insights, seleccione **Live Metrics Stream**. Las [entradas de los registros muestreados](configure-monitoring.md#configure-sampling) se muestran en **Telemetría de ejemplo**.
 

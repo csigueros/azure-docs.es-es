@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.subservice: spark
 ms.date: 03/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: edb86a4c264b291516b3cc52d3d5dbfa159ace32
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: dcf09885dab6ba41d545e4105a86c99535786c62
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132312179"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223146"
 ---
 # <a name="monitor-apache-spark-applications-with-azure-log-analytics"></a>Supervisión de las aplicaciones de Apache Spark con Azure Log Analytics
 
@@ -52,7 +52,7 @@ spark.synapse.logAnalytics.secret <LOG_ANALYTICS_WORKSPACE_KEY>
 #### <a name="option-2-configure-with-azure-key-vault"></a>Opción 2: Configuración con Azure Key Vault
 
 > [!NOTE]
-> Debe conceder permiso de lectura de secretos a los usuarios que vayan a enviar aplicaciones Apache Spark. Para más información, consulte [Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure](../../key-vault/general/rbac-guide.md). Al habilitar esta característica en una canalización de Synapse, debe usar la **opción 3**. Esto es necesario para obtener el secreto de Azure Key Vault con la identidad administrada del área de trabajo.
+> Debe conceder permiso de lectura de secretos a los usuarios que vayan a enviar aplicaciones Apache Spark. Para más información, consulte [Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure](../../key-vault/general/rbac-guide.md).
 
 Para configurar Azure Key Vault para almacenar la clave del área de trabajo, siga estos pasos:
 
@@ -67,7 +67,7 @@ Para configurar Azure Key Vault para almacenar la clave del área de trabajo, si
 
    - `<LOG_ANALYTICS_WORKSPACE_ID>`: identificador del área de trabajo de Log Analytics.
    - `<AZURE_KEY_VAULT_NAME>`: el nombre del almacén de claves que configuró.
-   - `<AZURE_KEY_VAULT_SECRET_KEY_NAME>` (opcional): el nombre del secreto en el almacén de claves para la clave del área de trabajo. De manera predeterminada, es `SparkLogAnalyticsSecret`.
+   - `<AZURE_KEY_VAULT_SECRET_KEY_NAME>` (opcional): el nombre del secreto en el almacén de claves para la clave del área de trabajo. El valor predeterminado es `SparkLogAnalyticsSecret`.
 
 ```properties
 spark.synapse.logAnalytics.enabled true
@@ -82,7 +82,7 @@ spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 #### <a name="option-3-configure-with-a-linked-service"></a>Opción 3. Configuración con un servicio vinculado
 
 > [!NOTE]
-> En esta opción, debe conceder permiso de secreto de lectura a la identidad administrada del área de trabajo. Para más información, consulte [Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure](../../key-vault/general/rbac-guide.md).
+> Debe conceder permiso de lectura de secretos a los usuarios que vayan a enviar aplicaciones Apache Spark. Para más información, consulte [Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure](../../key-vault/general/rbac-guide.md).
 
 Para configurar un servicio vinculado de Key Vault en Synapse Studio para almacenar la clave del área de trabajo, siga estos pasos:
 

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/8/2020
-ms.openlocfilehash: 3f26de72839fcaa39bff4d827aba757721736934
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e99d08e638569c68043bb67f090bc7ce41982ca
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664909"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215041"
 ---
 # <a name="connect-to-azure-database-for-mariadb-with-redirection"></a>Conexión a Azure Database for MariaDB con redireccionamiento
 
@@ -21,6 +21,9 @@ En este tema se explica cómo conectar una aplicación del servidor de Azure Dat
 Inicie sesión en [Azure Portal](https://portal.azure.com). Cree un servidor de Azure Database for MariaDB con la versión de motor 10.2 u 10.3. 
 
 Si desea información más detallada, consulte la documentación sobre cómo crear un servidor de Azure Database for MariaDB mediante [Azure Portal](quickstart-create-mariadb-server-database-using-azure-portal.md) o la [CLI de Azure](quickstart-create-mariadb-server-database-using-azure-cli.md).
+
+> [!IMPORTANT]
+> Actualmente no se admite el redireccionamiento con [Private Link para Azure Database for MariaDB](concepts-data-access-security-private-link.md).
 
 ## <a name="enable-redirection"></a>Habilitación del redireccionamiento
 
@@ -54,7 +57,7 @@ En las secciones siguientes del documento se describe cómo instalar la extensi�
 
 ### <a name="ubuntu-linux"></a>Ubuntu Linux
 
-#### <a name="prerequisites"></a>Requisitos previos 
+#### <a name="prerequisites"></a>Prerrequisitos 
 - Versiones de PHP 7.2.15 y posterior y 7.3.2 y posterior.
 - PHP PEAR 
 - php-mysql
@@ -93,7 +96,7 @@ En las secciones siguientes del documento se describe cómo instalar la extensi�
 
 ### <a name="windows"></a>Windows
 
-#### <a name="prerequisites"></a>Requisitos previos 
+#### <a name="prerequisites"></a>Prerrequisitos 
 - Versiones de PHP 7.2.15 y posterior y 7.3.2 y posterior.
 - php-mysql
 - Servidor de Azure Database for MariaDB

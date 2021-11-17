@@ -173,7 +173,7 @@
             - name: Digitalización de imágenes de contenedor
               expanded: false
               items:
-                - name: Digitalización con Azure Defender
+                - name: Examen con Microsoft Defender for Cloud
                   href: scan-images-defender.md
                 - name: Digitalización con acciones de GitHub
                   href: github-action-scan.md
@@ -280,7 +280,7 @@
       items:
         - name: Acceso al registro conectado
           href: overview-connected-registry-access.md
-    - name: Guías de procedimientos
+    - name: Guías paso a paso
       items:
         - name: Extracción de imágenes del registro conectado
           href: pull-images-from-connected-registry.md

@@ -1,24 +1,22 @@
 ---
-title: Solución de errores de implementación comunes
-description: Describe cómo resolver errores comunes al implementar recursos de Azure mediante plantillas de Azure Resource Manager (plantillas de ARM) o archivos Bicep.
+title: Solución de errores comunes de implementación de Azure
+description: Describe los errores comunes de los recursos de Azure implementados con plantillas de Azure Resource Manager plantillas (plantillas de ARM) o archivos de Bicep.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 10/26/2021
+ms.date: 11/02/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fe10ccd523618c1afbc9bf5214bcd51bc18419ed
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 988d2e85475ed1c94580cc550630df82fceddb7a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093258"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470250"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors"></a>Solución de errores comunes de implementación de Azure
 
-En este artículo se describen algunos errores comunes de implementación de Azure y se proporciona información sobre cómo resolverlos. Los recursos de Azure se pueden implementar Azure Resource Manager plantillas (plantillas de ARM) o archivos Bicep. Si no encuentra el código del error de implementación, consulte [Búsqueda de códigos de error](#find-error-code).
+En este artículo, se describen algunos errores comunes de implementación de Azure y se proporciona información sobre cómo resolverlos. Los recursos de Azure se pueden implementar Azure Resource Manager plantillas (plantillas de ARM) o archivos Bicep. Si no encuentra el código del error de implementación, consulte [Búsqueda de códigos de error](find-error-code.md).
 
-Si busca información sobre un código de error y esa información no se proporciona en este artículo, háganoslo saber. En la parte inferior de esta página, puede dejar comentarios. Se realiza un seguimiento de los comentarios con problemas de GitHub.
-
-Para ejecutar PowerShell y CLI de Azure comandos desde el portal, use [Azure Cloud Shell](../../cloud-shell/overview.md). Para ejecutar los comandos desde la máquina local, instale [Azure PowerShell](/powershell/azure/install-az-ps) o la [CLI de Azure](/cli/azure/install-azure-cli).
+Si no aparece el código de error, envíe una incidencia de GitHub. En el lado derecho de la página, seleccione **Comentarios**. En la parte inferior de la página, en **Comentarios**, seleccione **Esta página**.
 
 ## <a name="error-codes"></a>Códigos de error
 
@@ -29,25 +27,25 @@ Para ejecutar PowerShell y CLI de Azure comandos desde el portal, use [Azure Clo
 | AllocationFailed | El clúster o la región no tienen recursos disponibles o no admiten el tamaño de máquina virtual solicitado. Vuelva a realizar la solicitud más adelante o solicite otro tamaño de máquina virtual. | [Problemas de aprovisionamiento y asignación de Linux](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux) <br><br> [Problemas de aprovisionamiento y asignación de Windows](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) <br><br> [Solución de problemas de asignación](/troubleshoot/azure/virtual-machines/allocation-failure)|
 | AnotherOperationInProgress | Espere a que la operación simultánea finalice. | |
 | AuthorizationFailed | La cuenta o entidad de servicio no dispone de acceso suficiente para completar la implementación. Compruebe el rol al que la cuenta pertenece y su acceso para el ámbito de implementación.<br><br>Puede recibir este error cuando un proveedor de recursos necesario no está registrado. | [Control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolución de registros](error-register-resource-provider.md) |
-| BadRequest | Envió valores de implementación que no coinciden con los que Resource Manager esperaba. Compruebe el mensaje de estado interno para obtener ayuda para solucionar el problema. | [Referencia de plantillas](/azure/templates/) y [ubicaciones admitidas](../templates/resource-location.md) |
+| BadRequest | Envió valores de implementación que no coinciden con los que Resource Manager esperaba. Compruebe el mensaje de estado interno para obtener ayuda para solucionar el problema. | [Referencia de plantilla](/azure/templates/) <br><br> [Ubicaciones admitidas](../templates/resource-location.md) |
 | Conflicto | Se solicita una operación no permitida con el estado actual del recurso. Por ejemplo, solo se permite el cambio de tamaño del disco al crear una VM o al desasignar la VM. | |
 | DeploymentActiveAndUneditable | Espere a que la implementación simultánea de este grupo de recursos finalice. | |
 | DeploymentFailedCleanUp | Al implementar en modo completo, se eliminará cualquier recurso que no esté en la plantilla. Obtendrá este error si no tiene los permisos adecuados para eliminar todos los recursos que no están en la plantilla. Para evitar el error, cambie el modo de implementación a incremental. | [Modos de implementación de Azure Resource Manager](../templates/deployment-modes.md) |
 | DeploymentNameInvalidCharacters | El nombre de implementación solo puede contener letras, dígitos, guiones `(-)`, puntos `(.)` o caracteres de subrayado `(_)`. | |
 | DeploymentNameLengthLimitExceeded | Los nombres de implementación se limitan a 64 caracteres.  | |
-| DeploymentFailed | El error DeploymentFailed es un error general que no proporciona la información necesaria para resolverlo. Mire en los detalles del error si hay un código de error que proporcione más información. | [Búsqueda de códigos de error](#find-error-code) |
+| DeploymentFailed | El error DeploymentFailed es un error general que no proporciona la información necesaria para resolverlo. Mire en los detalles del error si hay un código de error que proporcione más información. | [Búsqueda de códigos de error](find-error-code.md) |
 | DeploymentQuotaExceeded | Si se alcanza el límite de 800 implementaciones por grupo de recursos, elimine las implementaciones que ya no necesite del historial. | [Resolución de error cuando el recuento de implementaciones es superior a 800](deployment-quota-exceeded.md) |
 | DeploymentJobSizeExceeded | Simplifique la plantilla para reducir el tamaño. | [Resolución de errores de tamaño de plantilla](error-job-size-exceeded.md) |
 | DnsRecordInUse | El nombre del registro de DNS debe ser único. Escribe otro nombre. | |
 | ImageNotFound | Compruebe la configuración de la imagen de máquina virtual. |  |
 | InternalServerError | Causado por un problema temporal. Vuelva a intentar la implementación. | |
-| InUseSubnetCannotBeDeleted | Este error puede aparecer al intentar actualizar un recurso y la solicitud se procesa mediante la eliminación y creación del recurso. Asegúrese de especificar todos los valores sin cambios. | [Actualización de recursos](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
+| InUseSubnetCannotBeDeleted | Este error puede producirse al intentar actualizar un recurso, si el proceso de solicitud elimina y crea el recurso. Asegúrese de especificar todos los valores sin cambios. | [Actualización de recursos](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Obtenga el token de acceso para el inquilino adecuado. Solo puede obtener el token del inquilino al que pertenece su cuenta. | |
 | InvalidContentLink | Probablemente ha tratado de agregar un vínculo a una plantilla anidada que no está disponible. Compruebe el URI proporcionado para la plantilla anidada. Si la plantilla se encuentra en una cuenta de almacenamiento, asegúrese de que puede accederse al URI. Debe pasar un token de SAS. Actualmente, no se puede agregar un vínculo a una plantilla que se encuentre en una cuenta de almacenamiento detrás de un [firewall de Azure Storage](../../storage/common/storage-network-security.md). De todos modos, tiene la posibilidad de mover la plantilla a otro repositorio, como GitHub. | [Plantillas vinculadas](../templates/linked-templates.md) |
 | InvalidDeploymentLocation | Al realizar la implementación en el nivel de suscripción, ha proporcionado una ubicación diferente para un nombre de implementación usado previamente. | [Implementaciones de nivel de suscripción](../templates/deploy-to-subscription.md) |
 | InvalidParameter | Uno de los valores proporcionados para un recurso no coincide con el valor esperado. Este error puede deberse a muchas condiciones diferentes. Por ejemplo, una contraseña puede ser insuficiente o un nombre de blob puede ser incorrecto. El mensaje de error debe indicar qué valor debe corregirse. | |
 | InvalidRequestContent | Los valores de implementación incluyen valores que no se reconocen o valores requeridos que faltan. Confirme los valores para el tipo de recurso. | [Referencia de plantilla](/azure/templates/) |
-| InvalidRequestFormat | Habilite el registro de depuración cuando se ejecute la implementación y compruebe el contenido de la solicitud. | [Registro de depuración](#enable-debug-logging) |
+| InvalidRequestFormat | Habilite el registro de depuración cuando se ejecute la implementación y compruebe el contenido de la solicitud. | [Registro de depuración](enable-debug-logging.md) |
 | InvalidResourceLocation | Proporcione un nombre único para la cuenta de almacenamiento. | [Resolución del nombre de la cuenta de almacenamiento](error-storage-account-name.md) |
 | InvalidResourceNamespace | Compruebe el espacio de nombres del recurso especificado en la propiedad **type**. | [Referencia de plantilla](/azure/templates/) |
 | InvalidResourceReference | El recurso aún no existe o se hace referencia a él de forma incorrecta. Compruebe si tiene que agregar una dependencia. Compruebe que el uso de la función **reference** incluye los parámetros necesarios para su escenario. | [Resolución de dependencias](error-not-found.md) |
@@ -57,7 +55,7 @@ Para ejecutar PowerShell y CLI de Azure comandos desde el portal, use [Azure Clo
 | InvalidTemplateCircularDependency | Quite las dependencias innecesarias. | [Resolver dependencias circulares](error-invalid-template.md#circular-dependency) |
 | JobSizeExceeded | Simplifique la plantilla para reducir el tamaño. | [Resolución de errores de tamaño de plantilla](error-job-size-exceeded.md) |
 | LinkedAuthorizationFailed | Compruebe si la cuenta pertenece al mismo inquilino que el grupo de recursos en que está realizando la implementación. | |
-| LinkedInvalidPropertyId | El identificador de un recurso no se resuelve correctamente. Compruebe que ha proporcionado todos los valores necesarios para el identificador del recurso, entre otros, el identificador de la suscripción, el nombre del grupo de recursos, el tipo de recurso, el nombre del recurso principal (si procede) y el nombre del recurso. | |
+| LinkedInvalidPropertyId | No se ha resuelto el identificador de un recurso. Compruebe que ha proporcionado todos los valores necesarios para el identificador de recurso. Por ejemplo, el identificador de suscripción, el nombre del grupo de recursos, el tipo de recurso, el nombre del recurso primario (si es necesario) y el nombre del recurso. | |
 | LocationRequired | Proporcione una ubicación para el recurso. | [Establecimiento de la ubicación](../templates/resource-location.md) |
 | MismatchingResourceSegments | Asegúrese de que el recurso anidado tiene el número correcto de segmentos de nombre y tipo. | [Resolver los segmentos de recursos](error-invalid-template.md#incorrect-segment-lengths) |
 | MissingRegistrationForLocation | Compruebe el estado de registro del proveedor de recursos y las ubicaciones admitidas. | [Resolución de registros](error-register-resource-provider.md) |
@@ -85,198 +83,8 @@ Para ejecutar PowerShell y CLI de Azure comandos desde el portal, use [Azure Clo
 | TemplateResourceCircularDependency | Quite las dependencias innecesarias. | [Resolver dependencias circulares](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | Reduzca el número de grupos de recursos de una sola implementación. | [Implementaciones entre ámbitos](../templates/deploy-to-resource-group.md) |
 
-## <a name="find-error-code"></a>Búsqueda de códigos de error
-
-Hay dos tipos de errores que puede recibir:
-
-- Errores de validación
-- Errores de implementación
-
-Los errores de validación que provienen de escenarios que se pueden determinar antes de la implementación Por ejemplo, errores de sintaxis de plantilla o intentar implementar recursos que superarían las cuotas de suscripción. Errores de implementación que provengan de condiciones que se producen durante el proceso de implementación. Incluyen intentar acceder a un recurso que se está implementando en paralelo.
-
-En el caso de las plantillas de ARM, ambos tipos de errores devuelven un código de error que se utiliza para solucionar problemas de la implementación. Ambos aparecen en el [registro de actividad](../../azure-monitor/essentials/activity-log.md). Sin embargo, los errores de validación no aparecen en el historial de implementación porque la implementación nunca se inicia. Los errores de validación de archivos Bicep no aparecen en el registro de actividad ni en el historial de implementación. El registro de actividad tarda unos minutos en mostrar la información de implementación más reciente.
-
-### <a name="validation-errors"></a>Errores de validación
-
-Puede cargar una plantilla de ARM en el portal e implementar recursos. Si la plantilla tiene errores de sintaxis, verá un error de validación al intentar ejecutar la implementación. Para más información, vea [Implementación de recursos desde plantilla personalizada](../templates/deploy-portal.md#deploy-resources-from-custom-template).
-
-En el ejemplo siguiente se intenta implementar una cuenta de almacenamiento y se produce un error de validación.
-
-:::image type="content" source="media/common-deployment-errors/validation-error.png" alt-text="Captura de pantalla de un Azure Portal error de validación.":::
-
-Seleccione el mensaje para más detalles. La plantilla tiene un error de sintaxis con código de error `InvalidTemplate`. El **resumen** que a una expresión le falta un paréntesis de cierre.
-
-:::image type="content" source="media/common-deployment-errors/validation-details.png" alt-text="Captura de pantalla de un mensaje de error de validación que muestra un error de sintaxis.":::
-
-### <a name="deployment-errors"></a>Errores de implementación
-
-Cuando la operación pasa la validación, pero se produce un error durante la implementación, recibirá un error de implementación.
-
-Para ver el error de implementación en el portal, vaya al grupo de recursos y seleccione **Configuración** > **Implementación**. Seleccione **Detalles del error**.
-
-:::image type="content" source="media/common-deployment-errors/deployment-error-details.png" alt-text="Captura de pantalla del vínculo de un grupo de recursos a los detalles del error de una implementación con errores.":::
-
-Se muestran el mensaje de error `NoRegisteredProviderFound` y el código de error.
-
-:::image type="content" source="media/common-deployment-errors/deployment-error-summary.png" alt-text="Captura de pantalla de un mensaje que muestra los detalles del error de implementación.":::
-
-### <a name="powershell"></a>PowerShell
-
-Para ver los mensajes y códigos de error de la implementación con PowerShell, use [Get-AzResourceGroupDeployment](/powershell/module/az.resources/get-azresourcegroupdeployment).
-
-```azurepowershell
-(Get-AzResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).StatusMessage
-```
-
-### <a name="azure-cli"></a>Azure CLI
-
-Para ver los mensajes y códigos de error de implementación con CLI de Azure, use [az deployment operation group list](/cli/azure/deployment/operation/group#az_deployment_operation_group_list).
-
-```azurecli
-az deployment operation group list --name exampledeployment --resource-group examplegroup --query "[*].properties.statusMessage"
-```
-
-## <a name="enable-debug-logging"></a>Habilitación del registro de depuración
-
-En ocasiones necesitará más información sobre la solicitud y respuesta para descubrir qué ha salido mal. Durante la implementación, puede solicitar que la información adicional se registre durante una implementación.
-
-### <a name="powershell"></a>PowerShell
-
-En PowerShell, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) para establecer el `DeploymentDebugLogLevel` parámetro en `All`, `ResponseContent` o `RequestContent`.
-
-> [!NOTE]
-> Cuando se habilita el registro de depuración, se muestra una advertencia que muestra que se pueden registrar secretos como contraseñas o listKeys mediante comandos como [Get-AzResourceGroupDeploymentOperation.](/powershell/module/az.resources/get-azresourcegroupdeploymentoperation)
->
-> Utilice la CLI de Azure para obtener la depuración `request` y la información `response` porque `Get-AzResourceGroupDeploymentOperation` en las versiones del módulo Az 4.8 y posteriores no se incluyen las `properties` en la salida.  Para más información, vea el [problema de GitHub 14706](https://github.com/Azure/azure-powershell/issues/14706).
-
-
-```azurepowershell
-New-AzResourceGroupDeployment `
-  -Name exampledeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateFile c:\Azure\Templates\storage.json `
-  -DeploymentDebugLogLevel All
-```
-
-Examine el contenido de la solicitud con el siguiente cmdlet:
-
-```azurepowershell
-(Get-AzResourceGroupDeploymentOperation `
--DeploymentName exampledeployment `
--ResourceGroupName examplegroup).Properties.request `
-| ConvertTo-Json
-```
-
-O bien, la respuesta de contenido con:
-
-```azurepowershell
-(Get-AzResourceGroupDeploymentOperation `
--DeploymentName exampledeployment `
--ResourceGroupName examplegroup).Properties.response `
-| ConvertTo-Json
-```
-
-Esta información puede ayudarlo a determinar si un valor en la plantilla se está estableciendo de forma incorrecta.
-
-### <a name="azure-cli"></a>Azure CLI
-
-Actualmente, la CLI de Azure no admite activar el registro de depuración, pero sí puede recuperarlo.
-
-Examine las operaciones de implementación con el siguiente comando:
-
-```azurecli
-az deployment operation group list \
-  --resource-group examplegroup \
-  --name exampledeployment
-```
-
-Examine el contenido de la solicitud con el siguiente comando:
-
-```azurecli
-az deployment operation group list \
-  --name exampledeployment \
-  --resource-group examplegroup \
-  --query [].properties.request
-```
-
-Examine el contenido de la respuesta con el siguiente comando:
-
-```azurecli
-az deployment operation group list \
-  --name exampledeployment \
-  --resource-group examplegroup \
-  --query [].properties.response
-```
-
-### <a name="nested-template"></a>Plantilla anidada
-
-Para registrar la información de depuración de una plantilla ARM [anidada](../templates/linked-templates.md#nested-template), utilice el elemento `debugSetting`.
-
-```json
-{
-  "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2020-10-01",
-  "name": "nestedTemplate",
-  "properties": {
-    "mode": "Incremental",
-    "templateLink": {
-      "uri": "{template-uri}",
-      "contentVersion": "1.0.0.0"
-    },
-    "debugSetting": {
-       "detailLevel": "requestContent, responseContent"
-    }
-  }
-}
-```
-
-Bicep usa [módulos](../bicep/modules.md) en lugar de [Microsoft.Resources/deployments](/azure/templates/microsoft.resources/deployments). Con los módulos, puede reutilizar el código para implementar un archivo Bicep desde otro archivo Bicep.
-
-## <a name="create-a-troubleshooting-template"></a>Creación de una plantilla de solución de problemas
-
-En algunos casos, la manera más fácil de solucionar problemas de plantillas es comprobando sus elementos. Puede crear una plantilla simplificada que le permita centrarse en lo que crea que está provocando el error. Por ejemplo, supongamos que se recibe un error al hacer referencia a un recurso. En lugar de trabajar directamente con una plantilla de toda, cree una plantilla que devuelva la parte que pueda estar causando el problema. Esto puede ayudarlo a determinar si está pasando los parámetros correctos con las funciones de plantilla correctamente y obteniendo el recurso esperado.
-
-En los siguientes ejemplos de archivos Bicep y de plantilla de ARM se usa una cuenta de almacenamiento existente. Los parámetros especifican el nombre y el grupo de recursos de la cuenta de almacenamiento. Puede usar [Azure Cloud Shell](../templates/deploy-cloud-shell.md#deploy-local-template) para implementar un [archivo de Bicep](../bicep/deploy-cloud-shell.md). La salida es un objeto con los nombres de propiedad y los valores de la cuenta de almacenamiento.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageName": {
-      "type": "string"
-    },
-    "storageResourceGroup": {
-      "type": "string"
-    }
-  },
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "exampleOutput": {
-      "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2021-04-01')]",
-      "type": "object"
-    }
-  }
-}
-```
-
-Para el ejemplo de Bicep, ejecute el comando de implementación desde el grupo de recursos donde existe la cuenta de almacenamiento.
-
-```bicep
-param storageName string
-
-resource stg 'Microsoft.Storage/storageAccounts@2021-04-01' existing = {
-  name: storageName
-}
-
-output exampleOutput object = stg.properties
-```
-
-Supongamos que se están produciendo errores de implementación que cree que están relacionados con dependencias establecidas incorrectamente. Pruebe la plantilla dividiéndola en plantillas simplificadas. En primer lugar, cree una plantilla que implemente solo un único recurso (por ejemplo, un servidor SQL Server). Cuando esté seguro de que tiene dicho recurso definido correctamente, agregue un recurso que dependa de él (por ejemplo, SQL Database). Cuando esos dos recursos se definan correctamente, agregue otros recursos dependientes (por ejemplo, las directivas de auditoría). Entre cada implementación de prueba, elimine el grupo de recursos para asegurarse de que se prueban adecuadamente las dependencias.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre la solución de problemas de plantillas de ARM, consulte [Inicio rápido: Solución de problemas de implementaciones de plantillas de ARM.](quickstart-troubleshoot-arm-deployment.md)
-- Para obtener más información sobre la resolución de problemas de los archivos Bicep, consulte [Inicio rápido: solución de problemas de implementación de archivos Bicep](quickstart-troubleshoot-bicep-deployment.md)
-- Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](../templates/deployment-history.md).
+- [Búsqueda de códigos de error](find-error-code.md)
+- [Habilitación del registro de depuración](enable-debug-logging.md)
+- [Creación de una plantilla de solución de problemas](create-troubleshooting-template.md)

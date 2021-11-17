@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.author: jeedes
-ms.openlocfilehash: a31516f2907cf123f74a3d6e57b563b0688dce45
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 77081ae9c02691c6748df0e2da9b6cce10dab1d1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131510475"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132340920"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-talentsoft"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Talentsoft
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Talentsoft con Azure Active Directory 
 * Permitir que los usuarios inicien sesión automáticamente en Talentsoft con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -144,4 +144,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que se ha configurado Talentsoft, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la exfiltración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que se ha configurado Talentsoft, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la exfiltración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

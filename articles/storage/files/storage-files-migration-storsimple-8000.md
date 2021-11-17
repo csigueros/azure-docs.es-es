@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/22/2021
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 069529d2f97e18e1b5d99b4f96e5bee98d80f497
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: ba5be8cad5c7189d207a8e2915e970589e414175
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131421948"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063163"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migración de las series 8100 y 8600 de StorSimple a Azure File Sync
 
@@ -81,8 +81,9 @@ Si no puede encontrar las claves en los registros, puede recuperar una nueva cla
 ### <a name="known-limitations"></a>Restricciones conocidas
 
 Los recursos compartidos de StorSimple Data Manager y Azure tienen algunas limitaciones que debe tener en cuenta antes de comenzar la migración, ya que pueden impedir una migración:
-* Solo se admiten volúmenes NTFS desde el dispositivo StorSimple.
-* El servicio no funciona con volúmenes cifrados mediante BitLocker.
+* Solo se admiten volúmenes NTFS desde el dispositivo StorSimple. Los volúmenes ReFS no son compatibles.
+* No se admite ningún volumen ubicado en [discos dinámicos de Windows Server](/troubleshoot/windows-server/backup-and-storage/best-practices-using-dynamic-disks) (en desuso antes Windows Server 2012)
+* El servicio no funciona con volúmenes cifrados con BitLocker o que tengan habilitada la opción [Desduplicación de datos](/windows-server/storage/data-deduplication/understand).
 * Las copias de seguridad de StorSimple dañadas no se pueden migrar.
 * Las opciones de red especiales, como los firewalls o la comunicación de punto de conexión privado, no se pueden habilitar ni en la cuenta de almacenamiento de origen donde se almacenan las copias de seguridad de StorSimple ni en la cuenta de almacenamiento de destino que contiene los recursos compartidos de archivos de Azure.
 

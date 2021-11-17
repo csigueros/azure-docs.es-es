@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2021
 ms.author: jeedes
-ms.openlocfilehash: fa207bb2d915ad307a04f633139cd49beddfbb24
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 32e4b30ae95803c898e3189ebdbe9283513dd9e0
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110580102"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324412"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-autodesk-sso"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Autodesk SSO
 
@@ -61,7 +61,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Autodesk SSO con
 Para configurar y probar el inicio de sesión único de Azure AD con Autodesk SSO, complete los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Autodesk](#configure-autodesk-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Autodesk SSO](#create-autodesk-sso-test-user)** : para tener un homólogo de B.Simon en Autodesk SSO que esté vinculado a la representación del usuario en Azure AD.
@@ -147,6 +147,4 @@ Para probar el inicio de sesión único de Autodesk SSO, abra la consola de Auto
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado el inicio de sesión único de Autodesk SSO, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-
+Una vez configurado el inicio de sesión único de Autodesk SSO, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

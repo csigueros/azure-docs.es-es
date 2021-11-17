@@ -5,12 +5,12 @@ description: Obtenga información sobre las cuotas predeterminadas, los tamaños
 services: container-service
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: fb0cf8fc6c3f8cdc2b68d26ca81ca6e240b65a2a
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 257598f1a1ea8bbc578fe44c40b8e2dafef36837
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131843848"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130266056"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Cuotas, restricciones de tamaño de máquinas virtuales y disponibilidad de regiones en Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ En este artículo se detallan los límites de recursos predeterminados para los 
 A la infraestructura aprovisionada se le aplican las demás limitaciones de red, proceso y almacenamiento. Consulte [límites de suscripción y servicios de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) para conocer los límites pertinentes.
 
 > [!IMPORTANT]
-> Al actualizar un clúster de AKS, se consumen recursos adicionales temporalmente. Estos recursos incluyen las direcciones IP disponibles en una subred de red virtual o una cuota de vCPU de la máquina virtual. 
+> Al actualizar un clúster de AKS, se consumen recursos adicionales temporalmente. Estos recursos incluyen las direcciones IP disponibles en una subred de red virtual o una cuota de vCPU de máquina virtual. 
 >
 > En el caso de los contenedores de Windows Server, puede realizar una operación de actualización para aplicar las actualizaciones de nodo más recientes. Si no tiene el espacio de direcciones IP disponible o la cuota de vCPU necesaria para administrar estos recursos temporales, se producirá un error en el proceso de actualización del clúster. Para obtener más información sobre el proceso de actualización del nodo de Windows Server, consulte [Actualización de un grupo de nodos en AKS][nodepool-upgrade].
 

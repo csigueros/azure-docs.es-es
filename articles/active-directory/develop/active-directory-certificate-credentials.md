@@ -13,12 +13,12 @@ ms.date: 10/18/2021
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: contperf-fy21q4, aaddev
-ms.openlocfilehash: b4d0dcee8791ad43c0b216ffb289bf4de1b819d6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 94abf8e362dabea48c0fa20c488d7b1ca3c70093
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131067325"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131451794"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciales de certificado para la autenticación de aplicaciones en la plataforma de identidad de Microsoft
 
@@ -96,7 +96,7 @@ Puede asociar las credenciales del certificado con la aplicación cliente en la 
 ### <a name="uploading-the-certificate-file"></a>Cargar el archivo de certificado
 
 En el registro de aplicación de Azure para la aplicación cliente:
-1. Seleccione **Certificados y secretos**.
+1. Seleccione **Certificados y secretos** > **Certificados**.
 2. Haga clic en **Cargar certificado** y seleccione el archivo del certificado que va a cargar.
 3. Haga clic en **Agregar**.
   Una vez que se carga el certificado, se muestra la huella digital, la fecha de inicio y los valores de expiración.
@@ -133,7 +133,7 @@ En el registro de aplicación de Azure para la aplicación cliente:
 
 Las aserciones de cliente se pueden usar en cualquier lugar en el que se use un secreto de cliente.  Por ejemplo, en el [flujo de código de autorización](v2-oauth2-auth-code-flow.md), puede pasar un objeto `client_secret` para demostrar que la solicitud procede de la aplicación. Puede reemplazarlo por parámetros `client_assertion` y `client_assertion_type`. 
 
-| Parámetro | Valor | Descripción|
+| Parámetro | Value | Descripción|
 |-----------|-------|------------|
 |`client_assertion_type`|`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`| Se trata de un valor fijo, que indica que está usando una credencial de certificado. |
 |`client_assertion`| JWT |Este es el JWT creado anteriormente. |

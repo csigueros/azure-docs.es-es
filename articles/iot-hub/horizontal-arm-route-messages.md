@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 366aa1737f0e72a1f250fc1d25ea77636955d674
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: e40b714709aedbb643b2b2d65878a73618a7682f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112034308"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131445884"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>Inicio rápido: Implementación de un centro de Azure IoT Hub y una cuenta de almacenamiento mediante una plantilla de ARM
 
@@ -63,8 +63,6 @@ En esta sección se proporcionan los pasos para implementar la plantilla, crear 
 
 1. Necesitará el **nombre del centro**. Seleccione el centro en la lista de recursos. Copie el nombre del centro de la parte superior de la sección IoT Hub en el Portapapeles de Windows.
 
-   ![Copiar el nombre del centro](./media/horizontal-arm-route-messages/03-copy-hub-name.png)
-
     Sustituya el nombre del centro en este comando, en el lugar que se indica y ejecute este comando en la ventana comandos:
 
     ```cmd
@@ -77,11 +75,11 @@ En esta sección se proporcionan los pasos para implementar la plantilla, crear 
    SET IOT_HUB_URI=ContosoTestHubdlxlud5h.azure-devices-net;
    ```
 
-1. La siguiente variable de entorno es la clave del dispositivo IoT. Agregue un nuevo dispositivo al centro; para ello, seleccione **Dispositivos IoT** en el menú IoT Hub del centro.
+1. La siguiente variable de entorno es la clave del dispositivo IoT. Agregue un nuevo dispositivo al centro; para ello, seleccione **Dispositivos** en el menú IoT Hub del centro.
 
-   ![Selección de dispositivos IoT](./media/horizontal-arm-route-messages/04-select-iot-devices.png)
+   :::image type="content" source="./media/horizontal-arm-route-messages/04-select-iot-devices.png" alt-text="Captura de pantalla que muestra los dispositivos en el panel izquierdo." border="true":::
 
-1. En el lado derecho de la pantalla, seleccione **+ Nuevo** para agregar un nuevo dispositivo.
+1. En el lado derecho de la pantalla, seleccione **+ Agregar dispositivo** para agregar un nuevo dispositivo.
 
    Rellene el nombre del nuevo dispositivo. En esta guía de inicio rápido se usa un nombre que empieza por **Contoso-Test-Device**. Guarde el dispositivo y, a continuación, vuelva a abrir la pantalla para recuperar la clave del dispositivo. (La clave se genera automáticamente cuando se cierra el panel). Seleccione la clave principal o la secundaria y cópiela en el Portapapeles de Windows. En la ventana de comandos, establezca el comando que se va a ejecutar y, a continuación, presione **Entrar**. El comando debe ser similar al siguiente, pero con la clave del dispositivo pegada:
 

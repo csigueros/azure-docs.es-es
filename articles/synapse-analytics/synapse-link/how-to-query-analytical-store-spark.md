@@ -6,16 +6,16 @@ author: Rodrigossz
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
-ms.date: 09/15/2020
+ms.date: 11/02/2021
 ms.author: rosouz
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: 9ea9d5d34d69b950e3fa80c350c43f12615660ba
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 83f6c3a7e88cf42cbb2a2d36ff07ac79e7eb5894
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123112563"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452212"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-2-in-azure-synapse-link"></a>Interacción con Azure Cosmos DB mediante Apache Spark 2 en Azure Synapse Link
 
@@ -48,6 +48,8 @@ En el caso de la **carga a DataFrame de Spark**, los metadatos capturados se alm
 Por otro lado, en el caso de la **creación de una tabla de Spark**, los metadatos del estado del almacén analítico no se almacenan en caché en Spark y se recargan en cada ejecución de la consulta de SparkSQL en la tabla de Spark.
 
 Por lo tanto, puede elegir entre cargar a DataFrame de Spark y crear una tabla de Spark en función de si quiere que el análisis de Spark se evalúe con una instantánea fija del almacén analítico o con la instantánea más reciente del almacén analítico, respectivamente.
+
+Si las consultas analíticas han usado filtros con frecuencia, tiene la opción de crear particiones en función de estos campos para mejorar el rendimiento de las consultas. Puede ejecutar periódicamente un trabajo de creación de particiones desde un cuaderno de Spark para Azure Synapse para desencadenar la creación de particiones en un almacén analítico. Este almacén con particiones apunta a la cuenta de almacenamiento principal de ADLS Gen2 que está vinculada al área de trabajo de Azure Synapse. Para más información, vea los artículos de [introducción a la creación de particiones personalizadas](../../cosmos-db/custom-partitioning-analytical-store.md) y sobre [cómo configurar la creación de particiones personalizadas](../../cosmos-db/configure-custom-partitioning.md).
 
 > [!NOTE]
 > Para consultar a la API de Azure Cosmos DB de las cuentas de Mongo DB, obtenga más información sobre la [representación de esquemas de fidelidad completa](../../cosmos-db/analytical-store-introduction.md#analytical-schema) en el almacén analítico y los nombres de propiedad extendidos que se van a usar.

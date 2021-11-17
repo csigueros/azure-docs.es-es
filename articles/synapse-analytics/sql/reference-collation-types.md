@@ -8,12 +8,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9a83646556838732a3b79f93771c762f00ed5afc
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2ea3022b0138e290891e1ee3bc78975648aae06c
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144302"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131847895"
 ---
 # <a name="database-collation-support-for-synapse-sql-in-azure-synapse-analytics"></a>Compatibilidad con la intercalación de bases de datos para Synapse SQL en Azure Synapse Analytics 
 
@@ -22,6 +22,9 @@ Las intercalaciones proporcionan la configuración regional, la página de códi
 Puede cambiar la intercalación de bases de datos predeterminada desde Azure Portal al crear una base de datos del grupo de SQL dedicado. Esta capacidad facilita aún más la creación de una base de datos mediante una de las 3800 intercalaciones de bases de datos compatibles.
 
 Puede especificar la intercalación predeterminada de la base de datos del grupo de SQL sin servidor en el momento de la creación mediante la instrucción CREATE DATABASE.
+
+> [!NOTE]
+> En Azure Synapse Analytics, el texto de la consulta (incluidas variables, constantes, etc.) siempre se controla mediante la intercalación a nivel de base de datos y no con la intercalación a nivel de servidor como en otras ofertas de SQL Server.
 
 ## <a name="change-collation"></a>Definir intercalación
 A fin de cambiar la intercalación predeterminada para una base de datos de grupo de SQL dedicado, actualice el campo Intercalación en la experiencia de aprovisionamiento. Por ejemplo, si quiere cambiar la intercalación predeterminada para que distinga mayúsculas de minúsculas, cambie el nombre de la intercalación de SQL_Latin1_General_CP1_CI_AS a SQL_Latin1_General_CP1_CS_AS. 

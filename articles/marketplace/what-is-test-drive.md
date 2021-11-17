@@ -6,19 +6,22 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 12/08/2020
-ms.openlocfilehash: 5fba64beff10f59be42776cc87cf6f37922295dd
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 10/26/2021
+ms.openlocfilehash: 9769e52457a65ab3b37135cdbe7d7fdd78e1f1e6
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949065"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853859"
 ---
 # <a name="what-is-a-test-drive"></a>¿Qué es una versión de prueba?
 
 Una versión de prueba es una excelente manera de presentar la oferta a clientes potenciales, ya que se les brinda la oportunidad de probar antes de comprar, lo que aumenta la conversión y la generación de clientes potenciales altamente cualificados. Una versión de prueba hará que su producto cobre vida en un escenario de implementación real. Los clientes que prueben su producto demostrarán una clara intención de comprar una solución similar. Use las ventajas que le ofrece esta opción realizando el seguimiento de los clientes potenciales más avanzados.
 
 Asimismo, los clientes también podrán usar una versión de prueba. Al permitirles probar el producto en primer lugar, se reduce la fricción del proceso de compra. Además, la versión de prueba está aprovisionada previamente; es decir, los clientes no tienen que descargar, instalar o configurar el producto.
+
+> [!TIP]
+> Para ver la vista del cliente de la versión de prueba en el marketplace comercial, consulte [¿Qué es Azure Marketplace?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) y [¿Qué es Microsoft AppSource?](/marketplace/appsource-overview).
 
 ## <a name="how-does-it-work"></a>¿Cómo funciona?
 

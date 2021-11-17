@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: thvankra
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 4464db95637511339e0000235b85da86306b4cef
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8fe10e1706667bba10133131f7a1d50a6e3fa110
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131051028"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132309817"
 ---
 # <a name="configure-grafana-to-visualize-metrics-emitted-from-the-managed-instance-cluster"></a>Configuración de Grafana para visualizar las métricas emitidas desde un clúster de instancia administrada
 
@@ -21,7 +21,7 @@ Cuando se implementa un clúster de Azure Managed Instance for Apache Cassandra,
 * Implementar una máquina virtual con Ubuntu dentro de la red virtual de Azure donde esté presente la instancia administrada.
 * Instalar la [herramienta Grafana](https://grafana.com/grafana/) de código abierto para crear paneles y visualizar las métricas emitidas desde Prometheus.
 
-## <a name="deploy-a-ubuntu-server"></a>Implementación de un servidor Ubuntu
+## <a name="deploy-an-ubuntu-server"></a>Implementación de un servidor Ubuntu
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 

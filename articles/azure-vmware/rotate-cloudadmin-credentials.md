@@ -2,13 +2,13 @@
 title: Rotación de las credenciales de administrador de la nube en Azure VMware Solution
 description: Aprenda a rotar las credenciales de vCenter Server para la nube privada de Azure VMware Solution.
 ms.topic: how-to
-ms.date: 08/31/2021
-ms.openlocfilehash: 22a88feb7e7b8656666d82cdac4b4d02d546441e
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.date: 09/10/2021
+ms.openlocfilehash: f8ab35888d2d298d1dcb6acd2abd6d659b782fd7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258056"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131461783"
 ---
 # <a name="rotate-the-cloudadmin-credentials-for-azure-vmware-solution"></a>Rotación de las credenciales de administrador de la nube en Azure VMware Solution
 
@@ -18,7 +18,7 @@ ms.locfileid: "123258056"
 En este artículo, rotará las credenciales de cloudadmin (credenciales de vCenter Server *CloudAdmin*) para la nube privada de Azure VMware Solution.  Aunque la contraseña de esta cuenta no expira, puede generar una nueva en cualquier momento.
 
 >[!CAUTION]
->Si usa sus credenciales de usuario cloudadmin para conectar los servicios a vCenter en la nube privada, esas conexiones dejarán de funcionar una vez que rote la contraseña. Esas conexiones también bloquearán la cuenta cloudadmin a menos que detenga esos servicios antes de rotar la contraseña.
+>Si usa sus credenciales de cloudadmin para conectar los servicios a vCenter en la nube privada, esas conexiones dejarán de funcionar una vez que rote la contraseña. Esas conexiones también bloquearán la cuenta cloudadmin a menos que detenga esos servicios antes de rotar la contraseña.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -30,13 +30,36 @@ En lugar de usar el usuario cloudadmin para conectar servicios a vCenter, se rec
 
 ## <a name="reset-your-vcenter-credentials"></a>Restablecimiento de las credenciales de vCenter
 
-1. En Azure Portal, abra una sesión de Azure Cloud Shell.
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+ 
+1. En la nube privada de Azure VMware Solution, seleccione **Identidad**.
+
+1. Haga clic en **Generar nueva contraseña**.
+
+   :::image type="content" source="media/rotate-cloudadmin-credentials/reset-vcenter-credentials-1.png" alt-text="Captura de pantalla que muestra las credenciales de vCenter y una manera de copiarlas o generar una contraseña nueva." lightbox="media/rotate-cloudadmin-credentials/reset-vcenter-credentials-1.png":::
+
+1. Active la casilla de confirmación y, a continuación, seleccione **Generar contraseña**.
+
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para empezar a usar la CLI de Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+1. En la nube privada de Azure VMware Solution, abra una sesión de Azure Cloud Shell.
 
 2. Actualice las credenciales de vCenter *CloudAdmin*.  No olvide reemplazar **{SubscriptionID},** **{ResourceGroup}** y **{PrivateCloudName}** por la información de su nube privada. 
 
    ```azurecli-interactive
    az resource invoke-action --action rotateVcenterPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
    ```
+
+---
+
+
+
+
  
 ## <a name="update-hcx-connector"></a>Actualización del conector HCX 
 

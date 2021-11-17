@@ -3,14 +3,14 @@ title: 'Introducción a las canalizaciones en directo de Azure Video Analyzer: A
 description: Este inicio rápido le guía por los pasos necesarios para capturar y grabar vídeo desde una cámara RTSP mediante canalizaciones en directo en el servicio Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 10/16/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f032eea5c54ac4c0d0200d9063b7f499838f2465
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ed1c4e979d9b593cc701c294c95eda96b27db415
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091357"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554419"
 ---
 # <a name="quickstart-get-started-with-video-analyzer-live-pipelines-in-the-azure-portal"></a>Inicio rápido: Introducción a las canalizaciones en directo de Video Analyzer en Azure Portal
 
@@ -50,7 +50,7 @@ En esta sección se muestra cómo implementar un simulador de cámara RTSP en un
 > Tenga en cuenta que este punto de conexión del simulador de cámara RTSP se expone a través de Internet y, por lo tanto, será accesible para cualquier persona que conozca la dirección URL de RTSP.
 
 **Pasos de implementación:**
-1. Implemente una máquina virtual Linux de Azure de la serie standard_D2s_v3 que ejecute el sistema operativo "Ubuntu Server 18.04". Consulte [aquí](../../../virtual-machines/linux/quick-create-portal.md) los pasos para la creación de máquinas virtuales, no tiene que instalar el servidor web que aparece en el artículo vinculado. Habilite también el puerto SSH en el Asistente para implementación a fin de que pueda conectarse a la máquina virtual mediante la conexión SSH.
+1. Implemente una máquina virtual Linux de Azure de la serie standard_D2s_v3 que ejecute el sistema operativo "Ubuntu Server 18.04". [Consulte aquí](../../../virtual-machines/linux/quick-create-portal.md) los pasos para la creación de máquinas virtuales, no tiene que instalar el servidor web que se menciona en el artículo vinculado. Habilite también el puerto SSH en el Asistente para implementación a fin de que pueda conectarse a la máquina virtual mediante la conexión SSH.
 1. Habilite las conexiones entrantes para el protocolo RTSP. En Azure Portal, abra el panel de administración para la máquina virtual Linux creada anteriormente.
 
     1. Haga clic en Redes: verá la hoja abierta a las reglas de puerto de entrada para el grupo de seguridad de red (NSG) creado para que admita conexiones SSH entrantes.
@@ -64,10 +64,10 @@ En esta sección se muestra cómo implementar un simulador de cámara RTSP en un
     cd localmedia
     wget https://lvamedia.blob.core.windows.net/public/camera-1800s.mkv
     ```
-1. En el directorio raíz, inicie el servidor RTSP en la máquina virtual mediante la imagen de contenedor pregenerada tal como se muestra a continuación.
+1. Inicie el servidor RTSP en la máquina virtual mediante la imagen de contenedor pregenerada tal como se muestra a continuación.
 
     ```    
-    sudo docker run -d -p 554:554 -v ${PWD}/localmedia:/live/mediaServer/media mcr.microsoft.com/ava-utilities/rtspsim-live555:1.2
+    sudo docker run -d -p 554:554 -v ${PWD}:/live/mediaServer/media mcr.microsoft.com/ava-utilities/rtspsim-live555:1.2
     ```
 1. Una vez que el servidor RTSP se esté ejecutando, los clientes ya pueden conectarse a él mediante una dirección URL de RTSP:
 
@@ -103,13 +103,13 @@ Una vez creada la cuenta de Video Analyzer, puede continuar con los pasos siguie
 
     - El Asistente para **crear una topología de canalización** aparecerá en el portal.
     - Seleccione **Try sample topologies** (Probar topologías de ejemplo) ->, luego, la topología **Live capture, record, and stream from RTSP camera** (Captura en directo, grabación y flujo de la cámara RTSP) -> y elija "Continuar" en el cuadro de diálogo **Load sample topology** (Cargar topología de ejemplo).
-    - Se mostrará el Asistente para editar la topología de canalización en directo "RTSP source to Video sink" (Origen RTSP al receptor de vídeo).
+    - Aparecerá el asistente para crear la topología de canalización activa, que muestra el nodo de origen RTSP conectado a un nodo receptor de vídeo.
     - Escriba los campos necesarios para crear una topología: 
     
         - **Nombre de la topología**: escriba el nombre de la topología. 
         - **Descripción** (opcional): breve descripción sobre la topología 
         - **Tipo** ("En directo" previamente rellenado)
-        - Para el nodo **Rtsp source**: establezca el valor de la propiedad **Transport** como TCP.
+        - Para el nodo de **origen RTSP**: establezca el valor de la propiedad **Transport** como TCP.
         - Seleccione **Guardar** con la configuración predeterminada para el resto de las propiedades.
 1. El siguiente paso consiste en crear una canalización en directo mediante la topología creada en el paso anterior. 
 
@@ -123,7 +123,7 @@ Una vez creada la cuenta de Video Analyzer, puede continuar con los pasos siguie
         - **videoNameParameter**: nombre único del recurso de vídeo de destino que se va a grabar. Nota: Use un recurso de vídeo único para cada cámara (o archivo MKV)
     - Seleccione **Crear** y verá que se crea una canalización en la cuadrícula de canalizaciones del portal.
     - Seleccione la canalización en directo creada en la cuadrícula y la opción **Activar** disponible a la derecha del panel para activar la canalización en directo. Se iniciará la canalización en directo y se empezará a grabar el vídeo.
-1. Ahora podrá ver el recurso de vídeo en el panel de la cuenta de Video Analyzer -> **Vídeos** del portal. Su estado indicará **Está en uso**, ya que la canalización está activa y grabando.
+1. Ahora podrá ver el recurso de vídeo en el panel de la cuenta de Video Analyzer -> **Vídeos** del portal. Su estado indicará **En grabación**, ya que la canalización está activa y grabando el streaming de vídeo en directo.
 1. Después de unos segundos, seleccione el vídeo y podrá ver el [flujo de baja latencia](../playback-recordings-how-to.md).
 
     > [!div class="mx-imgBorder"]
@@ -131,9 +131,9 @@ Una vez creada la cuenta de Video Analyzer, puede continuar con los pasos siguie
 
     > [!NOTE]
     > Si utiliza un simulador de cámara RTSP, no es posible determinar con precisión la latencia de un extremo a otro. Además, una vez que el simulador de cámara RTSP llegue al final del archivo MKV, se detendrá. La canalización en directo intentará volver a conectarse y, después de un tiempo, el simulador reiniciará la secuencia desde el principio del archivo. Si deja que esta canalización en directo se ejecute durante muchas horas, verá espacios en la grabación de vídeo cada vez que el simulador se detenga y se reinicie.
-* Si es necesario, consulte el Registro de actividad para comprobar rápidamente las operaciones de implementación. Consulte [aquí](./monitor-log-cloud.md) para ver los registros de eventos y de supervisión.
-* Para desactivar la grabación de canalización, vaya a su cuenta de Video Analyzer; en el panel izquierdo, seleccione **En directo**-> **Canalizaciones** ->, luego, la canalización que se va a desactivar y elija **Desactivar** en la cuadrícula de canalizaciones, tras lo que se detendrá la grabación. 
-* También puede continuar con la eliminación de la canalización y la topología si no son necesarias.
+1. Si es necesario, consulte el Registro de actividad para comprobar rápidamente las operaciones de implementación. Consulte [aquí](./monitor-log-cloud.md) para ver los registros de eventos y de supervisión.
+1. Para desactivar la grabación de canalización, vaya a su cuenta de Video Analyzer; en el panel izquierdo, seleccione **En directo**-> **Canalizaciones** ->, luego, la canalización que se va a desactivar y elija **Desactivar** en la cuadrícula de canalizaciones, tras lo que se detendrá la grabación. 
+1. También puede continuar con la eliminación de la canalización y la topología si no son necesarias.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

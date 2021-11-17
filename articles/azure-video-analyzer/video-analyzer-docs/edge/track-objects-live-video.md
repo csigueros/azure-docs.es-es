@@ -4,12 +4,12 @@ description: En este inicio rápido se muestra cómo usar el módulo perimetral 
 ms.topic: quickstart
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ad6e963e28521f595a64e427230e4fd55e2f3d4b
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 2b9286dc6dba80de841969af285ab57e587f560a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131564430"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319270"
 ---
 # <a name="quickstart-track-objects-in-a-live-video"></a>Inicio rápido: Seguimiento de objetos en un vídeo en directo
 
@@ -38,7 +38,7 @@ Este inicio rápido usa una máquina virtual de Azure como dispositivo IoT Edge 
 
 En este diagrama se muestra cómo fluyen las señales en este inicio rápido. Un [módulo perimetral](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simula una cámara IP que hospeda un servidor de protocolo RTSP. Un nodo de [origen RTSP](../pipeline.md#rtsp-source) extrae la fuente de vídeo de este servidor y envía fotogramas de vídeo al nodo del [procesador de extensiones HTTP](../pipeline.md#http-extension-processor).
 
-El nodo de extensión HTTP desempeña el rol de un proxy. Convierte cada 15 fotogramas de vídeo en el tipo de imagen especificado. Luego, retransmite la imagen a través de HTTP a otro módulo perimetral que ejecuta un modelo de IA detrás de un punto de conexión HTTP. En este ejemplo, el módulo perimetral usa [YOLOv3](https://github.com/Azure/video-analyzer/tree/main/edge-modules/extensions/yolo/yolov3), que puede detectar muchos tipos de objetos. El nodo procesador de extensiones HTTP recibe los resultados de la detección y envía estos resultados y todos los fotogramas de vídeo (no solo el fotograma 15) al nodo de [seguimiento de objetos](../pipeline.md#object-tracker-processor). El nodo de seguimiento de objetos usa técnicas de flujo óptico para realizar un seguimiento del objeto en los 14 fotogramas a los que no se les aplicó el modelo de IA. El nodo de seguimiento publica sus resultados en el nodo receptor de mensajes de IoT Hub. Este [receptor de mensajes de IoT Hub](../pipeline.md#iot-hub-message-sink) envía esos eventos al [centro de IoT Edge](../../../iot-fundamentals/iot-glossary.md?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
+El nodo de extensión HTTP desempeña el rol de un proxy. Convierte cada 15 fotogramas de vídeo en el tipo de imagen especificado. A continuación, retransmite la imagen mediante HTTP a otro módulo perimetral que ejecuta un modelo de IA detrás de un punto de conexión HTTP. En este ejemplo, el módulo perimetral usa [YOLOv3](https://github.com/Azure/video-analyzer/tree/main/edge-modules/extensions/yolo/yolov3), que puede detectar muchos tipos de objetos. El nodo procesador de extensiones HTTP recibe los resultados de la detección y envía estos resultados y todos los fotogramas de vídeo (no solo el fotograma 15) al nodo de [seguimiento de objetos](../pipeline.md#object-tracker-processor). El nodo de seguimiento de objetos usa técnicas de flujo óptico para realizar un seguimiento del objeto en los 14 fotogramas a los que no se les aplicó el modelo de IA. El nodo de seguimiento publica sus resultados en el nodo receptor de mensajes de IoT Hub. Este [receptor de mensajes de IoT Hub](../pipeline.md#iot-hub-message-sink) envía esos eventos al [centro de IoT Edge](../../../iot-fundamentals/iot-glossary.md?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
 
 > [!NOTE]
 > Revise la explicación sobre el equilibrio entre la precisión y la eficacia de procesamiento con el nodo de [seguimiento de objetos](../pipeline.md#object-tracker-processor).

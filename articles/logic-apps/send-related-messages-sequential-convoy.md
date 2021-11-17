@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 8c00d2e4f622bcfad7b2468013336f0d936e318c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e0df7b263ef5d62b064a5afe537cffc926230b0a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87048657"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238707"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Envío de mensajes relacionados en orden mediante un convoy secuencial en Azure Logic Apps con Azure Service Bus
 
@@ -283,7 +283,7 @@ Este [bucle **Until**](../logic-apps/logic-apps-control-flow-loops.md#until-loop
 
 * Compruebe si la variable `isDone` está establecida en `true`.
 
-  * Si `isDone` no está establecida en `true`, el flujo de trabajo sigue procesando mensajes, por lo que se renovará el bloqueo de la sesión en la cola y se comprobará de nuevo la condición del bucle.
+  * Si `isDone` está establecida en `true`, el flujo de trabajo sigue procesando mensajes, por lo que se renovará el bloqueo de la sesión en la cola y se comprobará de nuevo la condición del bucle.
 
     Debe proporcionar el nombre de la cola de Service Bus en la acción de Service Bus [**Renovar bloqueo de la sesión de una cola**](#renew-lock-on-session).
 

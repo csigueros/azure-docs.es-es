@@ -9,12 +9,12 @@ metadata:
   ms.topic: troubleshooting
   ms.date: 02/22/2021
   ms.author: deanwe
-  ms.openlocfilehash: dca933c5b86875b50d04a67f482713830437350b
-  ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+  ms.openlocfilehash: fff4dff979c1d37f7bda9c96e445a325f96b1f96
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/20/2021
-  ms.locfileid: "122608108"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131443820"
 title: Preguntas más frecuentes sobre Azure Automanage para máquinas virtuales
 summary: >
   En este artículo se proporcionan respuestas a algunas de las preguntas más comunes sobre [Azure Automanage para máquinas virtuales](automanage-virtual-machines.md).
@@ -41,10 +41,10 @@ sections:
   - question: >
       ¿Qué permiso de Azure RBAC es necesario para habilitar Automanage?
     answer: >
-      Si va a habilitar Automanage en una máquina virtual con una cuenta de Automanage existente, necesita el rol de colaborador en el grupo de recursos donde reside la máquina virtual.
+      Si va a habilitar Automanage, necesitará el rol Colaborador en el grupo de recursos en que reside la máquina virtual.
 
 
-      Si usa una cuenta de Automanage nueva al habilitarlo, debe tener el rol de propietario o de administrador de acceso de usuario y colaborador para la suscripción.
+      Si es la primera vez que habilita Automanage en una suscripción, debe tener el rol Propietario o el rol Colaborador y administrador de acceso de usuario en la suscripción.
   - question: >
       ¿Qué regiones se admiten?
     answer: >
@@ -58,9 +58,13 @@ sections:
     answer: >
       Actualmente Automanage no admite máquinas virtuales habilitadas para Arc.
   - question: >
+      ¿Qué significa el estado "Necesita actualización"?
+    answer: >
+      Automanage admite una nueva API para la incorporación (versión 2021-04-30-preview o posterior). Si se encuentra en la versión anterior de Automanage (versión 2020-06-30-preview), debe deshabilitar Automanage y volver a habilitarlo. Se incorporará automáticamente a la versión más reciente.
+  - question: >
       ¿Se pueden personalizar configuraciones en Azure Automanage?
     answer: >
-      Los clientes pueden personalizar la configuración de servicios específicos, como la retención de Azure Backup, a través de las preferencias de configuración. Consulte la documentación que aparece [aquí](automanage-virtual-machines.md#customizing-an-environment-using-preferences) para ver la lista completa de las configuraciones que se pueden modificar.
+      Los clientes pueden personalizar la configuración de servicios específicos, como la retención de Azure Backup, mediante perfiles personalizados. Consulte la documentación que aparece [aquí](automanage-virtual-machines.md#custom-profiles) para ver la lista completa de las configuraciones que se pueden modificar.
   - question: >
       ¿Azure Automanage funciona con máquinas virtuales Linux y Windows?
     answer: >
@@ -84,7 +88,11 @@ sections:
   - question: >
       ¿Qué es una cuenta de Automanage?
     answer: >
-      Una cuenta de Automanage es una identidad de servicio administrado (MSI) que proporciona el contexto de seguridad o la identidad bajo la cual se producen las operaciones automatizadas.
+      La cuenta de Automanage solo se usa para las máquinas que se incorporaron con una versión anterior de Automanage (versión 2020-06-30-preview). Es una identidad de servicio administrado (MSI) que proporciona el contexto de seguridad o la identidad bajo la cual se producen las operaciones automatizadas.
+  - question: >
+      ¿Qué es una preferencia de configuración?
+    answer: >
+      La preferencia de configuración solo se usa para las máquinas que se incorporaron mediante una versión anterior de Automanage (versión 2020-06-30-preview). Admite la personalización de un subconjunto de valores. Se ha actualizado a Perfiles personalizados en la versión más reciente de Automanage.
   - question: >
       Al habilitar Automanage, ¿afecta a más máquinas, además de a las máquinas seleccionadas?
     answer: >

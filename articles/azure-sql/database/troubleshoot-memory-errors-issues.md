@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 11/03/2021
-ms.openlocfilehash: 372247d1fbb189f9662bf4d40be0c3779bf1d23c
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 07ff08303cc68934d5d7191952536b9101e12cf6
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131579390"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132494717"
 ---
 # <a name="troubleshoot-out-of-memory-errors-with-azure-sql-database"></a>Solución de problemas de errores de memoria con Azure SQL Database  
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -170,7 +170,7 @@ Si los errores de falta de memoria persisten en Azure SQL Database, presente una
 
 - [Procesamiento de consultas inteligente en bases de datos SQL](/sql/relational-databases/performance/intelligent-query-processing)
 - [Guía de arquitectura de procesamiento de consultas](/sql/relational-databases/query-processing-architecture-guide)    
-- [Centro de rendimiento para el motor de base de datos SQL Server y Azure SQL Database](/sql/relational-databases/performance/performance-center-for-sql-server-database-engine-and-azure-sql-database.md)  
+- [Centro de rendimiento para el motor de base de datos SQL Server y Azure SQL Database](/sql/relational-databases/performance/performance-center-for-sql-server-database-engine-and-azure-sql-database)  
 - [Solución de problemas de conectividad y otros errores con Azure SQL Database y Azure SQL Managed Instance](troubleshoot-common-errors-issues.md)
 - [Solución de problemas de errores de conexión transitorios en SQL Database e Instancia administrada de SQL](troubleshoot-common-connectivity-issues.md)
 - [Demostración del procesamiento de consultas inteligentes](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/intelligent-query-processing)   

@@ -1,22 +1,30 @@
 ---
-title: Control de mensajes de gran tamaño mediante la fragmentación
-description: Obtenga información acerca de cómo administrar mensajes de gran tamaño mediante la fragmentación en tareas automatizadas y flujos de trabajo que crea con Azure Logic Apps
+title: Control de mensajes grandes en flujos de trabajo mediante la fragmentación
+description: Controle mensajes grandes mediante la fragmentación en Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/18/2020
-ms.openlocfilehash: de4af34182fc1a95968e95d322a6ec35101a3dc9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bcbad7c9a71ae5045f24ee25b8de409ece544c0f
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97695878"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179156"
 ---
-# <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Control de mensajes grandes con la fragmentación de Azure Logic Apps
+# <a name="handle-large-messages-in-workflows-using-chunking-in-azure-logic-apps"></a>Control de mensajes grandes en flujos de trabajo mediante la fragmentación en Azure Logic Apps
 
-Cuando se administran los mensajes, Logic Apps limita el contenido del mensaje a un tamaño máximo. Este límite ayuda a reducir la sobrecarga creada al almacenar y procesar mensajes de gran tamaño. Para controlar mensajes que superan este límite, Logic Apps puede *fragmentar* un mensaje grande en mensajes más pequeños. De este modo, puede seguir transfiriendo archivos grandes con Logic Apps en condiciones determinadas. Cuando se comunica con otros servicios mediante conectores o HTTP, Logic Apps puede consumir mensajes grandes pero *solo* en fragmentos. Esta condición significa que los conectores deben admitir también la fragmentación, o que en el intercambio de mensajes HTTP subyacente entre Logic Apps y estos servicios y aplicaciones se debe usar la fragmentación.
+Azure Logic Apps tiene distintos límites máximos en el tamaño del contenido del mensaje que los desencadenadores y las acciones pueden controlar en los flujos de trabajo de la aplicación lógica, en función del tipo de recurso de la aplicación lógica y del entorno donde se ejecuta ese flujo de trabajo de aplicación lógica. Estos límites ayudan a reducir cualquier sobrecarga que se produce al almacenar y procesar [mensajes grandes](#what-is-large-message). Para más información sobre los límites de tamaño de mensaje, revise [Límites de mensajes en Azure Logic Apps](logic-apps-limits-and-config.md#messages).
 
-En este artículo se muestra cómo puede configurar la fragmentación para acciones que administran mensajes que superan el límite. Los desencadenadores de aplicaciones lógicas no admiten la fragmentación debido a la mayor sobrecarga de intercambio de varios mensajes. 
+Si usa acciones HTTP integradas o acciones específicas del conector administrado y necesita Azure Logic Apps para trabajar con mensajes mayores que los límites predeterminados, puede habilitar la *fragmentación*, que divide un mensaje grande en mensajes más pequeños. De este modo, todavía puede transferir archivos de gran tamaño en condiciones específicas. De hecho, cuando se usan estas acciones HTTP integradas o acciones específicas del conector administrado, la fragmentación es la única manera en que Azure Logic Apps puede consumir mensajes grandes. Este requisito significa que el intercambio de mensajes HTTP subyacente entre Azure Logic Apps y otros servicios debe usar la fragmentación, o que las conexiones creadas por los conectores administrados que desea usar también deben admitir la fragmentación.
+
+> [!NOTE]
+> Azure Logic Apps no admite la fragmentación en desencadenadores debido a la mayor sobrecarga al intercambiar varios mensajes.
+> Además, Azure Logic Apps implementa la fragmentación para acciones HTTP mediante su propio protocolo, tal como se describe en este artículo. Por lo tanto, incluso si el sitio web o el servicio web admiten la fragmentación, no funcionarán con la fragmentación de acciones HTTP. Para usar la fragmentación de acciones HTTP con el sitio web o el servicio web, debe implementar el mismo protocolo que usa Azure Logic Apps. De lo contrario, no habilite la fragmentación en la acción HTTP. 
+
+En este artículo se proporciona información general sobre cómo funciona la fragmentación en Azure Logic Apps y cómo configurar la fragmentación en las acciones admitidas.
+
+<a name="what-is-large-message"></a>
 
 ## <a name="what-makes-messages-large"></a>¿Qué hace que los mensajes sean "grandes"?
 
@@ -37,7 +45,6 @@ De lo contrario, al intentar acceder a una salida con contenido de gran tamaño,
 Los servicios que se comunican con Logic Apps pueden tener sus propios límites de tamaño de mensaje. Estos límites suelen ser menores que el límite de Logic Apps. Por ejemplo, suponiendo que admita la fragmentación, un conector podría considerar que un mensaje de 30 MB es grande, mientras que Logic Apps no. Para cumplir con el límite de este conector, Logic Apps divide los mensajes de más de 30 MB en fragmentos más pequeños.
 
 Para los conectores que admiten la fragmentación, el protocolo de fragmentación subyacente es invisible para los usuarios finales. Sin embargo, no todos los conectores admiten la fragmentación, por lo que estos conectores generan errores en tiempo de ejecución cuando los mensajes entrantes superan los límites de tamaño de los conectores.
-
 
 Para las acciones que admiten y están habilitadas para la fragmentación, no se pueden usar cuerpos de desencadenador, variables ni expresiones como `@triggerBody()?['Content']` porque el uso de cualquiera de estas entradas impide que se produzca la operación de fragmentación. En su lugar, use la [acción **Compose**](../logic-apps/logic-apps-perform-data-operations.md#compose-action). En concreto, debe crear un campo `body` mediante la acción **Compose** para almacenar la salida de datos del cuerpo del desencadenador, la variable, la expresión, etc., por ejemplo:
 

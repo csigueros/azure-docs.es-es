@@ -8,15 +8,15 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/16/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 57a3f1f9d9665e23ba40479062f0f60e59608b66
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 669b14511c13ac1571082507ad8c16ed6b571600
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129707431"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556547"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Creación de destinos de proceso para la implementación y el entrenamiento de modelos en Azure Machine Learning Studio
 
@@ -34,7 +34,7 @@ En este artículo, aprenderá a crear y administrar destinos de proceso en Azure
 > Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 * Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
@@ -204,6 +204,9 @@ Si ha creado la instancia de proceso o el clúster de proceso con el acceso SSH 
       `ssh -i <keyname.pem> azureuser@... (rest of connection string)`
 
 1. Para los usuarios de Linux, siga los pasos de [Creación y uso de un par de claves SSH para máquinas virtuales Linux en Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+1. Para el uso de SCP: 
+
+   `scp -i key.pem -P {port} {fileToCopyFromLocal }  azureuser@yourComputeInstancePublicIP:~/{destination}`
 
 ## <a name="next-steps"></a>Pasos siguientes
 

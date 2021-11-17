@@ -4,12 +4,12 @@ ms.service: active-directory-b2c
 ms.topic: include
 ms.date: 01/27/2021
 ms.author: kengaderdus
-ms.openlocfilehash: 7f2dc7a36565c035a8d96809ca3720abae680f23
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: c57eec45f91b20694eae730d5e4d44f13c506dc6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130036972"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130217058"
 ---
 ::: zone pivot="b2c-user-flow"
 
@@ -20,7 +20,7 @@ ms.locfileid: "130036972"
 
 ::: zone pivot="b2c-custom-policy"
 
-* Siga los pasos de [Introducción a las directivas personalizadas en Active Directory B2C](../articles/active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-custom-policy).
+* Siga los pasos que se describen en [Tutorial: Creación de flujos de usuario y directivas personalizadas en Azure Active Directory B2C](../articles/active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 * [Registre una aplicación web](../articles/active-directory-b2c/tutorial-register-applications.md) y [habilite la concesión implícita del token de identificador](../articles/active-directory-b2c/tutorial-register-applications.md#enable-id-token-implicit-grant).
 
 ::: zone-end

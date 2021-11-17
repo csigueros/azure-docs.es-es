@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 233cbcec5b22d0bd363756559b4e6d2b681e75a4
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4ab69bfcc709f4162b95634796ed9af4dc8d199d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124820808"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132340616"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vmware-horizon---unified-access-gateway"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con VMware Horizon - Unified Access Gateway
 
@@ -58,7 +58,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con VMware Horizon -
 Para configurar y probar el inicio de sesión único de Azure AD con VMware Horizon - Unified Access Gateway, realice los pasos siguientes:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en VMware Horizon-Unified Access Gateway](#configure-vmware-horizon-unified-access-gateway-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de VMware Horizon-Unified Access Gateway](#create-vmware-horizon-unified-access-gateway-test-user)** : para tener un homólogo de B.Simon en VMware Horizon - Unified Access Gateway que esté vinculado a la representación del usuario en Azure AD.
@@ -145,4 +145,4 @@ También puede usar el Panel de acceso de Microsoft para probar la aplicación e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que configure VMware Horizon - Unified Access Gateway, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez que configure VMware Horizon - Unified Access Gateway, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

@@ -1,21 +1,21 @@
 ---
-title: Integración de Qradar con Azure Defender para IoT
-description: En este tutorial, aprenderá a integrar Qradar con Azure Defender para IoT.
+title: Integración de Qradar con Microsoft Defender para IoT
+description: En este tutorial, aprenderá a integrar Qradar con Microsoft Defender para IoT.
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/12/2021
+ms.date: 11/09/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: ec55a652b59f7d45e01ef22e62bd046473ef8559
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3c6a1cfab17b2355f5f5501cd7fc2e944c74556f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124839233"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278367"
 ---
-# <a name="tutorial-integrate-qradar-with-azure-defender-for-iot"></a>Tutorial: Integración de Qradar con Azure Defender para IoT
+# <a name="tutorial-integrate-qradar-with-microsoft-defender-for-iot"></a>Tutorial: Integración de Qradar con Microsoft Defender para IoT
 
-Este tutorial le ayudará a aprender a integrar y usar QRadar con Azure Defender para IoT.
+En este tutorial, aprenderá a integrar y usar QRadar con Microsoft Defender para IoT.
 
 Defender para IoT ofrece la única plataforma de ICS y ciberseguridad de IoT con tecnología patentada de análisis de amenazas y aprendizaje automático compatible con ICS.
 
@@ -23,7 +23,7 @@ Defender para IoT ha integrado su plataforma de supervisión continua de amenaza
 
 Estas son algunas de las ventajas de la integración:
 
-- La capacidad de reenviar las alertas de Azure Defender para IoT a IBM QRadar para una gobernanza y supervisión unificadas de TI y de la seguridad de OT.
+- La capacidad de reenviar las alertas de Microsoft Defender para IoT a IBM QRadar para una gobernanza y supervisión unificadas de TI y de la seguridad de OT.
 
 - La capacidad de obtener información general de los entornos de TI y OT. Permite detectar y responder a ataques en varias fases que a menudo cruzan los límites de TI y OT.
 
@@ -192,7 +192,7 @@ No hay recursos para limpiar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a empezar a trabajar con la integración de QRadar. Continúe para obtener información sobre cómo [integrar ServiceNow con Azure Defender para IoT](tutorial-servicenow.md).
+En este tutorial, ha aprendido a empezar a trabajar con la integración de QRadar. Continúe para obtener información sobre cómo [integrar ServiceNow con Microsoft Defender para IoT](tutorial-servicenow.md).
 
 > [!div class="nextstepaction"]
-> [Integración de ServiceNow con Azure Defender para IoT](tutorial-servicenow.md)
+> [Integración de ServiceNow con Microsoft Defender para IoT](tutorial-servicenow.md)

@@ -1,19 +1,19 @@
 ---
 title: Versión preliminar de los entornos de Azure Container Apps
 description: Obtenga información sobre cómo se administran los entornos en Azure Container Apps.
-services: container-apps
+services: app-service
 author: craigshoemaker
-ms.service: container-apps
+ms.service: app-service
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 122b172fc9fe2a66bae742f907d910cbccbf8fbc
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: 07d54583b884c071708910daea45f3dcb94d14f3
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132025805"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131578318"
 ---
 # <a name="azure-container-apps-preview-environments"></a>Entornos de la versión preliminar de Azure Container Apps
 

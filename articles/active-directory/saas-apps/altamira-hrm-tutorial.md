@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 04a78451b2c49eadb30edf89d77c956d83b25075
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8e42ceab6a99135f3af78754376a492046ea9dad
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124732207"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132330585"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-altamira-hrm"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Altamira HRM
 
@@ -41,7 +41,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Altamira HRM admite el inicio de sesión único iniciado por **SP e IDP**.
 * Altamira HRM admite el aprovisionamiento de usuarios **Just-In-Time**.
-* Una vez configurado Altamira HRM, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado Altamira HRM, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-altamira-hrm-from-the-gallery"></a>Incorporación de Altamira HRM desde la galería
 
@@ -62,7 +62,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Altamira HRM ut
 Para configurar y probar el inicio de sesión único de Azure AD con Altamira HRM, complete los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Altamira HRM](#configure-altamira-hrm-sso)** , para configurar el inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Altamira HRM](#create-altamira-hrm-test-user)** , para tener un homólogo de B.Simon en Altamira HRM que esté vinculado a la representación del usuario en Azure AD.
@@ -153,4 +153,4 @@ Al hacer clic en el icono de Altamira HRM en el Panel de acceso, debería inicia
 
 - [Pruebe Altamira HRM con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesión en Microsoft Defender para aplicaciones en la nube?](/cloud-app-security/proxy-intro-aad)

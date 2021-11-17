@@ -4,16 +4,16 @@ description: Azure Cosmos DB admite actualmente una migración unidireccional de
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 10/04/2021
+ms.date: 10/28/2021
 ms.author: sngun
 ms.topic: how-to
 ms.reviewer: sngun
-ms.openlocfilehash: b6821435f2f6ce04f1b8ba4b3af8b8f47097c2fa
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 3ac1ae98dfa920a4b4060905e99b7378fcdb3414
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546022"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476307"
 ---
 # <a name="migrate-an-azure-cosmos-db-account-from-periodic-to-continuous-backup-mode"></a>Migración de una cuenta de Azure Cosmos DB del modo periódico al modo de copia de seguridad continua
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -31,7 +31,7 @@ Estos son los principales motivos para migrar al modo continuo:
 > [!NOTE]
 > La funcionalidad de migración es un solo sentido y es una acción irreversible. Lo que significa que, una vez migrado del modo periódico al modo continuo, no puede volver al modo periódico.
 >
-> Puede migrar una cuenta al modo de copia de seguridad continua solo si se cumplen las siguientes condiciones:
+> Puede migrar una cuenta al modo de copia de seguridad continua solo si se cumplen las siguientes condiciones. Consulte también las [limitaciones de la restauración a un momento dado](continuous-backup-restore-introduction.md#current-limitations) antes de migrar la cuenta:
 >
 > * Si la cuenta es del tipo SQL API o API para MongoDB.
 > * Si la cuenta tiene una sola región de escritura.
@@ -221,4 +221,4 @@ Para obtener más información sobre el modo de copia de seguridad continua, vea
 
 ¿Intenta planear la capacidad de una migración a Azure Cosmos DB?
    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
-   * Si conoce las velocidades de solicitud típicas de la carga de trabajo de base de datos actual, lea sobre el [cálculo de las unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
+   * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

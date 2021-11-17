@@ -9,12 +9,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 10/25/2021
-ms.openlocfilehash: 7738c6748c2f5a90d0e4aacbccf47f32484b5cf0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ca958a3e7a43864caa673cd31736b1e661e7f608
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131072225"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465371"
 ---
 # <a name="active-geo-replication"></a>Replicación geográfica activa
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -203,6 +203,8 @@ Para crear una base de datos geográfica secundaria en una suscripción que no s
 
 > [!NOTE]
 > Las operaciones de replicación geográfica entre suscripciones, incluidas la configuración y la conmutación por error geográfica, solo se admiten mediante comandos de SQL.
+> 
+> No se admite una instancia de replicación geográfica secundaria si los servidores principal o secundario tienen un [punto de conexión privado](private-endpoint-overview.md) configurado y [se deniega el acceso a la red pública](connectivity-settings.md#deny-public-network-access). Si el punto de conexión privado está configurado, pero se permite el acceso a la red pública, se admite la adición de una instancia de replicación geográfica secundaria al conectarse al servidor principal desde una dirección IP pública. Una vez que se agrega una instancia de replicación geográfica secundaria, se puede denegar el acceso público.
 > 
 > No se admite la creación de una base de datos geográfica secundaria en un servidor lógico en otro inquilino de Azure cuando la autenticación [exclusiva de Azure Active Directory](https://techcommunity.microsoft.com/t5/azure-sql/azure-active-directory-only-authentication-for-azure-sql/ba-p/2417673) para Azure SQL está activa (habilitada) en el servidor lógico principal o secundario.
 

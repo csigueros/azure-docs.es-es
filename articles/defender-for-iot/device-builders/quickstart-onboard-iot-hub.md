@@ -2,13 +2,13 @@
 title: 'Inicio rápido: Incorporación de Defender para IoT a una solución basada en agente'
 description: En este inicio rápido aprenderá a incorporar y habilitar el servicio de seguridad Defender para IoT en Azure IoT Hub.
 ms.topic: quickstart
-ms.date: 1/20/2021
-ms.openlocfilehash: ff3dd6ec3002802ea5f698560b1ead02aee25201
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 11/09/2021
+ms.openlocfilehash: f22b319a409b481fdeb26a68cdd4b58809b8d015
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011495"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281861"
 ---
 # <a name="quickstart-onboard-defender-for-iot-to-an-agent-based-solution"></a>Inicio rápido: Incorporación de Defender para IoT a una solución basada en agente
 
@@ -72,4 +72,4 @@ El botón **Secure your IoT solution** (Proteger la solución de IoT) solo apare
 Pase al siguiente artículo para configurar una solución...
 
 > [!div class="nextstepaction"]
-> [Creación de un módulo gemelo del microagente de Defender para IoT (versión preliminar)](quickstart-create-micro-agent-module-twin.md)
+> [Creación de un módulo gemelo del microagente de Defender for Cloud (versión preliminar)](quickstart-create-micro-agent-module-twin.md)

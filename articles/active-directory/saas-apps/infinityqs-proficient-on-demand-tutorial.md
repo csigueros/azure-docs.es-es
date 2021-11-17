@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2021
 ms.author: jeedes
-ms.openlocfilehash: e6e42843e583f76624f5c6334ea3ba8a3faf0d9f
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: c0e2296fab5ccf6c046fb292fe6de84ba47817c2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132304959"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131478220"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-infinityqs-proficient-on-demand"></a>Tutorial: Integración del inicio de sesión único de Azure AD con InfinityQS ProFicient on Demand
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar InfinityQS ProFicient on Demand con Azur
 * Permitir que los usuarios inicien sesión automáticamente en InfinityQS ProFicient on Demand con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -56,12 +56,12 @@ Configure y pruebe el inicio de sesión único de Azure AD con InfinityQS ProFi
 
 Para configurar y probar el inicio de sesión único de Azure AD con InfinityQS ProFicient on Demand, haga lo siguiente:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)**, para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
-    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de InfinityQS ProFicient on Demand](#configure-infinityqs-proficient-on-demand-sso)** : para configurar los valores de inicio de sesión único de la aplicación.
     1. **[Creación de un usuario de prueba de InfinityQS ProFicient on Demand](#create-infinityqs-proficient-on-demand-test-user)** : para tener un homólogo de B.Simon en InfinityQS ProFicient on Demand que esté vinculado a la representación del usuario en Azure AD.
-1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
+1. **[Prueba del inicio de sesión único](#test-sso)**, para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -125,4 +125,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Cuando haya configurado InfinityQS ProFicient on Demand, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender para la nube](/cloud-app-security/proxy-deployment-aad).
+Cuando haya configurado InfinityQS ProFicient on Demand, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

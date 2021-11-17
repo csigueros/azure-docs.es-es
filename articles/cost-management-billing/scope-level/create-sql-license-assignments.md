@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: ahb
 ms.reviewer: chrisri
-ms.openlocfilehash: 48b68260e07d6e69e41daeacae631a9415f48a65
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: e97c4a51366dbfd2c9016de4684129a91df0cbe9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129547221"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130218946"
 ---
 # <a name="create-sql-server-license-assignments-for-azure-hybrid-benefit"></a>Creación de asignaciones de licencia de SQL Server para Ventaja híbrida de Azure
 
-La nueva experiencia de Ventaja híbrida de Azure de Azure Portal permite las asignaciones de licencia de SQL Server en el nivel de cuenta o en un nivel de suscripción determinado. Cuando se crea la asignación en el nivel de cuenta, los descuentos de Ventaja híbrida de Azure se aplican automáticamente a los recursos de SQL de todas las suscripciones de la cuenta hasta el número de licencias especificado en la asignación.
+La nueva experiencia centralizada de Ventaja híbrida de Azure en Azure Portal admite asignaciones de licencias de SQL Server a nivel de cuenta o a un nivel de suscripción determinado. Cuando se crea la asignación en el nivel de cuenta, los descuentos de Ventaja híbrida de Azure se aplican automáticamente a los recursos de SQL de todas las suscripciones de la cuenta hasta el número de licencias especificado en la asignación.
 
 En cada asignación de licencia se selecciona un ámbito y luego se asignan licencias al ámbito. Cada ámbito puede tener varias entradas de licencia.
 
@@ -42,7 +42,7 @@ Los roles necesarios difieren en función del tipo de contrato.
 | CSP/clientes dirigidos por asociados | No disponible | None |
 
 > [!NOTE]
-> La experiencia de licencia de nivel de ámbito no está disponible para suscripciones de crédito a MSDN, patrocinadas o suscripciones a MPN. El uso de software de SQL es gratuito para las suscripciones de desarrollo/pruebas (tipos de oferta MS-AZR-0148P o MS-AZR-0023P).
+> La asignación centralizada de licencias a ámbitos no está disponible para suscripciones patrocinadas, de créditos de MSDN o suscripciones de MPN. El uso de software de SQL es gratuito para las suscripciones de desarrollo/pruebas (tipos de oferta MS-AZR-0148P o MS-AZR-0023P).
 
 ## <a name="create-a-sql-license-assignment"></a>Creación de una asignación de licencia de SQL
 
@@ -101,7 +101,7 @@ Después de crear asignaciones de licencia de SQL, la experiencia con Ventaja h�
 - La opción de ventaja híbrida no se muestra como en la configuración de recursos de SQL.
 - Las aplicaciones o scripts que configuran la ventaja híbrida mediante programación siguen funcionando, pero el valor no tiene ningún efecto.
 - Los descuentos de software de SQL se aplican a los recursos de SQL del ámbito. El ámbito se basa en el número de licencias de las asignaciones de licencia creadas para la suscripción de la cuenta donde se ha creado el recurso.
-- Es posible que un recurso específico configurado para la ventaja híbrida no obtenga el descuento si otros recursos consumen todas las licencias. Pero se aplica el descuento máximo al ámbito, en función del número de recuentos de licencias. Para obtener más información sobre cómo se aplican los descuentos, vea [¿Qué es la administración del nivel de ámbito de Ventaja híbrida de Azure?](overview-azure-hybrid-benefit-scope.md)
+- Es posible que un recurso específico configurado para la ventaja híbrida no obtenga el descuento si otros recursos consumen todas las licencias. Pero se aplica el descuento máximo al ámbito, en función del número de recuentos de licencias. Para más información sobre cómo se aplican los descuentos, consulte [¿Qué es la administración centralizada de Ventaja híbrida de Azure?](overview-azure-hybrid-benefit-scope.md)
 
 ## <a name="cancel-a-license-assignment"></a>Cancelación de una asignación de licencia
 
@@ -117,5 +117,5 @@ Revise la situación de la licencia antes de cancelar las asignaciones de licenc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Vea [Preguntas frecuentes sobre la administración del nivel de ámbito de Ventaja híbrida de Azure](faq-azure-hybrid-benefit-scope.yml).
-- Obtenga información sobre cómo se aplican los descuentos en [¿Qué es la administración del nivel de ámbito de Ventaja híbrida de Azure?](overview-azure-hybrid-benefit-scope.md)
+- Consulte [Preguntas frecuentes sobre la administración centralizada de Ventaja híbrida de Azure](faq-azure-hybrid-benefit-scope.yml).
+- Conozca cómo se aplican los descuentos en [¿Qué es la administración centralizada de Ventaja híbrida de Azure?](overview-azure-hybrid-benefit-scope.md)

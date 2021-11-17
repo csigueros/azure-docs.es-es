@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1c8f1117053e6076d2281036ecc63f1cbf97d15
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: c5597ca90a2264d192273ebfd57ecfd51382c3c4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129352745"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132349307"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeamiento de una implementación de autenticación sin contraseña en Azure Active Directory
 
@@ -354,7 +354,7 @@ Azure AD agrega entradas a los registros de auditoría cuando:
 
 * Un usuario habilita o deshabilita su cuenta en una clave de seguridad o restablece el segundo factor para la clave de seguridad en su máquina Win 10. Consulte los ID de evento: 4670 y 5382.
 
-**Azure AD conserva la mayoría de los datos de auditoría durante 30 días** y hace que estén disponibles en la API o el portal de administración de Azure para que pueda descargarlos en sus sistemas de análisis. Si necesita una retención más larga, exporte y consuma los registros en una herramienta SIEM como [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk o Sumo Logic. Se recomienda una retención más larga para la auditoría, el análisis de tendencias y otras necesidades empresariales según corresponda.
+**Azure AD conserva la mayoría de los datos de auditoría durante 30 días** y hace que estén disponibles en la API o el portal de administración de Azure para que pueda descargarlos en sus sistemas de análisis. Si necesita una retención más larga, exporte y consuma los registros en una herramienta SIEM como [Microsoft Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk o Sumo Logic. Se recomienda una retención más larga para la auditoría, el análisis de tendencias y otras necesidades empresariales según corresponda.
 
 Hay dos pestañas en el panel de actividad Métodos de autenticación: Registro y Uso.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 2d0187dcac4de0fc49bbc504d8a3010801d44ecb
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6d65666103526768d904501e93b3c974dd436b30
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124781332"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132277968"
 ---
 # <a name="azure-operational-security-overview"></a>Información general sobre la seguridad operativa de Azure
 
@@ -52,7 +52,7 @@ Para obtener más información, consulte la [tabla de componentes de Azure Backu
 
 ### <a name="site-recovery"></a>Site Recovery
 
-[Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) proporciona continuidad del negocio a través de la organización de la replicación de máquinas virtuales y físicas locales en Azure o en un sitio secundario. Si su sitio primario no está disponible, se realizará la conmutación por error a la ubicación secundaria para que los usuarios pueden seguir trabajando. Se realizará una conmutación por recuperación cuando los sistemas vuelvan a las condiciones de funcionamiento normales. Use Azure Security Center para realizar una detección de amenazas más inteligente y eficaz.
+[Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) proporciona continuidad del negocio a través de la organización de la replicación de máquinas virtuales y físicas locales en Azure o en un sitio secundario. Si su sitio primario no está disponible, se realizará la conmutación por error a la ubicación secundaria para que los usuarios pueden seguir trabajando. Se realizará una conmutación por recuperación cuando los sistemas vuelvan a las condiciones de funcionamiento normales. Use Microsoft Defender for Cloud para realizar una detección de amenazas más inteligente y eficaz.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -75,11 +75,11 @@ Azure AD también incluye un conjunto completo de [funcionalidades de administra
 
 Con Azure Active Directory, todas las aplicaciones que publica para sus asociados y clientes (empresa o consumidor) tendrán las mismas funcionalidades de administración de identidad y acceso. Esto permite reducir significativamente los costos operativos.
 
-## <a name="azure-security-center"></a>Azure Security Center
+## <a name="microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud
 
-[Azure Security Center](../../security-center/security-center-introduction.md) ayuda a evitar, detectar y responder a amenazas con más visibilidad y control sobre la seguridad de sus recursos de Azure. Proporciona una supervisión de la seguridad y una administración de directivas integradas en sus suscripciones. Le ayuda a detectar amenazas que podrían pasar desapercibidas, y funciona con un amplio ecosistema de soluciones de seguridad.
+[Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) ayuda a evitar amenazas y a detectarlas y responder a ellas con más visibilidad y control sobre la seguridad de sus recursos de Azure. Proporciona una supervisión de la seguridad y una administración de directivas integradas en sus suscripciones. Le ayuda a detectar amenazas que podrían pasar desapercibidas, y funciona con un amplio ecosistema de soluciones de seguridad.
 
-[Proteja los datos de máquinas virtuales (VM)](../../security-center/security-center-introduction.md) en Azure proporcionando visibilidad a la configuración de seguridad de su máquina virtual y supervisando las amenazas. Security Center puede supervisar las máquinas virtuales con los siguientes fines:
+[Proteja los datos de máquinas virtuales (VM)](../../security-center/security-center-introduction.md) en Azure proporcionando visibilidad a la configuración de seguridad de su máquina virtual y supervisando las amenazas. Defender for Cloud puede supervisar las máquinas virtuales para:
 
 - Configuración de seguridad del sistema operativo con las reglas de configuración recomendadas.
 - Seguridad del sistema y actualizaciones críticas que faltan.
@@ -87,14 +87,14 @@ Con Azure Active Directory, todas las aplicaciones que publica para sus asociado
 - Validación de cifrado de disco.
 - Ataques basados en la red.
 
-Security Center usa el [control de acceso basado en roles (RBAC de Azure)](../../role-based-access-control/role-assignments-portal.md). Azure RBAC proporciona [roles integrados](../../role-based-access-control/built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios de Azure.
+Defender for Cloud usa el [control de acceso basado en rol de Azure (RBAC de Azure)](../../role-based-access-control/role-assignments-portal.md). Azure RBAC proporciona [roles integrados](../../role-based-access-control/built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios de Azure.
 
-Security Center evalúa la configuración de los recursos para identificar problemas de seguridad y vulnerabilidades. En Security Center, solo se muestra información relacionada con un recurso cuando tiene asignado el rol de propietario, colaborador o lector para la suscripción o grupo de recursos al que pertenece un recurso.
+Defender for Cloud evalúa la configuración de los recursos para identificar problemas de seguridad y vulnerabilidades. En Defender for Cloud, se muestra información relacionada con un recurso solo cuando tiene asignado el rol de Propietario, Colaborador o Lector a la suscripción o grupo de recursos al que pertenece un recurso.
 
 >[!Note]
->Consulte [Permisos en Azure Security Center](../../security-center/security-center-permissions.md) para obtener más información sobre los roles y las acciones permitidas en Security Center.
+>Consulte [Permisos en Microsoft Defender for Cloud](../../security-center/security-center-permissions.md) para obtener más información sobre los roles y las acciones permitidas en Defender for Cloud.
 
-Security Center usa Microsoft Monitoring Agent. Es el mismo agente que usa el servicio de Azure Monitor. Los datos que recopila este agente se almacenan en una [área de trabajo](../../azure-monitor/logs/manage-access.md) existente de Log Analytics asociada con la suscripción a Azure o en una nueva área de trabajo, según la geolocalización de la VM.
+Defender for Cloud usa Microsoft Monitoring Agent. Es el mismo agente que usa el servicio de Azure Monitor. Los datos que recopila este agente se almacenan en una [área de trabajo](../../azure-monitor/logs/manage-access.md) existente de Log Analytics asociada con la suscripción a Azure o en una nueva área de trabajo, según la geolocalización de la VM.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
@@ -192,5 +192,5 @@ Los profesionales de DevOps consolidados adoptarán algunos de los siguientes pr
 Para obtener información sobre la solución Seguridad y auditoría, vea los artículos siguientes:
 
 - [Seguridad y cumplimiento normativo](https://azure.microsoft.com/overview/trusted-cloud/)
-- [Azure Security Center](../../security-center/security-center-introduction.md)
+- [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
 - [Azure Monitor](../../azure-monitor/overview.md)

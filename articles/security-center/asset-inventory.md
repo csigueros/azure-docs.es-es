@@ -5,16 +5,15 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 10/18/2021
+ms.date: 11/02/2021
 ms.service: security-center
 ms.topic: how-to
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: cca9811423449692f0e71cdb62ade1447cba86f2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 795d54406230dbc7ea6e9666cfef51c8f96219fe
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131010521"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131576194"
 ---
 # <a name="use-asset-inventory-to-manage-your-resources-security-posture"></a>Uso del inventario de recursos para administrar la posición de seguridad de los recursos
 
@@ -119,7 +118,7 @@ Con el [lenguaje de consulta de Kusto (KQL)](/azure/data-explorer/kusto/query/),
 
     - **Desactivado:** recursos que no están protegidos por un plan de Microsoft Defender. Puede hacer clic con el botón derecho en cualquiera de ellos y actualizarlos:
 
-        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Actualización de un recurso a Microsoft Defender mediante un clic con el botón derecho." lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Actualización de un recurso para que esté protegido por el plan de Microsoft Defender correspondiente mediante un clic con el botón derecho." lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 
     - **Activado:** recursos que están protegidos por un plan de Microsoft Defender.
     - **Parcial:** esto se aplica a **suscripciones** que tienen algunos planes de Microsoft Defender deshabilitados, pero no todos. Por ejemplo, la siguiente suscripción tiene siete planes de Microsoft Defender deshabilitados.
@@ -183,7 +182,7 @@ Ejemplos de uso de Azure Resource Graph Explorer para acceder a los datos de inv
         | where count_ > 1
         ```
 
-    - Combinación de un producto de software con otra recomendación de ASC:
+    - Combinación de un producto de software con otra recomendación de seguridad:
 
         (En este ejemplo: máquinas con MySQL instalado y puertos de administración expuestos)
 

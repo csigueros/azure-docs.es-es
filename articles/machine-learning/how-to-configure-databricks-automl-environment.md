@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: c46803ae300acfe36163edcb92770c069ae67382
-ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
+ms.openlocfilehash: 0e3270c827e25ff13bd53c5a7d7d2610ce36c921
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132179902"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286185"
 ---
 # <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Configuración de un entorno de desarrollo con Azure Databricks y AutoML en Azure Machine Learning 
 
@@ -102,7 +102,6 @@ Si el clúster se ha creado con Databricks Runtime 7.3 - 7.3 LTS (*no* ML), e
 ```
 %pip install --upgrade --force-reinstall -r https://aka.ms/automl_linux_requirements.txt
 ```
-Para Databricks Runtime 7.0 o anterior, instale el SDK de Azure Machine Learning mediante el [script init](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/automl/README.md).
 
 ### <a name="automl-config-settings"></a>Opciones de configuración de AutoML
 

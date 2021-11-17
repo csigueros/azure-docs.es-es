@@ -7,29 +7,27 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 02d9f115a5fbeb364719a2fc6cafb22e6ea03cf7
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 077e090a95de15256f531c216a3051fdbcc35bc1
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131465865"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134120"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Ejecución de un contenedor personalizado en Azure
 
 ::: zone pivot="container-windows"
 [Azure App Service](overview.md) proporciona las pilas de aplicaciones predefinidas en Windows, como ASP.NET o Node.js, que se ejecutan en IIS. Sin embargo, las pilas de aplicaciones preconfiguradas [bloquean el sistema operativo e impiden el acceso de bajo nivel](operating-system-functionality.md). Los contenedores de Windows personalizados no tienen estas restricciones y permiten a los desarrolladores personalizar completamente los contenedores y proporcionar a las aplicaciones contenedorizadas acceso total a la funcionalidad de Windows. 
 
-En este inicio rápido se muestra cómo implementar una aplicación ASP.NET, que está en una imagen de Windows, en [Docker Hub](https://hub.docker.com/) desde Visual Studio. La aplicación se ejecuta en un contenedor personalizado en Azure App Service.
+En este inicio rápido se muestra cómo implementar una aplicación ASP.NET, que está en una imagen de Windows, en [Azure Container Registry](../container-registry/container-registry-intro.md) desde Visual Studio. La aplicación se ejecuta en un contenedor personalizado en Azure App Service.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar este tutorial:
+Para realizar este tutorial:
 
-- <a href="https://hub.docker.com/" target="_blank">Registrarse para obtener una cuenta de Docker Hub</a>
 - Instalar <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Docker para Windows</a>.
 - <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Cambiar Docker para ejecutar contenedores de Windows</a>.
-- <a href="https://www.visualstudio.com/downloads/" target="_blank">Instalar Visual Studio 2019</a> con las cargas de trabajo **ASP.NET y desarrollo web** y **desarrollo de Azure**. Si ya ha instalado Visual Studio 2019:
-
+- <a href="https://www.visualstudio.com/downloads/" target="_blank">Instale Visual Studio 2022</a> con las cargas de trabajo **ASP.NET y desarrollo web** y **desarrollo de Azure**. En *Visual Studio 2022 Community*, asegúrese de que el componente de **plantillas de proyecto y elemento de .NET Framework** está seleccionado con la **carga de trabajo de ASP.NET y desarrollo web**. Si ya ha instalado Visual Studio 2022:
     - Para instalar las actualizaciones más recientes de Visual Studio, seleccione **Ayuda** > **Buscar actualizaciones**.
     - Para agregar las cargas de trabajo en Visual Studio, seleccione **Herramientas** > **Obtener herramientas y características**.
 
@@ -41,49 +39,61 @@ Cree una aplicación web ASP.NET siguiendo estos pasos:
 
 1. En **Crear un proyecto**, busque y elija **Aplicación web ASP.NET Core (.NET Framework)** para C# y, a continuación, seleccione **Siguiente**.
 
-1. En **Configurar el nuevo proyecto**, asigne al proyecto el nombre _myfirstazurewebapp_ y luego seleccione **Crear**.
+   :::image type="content" source="./media/quickstart-custom-container/create-new-project.png?text=VS create a new project" alt-text="Creación de un nuevo proyecto":::
 
-   ![Configuración del proyecto de aplicación web](./media/quickstart-custom-container/configure-web-app-project-container.png)
+1. En **Configurar el nuevo proyecto**, en **Nombre de proyecto**, asigne el nombre de _myfirstazurewebapp_ a la aplicación. En **Marco**, seleccione **.NET Framework 4.8** y después **Crear**.
+
+    :::image type="content" source="./media/quickstart-custom-container/configure-web-app-project-container.png?text=Configure your web app project" alt-text="Configuración del proyecto de aplicación web":::
 
 1. Puede implementar cualquier tipo de aplicación web de ASP.NET en Azure. Para este inicio rápido, elija la plantilla **MVC**.
 
-1. Seleccione **Compatibilidad con Docker**  y asegúrese de que la autenticación se establece en **Sin autenticación**. Seleccione **Crear**.
+1. En **Autenticación**, seleccione **Ninguna**. En **Avanzadas**, seleccione **Compatibilidad con Docker** y desactive **Configurar para HTTPS**. Seleccione **Crear**.
 
-   ![Creación de una aplicación web ASP.NET](./media/quickstart-custom-container/select-mvc-template-for-container.png)
+     :::image type="content" source="./media/quickstart-custom-container/select-mvc-template-for-container.png?text=Create ASP.NET Web Application" alt-text="Creación de una aplicación web ASP.NET":::
 
 1. Si el archivo _Dockerfile_ no se abre automáticamente, ábralo desde el **Explorador de soluciones**.
 
 1. Necesita una [imagen principal compatible](configure-custom-container.md#supported-parent-images). Cambie la imagen primaria reemplazando la línea `FROM` con el código siguiente y guarde el archivo:
 
    ```dockerfile
-   FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
+   FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
    ```
 
 1. En el menú de Visual Studio, seleccione **Depurar** > **Iniciar sin depurar** para ejecutar la aplicación web localmente.
 
-   ![Ejecución de la aplicación de forma local](./media/quickstart-custom-container/local-web-app.png)
+    :::image type="content" source="./media/quickstart-custom-container/local-web-app.png?text=Run app locally" alt-text="Ejecución de la aplicación de forma local":::
 
-## <a name="publish-to-docker-hub"></a>Publicación en Docker Hub
+## <a name="publish-to-azure-container-registry"></a>Publicación en Azure Container Registry
 
 1. En **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **myfirstazurewebapp** y seleccione **Publicar**.
 
-1. Elija **App Service** y seleccione **Publicar**.
+1. En **Destino**, seleccione **Container Registry para Docker** y, espués, haga clic en **Siguiente**.
 
-1. En **Elegir un destino de publicación**, seleccione **Container Registry** y **Docker Hub** y, haga clic en **Publicar**.
+    :::image type="content" source="./media/quickstart-custom-container/select-docker-container-registry-visual-studio-2022.png?text=Select Docker Container Registry" alt-text="Selección de Container Registry para Docker":::
 
-   ![Publicar desde la página de información general del proyecto](./media/quickstart-custom-container/publish-to-docker-vs2019.png)
+1. En **Destino específico**, seleccione **Azure Container Registry** y, después, haga clic en **Siguiente**.
 
-1. Escriba las credenciales de su cuenta de Docker Hub y seleccione **Guardar**.
+    :::image type="content" source="./media/quickstart-custom-container/publish-to-azure-container-registry-visual-studio-2022.png?text=Publish to Azure Container Registry" alt-text="Publicar desde la página de información general del proyecto":::
 
-   Espere a que la implementación se complete. La página **Publicar** muestra ahora el nombre del repositorio que se va a usar más adelante.
+1. En **Publicar**, asegúrese de que se ha seleccionado la suscripción correcta. En **Registros de contenedor**, seleccione el botón **+** para crear una nueva instancia de Azure Container Registry.
 
-   ![Captura de pantalla en la que se resalta el nombre del repositorio.](./media/quickstart-custom-container/published-docker-repository-vs2019.png)
+    :::image type="content" source="./media/quickstart-custom-container/create-new-azure-container-registry.png?text=Create new Azure Container Registry" alt-text="Creación de una instancia de Azure Container Registry":::
 
-1. Copie este nombre de repositorio para su uso posterior.
+1. En **Crear nuevo**, asegúrese de que se ha elegido la suscripción correcta. En **Grupo de recursos**, seleccione **Nuevo** y escriba *myResourceGroup* como nombre y haga clic en **Aceptar**. En **SKU**, seleccione **Básico**. En **Ubicación del Registro**, seleccione una ubicación del Registro y, a continuación, haga clic en **Crear**.
+
+    :::image type="content" source="./media/quickstart-custom-container/new-azure-container-registry-details.png?text=Azure Container Registry details" alt-text="Dealles de Azure Container Registry":::
+
+1. En **Publicar**, en **Container Registry**, seleccione el registro que creó y, después, **Finalizar**.
+
+    :::image type="content" source="./media/quickstart-custom-container/select-existing-azure-container-registry.png?text=Select existing Azure Container Registry" alt-text="Selección de una instancia existente de Azure Container Registry":::
+
+   Espere a que la implementación se complete. La página **Publicar** muestra ahora el nombre del repositorio. Seleccione el *botón de copia* para copiar el **repositorio** para su uso posterior.
+
+    :::image type="content" source="./media/quickstart-custom-container/published-docker-repository-visual-studio-2022.png?text=Screenshot that highlights the repository name." alt-text="Captura de pantalla en la que se resalta el nombre del repositorio.":::
 
 ## <a name="create-a-windows-container-app"></a>Creación de una aplicación de contenedor de Windows
 
-1. Inicie sesión en [Azure Portal]( https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. Elija **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
@@ -95,7 +105,7 @@ Cree una aplicación web ASP.NET siguiendo estos pasos:
 
    ![Crear una instancia de Web App for Containers](media/quickstart-custom-container/create-web-app-container.png)
 
-1. En **Origen de imagen**, elija **Docker Hub** y en **Imagen y etiqueta**, escriba el nombre del repositorio que copió en [Publicar en Docker Hub](#publish-to-docker-hub).
+1. En **Origen de imagen**, elija **Docker Hub** y en **Imagen y etiqueta**, escriba el nombre del repositorio que copió en [Publicar en Azure Container Registry](#publish-to-azure-container-registry).
 
    ![Configurar una instancia de Web App for Containers](media/quickstart-custom-container/configure-web-app-container.png)
 

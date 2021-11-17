@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 09/09/2021
+ms.date: 10/26/2021
 ms.author: lle
-ms.openlocfilehash: d1b3770d236c7f88090840720e8f88fd453e70cf
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 35d0b094e80796eb43f59d0c104bb3ced9f5b0ed
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755945"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131430882"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solución de problemas del entorno de ejecución de integración autohospedado
 
@@ -206,7 +206,7 @@ La razón por la que se ve el archivo *System.ValueTuple.dll* en *%windir%\Micro
 
 En el siguiente error, puede ver claramente que falta el ensamblado *System.ValueTuple*. Este problema surge cuando la aplicación intenta comprobar el ensamblado *System.ValueTuple.dll*.
  
-"\<LogProperties>\<ErrorInfo>[{"Código":0,"Mensaje":"Se produjo una excepción en el inicializador de tipo de 'Npgsql.PoolManager'.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Código":0,"Mensaje":"No se puede cargar el archivo o ensamblado 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' ni una de sus dependencias. No se puede encontrar el archivo especificado.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]\</ErrorInfo>\</LogProperties>"
+> "\<LogProperties>\<ErrorInfo>[{"Código":0,"Mensaje":"Se produjo una excepción en el inicializador de tipo de 'Npgsql.PoolManager'.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Código":0,"Mensaje":"No se puede cargar el archivo o ensamblado 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' ni una de sus dependencias. No se puede encontrar el archivo especificado.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]\</ErrorInfo>\</LogProperties>"
  
 Para obtener más información sobre GAC, consulte [Caché global de ensamblados](/dotnet/framework/app-domains/gac).
 
@@ -355,6 +355,66 @@ Para solucionar este problema, debe agregar la cuenta de servicio del entorno de
     1. Seleccione **NT SERVICE\DIAHostService** para concederle acceso de control total a este certificado, aplicarlo y asegurarlo. 
     1. Seleccione **Comprobar nombres** y, después, **Aceptar**.
     1. En el panel "Permisos", seleccione **Aplicar** y, a continuación, **Aceptar**.
+
+### <a name="usererrorjrenotfound-error-message-when-you-run-a-copy-activity-to-azure"></a>Mensaje de error UserErrorJreNotFound al ejecutar una actividad de copia en Azure
+
+#### <a name="symptoms"></a>Síntomas 
+
+Al intentar copiar contenido en Microsoft Azure mediante una herramienta o un programa basado en Java (por ejemplo, copiar archivos de formato ORC o Parquet), recibirá un mensaje de error similar al siguiente:
+
+> ErrorCode=UserErrorJreNotFound,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Java Runtime Environment is not found. Vaya a `http://go.microsoft.com/fwlink/?LinkId=808605` para realizar la descarga y la instalación en la máquina del nodo Integration Runtime (autohospedado). Nota: Integration Runtime de 64 bits requiere JRE de 64 bits, e Integration Runtime de 32 bits requiere JRE de 32 bits. JRE.,Source=Microsoft.DataTransfer.Common,''Type=System.DllNotFoundException,Message=Unable to load DLL 'jvm.dll': No se encontró el módulo especificado. (Excepción de HRESULT: 0x8007007E),Source=Microsoft.DataTransfer.Richfile.HiveOrcBridge
+
+#### <a name="cause"></a>Causa
+
+Este error se produce debido a uno de los siguientes motivos:
+
+- Java Runtime Environment (JRE) no está instalado correctamente en el servidor de Integration Runtime.
+
+- El servidor de Integration Runtime no tiene la dependencia necesaria para JRE.
+
+De forma predeterminada, Integration Runtime resuelve la ruta de acceso de JRE mediante entradas del registro. Esas entradas se deben establecer automáticamente durante la instalación de JRE.
+
+#### <a name="resolution"></a>Resolución
+
+Sigue meticulosamente los pasos que se describen en esta sección. Pueden producirse problemas graves si modifica el Registro de manera incorrecta. Antes de modificarlo, [haz una copia de seguridad del registro para restaurarlo](https://support.microsoft.com/topic/how-to-back-up-and-restore-the-registry-in-windows-855140ad-e318-2a13-2829-d428a2ab0692), por si se produjeran problemas. 
+
+Para corregir este problema, siga estos pasos para comprobar el estado de la instalación de JRE:
+
+1. Asegúrese de que Integration Runtime (Diahost.exe) y JRE están instalados en la misma plataforma. Compruebe las siguientes condiciones:
+    - JRE de 64 bits para Integration Runtime de ADF de 64 bits debe instalarse en la carpeta `C:\Program Files\Java\`.
+    
+        > [!NOTE]
+        > La carpeta no es `C:\Program Files (x86)\Java\`.
+    
+    - JRE 7 y JRE 8 son compatibles con esta actividad de copia. JRE 6 y las versiones anteriores a JRE 6 no se han validado para este uso.
+
+2. Compruebe en el Registro la configuración adecuada. Para ello, realice los pasos siguientes:
+
+    1. En el menú **Ejecutar**, escriba **Regedit** y presione Entrar.
+    
+    1. En el panel de navegación, busque la siguiente subclave:<br/> `HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft\Java Runtime Environment`. <br/> 
+
+        En el panel **Detalles**, debería haber una entrada Versión actual que muestre la versión de JRE (por ejemplo, 1.8).
+    
+        :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/java-runtime-environment-image.png" alt-text="Captura de pantalla que muestra Java Runtime Environment.":::
+
+    1. En el panel de navegación, busque una subclave que coincida exactamente con la versión (por ejemplo, 1.8) en la carpeta JRE. En el panel de detalles, debe haber una entrada **JavaHome**. El valor de esta entrada es la ruta de instalación de JRE.
+    
+        :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/java-home-entry-image.png" alt-text="Captura de pantalla que muestra una entrada JavaHome.":::
+
+3. Busque la carpeta bin\server en la ruta de acceso siguiente: <br/> 
+
+    `C:\Program Files\Java\jre1.8.0_74`
+    
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/folder-of-jre.png" alt-text="Captura de pantalla que muestra la carpeta JRE.":::
+
+1. Compruebe si esta carpeta contiene un archivo jvm.dll. Si no es así, compruebe el archivo en la carpeta `bin\client`.
+
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/file-location-image.png" alt-text="Captura de pantalla que muestra la ubicación del archivo jvm.dll.":::
+
+> [!NOTE]
+> - Si alguna de estas configuraciones no es la descrita en estos pasos, utilice el [instalador de Windows de JRE](https://java.com/en/download/manual.jsp) para solucionar los problemas.
+> - Si todas las configuraciones de estos pasos son correctas tal y como se describen, es posible que falte una biblioteca del entorno de ejecución de VC++ en el sistema. Puede corregir este problema instalando el paquete redistribuible VC++ 2010.
 
 ## <a name="self-hosted-ir-setup"></a>Configuración de IR autohospedado
 

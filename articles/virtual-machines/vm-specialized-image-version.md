@@ -1,6 +1,6 @@
 ---
 title: Creación de una VM a partir de una versión de imagen especializada
-description: Cree una VM con una versión de imagen especializada en una instancia de Shared Image Gallery.
+description: Cree una máquina virtual con una versión de imagen especializada en una instancia de Azure Compute Gallery.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -9,18 +9,22 @@ ms.topic: how-to
 ms.date: 08/05/2021
 ms.author: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 009678278d7900908572e81b7aab4222dc3c4a07
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: b500a7e02167f5373eb2dbdeb4bdb708c5b69966
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123452342"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474503"
 ---
 # <a name="create-a-vm-using-a-specialized-image-version"></a>Creación de una VM mediante una versión de imagen especializada 
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows 
 
-Cree una máquina virtual a partir de una [versión de imagen especializada](./shared-image-galleries.md#generalized-and-specialized-images) almacenada en Shared Image Gallery. Si desea crear una máquina virtual mediante una versión de imagen generalizada, consulte [Creación de una máquina virtual a partir de una versión de imagen generalizada](vm-generalized-image-version.md).
+Cree una máquina virtual a partir de una [versión de imagen especializada](./shared-image-galleries.md#generalized-and-specialized-images) almacenada en Azure Compute Gallery (anteriormente conocida como Shared Image Gallery). Si desea crear una máquina virtual mediante una versión de imagen generalizada, consulte [Creación de una máquina virtual a partir de una versión de imagen generalizada](vm-generalized-image-version.md).
+
+> [!IMPORTANT]
+> 
+> Al crear una nueva máquina virtual a partir de una imagen especializada, la nueva máquina virtual conserva el nombre de equipo de la máquina virtual original. También se conserva otra información específica del equipo (por ejemplo, el CMID) y, en algunos casos, esta información duplicada podría ocasionar problemas. Al copiar una máquina virtual, tenga en cuenta en qué tipo de información específica del equipo se basan las aplicaciones.  
 
 Reemplace los nombres de recursos según sea necesario en estos ejemplos. 
 
@@ -159,8 +163,8 @@ New-AzVM `
 
 **Pasos siguientes**
 
-Puede crear también recursos de galería de imágenes compartidas con plantillas. Hay varias plantillas de Inicio rápido de Azure disponibles: 
+También puede crear recursos de Azure Compute Gallery mediante plantillas. Hay varias plantillas de Inicio rápido de Azure disponibles: 
 
-- [Creación de una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-create/)
-- [Creación de una definición de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [Creación de una versión de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [Creación de una instancia de Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Creación de una definición de imagen en una instancia de Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Creación de una versión de imagen en una instancia de Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)

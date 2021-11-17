@@ -4,16 +4,16 @@ description: Aprenda a configurar una red virtual para la inserción del entorno
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 11/03/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 32930edc0aa02fa537380ceadffb04a1fd5729da
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: e3683011794e89acbac6bbbb985c7cb85ebd9ebd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131068818"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476000"
 ---
 # <a name="configure-a-virtual-network-for-injection-of-azure-ssis-integration-runtime"></a>Configuración de una red virtual para la inserción del entorno de ejecución de integración de Azure-SSIS
 
@@ -35,6 +35,8 @@ Esta es una tabla que resalta las diferencias entre los métodos de inserción d
 | **Tráfico de salida** | El puerto *443* debe estar abierto para el tráfico TCP con la etiqueta de servicio *AzureCloud* como destino. | El puerto *443* debe estar abierto para el tráfico TCP con la etiqueta de servicio *DataFactoryManagement* como destino. | 
 | **Bloqueo de recursos** | No se permite en el grupo de recursos. | No se permite en la red virtual. | 
 | **Instancias de Azure-SSIS IR por red virtual** | Sin límite. | Solo uno. | 
+
+:::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/standard-express-virtual-network-injection.png" alt-text="Captura de pantalla de los métodos de inserción de red virtual estándar y rápido" lightbox="media/join-azure-ssis-integration-runtime-virtual-network/standard-express-virtual-network-injection.png":::
 
 La red virtual debe configurarse de forma diferente en función del método de inserción. Si usa el método rápido, consulte el artículo [Método de inserción de red virtual rápido](azure-ssis-integration-runtime-express-virtual-network-injection.md); de lo contrario, consulte el artículo [Método de inyección de red virtual estándar](azure-ssis-integration-runtime-standard-virtual-network-injection.md).
   
@@ -87,7 +89,7 @@ Con Azure Portal, puede conceder al usuario que crea Azure-SSIS IR los permisos
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Método de inserción de la red virtual rápido](azure-ssis-integration-runtime-express-virtual-network-injection.md)
-- [Método de inserción de red virtual estándar](azure-ssis-integration-runtime-standard-virtual-network-injection.md)
+- [Método estándar de inserción de red virtual](azure-ssis-integration-runtime-standard-virtual-network-injection.md)
 - [Unión de Azure-SSIS IR a una red virtual mediante la interfaz de usuario de ADF](join-azure-ssis-integration-runtime-virtual-network-ui.md)
 - [Unión de Azure-SSIS IR a una red virtual mediante Azure PowerShell](join-azure-ssis-integration-runtime-virtual-network-powershell.md)
 
@@ -95,6 +97,6 @@ Para más información acerca de Azure-SSIS IR, consulte los siguientes artícul
 
 - [Azure-SSIS IR](concepts-integration-runtime.md#azure-ssis-integration-runtime). En este artículo se proporciona información conceptual general acerca de los entornos de ejecución de integración, incluido Azure-SSIS IR. 
 - [Tutorial: Implementación de paquetes SSIS en Azure](tutorial-deploy-ssis-packages-azure.md). En este tutorial se proporcionan instrucciones paso a paso para crear Azure-SSIS IR. Usa el servidor de Azure SQL Database para hospedar SSISDB. 
-- [Creación de una instancia de Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). En este artículo se amplía el tutorial. Proporciona instrucciones sobre el uso de un servidor de Azure SQL Database configurado con un punto de conexión de servicio de red virtual, una regla de firewall de IP, un punto de conexión privado o Azure SQL Managed Instance que se conecta a una red virtual para hospedar SSISDB. Muestra cómo unir Azure-SSIS IR a una red virtual. 
+- [Creación de una instancia de Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). En este artículo se amplía el tutorial. Proporciona instrucciones sobre el uso de un servidor de Azure SQL Database configurado con un punto de conexión de servicio de red virtual, una regla de firewall de IP, un punto de conexión privado o Azure SQL Managed Instance que se conecta a una red virtual para hospedar SSISDB. Muestra cómo conectar Azure-SSIS IR a una red virtual. 
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime) (Supervisión de una instancia de Integration Runtime de SSIS de Azure). En este artículo se muestra cómo recuperar y comprender la información acerca de Azure-SSIS IR.
 - [Administración de Integration Runtime de SSIS de Azure](manage-azure-ssis-integration-runtime.md). En este artículo se muestra cómo iniciar, detener o eliminar Azure-SSIS IR. También se muestra cómo escalar horizontalmente la instancia de Azure SSIS IR mediante la adición de más nodos.

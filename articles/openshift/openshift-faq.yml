@@ -7,12 +7,12 @@ metadata:
   ms.service: azure-redhat-openshift
   ms.topic: conceptual
   ms.date: 07/31/2020
-  ms.openlocfilehash: e7f38ea054214d4133f9b63a849b5be070e20dca
-  ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+  ms.openlocfilehash: dbde5144fe44a9b92b06cbb8f226d04b4fe74489
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/30/2021
-  ms.locfileid: "113095234"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130225574"
 title: Preguntas más frecuentes de Red Hat OpenShift en Azure
 summary: En este artículo se responde a las preguntas más frecuentes (P+F) sobre Red Hat OpenShift en Microsoft Azure.
 sections:
@@ -35,7 +35,7 @@ sections:
       El número real de pods admitidos depende de los requisitos de memoria, CPU y almacenamiento de una aplicación.
 
 
-      Red Hat OpenShift en Azure 4.x tiene un límite de 250 pods por nodo y otro de 100 nodos de ejecución. Esto establece el número máximo de pods admitido en un clúster a 250&times;100 = 25 000.
+      Red Hat OpenShift en Azure 4.x tiene un límite de 250 pods por nodo y otro de 60 nodos de ejecución. Esto limita el número máximo de pods admitidos en un clúster a 250&times;60 = 15 000.
 
 
       Red Hat OpenShift en Azure 3.11 tiene un límite de 50 pods por nodo y otro de 20 nodos de ejecución. Esto establece el número máximo de pods admitido en un clúster a 50&times;20 = 1000.

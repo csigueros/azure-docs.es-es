@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 11/03/2021
 ms.topic: overview
-ms.openlocfilehash: fb1952c00b54fd4618d3c4d3a830d862eb50a439
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 30c67a343be4b19d689df1e5faa2b72ed6ab83e3
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132301767"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131562948"
 ---
 #  <a name="create-azure-arc-data-controller-in-direct-connectivity-mode-using-cli"></a>Creación del controlador de datos de Azure Arc en modo de conexión directa mediante la CLI
 
@@ -147,11 +147,9 @@ $Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group myresourcegroup  --
 
 ### <a name="2-assign-role-to-the-managed-identity"></a>(2) Asignación de un rol a la identidad administrada
 
-Ejecute el siguiente comando para asignar los roles de **Colaborador** y **Publicador de métricas de supervisión**:
+Ejecute el siguiente comando para asignar el rol **Publicador de métricas de supervisión**:
 ```powershell
-az role assignment create --assignee $Env:MSI_OBJECT_ID --role "Contributor" --scope "/subscriptions/$ENV:subscription/resourceGroups/$ENV:resourceGroup"
-
-az role assignment create --assignee $Env:MSI_OBJECT_ID --role "Monitoring Metrics Publisher" --scope "/subscriptions/$ENV:subscription/resourceGroups/$ENV:resourceGroup"
+az role assignment create --assignee $Env:MSI_OBJECT_ID --role 'Monitoring Metrics Publisher' --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME"
 
 ```
 
@@ -178,11 +176,10 @@ az customlocation create -g ${resourceGroup} -n ${clName} --namespace ${clNamesp
 ```PowerShell
 $ENV:clName="mycustomlocation"
 $ENV:clNamespace="arc"
+$ENV:hostClusterId = az connectedk8s show -g "$ENV:resourceGroup" -n "$ENV:resourceName" --query id -o tsv
+$ENV:extensionId = az k8s-extension show -g "$ENV:resourceGroup" -c "$ENV:resourceName" --cluster-type connectedClusters --name "$ENV:ADSExtensionName" --query id -o tsv
 
-$ENV:hostClusterId=(az connectedk8s show -g $ENV:resourceGroup -n $ENV:resourceName --query id -o tsv)
-$ENV:extensionId=(az k8s-extension show -g $ENV:resourceGroup -c $ENV:resourceName --cluster-type connectedClusters --name $ENV:ADSExtensionName --query id -o tsv)
-
-az customlocation create -g $ENV:resourceGroup -n $ENV:clName --namespace $ENV:clNamespace --host-resource-id $ENV:hostClusterId --cluster-extension-ids $ENV:extensionId
+az customlocation create -g "$ENV:resourceGroup" -n "$ENV:clName" --namespace "$ENV:clNamespace" --host-resource-id "$ENV:hostClusterId" --cluster-extension-ids "$ENV:extensionId"
 ```
 
 ## <a name="validate--the-custom-location-is-created"></a>Validación de la creación de la ubicación personalizada

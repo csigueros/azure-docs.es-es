@@ -2,22 +2,22 @@
 title: Tablas temporales
 description: Directrices esenciales para el uso de tablas temporales en el grupo de SQL dedicado, con énfasis en los principios de las tablas temporales de nivel de sesión.
 services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/01/2019
-ms.author: xiaoyul
-ms.reviewer: igorstan
-ms.openlocfilehash: 9898bc94aa79b374174f80592dc250e660f7f8c3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 11/02/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: ''
+ms.openlocfilehash: b63b6f017771325dd752905502bd8feb6479f5c4
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734591"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500723"
 ---
-# <a name="temporary-tables-in-dedicated-sql-pool"></a>Tablas temporales en un grupo de SQL dedicado
+# <a name="temporary-tables-in-dedicated-sql-pool-in-azure-synapse-analytics"></a>Tablas temporales en un grupo de SQL dedicado en Azure Synapse Analytics
 
 Este artículo contiene directrices esenciales para el uso de tablas temporales y resalta los principios de las tablas temporales de nivel de sesión. 
 
@@ -99,10 +99,8 @@ GROUP BY
 
 > [!NOTE]
 > `CTAS` es un comando eficaz y ofrece un uso eficiente del espacio del registro de transacciones. 
-> 
-> 
 
-## <a name="dropping-temporary-tables"></a>Eliminación de tablas temporales
+## <a name="drop-temporary-tables"></a>Eliminación de tablas temporales
 Cuando se crea una nueva sesión, no debe existir ninguna tabla temporal.  
 
 Si va a llamar al mismo procedimiento almacenado, lo que crea un archivo temporal con el mismo nombre, para tener la seguridad de que las instrucciones `CREATE TABLE` se ejecutan correctamente, se puede usar una sencilla comprobación de existencia previa con `DROP`, como en el ejemplo siguiente:
@@ -122,7 +120,7 @@ En el desarrollo de procedimientos almacenados, es habitual que los comandos de 
 DROP TABLE #stats_ddl
 ```
 
-## <a name="modularizing-code"></a>Modularización de código
+## <a name="modularize-code"></a>Modularización de código
 Como las tablas temporales se pueden ver en cualquier parte de una sesión de usuario, se puede aprovechar esta funcionalidad para ayudarle a dividir en secciones el código de aplicación.  
 
 Por ejemplo, el siguiente procedimiento almacenado genera DDL para actualizar todas las estadísticas de la base de datos por nombre de la estadística:
@@ -199,9 +197,9 @@ FROM    #stats_ddl
 GO
 ```
 
-En este punto, la única acción que se ha producido es la creación de un procedimiento almacenado que genera una tabla temporal, #stats_ddl, con instrucciones DDL.  
+En este punto, la única acción que se ha producido es la creación de un procedimiento almacenado que genera una tabla temporal, `#stats_ddl`, con instrucciones DDL.  
 
-Este procedimiento almacenado quita #stats_ddl si ya existe para tener la seguridad de que no dará error si se ejecuta más de una vez dentro de una sesión.  
+Este procedimiento almacenado quita `#stats_ddl` si ya existe para tener la seguridad de que no dará error si se ejecuta más de una vez dentro de una sesión.  
 
 Sin embargo, puesto que no hay ningún elemento `DROP TABLE` al final del procedimiento almacenado, cuando se complete este, saldrá de la tabla creada para que se pueda leer fuera del procedimiento almacenado.  
 

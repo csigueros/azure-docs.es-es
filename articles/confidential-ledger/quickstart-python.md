@@ -7,18 +7,18 @@ ms.date: 04/27/2021
 ms.service: confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: 1fd69155a6131565b81ba9684e5c2c077a5420d9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 292c298f3af1b693574ecf9e053de14373d4d597
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671533"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476326"
 ---
 # <a name="quickstart-microsoft-azure-confidential-ledger-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de Microsoft Azure Confidential Ledger para Python
 
 Comience a usar la biblioteca cliente de Microsoft Azure Confidential Ledger para Python. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
 
-Microsoft Azure Confidential Ledger es un servicio nuevo y muy seguro para administrar registros de datos confidenciales. En función de un modelo de cadena de bloques con permisos, Confidential Ledger ofrece ventajas únicas de integridad de datos, como la inmutabilidad (que hace que el libro de contabilidad solo se pueda anexar) y la protección frente a manipulaciones (para asegurar que todos los registros se mantengan intactos).
+Microsoft Azure Confidential Ledger es un servicio nuevo y muy seguro para administrar registros de datos confidenciales. Basado en un modelo de cadena de bloques con permisos, Azure Confidential Ledger ofrece ventajas únicas para la integridad de los datos, como la inmutabilidad (que hace que el libro de contabilidad sea de solo anexión) y la protección frente a manipulaciones (para garantizar que todos los registros se mantienen intactos).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -48,13 +48,13 @@ Instale la biblioteca cliente de identidades de Azure Active Directory:
 pip install azure-identity
 ```
 
-Instale la biblioteca cliente del plano de control de Confidential Ledger.
+Instale la biblioteca cliente del plano de control de Azure Confidential Ledger.
 
 ```terminal
 pip install azure.mgmt.confidentialledger
 ```
 
-Instale la biblioteca cliente del plano de datos de Confidential Ledger.
+Instale la biblioteca cliente del plano de datos de Azure Confidential Ledger.
 
 ```terminal
 pip install azure.confidentialledger 
@@ -161,7 +161,7 @@ print (f"- ID: {myledger.id}")
 
 Ahora que tenemos un libro de contabilidad, interactuaremos con él mediante la biblioteca cliente del plano de datos (azure.confidentialledger). 
 
-En primer lugar, generaremos un certificado de Confidential Ledger y lo guardaremos.  
+En primer lugar, generaremos y guardaremos un certificado de Confidential Ledger.  
 
 ```python
 identity_client = ConfidentialLedgerIdentityServiceClient(identity_url)
@@ -174,7 +174,7 @@ with open(ledger_tls_cert_file_name, "w") as cert_file:
     cert_file.write(network_identity.ledger_tls_certificate)
 ```
 
-Ahora podemos usar el certificado de red, junto con la dirección URL del libro de contabilidad y las credenciales, para crear un cliente de Confidential Ledger.
+Ahora podemos usar el certificado de red, junto con la dirección URL del libro de contabilidad y nuestras credenciales, para crear un cliente de Confidential Ledger.
 
 ```python
 ledger_client = ConfidentialLedgerClient(
@@ -297,7 +297,7 @@ print(entry.contents)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Otros artículos Microsoft Azure Confidential Ledger se pueden basar en esta guía de inicio rápido. Si tiene pensado seguir trabajando en otras guías de inicio rápido y tutoriales, considere la posibilidad de dejar estos recursos activos.
+Otros artículos sobre Azure Confidential Ledger se pueden basar en este inicio rápido. Si tiene pensado seguir trabajando en otras guías de inicio rápido y tutoriales, considere la posibilidad de dejar estos recursos activos.
 
 De lo contrario, cuando haya terminado con los recursos creados en este artículo, use el comando [az group delete](/cli/azure/group?#az_group_delete) de la CLI de Azure para eliminar el grupo de recursos y todos los recursos que contiene:
 
@@ -307,4 +307,4 @@ az group delete --resource-group myResourceGroup
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Información general de Microsoft Azure Confidential Ledger](overview.md)
+- [Introducción a Microsoft Azure Confidential Ledger](overview.md)

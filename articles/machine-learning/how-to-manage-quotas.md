@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 author: SimranArora904
 ms.author: siarora
-ms.date: 06/14/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: 6da58d3f37af146c2cb1371cd8b18f134c24d0a2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 224ee0d4cc789349151bdc75ab164cc123119105
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131067439"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564867"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Administración y aumento de las cuotas de los recursos con Azure Machine Learning
 
@@ -105,7 +105,9 @@ En la siguiente tabla se muestran los límites adicionales en la plataforma. Pó
 ### <a name="azure-machine-learning-managed-online-endpoints-preview"></a>Puntos de conexión en línea administrados (versión preliminar) de Azure Machine Learning.
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-Los puntos de conexión en línea administrados de Azure Machine Learning tienen los siguientes límites:
+En la tabla siguiente se describen los límites de los puntos de conexión en línea administrados de Azure Machine Learning. 
+
+Para determinar el uso actual de un punto de conexión, [consulte las métricas](how-to-monitor-online-endpoints.md#view-metrics). Para solicitar una excepción al equipo de productos de Azure Machine Learning, abra una vale de soporte técnico.
 
 | **Recurso** | **Límite** |
 | --- | --- |
@@ -115,11 +117,15 @@ Los puntos de conexión en línea administrados de Azure Machine Learning tienen
 | Número de implementaciones por suscripción | 200 |
 | Número de implementaciones por punto de conexión | 20 |
 | Número de instancias por implementación | 20 |
-| Tamaño máximo de carga en el nivel de punto de conexión | 1,5 MB |
-| Tiempo de espera máximo de la solicitud en el nivel de punto de conexión  | 60 segundos |
-| Total de QPS en el nivel de punto de conexión para todas las implementaciones | 100 |
+| Tiempo de espera máximo de la solicitud en el nivel de punto de conexión  | 90 segundos |
+| Total de solicitudes por segundo a nivel de punto de conexión para todas las implementaciones  | 500 <sup>2</sup> |
+| Total de conexiones por segundo a nivel de punto de conexión para todas las implementaciones  | 100 <sup>2</sup> |
+| Total de conexiones activas a nivel de punto de conexión para todas las implementaciones  | 100 <sup>2</sup> |
+| Total de ancho de banda a nivel de punto de conexión para todas las implementaciones  | 5 MBps <sup>2</sup> |
 
 <sup>1</sup> Los guiones únicos, como `my-endpoint-name`, se aceptan en los nombres de punto de conexión e implementación.
+
+<sup>2</sup> Si solicita un aumento del límite, asegúrese de calcular los aumentos de límite relacionados que pueda necesitar. Por ejemplo, si solicita un aumento del límite para las solicitudes por segundo, es posible que también quiera calcular las conexiones y los límites de ancho de banda necesarios e incluir estos aumentos de límite en la misma solicitud.
 
 ### <a name="azure-machine-learning-pipelines"></a>Canalizaciones de Azure Machine Learning
 Las [canalizaciones de Azure Machine Learning](concept-ml-pipelines.md) tienen los siguientes límites.

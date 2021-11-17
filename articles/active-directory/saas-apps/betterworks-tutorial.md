@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/07/2021
 ms.author: jeedes
-ms.openlocfilehash: 607a3ce9aa55e08e91b09fc55e054a3b978c171f
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 56c0b453c48324fcace5c0f6e12f9fc8dc5cc5fb
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811146"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132309498"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-betterworks"></a>Tutorial: integración del inicio de sesión único de Azure AD con BetterWorks
 
@@ -60,7 +60,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con BetterWorks util
 Para configurar y probar el inicio de sesión único de Azure AD con BetterWorks, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de BetterWorks](#configure-betterworks-sso)**, para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba en BetterWorks](#create-betterworks-test-user)**, para tener un homólogo de B.Simon en BetterWorks que esté vinculado a su representación en Azure AD.
@@ -147,4 +147,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado BetterWorks, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez que haya configurado BetterWorks, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender para la nube](/cloud-app-security/proxy-deployment-aad).

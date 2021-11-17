@@ -1,6 +1,6 @@
 ---
-title: Transición de la administración del nivel de ámbito de la Ventaja híbrida de Azure
-description: En este artículo se describen los cambios y varios escenarios de transición para ilustrar la transición a la administración del nivel de ámbito de la Ventaja híbrida de Azure.
+title: Transición a la administración centralizada de Ventaja híbrida de Azure
+description: En este artículo se describen los cambios y varios escenarios de transición para ilustrar la transición a la administración centralizada de Ventaja híbrida de Azure.
 keywords: ''
 author: bandersmsft
 ms.author: banders
@@ -8,16 +8,16 @@ ms.date: 09/30/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: ahb
-ms.openlocfilehash: a813a8934ff66b10e0f3c7adce65887acebba6f8
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: be701e090a7fd993f476cd45194b73368c589dc5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129547224"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223999"
 ---
-# <a name="transition-to-scope-level-management-of-azure-hybrid-benefit"></a>Transición de la administración del nivel de ámbito de la Ventaja híbrida de Azure
+# <a name="transition-to-centrally-managed-azure-hybrid-benefit"></a>Transición a la administración centralizada de Ventaja híbrida de Azure
 
-Al realizar la transición a la administración del nivel de ámbito de la Ventaja híbrida de Azure, se elimina la necesidad de configurar la ventaja en el nivel de recurso. En este artículo se describen los cambios y varios escenarios de transición para ilustrar el resultado. Para comprender mejor cómo la nueva experiencia de administración de licencias del nivel de ámbito aplica licencias y descuentos a los recursos, vea [¿Qué es la administración del nivel de ámbito de Ventaja híbrida de Azure?](overview-azure-hybrid-benefit-scope.md)
+Al realizar la transición a la administración centralizada de Ventaja híbrida de Azure, se elimina la necesidad de configurar la ventaja a nivel de recurso. En este artículo se describen los cambios y varios escenarios de transición para ilustrar el resultado. Para comprender mejor cómo la nueva experiencia de administración de licencias de nivel de ámbito aplica licencias y descuentos a los recursos, consulte [¿Qué es la administración centralizada de Ventaja híbrida de Azure?](overview-azure-hybrid-benefit-scope.md)
 
 ## <a name="changes-to-individual-resource-configuration"></a>Cambios en la configuración de los recursos individuales
 
@@ -37,7 +37,7 @@ Al inscribirse en la administración del nivel de ámbito de la experiencia Vent
 
 ## <a name="hadr-benefit-for-sql-server-vms"></a>Ventaja de alta disponibilidad y recuperación ante desastres para VM con SQL Server
 
-La nueva experiencia de Azure Portal es totalmente compatible con la ventaja de alta disponibilidad y recuperación ante desastres (HADR) para VM con SQL Server. Si la VM con SQL Server está configurada como una réplica de HADR, no se requiere ninguna otra acción. Para más información sobre cómo funciona la ventaja de HADR para VM con SQL Server, vea [Coexistencia de SQL Server HADR y la Ventaja híbrida de Azure de nivel de ámbito](sql-server-hadr-licenses.md).
+La nueva experiencia de Azure Portal es totalmente compatible con la ventaja de alta disponibilidad y recuperación ante desastres (HADR) para VM con SQL Server. Si la VM con SQL Server está configurada como una réplica de HADR, no se requiere ninguna otra acción. Para más información sobre cómo funciona la ventaja de HADR para VM con SQL Server, consulte [Coexistencia de HADR de SQL Server y la administración centralizada de Ventaja híbrida de Azure](sql-server-hadr-licenses.md).
 
 ## <a name="transition-scenario-examples"></a>Ejemplos de escenarios de transición
 
@@ -54,7 +54,7 @@ Revise los siguientes ejemplos de escenarios de transición que más se ajusten 
 > [!NOTE] 
 > La Ventaja híbrida de Azure permite seguir utilizando también las licencias asignadas a Azure en el entorno local durante un máximo de 180 días, a medida que las cargas de trabajo se migran, prueban e implementan.
 
-### <a name="simplify-license-management-by-transitioning-to-scope-level-management-of-azure-hybrid-benefit"></a>Simplificación de la administración de licencias mediante la transición a la administración del nivel de ámbito de la Ventaja híbrida de Azure
+### <a name="simplify-license-management-by-transitioning-to-centralized-scope-level-management-of-azure-hybrid-benefit"></a>Simplifique la administración de licencias mediante la transición a la administración centralizada de nivel de ámbito de Ventaja híbrida de Azure
 
 - **Recursos de SQL Server en ejecución**: se está ejecutando una licencia de 64 núcleos de Azure SQL Database crítico para la empresa, con la Ventaja híbrida de Azure seleccionada.
 - **Licencias disponibles para asignar a Azure**: el equipo de adquisiciones confirma que hay más de 64 licencias principales de SQL Server Enterprise Edition con Software Assurance que no están en uso en el entorno local.
@@ -70,13 +70,13 @@ Revise los siguientes ejemplos de escenarios de transición que más se ajusten 
 
 ### <a name="restore-compliance-when-excessive-azure-hybrid-benefit-usage-is-found"></a>Restauración del cumplimiento cuando se detecta un uso excesivo de la Ventaja híbrida de Azure
 
-- **Recursos de SQL Server en ejecución**: se están ejecutando tres licencias de 8 núcleos de la base de datos SQL de uso general y una instancia de 16 núcleos de VM con SQL Server Enterprise, con la Ventaja híbrida de Azure seleccionada en todo. El número de licencias de la Ventaja híbrida de Azure necesarias para la cobertura, es decir, 24 núcleos de Standard Edition más 16 núcleos de SQL Server Enterprise. O bien, 88 de SQL Server Standard Edition (+ 0 de SQL Server Enterprise Edition), o 22 de SQL Server Enterprise (+ 0 de SQL Server Standard Edition) también podrían ofrecer la cobertura. Esto se debe a que una licencia principal de SQL Server Enterprise Edition y cuatro licencias principales de SQL Server Standard Edition pueden cubrir el mismo uso de la Ventaja híbrida de Azure en todos los tipos de recursos de Azure SQL. Revise las reglas de la Ventaja híbrida de Azure en el artículo [¿Qué es la administración del nivel de ámbito de Ventaja híbrida de Azure?](overview-azure-hybrid-benefit-scope.md) para obtener más información sobre esta flexibilidad.
+- **Recursos de SQL Server en ejecución**: se están ejecutando tres licencias de 8 núcleos de la base de datos SQL de uso general y una instancia de 16 núcleos de VM con SQL Server Enterprise, con la Ventaja híbrida de Azure seleccionada en todo. El número de licencias de la Ventaja híbrida de Azure necesarias para la cobertura, es decir, 24 núcleos de Standard Edition más 16 núcleos de SQL Server Enterprise. O bien, 88 de SQL Server Standard Edition (+ 0 de SQL Server Enterprise Edition), o 22 de SQL Server Enterprise (+ 0 de SQL Server Standard Edition) también podrían ofrecer la cobertura. Esto se debe a que una licencia principal de SQL Server Enterprise Edition y cuatro licencias principales de SQL Server Standard Edition pueden cubrir el mismo uso de la Ventaja híbrida de Azure en todos los tipos de recursos de Azure SQL. Revise las reglas de Ventaja híbrida de Azure en el artículo [¿Qué es la administración centralizada de Ventaja híbrida de Azure?](overview-azure-hybrid-benefit-scope.md) para más información sobre esta flexibilidad.
 - **Licencias disponibles para asignar a Azure**: según su equipo de adquisiciones, hay 64 licencias principales de SQL Server Standard Edition con Software Assurance que no se están utilizando en el entorno local o en Azure. Esto es menor que la cantidad necesaria de 22 licencias principales de SQL Server Enterprise o 88 licencias principales de SQL Server Standard Edition.
 - **Acción recomendada**: para restaurar el cumplimiento, identifique 6 licencias principales de SQL Server Enterprise o 24 licencias principales de SQL Server Standard Edition con Software Assurance y asigne estas licencias y las 64 licencias principales de SQL Server Standard ya confirmadas a Azure mediante la administración del nivel de ámbito de la experiencia de la Ventaja híbrida de Azure.
 - **Resultado**: el incumplimiento se elimina y la Ventaja híbrida de Azure se usa de forma óptima para minimizar los costos.
 - **Acción alternativa**: asigne a Azure solo las 64 licencias principales de SQL Server Standard Edition. Se garantiza el cumplimiento, pero como esas licencias son insuficientes para cubrir todo el uso de Azure SQL, experimentará algunos cargos de pago por uso.
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte el tutorial [Administración y optimización de la Ventaja híbrida de Azure para SQL Server](tutorial-azure-hybrid-benefits-sql.md).
+- Consulte el tutorial [Optimización de la administración centralizada de Ventaja híbrida de Azure para SQL Server](tutorial-azure-hybrid-benefits-sql.md).
 - Pase a la administración de licencias del nivel de ámbito mediante la [creación de asignaciones de licencias de SQL Server](create-sql-license-assignments.md).
-- Vea [Preguntas frecuentes sobre la administración del nivel de ámbito de la Ventaja híbrida de Azure](faq-azure-hybrid-benefit-scope.yml).
+- Consulte [Preguntas frecuentes sobre la administración centralizada de Ventaja híbrida de Azure](faq-azure-hybrid-benefit-scope.yml).

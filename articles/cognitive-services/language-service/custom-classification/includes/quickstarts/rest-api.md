@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: 89c310e1cb18a41a4d04760af26dc06215770b9d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1ec5ed80111d7d0665d42b20dd725769b13de4b9
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093362"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131520874"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -83,6 +83,16 @@ Use la siguiente dirección URL para crear un proyecto e importar el archivo de 
 |Marcador de posición  |Valor  | Ejemplo |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | Punto de conexión para autenticar la solicitud de API.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+
+### <a name="parameters"></a>Parámetros
+
+Pase el parámetro siguiente con su solicitud. 
+
+|Clave|Explicación|Value|
+|--|--|--|
+|`api-version`| La versión de la API usada.| `2021-11-01-preview` |
+
+Para pasar el parámetro, agregue `?api-version=2021-11-01-preview` al final de la dirección URL de la solicitud.
 
 ### <a name="headers"></a>encabezados
 
@@ -156,6 +166,16 @@ Use la siguiente dirección URL al crear la solicitud de API. Reemplace los valo
 |`{YOUR-ENDPOINT}`     | Punto de conexión para autenticar la solicitud de API.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | Nombre del proyecto. Este valor distingue mayúsculas de minúsculas.  | `myProject` |
 
+### <a name="parameters"></a>Parámetros
+
+Pase el parámetro siguiente con su solicitud. 
+
+|Clave|Explicación|Value|
+|--|--|--|
+|`api-version`| La versión de la API usada.| `2021-11-01-preview` |
+
+Para pasar el parámetro, agregue `?api-version=2021-11-01-preview` al final de la dirección URL de la solicitud.
+
 ### <a name="headers"></a>encabezados
 
 Use el siguiente encabezado para autenticar la solicitud. 
@@ -183,7 +203,7 @@ Utilice el siguiente código JSON en la solicitud. El modelo se denominará `MyM
 Una vez que envíe la solicitud de API, recibirá una respuesta `202` que indica que se ha realizado correctamente. En los encabezados de respuesta, extraiga el valor `location`. Tendrá el formato siguiente: 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}?api-version=xxxx-xx-xx-xxxxxxx
 ``` 
 
 `JOB-ID` se usa para identificar la solicitud, ya que esta operación es asincrónica. Usará esta dirección URL en el paso siguiente para obtener el estado del entrenamiento. 
@@ -203,6 +223,16 @@ Use la siguiente solicitud **GET** para consultar el estado del proceso de entre
 |`{PROJECT-NAME}`     | Nombre del proyecto. Este valor distingue mayúsculas de minúsculas.  | `myProject` |
 |`{JOB-ID}`     | Id. para buscar el estado del entrenamiento del modelo. Se encuentra en el valor de encabezado `location` que recibió en el paso anterior.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
 
+### <a name="parameters"></a>Parámetros
+
+Pase el parámetro siguiente con su solicitud. 
+
+|Clave|Explicación|Value|
+|--|--|--|
+|`api-version`| La versión de la API usada.| `2021-11-01-preview` |
+
+Para pasar el parámetro, agregue `?api-version=2021-11-01-preview` al final de la dirección URL de la solicitud.
+
 ### <a name="headers"></a>encabezados
 
 Use el siguiente encabezado para autenticar la solicitud. 
@@ -210,7 +240,6 @@ Use el siguiente encabezado para autenticar la solicitud.
 |Clave|Valor|
 |--|--|
 |`Ocp-Apim-Subscription-Key`| Clave para el recurso. Se usa para autenticar las solicitudes de API.|
-
 
 ### <a name="response-body"></a>Cuerpo de la respuesta
 
@@ -262,6 +291,16 @@ Cree una solicitud **PUT** con la dirección URL, los encabezados y el cuerpo JS
 |`{PROJECT-NAME}`     | Nombre del proyecto. Este valor distingue mayúsculas de minúsculas.  | `myProject` |
 |`{DEPLOYMENT-NAME}`     | Nombre de la implementación. Este valor distingue mayúsculas de minúsculas.  | `prod` |
 
+### <a name="parameters"></a>Parámetros
+
+Pase el parámetro siguiente con su solicitud. 
+
+|Clave|Explicación|Value|
+|--|--|--|
+|`api-version`| La versión de la API usada.| `2021-11-01-preview` |
+
+Para pasar el parámetro, agregue `?api-version=2021-11-01-preview` al final de la dirección URL de la solicitud.
+
 ### <a name="headers"></a>encabezados
 
 Use el siguiente encabezado para autenticar la solicitud. 
@@ -284,7 +323,7 @@ Utilice el siguiente código JSON en la solicitud. El modelo se denominará `MyM
 Una vez que envíe la solicitud de API, recibirá una respuesta `202` que indica que se ha realizado correctamente. En los encabezados de respuesta, extraiga el valor `location`. Tendrá el formato siguiente: 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}?api-version=xxxx-xx-xx-xxxxxxx
 ``` 
 
 `JOB-ID` se usa para identificar la solicitud, ya que esta operación es asincrónica. Usará esta dirección URL en el paso siguiente para obtener el estado de publicación.
@@ -304,6 +343,16 @@ Use la siguiente solicitud **GET** para consultar el estado del proceso de publi
 |`{DEPLOYMENT-NAME}`     | Nombre de la implementación. Este valor distingue mayúsculas de minúsculas.  | `prod` |
 |`{JOB-ID}`     | Id. para buscar el estado del entrenamiento del modelo. Se encuentra en el valor de encabezado `location` que recibió en el paso anterior.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
 
+### <a name="parameters"></a>Parámetros
+
+Pase el parámetro siguiente con su solicitud. 
+
+|Clave|Explicación|Value|
+|--|--|--|
+|`api-version`| La versión de la API usada.| `2021-11-01-preview` |
+
+Para pasar el parámetro, agregue `?api-version=2021-11-01-preview` al final de la dirección URL de la solicitud.
+
 ### <a name="headers"></a>encabezados
 
 Use el siguiente encabezado para autenticar la solicitud. 
@@ -311,7 +360,6 @@ Use el siguiente encabezado para autenticar la solicitud.
 |Clave|Valor|
 |--|--|
 |`Ocp-Apim-Subscription-Key`| Clave para el recurso. Se usa para autenticar las solicitudes de API.|
-
 
 ### <a name="submit-text-classification-task"></a>Tarea de envío de la clasificación de texto
 

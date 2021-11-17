@@ -3,14 +3,14 @@ author: kengaderdus
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 11/12/2021
+ms.date: 01/27/2021
 ms.author: kengaderdus
-ms.openlocfilehash: 957a119f1a48c1e79326d80a16763204cd41a669
-ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
+ms.openlocfilehash: 23fb85a1a9e796e9cdb7a2e0fbcde365c1d3724f
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2021
-ms.locfileid: "132252224"
+ms.locfileid: "132133768"
 ---
 Si aún no tiene un certificado, puede usar un certificado autofirmado para este tutorial. Un certificado autofirmado es un certificado de seguridad que no está firmado por una entidad de certificación (CA) y no proporciona las garantías de seguridad de un certificado firmado por una CA. 
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 7e01f3790f14ae2aaf20da465cd9c66336ea5ce6
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 15f57b89e024fda9bbdc9af320c09e9cc370cce5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132280520"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477466"
 ---
 # <a name="tutorial-integrate-azure-ad-sso-with-contractsafe-saml2-sso"></a>Tutorial: Integración del inicio de sesión único de Azure AD con ContractSafe Saml2 SSO
 
@@ -143,4 +143,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado el inicio de sesión único de ContractSafe Saml2 SSO, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con aplicaciones de Microsoft Defender for Cloud](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado el inicio de sesión único de ContractSafe Saml2 SSO, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

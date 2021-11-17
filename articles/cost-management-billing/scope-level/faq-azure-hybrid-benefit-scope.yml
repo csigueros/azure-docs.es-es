@@ -1,0 +1,111 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes sobre la administración centralizada de Ventaja híbrida de Azure
+  titleSuffix: Cost Management + Billing
+  description: Preguntas frecuentes y respuestas.
+  author: bandersmsft
+  ms.reviewer: chrisrin
+  ms.service: cost-management-billing
+  ms.subservice: ahb
+  ms.topic: conceptual
+  ms.date: 09/30/2021
+  ms.author: banders
+  ms.openlocfilehash: 2e14b1e3ba341dc5b7992f128c07f8102df9f0f6
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130552702"
+title: Preguntas frecuentes sobre la administración centralizada de Ventaja híbrida de Azure
+summary: ''
+sections:
+- name: Preguntas generales
+  questions:
+  - question: ¿Qué recursos de Azure SQL se admiten?
+    answer: >
+      La experiencia de administración centralizada de Ventaja híbrida de Azure forma parte de Cost Management + Billing. Se aplican automáticamente licencias de SQL Server aptas en Ventaja híbrida de Azure a los siguientes recursos de Azure. Se aplica el número total de licencias principales normalizadas (NCL) creadas por la asignación de licencias de SQL para un ámbito específico. Para más información sobre NCL, consulte [Forma en que Azure aplica las licencias de SQL asignadas al uso por hora](manage-licenses-centrally.md).
+
+
+      - Bases de datos SQL
+
+      - Grupos elásticos SQL
+
+      - Instancias administradas de SQL
+
+      - Máquinas virtuales SQL
+
+
+      > [!NOTE]
+
+      > La nueva experiencia de administración centralizada de Ventaja híbrida de Azure no admite actualmente los siguientes servicios de Azure. Con estos servicios, todavía debe usar la opción de Ventaja híbrida de Azure de nivel de recurso.
+
+
+      - Azure Data Factory: SQL Server Integration Services (SSIS)
+
+      - Azure Dedicated Host
+  - question: ¿A qué tipos de contrato se aplica Ventaja híbrida de Azure?
+    answer: >
+      La nueva experiencia de Ventaja híbrida de Azure de nivel de ámbito está disponible automáticamente para los siguientes contratos:
+
+        - Microsoft Azure Enterprise: MS-AZR-0017P
+        - Azure Government Enterprise: MS-AZR-USGOV-0017P
+        - Plan de Microsoft Azure: MS-AZR-0017G
+
+      Aún no se admiten otros tipos de contrato. Para obtener más información, consulte [Requisitos previos](create-sql-license-assignments.md#prerequisites).
+  - question: ¿Qué licencias de SQL son válidas para Ventaja híbrida de Azure?
+    answer: >
+      Licencias básicas de SQL Server Enterprise y Standard Edition con Software Assurance o licencias de suscripción básicas. Para más información, consulte [Ventaja híbrida de Azure para SQL Server](../../azure-sql/azure-hybrid-benefit.md).
+  - question: ¿Cómo decido cuántas licencias de SQL Server aptas se deben asignar a Azure?
+    answer: >
+      En general, el departamento de administración de recursos de software o adquisiciones debe participar en la decisión sobre cuántas licencias asignar, ya que el número depende de la cantidad de licencias de SQL Server que estén disponibles. Es posible que tenga que comprar más licencias. La decisión supone algunos pasos:
+
+
+      1. Revisar la información disponible en Azure Portal sobre cuántas licencias de SQL Server se aplican a los recursos de Azure SQL con selecciones de Ventaja híbrida de Azure de nivel de recurso.
+
+      2. Confirmar con el departamento de administración de recursos de software o adquisiciones el número de licencias disponibles para asignar a Azure. Las licencias disponibles no se usan en el entorno local o se usan con una carga de trabajo que migra activamente desde el entorno local a Azure. Las licencias se pueden usar en ambos lugares durante un máximo de 180 días durante la migración. Consulte los [ejemplos de escenarios de transición](transition-existing.md#transition-scenario-examples).
+
+      3. Si solo hay suficientes licencias disponibles para cubrir el uso existente de licencias de Ventaja híbrida de Azure, puede decidir asignar ese número por motivos de continuidad. Si hay más licencias disponibles, puede decidir asignar más licencias para cubrir todo el uso de Azure SQL e incluso el crecimiento de uso esperado. Al optimizar las licencias asignadas para cubrir el uso constante o creciente, puede ahorrar más dinero a su organización. Por último, si no hay suficientes licencias disponibles para cubrir el uso existente de licencias de Ventaja híbrida de Azure, tiene dos opciones:
+
+          - Asignar menos licencias, lo que podría aumentar la factura de Azure.
+          - Hablar con su organización para liberar o adquirir más licencias de modo que pueda asignar la cantidad correcta.
+  - question: ¿Puedo usar la nueva experiencia con la instalación automática de SQL Server en máquinas virtuales de Azure?
+    answer: "El nuevo enfoque de administración centralizada de Ventaja híbrida de Azure a nivel de ámbito admite SQL Server en máquinas virtuales de Azure. Sin embargo, es esencial que haya habilitado el registro automático de las imágenes de SQL Server instalado automáticamente con la extensión IaaS *antes* de asignar licencias de SQL. La nueva experiencia incluye una característica que le informa sobre el uso actual de Ventaja híbrida de Azure y el uso de licencias de SQL que no tienen descuento. La asignación del número de licencias de SQL Server en el nivel de uso actual garantizará que no experimente cargos de pago por uso inesperados. Dado que las máquinas virtuales de SQL no registradas no se reconocen como recursos de SQL, registrarlas con la extensión IaaS *después* de empezar a asignar licencias a nivel de ámbito podría dar lugar a que las asignaciones de licencias no sean suficientes para cubrir las máquinas virtuales de SQL recién reconocidas. En ese caso, esas *nuevas* máquinas de SQL del registro pueden incurrir en cargos de pago por uso inesperados. \n\nPara más información sobre cómo habilitar el registro automático de IaaS, consulte [Registro de varias máquinas virtuales con SQL en Azure con la extensión Agente de IaaS de SQL](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md).\n\nPara más información sobre el número total de máquinas virtuales de SQL Server no registradas en cada suscripción, puede usar el [script de PowerShell de uso de licencias de SQL](https://github.com/anosov1960/sql-server-samples/tree/master/samples/manage/azure-hybrid-benefit).\n"
+  - question: ¿Cómo cambiará mi factura de Azure cuando cambie a la asignación centralizada de licencias a nivel de ámbito?
+    answer: >
+      La parte de SQL Server de la factura es una función del uso de recursos de Azure SQL (núcleos virtuales) y de la cantidad de Ventaja híbrida de Azure que se usa (licencias que cubren los núcleos virtuales). Si el uso de recursos de Azure SQL es constante y permanece igual, y asigna de forma centralizada el mismo número de licencias al ámbito que cuando se usa la ventaja por recurso, la factura no cambiará. Si algún uso es actualmente de pago por uso y asigna más licencias, la factura será menor porque se va a obtener más descuento, suponiendo que el uso sea estable.
+
+
+      Azure aplica el descuento de software por hora a los recursos de SQL Server en el ámbito seleccionado. Si las asignaciones de licencias de SQL Server son suficientes para cubrir todos los recursos de SQL Server de ese ámbito, el cargo por licencia será cero durante esa hora. Si la cobertura no es suficiente para cubrir todos los recursos de SQL del ámbito seleccionado, algunos recursos se cobrarán por SQL Server al precio de pago por uso. La factura mensual mostrará el costo acumulado de software de SQL Server de cada recurso del ámbito. Si se ha descontado sistemáticamente un recurso específico durante todo el período de facturación, su costo total software de SQL Server será cero. Si las nuevas implementaciones hacen que el tamaño total de los recursos de SQL Server supere lo que pueden cubrir las licencias asignadas, se producirá un aumento del coste mensual de pago por uso.
+
+
+      Para más información sobre cómo la experiencia de licencias de nivel de ámbito aplica Ventaja híbrida de Azure a los recursos de SQL Server, consulte [¿Qué es la administración centralizada de Ventaja híbrida de Azure?](overview-azure-hybrid-benefit-scope.md)
+  - question: ¿Cómo afecta la habilitación de la experiencia de administración de beneficios centralizada a los desarrolladores y administradores de bases de datos que crean y administran recursos?
+    answer: >
+      Al empezar a administrar centralmente Ventaja híbrida de Azure a nivel de ámbito, se recomienda que se hable con las personas que administran recursos en los ámbitos asociados. La opción de usar Ventaja híbrida de Azure para esos recursos ya no estará disponible. En Azure Portal, la opción estará deshabilitada. La API seguirá incluyendo la opción, pero será inoperable porque la administración de nivel de ámbito tiene prioridad. Dentro de la nueva experiencia de administración de nivel de ámbito, el administrador de facturación administra los descuentos asociados a Ventaja híbrida de Azure.
+  - question: ¿A qué me comprometo al realizar la transición a la administración centralizada de Ventaja híbrida de Azure? ¿Puedo optar por no recibirla?
+    answer: >
+      Cuando se usa la nueva experiencia en Azure Portal, simplemente se asignan licencias de SQL Server aptas, como es su derecho. Usted se compromete a usar la funcionalidad siguiendo las directrices de cumplimiento. Por ejemplo, solo asigne licencias a Azure que no se usen en ningún otro lugar.
+
+
+      Si prueba el nuevo enfoque para administrar centralmente la ventaja a nivel de ámbito y decide que no es para usted, puede dejar de participar eliminando las asignaciones de licencias asociadas. Cuando se quitan todas las asignaciones de licencias para un ámbito determinado, se deja de participar completamente en la funcionalidad con respecto a ese ámbito. Esto significa que las selecciones de Ventaja híbrida de Azure basadas en recursos están disponibles de nuevo para los usuarios que implementan y administran recursos de SQL. Si Ventaja híbrida de Azure se habilitó para un recurso antes de realizar la transición a la experiencia de licencia administrada de nivel de ámbito, el estado se conserva para el recurso. Si decide no participar en la experiencia de licencia administrada de nivel de ámbito, los descuentos originales se aplicarán inmediatamente.
+
+
+      > [!IMPORTANT]
+
+      > Si ha agregado recursos de Azure SQL dentro de un ámbito mientras usa la nueva experiencia de administración centralizada y, luego, decide no participar, su organización tendrá que seleccionar Ventaja híbrida de Azure para cada recurso individual para que se aplique la ventaja.
+  - question: ¿Cómo se realiza el seguimiento del uso de licencias de SQL Server asignadas a un ámbito?
+    answer: >
+      Puede realizar un seguimiento del uso de las licencias de SQL Server asignadas en **Cost Management** > **Reservations + Hybrid Benefit** (Reservas y Ventana híbrida). Para más información, consulte [Seguimiento del uso de licencias asignadas](create-sql-license-assignments.md#track-assigned-license-use).
+  - question: ¿Puedo usar mis licencias de Windows Server y de acceso de cliente con la nueva experiencia de administración centralizada de Ventaja híbrida de Azure?
+    answer: >
+      La experiencia de licencia administrada de nivel de ámbito está optimizada para licencias básicas de SQL Server con Software Assurance y licencias de suscripción básicas. Actualmente, no se admite Windows Server ni la versión de SQL Server de las licencias de acceso de servidor y cliente. Con respecto a este último, puede seguir usando [Movilidad de licencias a través de Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility).  Además, no dude en ponerse en contacto con el equipo de cuentas de Microsoft para ver cómo pueden ayudarle.
+  - question: ¿Cómo se habilita y administra Ventaja híbrida de Azure para las licencias de Windows Server?
+    answer: >
+      Puede habilitar Ventaja híbrida de Azure para cada recurso individual, por ejemplo, una máquina virtual de Azure. Actualmente, no se admite la administración de licencias de Windows Server a nivel de ámbito.
+additionalContent: >-
+  ## <a name="next-steps"></a>Pasos siguientes
+
+
+  Más información sobre Ventaja híbrida de Azure:
+
+  -  [¿Qué es la administración centralizada de Ventaja híbrida de Azure?](overview-azure-hybrid-benefit-scope.md)

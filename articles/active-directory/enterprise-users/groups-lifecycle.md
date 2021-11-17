@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jodah
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bde4362580ebfd04f67b5311c79cb8c64e85ddc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b437a88ca30907c097f33ef2065702db4f8945b2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131052662"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132342554"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configuración de la directiva de expiración de grupos de Microsoft 365
 
@@ -67,7 +67,7 @@ Estos son los roles en los que puede configurar y usar la expiración de grupos 
 Role | Permisos
 -------- | --------
 Administrador global, administrador de grupos o administrador de usuarios | Puede crear, consultar, actualizar o eliminar la configuración de la directiva de expiración de grupos de Microsoft 365.<br>Puede renovar cualquier grupo de Microsoft 365.
-Usuario | Puede renovar un grupo de Microsoft 365 de su propiedad.<br>Puede restaurar un grupo de Microsoft 365 de su propiedad.<br>Puede leer la configuración de la directiva de expiración
+Usuario | Puede renovar un grupo de Microsoft 365 de su propiedad.<br>Puede restaurar un grupo de Microsoft 365 de su propiedad.<br>Puede leer la configuración de la directiva de expiración
 
 Si necesita más información sobre los permisos para restaurar los grupos eliminados, consulte [Restauración de un grupo eliminado de Microsoft 365 en Azure Active Directory](groups-restore-deleted.md).
 
@@ -116,7 +116,7 @@ Si el grupo que restaura contiene documentos, sitios de SharePoint u otros objet
 
 ## <a name="how-to-retrieve-microsoft-365-group-expiration-date"></a>Cómo recuperar la fecha de expiración del grupo de Microsoft 365
 
-Además de a través del Panel de acceso, donde los usuarios pueden ver los detalles del grupo (incluida la fecha de expiración y la última fecha de renovación), la fecha de expiración de un grupo de Microsoft 365 puede obtenerse mediante la versión beta de la API de REST de Microsoft Graph. Se ha habilitado expirationDateTime como una propiedad de grupo en la versión beta de Microsoft Graph y puede recuperarse con una solicitud GET. Para obtener más información, consulte [este ejemplo](/graph/api/group-get?view=graph-rest-beta#example&preserve-view=true).
+Además del Panel de acceso, donde los usuarios pueden ver los detalles del grupo (incluida la fecha de expiración y la última fecha de renovación), la fecha de expiración de un grupo de Microsoft 365 se puede recuperar mediante la versión beta de la API REST de Microsoft Graph. Se ha habilitado expirationDateTime como una propiedad de grupo en la versión beta de Microsoft Graph y puede recuperarse con una solicitud GET. Para obtener más información, consulte [este ejemplo](/graph/api/group-get?view=graph-rest-beta#example&preserve-view=true).
 
 > [!NOTE]
 > Para administrar las pertenencias a grupos en el Panel de acceso, la opción "Restringir el acceso a grupos en el Panel de acceso" debe establecerse en "No" en la configuración general de grupos de Azure Active Directory.

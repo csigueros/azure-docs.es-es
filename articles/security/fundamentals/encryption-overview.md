@@ -7,14 +7,14 @@ ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 10/26/2021
 ms.author: mbaldwin
-ms.openlocfilehash: d7d438b369c863660a032f101e466b6fadf639fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: acfa59c13f0f9429135ea7f2218ca8fec121c8a3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879721"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131428318"
 ---
 # <a name="azure-encryption-overview"></a>Información general del cifrado de Azure
 
@@ -22,7 +22,7 @@ Este artículo proporciona información general sobre cómo se usa el cifrado en
 
 ## <a name="encryption-of-data-at-rest"></a>Cifrado de datos en reposo
 
-Los datos en reposo incluyen información que se encuentra en el almacenamiento persistente en un medio físico, en cualquier formato digital. El medio puede incluir archivos de medios ópticos o magnéticos, datos archivados y copias de seguridad de datos. Microsoft Azure ofrece una variedad de soluciones de almacenamiento de datos para satisfacer diferentes necesidades, incluidos el almacenamiento de tablas, blobs y archivos, así como el almacenamiento en disco. Microsoft también proporciona cifrado para proteger [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md), [Azure Cosmos DB](../../data-factory/introduction.md) y Azure Data Lake.
+Los datos en reposo incluyen información que se encuentra en el almacenamiento persistente en un medio físico, en cualquier formato digital. El medio puede incluir archivos de medios ópticos o magnéticos, datos archivados y copias de seguridad de datos. Microsoft Azure ofrece una variedad de soluciones de almacenamiento de datos para satisfacer diferentes necesidades, incluidos el almacenamiento de tablas, blobs y archivos, así como el almacenamiento en disco. Microsoft también proporciona cifrado para proteger [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md), [Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) y Azure Data Lake.
 
 El cifrado de datos en reposo está disponible para los servicios a través de los modelos en la nube de software como servicio (SaaS), plataforma como servicio (PaaS) e infraestructura como servicio (IaaS). En este artículo se resumen las opciones de cifrado de Azure y se proporcionan recursos para ayudarle a usarlas.
 
@@ -99,7 +99,7 @@ CLE tiene funciones integradas que puede usar para cifrar datos con claves simé
 
 ### <a name="cosmos-db-database-encryption"></a>Cifrado de base de datos Cosmos DB
 
-[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) es la base de datos multimodelo de distribución global de Microsoft. Los datos de usuario almacenados en Cosmos DB en un almacenamiento no volátil (unidades de estado sólido) se cifran de forma predeterminada. No hay ningún control para activarlo o desactivarlo. El cifrado en reposo se implementa mediante una serie de tecnologías de seguridad, como sistemas seguros de almacenamiento de claves, redes cifradas y API criptográficas. Microsoft administra las claves de cifrado y se alternan según las directivas internas de Microsoft.
+[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) es la base de datos multimodelo de distribución global de Microsoft. Los datos de usuario almacenados en Cosmos DB en un almacenamiento no volátil (unidades de estado sólido) se cifran de forma predeterminada. No hay ningún control para activarlo o desactivarlo. El cifrado en reposo se implementa mediante una serie de tecnologías de seguridad, como sistemas seguros de almacenamiento de claves, redes cifradas y API criptográficas. Microsoft administra las claves de cifrado y se alternan según las directivas internas de Microsoft. También puede optar por agregar una segunda capa de cifrado con las claves que administra con la característica [claves administradas por el cliente o CMK](../../cosmos-db/how-to-setup-cmk.md).
 
 ### <a name="at-rest-encryption-in-data-lake"></a>Cifrado en reposo en Data Lake
 

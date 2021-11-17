@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: fe746ed4fe8c24afa0667d8c2559d9c46fee5211
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 1b85dd7bdab820cd66f1ac4f2421191f354a073c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129660084"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130220384"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Solución de errores intermitentes en la conexión de salida en Azure App Service
 
@@ -47,7 +47,7 @@ Hay algunas soluciones que permiten evitar las limitaciones de puertos SNAT. Inc
 
 Evitar el problema del puerto SNAT se traduce en evitar la creación de conexiones repetidas a los mismos host y puerto. Los grupos de conexiones son una de las formas más obvias para resolver ese problema.
 
-Si el destino es un servicio de Azure que admite puntos de conexión de servicio, podrá evitar los problemas de agotamiento de puertos SNAT utilizando la [integración con red virtual regional](./web-sites-integrate-with-vnet.md) junto con puntos de conexión privados o de servicio. Cuando se usa la integración con red virtual regional y se colocan puntos de conexión de servicio en la subred de integración, el tráfico que sale de la aplicación hacia esos servicios no tiene restricciones sobre los puertos SNAT de salida. Del mismo modo, si usa la integración con red virtual regional junto con puntos de conexión privados, no tendrá ningún problema con los puertos SNAT de salida en ese destino. 
+Si el destino es un servicio de Azure que admite puntos de conexión de servicio, podrá evitar los problemas de agotamiento de puertos SNAT utilizando la [integración con red virtual regional](./overview-vnet-integration.md) junto con puntos de conexión privados o de servicio. Cuando se usa la integración con red virtual regional y se colocan puntos de conexión de servicio en la subred de integración, el tráfico que sale de la aplicación hacia esos servicios no tiene restricciones sobre los puertos SNAT de salida. Del mismo modo, si usa la integración con red virtual regional junto con puntos de conexión privados, no tendrá ningún problema con los puertos SNAT de salida en ese destino. 
 
 Si el destino es un punto de conexión externo fuera de Azure, el [uso de una instancia de NAT Gateway](./networking/nat-gateway-integration.md) proporciona 64 000 puertos SNAT de salida. También proporciona una dirección de salida dedicada que no se comparte con ningún otro usuario. 
 
@@ -156,6 +156,7 @@ Las conexiones TCP y los puertos SNAT no están directamente relacionados. Un de
 * Un puerto SNAT se puede compartir entre distintos flujos, si difieren en el protocolo, la dirección IP o el puerto. La métrica de conexiones TCP cuenta todas las conexiones TCP.
 * El límite de conexiones TCP se produce en el nivel de instancia de trabajo. El equilibrio de carga de salida de red de Azure no usa la métrica de conexiones TCP para la limitación de puertos SNAT.
 * Los límites de conexiones TCP se describen en [Límites numéricos de máquinas virtuales entre espacios aislados: conexiones TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits).
+* Las sesiones TCP existentes experimentarán errores cuando las nuevas sesiones TCP de salida de Azure App Service usen el puerto de origen. Para evitar conflictos, puede usar una única dirección IP o volver a configurar los miembros del grupo de back-end.
 
 |Nombre del límite|Descripción|Pequeño (A1)|Medio (A2)|Grande (A3)|Nivel aislado (ASE)|
 |---|---|---|---|---|---|

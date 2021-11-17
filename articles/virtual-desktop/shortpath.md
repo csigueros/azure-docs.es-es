@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 10/18/2021
 ms.author: denisgun
-ms.openlocfilehash: d24c1b3bdc6da07b844638157a0ecdfc9eb18843
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 43f4a8a1f467637f3a3703704361db525912f750
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130225234"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179234"
 ---
 # <a name="azure-virtual-desktop-rdp-shortpath-for-managed-networks"></a>RDP Shortpath de Azure Virtual Desktop para redes administradas
 
@@ -93,7 +93,7 @@ Para permitir el tráfico de red entrante para RDP Shortpath, use el nodo Firewa
 2. En el panel de navegación, seleccione **Reglas de entrada**.
 3. Seleccione **Acción** y, después, **Nueva regla**.
 4. En la página **Tipo de regla** del Asistente para nueva regla de entrada, seleccione **Personalizada** y, después, seleccione **Siguiente**.
-5. En la página **Programa**, seleccione **Esta ruta de acceso del programa**, escriba "%SystemRoot%\s ystem32\svchost.exe" y, a continuación, seleccione **Siguiente**.
+5. En la página **Programa**, seleccione **Esta ruta de acceso del programa** y escriba "%SystemRoot%\system32\svchost.exe" y, a continuación, seleccione **Siguiente**.
 6. En la página **Protocolo y puertos**, seleccione el tipo de protocolo UDP. En **Puerto Local**, seleccione "Puertos específicos" y escriba el puerto UDP configurado. Si ha dejado la configuración predeterminada, el número de puerto será 3390.
 7. En la página **Ámbito**, puedes especificar que la regla se aplica solo al tráfico de red hacia o desde las direcciones IP especificadas en esta página. Realice la configuración según su diseño y después seleccione **Siguiente**.
 8. En la página **Acción**, seleccione **Permitir la conexión** y, a continuación, **Siguiente**.
@@ -230,7 +230,7 @@ Si quiere deshabilitar RDP Shortpath para un cliente específico, puede usar la 
 Si quiere deshabilitar RDP Shortpath para un host de sesión específico, puede usar la siguiente directiva de grupo para deshabilitar la compatibilidad con UDP:
 
 1. En el host de sesión, ejecute **gpedit.msc**.
-2. Vaya a **Configuración del equipo > Plantillas de administración > Componentes de Windows > Servicios de Escritorio remoto > Host de conexión de Escritorio remoto > Conexiones**.
+2. Vaya a **Configuración del equipo > Plantillas de administración > Componentes de Windows > Servicios de Escritorio remoto > Host de sesión de Escritorio remoto > Conexiones**.
 3. Establezca el valor **"Seleccionar protocolos de transporte RDP"** en **Solo TCP**.
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -2,13 +2,13 @@
 title: Detección de Bicep en Microsoft Learn
 description: Proporciona información general sobre las unidades de Bicep que hay disponibles en Microsoft Learn.
 ms.topic: conceptual
-ms.date: 10/26/2021
-ms.openlocfilehash: e05326be49df089375f7596794b7ed7e6d596179
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/09/2021
+ms.openlocfilehash: 975b4340f8bc419428936857089356ee1fe18516
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131087467"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059364"
 ---
 # <a name="bicep-on-microsoft-learn"></a>Bicep en Microsoft Learn
 
@@ -16,16 +16,26 @@ ms.locfileid: "131087467"
 
 ## <a name="get-started"></a>Introducción
 
-Estas dos rutas de aprendizaje le ayudarán a empezar a trabajar:
+Si no está familiarizado con Bicep, una excelente manera de empezar es usar este módulo en Microsoft Learn.
+
+Allí aprenderá cómo Bicep facilita la definición de cómo se deben configurar e implementar los recursos de Azure de una manera automatizada y repetible. Implementará varios recursos de Azure para que pueda ver por sí mismo cómo funciona Bicep. Proporcionamos acceso gratuito a los recursos de Azure para ayudarle a poner en práctica los conceptos.
+
+[<img src="media/learn-bicep/build-first-bicep-template.svg" width="101" height="120" alt="The badge for the Build your first Bicep template module on Microsoft Learn." role="presentation"></img>](/learn/modules/build-first-bicep-template/)
+
+[Compilación de la primera plantilla de Bicep](/learn/modules/build-first-bicep-template/)
+
+## <a name="learn-more"></a>Más información
+
+Para más información sobre las características de Bicep, tome estas rutas de aprendizaje:
 
 :::row:::
 :::column:::
-  <img src="media/learn-bicep/bicep-deploy-manage.svg" width="101" height="120" alt="The trophy for the Deploy and manage resources in Azure by using Bicep learning path." role="presentation"></img>
+  [<img src="media/learn-bicep/bicep-deploy-manage.svg" width="101" height="120" alt="The trophy for the Deploy and manage resources in Azure by using Bicep learning path." role="presentation"></img>](/learn/paths/bicep-deploy/)
 
   [Parte 1: Implementación y administración de recursos en Azure mediante Bicep](/learn/paths/bicep-deploy/)
 :::column-end:::
 :::column:::
-  <img src="media/learn-bicep/bicep-collaborate.svg" width="101" height="120" alt="The trophy for the Build Azure infrastructure in a team environment by using Bicep learning path." role="presentation"></img>
+  [<img src="media/learn-bicep/bicep-collaborate.svg" width="101" height="120" alt="The trophy for the Build Azure infrastructure in a team environment by using Bicep learning path." role="presentation"></img>](/learn/paths/bicep-collaborate/)
 
   [Parte 2: Creación de infraestructura de Azure en un entorno de equipo mediante Bicep](/learn/paths/bicep-collaborate/)
 :::column-end:::
@@ -37,12 +47,12 @@ Después de esto, es posible que le interese agregar su código de Bicep a una c
 
 :::row:::
 :::column:::
-  <img src="media/learn-bicep/bicep-azure-pipelines.svg" width="101" height="120" alt="The trophy for the Deploy Azure resources using Bicep and Azure Pipelines learning path." role="presentation"></img>
+  [<img src="media/learn-bicep/bicep-azure-pipelines.svg" width="101" height="120" alt="The trophy for the Deploy Azure resources using Bicep and Azure Pipelines learning path." role="presentation"></img>](/learn/paths/bicep-azure-pipelines/)
     
   [Implementación de recursos de Azure mediante Bicep y Azure Pipelines](/learn/paths/bicep-azure-pipelines/)
 :::column-end:::
 :::column:::
-  <img src="media/learn-bicep/bicep-github-actions.svg" width="101" height="120" alt="The trophy for the Deploy Azure resources using Bicep and GitHub Actions learning path." role="presentation"></img>
+  [<img src="media/learn-bicep/bicep-github-actions.svg" width="101" height="120" alt="The trophy for the Deploy Azure resources using Bicep and GitHub Actions learning path." role="presentation"></img>](/learn/paths/bicep-github-actions/)
 
   [Implementación de recursos de Azure mediante Bicep y Acciones de GitHub](/learn/paths/bicep-github-actions/)
 :::column-end:::

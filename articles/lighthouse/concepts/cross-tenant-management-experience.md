@@ -1,14 +1,14 @@
 ---
 title: Experiencias de administración entre inquilinos
 description: Azure Lighthouse habilita y mejora las experiencias entre inquilinos en muchos servicios de Azure.
-ms.date: 10/21/2021
+ms.date: 11/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: a9dbf51a965c1aa73489fdd2990736914b27177c
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 07a0e2e9a42ace65cc159e0363a8ba86f4291cca
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132312464"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492841"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -125,6 +125,23 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 
 - Ahora incluye el identificador de inquilino en los resultados de la consulta devueltos, lo que le permite identificar si una suscripción pertenece a un inquilino administrado.
 
+[Azure Service Health](../../service-health/index.yml):
+
+- Supervisar el estado de los recursos del cliente con Azure Resource Health
+- Hacer un seguimiento del estado de los servicios de Azure que usan los clientes
+
+[Azure Site Recovery](../../site-recovery/index.yml):
+
+- Administración de opciones de recuperación ante desastres para máquinas virtuales de Azure en inquilinos de clientes (tenga en cuenta que no puede usar cuentas `RunAs` para copiar extensiones de VM)
+
+[Azure Virtual Machines](../../virtual-machines/index.yml):
+
+- Uso de extensiones de máquina virtual para la configuración posterior a la implementación y la automatización de tareas en máquinas virtuales de Azure
+- Uso de diagnósticos de arranque para solucionar problemas de máquinas virtuales de Azure
+- Acceso a máquinas virtuales con la consola serie
+- Integración de máquinas virtuales con Azure Key Vault para obtener contraseñas, secretos o claves criptográficas para el cifrado de discos mediante la [identidad administrada a través de directivas](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret), lo que garantizará que los secretos se almacenen en una instancia de Key Vault de los inquilinos administrados
+- Tenga en cuenta que no puede usar Azure Active Directory para el inicio de sesión remoto en las máquinas virtuales
+
 [Microsoft Defender for Cloud](../../security-center/index.yml):
 
 - Visibilidad entre inquilinos
@@ -148,23 +165,6 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 - Administración de recursos de Microsoft Sentinel [en inquilinos del cliente](../../sentinel/multiple-tenants-service-providers.md)
 - [Seguimiento de ataques y visualización de alertas de seguridad en varios inquilinos](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
 - [Visualización de incidentes](../../sentinel/multiple-workspace-view.md) en varias áreas de trabajo de Microsoft Sentinel distribuidas entre inquilinos
-
-[Azure Service Health](../../service-health/index.yml):
-
-- Supervisar el estado de los recursos del cliente con Azure Resource Health
-- Hacer un seguimiento del estado de los servicios de Azure que usan los clientes
-
-[Azure Site Recovery](../../site-recovery/index.yml):
-
-- Administración de opciones de recuperación ante desastres para máquinas virtuales de Azure en inquilinos de clientes (tenga en cuenta que no puede usar cuentas `RunAs` para copiar extensiones de VM)
-
-[Azure Virtual Machines](../../virtual-machines/index.yml):
-
-- Uso de extensiones de máquina virtual para la configuración posterior a la implementación y la automatización de tareas en máquinas virtuales de Azure
-- Uso de diagnósticos de arranque para solucionar problemas de máquinas virtuales de Azure
-- Acceso a máquinas virtuales con la consola serie
-- Integración de máquinas virtuales con Azure Key Vault para obtener contraseñas, secretos o claves criptográficas para el cifrado de discos mediante la [identidad administrada a través de directivas](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret), lo que garantizará que los secretos se almacenen en una instancia de Key Vault de los inquilinos administrados
-- Tenga en cuenta que no puede usar Azure Active Directory para el inicio de sesión remoto en las máquinas virtuales
 
 Solicitudes de soporte técnico:
 

@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 11/10/2021
 ms.author: victorh
-ms.openlocfilehash: 7b8dd13c5d2c3c080ca20115dfc41b23dd6e545e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 252a4e71a5fdcc823ab357e8528a50bd737ff1c2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725380"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283569"
 ---
 # <a name="deploy-a-security-partner-provider"></a>Implementación de un proveedor de seguridad asociado
 
@@ -102,6 +102,10 @@ Para configurar túneles en VPN Gateway del centro de conectividad virtual, los 
 3. Seleccione el centro de conectividad y vaya a **Opciones de configuración de seguridad**.
 
    Cuando se implementa un proveedor externo en el centro de conectividad, este se convierte en un *centro virtual protegido*. Esto garantiza que el proveedor de terceros anuncia una ruta 0.0.0.0.0/0 (predeterminada) hacia el centro de conectividad. Sin embargo, las conexiones de VNet y los sitios conectados al centro de conectividad no reciben esta ruta a menos que elija qué conexiones deben recibir esta ruta predeterminada.
+
+   > [!NOTE]
+   > No cree manualmente una ruta 0.0.0.0/0 (valor predeterminado) a través de BGP para anuncios de rama. Esto se hace automáticamente para implementaciones de centros virtuales seguras con proveedores de seguridad de terceros. Si lo hace, puede interrumpir el proceso de implementación.
+
 4. Configure la seguridad de WAN virtual estableciendo el **tráfico de Internet** a través de Azure Firewall y el **tráfico privado** mediante un asociado de seguridad de confianza. Esto protege automáticamente las conexiones individuales en la WAN virtual.
 
    :::image type="content" source="media/deploy-trusted-security-partner/security-configuration.png" alt-text="Configuración de seguridad":::

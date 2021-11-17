@@ -1,23 +1,23 @@
 ---
-title: 'Referencia: SDK del servidor de Python para el servicio Azure Web PubSub'
-description: En la referencia se describe el SDK del servidor de Python para el servicio Azure Web PubSub
+title: 'Referencia: SDK del servidor de Python para Azure Web PubSub'
+description: En esta referencia se describe el SDK del servidor de Python para el servicio Azure Web PubSub.
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.openlocfilehash: c394258a49e73055f6848eed87dd15e75bd1c069
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: f28ab302aa6899e35c080821ccddf01d5e7cb76e
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123114390"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131578342"
 ---
-# <a name="python-server-sdk-for-azure-web-pubsub-service"></a>SDK del servidor de Python para el servicio Azure Web PubSub
+# <a name="python-server-sdk-for-azure-web-pubsub"></a>SDK del servidor de Python para el Azure Web PubSub
 
-Use la biblioteca para:
+Puede usar esta biblioteca para:
 
-- Enviar mensajes a centros y grupos.
+- Enviar mensajes a centros y grupos. 
 - Enviar mensajes a determinados usuarios y conexiones.
 - Organizar usuarios y conexiones en grupos.
 - Cerrar conexiones.
@@ -26,23 +26,23 @@ Use la biblioteca para:
 [Código fuente](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/webpubsub/azure-messaging-webpubsubservice) | [Paquete (Pypi)][package] | [Documentación de referencia de API](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/webpubsub/azure-messaging-webpubsubservice) | [Documentación del producto][webpubsubservice_docs] |
 [Ejemplos][samples_ref]
 
-## <a name="getting-started"></a>Introducción
+## <a name="get-started"></a>Introducción
 
-### <a name="installations-the-package"></a>Instalación del paquete
+Instale el paquete tal como se muestra a continuación:
 
 ```bash
-python -m pip install azure-messaging-webpubsubservice
+python -m pip install azure-messaging-webpubsubservice==1.0.0b1
 ```
 
-#### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 - Se requiere Python 2.7, 3.6 o posterior para usar este paquete.
-- Se necesitan una [suscripción de Azure][azure_sub] y una [instancia de servicio Azure Web PubSub][webpubsubservice_docs] para usar este paquete.
-- Una instancia de servicio Azure Web PubSub existente.
+- Una [suscripción de Azure][azure_sub].
+- Una instancia existente del servicio Azure Web PubSub.
 
-### <a name="authenticating-the-client"></a>Autenticación del cliente
+### <a name="authenticate-the-client"></a>Autenticar el cliente
 
-Para interactuar con el servicio Azure Web PubSub, tiene que crear una instancia de la clase [WebPubSubServiceClient][webpubsubservice_client_class]. Para autenticarse en el servicio, debe pasar una instancia de AzureKeyCredential con punto de conexión y clave de acceso. El punto de conexión y la clave de acceso se pueden encontrar en Azure Portal.
+Para interactuar con el servicio Azure WebPubSub, tiene que crear una instancia de la clase [`WebPubSubServiceClient`][webpubsubservice_client_class]. Para autenticarse en el servicio, debe pasar una instancia de "AzureKeyCredential" con punto de conexión y clave de acceso. Puede encontrar la dirección del punto de conexión y las claves de acceso en Azure Portal.
 
 ```python
 >>> from azure.messaging.webpubsubservice import WebPubSubServiceClient
@@ -82,10 +82,7 @@ Para interactuar con el servicio Azure Web PubSub, tiene que crear una instanci
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-### <a name="logging"></a>Registro
-
-Este SDK usa la biblioteca de registro estándar de Python.
-Puede configurar la información de depuración de impresión de registro en stdout o cualquier ubicación que quiera.
+Este SDK usa la biblioteca de registro estándar de Python. Puede configurar la información de depuración de impresión de registro en `stdout` o en cualquier ubicación que quiera.
 
 ```python
 import logging
@@ -93,9 +90,9 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 ```
 
-Los detalles de solicitud y respuesta HTTP se imprimen en stdout con esta configuración de registro.
+Los detalles de solicitud y respuesta HTTP se imprimen en `stdout` con esta configuración de registro.
 
-[webpubsubservice_docs]: https://aka.ms/awps/doc
+[webpubsubservice_docs]: ./index.yml
 [azure_cli]: /cli/azure
 [azure_sub]: https://azure.microsoft.com/free/
 [webpubsubservice_client_class]: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/webpubsub/azure-messaging-webpubsubservice/azure/messaging/webpubsubservice/__init__.py

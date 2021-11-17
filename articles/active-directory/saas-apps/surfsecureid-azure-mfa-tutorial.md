@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/20/2021
 ms.author: jeedes
-ms.openlocfilehash: f477769780b81df6bd1edc8263e90902816aad64
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 8034af23b35545e1e5f5508632b0b8737537b0f5
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132282775"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063889"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-surfsecureid---azure-mfa"></a>Tutorial: Integración del inicio de sesión único de Azure AD con SURFsecureID - Azure MFA
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar SURFsecureID - Azure MFA con Azure Activ
 * Permitir que los usuarios inicien sesión automáticamente en SURFsecureID - Azure MFA con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -157,4 +157,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado SURFsecureID - Azure MFA, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con las aplicaciones de Microsoft Defender for Cloud](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado SURFsecureID - Azure MFA, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

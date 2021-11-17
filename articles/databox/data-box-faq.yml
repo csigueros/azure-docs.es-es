@@ -7,15 +7,15 @@ metadata:
   ms.service: databox
   ms.subservice: pod
   ms.topic: article
-  ms.date: 07/21/2021
+  ms.date: 08/31/2021
   ms.author: alkohli
   ms.custom: references_regions
-  ms.openlocfilehash: 47d941b1c6e6ce7b0f383e977f227db65fa86871
-  ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+  ms.openlocfilehash: b2aed039a735ff9124fe19c61992ec184879c0b7
+  ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/23/2021
-  ms.locfileid: "114653430"
+  ms.lasthandoff: 11/09/2021
+  ms.locfileid: "132059307"
 title: 'Azure Data Box: Preguntas más frecuentes'
 summary: >
   La solución híbrida Microsoft Azure Data Box le permite enviar terabytes de datos a Azure de forma rápida, económica y confiable, mediante un dispositivo de transferencia. En este documento encontrará las preguntas más frecuentes que pueden surgir al usar Data Box en Azure Portal, y las respuestas a dichas preguntas.
@@ -43,7 +43,7 @@ sections:
   - question: >
       ¿En qué regiones puedo almacenar datos con Data Box?
     answer: >
-      Data Box se admite en todas las regiones de Estados Unidos, Oeste de Europa, Norte de Europa, Francia, Reino Unido, Japón, Australia y Canadá. Para más información, vaya a [Disponibilidad por región](data-box-overview.md#region-availability).
+      Data Box se admite en todas las regiones de Estados Unidos, Canadá, la UE, Reino Unido, Suiza, Australia, Singapur, Hong Kong, Japón, Corea, India, Brasil, Sudáfrica y Emiratos Árabes Unidos. Para más información, vaya a [Disponibilidad por región](data-box-overview.md#region-availability).
   - question: >
       ¿Cómo puedo importar datos de origen en mi ubicación de un país determinado a una región de Azure en un país o región diferente, o exportar datos de una región de Azure de un país a otro país o región?
     answer: >
@@ -111,7 +111,8 @@ sections:
       Puede clonar el pedido anterior. La clonación crea el mismo pedido que antes y permite editar los detalles del pedido solo sin necesidad de escribir los datos de dirección, contacto y notificación. La clonación solo se permite para los pedidos de importación.
 - name: Configuración y conexión
   questions:
-  - question: "¿Cómo se desbloquea Data Box? \n"
+  - question: >
+      ¿Cómo se desbloquea Data Box?
     answer: >
       En Azure Portal, vaya a su pedido de Data Box y, a continuación, vaya a **Detalles del dispositivo**. Copie la contraseña de desbloqueo. Use esta contraseña para iniciar sesión en la interfaz de usuario web local de Data Box. Para más información, vaya a [Tutorial: Cableado y conexión de un dispositivo Azure Data Box](data-box-deploy-set-up.md).
   - question: >
@@ -162,6 +163,9 @@ sections:
       ¿Se admite la configuración de canal de puerto en Data Box? ¿Qué pasa con MPIO?
     answer: >
       No admitimos en Data Box la configuración de canal de puerto, la configuración de Multipath IO (MPIO) ni la configuración de vLAN.
+  - question: >
+      ¿Cuándo expiran los certificados autofirmados generados automáticamente en mi dispositivo?
+    answer: "[!INCLUDE [return-data-box-before-certificates-expire](../../includes/data-box-certificate-expiration.md)] Para más información, consulte [Uso de sus propios certificados](data-box-bring-your-own-certificates.md).     \n"
 - name: Seguimiento del estado
   questions:
   - question: "¿Cómo puedo hacer el seguimiento del dispositivo de Data Box desde el momento en que realicé el pedido hasta el envío para devolverlo? \n"

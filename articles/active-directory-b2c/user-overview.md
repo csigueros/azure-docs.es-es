@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 10/22/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 0e5b8daff5c3e13524d5193e97588a7ecc1bff65
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: fe6b7e334352630eb3797cb96b33422a84721813
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130043821"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130266113"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Introducción a las cuentas de usuario en Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ En Azure Active Directory B2C (Azure AD B2C), se pueden crear varios tipos 
 Están disponibles los siguientes tipos de cuentas:
 
 - **Cuenta profesional**: una cuenta profesional puede tener acceso a los recursos en un inquilino y, con un rol de administrador, puede administrar inquilinos.
-- **Cuenta de invitado**: una cuenta de invitado solo puede ser una cuenta de Microsoft o un usuario de Azure AD que se pueda utilizar para tener acceso a aplicaciones o administrar inquilinos.
+- **Cuenta de invitado**: una cuenta de invitado solo puede ser una cuenta de Microsoft o un usuario de Azure AD que se pueda utilizar para compartir responsabilidades de administración, como [administrar inquilinos](tenant-management.md).
 - **Cuenta de consumidor**: cuenta que utiliza un usuario de las aplicaciones que se han registrado con Azure AD B2C. Las cuentas de consumidor pueden ser creadas por:
   - El usuario que pasa por un flujo de usuario de registro en una aplicación de Azure AD B2C
   - Uso de Microsoft Graph API

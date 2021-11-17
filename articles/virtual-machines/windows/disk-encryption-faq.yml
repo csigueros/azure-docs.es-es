@@ -10,12 +10,12 @@ metadata:
   ms.author: mbaldwin
   ms.date: 11/01/2019
   ms.custom: seodec18
-  ms.openlocfilehash: ed0948b665846c6114ce0bf69872f384d7703c5e
-  ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+  ms.openlocfilehash: add854c34ccce78dcd8af98a1f62ea089fad197a
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/14/2021
-  ms.locfileid: "112063680"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130262952"
 title: Preguntas más frecuentes sobre Azure Disk Encryption para máquinas virtuales Windows
 summary: >
   En este artículo se ofrecen respuestas a las preguntas más frecuentes sobre Azure Disk Encryption para máquinas virtuales Windows. Para más información sobre este servicio, consulte [Introducción a Azure Disk Encryption](disk-encryption-overview.md).
@@ -63,9 +63,13 @@ sections:
       ¿Cómo se pueden rotar los secretos o las claves de cifrado?
     answer: "Para rotar los secretos, simplemente llame al mismo comando que usó originalmente para habilitar el cifrado de disco y especifique un almacén de claves diferente. Para rotar la clave de cifrado de claves, llame al mismo comando que usó originalmente para habilitar el cifrado de disco y especifique el cifrado de claves nuevo. \n\n>[!WARNING]\n> - Si usó anteriormente [Azure Disk Encryption con la aplicación Azure AD](disk-encryption-windows-aad.md) para al especificar las credenciales de Azure AD para cifrar esta VM, tendrá que seguir usando esta opción para cifrar la VM. Azure Disk Encryption no se puede usar en esta VM cifrada, ya que no es un escenario compatible, lo que significa que el cambio desde la aplicación de AAD a esta VM cifrada aún no es compatible.\n"
   - question: >
-      ¿Cómo se agrega o quita una clave de cifrado de clave si originalmente no usé una?
+      ¿Cómo se agrega o quita una clave de cifrado de claves (KEK) si originalmente no se ha utilizado una?
     answer: >
       Para agregar una clave de cifrado de clave, llame al comando enable otra vez y pase el parámetro de clave de cifrado de clave. Para quitar una clave de cifrado de clave, llame al comando enable otra vez y pase el parámetro de clave de cifrado de clave.
+  - question: >
+      ¿Qué tamaño debo usar para mi clave de cifrado de claves (KEK)?
+    answer: >
+      Windows Server 2022 incluía una versión más reciente de BitLocker y, como se describe en la página de requisitos previos, se recomienda empezar con un tamaño de clave de 3072 o 4096 bits. Para versiones anteriores de Windows, también puede usar 2048 bits.
   - question: >
       ¿Permite Azure Disk Encryption habilitar la funcionalidad "traiga su propia clave" (BYOK)?
     answer: >

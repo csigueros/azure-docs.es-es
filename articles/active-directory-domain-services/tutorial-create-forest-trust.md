@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/26/2021
+ms.date: 10/19/2021
 ms.author: justinha
-ms.openlocfilehash: 027217ab5963f084fca7678c9e51f7188d39a191
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: c103205453a680a9f67c0150cdbfd60cc062ca69
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707897"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130266170"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Tutorial: Creación de una confianza de bosque de salida en un dominio local de Azure Active Directory Domain Services
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
@@ -74,9 +74,20 @@ Antes de configurar una confianza de bosque en Azure AD DS, asegúrese de que la
 Para resolver correctamente el dominio administrado desde el entorno local, quizá tenga que agregar reenviadores a los servidores DNS existentes. Si no ha configurado el entorno local para comunicarse con el dominio administrado, complete los pasos siguientes desde una estación de trabajo de administración para el dominio de AD DS local:
 
 1. Seleccione **Inicio** > **Herramientas administrativas** > **DNS**.
-1. Haga clic con el botón derecho en el servidor DNS (por ejemplo, *myAD01*) y seleccione **Propiedades**.
-1. Elija **Reenviadores** y, después, **Editar** para agregar reenviadores adicionales.
-1. Agregue las direcciones IP del dominio administrado, como *10.0.2.4* y *10.0.2.5*.
+1. Seleccione la zona DNS, por ejemplo, *aaddscontoso.com*.
+1. Seleccione **Reenviadores condicionales**, haga clic con el botón derecho y seleccione **Nuevo reenviador condicional…**
+1. Escriba el otro **Dominio DNS**, por ejemplo, *contoso.com*, y escriba las direcciones IP de los servidores DNS para ese espacio de nombres, tal como se muestra en el ejemplo siguiente:
+
+    ![Captura de pantalla de cómo agregar y configurar un reenviador condicional para el servidor DNS.](./media/manage-dns/create-conditional-forwarder.png)
+
+1. Active la casilla **Almacenar este reenviador condicional en Active Directory y replicarlo como sigue**, a continuación, seleccione la opción *Todos los servidores DNS en este dominio*, como se muestra en el ejemplo siguiente:
+
+    ![Captura de pantalla de cómo seleccionar Todos los servidores DNS en este dominio.](./media/manage-dns/store-in-domain.png)
+
+    > [!IMPORTANT]
+    > Si el reenviador condicional está almacenado en el *bosque* en lugar de en el *dominio*, se produce un error en el reenviador condicional.
+
+1. Para crear el reenviador condicional, seleccione **Aceptar**.
 
 ## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Creación de una confianza de bosque de entrada en el dominio local
 

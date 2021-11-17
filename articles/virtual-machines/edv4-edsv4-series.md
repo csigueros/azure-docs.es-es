@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 10/20/2021
-ms.openlocfilehash: 3f1f1cfa0feb13b03abd5129098ab20c7b755b76
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: f4138c2b2835ede93e0a33693f49ed75ee6bb499
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132401029"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449096"
 ---
 # <a name="edv4-and-edsv4-series"></a>Series Edv4 y Edsv4
 
@@ -34,19 +34,18 @@ Los tamaños de la serie Edv4 se ejecutan en procesadores Intel&reg; Xeon&reg; P
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<sup>1</sup> <br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
-[Virtualización anidada](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): compatible <br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal: IOPS/Mbps<sup>*</sup>  | Nº máx. NIC|Ancho de banda de red máx. (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_E2d_v4<sup>1</sup>  | 2  | 16  | 75   | 4  | 9000/125    | 2 | 1000  |
-| Standard_E4d_v4              | 4  | 32  | 150  | 8  | 19 000/250   | 2 | 2000  |
-| Standard_E8d_v4              | 8  | 64  | 300  | 16 | 38 000/500   | 4 | 4000  |
-| Standard_E16d_v4             | 16 | 128 | 600  | 32 | 75 000/1000   | 8 | 8000  |
+| Standard_E4d_v4              | 4  | 32  | 150  | 8  | 19000/250   | 2 | 2000  |
+| Standard_E8d_v4              | 8  | 64  | 300  | 16 | 38000/500   | 4 | 4000  |
+| Standard_E16d_v4             | 16 | 128 | 600  | 32 | 75000/1000   | 8 | 8000  |
 | Standard_E20d_v4             | 20 | 160 | 750  | 32 | 94000/1250  | 8 | 10000 |
-| Standard_E32d_v4             | 32 | 256 | 1200 | 32 | 150 000/2000 | 8 | 16000 |
-| Standard_E48d_v4             | 48 | 384 | 1800 | 32 | 225 000/3000 | 8 | 24000 |
-| Standard_E64d_v4             | 64 | 504 | 2400 | 32 | 300 000/4000 | 8 | 30000 |
+| Standard_E32d_v4             | 32 | 256 | 1200 | 32 | 150000/2000 | 8 | 16000 |
+| Standard_E48d_v4             | 48 | 384 | 1800 | 32 | 225000/3000 | 8 | 24000 |
+| Standard_E64d_v4             | 64 | 504 | 2400 | 32 | 300000/4000 | 8 | 30000 |
 
 <sup>*</sup> Estos valores de IOPs se pueden conseguir utilizando [VM de Gen2](generation-2.md)
 <sup>1</sup> Las redes acelerada solo pueden aplicarse a una única NIC. <br>
@@ -63,7 +62,6 @@ Los tamaños de la serie Edsv4 se ejecutan en procesadores Intel&reg; Xeon&reg; 
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible <br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
-[Virtualización anidada](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): compatible <br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal: IOPS/Mbps<sup>*</sup> | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Rendimiento máximo del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>1</sup> | Nº máx. NIC|Ancho de banda de red máx. (Mbps) |

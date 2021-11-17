@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: e3ae63b202d826e48789bd8d15a197048d5566b7
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: e89f449d62a86d8a935647d0a60af25415f65b85
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122178333"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132058342"
 ---
 # <a name="create-a-query-that-invokes-semantic-ranking-and-returns-semantic-captions"></a>Crear una consulta que invoque la clasificación semántica y devuelva títulos semánticos
 
@@ -169,7 +169,7 @@ Varias funcionalidades de consulta de Cognitive Search no se someten a la puntu
 
 + Los filtros, las consultas de búsqueda aproximada y las expresiones regulares iteran sobre el texto sin tokenizar y buscan coincidencias textuales en el contenido. Las puntuaciones de búsqueda de todos los formularios de consulta anteriores tienen un valor uniforme de 1.0 y no proporcionan información significativa para la clasificación semántica.
 
-+ La ordenación (cláusulas orderBy) en campos específicos también invalidará las puntuaciones de búsqueda y la puntuación semántica. Dado que la puntuación semántica se usa para ordenar los resultados, incluir una lógica de ordenación explícita provocará un error HTTP 400.
++ La ordenación (cláusulas orderBy) en campos específicos también invalidará las puntuaciones de búsqueda y la puntuación semántica. Dado que la puntuación semántica se usa para ordenar los resultados, incluir una lógica de ordenación explícita provocará un error HTTP 400.
 
 #### <a name="step-4-add-answers"></a>Paso 4: Agregar respuestas
 

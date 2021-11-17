@@ -11,19 +11,19 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
-ms.openlocfilehash: d5644ecbc6b76ab2fc1ec44239fc14c52ab5fa73
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: bac6068c02ea4f253176a65061d11604104c2bd5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093283"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439051"
 ---
 # <a name="what-is-custom-named-entity-recognition-ner-preview"></a>¿Qué es Reconocimiento de entidades con nombre (NER) personalizado (versión preliminar)?
 
-Reconocimiento de entidades con nombre personalizado se ofrece como parte de las características personalizadas de [Azure Cognitive Service for Language](../overview.md) y se crea sobre la tecnología de [Microsoft Turing](https://msturing.org/about). Esta característica permite a sus usuarios crear modelos de inteligencia artificial personalizados para extraer entidades específicas del dominio de texto no estructurado, como contratos o documentos financieros. Mediante la creación de un proyecto de Reconocimiento de entidades con nombre personalizado, los desarrolladores pueden etiquetar datos de forma iterativa, entrenar, evaluar y mejorar el rendimiento del modelo antes de que esté disponible para su consumo. 
+Reconocimiento de entidades con nombre personalizado es una de las características que ofrece [Azure Cognitive Service for Language](../overview.md). Se trata de un servicio de API basado en la nube que aplica inteligencia de aprendizaje automático que le permite crear modelos personalizados para tareas de Reconocimiento de entidades con nombre de texto personalizados de texto.
 
-Para simplificar la creación y personalización del modelo, el servicio ofrece un portal web personalizado al que se puede acceder a través de [Language Studio](https://aka.ms/languageStudio). Si sigue los pasos que se indican en este [inicio rápido](quickstart.md), le resultará fácil empezar a usar el servicio. 
-
+Reconocimiento de entidades con nombre personalizado se ofrece como parte de las características personalizadas de [Azure Cognitive Service for Language](../overview.md). Esta característica permite a sus usuarios crear modelos de inteligencia artificial personalizados para extraer entidades específicas del dominio de texto no estructurado, como contratos o documentos financieros. Mediante la creación de un proyecto de Reconocimiento de entidades con nombre personalizado, los desarrolladores pueden etiquetar datos de forma iterativa, entrenar, evaluar y mejorar el rendimiento del modelo antes de que esté disponible para su consumo. La calidad de los datos etiquetados afecta considerablemente al rendimiento del modelo. Para simplificar la creación y personalización del modelo, el servicio ofrece un portal web personalizado al que se puede acceder a través de [Language Studio](https://aka.ms/languageStudio). Si sigue los pasos que se indican en este [inicio rápido](quickstart.md), le resultará fácil empezar a usar el servicio. 
+ 
 Esta documentación contiene los siguientes tipos de artículos:
 
 * Los [inicios rápidos](quickstart.md) son instrucciones de inicio que le guiarán a la hora de hacer solicitudes al servicio.
@@ -34,7 +34,7 @@ Esta documentación contiene los siguientes tipos de artículos:
 
 ### <a name="information-extraction"></a>Extracción de información
 
-Muchas organizaciones financieras y legales extraen y normalizan datos de miles de textos no estructurados complejos, como extractos bancarios, contratos legales o formularios bancarios a diario. En lugar de procesar manualmente estos formularios, Reconocimiento de entidades con nombre personalizado puede ayudar a automatizar este proceso.
+Muchas organizaciones financieras y legales extraen y normalizan datos de miles de textos no estructurados complejos, como extractos bancarios, contratos legales o formularios bancarios a diario. En lugar de procesar manualmente estos formularios, Reconocimiento de entidades con nombre personalizado puede ayudar a automatizar este proceso y ahorrar costos, tiempo y esfuerzo.
 
 ### <a name="knowledge-mining-to-enhanceenrich-semantic-search"></a>Minería del conocimiento para mejorar o enriquecer la búsqueda semántica
 
@@ -42,7 +42,7 @@ La búsqueda es fundamental para cualquier aplicación que represente contenido 
 
 ### <a name="audit-and-compliance"></a>Auditoría y cumplimiento
 
-En lugar de usar manualmente archivos de texto largos para auditar y aplicar directivas organizativas, se puede usar Reconocimiento de entidades con nombre personalizado para ayudar a crear soluciones automatizadas y aplicar las reglas de negocio necesarias. 
+En lugar de revisar manualmente archivos de texto considerablemente largos para auditar y aplicar directivas, los departamentos de TI de empresas financieras o legales pueden el usar Reconocimiento de entidades con nombre personalizado para crear soluciones automatizadas. Estas soluciones ayudan a aplicar directivas de cumplimiento y a configurar reglas de negocio necesarias en función de las canalizaciones de minería de conocimiento que procesan tanto el contenido estructurado como el no estructurado.
 
 ## <a name="application-development-lifecycle"></a>Ciclo de vida del desarrollo de aplicaciones
 

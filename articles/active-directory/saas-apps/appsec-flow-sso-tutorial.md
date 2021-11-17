@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 4b96c520dd1e4ddace6738b21701c6bf06b7af86
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 02f05fd64bc846ef6b5a4dc87d0de6e0ab3cb2e1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124734512"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132288904"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-appsec-flow-sso"></a>Tutorial: Integración de inicio de sesión único (SSO) de Azure Active Directory con AppSec Flow SSO
 
@@ -58,7 +58,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con AppSec Flow SSO 
 Para configurar y probar el inicio de sesión único de Azure AD con AppSec Flow SSO, complete los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración de inicio de sesión único en AppSec Flow SSO](#configure-appsec-flow-sso-sso)** , para configurar los valores de inicio de sesión único en el lado de la aplicación.
     1. **[Creación de un usuario de prueba de AppSec Flow SSO](#create-appsec-flow-sso-test-user)** , para tener un homólogo de B.Simon en AppSec Flow SSO que esté vinculado a la representación del usuario en Azure AD.
@@ -125,4 +125,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado AppSec Flow SSO, puede aplicar el control de sesión que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado AppSec Flow SSO, puede aplicar el control de sesión que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-any-app).

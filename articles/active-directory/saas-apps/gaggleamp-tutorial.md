@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 9491ac1471e02173fd9aca7cd8d2d410e00c1b12
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 1175a68dcbe9beeef3a0e21c083a1a6360bc8545
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132291747"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459372"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-gaggleamp"></a>Tutorial: Integración del inicio de sesión único de Azure AD con GaggleAMP
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar GaggleAMP con Azure Active Directory (Az
 * Permitir que los usuarios inicien sesión automáticamente en GaggleAMP con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -61,12 +61,12 @@ Configure y pruebe el inicio de sesión único de Azure AD con GaggleAMP median
 
 Para configurar y probar el inicio de sesión único de Azure AD con GaggleAMP, siga estos pasos:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)**, para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
-    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en GaggleAMP](#configure-gaggleamp-sso)** : para configurar los valores del inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de GaggleAMP](#create-gaggleamp-test-user)** : para tener un homólogo de B.Simon en la instancia de GaggleAMP que esté vinculado a la representación del usuario en Azure AD.
-1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
+1. **[Prueba del inicio de sesión único](#test-sso)**, para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -161,4 +161,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado GaggleAMP, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado GaggleAMP, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

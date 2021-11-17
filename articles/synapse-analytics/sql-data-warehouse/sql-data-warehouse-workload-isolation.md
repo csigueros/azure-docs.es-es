@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 506aed16f1b8a6c631a759bb1367aef8242859ac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dec042c66ebed15a51d5c6c1f3ef6a3e3e2fb456
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98734787"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131428033"
 ---
 # <a name="azure-synapse-analytics-workload-group-isolation"></a>Aislamiento de grupos de cargas de trabajo de Azure Synapse Analytics
 
@@ -61,7 +61,7 @@ La configuración de la contención de cargas de trabajo define implícitamente 
 
 ## <a name="resources-per-request-definition"></a>Recursos por definición de solicitud
 
-Los grupos de cargas de trabajo proporcionan un mecanismo para definir la cantidad mínima y máxima de recursos que se asignan por solicitud con los parámetros REQUEST_MIN_RESOURCE_GRANT_PERCENT y REQUEST_MAX_RESOURCE_GRANT_PERCENT en la sintaxis [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  En este caso, los recursos son la CPU y la memoria.  La configuración de estos valores determina la cantidad de recursos y el nivel de simultaneidad que se puede lograr en el sistema.
+Los grupos de cargas de trabajo proporcionan un mecanismo para definir la cantidad mínima y máxima de recursos que se asignan por solicitud con los parámetros REQUEST_MIN_RESOURCE_GRANT_PERCENT y REQUEST_MAX_RESOURCE_GRANT_PERCENT en la sintaxis [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  En este caso, el recurso es memoria. Los recursos de CPU están limitados por el valor CAP_PERCENTAGE_RESOURCE del grupo de cargas de trabajo y no se rigen en el nivel de solicitud individual. La configuración de estos valores determina la cantidad de recursos y el nivel de simultaneidad que se puede lograr en el sistema.
 
 > [!NOTE]
 > REQUEST_MAX_RESOURCE_GRANT_PERCENT es un parámetro opcional cuyo valor predeterminado es el mismo que se especifica para REQUEST_MIN_RESOURCE_GRANT_PERCENT.

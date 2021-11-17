@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: thwimmer
-ms.openlocfilehash: 1d52a53798c80d59ffaab86319afdc68eff345a9
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 9c488a04962216df2748891c71bad32cb9dffac6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113767093"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477485"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>Tutorial: Configuración de Infor CloudSuite para aprovisionar usuarios automáticamente
 
@@ -27,12 +27,12 @@ El objetivo de este tutorial es mostrar los pasos que se realizan en Infor Cloud
 >
 > Este conector está actualmente en versión preliminar pública. Para más información sobre los términos de uso generales de Microsoft Azure para las características en versión preliminar, consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
 * Un inquilino de Azure AD
-* [Un inquilino de Infor CloudSuite](https://www.infor.com/products)
+* [Un inquilino de Infor CloudSuite](https://www.infor.com/products).
 * Una cuenta de usuario de Infor CloudSuite con permisos de administrador.
 
 ## <a name="assigning-users-to-infor-cloudsuite"></a>Asignación de usuarios a Infor CloudSuite

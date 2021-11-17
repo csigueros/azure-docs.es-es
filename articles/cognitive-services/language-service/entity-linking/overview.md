@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-entity-linking, ignite-fall-2021
-ms.openlocfilehash: d1c8d20c9581fa8c2f51b516c11e28e390a8fcd7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: bbd4483702055a4bebb05251606fb705b1e0deb2
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091031"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487456"
 ---
 # <a name="what-is-entity-linking-in-azure-cognitive-service-for-language"></a>¿Qué es la vinculación de entidad en Azure Cognitive Service for Language?
 
@@ -33,7 +33,7 @@ El resultado será una colección de entidades reconocidas en el texto, con dire
 
 ## <a name="responsible-ai"></a>Inteligencia artificial responsable 
 
-Los sistemas de inteligencia artificial incluyen no solo la tecnología, sino también las personas que la usarán, las personas que se verán afectadas por ella y los entornos en los que se implementan. Lea la [nota de transparencia de vinculación de entidad](/legal/cognitive-services/language-service/transparency-note-entity-linking?context=/azure/cognitive-services/language-service/context/context) para obtener información sobre el uso responsable de la inteligencia artificial y la implementación en los sistemas. Para más información, también puede ver los siguientes artículos:
+Los sistemas de inteligencia artificial incluyen no solo la tecnología, sino también las personas que la usarán, las personas que se verán afectadas por ella y los entornos en los que se implementan. Lea la [nota de transparencia de vinculación de entidad](/legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language-service/context/context) para obtener información sobre el uso responsable de la inteligencia artificial y la implementación en los sistemas. Para más información, también puede ver los siguientes artículos:
 
 [!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
 

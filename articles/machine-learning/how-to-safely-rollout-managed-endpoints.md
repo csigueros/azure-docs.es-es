@@ -11,12 +11,12 @@ author: rsethur
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2
-ms.openlocfilehash: 813ef955a202f5645d8e4881efb3b2d083fa4d63
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 7f82c65a2aba8057ab3f7cbc6729b83ed597e12b
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132063596"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564810"
 ---
 # <a name="safe-rollout-for-online-endpoints-preview"></a>Implementación segura para puntos de conexión en línea (versión preliminar)
 
@@ -56,7 +56,7 @@ En este artículo aprenderá lo siguiente:
 
 * Si aún no ha establecido la variable de entorno $ENDPOINT_NAME, hágalo ahora:
 
-   :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
+   :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
 
 * (Recomendado) Clone el repositorio de ejemplos y cambie al directorio `cli/` del repositorio: 
 
@@ -83,7 +83,7 @@ Debería ver el punto de conexión identificado por `$ENDPOINT_NAME` y una imple
 
 En la implementación descrita en [Implementación y puntuación de un modelo de aprendizaje automático con un punto de conexión en línea administrado (versión preliminar)](how-to-deploy-managed-online-endpoints.md), se establece `instance_count` en el valor `1` en el archivo YAML de la implementación. Puede escalar horizontalmente mediante el comando `update`:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="scale_blue" :::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="scale_blue" :::
 
 > [!Note]
 > Observe que en el comando anterior se usa `--set` para invalidar la configuración de la implementación. Como alternativa, puede actualizar el archivo YAML y pasarlo como entrada en el comando `update` mediante la entrada `--file`.
@@ -92,27 +92,27 @@ En la implementación descrita en [Implementación y puntuación de un modelo de
 
 Cree una nueva implementación denominada `green`: 
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="create_green" :::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="create_green" :::
 
 Puesto que no hemos asignado explícitamente ningún tráfico a green, no se le asignará ningún tráfico. Para comprobarlo, use el comando siguiente:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="get_traffic" :::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="get_traffic" :::
 
 ### <a name="test-the-new-deployment"></a>Prueba de la nueva implementación
 
 Aunque `green` tiene asignado 0 % de tráfico, puede invocarla directamente si especifica el nombre `--deployment`:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="test_green" :::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="test_green" :::
 
 Si desea usar un cliente REST para invocar la implementación directamente sin pasar por reglas de tráfico, establezca el siguiente encabezado HTTP: `azureml-model-deployment: <deployment-name>`. El fragmento de código siguiente usa `curl` para invocar la implementación directamente. El fragmento de código debe funcionar en entornos Unix o WSL:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="test_green_using_curl" :::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="test_green_using_curl" :::
 
 ## <a name="test-the-new-deployment-with-a-small-percentage-of-live-traffic"></a>Prueba de la nueva implementación con un pequeño porcentaje de tráfico en directo
 
 Una vez que haya probado la implementación `green`, asígnele un pequeño porcentaje de tráfico:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="green_10pct_traffic" :::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="green_10pct_traffic" :::
 
 Ahora, la implementación `green` recibirá el 10 % de las solicitudes. 
 
@@ -120,17 +120,17 @@ Ahora, la implementación `green` recibirá el 10 % de las solicitudes.
 
 Cuando la implementación `green` le resulte totalmente satisfactoria, cambie todo el tráfico a ella.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="green_100pct_traffic" :::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="green_100pct_traffic" :::
 
 ## <a name="remove-the-old-deployment"></a>Eliminación de la implementación anterior
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="delete_blue" :::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="delete_blue" :::
 
 ## <a name="delete-the-endpoint-and-deployment"></a>Eliminación del punto de conexión y la implementación
 
 Si no va a usar la implementación, debe eliminarla con:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="delete_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="delete_endpoint" :::
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: 3421c519c4ab059cda1d413db3906b3f1ed76ca0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a593aef3ff99edb498e899b0d8db46c7b4636683
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128594695"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427710"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Inicio rápido: Inicio de sesión de los usuarios y obtención de un token de acceso en una aplicación web de Node mediante el flujo de código de autorización
 
@@ -46,7 +46,7 @@ En este inicio rápido se usa la biblioteca de autenticación de Microsoft para 
 > 1. Establezca el valor de **URI de redireccionamiento** en `http://localhost:3000/redirect`.
 > 1. Seleccione **Registrar**.
 > 1. En la página de **información general** de la aplicación, anote el valor del **Identificador de aplicación (cliente)** para su uso posterior.
-> 1. En **Administrar**, seleccione **Certificados y secretos** > **Nuevo secreto de cliente**.  Deje la descripción en blanco y la expiración predeterminada y, luego, seleccione **Agregar**.
+> 1. En **Administrar**, seleccione **Certificados y secretos** > **Secretos de los clientes** > **Nuevo secreto de cliente**.  Deje la descripción en blanco y la expiración predeterminada y, luego, seleccione **Agregar**.
 > 1. Anote el valor de **Secreto de cliente** para usarlo posteriormente.
 
 > [!div class="sxs-lookup" renderon="portal"]

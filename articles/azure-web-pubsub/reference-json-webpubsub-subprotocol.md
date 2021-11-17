@@ -5,13 +5,13 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 08/16/2021
-ms.openlocfilehash: 8f1710246158e953492fec23869ba91a77c78e60
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.date: 11/06/2021
+ms.openlocfilehash: 2208c41ea49bae4ad3791a7e26f694e4cf4fbbd3
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130177828"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997863"
 ---
 #  <a name="azure-web-pubsub-supported-json-websocket-subprotocol"></a>Subprotocolo de WebSocket JSON compatible con Azure Web PubSub
      
@@ -54,11 +54,11 @@ Formato:
 {
     "type": "joinGroup",
     "group": "<group_name>",
-    "ackId" : 1 // optional
+    "ackId" : 1
 }
 ```
 
-* `ackId` es opcional, es un entero incremental para este mensaje de comando. Cuando se especifica `ackId`, el servicio devuelve un [mensaje de respuesta confirmación](#ack-response) al cliente cuando se ejecuta el comando.
+* `ackId` es la identidad de cada solicitud y debe ser única. El servicio envía un [mensaje de respuesta de confirmación](#ack-response) para notificar el resultado del proceso de la solicitud. Puede encontrar más detalles en [AckId y Ack Response](./concept-client-protocols.md#ackid-and-ack-response)
 
 ### <a name="leave-groups"></a>Salida de grupos
 
@@ -68,11 +68,11 @@ Formato:
 {
     "type": "leaveGroup",
     "group": "<group_name>",
-    "ackId" : 1 // optional
+    "ackId" : 1
 }
 ```
 
-* `ackId` es opcional, es un entero incremental para este mensaje de comando. Cuando se especifica `ackId`, el servicio devuelve un [mensaje de respuesta confirmación](#ack-response) al cliente cuando se ejecuta el comando.
+* `ackId` es la identidad de cada solicitud y debe ser única. El servicio envía un [mensaje de respuesta de confirmación](#ack-response) para notificar el resultado del proceso de la solicitud. Puede encontrar más detalles en [AckId y Ack Response](./concept-client-protocols.md#ackid-and-ack-response)
 
 ### <a name="publish-messages"></a>Publicar mensajes
 
@@ -82,14 +82,14 @@ Formato:
 {
     "type": "sendToGroup",
     "group": "<group_name>",
-    "ackId" : 1, // optional
+    "ackId" : 1,
     "noEcho": true|false,
     "dataType" : "json|text|binary",
     "data": {}, // data can be string or valid json token depending on the dataType 
 }
 ```
 
-* `ackId` es opcional, es un entero incremental para este mensaje de comando. Cuando se especifica `ackId`, el servicio devuelve un [mensaje de respuesta confirmación](#ack-response) al cliente cuando se ejecuta el comando.
+* `ackId` es la identidad de cada solicitud y debe ser única. El servicio envía un [mensaje de respuesta de confirmación](#ack-response) para notificar el resultado del proceso de la solicitud. Puede encontrar más detalles en [AckId y Ack Response](./concept-client-protocols.md#ackid-and-ack-response)
 * `noEcho` es opcional. Si se establece en true, este mensaje no se repite en la misma conexión. Si no se establece, el valor predeterminado es false.
 * `dataType` puede ser de tipo `json`, `text` o `binary`:
      * `json`: `data` puede ser cualquier tipo que JSON admita y se publicará como lo que sea. Si `dataType` no se especifica, el valor predeterminado es `json`.
@@ -102,7 +102,8 @@ Formato:
     "type": "sendToGroup",
     "group": "<group_name>",
     "dataType" : "text",
-    "data": "text data" 
+    "data": "text data",
+    "ackId": 1
 }
 ```
 
@@ -151,7 +152,8 @@ Formato:
     "type": "sendToGroup",
     "group": "<group_name>",
     "dataType" : "binary",
-    "data": "<base64_binary>"
+    "data": "<base64_binary>",
+    "ackId": 1
 }
 ```
 
@@ -175,10 +177,13 @@ Formato:
 {
     "type": "event",
     "event": "<event_name>",
+    "ackId": 1,
     "dataType" : "json|text|binary",
     "data": {}, // data can be string or valid json token depending on the dataType 
 }
 ```
+
+* `ackId` es la identidad de cada solicitud y debe ser única. El servicio envía un [mensaje de respuesta de confirmación](#ack-response) para notificar el resultado del proceso de la solicitud. Puede encontrar más detalles en [AckId y Ack Response](./concept-client-protocols.md#ackid-and-ack-response)
 
 `dataType` puede ser de tipo `text`, `binary` o `json`:
 * `json`: los datos pueden ser cualquier tipo que JSON admita y se publicará como lo que sea. Si `dataType` no se especifica, el valor predeterminado es `json`.
@@ -190,6 +195,7 @@ Formato:
 {
     "type": "event",
     "event": "<event_name>",
+    "ackId": 1,
     "dataType" : "text",
     "data": "text data", 
 }
@@ -223,6 +229,7 @@ text data
 {
     "type": "event",
     "event": "<event_name>",
+    "ackId": 1,
     "dataType" : "json",
     "data": {
         "hello": "world"
@@ -260,6 +267,7 @@ ce-eventName: <event_name>
 {
     "type": "event",
     "event": "<event_name>",
+    "ackId": 1,
     "dataType" : "binary",
     "data": "base64_binary", 
 }
@@ -307,7 +315,7 @@ Formato:
     "ackId": 1, // The ack id for the request to ack
     "success": false, // true or false
     "error": {
-        "name": "NotFound|Forbidden|Timeout|InternalServerError",
+        "name": "Forbidden|InternalServerError|Duplicate",
         "message": "<error_detail>"
     }
 }

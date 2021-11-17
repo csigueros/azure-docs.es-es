@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/25/2021
 ms.author: davidmu
 ms.reviewer: phsignor
-ms.openlocfilehash: a69a880453ffffcb55fd257b8f1b65de75d2f80d
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 039461797d9b451703959f43977234278e87827d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132289155"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424066"
 ---
 # <a name="manage-consent-to-applications-and-evaluate-consent-requests-in-azure-active-directory"></a>Administración del consentimiento en las aplicaciones y evaluación de las solicitudes de consentimiento en Azure Active Directory
 
@@ -42,7 +42,7 @@ Después de deshabilitar o restringir el consentimiento del usuario final, hay v
 
 3. Si la organización tiene la licencia correspondiente:
 
-    * Use otras [características de auditoría de aplicaciones de OAuth en Microsoft Defender for Cloud Apps](/cloud-app-security/investigate-risky-oauth).
+    * Use otras [características de auditoría de aplicaciones de OAuth en Microsoft Cloud App Security](/cloud-app-security/investigate-risky-oauth).
     * Utilice [libros de Azure Monitor para supervisar la actividad relacionada con los permisos y el consentimiento](../reports-monitoring/howto-use-azure-monitor-workbooks.md). El libro *Consent Insights* proporciona una vista de las aplicaciones por número de solicitudes de consentimiento con error. Esta información puede resultar útil para clasificar las aplicaciones por orden de prioridad y que los administradores las revisen y decidan si se les concede el consentimiento del administrador.
 
 ### <a name="additional-considerations-for-reducing-friction"></a>Consideraciones adicionales para reducir la fricción

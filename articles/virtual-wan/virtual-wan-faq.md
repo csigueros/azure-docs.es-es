@@ -6,12 +6,12 @@ ms.service: virtual-wan
 ms.topic: troubleshooting
 ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: eaeefcfc48492686abc88215e80bc6d74a836f4f
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 17482c9de7cc6c26355fa6ec629028739b209785
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129545046"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134341"
 ---
 # <a name="virtual-wan-faq"></a>Preguntas más frecuentes sobre Virtual WAN
 
@@ -209,7 +209,7 @@ No. Virtual WAN no requiere ExpressRoute desde cada sitio. Los sitios pueden est
 
 ### <a name="is-there-a-network-throughput-or-connection-limit-when-using-azure-virtual-wan"></a>¿Hay un límite en el rendimiento o la conexión de la red al utilizar Azure Virtual WAN?
 
-El rendimiento de red es por servicio en un centro de conectividad de Virtual WAN. Aunque puede tener tantas instancias de Virtual WAN como desee, cada una permite un centro de conectividad por región. En cada centro de conectividad, el rendimiento agregado de VPN es de hasta 20 Gbps, el rendimiento agregado de ExpressRoute es hasta 20 Gbps y el rendimiento agregado de VPN de punto a sitio o VPN de usuario es de hasta 20 Gbps. El enrutador del centro de conectividad virtual admite hasta 50 Gbps con los flujos de tráfico de red virtual a red virtual y supone una carga de trabajo total de 2000 máquinas virtuales en todas las redes virtuales conectadas a un solo centro de conectividad virtual.
+El rendimiento de red es por servicio en un centro de conectividad de Virtual WAN. Aunque puede tener tantas instancias de Virtual WAN como desee, cada una permite un centro de conectividad por región. En cada centro de conectividad, el rendimiento agregado de VPN es de hasta 20 Gbps, el rendimiento agregado de ExpressRoute es hasta 20 Gbps y el rendimiento agregado de VPN de punto a sitio o VPN de usuario es de hasta 20 Gbps. El enrutador del centro de conectividad virtual admite hasta 50 Gbps con los flujos de tráfico de red virtual a red virtual y supone una carga de trabajo total de 2000 máquinas virtuales en todas las redes virtuales conectadas a un solo centro de conectividad virtual. Este [límite](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits) se puede aumentar abriendo una solicitud de soporte técnico de cliente en línea. Para conocer las consecuencias para los costos, consulte los costos de *Unidad de infraestructura de enrutamiento* en la página [Precios de Azure Virtual WAN](https://azure.microsoft.com/pricing/details/virtual-wan/). 
 
 Cuando los sitios VPN se conectan a un centro de conectividad, lo hacen con conexiones. Virtual WAN admite hasta 1000 conexiones o 2000 túneles IPsec por centro de conectividad virtual. Cuando los usuarios remotos se conectan a un centro de conectividad virtual, se conectan a la instancia de VPN Gateway P2S, que admite hasta 10 000 usuarios en función de la unidad de escalado (ancho de banda) elegida para la instancia de VPN Gateway P2S en el centro de conectividad virtual.
 
@@ -321,7 +321,7 @@ Sí. Para obtener una lista de soluciones de proveedores de servicios administra
 
 Azure Route Server proporciona un servicio de emparejamiento de Protocolo de puerta de enlace de borde (BGP) que las aplicaciones virtuales de red pueden usar para aprender las rutas desde el servidor de enrutamiento en una red virtual del centro de conectividad de implementación personal. El enrutamiento de WAN virtual ofrece varias funcionalidades, entre las que se incluyen el enrutamiento de tránsito entre redes virtuales, el enrutamiento personalizado, la asociación y propagación de rutas personalizadas y un servicio de centro de conectividad con malla completa y sin interacción, junto con los servicios de conectividad de ExpressRoute, VPN de sitio, VPN de punto a sitio a gran escala y de usuarios remotos, así como funcionalidades de centro seguro (Azure Firewall). Al establecer un emparejamiento BGP entre la aplicación virtual de red y Azure Route Server, puede anunciar las direcciones IP de su aplicación virtual a la red virtual. En todas las funcionalidades de enrutamiento avanzadas, como el enrutamiento de tránsito, el enrutamiento personalizado, etc., puede usar el enrutamiento de Virtual WAN.
 
-### <a name="if-i-am-using-a-third-party-security-provider-zscalar-iboss-or-checkpoint-to-secure-my-internet-traffic-why-dont-i-see-the-vpn-site-associated-to-the-third-party-security-provider-in-the-azure-portal"></a>Si uso un proveedor de seguridad de terceros (ZScalar, iBoss o Checkpoint) para proteger el tráfico de Internet, ¿por qué no veo el sitio VPN asociado al proveedor de seguridad de terceros en Azure Portal?
+### <a name="if-i-am-using-a-third-party-security-provider-zscaler-iboss-or-checkpoint-to-secure-my-internet-traffic-why-dont-i-see-the-vpn-site-associated-to-the-third-party-security-provider-in-the-azure-portal"></a>Si uso un proveedor de seguridad de terceros (ZScalar, iBoss o Checkpoint) para proteger el tráfico de Internet, ¿por qué no veo el sitio de VPN asociado a él en Azure Portal?
 
 Cuando decide implementar un proveedor de seguridad asociado para proteger el acceso a Internet para sus usuarios, el proveedor de seguridad de terceros crea un sitio VPN en su nombre. Este sitio de VPN no aparece en Azure Portal porque el proveedor crea automáticamente el proveedor de seguridad de terceros y no es un sitio VPN creado por el usuario.
 

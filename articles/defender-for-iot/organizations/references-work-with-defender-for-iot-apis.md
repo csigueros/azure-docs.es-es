@@ -1,16 +1,18 @@
 ---
 title: Trabajo con las API de Defender para IoT
 description: Use una API REST externa para acceder a los datos que han detectado los sensores y las consolas de administración y realizar acciones con esos datos.
-ms.date: 10/17/2021
+ms.date: 11/08/2021
 ms.topic: reference
-ms.openlocfilehash: f11627a35f2d91cb719866e6fc7d8fc480a50b17
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 0176fe3da6c2105c522f92614295500fb8ce0e81
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130131587"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997673"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>API del sensor y la consola de administración de Defender para IoT
+
+Las API de Defender para IoT se rigen por la [licencia de API de Microsoft y Términos de uso](/legal/microsoft-apis/terms-of-use).
 
 Use una API REST externa para acceder a los datos que han detectado los sensores y las consolas de administración y realizar acciones con esos datos.
 

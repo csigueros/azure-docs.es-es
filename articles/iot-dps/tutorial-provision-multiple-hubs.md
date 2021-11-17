@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Aprovisionamiento de dispositivos en centros de conectividad con equilibrio de carga mediante Azure IoT Hub Device Provisioning Service'
-description: En este tutorial se indica cómo Device Provisioning Service (DPS) permite el aprovisionamiento automático de dispositivos en instancias de IoT Hub con equilibrio de carga en Azure Portal.
-author: wesmc7777
-ms.author: wesmc
-ms.date: 11/12/2019
+description: En este tutorial, se indica cómo habilita Device Provisioning Service (DPS) el aprovisionamiento automático de dispositivos en instancias de IoT Hub con equilibrio de carga en Azure Portal.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 10/18/2021
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 090d11866f3d3605a3703fd7ca39f820bbeb7187
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: e7e9517daaf8258eb02147f97993e474ffcfc0a8
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273257"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226155"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Tutorial: Aprovisionamiento de dispositivos en instancias de IoT Hub con equilibrio de carga
 
@@ -37,19 +37,24 @@ Siga los pasos del tutorial [Provision the device to an IoT hub using the Azure 
 
 ## <a name="add-an-enrollment-list-entry-to-the-second-device"></a>Agregar una entrada de la lista de inscripción en el segundo dispositivo
 
-La lista de inscripción indica al servicio Device Provisioning el método de atestación (el método para confirmar la identidad de un dispositivo) que se usando con el dispositivo. El siguiente paso es agregar una entrada de la lista de inscripción para el segundo dispositivo. 
+La lista de inscripción indica al servicio Device Provisioning el método de atestación (el método para confirmar la identidad de un dispositivo) que se usando con el dispositivo. El siguiente paso es agregar una entrada de la lista de inscripción para el segundo dispositivo.
 
-1. En la página del servicio Device Provisioning, haga clic en **Manage enrollments** (Administrar inscripciones). Aparece la página **Add enrollment list entry** (Agregar entrada de la lista de inscripción). 
+1. En la página del servicio Device Provisioning, haga clic en **Manage enrollments** (Administrar inscripciones). Aparece la página **Add enrollment list entry** (Agregar entrada de la lista de inscripción).
 2. Haga clic en **Agregar** en la parte superior de la página.
-2. Rellene los campos y, a continuación, haga clic en **Guardar**.
+3. Rellene los campos y, a continuación, haga clic en **Guardar**.
 
 ## <a name="set-the-device-provisioning-service-allocation-policy"></a>Establecimiento de la directiva de asignación del servicio Device Provisioning
 
 La directiva de asignación es un valor del servicio Device Provisioning que determina cómo se asignan los dispositivos a una instancia de IoT Hub. Hay tres directivas de asignación admitidas: 
 
 1. **Latencia más baja**: los dispositivos se aprovisionan en una instancia de IoT Hub en función del centro con la latencia más baja en el dispositivo.
-2. **Distribución uniformemente ponderada** (predeterminada): las instancias de IoT Hub vinculadas tienen la misma probabilidad de tener dispositivos aprovisionados para ellos. Esta es la configuración predeterminada. Si va a aprovisionar dispositivos para un único centro de IoT Hub, puede mantener esta configuración. 
+2. **Distribución uniformemente ponderada** (predeterminada): las instancias de IoT Hub vinculadas tienen la misma probabilidad de tener dispositivos aprovisionados para ellos. Esta es la configuración predeterminada. Si va a aprovisionar dispositivos para un único centro de IoT Hub, puede mantener esta configuración. Si planea usarla en un centro de IoT, pero espera aumentar el número de centros a medida que aumenta el número de dispositivos, es importante tener en cuenta que, al asignarla a un centro de IoT Hub, la directiva no tiene en cuenta los dispositivos registrados previamente. Todos los centros vinculados tienen la misma posibilidad de obtener un registro de dispositivos en función de la ponderación de la instancia de IoT Hub vinculada. Sin embargo, si un centro de IoT ha alcanzado su límite de capacidad de dispositivos, ya no recibirá registros de dispositivos. Sin embargo, puede ajustar la ponderación de la asignación para cada uno de los centros de IoT.
+
 3. **Configuración estática a través de la lista de inscripción**: la especificación de la instancia de IoT deseada en la lista de inscripción tiene prioridad sobre la directiva de asignación del nivel del servicio Device Provisioning.
+
+### <a name="how-the-allocation-policy-assigns-devices-to-iot-hubs"></a>Cómo asigna la directiva de asignación los dispositivos a los centros de IoT
+
+Puede ser conveniente usar solo un centro de IoT hasta que se alcance un número específico de dispositivos. En ese escenario, es importante tener en cuenta que, una vez que se agrega un nuevo centro de IoT, un nuevo dispositivo se podría aprovisionar en cualquiera de los centros de IoT. Si desea equilibrar todos los dispositivos, registrados y no registrados, deberá volver a aprovisionar todos los dispositivos.
 
 Siga estos pasos para establecer la directiva de asignación:
 

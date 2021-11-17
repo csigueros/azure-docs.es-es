@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 5b815914d4a34d50e2bb566097620ee29e15f957
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 665cb2c8db360f061023294d563082321aae70e8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677532"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305814"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Evitar las entradas DNS pendientes y la adquisición de subdominios
 
@@ -144,15 +144,15 @@ Asegurarse de que su organización ha implementado procesos para evitar las entr
 
 Algunos servicios de Azure ofrecen características que ayudan a crear medidas preventivas y se detallan a continuación. Otros métodos para evitar este problema se deben establecer a través de las prácticas recomendadas de la organización o de los procedimientos operativos estándar.
 
-### <a name="enable-azure-defender-for-app-service"></a>Habilitación de Azure Defender para App Service
+### <a name="enable-microsoft-defender-for-app-service"></a>Habilitación de Microsoft Defender para App Service
 
-La plataforma integrada de protección de cargas de trabajo en la nube (CWP) de Azure Security Center, Azure Defender, ofrece la protección una amplia variedad de planes para proteger sus recursos y cargas de trabajo híbridas de varias nubes de Azure.
+La plataforma integrada de protección de cargas de trabajo en la nube (CWPP) de Microsoft Defender para la nube, Microsoft Defender para la nube, ofrece una amplia variedad de planes para proteger sus cargas de trabajo y recursos híbridos, de varias nubes y de Azure.
 
-El plan de **Azure defender para App Service** incluye la detección de DNS pendiente. Con este plan habilitado, recibirá alertas de seguridad si retira un sitio web de App Service pero no quita su dominio personalizado del registrador de DNS.
+El plan de **Microsoft Defender para App Service** incluye la detección de DNS pendiente. Con este plan habilitado, recibirá alertas de seguridad si retira un sitio web de App Service pero no quita su dominio personalizado del registrador de DNS.
 
-La protección contra DNS pendiente de Azure Defender está disponible tanto si los dominios se administran con Azure DNS como con un registrador de dominios externo y se aplica a App Service en Windows y en Linux.
+La protección contra DNS pendiente de Microsoft Defender para la nube está disponible tanto si los dominios se administran con Azure DNS como con un registrador de dominios externo y se aplica a App Service en Windows y en Linux.
 
-Obtenga más información sobre esta y otras ventajas de este plan de Azure Defender en [Introducción a Azure Defender para App Service](../../security-center/defender-for-app-service-introduction.md).
+Obtenga más información sobre esta y otras ventajas de este plan de Microsoft Defender en [Introducción a Microsoft Defender para App Service](../../security-center/defender-for-app-service-introduction.md).
 
 ### <a name="use-azure-dns-alias-records"></a>Uso de registros de alias de Azure DNS
 
@@ -211,7 +211,7 @@ A menudo, los desarrolladores y los equipos de operaciones deben ejecutar proces
 
 Para obtener más información sobre los servicios relacionados y las características de Azure que puede usar para defenderse de la adquisición de subdominios, consulte las páginas siguientes.
 
-- [Habilitación de Azure Defender para App Service](../../security-center/defender-for-app-service-introduction.md): para recibir alertas cuando se detectan entradas de DNS pendientes.
+- [Habilitación de Microsoft Defender para App Service](../../security-center/defender-for-app-service-introduction.md): para recibir alertas cuando se detectan entradas de DNS pendientes.
 
 - [Impedir que los registros DNS queden pendientes con Azure DNS](../../dns/dns-alias.md#prevent-dangling-dns-records)
 

@@ -8,12 +8,12 @@ ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 10/11/2021
 ms.author: banders
-ms.openlocfilehash: a4e5342e73ea374cf54b7bce2e81f17bb2a2bb80
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: b613a917793f522a081a3460d28edf84a9c03d09
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129753526"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130255531"
 ---
 # <a name="azure-ea-pricing"></a>Precios del Contrato Enterprise de Azure
 
@@ -33,7 +33,9 @@ Microsoft puede reducir el precio del Contrato Enterprise actual para servicios 
 
 ### <a name="current-effective-pricing"></a>Precios vigentes actuales
 
-Para ver los precios actuales de una inscripción, los clientes y partner de canal pueden iniciar sesión en [Azure Enterprise Portal](https://ea.azure.com/) e ir a la página de la hoja de precios de esa inscripción. Si adquiere Azure indirectamente a través de uno de nuestros partners de canal, deberá obtener las actualizaciones de precios de su partner de canal, a menos que este haya habilitado el marcado de precios para su inscripción.
+Para ver los precios actuales de una inscripción, los clientes y partner de canal pueden iniciar sesión en [Azure Enterprise Portal](https://ea.azure.com/) e ir a la página de la hoja de precios de esa inscripción. Los clientes directos de EA ya pueden ver y descargar la **hoja de precios** en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Consulte cómo [visualizar la hoja de precios](ea-pricing.md#download-pricing-for-an-enterprise-agreement).
+
+Si adquiere Azure indirectamente a través de uno de nuestros partners de canal, deberá obtener las actualizaciones de precios de su partner de canal, a menos que este haya habilitado el marcado de precios para su inscripción.
 
 ### <a name="introduction-of-new-azure-services"></a>Introducción de nuevos servicios de Azure
 

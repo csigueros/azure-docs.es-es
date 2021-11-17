@@ -3,12 +3,12 @@ title: Acceso al registro con restricción de red con el servicio de confianza d
 description: Habilitación de una instancia de servicio de Azure de confianza para acceder de forma segura a un registro de contenedor con restricción de red para extraer o insertar imágenes
 ms.topic: article
 ms.date: 05/19/2021
-ms.openlocfilehash: da22d525bbe86403f26daf7c3505c5dadffe4b81
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8d4379c8ea9935c366c94828e58bc236d9e4310f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128654163"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132327374"
 ---
 # <a name="allow-trusted-services-to-securely-access-a-network-restricted-container-registry-preview"></a>Permitir que los servicios de confianza accedan de forma segura a un registro de contenedor con restricción de red (versión preliminar)
 
@@ -42,7 +42,7 @@ Cuando se indica, el acceso por parte del servicio de confianza requiere una con
 
 |Servicio de confianza  |Escenarios de uso admitidos  | Configuración de la identidad administrada con el rol RBAC
 |---------|---------|------|
-| Azure Security Center | Examen de vulnerabilidades por parte de [Azure Defender para registros de contenedor](scan-images-defender.md) | No |
+| Microsoft Defender for Cloud | Examen de vulnerabilidades por parte de [Microsoft Defender para registros de contenedor](scan-images-defender.md) | No |
 |ACR Tasks     | [Acceso al registro primario o a otro registro desde una tarea de ACR](container-registry-tasks-cross-registry-authentication.md)       | Sí |
 |Machine Learning | [Implementar](../machine-learning/how-to-deploy-custom-container.md) o [entrenar](../machine-learning/how-to-train-with-custom-image.md) un modelo en un área de trabajo de Machine Learning mediante una imagen de contenedor personalizada de Docker | Sí |
 |Azure Container Registry | [Importación de imágenes](container-registry-import-images.md) hacia o desde un registro de contenedor de Azure restringido por la red | No |

@@ -3,12 +3,12 @@ title: Sesiones de mensajes de Azure Service Bus | Microsoft Docs
 description: En este artículo se explica cómo usar sesiones de para habilitar la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados.
 ms.topic: article
 ms.date: 09/01/2021
-ms.openlocfilehash: 98430d7b9db857de6dc3dfb37e61908b236591f2
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 55a5d432505d6c0aec7c2fc9b030eb9763413bee
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433447"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063296"
 ---
 # <a name="message-sessions"></a>Sesiones de mensajes
 Las sesiones de Azure Service Bus permiten la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados. Se pueden usar sesiones en patrones **FIFO (primero en entrar, primero en salir)** y de **solicitud-respuesta**. En este artículo se muestra cómo usar sesiones para implementar estos patrones al utilizar Service Bus. 
@@ -54,7 +54,7 @@ Cuando se procesan flujos de trabajo en sistemas de nube de gran escala y alta d
 
 El servicio de estado de sesión permite una anotación definida por la aplicación de una sesión de mensajes en el agente, de modo que el estado de procesamiento registrado con respecto a esa sesión deja de estar disponible al instante cuando un nuevo procesador adquiere la sesión.
 
-Desde el punto de vista de Service Bus, el estado de la sesión de mensajes es un objeto binario opaco que puede contener datos del tamaño de un mensaje, que es de 256 KB para Service Bus Standard y 1 MB para Service Bus Premium. El estado de procesamiento relativo a una sesión puede estar contenido en el estado de sesión, o el estado de sesión puede apuntar a alguna ubicación de almacenamiento o registro de base de datos que contiene dicha información.
+Desde el punto de vista de Service Bus, el estado de la sesión de mensajes es un objeto binario opaco que puede contener datos del tamaño de un mensaje, que es de 256 KB en el caso de Service Bus Estándar y 100 MB en el de Service Bus Prémium. El estado de procesamiento relativo a una sesión puede estar contenido en el estado de sesión, o el estado de sesión puede apuntar a alguna ubicación de almacenamiento o registro de base de datos que contiene dicha información.
 
 Los métodos para administrar el estado de sesión, SetState y GetState, se encuentran en el objeto de receptor de sesión. Una sesión que no tenía anteriormente un estado de sesión devuelve una referencia nula para GetState. El estado de sesión establecido anteriormente se puede borrar pasando null al método SetState en el receptor.
 

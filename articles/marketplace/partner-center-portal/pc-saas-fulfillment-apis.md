@@ -4,15 +4,15 @@ description: Introducción a las API de suministro que le permiten integrar su o
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 05/18/2020
 author: saasguide
 ms.author: souchak
-ms.openlocfilehash: fbe417eca2e636f5af7fea2b9e200205dcc255af
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: f5db31caffe420f7b53a554e858b8752e9c51223
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132398390"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054360"
 ---
 # <a name="saas-fulfillment-apis-in-the-microsoft-commercial-marketplace"></a>API de cumplimiento de SaaS en el marketplace comercial de Microsoft
 

@@ -7,18 +7,18 @@ ms.service: confidential-ledger
 ms.topic: overview
 ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 1baa1470bcaef8e447b19eb37580b21b94c02df6
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 2c5d6aab297fb357d94066a05dd7f6ff766b31df
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386640"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458121"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-ledger"></a>Preguntas frecuentes de Azure Confidential Ledger
 
 ## <a name="how-can-i-tell-if-the-acc-ledger-service-would-be-useful-to-my-organization"></a>¿Cómo puedo saber si el servicio Ledger de ACC sería útil para mi organización?
 
-Confidential Ledger es ideal para organizaciones con registros lo suficientemente valiosos como para que un atacante motivado intente poner en peligro el sistema subyacente de registro o almacenamiento, incluidos los escenarios de "trabajos internos" en los que un empleado no autorizado podría intentar falsificar, modificar o quitar registros anteriores.
+Azure Confidential Ledger resulta muy conveniente para organizaciones con registros lo suficientemente valiosos como para que un atacante motivado intente poner en peligro el sistema subyacente de registro o almacenamiento, incluidos los escenarios de "trabajos internos" en los que un empleado no autorizado podría intentar falsificar, modificar o quitar registros anteriores.
 
 ## <a name="what-makes-acc-ledger-much-more-secure"></a>¿Qué hace que Ledger de ACC sea mucho más seguro?
 
@@ -30,10 +30,10 @@ No necesariamente. En la actualidad, algunas soluciones requieren que los usuari
 
 ## <a name="how-do-i-verify-ledgers-authenticity"></a>¿Cómo compruebo la autenticidad de Ledger?
 
-Puede comprobar que los nodos del servidor de Ledger con los que se comunica el cliente sean auténticos. Para obtener más información, consulte [Autenticación de nodos de Confidential Ledger](authenticate-ledger-nodes.md).
+Puede comprobar que los nodos del servidor de Ledger con los que se comunica el cliente sean auténticos. Para más información, consulte [Autenticación de nodos de Confidential Ledger](authenticate-ledger-nodes.md).
 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Información general de Microsoft Azure Confidential Ledger](overview.md)
+- [Introducción a Microsoft Azure Confidential Ledger](overview.md)

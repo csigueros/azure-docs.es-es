@@ -1,6 +1,6 @@
 ---
 title: Creación de un conjunto de escalado a partir de una imagen generalizada con Azure PowerShell
-description: Cree un conjunto de escalado con una imagen generalizada en Shared Image Gallery mediante PowerShell.
+description: Cree un conjunto de escalado con una imagen generalizada en una instancia de Azure Compute Gallery mediante PowerShell.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
@@ -10,18 +10,18 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 591ad83cf9beeff7b25ffa1234441109dc169aa2
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 45ce53df289c8e3d471937a0c7291943920a83d8
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691263"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474768"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-using-powershell"></a>Creación de un conjunto de escalado a partir de una imagen generalizada mediante PowerShell 
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
 
-Cree una máquina virtual a partir de una versión de imagen generalizada almacenada en [Shared Image Gallery](../virtual-machines/shared-image-galleries.md). Si desea crear un conjunto de escalado mediante una imagen especializada, consulte el artículo sobre la [creación de instancias de un conjunto de escalado a partir de una imagen especializada](instance-specialized-image-version-powershell.md).
+Cree una máquina virtual a partir de una versión de imagen generalizada almacenada en una instancia de [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md). Si desea crear un conjunto de escalado mediante una imagen especializada, consulte el artículo sobre la [creación de instancias de un conjunto de escalado a partir de una imagen especializada](instance-specialized-image-version-powershell.md).
 
 Una vez que tenga una imagen generalizada, puede crear un conjunto de escalado de máquinas virtuales mediante el cmdlet [New-AzVmss](/powershell/module/az.compute/new-azvmss). 
 
@@ -62,7 +62,7 @@ Se tardan unos minutos en crear y configurar todos los recursos de conjunto de e
 
 ## <a name="extended-parameter-set"></a>Conjunto de parámetros extendido
 
-Para tener un control total sobre todos los recursos, entre los que se incluye la nomenclatura, use el conjunto de parámetros completo para crear un conjunto de escalado mediante una imagen de Shared Image Gallery. 
+Para tener un control total sobre todos los recursos, entre los que se incluye la nomenclatura, use el conjunto de parámetros completo para crear un conjunto de escalado mediante una imagen de Azure Compute Gallery. 
 
 ```azurepowershell-interactive
 # Get the image definition
@@ -178,10 +178,10 @@ Se tardan unos minutos en crear y configurar todos los recursos de conjunto de e
 ## <a name="next-steps"></a>Pasos siguientes
 [Azure Image Builder (versión preliminar)](../virtual-machines/image-builder-overview.md) puede ayudar a automatizar la creación de versiones de la imagen, incluso se puede usar para actualizar y [crear una nueva versión de la imagen a partir de una versión de imagen existente](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
 
-Puede crear también recursos de galería de imágenes compartidas con plantillas. Hay varias plantillas de Inicio rápido de Azure disponibles: 
+También puede crear recursos de Azure Compute Gallery mediante plantillas. Hay varias plantillas de Inicio rápido de Azure disponibles: 
 
-- [Creación de una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-create/)
-- [Creación de una definición de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [Creación de una versión de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [Creación de una instancia de Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Creación de una definición de imagen en una instancia de Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Creación de una versión de imagen en una instancia de Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
 
 Para más información sobre las galerías de imágenes compartidas, consulte la [Introducción](../virtual-machines/shared-image-galleries.md). Si encuentra problemas, consulte [Solución de problemas de galerías de imágenes compartidas](../virtual-machines/troubleshooting-shared-images.md).

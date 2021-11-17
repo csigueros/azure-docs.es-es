@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: 5e0dea425d309e6a92036214dfe43a5c779c586c
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 8fe7d56236281c10075a3b0526dd7014e36b0652
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132327583"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435555"
 ---
 # <a name="azure-automanage-for-machines-best-practices---linux"></a>Procedimientos recomendados de Azure Automanage para máquinas - Linux
 
@@ -40,7 +40,7 @@ Automanage es compatible con las siguientes distribuciones y versiones de Linux:
 |-----------|---------------|----------------------|
 |[Supervisión de la información de las máquinas](../azure-monitor/vm/vminsights-overview.md)    |Azure Monitor para máquinas supervisa el rendimiento y el mantenimiento de las máquinas virtuales, incluidos los procesos en ejecución y las dependencias de otros recursos. [Más información](../azure-monitor/vm/vminsights-overview.md).    |Producción    |
 |[Backup](../backup/backup-overview.md)   |Azure Backup proporciona copias de seguridad independientes y aisladas para impedir la destrucción accidental de los datos en las máquinas virtuales. [Más información](../backup/backup-azure-vms-introduction.md). Los cargos se basan en el número y el tamaño de las VM que se están protegiendo. [Más información](https://azure.microsoft.com/pricing/details/backup/).    |Producción    |
-|[Microsoft Defender for Cloud](../security-center/security-center-introduction.md)    |Microsoft Defender for Cloud es un sistema unificado de administración de la seguridad de la infraestructura que fortalece la posición de seguridad de los centros de datos y proporciona protección avanzada frente amenazas en las cargas de trabajo híbridas en la nube. [Más información](../security-center/security-center-introduction.md).  Automanage establece la suscripción en la que reside la máquina virtual en la oferta de nivel Gratis de Microsoft Defender for Cloud. Si la suscripción ya se ha incorporado a Microsoft Defender for Cloud, Automanage no la vuelve a configurar.    |Producción, desarrollo/pruebas    |
+|[Azure Security Center](../security-center/security-center-introduction.md)    |Azure Security Center es un sistema unificado de administración de la seguridad de infraestructura que fortalece el nivel de seguridad de sus centros de datos, y proporciona protección contra amenazas avanzada en las cargas de trabajo híbridas de la nube. [Más información](../security-center/security-center-introduction.md).  Automanage configurará la suscripción en la que reside la máquina virtual a la oferta de nivel Gratis de Azure Security Center. Si la suscripción ya se ha incorporado a Azure Security Center, Automanage no la volverá a configurar.    |Producción, desarrollo/pruebas    |
 |[Administración de actualizaciones](../automation/update-management/overview.md)    |Puede usar Update Management en Azure Automation para administrar las actualizaciones del sistema operativo de las máquinas. Puede evaluar rápidamente el estado de las actualizaciones disponibles en todas las máquinas agente y administrar el proceso de instalación de las actualizaciones necesarias para los servidores. [Más información](../automation/update-management/overview.md).    |Producción, desarrollo/pruebas    |
 |[Change Tracking e inventario](../automation/change-tracking/overview.md) |Change Tracking e Inventario combina funciones de inventario y seguimiento de cambios que le permiten realizar un seguimiento de los cambios en la infraestructura de servidores y máquinas virtuales. El servicio admite el seguimiento de cambios en el registro, servicios, demonios, software y archivos del entorno para ayudarle a diagnosticar cambios no deseados y generar alertas. La compatibilidad con inventario le permite consultar recursos de los invitados para obtener una visualización de las aplicaciones instaladas y otros elementos de configuración.  [Más información](../automation/change-tracking/overview.md).    |Producción, desarrollo/pruebas    |
 |[Configuración de invitado](../governance/policy/concepts/guest-configuration.md)  | La configuración de invitado se usa para supervisar la configuración y notificar sobre el cumplimiento de la máquina. El servicio de Automanage instalará las bases de referencia Linux de Azure con la extensión de configuración de invitado. En el caso de máquinas Linux, el servicio de configuración de invitado instalará la base de referencia en modo de solo auditoría. Podrá ver dónde no cumple la máquina virtual con la base de referencia, pero el incumplimiento no se corregirá automáticamente. [Más información](../governance/policy/concepts/guest-configuration.md).    |Producción, desarrollo/pruebas    |

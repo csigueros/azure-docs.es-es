@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 711f83a33a530aef99bba75a0010bcd131aa771b
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 01a82e178725cc310e5e693c738de047f09c1b7a
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130228972"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131505600"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutorial: Configuración de una puerta de enlace de red virtual para ExpressRoute con Azure Portal
 > [!div class="op_single_selector"]
@@ -82,16 +82,13 @@ Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-exp
     | Virtual network | Seleccione *TestVNet*. |
     | Dirección IP pública | Seleccione **Crear nuevo**.|
     | Nombre de la dirección IP pública | Proporcione un nombre para la dirección IP pública. |
-    | SKU de la dirección IP pública | Proporcione una SKU para la dirección IP pública. Elija *Estándar* para una puerta de enlace de doble pila. |
 
     > [!IMPORTANT]
-    > Si planea usar el emparejamiento privado basado en IPv6 sobre ExpressRoute, asegúrese de crear la puerta de enlace con una dirección IP pública de tipo Estándar y estática.
+    > Si planea usar el emparejamiento privado basado en IPv6 sobre ExpressRoute, asegúrese de crear la puerta de enlace con una dirección IP pública de tipo Estándar y estática siguiente las [instrucciones de PowerShell](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway).
     > 
     > 
 
 1. Seleccione **Revisar y crear** y, después, **Crear** para empezar a crear la puerta de enlace. Se valida la configuración y se implementa la puerta de enlace. La creación de una puerta de enlace de red virtual puede tardar en completarse hasta 45 minutos.
-
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="Campos de la página Crear puerta de enlace de red virtual":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

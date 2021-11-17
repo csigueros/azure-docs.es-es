@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/27/2021
 ms.author: spelluru
 ms.custom: devx-track-java
-ms.openlocfilehash: 4d8faa2d3ed17b404ae0609573c9f981386f10a5
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 6009d3ee7ce1ea55e9ccd3191e4d1bb2eef09ea4
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154629"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132063503"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Migración de aplicaciones de Java Message Service (JMS) 2.0 de Apache ActiveMQ a Azure Service Bus
 
@@ -40,7 +40,7 @@ Aun así, hay varias diferencias entre ambos, tal como se muestra en la tabla si
 | Aplicación por niveles | Monolito en clúster | Dos niveles <br> (puerta de enlace + back end) |
 | Compatibilidad con protocolos | <ul> <li>AMQP</li> <li> STOMP </li> <li> OpenWire </li> </ul> | AMQP |
 | Modo de aprovisionamiento | <ul> <li> Infraestructura como servicio (IaaS), local </li> <li> Amazon MQ (plataforma administrada como servicio) </li> | Plataforma administrada como servicio (PaaS) |
-| Tamaño del mensaje | Configurable por el usuario | 1 MB (nivel premium) |
+| Tamaño del mensaje | Configurable por el usuario | 100 MB (nivel Premium) |
 | Alta disponibilidad | Administrado por el cliente | Administrado por plataforma |
 | Recuperación ante desastres | Administrado por el cliente | Administrado por plataforma | 
 

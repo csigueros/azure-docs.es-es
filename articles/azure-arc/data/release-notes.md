@@ -7,18 +7,152 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 08/19/2021
+ms.date: 11/03/2021
 ms.topic: conceptual
-ms.openlocfilehash: d91b14057937275338ee1c96ee4025d66af6251d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: references_regions
+ms.openlocfilehash: 384232e803469a2ccbe0480c0e4e41c01f96b7ee
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124794605"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131852263"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services"></a>Notas de la versión: servicios de datos habilitados para Azure Arc
 
 En este artículo se resaltan las funcionalidades, las características y las mejoras que se han publicado u optimizado recientemente para los servicios de datos habilitados para Azure Arc.
+
+## <a name="november-2021"></a>Noviembre de 2021
+
+Esta versión se publicó el 3 de noviembre de 2021.
+
+#### <a name="tools"></a>Herramientas
+
+##### <a name="azure-data-studio"></a>Azure Data Studio
+
+Instale o actualice a la última versión de la [extensión de Arc para Azure Data Studio](/sql/azure-data-studio/extensions/azure-arc-extension).
+
+##### <a name="azure-az-cli"></a>CLI de Azure (`az`)
+
+Instale o actualice la extensión `arcdata` para la CLI `az` para admitir la implementación conectada directamente.
+
+Los comandos `sql` siguientes ahora admiten el modo de conexión directa:
+
+   ```console
+   az arcdata dc create
+   az arcdata dc delete
+   az arcdata sql mi-arc create
+   az arcdata sql mi-arc delete
+   ```
+ 
+#### <a name="data-controller"></a>Controlador de datos
+
+- El modo de conexión directa está disponible con carácter general.
+- Las extensiones del controlador de datos de Azure Arc conectadas directamente en los clústeres de Kubernetes habilitado para Azure Arc ahora usan identidades administradas generadas por el sistema en lugar del nombre de entidad de seguridad de servicio. La identidad administrada se crea automáticamente cuando se crea una extensión del controlador de datos de Azure Arc. Todavía debe conceder los permisos adecuados para cargar el uso y las métricas.
+- La carga de métricas utiliza la identidad administrada generada por el sistema con un controlador de datos de Azure Arc conectado directamente. 
+- Cree el controlador de datos de Azure Arc en el modo de conexión directa desde la CLI de Azure (`az`).
+- Cargue las métricas automáticamente en Azure Monitor.
+- Cargue los registros automáticamente en Azure Log Analytics.
+- Habilite o deshabilite la carga automática de métricas o registros en Azure después de la implementación del controlador de datos de Azure Arc.
+- Actualice a partir de la versión de julio de 2021 disponible (solo para servicios disponibles con carácter general, como el controlador de datos de Azure Arc y SQL Managed Instance de uso general) mediante la CLI de Azure.
+- Establezca los nombres de usuario y las contraseñas de los paneles de métricas y registros por separado en el momento de la implementación del controlador de dominio mediante las nuevas variables de entorno:
+
+   ```console
+   AZDATA_LOGSUI_USERNAME
+   AZDATA_LOGSUI_PASSWORD
+   AZDATA_METRICSUI_USERNAME
+   AZDATA_METRICSUI_PASSWORD
+   ```
+- Nuevo comando: `az arcdata dc list-upgrades` muestra la lista de actualizaciones disponibles del controlador de datos implementado actualmente.
+
+
+Puede continuar usando las variables de entorno `AZDATA_USERNAME` y `AZDATA_PASSWORD` como antes. Si solo proporciona `AZDATA_USERNAME` y `AZDATA_PASSWORD` y, a continuación, la implementación los usa para los paneles de registros y métricas.
+
+##### <a name="region-availability"></a>Disponibilidad regional
+
+- El modo de conexión directa solo está disponible en las siguientes regiones de Azure para esta versión:
+
+   - Centro-norte de EE. UU
+   - Centro de EE. UU.
+   - Este de EE. UU.
+   - Este de EE. UU. 2
+   - Oeste de EE. UU.*
+   - Oeste de EE. UU. 2
+   - Oeste de EE. UU. 3*
+   - Sur de Reino Unido
+   - Oeste de Europa
+   - Norte de Europa
+   - Este de Australia
+   - Sudeste de Asia
+   - Centro de Corea del Sur
+   - Centro de Francia
+
+    \* Recién agregado para noviembre de 2011
+
+
+#### <a name="azure-arc-enabled-sql-managed-instance"></a>SQL Managed Instance habilitado para Azure Arc
+
+- Actualice las instancias de uso general de SQL Managed Instance para Azure Arc que se encuentran disponibles.
+- Los archivos binarios de SQL se actualizan a una nueva versión.
+- Implementación del modo de conexión directa de SQL Managed Instance habilitado para Azure Arc mediante la CLI de Azure.
+- La restauración a un momento dado para SQL Managed Instance habilitado para Azure Arc está disponible con carácter general con esta versión. Actualmente, la restauración a un momento dado solo se admite para SQL Managed Instance de uso general. La restauración a un momento dado para SQL Managed Instance aún se encuentra en versión preliminar.
+- Nueva opción `--dry-run` proporcionada para la restauración a un momento dado.
+- El objetivo de punto de recuperación se establece en 5 minutos de forma predeterminada y no es configurable.
+- El período de retención de copia de seguridad se establece en 7 días de forma predeterminada. Una nueva opción para establecer el período de retención en cero deshabilita las copias de seguridad automáticas para las instancias de desarrollo y pruebas que no requieren copias de seguridad.
+- Se ha resuelto el problema por el que la operación de restauración a un momento dado no respetaba la zona horaria configurada. 
+- Restauración a un momento dado desde la CLI de Azure o Azure Data Studio.
+ 
+
+### <a name="known-issues"></a>Problemas conocidos
+
+#### <a name="data-controller-upgrade"></a>Actualización del controlador de datos
+
+- En este momento, no se admite la actualización de un controlador de datos conectado directamente mediante la CLI o el portal.
+- En este momento, solo se pueden actualizar los servicios disponibles con carácter general, como el controlador de datos de Azure Arc y SQL Managed Instance de uso general. Si también tiene SQL Managed Instance crítico para la empresa o Hiperescala de PostgreSQL habilitada para Azure Arc, quítelos primero antes de continuar con la actualización.
+
+#### <a name="commands"></a>Comandos
+
+Los siguientes comandos no admiten el modo de conexión directa en este momento:
+
+```console
+az arcdata dc update
+az arcdata sql mi-arc update
+```
+
+#### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Hiperescala de PostgreSQL habilitada para Azure Arc
+
+- La copia de seguridad y restauración de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc no se admite en la versión preliminar actual.
+
+- No es posible habilitar ni configurar la extensión `pg_cron` al mismo tiempo. Debe usar dos comandos para esto. Un comando para habilitarlo y otro para configurarlo. Por ejemplo:
+
+   1. Habilite la extensión:
+
+      ```console
+      az postgres arc-server edit -n myservergroup --extensions pg_cron
+      ```
+
+   1. Reinicie el grupo de servidores.
+
+   1. Configure la extensión:
+
+      ```console
+      az postgres arc-server edit -n myservergroup --engine-settings cron.database_name='postgres'
+      ```
+
+   Si ejecuta el segundo comando antes de que se complete el reinicio, se producirá un error. Si ese es el caso, espere unos instantes más y vuelva a ejecutar el segundo comando.
+
+- Al pasar un valor no válido al parámetro `--extensions` cuando se edita la configuración de un grupo de servidores para habilitar extensiones adicionales, se restablece incorrectamente la lista de extensiones habilitadas al momento de la creación del grupo de servidores e impide que el usuario cree extensiones adicionales. La única solución disponible cuando esto sucede es eliminar el grupo de servidores y volver a implementarlo.
+
+#### <a name="azure-arc-enabled-sql-managed-instance"></a>SQL Managed Instance habilitado para Azure Arc
+
+- Cuando se vuelve a aprovisionar un pod, SQL Managed Instance inicia una nueva serie de copias de seguridad completas de todas las bases de datos.
+- Si el controlador de datos está conectado directamente, para poder aprovisionar una instancia de SQL Managed Instance, primero debe actualizar el controlador de datos a la versión más reciente. El intento de aprovisionar una instancia de SQL Managed Instance con un controlador de datos imageVersion de `v1.0.0_2021-07-30` no se realizará correctamente.
+
+
+##### <a name="other-limitations"></a>Otras limitaciones
+
+- Actualmente no se admite la replicación de transacciones.
+- El trasvase de registros está bloqueado actualmente.
+- Solo se admite la autenticación de SQL Server.
 
 ## <a name="july-2021"></a>Julio de 2021
 
@@ -54,17 +188,21 @@ Utilice las herramientas siguientes:
 - El modo de conexión directa está en versión preliminar. 
 
 - El modo de conexión directa (versión preliminar) solo está disponible en las siguientes regiones de Azure para esta versión:
+
+   - Centro-norte de EE. UU
    - Centro de EE. UU.
    - Este de EE. UU.
    - Este de EE. UU. 2
+   - Oeste de EE. UU.*
    - Oeste de EE. UU. 2
-   - Sur de Reino Unido 2
+   - Oeste de EE. UU. 3*
+   - Sur de Reino Unido
    - Oeste de Europa
    - Norte de Europa
    - Este de Australia
    - Sudeste de Asia
    - Centro de Corea del Sur
-   - Centro de Francia
+   - Centro de Francia \* Recién agregado para noviembre de 2021.
 
 - Actualmente, se pueden agregar usuarios de autenticación básica adicionales a Grafana mediante la experiencia administrativa de Grafana. No se admite la personalización de Grafana modificando los archivos .ini de Grafana.
 
@@ -77,10 +215,10 @@ Utilice las herramientas siguientes:
 #### <a name="azure-arc-enabled-sql-managed-instance"></a>SQL Managed Instance habilitado para Azure Arc
 
 - La copia de seguridad automatizada y la restauración a un momento dado se encuentran en versión preliminar.
-- Admite la restauración a un momento dado desde una base de datos existente en un SQL Managed Instance habilitado para Azure Arc a una nueva base de datos dentro de la misma instancia.
+- Admite la restauración a un momento dado desde una base de datos existente en una instancia de SQL Managed Instance habilitado para Azure Arc a una nueva base de datos dentro de la misma instancia.
 - Si el valor datetime actual se da como un momento dado en formato UTC, se resuelve como la hora de restauración válida más reciente y restaura la base de datos especificada hasta la última transacción válida.
 - Una base de datos se puede restaurar en cualquier momento dado en el que se realizaron las transacciones.
-- Con el fin de establecer un objetivo de punto de recuperación específico para un SQL Managed Instance habilitado para Azure Arc, edite el CRD de SQL Managed Instance para establecer la propiedad `recoveryPointObjectiveInSeconds`. Los valores admitidos van de 300 a 600.
+- Con el fin de establecer un objetivo de punto de recuperación específico para una instancia de SQL Managed Instance habilitado para Azure Arc, edite el CRD de SQL Managed Instance para establecer la propiedad `recoveryPointObjectiveInSeconds`. Los valores admitidos van de 300 a 600.
 - Para deshabilitar las copias de seguridad automatizadas, edite el CRD de la instancia de SQL y establezca la propiedad `recoveryPointObjectiveInSeconds` en 0.
 
 ### <a name="known-issues"></a>Problemas conocidos
@@ -103,7 +241,7 @@ Utilice las herramientas siguientes:
 
 #### <a name="data-controller"></a>Controlador de datos
 
-- Cuando el controlador de datos de Azure Arc se elimina de Azure Portal, se realiza la validación para bloquear la eliminación si hay instancias de SQL Managed Instance habilitado para Azure Arc implementadas en este controlador de datos de Arc. Actualmente, esta validación solo se aplica cuando la eliminación se realiza desde la página Información general del controlador de datos de Azure Arc. 
+- Cuando el controlador de datos de Azure Arc se elimina de Azure Portal, se realiza la validación para bloquear la eliminación si hay instancias de SQL Managed Instance habilitado para Azure Arc implementadas en este controlador de datos de Arc. Actualmente, esta validación solo se aplica cuando la eliminación se realiza desde la página Información general del controlador de datos de Azure Arc. 
 
 #### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Hiperescala de PostgreSQL habilitada para Azure Arc
 
@@ -140,22 +278,22 @@ Utilice las herramientas siguientes:
 
 ##### <a name="point-in-time-restorepitr-supportability-and-limitations"></a>Compatibilidad y limitaciones de la restauración a un momento dado (PITR):
     
--  No admite la restauración desde una instancia de SQL Managed Instance habilitada para Azure Arc en otra.  La base de datos solo se puede restaurar en la misma instancia de SQL Managed Instance habilitado para Azure Arc donde se crearon las copias de seguridad.
--  Actualmente no se admite el cambio de nombre de una base de datos con fines de restauración a un momento dado.
--  Actualmente no hay ningún comando de la CLI ni una API para proporcionar la información de período de tiempo permitida para la restauración a un momento dado. Puede proporcionar un tiempo dentro de un período razonable, desde la hora en que se creó la base de datos, y si la marca de tiempo es válida, la restauración funcionaría. Si la marca de tiempo no es válida, el período de tiempo permitido se proporciona a través de un mensaje de error.
--  No se admite la restauración de una base de datos habilitada para TDE.
--  Actualmente no se puede restaurar una base de datos eliminada.
+- No admite la restauración desde una instancia de SQL Managed Instance habilitada para Azure Arc en otra.  La base de datos solo se puede restaurar en la misma instancia de SQL Managed Instance habilitado para Azure Arc donde se crearon las copias de seguridad.
+- Actualmente no se admite el cambio de nombre de una base de datos con fines de restauración a un momento dado.
+- Actualmente no hay ningún comando de la CLI ni una API para proporcionar la información de período de tiempo permitida para la restauración a un momento dado. Puede proporcionar un tiempo dentro de un período razonable, desde la hora en que se creó la base de datos, y si la marca de tiempo es válida, la restauración funcionaría. Si la marca de tiempo no es válida, el período de tiempo permitido se proporciona a través de un mensaje de error.
+- No se admite la restauración de una base de datos habilitada para TDE.
+- Actualmente no se puede restaurar una base de datos eliminada.
 
 #####   <a name="automated-backups"></a>Copias de seguridad automatizadas
 
--  El cambio de nombre de la base de datos detendrá las copias de seguridad automatizadas de esta base de datos.
--  No se aplica ninguna retención. Conservará todas las copias de seguridad siempre que haya espacio disponible. 
--  No se crea una copia de seguridad de las bases de datos de usuario con el modelo de recuperación SIMPLE.
--  No se crea una copia de seguridad del `model` de base de datos del sistema para evitar interferencias con la creación o eliminación de la base de datos. La base de datos se bloquea cuando se realizan operaciones de administración. 
--  Actualmente solo se crea una copia de seguridad de las bases de datos del sistema `master` y `msdb`. Solo se crean copias de seguridad completas cada 12 horas.
--  Solo se crean copias de seguridad de las bases de datos de usuario `ONLINE`.
--  Objetivo de punto de recuperación predeterminado (RPO): 5 minutos. No se puede modificar en la versión actual.
--  Las copias de seguridad se conservan indefinidamente. Para recuperar espacio, elimine manualmente las copias de seguridad.
+- El cambio de nombre de la base de datos detendrá las copias de seguridad automatizadas de esta base de datos.
+- No se aplica ninguna retención. Conservará todas las copias de seguridad siempre que haya espacio disponible. 
+- No se crea una copia de seguridad de las bases de datos de usuario con el modelo de recuperación SIMPLE.
+- No se crea una copia de seguridad del `model` de base de datos del sistema para evitar interferencias con la creación o eliminación de la base de datos. La base de datos se bloquea cuando se realizan operaciones de administración. 
+- Actualmente solo se crea una copia de seguridad de las bases de datos del sistema `master` y `msdb`. Solo se crean copias de seguridad completas cada 12 horas.
+- Solo se crean copias de seguridad de las bases de datos de usuario `ONLINE`.
+- Objetivo de punto de recuperación predeterminado (RPO): 5 minutos. No se puede modificar en la versión actual.
+- Las copias de seguridad se conservan indefinidamente. Para recuperar espacio, elimine manualmente las copias de seguridad.
 
 ##### <a name="other-limitations"></a>Otras limitaciones
 - Actualmente no se admite la replicación de transacciones.
@@ -240,19 +378,19 @@ En esta versión se presentan las extensiones de la CLI `az` para los servicios 
 
 #### <a name="azure-arc-enabled-sql-managed-instance"></a>SQL Managed Instance habilitado para Azure Arc
 
--  Las copias de seguridad automatizadas ahora están habilitadas.
--  Ahora puede restaurar una copia de seguridad de base de datos como una base de datos nueva en la misma instancia de SQL mediante la creación de un nuevo recurso personalizado basado en la definición de recursos personalizados (CRD) `sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`. Para obtener información detallada, consulte la documentación. Todavía no hay ninguna experiencia de interfaz de línea de comandos (`azdata` o `az`), de Azure Portal o de Azure Data Studio para restaurar una base de datos.
--  La versión de los archivos binarios del motor de SQL incluidos en esta versión se alinea con los archivos binarios más recientes que se implementan globalmente en Azure SQL Managed Instance (PaaS en Azure). Esta alineación permite crear copias de seguridad y restauraciones entre Azure SQL Managed Instance PaaS y Azure SQL Managed Instance habilitado para Azure Arc. Más adelante se proporcionan más detalles sobre la compatibilidad.
--  Ahora puede eliminar instancias de SQL Managed Instance de Azure Arc desde Azure Portal en modo de conexión directa.
--  Ahora puede configurar un SQL Managed Instance para tener un plan de tarifa (`GeneralPurpose`, `BusinessCritical`), el tipo de licencia (`LicenseIncluded`, `BasePrice`, que se usa para los precios AHB) y `developer`. No se incurrirá en ningún cargo por el uso de SQL Managed Instance habilitado para Azure Arc hasta la fecha de disponibilidad general (anunciada públicamente como programada para el 30 de julio de 2021) y hasta que actualice a la versión de disponibilidad general del servicio.
--  La extensión `arcdata` para Azure Data Studio ahora tiene parámetros adicionales que se pueden configurar para implementar y editar instancias SQL Managed Instance: habilitar o deshabilitar agente, secreto de inicio de sesión de administrador, anotaciones, etiquetas, anotaciones de servicio, etiquetas de servicio, valores de configuración de SSL/TLS, intercalación, idioma y marcas de seguimiento.
--  Nuevos comandos en `azdata`/tareas de recursos personalizados para configurar grupos de disponibilidad distribuidos. Estos comandos se encuentran en las primeras fases de la versión preliminar; se proporcionará pronto la documentación.
+- Las copias de seguridad automatizadas ahora están habilitadas.
+- Ahora puede restaurar una copia de seguridad de base de datos como una base de datos nueva en la misma instancia de SQL mediante la creación de un nuevo recurso personalizado basado en la definición de recursos personalizados (CRD) `sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`. Para obtener información detallada, consulte la documentación. Todavía no hay ninguna experiencia de interfaz de línea de comandos (`azdata` o `az`), de Azure Portal o de Azure Data Studio para restaurar una base de datos.
+- La versión de los archivos binarios del motor de SQL incluidos en esta versión se alinea con los archivos binarios más recientes que se implementan globalmente en Azure SQL Managed Instance (PaaS en Azure). Esta alineación permite crear copias de seguridad y restauraciones entre Azure SQL Managed Instance PaaS y Azure SQL Managed Instance habilitado para Azure Arc. Más adelante se proporcionan más detalles sobre la compatibilidad.
+- Ahora puede eliminar instancias de SQL Managed Instance de Azure Arc desde Azure Portal en modo de conexión directa.
+- Ahora puede configurar un SQL Managed Instance para tener un plan de tarifa (`GeneralPurpose`, `BusinessCritical`), el tipo de licencia (`LicenseIncluded`, `BasePrice`, que se usa para los precios AHB) y `developer`. No se incurrirá en ningún cargo por el uso de SQL Managed Instance habilitado para Azure Arc hasta la fecha de disponibilidad general (anunciada públicamente como programada para el 30 de julio de 2021) y hasta que actualice a la versión de disponibilidad general del servicio.
+- La extensión `arcdata` para Azure Data Studio ahora tiene parámetros adicionales que se pueden configurar para implementar y editar instancias SQL Managed Instance: habilitar o deshabilitar agente, secreto de inicio de sesión de administrador, anotaciones, etiquetas, anotaciones de servicio, etiquetas de servicio, valores de configuración de SSL/TLS, intercalación, idioma y marcas de seguimiento.
+- Nuevos comandos en `azdata`/tareas de recursos personalizados para configurar grupos de disponibilidad distribuidos. Estos comandos se encuentran en las primeras fases de la versión preliminar; se proporcionará pronto la documentación.
 
    > [!NOTE]
    > Estos comandos se migrarán a la extensión `az arcdata`.
 
--  `azdata arc dc export` está desusada. Se reemplaza por `az arcdata dc export` en la extensión `arcdata` para la CLI de Azure (`az`). Usa un enfoque diferente para exportar los datos. Ya no se conecta directamente a la API del controlador de datos. En su lugar, crea una tarea de exportación basada en la definición de recursos personalizados (CRD) `exporttasks.tasks.arcdata.microsoft.com`. El recurso personalizado de la tarea de exportación que se crea impulsa un flujo de trabajo para generar un paquete descargable. La CLI de Azure espera a que finalice esta tarea y, después, recupera la dirección URL segura del estado del recurso personalizado de la tarea para descargar el paquete.
--  Compatibilidad con el uso de clases de almacenamiento basadas en NFS.
+- `azdata arc dc export` está desusada. Se reemplaza por `az arcdata dc export` en la extensión `arcdata` para la CLI de Azure (`az`). Usa un enfoque diferente para exportar los datos. Ya no se conecta directamente a la API del controlador de datos. En su lugar, crea una tarea de exportación basada en la definición de recursos personalizados (CRD) `exporttasks.tasks.arcdata.microsoft.com`. El recurso personalizado de la tarea de exportación que se crea impulsa un flujo de trabajo para generar un paquete descargable. La CLI de Azure espera a que finalice esta tarea y, después, recupera la dirección URL segura del estado del recurso personalizado de la tarea para descargar el paquete.
+- Compatibilidad con el uso de clases de almacenamiento basadas en NFS.
 - Se han agregado diagnósticos y soluciones a Azure Portal para SQL Managed Instance de Arc.
 
 ## <a name="may-2021"></a>Mayo de 2021
@@ -361,7 +499,7 @@ Eliminará las definiciones de recurso personalizado anteriores a medida que lim
 
 ### <a name="azure-arc-enabled-sql-managed-instance"></a>SQL Managed Instance habilitado para Azure Arc
 
-- Ahora puede crear una instancia administrada de SQL desde Azure Portal en el modo de conexión directa.
+- Ahora puede crear una instancia de SQL Managed Instance desde Azure Portal en el modo de conexión directa.
 
 - Ahora puede restaurar una base de datos a SQL Managed Instance con tres réplicas para que se agregue automáticamente al grupo de disponibilidad.
 
@@ -498,6 +636,6 @@ Para obtener instrucciones, consulte [¿Qué son los servicios de datos habilita
 
 - [Instalación de las herramientas de cliente](install-client-tools.md)
 - [Creación del controlador de datos de Azure Arc](create-data-controller.md) (requiere primero la instalación de las herramientas de cliente).
-- [Creación de una instancia administrada de Azure SQL en Azure Arc](create-sql-managed-instance.md) (requiere primero la creación de un controlador de datos de Azure Arc).
+- [Creación de una instancia de Azure SQL Managed Instance en Azure Arc](create-sql-managed-instance.md) (requiere primero la creación de un controlador de datos de Azure Arc).
 - [Creación de un grupo de servidores de Hiperescala de Azure Database for PostgreSQL en Azure Arc](create-postgresql-hyperscale-server-group.md) (requiere primero la creación de un controlador de datos de Azure Arc).
 - [Proveedores de recursos para servicios de Azure](../../azure-resource-manager/management/azure-services-resource-providers.md)

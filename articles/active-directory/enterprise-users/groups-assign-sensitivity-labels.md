@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96db7b21433a9bb3c1ed314c2b8ad612a5e335f3
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 5b116a4b6a100f8b93d453b95b7c181cde97b572
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132136034"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132401409"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Asignación de etiquetas de confidencialidad a grupos de Microsoft 365 en Azure Active Directory
 
@@ -74,7 +74,7 @@ Para aplicar etiquetas publicadas a grupos, primero debe habilitar la caracterí
 1. Guarde los cambios y aplique la configuración:
 
     ```powershell
-    Set-AzureADDirectorySetting -Id grpUnifiedSetting.Id -DirectorySetting $setting
+    Set-AzureADDirectorySetting -Id $grpUnifiedSetting.Id -DirectorySetting $setting
     ```
 
 También deberá sincronizar las etiquetas de confidencialidad con Azure AD. Puede encontrar instrucciones en [Cómo habilitar etiquetas de confidencialidad para contenedores y sincronizarlas](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).

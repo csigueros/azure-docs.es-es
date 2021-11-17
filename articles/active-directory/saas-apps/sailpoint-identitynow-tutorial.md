@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 8855e49d0bdc8e8f06b21186f7ad1f305b214b15
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: fe4a709408e93d5b3ccbaaec8f84dc834fa50e92
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124756230"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132329421"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sailpoint-identitynow"></a>Tutorial: Integración de inicio de sesión único (SSO) de Azure Active Directory con SailPoint IdentityNow
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con SailPoint Identi
 Para configurar y probar el inicio de sesión único de Azure AD con SailPoint IdentityNow, complete los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración de inicio de sesión único en SailPoint IdentityNow](#configure-sailpoint-identitynow-sso)** , para configurar los valores de inicio de sesión único en el lado de la aplicación.
     1. **[Creación de un usuario de prueba de SailPoint IdentityNow](#create-sailpoint-identitynow-test-user)** , para tener un homólogo de B.Simon en SailPoint IdentityNow que esté vinculado a la representación del usuario en Azure AD.
@@ -144,4 +144,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado SailPoint IdentityNow, puede aplicar el control de sesión que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado SailPoint IdentityNow, puede aplicar el control de sesión que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).

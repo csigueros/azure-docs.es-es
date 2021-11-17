@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: duau
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: 05c43d5e21c637fef321dc39cd341befedfba81e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 81603472d4a5a254fe86f2a6866d8a7edcbbef88
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131017312"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459641"
 ---
 # <a name="what-is-azure-virtual-network-manager-preview"></a>¿Qué es Azure Virtual Network Manager (versión preliminar)?
 
@@ -28,7 +28,7 @@ Azure Virtual Network Manager es un servicio de administración que le permite a
 
 :::image type="content" source="./media/overview/management-group.png" alt-text="Diagrama del grupo de administración en Virtual Network Manager.":::
 
-Durante el proceso de creación, puede definir el ámbito de lo que Azure Virtual Network Manager administrará. El ámbito se puede definir en el nivel de suscripción o en el del [grupo de administración](../governance/management-groups/overview.md). Después de definir el ámbito, puede habilitar características como *Conectividad* y el rol *SecurityAdmin* para Virtual Network Manager.
+Durante el proceso de creación, puede definir el ámbito de lo que Azure Virtual Network Manager administrará. La definición de un ámbito requiere la creación de un [grupo de administración](../governance/management-groups/overview.md). Después de definir el ámbito, puede habilitar características como *Conectividad* y el rol *SecurityAdmin* para Virtual Network Manager.
 
 Después de implementar la instancia de Virtual Network Manager, cree un *grupo de red* mediante instrucciones condicionales para seleccionar redes virtuales por nombre, etiquetas o identificadores (pertenencia dinámica). También puede seleccionar redes virtuales específicas (pertenencia estática). Las reglas definidas para el grupo de red se reflejan en Azure Policy como una definición de iniciativa personalizada y la asignación correspondiente que ilustra las reglas definidas para la pertenencia a la red virtual. Para más información sobre las iniciativas de Azure Policy, consulte [Estructura de iniciativas de Azure Policy](../governance/policy/concepts/initiative-definition-structure.md). Estas directivas están disponibles actualmente en modo de solo lectura. Para más información sobre cómo crear, actualizar y eliminar estas directivas, consulte [Grupos de red y Azure Policy](concept-network-groups.md#network-group-and-azure-policy). Después, cree configuraciones de seguridad o conectividad aplicadas a esos grupos de red en función de sus necesidades de topología y seguridad. 
 

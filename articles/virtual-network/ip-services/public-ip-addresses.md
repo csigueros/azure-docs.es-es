@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 04/29/2021
 ms.author: allensu
-ms.openlocfilehash: 5f24b2478acc0b305595b70b579d744320f0da3a
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: a57c4ea8d058f0f565b6dbec7fdb74b07ea7564e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130261203"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471409"
 ---
 # <a name="public-ip-addresses"></a>Direcciones IP públicas
 
@@ -106,7 +106,7 @@ Las direcciones IP públicas se suelen usar en los escenarios siguientes:
 * Los recursos de Azure se comunican con otras aplicaciones o servicios que utilizan un modelo de seguridad basado en dirección IP.
 * Use certificados TLS/SSL vinculados a una dirección IP.
 
-Las direcciones IPv4 e IPv6 públicas básicas admiten una asignación **dinámica**.  La dirección IP **no** se asigna al recurso en el momento de crearse cuando se selecciona el método dinámico.  La dirección IP se asigna cuando se asocia la dirección IP pública a un recurso. La dirección IP se libera cuando se detiene o elimina el recurso.   Por ejemplo, un recurso de dirección IP pública se libera de un recurso denominado **Recurso A**. **Recurso A** recibe una dirección IP diferente en el inicio si el recurso de dirección IP pública se vuelve a asignar. Una dirección IP se libera si se cambia el método de asignación de **estático** a **dinámico**. Establezca el método de asignación en **estático** para asegurarse de que la dirección IP siga siendo igual.
+Las direcciones IPv4 e IPv6 públicas básicas admiten una asignación **dinámica**.  La dirección IP **no** se asigna al recurso en el momento de crearse cuando se selecciona el método dinámico.  La dirección IP se asigna cuando se asocia la dirección IP pública a un recurso. La dirección IP se libera cuando se detiene o elimina el recurso.   Por ejemplo, un recurso de dirección IP pública se libera de un recurso denominado **Recurso A**. **Recurso A** recibe una dirección IP diferente en el inicio si el recurso de dirección IP pública se vuelve a asignar. Una dirección IP se libera si se cambia el método de asignación de **estático** a **dinámico**. Una dirección IP asociada no cambia si se cambia el método de asignación de **dinámico** a **estático**. Establezca el método de asignación en **estático** para asegurarse de que la dirección IP siga siendo igual.
 
 > [!NOTE]
 > Azure asigna direcciones IP públicas a partir de un rango único para cada región en cada nube de Azure. Puede descargar la lista de intervalos (prefijos) para las nubes de Azure [Pública](https://www.microsoft.com/download/details.aspx?id=56519), [Gobierno de Estados Unidos](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062) y [Alemania](https://www.microsoft.com/download/details.aspx?id=57064).

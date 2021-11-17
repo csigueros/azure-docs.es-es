@@ -10,18 +10,18 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 8ec66c0aa34fe2a41d4bd0f450175cd884a3bae8
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 70c3eaf554d1752b6aaa2a4ed1bfd05e9da67b5c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692089"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441160"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Aprovisionamiento de máquinas virtuales Linux en Azure
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
-Al crear una máquina virtual a partir de una imagen generalizada (Shared Image Gallery o imagen administrada), el plano de control permitirá crear una máquina virtual y pasar los parámetros y valores a la máquina virtual. Esto se denomina *aprovisionamiento* de una máquina virtual. Durante el aprovisionamiento, la plataforma pone los valores necesarios de los parámetros de VM Create (hostname, username, password, SSH keys, customData) a disposición de la máquina virtual cuando esta arranca. 
+Al crear una máquina virtual a partir de una imagen generalizada (Azure Compute Gallery o imagen administrada), el plano de control permitirá crear una máquina virtual y pasar los parámetros y valores a la máquina virtual. Esto se denomina *aprovisionamiento* de una máquina virtual. Durante el aprovisionamiento, la plataforma pone los valores necesarios de los parámetros de VM Create (hostname, username, password, SSH keys, customData) a disposición de la máquina virtual cuando esta arranca. 
 
 Un agente de aprovisionamiento incorporado en la imagen hará de interfaz con la plataforma (se conectará a varias interfaces de aprovisionamiento independientes), establecerá las propiedades e indicará a la plataforma que ha finalizado. 
 

@@ -6,15 +6,15 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: troubleshooting
-ms.date: 09/15/2021
+ms.date: 10/22/2021
 ms.author: banders
-ms.custom: seodec18
-ms.openlocfilehash: c2a89f4905cda375b9e7565631a0ffd28e6dfa16
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: sapnakeshari
+ms.openlocfilehash: 02507604c1194d726014453bde6cd03c2c21aa31
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128561466"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130255433"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Solución de problemas de vistas de costos empresariales
 
@@ -31,9 +31,12 @@ El motivo podría ser uno de los siguientes:
 2. Si usted es cliente directo de EA, hay un par de posibilidades:
     * Es el propietario de la cuenta y su administrador de inscripciones ha deshabilitado la opción para que el **propietario de la cuenta vea los cargos**.  
     * Es el administrador del departamento y su administrador de inscripciones ha deshabilitado la opción para que el **administrador del departamento vea los cargos**.
-    * Póngase en contacto con el administrador de inscripciones para acceder. El administrador de inscripciones puede actualizar la configuración en [Enterprise Portal](https://ea.azure.com/manage/enrollment).
+    * Póngase en contacto con el administrador de inscripciones para acceder. El administrador de inscripciones puede actualizar la configuración en [Azure Portal](https://portal.azure.com/). Vaya al menú **Directivas** para cambiar la configuración. 
+    * El administrador de inscripciones puede actualizar la configuración en [Enterprise Portal](https://ea.azure.com/manage/enrollment).
 
       ![Captura de pantalla que muestra la configuración de Enterprise Portal para ver los cargos.](./media/enterprise-mgmt-grp-troubleshoot-cost-view/ea-portal-settings.png)
+    
+ 
 
 ## <a name="asset-is-unavailable"></a>Recurso no disponible
 

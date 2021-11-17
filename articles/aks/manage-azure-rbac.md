@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 02/09/2021
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 57aae03e18f938ca89da5081a2076698ea3341f8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b6cd1bce4528d35cf0f7f897e6032079cae6cdea
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110091583"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131579243"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization"></a>Uso de la autorización de Azure RBAC para Kubernetes
 
@@ -79,6 +79,11 @@ Para agregar la autorización de Azure RBAC para Kubernetes a un clúster de AKS
 
 ```azurecli-interactive
 az aks update -g myResourceGroup -n myAKSCluster --enable-azure-rbac
+```
+Para quitar la autorización de Azure RBAC para Kubernetes de un clúster de AKS existente, use el comando [az aks update][az-aks-update] con la marca `disable-azure-rbac`.
+
+```azurecli-interactive
+az aks update -g myResourceGroup -n myAKSCluster --disable-azure-rbac
 ```
 
 ## <a name="create-role-assignments-for-users-to-access-cluster"></a>Crear asignaciones de roles para que los usuarios accedan al clúster.

@@ -12,12 +12,12 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: bb4f39f14dad9426f48cc86597f74333c830bba5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 830c8e72517da4591b82edee8cf50dc2375f1c86
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736190"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131556832"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Análisis de datos con Azure Machine Learning
 
@@ -78,7 +78,7 @@ Después, siga los pasos que aparecen a continuación para configurar el diseña
 
 1. Haga clic en la pestaña **Designer** en el panel izquierdo en la sección **Autor**.
 
-1. Seleccione **Módulos creados previamente fáciles de usar** para crear una nueva canalización.
+1. Seleccione **Componentes creados previamente fáciles de usar** para crear una nueva canalización.
 
 1. En el panel de valores de la derecha, especifique el nombre de la canalización.
 
@@ -90,19 +90,19 @@ Después, siga los pasos que aparecen a continuación para configurar el diseña
 
 1. Arrastre el conjunto de datos que creó anteriormente al lienzo.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="Captura de pantalla del módulo de conjunto de datos en el lienzo.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="Captura de pantalla del componente de conjunto de datos en el lienzo.":::
 
 ## <a name="clean-the-data"></a>Limpiar los datos
 
 Para limpiar los datos, anule las columnas que no sean pertinentes para el modelo. Para hacerlo, siga estos pasos:
 
-1. Seleccione la subpestaña **Módulos** en el panel izquierdo.
+1. Seleccione la subpestaña **Componentes** en el panel izquierdo.
 
-1. Arrastre el módulo **Seleccionar columnas en el conjunto de datos** bajo la opción **Transformación de datos < Manipulación** en el lienzo. Conecte este módulo con el módulo del **Conjunto datos**.
+1. Arrastre el módulo **Seleccionar columnas en el componente de datos** bajo la opción **Transformación de datos < Manipulación** en el lienzo. Conecte este componente al componente **Conjunto de datos**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="Captura de pantalla del módulo de selección de columnas en el lienzo." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="Captura de pantalla del componente de selección de columnas en el lienzo." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
 
-1. Haga clic en el módulo para abrir el panel Propiedades. Haga clic en Editar columna para especificar cuáles son las columnas que desea anular.
+1. Haga clic en el componente para abrir el panel de propiedades. Haga clic en Editar columna para especificar cuáles son las columnas que desea anular.
 
 1. Excluya dos columnas: CustomerAlternateKey y GeographyKey. Haga clic en **Guardar**
 
@@ -112,43 +112,43 @@ Para limpiar los datos, anule las columnas que no sean pertinentes para el model
 
 Los datos se dividen en 80-20: 80 % para entrenar un modelo de aprendizaje automático y un 20 % para probar el modelo. En este problema de clasificación binaria se usan los algoritmos de "dos clases".
 
-1. Arrastre el módulo **Split Data** (Dividir datos) hasta el lienzo.
+1. Arrastre el módulo **Dividir datos** hasta el lienzo.
 
 1. En el panel de propiedades, escriba 0,8 en **Fraction of rows in the first output dataset** (Fracción de filas del primer conjunto de datos de salida).
 
     :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png" alt-text="Captura de pantalla que muestra la relación de división de 0,8.":::
 
-1. Arrastre el módulo **Árbol de decisión aumentado de dos clases** al lienzo.
+1. Arrastre el componente **Árbol de decisión aumentado de dos clases** al lienzo.
 
-1. Arrastre el módulo **Train Model** (Entrenar modelo) hasta el lienzo. Especifique las entradas conectándolo a los módulos **Two-Class Boosted Decision Tree** (Árbol de decisión promovido por dos clases), que es un algoritmo de Machine Learning, y **Split Data** (Dividir datos), que son los datos para entrenar el algoritmo.
+1. Arrastre el módulo **Entrenar modelo** hasta el lienzo. Especifique las entradas conectándolo a los componentes **Árbol de decisión promovido por dos clases** que es un algoritmo de ML, y **Dividir datos**, que son los datos para entrenar el algoritmo.
 
 1. Para el módulo Train Model (Entrenar modelo) en la opción **Label column** (Columna de etiqueta) del panel Propiedades, seleccione Editar columna. Seleccione la columna **BikeBuyer** como columna de predicción y haga clic en **Guardar**.
 
     :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png" alt-text="Captura de pantalla que muestra la columna de etiqueta, BikeBuyer, seleccionada.":::
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="Captura de pantalla del módulo Train Model (Entrenar modelo) conectado a los módulos Two-Class Boosted Decision Tree (Árbol de decisión promovido por dos clases) y Split Data (Dividir datos).":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="Captura de pantalla del componente Entrenar modelo conectado a los componentes Árbol de decisión promovido por dos clases y Dividir datos.":::
 
 ## <a name="score-the-model"></a>Puntuación del modelo
 
 Ahora pruebe cómo funciona el modelo con datos de prueba. Se compararán dos algoritmos distintos para ver cuál funciona mejor. Para hacerlo, siga estos pasos:
 
-1. Arrastre el módulo **Modelo de puntuación** al lienzo y conéctelo a los módulos **Modelo de entrenamiento** y **Datos divididos**.
+1. Arrastre el módulo **Modelo de puntuación** al lienzo y conéctelo a los módulos **Entrenar modelo** y **Datos divididos**.
 
 1. Arrastre **Two-Class Bayes Averaged Perceptron** (Perceptrón promedio de Bayes de dos clases) al lienzo del experimento. Podrá ver cómo funciona este algoritmo en comparación con Two-Class Boosted Decision Tree (Árbol de decisión promovido por dos clases).
 
-1. Copie y pegue los módulos **Train Model** (Entrenar modelo) y **Score Model** (Puntuar modelo) en el lienzo.
+1. Copie y pegue los componentes **Entrenar modelo** y **Puntuar modelo** en el lienzo.
 
-1. Arrastre el módulo **Evaluar modelo** al lienzo para comparar los dos algoritmos.
+1. Arrastre el componente **Evaluar modelo** al lienzo para comparar los dos algoritmos.
 
 1. Haga clic en **Enviar** para configurar la ejecución de la canalización.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="Captura de pantalla de todos los módulos restantes en el lienzo." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="Captura de pantalla de todos los componentes restantes en el lienzo." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
 
-1. Una vez finalizada la ejecución, haga clic con el botón derecho en el módulo **Evaluate Model** (Evaluar modelo) y haga clic en **Visualize Evaluation results** (Visualizar resultados de evaluación).
+1. Una vez finalizada la ejecución, haga clic con el botón derecho en el módulo **Evaluar modelo** y haga clic en **Visualizar resultados de evaluación**.
 
     :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize-zoomed-out.png" alt-text="Captura de pantalla de los resultados.":::
 
-Las métricas proporcionadas son la curva ROC, el diagrama de retirada-precisión y la curva de elevación. Al mirar estas métricas, se puede observar que el primer modelo funciona mejor que el segundo. Para ver lo que predijo el primer modelo, haga clic con el botón derecho en el módulo Score Model (Puntuar modelo) y haga clic en Visualize Scored results (Visualizar resultados con puntuación) para ver los resultados previstos.
+Las métricas proporcionadas son la curva ROC, el diagrama de retirada-precisión y la curva de elevación. Al mirar estas métricas, se puede observar que el primer modelo funciona mejor que el segundo. Para ver lo que predijo el primer modelo, haga clic con el botón derecho en el componente Puntuar modelo y haga clic en Visualizar resultados con puntuación para ver los resultados previstos.
 
 Verá dos columnas más agregadas al conjunto de datos de prueba.
 

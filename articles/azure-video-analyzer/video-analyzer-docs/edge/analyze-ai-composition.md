@@ -5,12 +5,12 @@ ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 63df94e51b53dde61fd7863ece33b2a9baac2908
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: d4d54fba6f3b59c0e32286333694fa460cdb07b3
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131554571"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487552"
 ---
 # <a name="analyze-live-video-streams-with-multiple-ai-models-using-ai-composition"></a>Análisis de secuencias de vídeo en directo con varios modelos de IA mediante la composición de IA
 
@@ -44,9 +44,9 @@ Después de completar los pasos de esta guía, podrá ejecutar una secuencia de 
 
 Puesto que ya ha completado el inicio rápido especificado en la sección de requisitos previos, tendrá un dispositivo perimetral ya creado. Este dispositivo perimetral tendrá la carpeta de entrada /home/localedgeuser/samples/input que incluye determinados archivos de vídeo. Inicie sesión en el dispositivo IoT Edge, cambie al directorio /home/localedgeuser/samples/input/ y ejecute el siguiente comando para obtener el archivo de entrada que se va a usar para esta guía de procedimientos.
 
-wget https://lvamedia.blob.core.windows.net/public/co-final.mkv
+wget https://avamedia.blob.core.windows.net/public/co-final.mkv
 
-Además, si lo desea, en el equipo que tiene el [reproductor multimedia VLC](https://www.videolan.org/vlc/), seleccione Ctrl+N y pegue un vínculo al [vídeo de ejemplo (.mkv)](https://lvamedia.blob.core.windows.net/public/co-final.mkv) para iniciar la reproducción. Verá las imágenes de los automóviles en una autovía.
+Además, si lo desea, en el equipo que tiene el [reproductor multimedia VLC](https://www.videolan.org/vlc/), seleccione Ctrl+N y pegue un vínculo al [vídeo de ejemplo (.mkv)](https://avamedia.blob.core.windows.net/public/co-final.mkv) para iniciar la reproducción. Verá las imágenes de los automóviles en una autovía.
 
 ## <a name="create-and-deploy-the-pipeline"></a>Creará e implementará la canalización.
 

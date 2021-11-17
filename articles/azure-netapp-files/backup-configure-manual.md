@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 11/10/2021
 ms.author: b-juche
-ms.openlocfilehash: fda75ec22d4573a1730d29fc4f9a34c1f4de239a
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 5b5d2cafbbd70e63e2b3a039e94f1fc66106203c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130224262"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132319609"
 ---
 # <a name="configure-manual-backups-for-azure-netapp-files"></a>Configuración de copias de seguridad manuales para Azure NetApp Files 
 
@@ -40,7 +40,7 @@ En la lista siguiente se resumen los comportamientos de las copias de seguridad 
 
 * Puede crear copias de seguridad manuales en un volumen incluso si el volumen ya está habilitado para copias de seguridad y configurado con directivas de copias de seguridad.  Sin embargo, solo puede haber una solicitud de copia de seguridad manual pendiente para el volumen. Si asigna una directiva de copia de seguridad y la transferencia de línea de base todavía está en curso, la creación de una copia de seguridad manual se bloqueará hasta que se complete la transferencia de línea de base.
 
-* La creación de una copia de seguridad manual genera una instantánea en el volumen. A continuación, la instantánea se transfiere a Azure Storage. Esta instantánea no se elimina automáticamente, sino que debe eliminarla de forma manual.  No obstante, no se permite eliminar la instantánea generada para la copia de seguridad manual más reciente.  Por lo tanto, después de crear una copia de seguridad manual posterior, puede limpiar (eliminar) las instantáneas generadas para las copias de seguridad manuales anteriores si no necesita conservarlas. 
+* A menos que especifique una instantánea existente para usarla como copia de seguridad, la creación de una copia de seguridad manual genera automáticamente una instantánea en el volumen. A continuación, la instantánea se transfiere a Azure Storage. La instantánea creada en el volumen se conservará hasta que se cree la siguiente copia de seguridad manual. Durante la posterior operación de copia de seguridad manual, se limpiarán las instantáneas anteriores. No se puede eliminar la instantánea generada para la copia de seguridad manual más reciente. 
 
 ## <a name="enable-backup-functionality"></a>Habilitación de la funcionalidad de copia de seguridad
 
@@ -58,19 +58,22 @@ Si no lo ha hecho, habilite la funcionalidad de copia de seguridad del volumen a
 
 1. Vaya a **Volúmenes** y seleccione el volumen para el que quiera crear una copia de seguridad manual.
 2. Seleccione **Add Backup** (Agregar copia de seguridad).
-3. Especifique un nombre para la copia de seguridad.   
+3. En la ventana Nueva copia de seguridad que aparece:   
 
-    * Los nombres de las copias de seguridad manuales deben tener entre 3 y 256 caracteres.   
+    1. Especifique un nombre de copia de seguridad en el campo **Nombre**.   
+    
+        * Los nombres de las copias de seguridad manuales deben tener entre 3 y 256 caracteres.   
+        * Como procedimiento recomendado, anteponga un prefijo en el siguiente formato antes del nombre real de la copia de seguridad. Esto le ayuda a identificar la copia de seguridad manual si se elimina el volumen (con copias de seguridad retenidas).   
 
-    * Como procedimiento recomendado, anteponga un prefijo en el siguiente formato antes del nombre real de la copia de seguridad. Esto le ayuda a identificar la copia de seguridad manual si se elimina el volumen (con copias de seguridad retenidas).   
+            `NetAppAccountName-CapacityPoolName-VolumeName`   
 
-        `NetAppAccountName-CapacityPoolName-VolumeName`   
+            Por ejemplo, suponga que la cuenta de NetApp es `account1`, el grupo de capacidad es `pool1` y el nombre del volumen es `vol1`. Una copia de seguridad manual se puede denominar de la siguiente manera:    
 
-        Por ejemplo, suponga que la cuenta de NetApp es `account1`, el grupo de capacidad es `pool1` y el nombre del volumen es `vol1`. Una copia de seguridad manual se puede denominar de la siguiente manera:    
+            `account1-pool1-vol1-backup1`   
 
-        `account1-pool1-vol1-backup1`   
-
-        Si usa un formato más corto para el nombre de la copia de seguridad, asegúrese de que todavía incluye información que identifica la cuenta de NetApp, el grupo de capacidad y el nombre del volumen para mostrar en la lista de copias de seguridad.
+            Si usa un formato más corto para el nombre de la copia de seguridad, asegúrese de que todavía incluye información que identifica la cuenta de NetApp, el grupo de capacidad y el nombre del volumen para mostrar en la lista de copias de seguridad.
+            
+    2. Si quiere usar una instantánea existente para la copia de seguridad, seleccione la opción **Use Existing Snapshot** (Usar instantánea existente).  Al usar esta opción, asegúrese de que el campo Nombre coincide con el nombre de instantánea existente que se usa para la copia de seguridad. 
 
 4. Haga clic en **Crear**. 
 

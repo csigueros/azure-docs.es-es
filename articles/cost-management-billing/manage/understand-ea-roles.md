@@ -2,19 +2,19 @@
 title: Información sobre los roles de administrador en contratos Enterprise (EA) de Azure
 description: Conozca los roles de administrador de empresa en Azure. Puede asignar cinco roles administrativos distintos.
 author: bandersmsft
-ms.reviewer: adwise
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 07/06/2021
+ms.date: 10/22/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 82e5b16ef4f7892a52ea0ec3d332104cbf99bb68
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 08f13b90190e3d05f87947cb7be58cbda8566c8a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765482"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232894"
 ---
 # <a name="managing-azure-enterprise-agreement-roles"></a>Administración de los roles del Contrato Enterprise de Azure
 
@@ -69,6 +69,8 @@ Los siguientes roles de usuario administrativo forman parte de la inscripción e
 - Contacto para notificaciones
 
 Los roles funcionan en dos portales distintos para completar tareas. Use [Azure Enterprise Portal](https://ea.azure.com) para administrar la facturación y los costos, y [Azure Portal](https://portal.azure.com) para administrar los servicios de Azure.
+
+Los clientes directos de EA pueden completar todas las tareas administrativas en Azure Portal. Puede usar [Azure Portal](https://portal.azure.com) para administrar la facturación, los costos y los servicios de Azure.
 
 Los roles de usuario están asociados a una cuenta de usuario. Para validar la autenticidad de los usuarios, todos ellos deben tener una cuenta profesional, educativa o de Microsoft válida. Asegúrese de que cada cuenta está asociada a una dirección de correo electrónico que se supervisa activamente. Las notificaciones de las cuentas se envían a la dirección de correo electrónico.
 
@@ -168,7 +170,8 @@ En las secciones siguientes se describen las limitaciones y funcionalidades de c
 
 ## <a name="add-a-new-enterprise-administrator"></a>Adición de un nuevo administrador de empresa
 
-Los administradores de empresa tienen los máximos privilegios al administrar una inscripción del Contrato Enterprise de Azure. Se creó el administrador del Contrato Enterprise de Azure inicial cuando se configuró el acuerdo del Contrato Enterprise. Sin embargo, puede agregar o quitar nuevos administradores en cualquier momento. Solo los administradores existentes agregan nuevos administradores. Para más información sobre cómo agregar administradores de empresa adicionales, consulte [Creación de otro administrador de empresa](ea-portal-administration.md#create-another-enterprise-administrator). Para más información acerca de los roles del perfil de facturación, consulte [Tareas y roles del perfil de facturación](understand-mca-roles.md#billing-profile-roles-and-tasks).
+Los administradores de empresa tienen los máximos privilegios al administrar una inscripción del Contrato Enterprise de Azure. Se creó el administrador del Contrato Enterprise de Azure inicial cuando se configuró el acuerdo del Contrato Enterprise. Sin embargo, puede agregar o quitar nuevos administradores en cualquier momento. Solo los administradores existentes agregan nuevos administradores. Para más información sobre cómo agregar administradores de empresa adicionales, consulte [Creación de otro administrador de empresa](ea-portal-administration.md#create-another-enterprise-administrator). Los clientes directos de EA pueden usar Azure Portal para agregar administradores de EA. Consulte [Creación de otro administrador de empresa en Azure Portal](direct-ea-administration.md#add-another-enterprise-administrator). Para más información acerca de los roles del perfil de facturación, consulte [Tareas y roles del perfil de facturación](understand-mca-roles.md#billing-profile-roles-and-tasks).
+
 
 ## <a name="update-account-owner-state-from-pending-to-active"></a>Actualización del estado del propietario de la cuenta, de pendiente a activo
 
@@ -178,7 +181,7 @@ Cuando se agregan nuevos propietarios de la cuenta a una inscripción del Contra
 
 Cuando un administrador de Contrato Enterprise de Azure crea un departamento, el administrador puede agregar administradores de departamento y asociar cada uno de ellos a un departamento. Un administrador de departamento puede crear nuevas cuentas. Se necesitan nuevas cuentas para que se creen las suscripciones del Contrato Enterprise de Azure.
 
-Para más información sobre cómo agregar un administrador de departamento, consulte [Creación de un administrador de departamento del Contrato Enterprise de Azure](ea-portal-administration.md#add-a-department-administrator).
+Los administradores directos de EA pueden agregar administradores de departamento en Azure Portal. Para más información, consulte [Creación de un administrador de departamento de Azure EA](direct-ea-administration.md#add-a-department-administrator).
 
 ## <a name="usage-and-costs-access-by-role"></a>Acceso de uso y costos por rol
 

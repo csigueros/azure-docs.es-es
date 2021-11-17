@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 4fe4dc0dda9c14ed9309422eb0b96c779fd44ee3
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: a6dbc2b54c8fac9f2b1bdb219784f873d99432f8
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112083774"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131520732"
 ---
 <a name="HOLTop"></a>
 
@@ -95,7 +95,7 @@ Cree variables para la clave de suscripción y el punto de conexión de Computer
 A continuación, empezará a agregar código para llevar a cabo distintas operaciones de OCR.
 
 > [!div class="nextstepaction"]
-> [He configurado el cliente](?success=set-up-client#object-model) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=set-up-client&product=computer-vision&page=go-sdk)
+> [He configurado las variables](?success=set-up-client#object-model) [Me he encontrado con un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=set-up-client&product=computer-vision&page=go-sdk)
 
 ## <a name="object-model"></a>Modelo de objetos
 

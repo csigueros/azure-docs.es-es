@@ -5,18 +5,18 @@ metadata:
   title: Documentación de Microsoft Defender for Cloud
   description: Con nuestros inicios rápidos y tutoriales puede empezar a usar Defender for Cloud, aprender a proteger las cargas de trabajo, a limitar los riesgos y a detectar ataques (y responder a ellos).
   services: security-center
-  ms.service: security-center
+  ms.service: defender-for-cloud
   ms.topic: landing-page
   ms.collection: collection
   author: memildin
   ms.author: memildin
   ms.date: 10/21/2021
-  ms.openlocfilehash: 5ab94b1a0cf16df2475d073e62ee7877b97c28e2
-  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+  ms.openlocfilehash: 66839c045da6af6c4b6279ac0501a85ab7ea939b
+  ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/11/2021
-  ms.locfileid: "132349650"
+  ms.lasthandoff: 11/15/2021
+  ms.locfileid: "132487097"
 landingContent:
 - title: Acerca de Defender for Cloud
   linkLists:

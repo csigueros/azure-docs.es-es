@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 8323f3a917cfe51fdc358d28b865db3055f28172
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: ed9bdbeff68bd653b7c19fb4030524c4c1f836dc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178227"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260823"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Supervisión de Azure Functions con registros de Azure Monitor
 
@@ -34,7 +34,7 @@ Azure Monitor utiliza una versión del [lenguaje de consulta Kusto](/azure/kusto
 
    La tabla **FunctionAppLogs** contiene los registros deseados.
 
-1. En **Detalles de destino**, elija **Enviar a Log Analytics** y, a continuación, seleccione el **área de trabajo de Log Analytics**. 
+1. En **Detalles del destino**, elija **Enviar a Log Analytics** y, luego, seleccione el **área de trabajo de Log Analytics**. 
 
 1. Escriba un **Nombre de configuración de diagnóstico** y, después, seleccione **Guardar**.
 

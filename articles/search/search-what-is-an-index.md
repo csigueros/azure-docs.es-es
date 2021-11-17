@@ -1,5 +1,5 @@
 ---
-title: Creación de un índice
+title: Introducción a los índices
 titleSuffix: Azure Cognitive Search
 description: Incluye conceptos y herramientas de indexación en Azure Cognitive Search, entre otras las definiciones de esquema y la estructura física de los datos.
 manager: nitinme
@@ -7,21 +7,23 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/05/2021
-ms.openlocfilehash: cdfadc895de3af0f79c30a067f3e5376bfa8873b
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.date: 11/08/2021
+ms.openlocfilehash: ab1106ef927829589934485c2022d353339d5089
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769107"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062821"
 ---
-# <a name="creating-search-indexes-in-azure-cognitive-search"></a>Creación de índices de búsqueda en Azure Cognitive Search
+# <a name="search-indexes-in-azure-cognitive-search"></a>Índices de búsqueda en Azure Cognitive Search
 
 Cognitive Search almacena contenido que permite búsquedas y se usa para las consultas filtradas y de texto completo en un *índice de búsqueda*. Un índice se define mediante un esquema y se guarda en el servicio y, a continuación, se realiza la importación como segundo paso. 
 
-Los índices contienen *documentos de búsqueda*. Desde un punto de vista conceptual, un documento es una sola unidad de datos habilitada para búsquedas en el índice. Un minorista podría tener un documento para cada objeto que vende, una organización de noticias podría tener un documento para cada artículo, etc. Estos conceptos se pueden asignar a conceptos equivalentes de bases de datos más conocidos: un *índice de búsqueda* equivale a una *tabla* y los *documentos* son más o menos equivalentes a las *filas* de una tabla.
+Este artículo es una introducción a los índices de búsqueda. ¿Prefiere empezar a trabajar? Consulte [Creación de un índice de búsqueda](search-how-to-create-search-index.md).
 
-## <a name="whats-an-index-schema"></a>¿Qué es un esquema de índice?
+## <a name="whats-a-search-index"></a>¿Qué es un índice de búsqueda?
+
+En Cognitive Search, los índices contienen *documentos de búsqueda*. Desde un punto de vista conceptual, un documento es una sola unidad de datos habilitada para búsquedas en el índice. Por ejemplo, un minorista podría tener un documento para cada producto, una organización de noticias podría tener un documento para cada artículo, etc. Estos conceptos se pueden asignar a conceptos equivalentes de bases de datos más conocidos: un *índice de búsqueda* equivale a una *tabla* y los *documentos* son más o menos equivalentes a las *filas* de una tabla.
 
 El esquema determina la estructura física de un índice. La recopilación de "campos" es normalmente el elemento más grande de un índice, en el que cada campo recibe un nombre y se le asigna un [tipo de datos](/rest/api/searchservice/Supported-data-types) y unos atributos con los comportamientos permitidos que determinan cómo se usa.
 
@@ -59,56 +61,9 @@ El esquema determina la estructura física de un índice. La recopilación de "c
 
 Otros elementos están contraídos por motivos de brevedad, pero los siguientes vínculos pueden proporcionar [proveedores de sugerencias](index-add-suggesters.md), [perfiles de puntuación](index-add-scoring-profiles.md), [analizadores](search-analyzers.md) que se utilizan para procesar cadenas en tokens de acuerdo con las reglas lingüísticas u otras características admitidas por el analizador y los valores de [scripting remoto entre orígenes (CORS)](#corsoptions).
 
-## <a name="choose-a-client"></a>Elección de un cliente
+## <a name="field-definitions"></a>Definiciones de campo
 
-Hay varias maneras de crear un índice de búsqueda. Se recomienda Azure Portal o los SDK en las primeras fases de desarrollo y con las pruebas de concepto.
-
-Durante el desarrollo, haga planes para realizar recompilaciones con frecuencia. Como se crean estructuras físicas en el servicio, la mayoría de las modificaciones realizadas en una definición de campo existente, requieren [quitar los índices y volverlos a crear](search-howto-reindex.md). Considere la posibilidad de trabajar con un subconjunto de los datos para asegurarse de que las recompilaciones van más rápido.
-
-### <a name="permissions"></a>Permisos
-
-Todas las operaciones relacionadas con el índice de búsqueda, incluidas las solicitudes GET o definición, requieren que la solicitud tenga una [clave de API de administración](search-security-api-keys.md).
-
-### <a name="limits"></a>Límites
-
-Todos los [niveles de servicio limitan](search-limits-quotas-capacity.md#index-limits) el número de objetos que se pueden crear. Si está experimentando en el nivel Gratis, solo puede tener tres índices en un momento dado.
-
-### <a name="use-azure-portal-to-create-a-search-index"></a>Use Azure Portal para crear un índice de búsqueda
-
-El portal proporciona dos opciones para crear un índice de búsqueda: El [**Asistente para la importación de datos**](search-import-data-portal.md) y la opción **Agregar índice**, que proporciona los campos necesarios para especificar un esquema de índice. El asistente incluye operaciones adicionales al crear también un indizador, un origen de datos y cargar datos. Si es mayor que lo que desea, solo debe usar **Agregar índice** u otro enfoque.
-
-En la siguiente captura de pantalla se muestra en qué parte del portal se pueden encontrar la opción **Agregar índice**. **Importar datos** es la puerta derecha siguiente.
-
-  :::image type="content" source="media/search-what-is-an-index/add-index.png" alt-text="Incorporación de un comando de índice" border="true":::
-
-> [!Tip]
-> El diseño de índices a través del portal aplica ciertos requisitos y reglas de esquema para tipos de datos específicos, como no permitir funciones de búsqueda de texto completo en campos numéricos. Una vez que tenga un índice viable, puede copiar el archivo JSON desde el portal y agregarlo a la solución.
-
-### <a name="use-a-rest-client"></a>Uso de un cliente REST
-
-Tanto Postman como Visual Studio Code (con una extensión para Azure Cognitive Search) pueden funcionar como un cliente de un índice de búsqueda. Con cualquiera de las dos herramientas puede conectarse al servicio de búsqueda y enviar solicitudes [Crear índices (REST)](/rest/api/searchservice/create-index). Hay numerosos tutoriales y ejemplos en los que se pueden encontrar clientes REST para crear objetos. 
-
-Para más información acerca de los distintos clientes, puede empezar por leer estos artículos:
-
-+ [Creación de un índice de búsqueda mediante REST y Postman](search-get-started-rest.md)
-+ [Introducción a Visual Studio Code y Azure Cognitive Search](search-get-started-vs-code.md)
-
-Consulte el artículo sobre [operaciones de índice (REST)](/rest/api/searchservice/index-operations) para obtener ayuda con la formulación de solicitudes de índice.
-
-### <a name="use-an-sdk"></a>Uso de un SDK
-
-En el caso de Cognitive Search, los SDK de Azure implementan características disponibles con carácter general. Como tales, puede utilizar cualquiera de los SDK para crear un índice de búsqueda. Todas ellas proporcionan **SearchIndexClient**, que tiene métodos para crear y actualizar índices.
-
-| SDK de Azure | Cliente | Ejemplos |
-|-----------|--------|----------|
-| .NET | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) | [azure-search-dotnet-samples/quickstart/v11/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) |
-| Java | [SearchIndexClient](/java/api/com.azure.search.documents.indexes.searchindexclient) | [CreateIndexExample.java](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/indexes/CreateIndexExample.java) |
-| JavaScript | [SearchIndexClient](/javascript/api/@azure/search-documents/searchindexclient) | [Índices](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/search-documents/samples/v11/javascript) |
-| Python | [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) | [sample_index_crud_operations.py](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py) |
-
-## <a name="define-fields"></a>Definición de campos
-
-La colección `fields` define un documento de búsqueda. Necesitará campos para las consultas y las claves. Probablemente también necesitará campos para admitir filtros, facetas y ordenaciones. Es posible que también necesite campos para los datos que el usuario nunca ve, por ejemplo, puede que desee campos para los márgenes de beneficios o las promociones de marketing que puede usar para modificar el intervalo de búsqueda.
+La colección `fields` define un documento de búsqueda. Necesitará campos para la identificación de documentos (claves), almacenar texto que permite búsquedas y campos para filtros, facetas y ordenaciones de apoyo. Es posible que también necesite campos para los datos que los usuarios no ven. Por ejemplo, puede que desee campos para los márgenes de beneficios o para las promociones de marketing que puede usar para modificar el rango de búsqueda.
 
 Un campo de tipo Edm.String se debe diseñar como la clave del documento. Se usa para identificar de forma única cada documento de búsqueda y distingue mayúsculas de minúsculas. Puede recuperar un documento por su clave para rellenar una página de detalles.
 
@@ -140,7 +95,7 @@ Aunque puede agregar nuevos campos en cualquier momento, las definiciones de cam
 
 <a name="index-size"></a>
 
-## <a name="attributes-and-index-size-storage-implications"></a>Atributos y tamaño de índice (implicaciones de almacenamiento)
+## <a name="storage-implications-of-field-attributes"></a>Implicaciones en el almacenamiento de los atributos de los campos
 
 El tamaño de un índice viene determinado por el tamaño de los documentos que se cargan, además de la configuración del índice, por ejemplo, si incluye los proveedores de sugerencias y cómo establece los atributos en los campos individuales. 
 
@@ -173,9 +128,11 @@ Se pueden establecer las opciones siguientes para CORS:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede obtener experiencia práctica en la creación de un índice con casi cualquier ejemplo o tutorial para Cognitive Search. En el caso de los iniciadores, puede elegir cualquiera de las guías de inicio rápido de la tabla de contenido.
+Puede obtener experiencia práctica en la creación de un índice con casi cualquier ejemplo o tutorial de Cognitive Search. En el caso de los iniciadores, puede elegir cualquiera de las guías de inicio rápido de la tabla de contenido.
 
-Pero también querrá familiarizarse con las metodologías para cargar un índice con datos. Las estrategias de definición de índices y de importación de datos se definen en tándem. En los artículos siguientes se proporciona más información sobre la carga de un índice.
+Pero también querrá familiarizarse con las metodologías para cargar un índice con datos. Las estrategias de definición de índices y de importación de datos se definen en tándem. En los artículos siguientes se proporciona más información sobre la creación y carga de un índice.
+
++ [Creación de un índice de búsqueda](search-how-to-create-search-index.md)
 
 + [Introducción a la importación de datos](search-what-is-data-import.md)
 

@@ -13,22 +13,22 @@ ms.date: 09/23/2021
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: phsignor
-ms.openlocfilehash: 7bc1f981287c71d967084694c144983167a4386d
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 2a076fa39266a0295d2b1fda6c60f9e6a528f143
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057329"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054645"
 ---
 # <a name="enable-self-service-application-assignment-in-azure-active-directory"></a>Habilitación de la asignación del autoservicio de las aplicaciones en Azure Active Directory
 
 En este artículo, aprenderá a habilitar el acceso de autoservicio a las aplicaciones mediante el Centro de administración de Azure Active Directory.
 
-Para que los usuarios puedan descubrir por su cuenta aplicaciones desde el portal Aplicaciones, debe habilitar **Acceso de autoservicio a las aplicaciones** en las aplicaciones que quiera que los usuarios descubran automáticamente y puedan solicitar acceso. Esta funcionalidad está disponible para las aplicaciones que se agregaron desde la [Galería de Azure AD](./add-application-portal.md) o [Azure AD Application Proxy](../app-proxy/application-proxy.md) o se agregaron mediante el [consentimiento del usuario o administrador](../develop/application-consent-experience.md).
+Para que los usuarios puedan descubrir por su cuenta aplicaciones desde el [portal Aplicaciones](my-apps-deployment-plan.md), debe habilitar **Acceso de autoservicio a las aplicaciones** en las aplicaciones. Esta funcionalidad está disponible para las aplicaciones que se agregaron desde la Galería de Azure AD o [Azure AD Application Proxy](../app-proxy/application-proxy.md) o se agregaron mediante el [consentimiento del usuario o administrador](../develop/application-consent-experience.md).
 
 Con esta característica, puede:
 
-- Permitir que los usuarios descubran automáticamente las aplicaciones desde la página [Aplicaciones](https://myapps.microsoft.com/) sin molestar al grupo de TI.
+- Permitir que los usuarios descubran automáticamente las aplicaciones desde la página Aplicaciones sin molestar al grupo de TI.
 
 - Agregar esos usuarios a un grupo preconfigurado para que pueda ver quién ha solicitado acceso, quitar el acceso y administrar los roles que tienen asignados.
 
@@ -71,14 +71,14 @@ Para habilitar el acceso de autoservicio a las aplicaciones, siga estos pasos:
 
 1. **Opcional:** para requerir la aprobación de la empresa antes de permitir el acceso a los usuarios, establezca la opción **¿Quiere requerir una aprobación para conceder acceso a esta aplicación?** en **Sí**.
 
-1. **Opcional: para las aplicaciones que solo usan el inicio de sesión único con contraseña,** para permitir que los aprobadores de la empresa especifiquen las contraseñas que se envían a esta aplicación para los usuarios aprobados, establezca la opción **¿Quiere permitir que los aprobadores establezcan las contraseñas de los usuarios de esta aplicación?** en **Sí**.
+1. **Opcional: para las aplicaciones que solo usan el inicio de sesión único con contraseña**, para permitir que los aprobadores de la empresa especifiquen las contraseñas que se envían a esta aplicación para los usuarios aprobados, establezca la opción **¿Quiere permitir que los aprobadores establezcan las contraseñas de los usuarios de esta aplicación?** en **Sí**.
 
-1. **Opcional**: para especificar los aprobadores de la empresa que tienen permiso para aprobar el acceso a esta aplicación, junto a **¿Quién tiene permiso para aprobar el acceso a esta aplicación?** , elija **Seleccionar aprobadores** y seleccione hasta 10 aprobadores de la empresa individuales. Después, elija **Seleccionar**.
+1. **Opcional**: para especificar los aprobadores de la empresa que tienen permiso para aprobar el acceso a esta aplicación, elija **Seleccionar aprobadores**, seleccione hasta 10 aprobadores de la empresa individuales y, luego, elija **Seleccionar**.
 
     >[!NOTE]
     >No se admiten grupos. Puede seleccionar hasta 10 aprobadores individuales de la empresa. Si especifica varios aprobadores, cualquier aprobador individual puede aprobar una solicitud de acceso.
 
-1. **Opcional** **: en el caso de las aplicaciones que exponen roles**, para asignar usuarios con autoservicio aprobado a un rol, junto a **¿A qué rol deben asignarse los usuarios de esta aplicación?** , haga clic en **Seleccionar rol** y seleccione el rol al que deban estar asignados estos usuarios. Después, elija **Seleccionar**.
+1. **Opcional:**  **en el caso de las aplicaciones que exponen roles**, para asignar usuarios con autoservicio aprobado a un rol, elija **Seleccionar rol** y seleccione el rol al que deban estar asignados estos usuarios y, luego, elija **Seleccionar**.
 
 1. Seleccione el botón **Guardar** de la parte superior del panel para terminar.
 

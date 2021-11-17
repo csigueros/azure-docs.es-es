@@ -1,6 +1,6 @@
 ---
 title: Exportación de una versión de imagen a un disco administrado
-description: Exportar una versión de imagen desde una galería de imágenes compartidas a un disco administrado.
+description: Exporte una versión de imagen de Azure Compute Gallery a un disco administrado.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -10,23 +10,23 @@ ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fd6a1cf2cae56bf2d10fe4075caed019e2e72b7e
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 7984cd086864d069363fa65ab7dbaecf4b62165f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123452256"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448868"
 ---
 # <a name="export-an-image-version-to-a-managed-disk"></a>Exportación de una versión de imagen a un disco administrado
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
-Puede exportar el sistema operativo o un disco de datos individual desde una versión de la imagen como un disco administrado o desde una versión de la imagen almacenada en Shared Image Gallery.
+Puede exportar el sistema operativo o un disco de datos individual desde una versión de la imagen como un disco administrado desde una versión de la imagen almacenada en Azure Compute Gallery (anteriormente conocida como Shared Image Gallery).
 
 
 ## <a name="cli"></a>CLI
 
-Enumere las versiones de imágenes de una galería mediante [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list). En este ejemplo, vamos a buscar todas las versiones de una imagen que forman parte de la definición de la imagen *myImageDefinition* en la galería de imágenes *myGallery*.
+Enumere las versiones de imágenes de una galería mediante [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list). En este ejemplo, vamos a buscar todas las versiones de una imagen que forman parte de la definición de la imagen *myImageDefinition* en la galería *myGallery*.
 
 ```azurecli-interactive
 az sig image-version list \

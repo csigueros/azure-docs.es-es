@@ -3,16 +3,16 @@ title: Obtención de recomendaciones de ajuste preciso para las reglas de análi
 description: Obtenga información sobre cómo ajustar las reglas de detección de amenazas en Microsoft Sentinel mediante el uso de recomendaciones generadas automáticamente para reducir los falsos positivos y, al mismo tiempo, mantener la cobertura de detección de amenazas.
 author: yelevin
 ms.author: yelevin
-ms.service: azure-sentinel
+ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 854e8fa7d129140fca1a16dc02971bd2cd99ceb7
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 1b1d71f2c8a6a5f74d68d9480b918743a707cc83
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132323052"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521517"
 ---
 # <a name="get-fine-tuning-recommendations-for-your-analytics-rules-in-microsoft-sentinel"></a>Obtención de recomendaciones de ajuste preciso para las reglas de análisis en Microsoft Sentinel
 

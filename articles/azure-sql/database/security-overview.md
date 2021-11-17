@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 08/23/2021
-ms.openlocfilehash: 9326797e16190b3570ed6faca4d724bec432bc86
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: cf4ac33d22b28eb508aef47778885cd1ba6aebfe
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122767919"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132315869"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Información general sobre las capacidades de seguridad de Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -89,7 +89,7 @@ La auditoría de SQL Database e Instancia administrada de SQL hace un seguimient
 
 ### <a name="advanced-threat-protection"></a>Protección contra amenazas avanzada
 
-Advanced Threat Protection analiza los registros para detectar un comportamiento poco habitual e intentos potencialmente peligrosos de acceder o aprovechar las bases de datos. Las alertas se crean para detectar actividades sospechosas, como inyección de código SQL, infiltración potencial de datos y ataques de fuerza bruta, o anomalías en los patrones de acceso para detectar elevaciones de privilegios y uso de credenciales vulneradas. Las alertas se ven desde [Azure Security Center](https://azure.microsoft.com/services/security-center/), donde se proporcionan detalles de las actividades sospechosas y se dan recomendaciones para una investigación más minuciosa, junto con las acciones para mitigar la amenaza. La protección contra amenazas avanzada se puede habilitar por servidor, bajo una cuota adicional. Para más información, vea [Introducción a la protección de amenazas avanzadas de SQL Database](threat-detection-configure.md).
+Advanced Threat Protection analiza los registros para detectar un comportamiento poco habitual e intentos potencialmente peligrosos de acceder o aprovechar las bases de datos. Las alertas se crean para detectar actividades sospechosas, como inyección de código SQL, infiltración potencial de datos y ataques de fuerza bruta, o anomalías en los patrones de acceso para detectar elevaciones de privilegios y uso de credenciales vulneradas. Las alertas se ven desde [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/), donde se proporcionan detalles de las actividades sospechosas y se dan recomendaciones para una investigación más minuciosa, junto con las acciones para mitigar la amenaza. La protección contra amenazas avanzada se puede habilitar por servidor, bajo una cuota adicional. Para más información, vea [Introducción a la protección de amenazas avanzadas de SQL Database](threat-detection-configure.md).
 
 ![Diagrama que muestra cómo la detección de amenazas de SQL supervisa el acceso a la base de datos SQL en una aplicación web por un atacante externo y una persona interna malintencionado.](./media/security-overview/azure-database-td.jpg)
 
@@ -136,7 +136,7 @@ El enmascaramiento dinámico de datos limita la exposición de información conf
 
 ### <a name="vulnerability-assessment"></a>Evaluación de vulnerabilidades
 
-La [evaluación de vulnerabilidades](sql-vulnerability-assessment.md) es un servicio fácil de configurar que puede detectar, realizar un seguimiento y corregir posibles puntos vulnerables en la base de datos con el objetivo de mejorar de manera proactiva la seguridad general de las bases de datos. La evaluación de vulnerabilidades (VA) forma parte de la oferta Azure Defender for SQL, que es un paquete unificado de funcionalidades de seguridad avanzadas de SQL. Se puede acceder a la evaluación de vulnerabilidades y administrarla a través del portal central de Azure Defender for SQL.
+La [evaluación de vulnerabilidades](sql-vulnerability-assessment.md) es un servicio fácil de configurar que puede detectar, realizar un seguimiento y corregir posibles puntos vulnerables en la base de datos con el objetivo de mejorar de manera proactiva la seguridad general de las bases de datos. La evaluación de vulnerabilidades (VA) forma parte de la oferta Microsoft Defender para SQL, que es un paquete unificado de funcionalidades de seguridad avanzadas de SQL. Se puede acceder a la evaluación de vulnerabilidades y administrarla a través del portal central de Microsoft Defender para SQL.
 
 ### <a name="data-discovery-and-classification"></a>Clasificación y detección de datos
 

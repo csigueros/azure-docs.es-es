@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: implementación de la primera aplicación de Azure Spring Cloud'
+title: 'Inicio rápido: Implementación de la primera aplicación en Azure Spring Cloud'
 description: En este inicio rápido, se implementa una aplicación en Azure Spring Cloud.
 author: karlerickson
 ms.service: spring-cloud
@@ -8,14 +8,14 @@ ms.date: 10/18/2021
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: bdd778f9bad5bbafb48aa52c8059cdeadd3a0fc5
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 88230912f04316b175feb4910f0b3e6b2e907238
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130241274"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131853745"
 ---
-# <a name="quickstart-deploy-your-first-application-in-azure-spring-cloud"></a>Inicio rápido: implementación de la primera aplicación de Azure Spring Cloud
+# <a name="quickstart-deploy-your-first-application-to-azure-spring-cloud"></a>Inicio rápido: Implementación de la primera aplicación en Azure Spring Cloud
 
 ::: zone pivot="programming-language-csharp"
 En este inicio rápido se explica cómo implementar una sencilla aplicación para que se ejecute en Azure Spring Cloud.
@@ -427,7 +427,7 @@ El siguiente procedimiento compila e implementa la aplicación mediante la CLI d
     mvn clean package -DskipTests
     ```
 
-1. Cree la aplicación con el punto de conexión público asignado. Si seleccionó la versión 11 de Java al generar el proyecto de Spring Cloud, incluya el modificador `--runtime-version=Java_11`.
+1. Cree la aplicación con un punto de conexión público asignado. Si seleccionó la versión 11 de Java al generar el proyecto de Spring Cloud, incluya el modificador `--runtime-version=Java_11`.
 
     ```azurecli
     az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --assign-endpoint true
@@ -542,7 +542,7 @@ az group delete --name <your resource group name> --yes
 En este inicio rápido ha aprendido a:
 
 > [!div class="checklist"]
-> * Generar un proyecto de Azure Spring Cloud básico
+> * Generar un proyecto básico de Spring Cloud
 > * Aprovisionar una instancia de servicio
 > * Compilar e implementar la aplicación con un punto de conexión público
 > * Streaming de registros en tiempo real
@@ -550,6 +550,6 @@ En este inicio rápido ha aprendido a:
 Para aprender a usar más funcionalidades de Azure Spring, avance a la serie de guías de inicio rápido que implementa una aplicación de ejemplo en Azure Spring Cloud:
 
 > [!div class="nextstepaction"]
-> [Compilación y ejecución de microservicios](./quickstart-sample-app-introduction.md)
+> [Compilación y ejecución de aplicaciones](./quickstart-sample-app-introduction.md)
 
 Hay más ejemplos disponibles en GitHub: [Ejemplos de Azure Spring Cloud](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).

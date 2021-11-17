@@ -7,12 +7,12 @@ ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: aro, openshift, aquasec, twistlock, red hat
-ms.openlocfilehash: 77e75232b7f9d23f1d07931cc7dc231174e1312d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 167a031098feb7764b205b81bcf63f68422be10e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100633569"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132308212"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Ejecución de contenedores con privilegios en un clúster de Red Hat OpenShift en Azure
 
@@ -181,7 +181,7 @@ Puede obtener la dirección URL asignada a la consola de Twistlock con este coma
 
 Siga la documentación de Twistlock.
 
-### <a name="install-defender"></a>Instalación de Defender
+### <a name="install-defender-for-cloud"></a>Instalación de Defender for Cloud
 
 Durante `oc create -f defender.yaml` en el paso 2, obtendrá errores al crear el rol de clúster y el enlace del rol de clúster.
 Puede pasarlos por alto.

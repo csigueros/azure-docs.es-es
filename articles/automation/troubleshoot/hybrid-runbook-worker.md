@@ -2,18 +2,15 @@
 title: Solución de problemas de Hybrid Runbook Worker basado en agentes en Azure Automation
 description: En este artículo se explica cómo solucionar los problemas que surgen con instancias de Hybrid Runbook Worker basado en agentes de Azure Automation.
 services: automation
-ms.subservice: ''
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/18/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 623e36b4efc3a0ecd0a7a5d7f7097e1f5aa64788
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: b97a811ecaeb5df843ea87efa0ab4230886a5e1a
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130179229"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487846"
 ---
 # <a name="troubleshoot-agent-based-hybrid-runbook-worker-issues-in-automation"></a>Solución de problemas de Hybrid Runbook Worker basado en agentes en Automation
 

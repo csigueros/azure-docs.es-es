@@ -4,16 +4,16 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 087d5c3e43d1b01754f19978d8b76d012e9c55a7
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 2970634988a174d67ce4b92daa376a9d393fb449
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129725688"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131520246"
 ---
 En este inicio rápido se muestra cómo compilar una aplicación de dispositivo IoT Plug and Play de ejemplo, conectarla al centro de IoT y usar la herramienta Azure IoT Explorer para ver los datos de telemetría que envía. La aplicación de ejemplo se escribe en Node.js y se incluye en el SDK de dispositivo IoT de Azure para Node.js. Un generador de soluciones puede usar la herramienta Azure IoT Explorer para comprender las funcionalidades de cualquier dispositivo IoT Plug and Play sin necesidad de ver nada de código del dispositivo.
 
-[![Examinar el código](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/javascript/pnp)
+[![Examinar el código](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -41,7 +41,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 Para compilar el código de ejemplo incluido, se usa el SDK del dispositivo. La aplicación que se compila simula un dispositivo que se conecta a un centro de IoT. La aplicación envía datos de telemetría y propiedades, y recibe comandos.
 
-1. En una ventana del terminal local, vaya a la carpeta del repositorio clonado y luego a la carpeta */azure-iot-sdk-node/device/samples/pnp*. Después, ejecute el siguiente comando para instalar las bibliotecas necesarias:
+1. En una ventana del terminal local, vaya a la carpeta del repositorio clonado y luego a la carpeta */azure-iot-sdk-node/device/samples/javascript*. Después, ejecute el siguiente comando para instalar las bibliotecas necesarias:
 
     ```cmd/sh
     npm install
@@ -57,7 +57,7 @@ Para compilar el código de ejemplo incluido, se usa el SDK del dispositivo. La 
 
 En este ejemplo se implementa un dispositivo termostato de IoT Plug and Play sencillo. El modelo que se implementa en este ejemplo no usa los [componentes](../articles/iot-develop/concepts-modeling-guide.md) de IoT Plug and Play. El [archivo de modelo DTDL del dispositivo termostato](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) define la telemetría, las propiedades y los comandos que implementa el dispositivo.
 
-Abra el archivo _simple_thermostat.js_. En este archivo, puede ver cómo:
+Abra el archivo _pnp_simple_thermostat.js_. En este archivo, puede ver cómo:
 
 1. Importar las interfaces necesarias.
 1. Escribir un controlador de actualización de propiedades y un controlador de comandos.
@@ -75,12 +75,12 @@ En la función main, puede ver cómo todo encaja:
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-Para más información sobre la configuración de ejemplo, consulte el [archivo Léame de ejemplo](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/javascript/pnp/readme.md).
+Para más información sobre la configuración de ejemplo, consulte el [archivo Léame de ejemplo](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/readme.md#iot-plug-and-play-device-samples).
 
 Ejecute una aplicación de ejemplo para simular un dispositivo IoT Plug and Play que envía telemetría al centro de IoT. Para ejecutar la aplicación de ejemplo, utilice el comando siguiente:
 
 ```cmd\sh
-node simple_thermostat.js
+node pnp_simple_thermostat.js
 ```
 
 Verá la salida siguiente, lo que significa que el dispositivo ha comenzado a enviar datos de telemetría al concentrador y que ya está listo para recibir comandos y actualizaciones de propiedades.

@@ -7,12 +7,12 @@ ms.service: virtual-network-manager
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: template-quickstart, ignite-fall-2021
-ms.openlocfilehash: 4794e327ceeacaa91075317d1009ae45834580d8
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 134f8b28d6505963cde1f44f0b6850643dae3436
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131017311"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131421765"
 ---
 # <a name="quickstart-create-a-mesh-network-topology-with-azure-virtual-network-manager-using-the-azure-portal"></a>Inicio rápido: Creación de una topología de red de malla con Azure Virtual Network Manager mediante Azure Portal.
 
@@ -29,7 +29,17 @@ En este inicio rápido, implementará tres redes virtuales y usará Azure Virtua
 
 * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-virtual-network-manager"></a>Creación de Virtual Network Manager
+## <a name="register-subscription-for-public-preview"></a>Registro de la suscripción en la versión preliminar pública
+
+1. Vaya a la página [Características en versión preliminar](https://portal.azure.com/#blade/Microsoft_Azure_Resources/PreviewFeaturesBlade).
+
+1. Busque **AllowAzureNetworkManager**.
+
+1. Seleccione la casilla situada junto al elemento *AllowAzureNetworkManager* y, a continuación, seleccione **+ Registrarse**.
+
+    :::image type="content" source="./media/create-virtual-network-manager-portal/registration.png" alt-text="Captura de pantalla de la página de registro en las características en versión preliminar.":::
+
+## <a name="create-virtual-network-manager"></a>Creación de un administrador de redes virtuales
 
 1. Seleccione **+ Crear un recurso** y busque **Network Manager**. A continuación, seleccione **Crear** para empezar a configurar Azure Virtual Network Manager.
 
@@ -37,11 +47,11 @@ En este inicio rápido, implementará tres redes virtuales y usará Azure Virtua
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-basics.png" alt-text="Captura de pantalla de la página de conceptos básicos de Network Manager.":::
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
-    | Suscripción | Seleccione la suscripción en la que desea implementar Azure Virtual Network Manager. |
+    | Subscription | Seleccione la suscripción en la que desea implementar Azure Virtual Network Manager. |
     | Resource group | Seleccione o cree un grupo de recursos para almacenar Azure Virtual Network Manager. En este ejemplo se usará **myAVNMResourceGroup** creado anteriormente.
-    | Nombre | Escriba un nombre para esta instancia de Azure Virtual Network Manager. En este ejemplo, usaremos el nombre de **myAVNM**. |
+    | Name | Escriba un nombre para esta instancia de Azure Virtual Network Manager. En este ejemplo, usaremos el nombre de **myAVNM**. |
     | Region | Seleccione la región para esta implementación. Azure Virtual Network Manager puede administrar redes virtuales en cualquier región. La región seleccionada es para donde se implementará la instancia de Virtual Network Manager. |
     | Descripción | *(Opcional)* Proporcione una descripción sobre esta instancia de Virtual Network Manager y la tarea que va a administrar. |
     | [Ámbito](concept-network-manager-scope.md#scope) | Defina el ámbito para el que se puede administrar Azure Virtual Network Manager.
@@ -63,11 +73,11 @@ En este inicio rápido, implementará tres redes virtuales y usará Azure Virtua
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/create-mesh-vnet-basic.png" alt-text="Captura de pantalla de la creación de una página de red virtual.":::
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
-    | Suscripción | Seleccione la suscripción en la que desea implementar esta red virtual. |
+    | Subscription | Seleccione la suscripción en la que desea implementar esta red virtual. |
     | Resource group | Seleccione o cree un nuevo grupo de recursos para almacenar la red virtual. En este inicio rápido se usará un nuevo grupo de recursos denominado **myAVNMResourceGroup**.
-    | Nombre | Escriba **VNetA** como nombre de la red virtual. |
+    | Name | Escriba **VNetA** como nombre de la red virtual. |
     | Region | Seleccione **Oeste de EE. UU.** |
 
 1. En la página **Siguiente: Direcciones IP >** y configure los siguientes espacios de direcciones de red:
@@ -86,11 +96,11 @@ En este inicio rápido, implementará tres redes virtuales y usará Azure Virtua
 
 1. Repita los pasos 2 a 5 para crear dos redes virtuales más con la siguiente información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
-    | Suscripción | Seleccione la misma suscripción que seleccionó en el paso 3. |
+    | Subscription | Seleccione la misma suscripción que seleccionó en el paso 3. |
     | Resource group | Seleccione **myAVNMResourceGroup**. |
-    | Nombre | Escriba **VNetB** para la segunda red virtual y **VNetC** para la tercera red virtual. |
+    | Name | Escriba **VNetB** para la segunda red virtual y **VNetC** para la tercera red virtual. |
     | Region | La región se seleccionará automáticamente al seleccionar el grupo de recursos. |
     | Direcciones IP de VNetB | Espacio de direcciones IPv4: 10.1.0.0/16 </br> Nombre de subred: predeterminado </br> Espacio de direcciones de subred: 10.1.0.0/24|
     | Direcciones IP de VNetC | Espacio de direcciones IPv4: 10.2.0.0/16 </br> Nombre de subred: predeterminado </br> Espacio de direcciones de subred: 10.2.0.0/24|
@@ -137,7 +147,7 @@ En este inicio rápido, implementará tres redes virtuales y usará Azure Virtua
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/connectivity-configuration.png" alt-text="Captura de pantalla de la página Agregar una configuración de conectividad.":::
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre | Escriba un nombre para esta configuración de conectividad. |
     | Descripción | *(Opcional)* Proporcione una descripción sobre esta configuración de conectividad. |
@@ -167,10 +177,10 @@ Para que las configuraciones se apliquen a su entorno, deberá confirmar la conf
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/deploy-configuration.png" alt-text="Captura de pantalla de la página Implementar una configuración.":::
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Tipo de configuración | Seleccione el tipo de configuración que desea implementar. En este ejemplo, se implementará una configuración de **conectividad**. |
-    | Configurations | Seleccione la configuración **myConnectivityConfig** creada en la sección anterior. |
+    | Configuraciones | Seleccione la configuración **myConnectivityConfig** creada en la sección anterior. |
     | Regiones de destino | Seleccione la región en la que implementar esta configuración. Se selecciona la región **Oeste de EE. UU.** , ya que todas las redes virtuales se crearon en esa región. |
 
 1. Seleccione **Implementar** y, a continuación, seleccione **Aceptar** para confirmar que desea sobrescribir cualquier configuración existente.
