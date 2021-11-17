@@ -10,12 +10,12 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: ae71e4423011d5a69945b6bcce8ed73e0f093fc1
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 53b64b804b07f60741be1a72e671e8ade4710e15
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131565924"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132055120"
 ---
 # <a name="cli-v2-command-component-yaml-schema"></a>Esquema YAML del componente de comando de la CLI (v2)
 
@@ -87,7 +87,7 @@ El esquema JSON de origen se puede encontrar en https://azuremlschemas.azureedge
 | `type` | string | **Obligatorio.** Tipo de salida del componente. | `path` | |
 | `description` | string | Descripción de la salida. | | |
 
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
 
 Los comandos `az ml component` se pueden usar para administrar los componentes de Azure Machine Learning.
 
@@ -99,7 +99,7 @@ Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://githu
 
 ## <a name="hello-world-command-component"></a>Componente de comando Hola mundo
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/basics/2a_basic_component/component.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/2a_basic_component/component.yml":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

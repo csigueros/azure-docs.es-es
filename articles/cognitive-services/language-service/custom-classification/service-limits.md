@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021
-ms.openlocfilehash: 745c75722fc3a431c3f7cc4b5b47a8ebdd1895e7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 06db585531cb3a73b291f2c8d45de18a3d298fb2
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093359"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484093"
 ---
 # <a name="custom-text-classification-limits"></a>Límites de clasificación de texto personalizada
 
@@ -45,7 +45,7 @@ Use este artículo para obtener información sobre los límites de datos y veloc
 * El tamaño máximo de los archivos por solicitud es de 125 000 caracteres. Puede enviar hasta 25 archivos, siempre y cuando su tamaño colectivo no supere los 125 000 caracteres.
 
 > [!NOTE]
-> Si tiene que enviar documentos con un tamaño superior al límite permitido, puede dividir el texto en fragmentos más pequeños antes de enviarlos a la API. Puede usar el [comando de fragmento de CLUtils](https://github.com/microsoft/CogSLanguageUtilities/tree/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ChunkCommand) para este proceso.
+> Si tiene que enviar documentos con un tamaño superior al límite permitido, puede dividir el texto en fragmentos más pequeños antes de enviarlos a la API. Puede usar el [comando de fragmento de CLUtils](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/main/CustomTextAnalytics.CLUtils/Solution/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ChunkCommand/README.md) para este proceso.
 
 ## <a name="azure-resource-limits"></a>Límites de recursos de Azure
 

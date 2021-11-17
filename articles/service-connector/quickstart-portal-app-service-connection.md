@@ -7,12 +7,12 @@ ms.service: serviceconnector
 ms.topic: overview
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 04f1c00340e8d46d495a28e3f0fd973e93991b77
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: fcab4ce8d1f0d4d6f2dd7d29b1de8f9c7519c9f1
+ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131017432"
+ms.lasthandoff: 11/05/2021
+ms.locfileid: "131851883"
 ---
 # <a name="quickstart-create-a-service-connection-in-app-service-from-azure-portal"></a>Inicio rápido: Creación de una conexión de servicio en App Service desde Azure Portal
 
@@ -37,12 +37,14 @@ Para crear una nueva conexión de servicio en App Service, usará el conector de
     | Configuración      | Valor sugerido  | Descripción                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Suscripción** | Una de sus suscripciones | La suscripción en la que se encuentra el servicio de destino (es decir, el servicio al que desea conectarse). El valor predeterminado es la suscripción en la que se encuentra esta instancia de App Service. |
-    | **Tipo de servicio** | Contenedor de Storage Blob | El tipo de servicio de destino. Si no tiene un contenedor de Storage Blob, puede [crearlo](../storage/blobs/storage-quickstart-blobs-portal.md) o usar otro tipo de servicio. |
+    | **Tipo de servicio** | Blob Storage | El tipo de servicio de destino. Si no tiene un contenedor de Storage Blob, puede [crearlo](../storage/blobs/storage-quickstart-blobs-portal.md) o usar otro tipo de servicio. |
     | **Nombre de la conexión** | El nombre único generado | El nombre de conexión que identifica la conexión entre App Service y el servicio de destino  |
-    | **Cuenta de almacenamiento** | El servidor de almacenamiento | El servicio de base de datos de destino al que desea conectarse. Si elige otro tipo de servicio, seleccione la instancia del servicio de destino correspondiente. |
+    | **Cuenta de almacenamiento** | Cuenta de almacenamiento | La cuenta de almacenamiento de destino a la que desea conectarse. Si elige otro tipo de servicio, seleccione la instancia del servicio de destino correspondiente. |
     | **Tipo de cliente** | La misma pila de aplicación de esta instancia de App Service | La pila de aplicación que funciona con el servicio de destino que ha seleccionado. El valor predeterminado procede de la pila en tiempo de ejecución de App Service. |
 
-4. Seleccione **Revisar y crear** para revisar la configuración de conexión. A continuación, seleccione **Crear** para empezar a crear la conexión de servicio.
+4. Seleccione **Siguiente: Autenticación**  para seleccionar el tipo de autenticación. A continuación, seleccione **Cadena de conexión** para usar la clave de acceso para conectarse a la cuenta de Blob Storage.
+
+5. A continuación, seleccione **Siguiente: Revisar y crear** para revisar la información proporcionada. Después, seleccione **Crear** para crear la conexión de servicio. La operación puede tardar 1 minuto en completarse.
 
 ## <a name="view-service-connections-in-app-service"></a>Visualización de conexiones de servicio de App Service
 

@@ -10,12 +10,12 @@ ms.author: siarora
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: 224ee0d4cc789349151bdc75ab164cc123119105
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 809f87ea7d8c4bdf3c6f21fe742ef5a5f2b595d9
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131564867"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335639"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Administración y aumento de las cuotas de los recursos con Azure Machine Learning
 
@@ -119,8 +119,8 @@ Para determinar el uso actual de un punto de conexión, [consulte las métricas]
 | Número de instancias por implementación | 20 |
 | Tiempo de espera máximo de la solicitud en el nivel de punto de conexión  | 90 segundos |
 | Total de solicitudes por segundo a nivel de punto de conexión para todas las implementaciones  | 500 <sup>2</sup> |
-| Total de conexiones por segundo a nivel de punto de conexión para todas las implementaciones  | 100 <sup>2</sup> |
-| Total de conexiones activas a nivel de punto de conexión para todas las implementaciones  | 100 <sup>2</sup> |
+| Total de conexiones por segundo a nivel de punto de conexión para todas las implementaciones  | 500 <sup>2</sup> |
+| Total de conexiones activas a nivel de punto de conexión para todas las implementaciones  | 500 <sup>2</sup> |
 | Total de ancho de banda a nivel de punto de conexión para todas las implementaciones  | 5 MBps <sup>2</sup> |
 
 <sup>1</sup> Los guiones únicos, como `my-endpoint-name`, se aceptan en los nombres de punto de conexión e implementación.

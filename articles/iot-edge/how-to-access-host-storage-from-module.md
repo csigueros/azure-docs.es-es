@@ -7,12 +7,12 @@ ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6f2732f03b990d10b3ae15e472bf7600114c3a33
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fc89cbfd01ef827be277d332ecd770b3fa6d7016
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727821"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249806"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Acceso de los módulos al almacenamiento local de un dispositivo
 
@@ -75,14 +75,25 @@ Reemplace `<HostStoragePath>` y `<ModuleStoragePath>` por las rutas de almacenam
 
 Por ejemplo, en un sistema Linux, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` significa que el directorio **/etc/iotedge/storage** del sistema host se asigna al directorio **/iotedge/storage/** del contenedor. En un sistema Windows, por poner otro ejemplo, `"Binds":["C:\\temp:C:\\contemp"]` significa que el directorio **C:\\temp** del sistema host se asigna al directorio **C:\\contemp** del contenedor.
 
-Además, en los dispositivos Linux, asegúrese de que el perfil de usuario del módulo tenga los permisos de lectura, escritura y ejecución necesarios para el directorio del sistema host. Volviendo al ejemplo anterior de permitir que el centro de IoT Edge almacene mensajes en el almacenamiento local del dispositivo, debe conceder permisos a su perfil de usuario, UID 1000. (El agente de IoT Edge funciona como raíz, por lo que no necesita permisos adicionales). Hay varias maneras de administrar los permisos de directorio en los sistemas Linux, como usar `chown` para cambiar el propietario del directorio y, luego, `chmod` para cambiar los permisos. Por ejemplo:
+Puede encontrar más detalles sobre las opciones de creación en la [documentación de Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+
+## <a name="host-system-permissions"></a>Permisos del sistema host
+
+En los dispositivos Linux, asegúrese de que el perfil de usuario del módulo tenga los permisos de lectura, escritura y ejecución necesarios para el directorio del sistema host. Volviendo al ejemplo anterior de permitir que el centro de IoT Edge almacene mensajes en el almacenamiento local del dispositivo, debe conceder permisos a su perfil de usuario, UID 1000. Hay varias maneras de administrar los permisos de directorio en los sistemas Linux, como usar `chown` para cambiar el propietario del directorio y, luego, `chmod` para cambiar los permisos. Por ejemplo:
 
 ```bash
 sudo chown 1000 <HostStoragePath>
 sudo chmod 700 <HostStoragePath>
 ```
 
-Puede encontrar más detalles sobre las opciones de creación en la [documentación de Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+En dispositivos Windows, también deberá configurar los permisos en el directorio del sistema host. Puede usar PowerShell para establecer permisos:
+
+```powershell
+$acl = get-acl <HostStoragePath>
+$ace = new-object system.security.AccessControl.FileSystemAccessRule('Authenticated Users','FullControl','Allow')
+$acl.AddAccessRule($ace)
+$acl | Set-Acl
+```
 
 ## <a name="encrypted-data-in-module-storage"></a>Datos cifrados en el almacenamiento de módulos
 

@@ -4,12 +4,12 @@ description: En esta guía de inicio rápido se muestra cómo usar el módulo pe
 ms.topic: quickstart
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 5cc04dc9ce6a149a64a61fb9fabdeeaca6593f51
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 48c41b812a4cdbd416d0dd146aba938cce419864
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131552893"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484202"
 ---
 # <a name="quickstart-detect-motion-record-video-to-video-analyzer"></a>Inicio rápido: Detección de movimiento y grabación de vídeo en Video Analyzer
 
@@ -42,7 +42,7 @@ Puede obtener más detalles [aquí](https://github.com/Azure/video-analyzer/tree
 
 En la máquina virtual creada por la implementación anterior hay varios archivos MKV.  Uno de estos archivos se denomina `lots_015.mkv`. En los pasos siguientes, usaremos este archivo de vídeo para simular una secuencia en vivo para este tutorial.
 
-Puede usar una aplicación como [VLC Player](https://www.videolan.org/vlc/), iníciela, presione `Ctrl+N` y pegue el vínculo al [ejemplo de vídeo sobre el aparcamiento](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) para iniciar la reproducción. Hacia la marca de 5 segundos, un coche blanco se desplaza por el aparcamiento.
+Puede usar una aplicación como [VLC Player](https://www.videolan.org/vlc/), iníciela, presione `Ctrl+N` y pegue el vínculo al [ejemplo de vídeo sobre el aparcamiento](https://avamedia.blob.core.windows.net/public/lots_015.mkv) para iniciar la reproducción. Hacia la marca de 5 segundos, un coche blanco se desplaza por el aparcamiento.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LUbN]
 
