@@ -130,6 +130,14 @@
               href: add-template-to-azure-pipelines.md
             - name: Bicep con Acciones de GitHub
               href: deploy-github-actions.md
+    - name: Definición de configuración
+      items:
+        - name: Archivo de configuración de Bicep
+          href: bicep-config.md
+        - name: Configuración de Linter
+          href: bicep-config-linter.md
+        - name: Configuración del módulo
+          href: bicep-config-modules.md
     - name: Migración a Bicep
       items:
         - name: Flujo de trabajo recomendado
@@ -144,8 +152,6 @@
     - name: Tipos de datos
       href: data-types.md
       displayName: 'supported types,arrays,booleans,integers,objects,strings,secure'
-    - name: Archivo de configuración
-      href: bicep-config.md
     - name: Funciones
       items:
         - name: Todas las funciones

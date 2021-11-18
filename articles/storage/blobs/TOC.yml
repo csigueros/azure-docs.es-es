@@ -176,7 +176,7 @@ items:
                 href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               - name: Configuración de las preferencias de enrutamiento de red
                 href: ../common/network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Protección de datos
+          - name: Protección de los datos
             items:
               - name: Información general
                 href: data-protection-overview.md
@@ -279,14 +279,22 @@ items:
                     href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                   - name: 'Supervisión, diagnóstico y solución de problemas'
                     href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: "Compatibilidad con el protocolo NFS\_3.0"
+          - name: Compatibilidad con protocolos
             items:
-              - name: Información general
-                href: network-file-system-protocol-support.md
-              - name: Consideraciones de rendimiento
-                href: network-file-system-protocol-support-performance.md
-              - name: Problemas conocidos
-                href: network-file-system-protocol-known-issues.md
+              - name: "NFS\_3.0"
+                items:
+                  - name: Información general
+                    href: network-file-system-protocol-support.md
+                  - name: Consideraciones de rendimiento
+                    href: network-file-system-protocol-support-performance.md
+                  - name: Problemas conocidos
+                    href: network-file-system-protocol-known-issues.md
+              - name: SFTP
+                items:
+                  - name: Información general
+                    href: secure-file-transfer-protocol-support.md
+                  - name: Problemas conocidos
+                    href: secure-file-transfer-protocol-known-issues.md
           - name: Control de eventos
             href: storage-blob-event-overview.md
           - name: Características de blobs en páginas
@@ -538,6 +546,8 @@ items:
                     href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               - name: Azure Data Factory
                 href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              - name: Transferencia de datos mediante SFTP
+                href: secure-file-transfer-protocol-support-how-to.md
               - name: Montaje de almacenamiento mediante NFS
                 href: network-file-system-protocol-support-how-to.md
               - name: Montaje de almacenamiento desde Linux mediante blobfuse
@@ -623,6 +633,8 @@ items:
             href: /azure/templates/microsoft.storage/allversions
           - name: Supervisión de datos
             href: monitor-blob-storage-reference.md
+          - name: Compatibilidad con claves de host (SFTP)
+            href: secure-file-transfer-protocol-host-keys.md
           - name: Elementos integrados de Azure Policy
             displayName: 'samples, policies, definitions'
             href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
