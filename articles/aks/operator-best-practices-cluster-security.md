@@ -5,12 +5,12 @@ description: Obtenga información sobre los procedimientos recomendados del oper
 services: container-service
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: 73c9ac0780c6a1217e58f40b4e64f290e8904457
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: f6894ed6795b66cb851a459ac8bfd39a780d3b8e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132492443"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306555"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para administrar la seguridad y las actualizaciones de los clústeres en Azure Kubernetes Service (AKS)
 
@@ -310,5 +310,5 @@ Para los nodos de Windows Server, realice periódicamente una operación de act
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
 [aks-ssh]: ssh.md
-[security-center-aks]: ../defender-for-cloud/defender-for-kubernetes-introduction.md
+[security-center-aks]: ../security-center/defender-for-kubernetes-introduction.md
 [node-image-upgrade]: node-image-upgrade.md

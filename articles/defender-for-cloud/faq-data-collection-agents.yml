@@ -5,16 +5,16 @@ metadata:
   services: security-center
   author: memildin
   manager: rkarlin
-  ms.service: security-center
+  ms.service: defender-for-cloud
   ms.topic: conceptual
   ms.date: 11/09/2021
   ms.author: memildin
-  ms.openlocfilehash: 07e2b794beb1065d4a0b320a3accf8f33b73cb6f
-  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+  ms.openlocfilehash: a1a34509b3d5a704df81c3c04f123307ba715a58
+  ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/11/2021
-  ms.locfileid: "132350028"
+  ms.lasthandoff: 11/15/2021
+  ms.locfileid: "132486191"
 title: 'Preguntas frecuentes: preguntas sobre recopilación de datos, agentes y áreas de trabajo'
 summary: >
   Defender for Cloud recopila datos de las máquinas virtuales (VM) de Azure, los conjuntos de escalado de máquinas virtuales, los contenedores de IaaS y los equipos que no son de Azure (incluidos los equipos del entorno local) para realizar una supervisión en busca de amenazas y vulnerabilidades de seguridad. Los datos se recopilan con el agente de Log Analytics, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos.
@@ -22,7 +22,7 @@ sections:
 - name: Omitido
   questions:
   - question: >
-      ¿Las áreas de trabajo que crea Defender for Cloud se me facturan como registros de Azure Monitor?
+      ¿Se me facturan los registros de Azure Monitor en las áreas de trabajo que creada Defender for Cloud?
     answer: >
       No. Las áreas de trabajo que crea Defender for Cloud, si bien se configuran para los registros de Azure Monitor por facturación de nodo, no incurren en cargos de registros de Azure Monitor. La facturación de Defender for Cloud siempre se basa en la directiva de seguridad de Defender for Cloud y en las soluciones instaladas en un área de trabajo:
 

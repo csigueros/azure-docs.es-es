@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yuajia
-ms.openlocfilehash: df8f4340a7bdc91ac12567df46411a01210a3a9e
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: bb73ab8d36223a8bbac50fde2bb14d355ce26a10
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132325024"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132159275"
 ---
 # <a name="azure-front-door-rules-match-conditions"></a>Condiciones de coincidencia de las reglas de Azure Front Door
 
@@ -50,7 +50,7 @@ En este ejemplo, coinciden todas las solicitudes que se han detectado como proce
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-:::image type="content" source="./media/rules-match-conditions/device-type.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de tipo de dispositivo.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/device-type.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de tipo de dispositivo.":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -108,7 +108,7 @@ En este ejemplo, coinciden todas las solicitudes POST en las que se proporciona 
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-:::image type="content" source="./media/rules-match-conditions/post-args.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de argumentos POST.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/post-args.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de argumentos POST.":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -174,7 +174,7 @@ En este ejemplo, coinciden todas las solicitudes en las que la cadena de consult
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-:::image type="content" source="./media/rules-match-conditions/query-string.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de la cadena de consulta.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/query-string.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de la cadena de consulta.":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -235,7 +235,7 @@ En este ejemplo, coinciden todas las solicitudes en las que la solicitud no se o
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-:::image type="content" source="./media/rules-match-conditions/remote-address.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de dirección remota.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/remote-address.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de dirección remota.":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -292,7 +292,7 @@ En este ejemplo, coinciden todas las solicitudes en las que el cuerpo de la soli
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-:::image type="content" source="./media/rules-match-conditions/request-body.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de cuerpo de la solicitud.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/request-body.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de cuerpo de la solicitud.":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -352,7 +352,7 @@ En este ejemplo, coinciden todas las solicitudes donde el nombre de archivo de l
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-:::image type="content" source="./media/rules-match-conditions/request-file-name.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de nombre de archivo de la solicitud.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/request-file-name.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de nombre de archivo de la solicitud.":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -415,7 +415,7 @@ En este ejemplo, coinciden todas las solicitudes donde la extensión de archivo 
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-:::image type="content" source="./media/rules-match-conditions/request-file-extension.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de extensión de archivo de la solicitud.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/request-file-extension.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de extensión de archivo de la solicitud.":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -477,7 +477,7 @@ En este ejemplo, coinciden todas las solicitudes en las que la solicitud contien
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-:::image type="content" source="./media/rules-match-conditions/request-header.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de encabezado de solicitud.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/request-header.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de encabezado de solicitud.":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -526,7 +526,7 @@ En este ejemplo, coinciden todas las solicitudes donde la solicitud usa el méto
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-:::image type="content" source="./media/rules-match-conditions/request-method.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de método de solicitud.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/request-method.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de método de solicitud.":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -583,7 +583,7 @@ En este ejemplo, coinciden todas las solicitudes donde la ruta de acceso de arch
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-:::image type="content" source="./media/rules-match-conditions/request-path.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de ruta de acceso de solicitud.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/request-path.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de ruta de acceso de solicitud.":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -645,7 +645,7 @@ En este ejemplo, coinciden todas las solicitudes donde la solicitud usa el proto
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-:::image type="content" source="./media/rules-match-conditions/request-protocol.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de protocolo de solicitud.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/request-protocol.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de protocolo de solicitud.":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -702,7 +702,7 @@ En este ejemplo, coinciden todas las solicitudes donde la dirección URL de soli
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-:::image type="content" source="./media/rules-match-conditions/request-url.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de dirección URL de solicitud.":::
+:::image type="content" source="./media/concept-rule-set-match-conditions/request-url.png" alt-text="Captura de pantalla del portal que muestra la condición de coincidencia de dirección URL de solicitud.":::
 
 # <a name="json"></a>[JSON](#tab/json)
 
