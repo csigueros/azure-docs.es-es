@@ -11,12 +11,12 @@ author: rsethur
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021
-ms.openlocfilehash: dba2e849fb28dfb0f6667b496c65bdef8cbdf046
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 2bcd276b5c6d80de9266e41a95e1f59b3453a63c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131557554"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132289857"
 ---
 # <a name="deploy-and-score-a-machine-learning-model-by-using-an-online-endpoint-preview"></a>Implementación y puntuación de un modelo de Machine Learning con un punto de conexión en línea (versión preliminar)
 
@@ -64,7 +64,7 @@ Para establecer el nombre del punto de conexión, elija uno de los siguientes co
 
 Para Unix, ejecute este comando:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
 
 > [!NOTE]
 > Hace poco que se ha modificado la interfaz de la CLI: anteriormente `endpoint` y `deployment` estaban en `az ml endpoint`, mientras que ahora se han separado en `az ml online-endpoint` y `az ml online-deployment`.  Esto facilita el empleo de puntos de conexión en scripts de CI/CD.
@@ -76,7 +76,7 @@ Para Unix, ejecute este comando:
 
 El siguiente fragmento de código muestra el archivo *endpoints/online/managed/sample/endpoint.yml*: 
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml":::
 
 > [!NOTE]
 > Para obtener una descripción completa de YAML, consulte la [referencia de YAML sobre puntos de conexión en línea administrados (versión preliminar)](reference-yaml-endpoint-managed-online.md).
@@ -99,7 +99,7 @@ El ejemplo contiene todos los archivos necesarios para implementar un modelo en 
 
 El fragmento de código siguiente muestra el archivo *endpoints/online/managed/sample/blue-deployment.yml* con todas las entradas necesarias: 
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/blue-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/blue-deployment.yml":::
 
 En la tabla se describen los atributos de `deployment`:
 
@@ -111,7 +111,7 @@ En la tabla se describen los atributos de `deployment`:
 | `code_configuration.scoring_script` | El archivo de Python que está en el directorio de puntuación anterior `code_configuration.code.local_path`. Este código de Python debe tener una función `init()` y una función `run()`. Se llamará a la función `init()` después de crear o actualizar el modelo (puede usarla para almacenar en caché el modelo en memoria, por ejemplo). Se llama a la función `run()` en cada invocación del punto de conexión para realizar la puntuación o predicción reales. |
 | `environment` | Contiene los detalles del entorno para hospedar el modelo y el código. En este ejemplo hay definiciones insertadas que incluyen `path`. Usaremos `environment.docker.image` para la imagen. Las dependencias `conda_file` se instalarán encima de la imagen. Para obtener más información, vea la sugerencia de la sección siguiente. |
 | `instance_type` | La SKU de máquina virtual que hospedará las instancias de implementación. Para más información, consulte las [SKU de máquina virtual compatibles con puntos de conexión en línea administrados](reference-managed-online-endpoints-vm-sku-list.md). |
-| `instance_count` | Número de instancias de la implementación. Base el valor en la carga de trabajo esperada. Para alta disponibilidad, se recomienda establecer `scale_settings.instance_count` en al menos `3`. |
+| `instance_count` | Número de instancias de la implementación. Base el valor en la carga de trabajo esperada. Para alta disponibilidad, se recomienda establecer `instance_count` en al menos `3`. |
 
 Para más información sobre el esquema de YAML, consulte la [referencia de YAML del punto de conexión en línea](reference-yaml-endpoint-managed-online.md).
 
@@ -155,18 +155,18 @@ Para ahorrar tiempo en la depuración, se *recomienda* que lleve a cabo una seri
 
 > [!IMPORTANT]
 > El objetivo de la implementación de un punto de conexión local es validar y depurar el código y la configuración antes de implementarlo en Azure. La implementación local tiene las siguientes limitaciones:
-> - Los puntos de conexión locales *no* admiten reglas de tráfico, autenticación, configuración de escalado o configuración de sondeo. 
+> - Los puntos de conexión locales *no* admiten reglas de tráfico, autenticación ni configuración de sondeo. 
 > - Los puntos de conexión locales solo admiten una implementación por punto de conexión. 
 
 ### <a name="deploy-the-model-locally"></a>Implementación del modelo localmente
 
 En primer lugar, cree el punto de conexión. Opcionalmente, en el caso de un punto de conexión local, puede omitir este paso y crear directamente la implementación (paso siguiente), lo que, a su vez, crea los metadatos necesarios. Esto es útil para fines de desarrollo y prueba.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="create_endpoint":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="create_endpoint":::
 
 Ahora cree una implementación de nombre `blue` en el punto de conexión.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="create_deployment":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="create_deployment":::
 
 La marca `--local` indica a la CLI que implemente el punto de conexión en el entorno de Docker.
 
@@ -177,7 +177,7 @@ La marca `--local` indica a la CLI que implemente el punto de conexión en el en
 
 Compruebe el estado para ver si el modelo se ha implementado sin errores:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="get_status":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="get_status":::
 
 La salida debe tener un aspecto similar al del siguiente JSON. Tenga en cuenta que `provisioning_state` es `Succeeded`.
 
@@ -198,7 +198,7 @@ La salida debe tener un aspecto similar al del siguiente JSON. Tenga en cuenta q
 
 Invoque el punto de conexión para puntuar el modelo usando el práctico comando `invoke` y pasando los parámetros de consulta almacenados en un archivo JSON:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="test_endpoint":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="test_endpoint":::
 
 Si desea usar un cliente REST (como curl), debe tener el URI de puntuación. Para obtener el identificador URI de puntuación, ejecute `az ml online-endpoint show --local -n $ENDPOINT_NAME`. En los datos devueltos, busque el atributo `scoring_uri`. Los comandos de ejemplo basados en curl están disponibles más adelante en este documento.
 
@@ -206,7 +206,7 @@ Si desea usar un cliente REST (como curl), debe tener el URI de puntuación. Par
 
 En el archivo *score.py* de ejemplo, el método `run()` registra alguna salida en la consola. Puede ver esta salida usando de nuevo el comando `get-logs`:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="get_logs":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="get_logs":::
 
 ##  <a name="deploy-your-managed-online-endpoint-to-azure"></a>Implementación del punto de conexión en línea administrado en Azure
 
@@ -216,11 +216,11 @@ A continuación, implemente el punto de conexión en línea administrado en Azur
 
 Para crear el punto de conexión en la nube, ejecute el código siguiente:
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="create_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="create_endpoint" :::
 
 Para crear la implementación de nombre `blue` en el punto de conexión, ejecute el código siguiente:
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="create_deployment" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="create_deployment" :::
 
 Esta implementación puede tardar un máximo de 15 minutos, dependiendo de si es la primera vez que se crean el entorno o la imagen subyacentes. Las implementaciones posteriores que usan el mismo entorno terminarán de procesarse más rápidamente.
 
@@ -236,7 +236,7 @@ Esta implementación puede tardar un máximo de 15 minutos, dependiendo de si e
 
 El comando `show` contiene información de `provisioning_status` tanto para el punto de conexión como para la implementación:
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
 
 Puede enumerar todos los puntos de conexión del área de trabajo en un formato de tabla con el comando `list`:
 
@@ -248,7 +248,7 @@ az ml online-endpoint list --output table
 
 Compruebe los registros para ver si el modelo se implementó sin errores:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
 De forma predeterminada, los registros se extraen del servidor de inferencia. Para ver los registros del inicializador de almacenamiento (monta recursos como el modelo y el código en el contenedor), agregue la marca `--container storage-initializer`.
 
@@ -256,15 +256,15 @@ De forma predeterminada, los registros se extraen del servidor de inferencia. Pa
 
 Puede usar el comando `invoke` o un cliente REST de su elección para invocar el punto de conexión y puntuar algunos datos: 
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint" :::
 
 En el ejemplo siguiente se muestra cómo obtener la clave usada para autenticarse en el punto de conexión:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl_get_key":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl_get_key":::
 
 Luego use curl para puntuar los datos.
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl" :::
 
 Observe que se usan los comandos `show` y `get-credentials` para obtener las credenciales de autenticación. Observe también que se está usando la marca `--query` para filtrar los atributos a fin de obtener solo los necesarios. Puede encontrar más información sobre `--query` en [Consulta de la salida del comando de la CLI de Azure](/cli/azure/query-azure-cli).
 
@@ -272,7 +272,7 @@ Para ver los registros de invocación, vuelva a ejecutar `get-logs`.
 
 ### <a name="optional-update-the-deployment"></a>(Opcional) Actualización de la implementación
 
-Si quiere actualizar el código, el modelo, el entorno o la configuración de escalado, actualice el archivo YAML y ejecute el comando `az ml online-endpoint update`. 
+Si quiere actualizar el código, el modelo o el entorno, actualice el archivo YAML y ejecute el comando `az ml online-endpoint update`. 
 
 > [!Note]
 > Si actualiza el recuento de instancias junto con otras configuraciones del modelo (código, modelo o entorno) en un solo comando `update`: primero se realiza la operación de escalado y luego se aplican las demás actualizaciones. En el entorno de producción se recomienda realizar estas operaciones por separado.
@@ -293,7 +293,7 @@ Para comprender cómo funciona `update`:
     
 1. Dado que ha modificado la función `init()` (`init()`se ejecuta cuando se crea o actualiza el punto de conexión), el mensaje `Updated successfully` estará en los registros. Recupere los registros ejecutando:
 
-    :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
 El comando `update` también funciona con implementaciones locales. Use el mismo comando `az ml online-deployment update` con la marca `--local`.
 
@@ -336,7 +336,7 @@ Los registros pueden tardar hasta una hora en conectarse. Después de este tiemp
 
 Si no va a usar la implementación, debe eliminarla mediante la ejecución del código siguiente (se elimina el punto de conexión y todas las implementaciones subyacentes):
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

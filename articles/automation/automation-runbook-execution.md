@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 09/15/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 700c5a9254cbb3ae8fe69ccc0f2ea3b76bb66121
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 11a4892a6cd9a1ddda9cf5857165dd9b52e1392b
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129356456"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371866"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
 
@@ -74,9 +74,9 @@ Los runbooks deben incluir lógica para tratar con [recursos](/rest/api/resource
 
 ## <a name="security"></a>Seguridad
 
-Azure Automation usa [Azure Security Center (ASC)](../security-center/security-center-introduction.md) para proporcionar seguridad a los recursos y detectar riesgos en los sistemas Linux. La seguridad se proporciona en todas las cargas de trabajo, independientemente de si los recursos se encuentran en Azure o no. Consulte [Introducción a la autenticación en Azure Automation](automation-security-overview.md).
+Azure Automation usa [Microsoft Defender for Cloud](../defender-for-cloud/defender-for-cloud-introduction.md) para proporcionar seguridad a los recursos y detectar riesgos en los sistemas Linux. La seguridad se proporciona en todas las cargas de trabajo, independientemente de si los recursos se encuentran en Azure o no. Consulte [Introducción a la autenticación en Azure Automation](automation-security-overview.md).
 
-ASC coloca restricciones en los usuarios que pueden ejecutar scripts, firmados o sin firmar, en una máquina virtual. Si es un usuario con acceso de raíz a una máquina virtual, debe configurar explícitamente la máquina con una firma digital o desactivarlo. De lo contrario, solo puede ejecutar un script para aplicar actualizaciones del sistema operativo después de crear una cuenta de Automation y habilitar la característica adecuada.
+Defender for Cloud aplica restricciones sobre los usuarios que pueden ejecutar cualquier script, ya sea firmado o sin firmar, en una máquina virtual. Si es un usuario con acceso de raíz a una máquina virtual, debe configurar explícitamente la máquina con una firma digital o desactivarlo. De lo contrario, solo puede ejecutar un script para aplicar actualizaciones del sistema operativo después de crear una cuenta de Automation y habilitar la característica adecuada.
 
 ## <a name="subscriptions"></a>Suscripciones
 
@@ -136,7 +136,7 @@ Los trabajos que se ejecutan en el mismo proceso de espacio aislado pueden afect
 
 En la tabla siguiente se describen los estados posibles para un trabajo. Puede ver un resumen del estado de todos los trabajos del runbook o profundizar en los detalles de un trabajo específico del runbook en Azure Portal. También puede configurar la integración con el área de trabajo de Log Analytics para reenviar flujos de trabajos y el estado del trabajo del runbook. Para más información sobre la integración con los registros de Azure Monitor, consulte [Reenvío del estado del trabajo y flujos de trabajo de Automation a los registros de Azure Monitor](automation-manage-send-joblogs-log-analytics.md). Consulte también [Obtención de estados del trabajo](manage-runbooks.md#obtain-job-statuses) para ver un ejemplo de cómo trabajar con estados en un runbook.
 
-| Estado | Descripción |
+| Status | Descripción |
 |:--- |:--- |
 | En activación |El trabajo se está activando. |
 | Completed |El trabajo se completó correctamente. |

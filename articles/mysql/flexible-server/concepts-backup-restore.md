@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 61002f3943001dd145cd30593b6972d743f24eec
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 51685da924bc2fab2f936eceeaf13972216ffd77
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131472804"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492140"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server"></a>Copia de seguridad y restauración en el Servidor flexible de Azure Database for MySQL
 
@@ -120,7 +120,7 @@ El tiempo estimado de recuperación depende de varios factores, entre los que se
 > Si va a restaurar un servidor flexible configurado con alta disponibilidad con redundancia de zona, el servidor restaurado se configurará en la misma región y zona que el servidor principal, y se implementará como un único servidor flexible en un modo sin alta disponibilidad. Consulte [alta disponibilidad con redundancia de zona](concepts-high-availability.md) para un servidor flexible.
 
 > [!IMPORTANT]
-> Los servidores eliminados **no se pueden** restaurar. Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. Para proteger los recursos del servidor, después de la implementación, de eliminaciones accidentales o cambios inesperados, los administradores pueden aprovechar los [bloqueos de administración](../../azure-resource-manager/management/lock-resources.md).
+> Puede recuperar un recurso de servidor flexible de MySQL eliminado en un plazo de 5 días a partir del momento de la eliminación del servidor. Para obtener instrucciones detalladas sobre cómo restaurar un servidor eliminado, [vea los pasos documentados](../flexible-server/how-to-restore-dropped-server.md). Para proteger los recursos del servidor después de la implementación frente a eliminaciones accidentales o cambios inesperados, los administradores pueden aprovechar los [bloqueos de administración](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="geo-restore"></a>Geo-restore
 
