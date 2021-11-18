@@ -3,12 +3,12 @@ title: Almacenamiento de gráficos de Helm
 description: Información sobre cómo almacenar gráficos de Helm para las aplicaciones de Kubernetes mediante repositorios en Azure Container Registry
 ms.topic: article
 ms.date: 10/20/2021
-ms.openlocfilehash: 9bf771fae26d61a457299244910eff1cc6724b84
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 5c96df6458a1f1fc40f4033d367c988c246a0fde
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130232987"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135782"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Inserción y extracción de gráficos de Helm en Azure Container Registry
 
@@ -84,6 +84,12 @@ Establezca la siguiente variable de entorno para habilitar la compatibilidad de 
 export HELM_EXPERIMENTAL_OCI=1
 ```
 
+Establezca las siguientes variables de entorno para el registro de destino. ACR_NAME es el nombre del recurso del Registro. Si la dirección URL del registro de ACR myregistry.azurecr.io, establezca el valor de ACR_NAME en myregistry.
+
+```console
+ACR_NAME=<container-registry-name>
+```
+
 ## <a name="create-a-sample-chart"></a>Crear un gráfico de ejemplo
 
 Cree un gráfico de prueba con los siguientes comandos:
@@ -136,32 +142,52 @@ Successfully packaged chart and saved it to: /my/path/hello-world-0.1.0.tgz
 
 ## <a name="authenticate-with-the-registry"></a>Autenticación con el registro
 
-Ejecute `helm registry login` para autenticarse con el registro. Puede pasar las [credenciales de registro](container-registry-authentication.md) adecuadas para el escenario, como las credenciales de entidad de servicio, o un token con ámbito de repositorio.
+Ejecute `helm registry login` para autenticarse con el registro. Puede pasar las [credenciales de registro](container-registry-authentication.md) adecuadas para el escenario, como las credenciales de la entidad de servicio, una identidad de usuario o un token con ámbito de repositorio.
 
-Por ejemplo, cree una entidad de servicio de Azure Active Directory [con permisos de extracción e inserción](container-registry-auth-service-principal.md#create-a-service-principal) (rol AcrPush) para el registro. A continuación, proporcione las credenciales de la entidad de servicio para `helm registry login`. En el ejemplo siguiente se proporciona la contraseña mediante una variable de entorno:
-
-```console
-echo $spPassword | helm registry login mycontainerregistry.azurecr.io \
-  --username <service-principal-id> \
-  --password-stdin
-```
-
-> [!TIP]
-> También puede iniciar sesión en el registro con su [identidad individual de Azure AD](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) para insertar y extraer gráficos de Helm.
+- Autentíquese con una entidad de servicio de Azure Active Directory [con permisos de extracción e inserción](container-registry-auth-service-principal.md#create-a-service-principal) (rol AcrPush) para el registro.
+  ```bash
+  SERVICE_PRINCIPAL_NAME=<acr-helm-sp>
+  ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
+  PASSWORD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME \
+            --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
+             --role acrpull \
+            --query "password" --output tsv)
+  USER_NAME=$(az ad sp list --display-name $SERVICE_PRINCIPAL_NAME --query "[].appId" --output tsv)
+  ```
+- Autentíquese con la [identidad individual de Azure AD](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) para insertar y extraer gráficos de Helm mediante un token de AD.
+  ```bash
+  USER_NAME="00000000-0000-0000-0000-000000000000"
+  PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)
+  ```
+- Autentíquese con un [token con ámbito de repositorio](container-registry-repository-scoped-permissions.md) (versión preliminar).
+  ```bash
+  USER_NAME="helm-token"
+  PASSWORD=$(az acr token create -n $USER_NAME \
+                    -r $ACR_NAME \
+                    --scope-map _repositories_admin \
+                    --only-show-errors \
+                    --query "credentials.passwords[0].value" -o tsv)
+  ```
+- A continuación, proporcione las credenciales a `helm registry login`.
+  ```bash
+  helm registry login $ACR_NAME.azurecr.io \
+    --username $USER_NAME \
+    --password $PASSWORD
+  ```
 
 ## <a name="push-chart-to-registry-as-oci-artifact"></a>Inserción del gráfico en el Registro como artefacto de OCI
 
 Ejecute el comando `helm push` de la CLI de Helm 3 para insertar el archivo de gráfico en el repositorio de destino completo. En el ejemplo siguiente, el espacio de nombres del repositorio de destino es `helm/hello-world` y el gráfico está etiquetado como `0.1.0`:
 
 ```console
-helm push hello-world-0.1.0.tgz oci://mycontainerregistry.azurecr.io/helm
+helm push hello-world-0.1.0.tgz oci://$ACR_NAME.azurecr.io/helm
 ```
 
 Después de una inserción correcta, la salida es similar a:
 
 ```output
-Pushed: mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
-digest: sha256:5899db028dcf96aeaabdadfa5899db025899db025899db025899db025899db02
+Pushed: <registry>.azurecr.io/helm/hello-world:0.1.0
+digest: sha256:5899db028dcf96aeaabdadfa5899db02589b2899b025899b059db02
 ```
 
 ## <a name="list-charts-in-the-repository"></a>Lista de gráficos en el repositorio
@@ -172,7 +198,7 @@ Por ejemplo, ejecute [az acr repository show][az-acr-repository-show] para ver l
 
 ```azurecli
 az acr repository show \
-  --name mycontainerregistry \
+  --name $ACR_NAME \
   --repository helm/hello-world
 ```
 
@@ -199,7 +225,7 @@ Ejecute el comando [az acr repository show-manifests][az-acr-repository-show-man
 
 ```azurecli
 az acr repository show-manifests \
-  --name mycontainerregistry \
+  --name $ACR_NAME \
   --repository helm/hello-world --detail
 ```
 
@@ -225,7 +251,7 @@ La salida, abreviada en este ejemplo, muestra un valor de `configMediaType` de `
 Ejecute `helm install` para instalar el gráfico de Helm que ha inserido en el Registro. La etiqueta del gráfico se pasa mediante el parámetro `--version`. Especifique un nombre de versión, como *myhelmtest* o bien pase el parámetro `--generate-name`. Por ejemplo:
 
 ```console
-helm install myhelmtest oci://mycontainerregistry.azurecr.io/helm/hello-world --version 0.1.0
+helm install myhelmtest oci://$ACR_NAME.azurecr.io/helm/hello-world --version 0.1.0
 ```
 
 La salida después de la instalación correcta del gráfico es similar a:
@@ -258,7 +284,7 @@ helm uninstall myhelmtest
 Opcionalmente, puede extraer un gráfico del registro de contenedor en un archivo local mediante `helm pull`. La etiqueta del gráfico se pasa mediante el parámetro `--version`. Si existe un archivo local en la ruta de acceso actual, este comando lo sobrescribe.
 
 ```console
-helm pull oci://mycontainerregistry.azurecr.io/helm/hello-world --version 0.1.0
+helm pull oci://$ACR_NAME.azurecr.io/helm/hello-world --version 0.1.0
 ```
 
 ## <a name="delete-chart-from-the-registry"></a>Eliminación del gráfico del registro
@@ -266,7 +292,7 @@ helm pull oci://mycontainerregistry.azurecr.io/helm/hello-world --version 0.1.0
 Para eliminar un gráfico del registro de contenedor, use el comando [az acr repository delete][az-acr-repository-delete]. Ejecute el siguiente comando y confirme la operación cuando se le solicite:
 
 ```azurecli
-az acr repository delete --name mycontainerregistry --image helm/hello-world:0.1.0
+az acr repository delete --name $ACR_NAME --image helm/hello-world:0.1.0
 ```
 
 ## <a name="migrate-your-registry-to-store-helm-oci-artifacts"></a>Migración del registro para almacenar artefactos de OCI de Helm
@@ -324,25 +350,25 @@ Se crea el archivo de gráfico local `ingress-nginx-3.20.1.tgz`.
 Inicie sesión en el registro:
 
 ```azurecli
-az acr login --name myregistry
+az acr login --name $ACR_NAME
 ```
 
 Inserte cada archivo de gráfico en el Registro. Ejemplo:
 
 ```console
-helm push ingress-nginx-3.20.1.tgz oci://myregistry.azurecr.io/helm
+helm push ingress-nginx-3.20.1.tgz oci://$ACR_NAME.azurecr.io/helm
 ```
 
 Después de insertar un gráfico, confirme que esté almacenado en el registro:
 
 ```azurecli
-az acr repository list --name myregistry
+az acr repository list --name $ACR_NAME
 ```
 
 Después de insertar todos los gráfico, también puede quitar del registro el repositorio de gráficos con el estilo de Helm 2. Al hacerlo, se reduce el almacenamiento en el registro:
 
 ```console
-helm repo remove myregistry
+helm repo remove $ACR_NAME
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -8,12 +8,12 @@ ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 5a898f0c34ed92eaa4a19757e3d017a87c84d491
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 878cec7021ebcd7c3b63ae4af1f29a0793977280
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131082709"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132277286"
 ---
 # <a name="troubleshoot-azure-disk-pools-preview"></a>Solución de problemas de los grupos de discos de Azure (versión preliminar)
 
@@ -40,6 +40,7 @@ Los grupos de discos y los destinos iSCSI tienen cuatro estados: **Desconocido**
 |DeploymentFailureQuotaExceeded     |La suscripción que se usa para implementar el grupo de discos está fuera de la cuota de núcleos de máquina virtual en esta región. Puede [solicitar un aumento en los límites de cuota de CPU virtual por cada serie de máquinas virtuales de Azure](../azure-portal/supportability/per-vm-quota-requests.md) para la serie Dsv3.         |
 |DeploymentFailurePolicyViolation     |Una directiva de la suscripción impedía la implementación de los recursos de Azure necesarios para admitir un grupo de discos. Consulte el para más detalles.         |
 |DeploymentTimeout     |Esto ocurre cuando la implementación de la infraestructura del grupo de discos se queda bloqueada y no se completa en el tiempo asignado. Vuelva a intentar la implementación. Si el problema persiste, póngase en contacto con el Soporte técnico de Azure y proporcione el identificador de seguimiento del mensaje de error.         |
+|GoalStateApplicationTimeoutError     |Se produce cuando la infraestructura del grupo de discos deja de responder al proveedor de recursos. Confirme que cumple los [requisitos previos de red](disks-pools-deploy.md#prerequisites) y vuelva a ejecutar la implementación. Si el problema persiste, póngase en contacto con el Soporte técnico de Azure y proporcione el identificador de seguimiento del error.         |
 |OngoingOperationInProgress     |Hay una operación en curso en el grupo de discos. Espere hasta que se complete la operación y vuelva a intentar la implementación.         |
 
 ## <a name="common-failure-codes-when-enabling-iscsi-on-disk-pools"></a>Códigos de error comunes al habilitar iSCSI en grupos de discos
@@ -47,7 +48,7 @@ Los grupos de discos y los destinos iSCSI tienen cuatro estados: **Desconocido**
 |Código  |Descripción  |
 |---------|---------|
 |GoalStateApplicationError     |Se produce cuando la configuración del destino iSCSI no es válida y no se puede aplicar al grupo de discos. Vuelva a intentar la implementación. Si el problema persiste, póngase en contacto con el Soporte técnico de Azure y proporcione el identificador de seguimiento del error.         |
-|GoalStateApplicationTimeoutError     |Se produce cuando la infraestructura del grupo de discos deja de responder al proveedor de recursos. Vuelva a intentar la implementación. Si el problema persiste, póngase en contacto con el Soporte técnico de Azure y proporcione el identificador de seguimiento del error.         |
+|GoalStateApplicationTimeoutError     |Se produce cuando la infraestructura del grupo de discos deja de responder al proveedor de recursos. Confirme que cumple los [requisitos previos de red](disks-pools-deploy.md#prerequisites) y vuelva a ejecutar la implementación. Si el problema persiste, póngase en contacto con el Soporte técnico de Azure y proporcione el identificador de seguimiento del error.         |
 |OngoingOperationInProgress     |Hay una operación en curso en el grupo de discos. Espere hasta que se complete la operación y vuelva a intentar la implementación.         |
 
 ## <a name="next-steps"></a>Pasos siguientes

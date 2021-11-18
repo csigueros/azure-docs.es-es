@@ -1,14 +1,14 @@
 ---
 title: Obtener información sobre los dispositivos detectados por un sensor específico
 description: El inventario de dispositivos muestra una amplia gama de atributos de dispositivo que detecta un sensor.
-ms.date: 12/06/2020
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 423ddcb9b50be6aa758e28f20291f8d66e58e3f4
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: a218cbb8413728813bc818b73e8292144c01541a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132028199"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312483"
 ---
 # <a name="investigate-sensor-detections-in-a-device-inventory"></a>Investigación de la detección de todos los sensores de la empresa en un inventario de dispositivos
 
@@ -44,6 +44,7 @@ Los siguientes atributos aparecen en la tabla de inventario de dispositivos.
 | Grupos | Grupos en los que participa este dispositivo. |
 | Última actividad | Última actividad realizada por el dispositivo. |
 | Discovered | Cuándo apareció por primera vez en la red este dispositivo. |
+| **Modo PLC (versión preliminar)** | El modo de funcionamiento de PLC incluye el estado de clave (físico) y el estado de ejecución (lógico). Entre los posibles estados de **clave** se incluyen los siguientes: ejecución, programa, remoto, detenido, no válido, programación deshabilitada, posible ejecución. Los estados de **ejecución** posibles son: ejecución, programa, detenido, pausado, excepción, parado, atrapado, inactivo, sin conexión. Si ambos estados coinciden, solo se presenta uno. |
 
 ## <a name="what-is-an-inventory-device"></a>¿Qué es un dispositivo de inventario?
 
@@ -90,7 +91,7 @@ Puede guardar un filtro o una combinación de filtros que necesite y volver a ap
 
 Los filtros que guarda también se guardan como grupos de mapas de dispositivos. Esta característica proporciona un nivel de granularidad adicional en la visualización de los dispositivos de red en el mapa.
 
-Para crear filtros:
+**Para crear filtros:**
 
 1. Seleccione :::image type="icon" source="media/how-to-work-with-asset-inventory-information/filter-icon.png" border="false"::: en la columna que desea filtrar.
 
@@ -184,7 +185,7 @@ Puede implementar el script una vez o programar consultas en curso mediante herr
 
 - Si vuelve a ejecutar el script en la misma ubicación, estos archivos se sobrescriben.
 
-Para ejecutar el script:  
+**Para ejecutar el script:** 
 
 1. Copie el script en una unidad local y descomprímalo. Aparecen los archivos siguientes:
 
@@ -212,7 +213,7 @@ Los archivos generados a partir de las consultas pueden colocarse en una carpeta
 
 No actualice los nombres de archivo.
 
-Para importar:
+**Para importar:**
 
 1. Seleccione **Importar configuración** en el cuadro de diálogo **Importar configuración de Windows**.
 

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d9dff0d6d9d8421e160c19c60efc9e871d7867ed
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 3e7ccb16efe21503087dcac035e2ca8f832ef7b7
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114443580"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370354"
 ---
 # <a name="integrate-managed-hsm-with-azure-private-link"></a>Integración de HSM administrado con Azure Private Link
 
@@ -23,6 +23,9 @@ Un punto de conexión privado de Azure es una interfaz de red que le conecta de 
 
 Para más información, consulte [¿Qué es Azure Private Link?](../../private-link/private-link-overview.md)
 
+> [!NOTE]
+> HSM administrado no admite actualmente reglas IP ni [puntos de conexión del servicio Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md) 
+> 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para integrar un HSM administrado con Azure Private Link, necesitará lo siguiente:
@@ -65,7 +68,7 @@ az network private-dns link vnet create --resource-group {RG} --virtual-network 
 
 ### <a name="allow-trusted-services-to-access-managed-hsm"></a>Permitir que los servicios de confianza accedan a Managed HSM
 
-Cuando el firewall está activado, se denegará todo el acceso al HSM desde cualquier ubicación que no use una conexión de puntos de conexión privados, lo que incluye los servicios de Azure e Internet público. Use la opción `--baypss AzureServices` si desea que los servicios de Microsoft puedan acceder a las claves en HSM administrado. Las entidades individuales (como una cuenta de Azure Storage o una instancia de Azure SQL Server) deben tener asignaciones de roles concretas para poder acceder a una clave. 
+Cuando el firewall está activado, se denegará todo el acceso al HSM desde cualquier ubicación que no use una conexión de puntos de conexión privados, lo que incluye los servicios de Azure e Internet público. Use la opción `--bypass AzureServices` si desea que los servicios de Microsoft puedan acceder a las claves en HSM administrado. Las entidades individuales (como una cuenta de Azure Storage o una instancia de Azure SQL Server) deben tener asignaciones de roles concretas para poder acceder a una clave. 
 
 > [!NOTE]
 > Solo se admiten escenarios de uso de servicios de confianza concretos. Para más información, consulte la [lista de escenario de uso de servicios de confianza](../general/overview-vnet-service-endpoints.md#trusted-services).

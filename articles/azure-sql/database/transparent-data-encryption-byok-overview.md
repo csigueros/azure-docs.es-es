@@ -12,12 +12,12 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 06/23/2021
-ms.openlocfilehash: 290065bb7410c42695cf2b0062cdd11cb02c9580
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8f056fd416b6bbb36296a57fca26906852eb3af8
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131065539"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132156566"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -87,7 +87,7 @@ Los auditores pueden usar Azure Monitor para revisar los registros de los objeto
     - La protección de purga se puede activar mediante la [CLI de Azure](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli) o con [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell). Cuando la protección de purgas está activada, un almacén o un objeto en estado eliminado no se pueden purgar hasta que haya transcurrido el período de retención. El período de retención predeterminado es de 90 días, pero se puede configurar de 7 a 90 días en Azure Portal.   
 
 > [!IMPORTANT]
-> Tanto la eliminación temporal como la protección de purga deben estar habilitadas en los almacenes de claves para los servidores que se configuran con el TDE administrado por el cliente, así como los servidores existentes que usan el TDE administrado por el cliente. En el caso de un servidor que usa el TDE administrado por el cliente, si la eliminación temporal y la protección de purga no están habilitadas en el almacén de claves asociado, al realizar acciones como la creación de bases de datos, la configuración de replicación geográfica, la restauración de bases de datos, la actualización del protector de TDE, se producirá un error con el siguiente mensaje de error *"The provided Key Vault uri is not valid. Please ensure the key vault has been configured with soft-delete and purge protection".* (El URI de Key Vault proporcionado no es válido. Asegúrese de que el almacén de claves se ha configurado con protección de eliminación flexible y purga).
+> Tanto la eliminación temporal como la protección de purga deben estar habilitadas en los almacenes de claves para los servidores que se configuran con el TDE administrado por el cliente, así como los servidores existentes que usan el TDE administrado por el cliente.
 
 - Conceda al servidor o a la instancia administrada acceso al almacén de claves (*get*, *wrapKey* o *unwrapKey*) con su identidad de Azure Active Directory. Al usar Azure Portal, la identidad de Azure AD se crea automáticamente cuando se crea el servidor. Al usar PowerShell o la CLI de Azure, se debe crear explícitamente la identidad de Azure AD y se debe comprobar la finalización. Consulte [Configuración de TDE con BYOK](transparent-data-encryption-byok-configure.md) y [Configuración de TDE con BYOK para SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) para obtener instrucciones detalladas paso a paso cuando se usa PowerShell.
     - En función del modelo de permisos del almacén de claves (directiva de acceso o RBAC de Azure), se puede conceder acceso al almacén de claves creando una directiva de acceso en el almacén de claves o creando una nueva asignación de roles RBAC de Azure con el rol [Usuario de cifrado de servicio criptográfico de Key Vault](/azure/key-vault/general/rbac-guide#azure-built-in-roles-for-key-vault-data-plane-operations).
@@ -146,9 +146,9 @@ Cuando se configura el cifrado de datos transparente para usar una clave adminis
 
 Una vez restaurado el acceso a la clave, se necesita tiempo para volver a poner en línea la base de datos y se deben realizar pasos adicionales, los cuales pueden variar en función del tiempo transcurrido sin tener acceso a la clave y según el tamaño de los datos de la base de datos:
 
-- Si se restaura el acceso a la clave en un plazo de ocho horas, la base de datos se restablecerá automáticamente durante la próxima hora.
+- Si se restaura el acceso a la clave en un plazo de 30 minutos, la base de datos se restablecerá automáticamente durante la próxima hora.
 
-- Si se restaura el acceso a la clave transcurridas más de ocho horas, no será posible la recuperación automática de la base de datos y será necesario realizar pasos adicionales en el portal para recuperarla manualmente. Esto que puede llevar una cantidad considerable de tiempo en función del tamaño de la base de datos. Una vez que la base de datos vuelva a estar en línea, **se perderán** los ajustes de nivel de servidor configurados previamente, como el [grupo de conmutación por error](auto-failover-group-overview.md), el historial de restauración a un momento dado y las etiquetas. Por lo tanto, se recomienda implementar un sistema de notificación que le permita identificar y resolver los problemas subyacentes de acceso de las claves en un plazo de ocho horas.
+- Si se restaura el acceso a la clave transcurridas más de 30 minutos, no será posible la recuperación automática de la base de datos y será necesario realizar pasos adicionales en el portal para recuperarla manualmente. Esto que puede llevar una cantidad considerable de tiempo en función del tamaño de la base de datos. Una vez que la base de datos vuelva a estar en línea, **se perderán** los ajustes de nivel de servidor configurados previamente, como el [grupo de conmutación por error](auto-failover-group-overview.md), el historial de restauración a un momento dado y las etiquetas. Por lo tanto, se recomienda implementar un sistema de notificación que le permita identificar y resolver los problemas subyacentes de acceso de las claves en un plazo de 30 minutos.
 
 A continuación se muestra una vista de los pasos adicionales necesarios en el portal para volver a poner en línea una base de datos que no está accesible.
 

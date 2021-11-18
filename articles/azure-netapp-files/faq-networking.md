@@ -6,13 +6,13 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-juche
 ms.author: b-juche
-ms.date: 10/11/2021
-ms.openlocfilehash: 62dff22000c27125d278c06aa41228264150a8c0
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/08/2021
+ms.openlocfilehash: 9539cf9cc327cb954a852c183cf8c94ee4d56ca1
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130269908"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132054797"
 ---
 # <a name="networking-faqs-for-azure-netapp-files"></a>Preguntas frecuentes sobre redes para Azure NetApp Files
 
@@ -43,7 +43,7 @@ No. La asignación de direcciones IP a volúmenes de Azure NetApp Files es diná
 
 ## <a name="does-azure-netapp-files-support-dual-stack-ipv4-and-ipv6-vnet"></a>¿Admite Azure NetApp Files la red virtual de pila dual (IPv4 e IPv6)?
 
-No, actualmente Azure NetApp Files no admite la red virtual de pila dual (IPv4 e IPv6).  
+No, Azure NetApp Files actualmente no admite la implementación de volúmenes en una subred delegada de pila doble (IPv4 e IPv6). La subred delegada del servicio Azure NetApp Files debe ser una subred solo IPv4. Sin embargo, Azure NetApp Files es accesible sobre IPv4 mediante una subred de pila doble o una red virtual (emparejada).
 
 ## <a name="is-the-number-of-the-ip-addresses-using-azure-vmware-solutions-for-guest-os-mounts-limited-to-1000"></a>¿Está limitado a 1000 el número de direcciones IP que usan Azure VMware Solutions para los montajes de sistemas operativos invitados?
 

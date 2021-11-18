@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 563d49ff66bdcd81a37a0bf1b12e910f16f2f5ff
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 54f164c60a5602bcfe798c98785fca1aa8513279
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036701"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132292865"
 ---
 # <a name="understanding-licensing-and-per-user-access-pricing"></a>Descripción de las licencias y los precios de acceso por usuario
 
@@ -70,7 +70,7 @@ Este es un resumen de los dos tipos de licencias de Azure Virtual Desktop entr
 
 ## <a name="licensing-other-products-and-services-for-use-with-azure-virtual-desktop"></a>Licencias de otros productos y servicios para su uso con Azure Virtual Desktop
 
-La licencia de acceso por usuario de Azure Virtual Desktop no reemplaza por completo una licencia de Windows o Microsoft 365. Las licencias por usuario solo conceden derechos de acceso a Azure Virtual Desktop y no incluyen Microsoft Office, Microsoft Defender ni la impresión universal. Esto significa que si elige una licencia por usuario, deberá conceder licencias por separado de otros productos y servicios para conceder a los usuarios el acceso a ellos en el entorno de Azure Virtual Desktop.
+La licencia de acceso por usuario de Azure Virtual Desktop no reemplaza por completo una licencia de Windows o Microsoft 365. Las licencias por usuario solo conceden derechos de acceso a Azure Virtual Desktop y no incluyen Microsoft Office, Microsoft 365 Defender ni Impresión universal. Esto significa que si elige una licencia por usuario, deberá conceder licencias por separado de otros productos y servicios para conceder a los usuarios el acceso a ellos en el entorno de Azure Virtual Desktop.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

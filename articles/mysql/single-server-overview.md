@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 6/19/2021
-ms.openlocfilehash: dfeea2cfde2f8122891b6fada2eba1e546ed2342
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: 4238ac653d6b34294d956ea9ff72fe2184ddd1be
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131894229"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281653"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Servidor único de Azure Database for MySQL
 
@@ -63,7 +63,7 @@ Servidor único está disponible en tres niveles de SKU: Básico, De uso general
 
 Servidor único usa el módulo criptográfico con validación FIPS 140-2 para el cifrado del almacenamiento de los datos en reposo. Se cifran los datos, incluidas las copias de seguridad, y los archivos temporales creados mientras se ejecutan las consultas. El servicio usa el cifrado AES de 256 bits que se incluye en el cifrado de Azure Storage, y el sistema (valor predeterminado) o [el cliente](concepts-data-encryption-mysql.md) pueden administrar las claves. El servicio cifra los datos en movimiento con la Seguridad de la capa de transporte (SSL/TLS) que se aplica de manera predeterminada. El servicio admite las versiones de TLS 1.2, 1.1 y 1.0 con capacidad para aplicar la [versión de TLS mínima](concepts-ssl-connection-security.md). 
 
-El servicio permite el acceso privado a los servidores mediante la conexión de [vínculo privado](concepts-data-access-security-private-link.md) y ofrece protección contra amenazas a través del plan opcional [Azure Defender para bases de datos relacionales de código abierto](../security-center/defender-for-databases-introduction.md). Azure Defender detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de obtener acceso a las bases de datos o de vulnerar su seguridad.
+El servicio permite el acceso privado a los servidores mediante la conexión de [vínculo privado](concepts-data-access-security-private-link.md) y ofrece protección contra amenazas a través del plan opcional [Microsoft Defender para bases de datos relacionales de código abierto](../security-center/defender-for-databases-introduction.md). Microsoft Defender para bases de datos relacionales de código abierto detecta actividades anómalas que indican intentos poco habituales y posiblemente dañinos de acceder a sus bases de datos o de aprovechar sus vulnerabilidades.
 
 Además de la autenticación nativa, Servidor único admite la autenticación de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). La autenticación de Azure AD es un mecanismo que permite conectar con los servidores de MySQL mediante identidades definidas y administradas en Azure AD. Con la autenticación de Azure AD, puede administrar las identidades de los usuarios de la base de datos y otros servicios de Azure en una ubicación central, lo que simplifica y centraliza el control de acceso.
 

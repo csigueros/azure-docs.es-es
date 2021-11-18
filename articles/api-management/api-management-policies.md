@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2021
 ms.author: danlep
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 950684fdbaa1553447b818c0751b13f4a8e26f34
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: e5eda2df72afd7fa82a63dcd31adbf117d58bfe2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131031772"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132340350"
 ---
 # <a name="api-management-policies"></a>Directivas de administración de API
 En esta sección se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](api-management-howto-policies.md).
@@ -26,7 +26,7 @@ En esta sección se proporciona una referencia para las siguientes directivas de
 ##  <a name="policies"></a><a name="ProxyPolicies"></a> Directivas
 
 -   [Directivas de restricción de acceso](api-management-access-restriction-policies.md#AccessRestrictionPolicies)
-    -   [Activar encabezado HTTP](api-management-access-restriction-policies.md#CheckHTTPHeader) : aplica la existencia o el valor de un encabezado HTTP.
+    -   [Activar encabezado HTTP](api-management-access-restriction-policies.md#CheckHTTPHeader): aplica la existencia o el valor de un encabezado HTTP.
     -   [Limitar la frecuencia de llamadas por suscripción](api-management-access-restriction-policies.md#LimitCallRate) : evita los picos de uso de la API limitando la frecuencia de llamadas, por suscripción.
     -   [Limitar la frecuencia de llamadas por clave](api-management-access-restriction-policies.md#LimitCallRateByKey) : evita los picos de uso de la API limitando la frecuencia de llamadas, por clave.
     -   [Restringir IP de autor de llamada](api-management-access-restriction-policies.md#RestrictCallerIPs) : filtra (permite/deniega) las llamadas de direcciones IP específicas o de intervalos de direcciones.

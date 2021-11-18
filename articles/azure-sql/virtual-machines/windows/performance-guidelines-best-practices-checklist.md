@@ -16,12 +16,12 @@ ms.date: 06/01/2021
 ms.author: pamela
 ms.custom: contperf-fy21q3
 ms.reviewer: mathoma
-ms.openlocfilehash: 1dd05395d921e2a75a56db353e0b0c740b094e49
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: bed0a193a66d9f7ae19a42b61ec4562d11448669
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164518"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157264"
 ---
 # <a name="checklist-best-practices-for-sql-server-on-azure-vms"></a>Lista de comprobación: Procedimientos recomendados de SQL Server en máquinas virtuales de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -126,6 +126,7 @@ Las características de alta disponibilidad y recuperación ante desastres (HADR
 
 Para el clúster de Windows, tenga en cuenta estos procedimientos recomendados: 
 
+* Implemente las máquinas virtuales con SQL Server en varias subredes siempre que sea posible para evitar la dependencia de un nombre de red distribuida (DNN) o una instancia de Azure Load Balancer para enrutar el tráfico a la solución de alta disponibilidad y recuperación ante desastres. 
 * Cambie el clúster a parámetros menos agresivos para evitar interrupciones inesperadas de errores de red transitorios o mantenimiento de la plataforma de Azure. Para más información, consulte la [configuración de latidos y umbrales](hadr-cluster-best-practices.md#heartbeat-and-threshold). Para Windows Server 2012 y versiones posteriores, utilice los siguientes valores recomendados: 
    - **SameSubnetDelay**: 1 segundo
    - **SameSubnetThreshold**: 40 latidos
@@ -149,7 +150,7 @@ Para el grupo de disponibilidad SQL Server o la instancia de clúster de conmuta
     Comience con 40 segundos. Si usa los valores `SameSubnetThreshold` y `SameSubnetDelay` flexibles recomendados anteriormente, no supere los 80 segundos para el valor de tiempo de espera de concesión. 
    - **Número máximo de errores en un período especificado**: puede establecer este valor en 6.
    - **Tiempo de espera de comprobación de estado**: puede establecer este valor en 60000 inicialmente y luego ajustarlo según sea necesario. 
-* Cuando use el nombre de red virtual (VNN) para conectarse a la solución HADR, especifique `MultiSubnetFailover = true` en la cadena de conexión, incluso si el clúster solo abarca una subred. 
+* Cuando use el nombre de red virtual (VNN) y Azure Load Balancer para conectarse a una solución de alta disponibilidad y recuperación ante desastres, especifique `MultiSubnetFailover = true` en la cadena de conexión, incluso si el clúster solo abarca una subred. 
    - Si el cliente no admite `MultiSubnetFailover = True`, es posible que deba establecer `RegisterAllProvidersIP = 0` y `HostRecordTTL = 300` para copiar en caché las credenciales de cliente durante períodos más cortos. Sin embargo, esto puede provocar consultas adicionales en el servidor DNS. 
 - Para conectarse a la solución HADR mediante el nombre de red distribuida (DNN), tenga en cuenta lo siguiente:
    - Debe usar un controlador cliente que admita `MultiSubnetFailover = True` y este parámetro debe estar en la cadena de conexión. 

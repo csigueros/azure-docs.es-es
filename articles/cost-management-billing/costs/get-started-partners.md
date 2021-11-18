@@ -3,18 +3,18 @@ title: Introducción a Azure Cost Management para los asociados
 description: En este artículo se explica cómo los asociados usan las características de Cost Management y cómo permiten a sus clientes el acceso a este servicio.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/13/2021
+ms.date: 11/10/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 747dc5829315091d6a42fbf6c0749af104c5e1ac
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 31d2ceb9d8ae9a93ea15f2bf2f77ed7f05f6021c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984071"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132287196"
 ---
 # <a name="get-started-with-cost-management-for-partners"></a>Introducción a Cost Management para los asociados
 
@@ -150,6 +150,18 @@ Cuando la directiva se establece en **No**, Cost Management no está disponible 
 Cuando esta directiva está establecida en **Sí**, los usuarios de suscripciones asociados al inquilino del cliente pueden ver los cargos de uso según las tarifas de pago por uso.
 
 Cuando la directiva de visibilidad de los costos está habilitada, todos los servicios que tienen la opción de uso de la suscripción muestran los costos según las tarifas de pago por uso. El uso de reservas aparece con cero cargos para los costos reales y amortizados. Las compras y los derechos no están asociados a una suscripción específica. Por lo tanto, las compras no se muestran en el ámbito de la suscripción. El administrador global o agente de administración de un asociado directo o de un proveedor indirecto también puede usar la [API de actualización de cliente](/rest/api/billing/2019-10-01-preview/policies/updatecustomer) para establecer la directiva de visibilidad de costos de cada cliente a gran escala.
+
+## <a name="view-and-enable-all-policies"></a>Visualización y habilitación de todas las directivas
+
+También puede ver y cambiar las directivas relacionadas con Azure Marketplace y las reservas de Azure, y ver los cargos de Azure y administrar etiquetas en un solo lugar. La configuración de directiva se aplica a todos los clientes del perfil de facturación.
+
+Para ver o cambiar las directivas:
+
+1. En Azure Portal, vaya a **Cost Management** (no Cost Management + Billing).
+1. En la sección **Configuración** del menú de la izquierda, seleccione **Configuración**.
+1. Se muestra la configuración del perfil de facturación. Las directivas se muestran como habilitadas o deshabilitadas. Si quiere cambiar una directiva, seleccione su botón **Editar**.  
+    :::image type="content" source="./media/get-started-partners/configuration-policy-settings.png" alt-text="Captura de pantalla que muestra la página de configuración del perfil de facturación donde puede ver y editar la configuración de directiva." lightbox="./media/get-started-partners/configuration-policy-settings.png" :::
+1. Si es necesario, cambie la configuración y, luego, seleccione **Guardar**.
 
 ### <a name="view-subscription-costs-in-the-customer-tenant"></a>Visualización de los costos de suscripción en el inquilino del cliente
 

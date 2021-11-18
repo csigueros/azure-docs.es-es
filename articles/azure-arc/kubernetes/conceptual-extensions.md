@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: En este artículo, encontrará información general y algunos conceptos sobre la funcionalidad de extensiones de clústeres de Kubernetes habilitado para Azure Arc.
-ms.openlocfilehash: 1f6bc02e111041e9a89e8066a57586c331c1a297
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 6ae9270822ae16608a2c470ed818bcb8e6c2aa38
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130265543"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132279279"
 ---
 # <a name="cluster-extensions"></a>Extensiones de clúster
 
-Se pueden crear instancias de servicios de administración, como Azure Monitor y Azure Defender para Kubernetes, o de servicios como los servicios de aplicaciones o de datos de Azure en clústeres de Kubernetes mediante la funcionalidad de extensiones de clúster. Los [gráficos de Helm](https://helm.sh/) le ayudan a administrar las aplicaciones de Kubernetes, ya que contienen los elementos necesarios para definir, instalar y actualizar las aplicaciones de Kubernetes, incluso las más complejas. La característica de extensiones de clúster se basa en los componentes de empaquetado de Helm, ya que proporciona una experiencia controlada por Azure Resource Manager para la instalación y la administración del ciclo de vida de las instancias de los servicios que pretende habilitar en el clúster de Kubernetes. Los operadores o administradores del clúster pueden usar esta característica para las siguientes tareas: 
+Se pueden crear instancias de servicios de administración, como Azure Monitor y Microsoft Defender para Kubernetes, o de servicios como los servicios de aplicaciones o de datos de Azure en clústeres de Kubernetes mediante la funcionalidad de extensiones de clúster. Los [gráficos de Helm](https://helm.sh/) le ayudan a administrar las aplicaciones de Kubernetes, ya que contienen los elementos necesarios para definir, instalar y actualizar las aplicaciones de Kubernetes, incluso las más complejas. La característica de extensiones de clúster se basa en los componentes de empaquetado de Helm, ya que proporciona una experiencia controlada por Azure Resource Manager para la instalación y la administración del ciclo de vida de las instancias de los servicios que pretende habilitar en el clúster de Kubernetes. Los operadores o administradores del clúster pueden usar esta característica para las siguientes tareas: 
 
 - Instalar diferentes extensiones de la funcionalidad deseada y obtener un inventario de todos los clústeres y las extensiones instaladas en ellos desde interfaces de Azure, como Azure Portal, la CLI, el SDK, etc. 
 - Al igual que con cualquier otro recurso de Azure, puede controlar el acceso al recurso de extensiones de clúster mediante el control de acceso basado en rol (RBAC) de Azure.
@@ -25,7 +25,7 @@ Se pueden crear instancias de servicios de administración, como Azure Monitor y
 - Administrar las actualizaciones mediante la configuración de la actualización automática de las extensiones o el anclaje a una versión específica.
 - Administrar el ciclo de vida de las extensiones, incluidas las actualizaciones de las propiedades de extensión o la eliminación de una o varias instancias de extensión.
 
-Una extensión puede estar limitada a un clúster o a un espacio de nombres. Cada tipo de extensión (por ejemplo, Azure Monitor, Azure Defender, servicios de aplicaciones de Azure) define el ámbito en el que funciona en el clúster. 
+Una extensión puede estar limitada a un clúster o a un espacio de nombres. Cada tipo de extensión (por ejemplo, Azure Monitor, Microsoft Defender for Cloud, servicios de aplicaciones de Azure) define el ámbito en el que funciona en el clúster. 
 
 ## <a name="architecture-for-azure-arc-enabled-kubernetes-clusters"></a>Arquitectura de los clústeres de Kubernetes habilitados para Azure Arc
 

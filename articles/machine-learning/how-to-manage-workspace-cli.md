@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/23/2021
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 30347ccbea23fc91429a9653857aba9292afbc6a
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 8f98b1d5d020df0b8a2047fa5881c6d978a0ad94
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131560955"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281748"
 ---
 # <a name="manage-azure-machine-learning-workspaces-using-azure-cli"></a>Administración de áreas de trabajo de Azure Machine Learning usando la CLI de Azure
 
@@ -125,7 +125,7 @@ az ml workspace create -w <workspace-name>
 
 Para crear un área de trabajo incorporando recursos asociados existentes mediante la CLI, primero tendrá que definir cómo se debe configurar el área de trabajo en un archivo de configuración.
 
-:::code language="YAML" source="~/azureml-examples-cli-preview/cli/resources/workspace/with-existing-resources.yml":::
+:::code language="YAML" source="~/azureml-examples-main/cli/resources/workspace/with-existing-resources.yml":::
 
 A continuación, puede hacer referencia a este archivo de configuración como parte del comando de creación de áreas de trabajo de la CLI.
 
@@ -202,7 +202,7 @@ Para obtener más información sobre cómo usar estos comandos, consulte las [p�
 
 Cuando se usa Private Link, el área de trabajo no puede usar proceso de tareas de Azure Container Registry para la creación de imágenes. Por lo tanto, debe establecer la propiedad image_build_compute en un nombre de clúster de proceso de CPU que se usará para la creación del entorno de imágenes de Docker. También puede especificar si el área de trabajo de Private Link debe ser accesible mediante Internet con la propiedad public_network_access.
 
-:::code language="YAML" source="~/azureml-examples-cli-preview/cli/resources/workspace/privatelink.yml":::
+:::code language="YAML" source="~/azureml-examples-main/cli/resources/workspace/privatelink.yml":::
 
 ```azurecli-interactive
 az ml workspace create -g <resource-group-name> --file privatelink.yml
@@ -218,6 +218,48 @@ az network private-endpoint create \
     --private-connection-resource-id "/subscriptions/<subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>" \
     --group-id amlworkspace \
     --connection-name workspace -l <location>
+```
+
+Para crear las entradas de la zona DNS privada para el área de trabajo, use los siguientes comandos:
+
+```azurecli-interactive
+# Add privatelink.api.azureml.ms
+az network private-dns zone create \
+    -g <resource-group-name> \
+    --name 'privatelink.api.azureml.ms'
+
+az network private-dns link vnet create \
+    -g <resource-group-name> \
+    --zone-name 'privatelink.api.azureml.ms' \
+    --name <link-name> \
+    --virtual-network <vnet-name> \
+    --registration-enabled false
+
+az network private-endpoint dns-zone-group create \
+    -g <resource-group-name> \
+    --endpoint-name <private-endpoint-name> \
+    --name myzonegroup \
+    --private-dns-zone 'privatelink.api.azureml.ms' \
+    --zone-name 'privatelink.api.azureml.ms'
+
+# Add privatelink.notebooks.azure.net
+az network private-dns zone create \
+    -g <resource-group-name> \
+    --name 'privatelink.notebooks.azure.net'
+
+az network private-dns link vnet create \
+    -g <resource-group-name> \
+    --zone-name 'privatelink.notebooks.azure.net' \
+    --name <link-name> \
+    --virtual-network <vnet-name> \
+    --registration-enabled false
+
+az network private-endpoint dns-zone-group add \
+    -g <resource-group-name> \
+    --endpoint-name <private-endpoint-name> \
+    --name myzonegroup \
+    --private-dns-zone 'privatelink.notebooks.azure.net' \
+    --zone-name 'privatelink.notebooks.azure.net'
 ```
 
 ---
@@ -250,7 +292,7 @@ Use el parámetro `customer_managed_key` con los parámetros`key_vault` y `key_u
 
 Para [limitar los datos que Microsoft recopila](./concept-data-encryption.md#encryption-at-rest) sobre su área de trabajo, puede especificar además la propiedad `hbi_workspace`. 
 
-:::code language="YAML" source="~/azureml-examples-cli-preview/cli/resources/workspace/cmk.yml":::
+:::code language="YAML" source="~/azureml-examples-main/cli/resources/workspace/cmk.yml":::
 
 A continuación, puede hacer referencia a este archivo de configuración como parte del comando de creación de áreas de trabajo de la CLI.
 

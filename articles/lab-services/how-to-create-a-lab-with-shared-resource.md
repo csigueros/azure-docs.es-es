@@ -5,12 +5,12 @@ author: emaher
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: efd33b95bd1a32c73712c7f094107717b4e5b973
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: db69c781c6b2f78e5ffbd6150d49775eb0c8cfbd
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130225782"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132337195"
 ---
 # <a name="how-to-create-a-lab-with-a-shared-resource-in-azure-lab-services"></a>Creación de un laboratorio con un recurso compartido en Azure Lab Services
 
@@ -42,7 +42,7 @@ De forma predeterminada, las máquinas virtuales tienen una dirección IP privad
 
 #### <a name="control-access"></a>Control de acceso
 Controlar el acceso al servidor de licencias es un paso clave.  Una vez que la VM está configurada, el acceso seguirá siendo necesario para realizar trabajos de mantenimiento, solucionar problemas e instalar actualizaciones.  Estas son algunas formas de hacerlo.
-- [Configurar el acceso Just-in-Time (JIT) en Azure Security Center.](../security-center/security-center-just-in-time.md?tabs=jit-config-asc%252cjit-request-asc)
+- [Configurar el acceso Just-In-Time (JIT) en Microsoft Defender for Cloud.](../security-center/security-center-just-in-time.md?tabs=jit-config-asc%252cjit-request-asc)
 - [Configurar un grupo de seguridad de red para restringir el acceso.](../virtual-network/network-security-groups-overview.md)
 - [Configurar Bastion para permitir el acceso seguro al servidor de licencias.](https://azure.microsoft.com/services/azure-bastion/)
 
@@ -51,7 +51,8 @@ Controlar el acceso al servidor de licencias es un paso clave.  Una vez que la V
 Para usar un recurso compartido, la cuenta de laboratorio debe estar configurada para usar una [red virtual emparejada](how-to-connect-peer-virtual-network.md).  En este caso, se emparejará con la red virtual que contiene el recurso compartido.
 
 >[!WARNING]
->El laboratorio de la clase se debe crear **después** de que la cuenta de laboratorio esté emparejada con la red virtual del recurso compartido.  
-Máquina de plantilla
+>El laboratorio de la clase se debe crear **después** de que la cuenta de laboratorio esté emparejada con la red virtual del recurso compartido.
+
+## <a name="template-machine"></a>Máquina de plantilla
 
 Una vez que la cuenta de laboratorio esté emparejada a la red virtual, la máquina de plantilla debería tener acceso al recurso compartido.  Es posible que tenga que actualizar las reglas de firewall, en función del recurso compartido al que se acceda.

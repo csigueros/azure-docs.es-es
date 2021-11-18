@@ -1,14 +1,14 @@
 ---
 title: Activación y configuración de la consola de administración local
 description: La activación de la consola de administración garantiza que los sensores se registren en Azure y envían información a la consola de administración local, y que la consola de administración local lleva a cabo tareas de administración en sensores conectados.
-ms.date: 05/05/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 84506e9ebd12dab4198d075c6afea8ae23604a42
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 77f2a62cce7da4f9faac62820a85f38c0dd06ce5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122445861"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306232"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Activación y configuración de la consola de administración local 
 
@@ -78,7 +78,7 @@ Para los usuarios con versiones anteriores a la 10.0, la licencia puede expirar 
 
 **Para activar la licencia:**
 
-1. Abra un caso para el equipo de [soporte técnico](https://ms.portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support).
+1. Abra un caso para el equipo de [soporte técnico](https://portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support).
 
 1. Proporcione al equipo de soporte técnico el número del identificador de activación.
 
@@ -135,7 +135,7 @@ Para obtener información sobre cómo cargar un certificado nuevo, archivos de c
 
 Asegúrese de que los sensores envían información a la consola de administración local y de que la consola de administración local puede realizar copias de seguridad, administrar alertas y realizar otras actividades en los sensores. Para ello, use los procedimientos siguientes para comprobar que realiza una conexión inicial entre los sensores y la consola de administración local.
 
-Hay dos opciones disponibles para conectar sensores de Azure Defender para IoT a la consola de administración local:
+Hay dos opciones disponibles para conectar sensores de Microsoft Defender para IoT a la consola de administración local:
 
 - Conexión desde la consola del sensor
 

@@ -3,12 +3,12 @@ title: Solución de problemas de Event Grid
 description: En este artículo se proporcionan diferentes formas de solucionar problemas de Azure Event Grid.
 ms.topic: conceptual
 ms.date: 06/10/2021
-ms.openlocfilehash: 5dd6450e1f849dca084bbe0e52a0bcab8f7a29ca
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: ab7f106a741c2f4371e5df0f5092213af987d340
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982311"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370373"
 ---
 # <a name="troubleshoot-azure-event-grid-issues"></a>Solución de problemas de Azure Event Grid
 En este artículo se proporciona información que lo ayuda a solucionar problemas de Azure Event Grid. 
@@ -32,6 +32,16 @@ Hay varias razones por las que las aplicaciones cliente no pueden conectarse a u
 Si recibe mensajes de error con códigos de error como 400, 409 y 403, consulte [Solución de problemas de Azure Event Grid](troubleshoot-errors.md). 
 
 ## <a name="distributed-tracing"></a>Seguimiento distribuido 
+
+Para habilitar el seguimiento de un extremo a otro para una suscripción a [Azure Event Hubs](handler-event-hubs.md) o[Azure Service Bus](handler-service-bus.md)Event Grid, configure las[Propiedades de entrega personalizadas](delivery-properties.md) para reenviar el atributo de extensión `traceparent`CloudEvent a la propiedad de la aplicación`Diagnostic-Id` AMQP. Ejemplo de una suscripción con configuración de propiedades de entrega de seguimiento para Event Hubs:
+
+```azurecli
+az eventgrid event-subscription create --name <event-grid-subscription-name> \
+    --source-resource-id <event-grid-resource-id>
+    --endpoint-type eventhub \
+    --endpoint <event-hubs-endpoint> \
+    --delivery-attribute-mapping Diagnostic-Id dynamic traceparent
+```
 
 ### <a name="net"></a>.NET
 La biblioteca .NET de Event Grid admite la distribución del seguimiento. Para adherirse a la [Guía de la especificación de CloudEvents](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md) sobre la distribución del seguimiento, la biblioteca establece `traceparent` y `tracestate` en el valor [ExtensionAttributes](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventgrid/Azure.Messaging.EventGrid/src/Customization#L126) de `CloudEvent` cuando está habilitado el seguimiento distribuido. Para obtener más información sobre cómo habilitar el seguimiento distribuido en la aplicación, eche un vistazo a la [documentación de seguimiento distribuido](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing) de Azure SDK.

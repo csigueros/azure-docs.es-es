@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 10/25/2021
-ms.openlocfilehash: 1c73346cde1eb20f17973b65e43a8d1c4148b41c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/09/2021
+ms.openlocfilehash: d3d792f6b51dc24b17d86d6a6fecc83697445a5a
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131073251"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157717"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-azure-data-factory-and-synapse-analytics"></a>Solución de problemas de CI/CD, Azure DevOps y GitHub en Azure Data Factory y Synapse Analytics 
 
@@ -321,6 +321,16 @@ No se admite la parametrización de una referencia de entidad (entorno de ejecuc
 #### <a name="resolution"></a>Resolución
 En Data Factory es necesario tener el mismo nombre y tipo de entorno de ejecución de integración en todas las fases de CI/CD. 
 
+### <a name="arm-template-deployment-failing-with-error-datafactorypropertyupdatenotsupported"></a>Error en la implementación de plantillas de ARM con el error DataFactoryPropertyUpdateNotSupported
+
+##### <a name="issue"></a>Incidencia
+Se produce un error en la implementación de la plantilla de ARM, como DataFactoryPropertyUpdateNotSupported: No se admite la actualización del tipo de propiedad. 
+
+##### <a name="cause"></a>Causa
+La implementación de la plantilla de ARM está intentando cambiar el tipo de un entorno de ejecución de integración existente. Esto no está permitido y provocará un error de implementación porque Data Factory requiere el mismo nombre y el mismo tipo de entorno de ejecución de integración en todas las fases de CI/CD.
+
+##### <a name="resolution"></a>Resolución
+Si quiere compartir entornos de ejecución de integración en todas las fases, considere la posibilidad de usar una factoría ternaria solo para contener los entornos de ejecución de integración compartidos. Puede usar esta factoría compartida en todos los entornos como un tipo de entorno de ejecución de integración vinculado. Para más información, consulte [Integración y entrega continuas en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/continuous-integration-delivery#best-practices-for-cicd).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

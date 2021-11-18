@@ -8,12 +8,12 @@ ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 06/09/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: f333ea27279098d43065a9ffd613f994940ff340
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: bf14e52e38a1fae06ef607a4c8c066249055acb8
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131019711"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132155945"
 ---
 # <a name="azure-sentinel-sap-solution-detailed-sap-requirements-public-preview"></a>Requisitos detallados de SAP para la solución Azure Sentinel para SAP (versión preliminar pública)
 
@@ -68,6 +68,8 @@ Si tiene una versión 7.50 o inferior de SAP Basis, instale las siguientes notas
 |     |         |
 
 Acceda a las notas de SAP desde el [sitio de Launchpad de soporte técnico de SAP](https://support.sap.com/en/index.html).
+## <a name="requires-sap-ports-access"></a>Requiere acceso a los puertos de SAP:
+El host del entorno de SAP, a través de los siguientes puertos TCP: 32xx, 5xx13 y 33xx, donde xx es el número de instancia de SAP.
 
 ## <a name="required-abap-authorizations"></a>Autorizaciones de ABAP necesarias
 

@@ -11,12 +11,12 @@ author: rsethur
 ms.reviewer: laobri
 ms.custom: devplatv2, ignite-fall-2021
 ms.date: 10/21/2021
-ms.openlocfilehash: 03d5c93d27587e88ae1f21e12b8a729fab042ac7
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 7129286a0a91e27e80ebe4a6f3fc99e2b0e6c9b8
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131554039"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135925"
 ---
 # <a name="what-are-azure-machine-learning-endpoints-preview"></a>¿Qué son los puntos de conexión de Azure Machine Learning (versión preliminar)? 
 
@@ -129,7 +129,7 @@ Hay dos tipos de puntos de conexión en línea: **puntos de conexión en línea 
 | **Registro inmediato** | [Registros y análisis de registros de Azure en el nivel de punto de conexión](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | Compatible |
 | **Application Insights** | Compatible | Compatible |
 | **Identidad administrada** | [Compatible](how-to-access-resources-from-endpoints-managed-identities.md) | Compatible |
-| **Virtual Network (VNET)** | No admitido (versión preliminar pública) | Compatible |
+| **Virtual Network (VNET)** | Todavía no se admite (estamos trabajando en ello) | Compatible |
 | **Visualización de costos** | [Nivel de punto de conexión y de implementación](how-to-view-online-endpoints-costs.md) | Nivel de clúster |
 
 ### <a name="managed-online-endpoints"></a>Puntos de conexión en línea administrados

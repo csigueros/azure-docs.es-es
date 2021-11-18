@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 8e4bc76203ee84d71f4a9f201dac6e63d4728c34
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: a6a9f2c4e480efdbb025fb3edf98dc7e6f599081
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130238067"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132025957"
 ---
 # <a name="troubleshoot"></a>Solución de problemas
 
@@ -202,6 +202,10 @@ Otra causa de los hologramas inestables (hologramas con tambaleo, deformación, 
 Otro valor que se debe examinar es `ServiceStatistics.LatencyPoseToReceiveAvg`. Debe estar siempre por debajo de 100 ms. Si se ven valores más altos, podría significar que está conectado a un centro de datos que está demasiado lejos.
 
 Para obtener una lista de posibles mitigaciones, consulte las [instrucciones sobre la conectividad de red](../reference/network-requirements.md#guidelines-for-network-connectivity).
+
+## <a name="local-content-uis--on-hololens-2-renders-with-significantly-more-distortion-artifacts-than-without-arr"></a>El contenido local (UI, ...) en HoloLens 2 se representa significativamente con más artefactos de distorsión que sin ARR.
+
+Se trata de una configuración predeterminada que equilibra entre la calidad de la proyección de contenido local y el rendimiento en tiempo de ejecución. Consulte el capítulo sobre los [Modos de posición de reproyección](../overview/features/late-stage-reprojection.md#reprojection-pose-modes) para ver cómo se puede cambiar el modo de proyección para que el contenido local se represente en el mismo nivel de calidad de reproyección que sin ARR.
 
 ## <a name="z-fighting"></a>Z-fighting
 

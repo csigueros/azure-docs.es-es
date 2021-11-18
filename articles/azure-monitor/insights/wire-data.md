@@ -5,24 +5,23 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/26/2021
-ms.openlocfilehash: 52bb368ccf19c23c04bc062e7db50c07ecebaceb
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 74d3544fd7e858a685b669ad826bc17e0eb6e64f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114296066"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312927"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor-retired"></a>Solución Wire Data 2.0 (versión preliminar) en Azure Monitor (retirada)
 
 ![Símbolo de Wire Data](media/wire-data/wire-data2-symbol.png)
 
->[!NOTE]
->La solución Wire Data se ha reemplazado por [VM Insights](../vm/vminsights-overview.md) y la [solución Service Map](../vm/service-map.md).  Ambas usan el agente de Log Analytics y Dependency Agent para recopilar datos de conexión de red en Azure Monitor.
+> [!NOTE]
+> La solución Wire Data se ha reemplazado por [VM Insights](../vm/vminsights-overview.md) y la [solución Service Map](../vm/service-map.md).  Ambas usan el agente de Log Analytics y Dependency Agent para recopilar datos de conexión de red en Azure Monitor.
 >
->La compatibilidad con la solución Wire Data finalizará el **31 de marzo de 2022**.  Hasta la fecha de retirada, los clientes existentes que usen la solución Wire Data 2.0 (versión preliminar) podrán seguir utilizándola.
+> La compatibilidad con la solución Wire Data finalizará el **31 de marzo de 2022**.  Hasta la fecha de retirada, los clientes existentes que usen la solución Wire Data 2.0 (versión preliminar) podrán seguir utilizándola.
 >
->Los clientes nuevos, así como los existentes, deben instalar la[solución Service Map](../vm/vminsights-enable-overview.md) o [VM Insights](../vm/service-map.md).  El conjunto de datos de mapa que recopilan es comparable al conjunto de datos Wire Data 2.0 (versión preliminar).  VM Insights incluye el conjunto de datos de Service Map con características y datos de rendimiento adicionales para el análisis. Ambas ofertas tienen [conexiones con Azure Sentinel](../../sentinel/connect-data-sources.md#map-data-types-with-azure-sentinel-connection-options).
- 
+> Los clientes nuevos, así como los existentes, deben instalar la[solución Service Map](../vm/vminsights-enable-overview.md) o [VM Insights](../vm/service-map.md).  El conjunto de datos de mapa que recopilan es comparable al conjunto de datos Wire Data 2.0 (versión preliminar).  VM Insights incluye el conjunto de datos de Service Map con características y datos de rendimiento adicionales para el análisis. Ambas ofertas tienen [conexiones con Microsoft Sentinel](../../sentinel/connect-data-sources.md#map-data-types-with-microsoft-sentinel-connection-options).
 
 Los datos de conexión son datos consolidados de rendimiento y de red recopilados de equipos conectados a Windows y Linux con el agente de Log Analytics, incluidos los que supervisa Operations Manager en el entorno. Los datos de red se combinan con otros datos de registro para ayudar a correlacionar datos.
 
@@ -130,8 +129,8 @@ Consulte la [documentación de búsqueda de registros de VM Insights](../vm/vmin
 
 Para desinstalar Wire Data 2.0 solo tiene que quitar la solución de las áreas de trabajo de Log Analytics.  Esto generará el siguiente mensaje:
 
-* el módulo de administración de datos de Wire Data que se quitará de las VM que están conectadas al área de trabajo. 
-* el tipo de datos de Wire Data ya no aparece en el área de trabajo.
+- El módulo de administración de datos de Wire Data que se quitará de las VM que están conectadas al área de trabajo.
+- El tipo de datos de Wire Data ya no aparece en el área de trabajo.
 
 Siga [estas instrucciones](./solutions.md?tabs=portal#remove-a-monitoring-solution) para quitar la solución Wire Data.
 
@@ -161,7 +160,7 @@ Un administrador también puede ejecutar %Programfiles%\Microsoft Dependency Age
 
 Para desinstalar completamente Dependency Agent de Linux, debe quitar el agente y el conector que se instala automáticamente con el agente. Puede desinstalar ambos mediante el comando siguiente:
 
-```
+```bash
 rpm -e dependency-agent dependency-agent-connector
 ```
 

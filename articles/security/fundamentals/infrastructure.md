@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: terrylan
-ms.openlocfilehash: 2a9e61ec850d20ab9b630036cd265fbb7f3801ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb05fcd0e13aded505ee3fd9d1095338622b949c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87543935"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339416"
 ---
 # <a name="azure-infrastructure-security"></a>Seguridad de la infraestructura de Azure
 Microsoft Azure se ejecuta en centros de datos administrados y operados por Microsoft. Estos centros de datos geográficamente dispersos cumplen los estándares del sector en materia de seguridad y confiabilidad, como ISO/IEC 27001:2013 y NIST SP 800-53. El personal de operaciones de Microsoft administra y supervisa los centros de datos. El personal de operaciones tiene años de experiencia en la prestación de servicios en línea más grandes del mundo con continuidad ininterrumpida durante el día.
@@ -43,4 +43,4 @@ Esta serie de artículos proporciona información sobre lo que Microsoft hace pa
 
 - Comprenda la [responsabilidad compartida en la nube](shared-responsibility.md).
 
-- Aprenda cómo [Azure Security Center](https://azure.microsoft.com/services/security-center/) le ayuda a evitar amenazas y a detectarlas y responder a ellas, gracias a la mayor visibilidad y control sobre la seguridad de todos sus recursos de Azure.
+- Obtenga información sobre cómo [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) puede ayudarle a evitar amenazas y a detectarlas y responder a ellas con más visibilidad y control sobre la seguridad de sus recursos de Azure.

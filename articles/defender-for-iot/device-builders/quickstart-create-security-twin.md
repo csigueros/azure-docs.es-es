@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Creación de un módulo gemelo de seguridad'
-description: En esta guía de inicio rápido, aprenderá a crear un módulo gemelo de Defender para IoT para su uso con Azure Defender para IoT.
+description: En esta guía de inicio rápido, aprenderá a crear un módulo gemelo de Defender para IoT para su uso con Microsoft Defender para IoT.
 ms.topic: quickstart
-ms.date: 05/26/2021
-ms.openlocfilehash: 5f2d6b4e4ab747988fe41322aab61c90b7c15b18
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 11/09/2021
+ms.openlocfilehash: 34927684fb87b48390479bccd63d7667a6350d14
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011502"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281899"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Inicio rápido: Creación de un módulo gemelo de azureiotsecurity
 
@@ -22,8 +22,7 @@ Este inicio rápido explica cómo crear módulos gemelos de _azureiotsecurity_ i
 
 En el caso de las soluciones de IoT integradas en Azure, los dispositivos gemelos desempeñan un rol clave tanto en la administración de dispositivos como en la automatización de procesos.
 
-Defender para IoT ofrece integración completa con la plataforma de administración de dispositivos de IoT existente, lo que permite no solo administrar el estado de seguridad de los dispositivos, sino también hacer uso de las funcionalidades de control de dispositivos existentes.
-Para lograr la integración de Defender para IoT es preciso usar el mecanismo gemelo de IoT Hub.
+Defender para IoT ofrece integración completa con la plataforma de administración de dispositivos de IoT existente, lo que permite no solo administrar el estado de seguridad de los dispositivos, sino también hacer uso de las funcionalidades de control de dispositivos existentes. Para lograr la integración de Defender para IoT es preciso usar el mecanismo gemelo de IoT Hub.
 
 Para más información acerca del concepto general de los módulos gemelos en Azure IoT Hub, consulte [Uso de módulos gemelos en IoT Hub](../../iot-hub/iot-hub-devguide-module-twins.md).
 

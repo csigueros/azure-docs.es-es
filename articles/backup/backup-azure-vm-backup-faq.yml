@@ -4,13 +4,15 @@ metadata:
   description: En este artículo, descubra las respuestas a preguntas comunes sobre la copia de seguridad de máquinas virtuales de Azure con el servicio Azure Backup.
   ms.topic: article
   ms.service: backup
-  ms.date: 08/19/2021
-  ms.openlocfilehash: d9ca7573375e3e6bf584d1b79f8f6a8f9ba64f4d
-  ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+  ms.date: 11/09/2021
+  author: v-amallick
+  ms.author: v-amallick
+  ms.openlocfilehash: 6affe7d7e9d0fdeb50da09c80203d01647c46a8e
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/09/2021
-  ms.locfileid: "132062897"
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132293903"
 title: Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure
 summary: >
   En este artículo se responde a preguntas comunes sobre la copia de seguridad de máquinas virtuales de Azure con el servicio [Azure Backup](./backup-overview.md).
@@ -82,7 +84,7 @@ sections:
     answer: >
       Sí, Azure Backup admite [discos administrados SSD estándar](../virtual-machines/disks-types.md#standard-ssds).
   - question: ¿Podemos realizar copias de seguridad de una máquina virtual con un disco habilitado para el Acelerador de escritura?
-    answer: Solo se pueden realizar instantáneas en discos de datos habilitados para el Acelerador de escritura y no en discos del sistema operativo. Por tanto, solo se pueden proteger los discos de datos que están habilitados para el Acelerador de escritura.
+    answer: Solo se pueden crear instantáneas en discos de datos habilitados para el Acelerador de escritura y no en discos del sistema operativo. Por tanto, solo se pueden proteger los discos de datos que están habilitados para el Acelerador de escritura.
   - question: Tengo una máquina virtual con discos habilitados para el Acelerador de escritura (WA) y SAP HANA instalada. ¿Cómo puedo realizar la copia de seguridad?
     answer: >
       Azure Backup puede hacer una copia de seguridad del disco de datos habilitado para el Acelerador de escritura. Sin embargo, la copia de seguridad no proporcionará coherencia de base de datos.
@@ -107,7 +109,7 @@ sections:
   - question: ¿Cuáles son las configuraciones de máquina virtual almacenadas en la copia de seguridad de la máquina virtual?
     answer: Todas las configuraciones de máquina virtual necesarias para realizar las operaciones de restauración se almacenan en la copia de seguridad de la máquina virtual. Aquí se incluyen las copias de cifrado de las claves cifradas de la máquina virtual, a las que puede acceder durante la restauración. Las copias de cifrado solo se pueden descifrar mediante el almacén de claves. Los discos temporales y el estado de memoria no se capturan en la instantánea.
   - question: ¿Se puede hacer una copia de seguridad de las etiquetas de una máquina virtual de Azure? Si es así, ¿de cuántas?
-    answer: Azure Backup puede realizar copias de seguridad de etiquetas y restaurarlas, excepto de NIC e IP. Azure Backup respeta las limitaciones de suscripción del grupo de recursos de Azure y restaura hasta 50 etiquetas.<br><br>Para información detallada, consulte [Límites de suscripción](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
+    answer: Azure Backup puede realizar copias de seguridad de etiquetas y restaurarlas, excepto de las NIC y las IP. Azure Backup respeta las limitaciones de suscripción del grupo de recursos de Azure y restaura hasta 50 etiquetas.<br><br>Para información detallada, consulte [Límites de suscripción](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
   - question: ¿Puedo hacer copias de seguridad a petición (ad hoc) sin programar la copia de seguridad de una máquina virtual de Azure?
     answer: >
       No, no puede desencadenar copias de seguridad a petición deshabilitando la copia de seguridad programada.
@@ -249,4 +251,7 @@ sections:
     answer: >
       Como los recursos de Azure controlan este tráfico, un usuario externo no puede determinarlo.
   - question: ¿Cuáles son el RPO y el RTO mínimos para las copias de seguridad de máquinas virtuales en Azure Backup?
-    answer: '**RPO:** el RPO mínimo es de 1 día o 24 horas.  <br><br>  **RTO:** las instantáneas se almacenan en la cuenta de almacenamiento. Por lo tanto, la restauración desde el nivel de restauración instantánea es inmediata. A continuación, estos datos se transfieren al almacén de Recovery Services, que el servicio Azure Backup mantiene, y tardarán un par de horas en transferirse y restaurarse.'
+    answer: >
+      **RPO:** el RPO mínimo es de 1 día o 24 horas.  <br><br>  **RTO:** las instantáneas se almacenan en la cuenta de almacenamiento. Por lo tanto, la restauración desde el nivel de restauración instantánea es inmediata. A continuación, estos datos se transfieren al almacén de Recovery Services, que el servicio Azure Backup mantiene, y tardarán un par de horas en transferirse y restaurarse.
+  - question: ¿Por qué aparece el error VMMarketplaceInvalidInputmessage?
+    answer: Este error aparece cuando intenta iniciar una VM después de crear una VM de Azure a partir de una imagen que no es de Marketplace o cambiar el disco del sistema operativo de una VM con una imagen que no es de Marketplace y, a continuación, se produce un error en la implementación de la VM. Para resolver este problema, quite la información del plan de la VM.

@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 11/10/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 951e2406a387ed2aaedc4cec875c62a14cf5bb2e
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 99b7d27ef16414df161b7d6e120084f2b8220f46
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108291953"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132297532"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Implementación y configuración de Azure Firewall mediante Azure Portal
 
@@ -140,7 +140,7 @@ Implemente el firewall en la red virtual.
 
    |Configuración  |Value  |
    |---------|---------|
-   |Suscripción     |\<your subscription\>|
+   |Subscription     |\<your subscription\>|
    |Resource group     |**Test-FW-RG** |
    |Nombre     |**Test-FW01**|
    |Region     |Seleccione la misma ubicación que usó anteriormente.|
@@ -156,6 +156,10 @@ Implemente el firewall en la red virtual.
 8. Anote las direcciones IP privadas y públicas del firewall. Usará estas direcciones más adelante.
 
 ## <a name="create-a-default-route"></a>Crear una ruta predeterminada
+
+Al crear una ruta para la conectividad saliente y entrante a través del firewall, basta con una ruta predeterminada a 0.0.0.0/0 con la dirección IP privada de la aplicación virtual como próximo salto. Dicha ruta se encargará de las conexiones salientes y entrantes para pasar por el firewall. Por ejemplo, si el firewall cumple un protocolo de enlace TCP y responde a una solicitud entrante, la respuesta se dirige a la dirección IP que envió el tráfico. es así por diseño. 
+
+Como resultado, no es necesario crear una UDR adicional para incluir el intervalo IP AzureFirewallSubnet. Esto puede dar lugar a que se descarten conexiones. Con la ruta predeterminada original es suficiente.
 
 En la subred **Workload-SN**, configure la ruta predeterminada de salida que pase por el firewall.
 

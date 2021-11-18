@@ -118,8 +118,8 @@
       href: front-door-diagnostics.md
     - name: Solución de problemas
       items:
-        - name: Solución de problemas de enrutamiento
-          href: front-door-troubleshoot-routing.md
+        - name: Solución de problemas de Front Door
+          href: troubleshoot-issues.md
         - name: Entidades de certificación permitidas
           href: 'https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT'
 - name: Referencia

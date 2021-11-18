@@ -7,8 +7,8 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 ms.assetid: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 3289f52d0f6925374aee5656afc797ed0713f962
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: e7ed45236c79220963ca1d81f6f3d0865b99d32c
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132521479"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132369728"
 ---
 # <a name="microsoft-sentinel-dns-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de DNS de Microsoft Sentinel (versión preliminar pública)
 
@@ -161,7 +161,7 @@ Los campos comunes a todos los esquemas se describen en la [introducción al esq
 | **Campo** | **Clase** | **Tipo**  | **Descripción** |
 | --- | --- | --- | --- |
 | **EventType** | Mandatory | Enumerated | Indica la operación notificada por el registro. <br><br> En los registros DNS, este valor es el [código de operación de DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Ejemplo: `lookup`|
-| **EventSubType** | Opcionales | Enumerated | **request** o **response**. <br><br>En la mayoría de los orígenes [solo se registran las respuestas](#guidelines-for-collecting-dns-events), por lo que este valor suele ser **response**.  |
+| **EventSubType** | Opcional | Enumerated | **request** o **response**. <br><br>En la mayoría de los orígenes [solo se registran las respuestas](#guidelines-for-collecting-dns-events), por lo que este valor suele ser **response**.  |
 | <a name=eventresultdetails></a>**EventResultDetails** | Alias | | Motivo o detalles del resultado notificado en el campo **_EventResult_**. <br><br> Alias del campo [ResponseCodeName](#responsecodename).|
 | **EventSchemaVersion** | Mandatory | String | La versión del esquema que se documenta aquí es **0.1.3**. |
 | **EventSchema** | Mandatory | String | El nombre del esquema que se documenta aquí es **DNS**. |
@@ -179,10 +179,10 @@ Los campos enumerados a continuación son específicos de eventos de DNS, pero m
 | <a name="srcipaddr"></a>**SrcIpAddr** | Recomendado | Dirección IP | Dirección IP del cliente que envía la solicitud de DNS. En una solicitud de DNS recursiva, este valor suele ser el dispositivo de informes y, en la mayoría de los casos, está establecido en `127.0.0.1`. <br><br>Ejemplo: `192.168.12.1` |
 | **SrcPortNumber** | Opcional | Entero | Puerto de origen de la consulta de DNS.<br><br>Ejemplo: `54312` |
 | <a name="ipaddr"></a>**IpAddr** | Alias | | Alias de [SrcIpAddr](#srcipaddr) |
-| **SrcGeoCountry** | Opcionales | País | País asociado con la dirección IP de origen.<br><br>Ejemplo: `USA` |
-| **SrcGeoRegion** | Opcionales | Region | Región de un país asociado con la dirección IP de origen.<br><br>Ejemplo: `Vermont` |
-| **SrcGeoCity** | Opcionales | City (Ciudad) | Ciudad asociada con la dirección IP de origen.<br><br>Ejemplo: `Burlington` |
-| **SrcGeoLatitude** | Opcionales | Latitud | Latitud de la coordenada geográfica asociada con la dirección IP de origen.<br><br>Ejemplo: `44.475833` |
+| **SrcGeoCountry** | Opcional | País | País asociado con la dirección IP de origen.<br><br>Ejemplo: `USA` |
+| **SrcGeoRegion** | Opcional | Region | Región de un país asociado con la dirección IP de origen.<br><br>Ejemplo: `Vermont` |
+| **SrcGeoCity** | Opcional | City (Ciudad) | Ciudad asociada con la dirección IP de origen.<br><br>Ejemplo: `Burlington` |
+| **SrcGeoLatitude** | Opcional | Latitud | Latitud de la coordenada geográfica asociada con la dirección IP de origen.<br><br>Ejemplo: `44.475833` |
 | **SrcGeoLongitude** | Opcionales | Longitud | Longitud de la coordenada geográfica asociada con la dirección IP de origen.<br><br>Ejemplo: `73.211944` |
 | **SrcRiskLevel** | Opcional | Entero | Nivel de riesgo asociado con el origen. El valor debe ajustarse a un intervalo de `0` a `100`, siendo `0` inofensivo y `100` de alto riesgo.<br><br>Ejemplo: `90` |
 | <a name="srchostname"></a>**SrcHostname** | Recomendado | String | Nombre de host del dispositivo de origen, excepto la información de dominio. Si no hay ningún nombre de dispositivo disponible, almacene la dirección IP correspondiente en este campo. Este valor es obligatorio si se especifica [SrcIpAddr](#srcipaddr).<br><br>Ejemplo: `DESKTOP-1282V4D` |
@@ -206,7 +206,7 @@ Los campos enumerados a continuación son específicos de eventos de DNS, pero m
 | **SrcProcessId**| Mandatory    | String        | Identificador de proceso (PID) del proceso que inicia la solicitud de DNS.<br><br>Ejemplo: `48610176`           <br><br>**Nota**: El tipo se define como *cadena* para admitir distintos sistemas, pero en Windows y Linux este valor debe ser numérico. <br><br>Si usa una máquina Windows o Linux y usa un tipo diferente, asegúrese de convertir los valores. Por ejemplo, si ha utilizado un valor hexadecimal, conviértalo en un valor decimal.    |
 | **SrcProcessGuid**              | Opcional     | String     |  Identificador único (GUID) generado del proceso que inicia la solicitud de DNS.   <br><br> Ejemplo: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
 | <a name="dst"></a>**Dst** | Recomendado       | String     |    Identificador único del servidor que recibe la solicitud de DNS. <br><br>Este campo puede ser un alias de los campos [DstDvcId](#dstdvcid), [DstHostname](#dsthostname) o [DstIpAddr](#dstipaddr). <br><br>Ejemplo: `192.168.12.1`       |
-| <a name="dstipaddr"></a>**DstIpAddr** | Opcionales | Dirección IP | Dirección IP del servidor que recibe la solicitud de DNS. En una solicitud de DNS normal, este valor suele ser el dispositivo de informes y, en la mayoría de los casos, está establecido en `127.0.0.1`.<br><br>Ejemplo: `127.0.0.1` |
+| <a name="dstipaddr"></a>**DstIpAddr** | Opcional | Dirección IP | Dirección IP del servidor que recibe la solicitud de DNS. En una solicitud de DNS normal, este valor suele ser el dispositivo de informes y, en la mayoría de los casos, está establecido en `127.0.0.1`.<br><br>Ejemplo: `127.0.0.1` |
 | **DstGeoCountry** | Opcionales | País | País asociado con la dirección IP de destino. Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types).<br><br>Ejemplo: `USA` |
 | **DstGeoRegion** | Opcionales | Region | Región, o provincia, de un país asociado con la dirección IP de destino. Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types).<br><br>Ejemplo: `Vermont` |
 | **DstGeoCity** | Opcionales | City (Ciudad) | Ciudad asociada con la dirección IP de destino. Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types).<br><br>Ejemplo: `Burlington` |
@@ -216,7 +216,7 @@ Los campos enumerados a continuación son específicos de eventos de DNS, pero m
 | **DstPortNumber** | Opcional | Entero  | Número de puerto de destino.<br><br>Ejemplo: `53` |
 | <a name="dsthostname"></a>**DstHostname** | Opcional | String | Nombre de host del dispositivo de destino, excepto la información de dominio. Si no hay ningún nombre de dispositivo disponible, almacene la dirección IP correspondiente en este campo.<br><br>Ejemplo: `DESKTOP-1282V4D`<br><br>**Nota**: Este valor es obligatorio si se especifica el campo [DstIpAddr](#dstipaddr). |
 | <a name="dstdomain"></a>**DstDomain** | Opcional | String | Dominio del dispositivo de destino.<br><br>Ejemplo: `Contoso` |
-| <a name="dstdomaintype"></a>**DstDomainType** | Opcionales | Enumerated | El tipo de [DstDomain](#dstdomain), si se conoce. Los valores posibles son:<br>- `Windows (contoso\mypc)`<br>- `FQDN (docs.microsoft.com)`<br><br>Obligatorio si se usa el campo [DstDomain](#dstdomain). |
+| <a name="dstdomaintype"></a>**DstDomainType** | Opcional | Enumerated | El tipo de [DstDomain](#dstdomain), si se conoce. Los valores posibles son:<br>- `Windows (contoso\mypc)`<br>- `FQDN (docs.microsoft.com)`<br><br>Obligatorio si se usa el campo [DstDomain](#dstdomain). |
 | **DstFQDN** | Opcional | String | Nombre de host del dispositivo de destino, incluida la información de dominio cuando esté disponible. <br><br>Ejemplo: `Contoso\DESKTOP-1282V4D` <br><br>**Nota**: Este campo admite tanto el formato de FQDN tradicional como el formato de dominio\nombre de host de Windows. El campo [DstDomainType](#dstdomaintype) refleja el formato utilizado.   |
 | <a name="dstdvcid"></a>**DstDvcId** | Opcional | String | Identificador del dispositivo de destino, como se indica en el registro.<br><br>Ejemplo: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | **DstDvcIdType** | Opcionales | Enumerated | El tipo de [DstDvcId](#dstdvcid), si se conoce. Los valores posibles son:<br> - `AzureResourceId`<br>- `MDEidIf`<br><br>Si hay varios identificadores disponibles, use el primero de la lista y almacene los demás en los campos **DstDvcAzureResourceId** y **DstDvcMDEid**, respectivamente.<br><br>Obligatorio si se usa el campo **DstDeviceId**.|
@@ -232,7 +232,7 @@ Los campos enumerados a continuación son específicos de eventos de DNS, pero m
 | **NetworkProtocol** | Opcional | Enumerated | El protocolo de transporte utilizado por el evento de resolución de red. El valor puede ser **UDP** o **TCP**, y suele establecerse en **UDP** para DNS. <br><br>Ejemplo: `UDP`|
 | **DnsQueryClass** | Opcional | Entero | El [identificador de clase DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>En la práctica, solo se usa la clase **IN** (identificador 1), lo que hace que este campo resulte menos valioso.|
 | **DnsQueryClassName** | Opcional | String | El [nombre de clase DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>En la práctica, solo se usa la clase **IN** (identificador 1), lo que hace que este campo resulte menos valioso. <br><br>Ejemplo: `IN`|
-| <a name=flags></a>**DnsFlags** | Opcionales | Lista de cadenas | Campo de marcas, tal como lo proporciona el dispositivo de informes. Si se proporciona información de marca en varios campos, concaténelas con la coma como separador. <br><br>Dado que las marcas DNS son complejas de analizar y se usan con menos frecuencia en el análisis, el análisis y la normalización no son necesarios y Microsoft Sentinel usa una función auxiliar para proporcionar información sobre las marcas. Para obtener más información, consulte [Control de la respuesta de DNS](#handling-dns-response). <br><br>Ejemplo: `["DR"]`|
+| <a name=flags></a>**DnsFlags** | Opcional | Lista de cadenas | Campo de marcas, tal como lo proporciona el dispositivo de informes. Si se proporciona información de marca en varios campos, concaténelas con la coma como separador. <br><br>Dado que las marcas DNS son complejas de analizar y se usan con menos frecuencia en el análisis, el análisis y la normalización no son necesarios y Microsoft Sentinel usa una función auxiliar para proporcionar información sobre las marcas. Para obtener más información, consulte [Control de la respuesta de DNS](#handling-dns-response). <br><br>Ejemplo: `["DR"]`|
 | <a name=UrlCategory></a>**UrlCategory** |  Opcional | String | Un origen de eventos de DNS también puede buscar la categoría de los dominios solicitados. El campo se llama **_UrlCategory_** para alinearse con el esquema de red de Microsoft Sentinel. <br><br>Se agrega **_DomainCategory_** como alias que se adapta a DNS. <br><br>Ejemplo: `Educational \\ Phishing` |
 | **DomainCategory** | Opcionales | Alias | Alias de [UrlCategory](#UrlCategory). |
 | **ThreatCategory** | Opcional | String | Si un origen de eventos de DNS también proporciona seguridad DNS, puede además evaluar el evento de DNS. Por ejemplo, puede buscar la dirección IP o el dominio en una base de datos de inteligencia sobre amenazas y asignar al dominio o la dirección IP una categoría de amenazas. |

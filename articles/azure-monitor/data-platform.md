@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 7356b9bb814f8bca5465fe74d48409b9dbca6d3b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b97f7fdfb64f80fa1e132b0bdbd1dbb6d1382de1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101731704"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132279203"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de datos de Azure Monitor
 
@@ -72,7 +72,7 @@ En la tabla siguiente se comparan las métricas y los registros de Azure Monitor
 | Estructura | Conjunto estándar de propiedades, como el tiempo de muestra, el recurso supervisado, un valor numérico. Algunas métricas incluyen varias dimensiones para una mejor definición. | Conjunto único de propiedades que dependen del tipo de registro. |
 | Colección | Se recopila a intervalos regulares. | Se pueden recopilar esporádicamente cuando los eventos desencadenan un registro que se va a crear. |
 | Ver en Azure Portal | Explorador de métricas | Log Analytics |
-| Inclusión de orígenes de datos | Métricas de la plataforma recopiladas de recursos de Azure.<br>Aplicaciones supervisadas por Application Insights.<br>Personalización definida por la aplicación o API. | Registros de aplicaciones y recursos.<br>Soluciones de supervisión.<br>Agentes y extensiones de máquina virtual.<br>Solicitudes y excepciones de aplicación.<br>Azure Security Center.<br>API de recopilador de datos. |
+| Inclusión de orígenes de datos | Métricas de la plataforma recopiladas de recursos de Azure.<br>Aplicaciones supervisadas por Application Insights.<br>Personalización definida por la aplicación o API. | Registros de aplicaciones y recursos.<br>Soluciones de supervisión.<br>Agentes y extensiones de máquina virtual.<br>Solicitudes y excepciones de aplicación.<br>Microsoft Defender for Cloud.<br>API de recopilador de datos. |
 
 ## <a name="collect-monitoring-data"></a>Recopilación de datos de supervisión
 Diferentes [orígenes de datos de Azure Monitor](agents/data-sources.md) escribirán en un área de trabajo de Log Analytics (registros), en la base de datos de métricas de Azure Monitor (métricas), o en ambos. Algunos orígenes escribirán directamente en estos almacenes de datos, mientras que otros pueden escribir en otra ubicación, como almacenamiento de Azure, y requieren algo de configuración para rellenar los registros o las métricas. 
@@ -90,4 +90,3 @@ Además de usar las herramientas de Azure para analizar datos de supervisión, e
 - Para más información, consulte [Métricas en Azure Monitor](essentials/data-platform-metrics.md).
 - Para más información, consulte [Registros en Azure Monitor](logs/data-platform-logs.md).
 - Obtenga información sobre la [supervisión de datos disponible](agents/data-sources.md) para diferentes recursos en Azure.
-

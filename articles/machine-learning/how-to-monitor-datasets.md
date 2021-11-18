@@ -11,12 +11,12 @@ author: buchananwp
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: data4ml, contperf-fy21q2
-ms.openlocfilehash: 05d7136b48f206cc9d091f5f73ee763cc24135fa
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: f80489726617b05e4a4c025893fdb24ec1f2d05c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131558827"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335716"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detección del desfase de datos (versión preliminar) en los conjuntos de datos
 
@@ -38,7 +38,7 @@ Puede ver las métricas de desfase de datos con el SDK de Python o en Azure Mach
 > La detección de un desfase de datos en conjuntos de datos se encuentra actualmente en versión preliminar pública.
 > Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para crear y trabajar con conjuntos de datos, necesita:
 * Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
@@ -274,7 +274,7 @@ Esta sección contiene información a nivel de características sobre el cambio 
 
 El conjunto de datos de destino también se perfila a lo largo del tiempo. La distancia estadística entre la distribución de referencia de cada característica se compara con el conjunto de datos de destino a lo largo del tiempo.  Conceptualmente, esto es similar a la magnitud del desfase de datos.  Sin embargo, esta distancia estadística es para una característica individual y no para todas las características. También están disponibles Mín, Máx y Media.
 
-En Azure Machine Learning Studio, haga clic en una barra del gráfico para ver los detalles del nivel de características de esa fecha. De forma predeterminada, ve la distribución del conjunto de datos de referencia y la distribución de la ejecución más reciente de la misma característica.
+En Estudio de Azure Machine Learning, haga clic en una barra del gráfico para ver los detalles del nivel de características de esa fecha. De forma predeterminada, ve la distribución del conjunto de datos de referencia y la distribución de la ejecución más reciente de la misma característica.
 
 :::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Magnitud del desfase según las características":::
 

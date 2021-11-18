@@ -1,23 +1,23 @@
 ---
-title: Archivo de inclusión
-description: Archivo de inclusión
+title: archivo de inclusión
+description: archivo de inclusión
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/02/2021
+ms.date: 11/09/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: f7454d26c57795383cc6bc8464e2259b1b29ed38
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 7b1ac1f3b2fcb8c999276fecec495cf496108c12
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131506339"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134895"
 ---
 ### <a name="on-demand-bursting"></a>Expansión a petición
 
-Los SSD prémium que usan el modelo de expansión a petición pueden expandirse más allá de los objetivos aprovisionados originales, con tanta frecuencia como sea necesario para su carga de trabajo, hasta el máximo del objetivo de expansión. Por ejemplo, en un disco P30 de 1 TiB, la E/S por segundo aprovisionada es de 5000 IOPS. Cuando se habilita la expansión en este disco, las cargas de trabajo pueden emitir entradas y salidas en este disco hasta alcanzar el rendimiento máximo de expansión de 30 000 IOPS y 1000 MBps.
+Los SSD prémium que usan el modelo de expansión a petición pueden expandirse más allá de los objetivos aprovisionados originales, con tanta frecuencia como sea necesario para su carga de trabajo, hasta el máximo del objetivo de expansión. Por ejemplo, en un disco P30 de 1 TiB, la E/S por segundo aprovisionada es de 5000 IOPS. Cuando se habilita la expansión en este disco, las cargas de trabajo pueden emitir entradas y salidas en este disco hasta alcanzar el rendimiento máximo de expansión de 30 000 IOPS y 1000 MBps. Para ver el número máximo de destinos de ráfaga en cada disco compatible, consulte [Objetivos de escalabilidad y rendimiento para discos de máquina virtual](../articles/virtual-machines/disks-scalability-targets.md#premium-ssd-managed-disks-per-disk-limits).
 
 Si se cuenta con que las cargas de trabajo superarán con frecuencia el objetivo de rendimiento aprovisionado, la expansión de disco no resultará rentable. En este caso, se recomienda cambiar el rendimiento del disco a un [nivel superior](../articles/virtual-machines/disks-performance-tiers.md), para conseguir un mejor rendimiento de base. Revise los detalles de su facturación y evalúela teniendo en cuenta el patrón de tráfico de sus cargas de trabajo.
 

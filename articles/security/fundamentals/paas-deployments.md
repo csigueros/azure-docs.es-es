@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2021
 ms.author: terrylan
-ms.openlocfilehash: 96223db4d9087395f6771a4922694592a9e51b5e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 558eebf12179b04fb9a76c3db0195c4e812e956c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131037347"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335449"
 ---
 # <a name="securing-paas-deployments"></a>Protección de implementaciones de PaaS
 
@@ -53,7 +53,7 @@ En la parte superior de la pila, gobernanza de datos y administración de derech
 
 La plataforma Azure también proporciona protección segura contra ataques DDoS mediante el uso de varias tecnologías basadas en red. Sin embargo, todos los tipos de métodos de protección contra ataques DDoS basados en red tienen sus límites por vínculo y por centro de datos. Para ayudar a evitar el impacto de los ataques DDoS grandes, puede beneficiarse de la funcionalidad de la nube principal de Azure que permite escalar horizontalmente de manera rápida y automática para defenderse frente a ataques DDoS. En los artículos de procedimientos recomendados se proporcionan más detalles sobre cómo se puede hacer esto.
 
-## <a name="modernizing-the-defenders-mindset"></a>Modernización de la mentalidad del defensor
+## <a name="modernizing-the-defender-for-clouds-mindset"></a>Modernización de la mentalidad de Defender for Cloud
 Las implementaciones de PaaS conllevan un cambio del enfoque general en relación con la seguridad. Se pasa de la necesidad de controlar todo por uno mismo a compartir la responsabilidad con Microsoft.
 
 Otra importante diferencia entre las implementaciones de PaaS y las implementaciones locales tradicionales es una nueva visión de lo que define el perímetro de seguridad principal. Históricamente, el perímetro de seguridad local principal era la red, y la mayoría de los diseños de seguridad locales utilizan la red como la dinámica de seguridad principal. Para las implementaciones de PaaS, se recomienda considerar la identidad como el perímetro de seguridad principal.
@@ -125,7 +125,7 @@ Estas son algunos procedimientos recomendados para usar App Service.
 **Detalles**: [App Service Environment](../../app-service/environment/intro.md) tiene una característica de integración de la red virtual que ayuda a restringir las direcciones IP de origen entrantes mediante grupos de seguridad de red. Las redes virtuales permiten colocar recursos de Azure en una red que se pueda enrutar distinta de Internet y a la que se controla el acceso. Vea [Integración de su aplicación con una instancia de Azure Virtual Network](../../app-service/overview-vnet-integration.md) para más información.
 
 **Procedimiento recomendado**: supervise el estado de seguridad de los entornos de App Service.   
-**Detalles**: use Azure Security Center para supervisar los entornos de App Service. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea [recomendaciones](../../security-center/asset-inventory.md) que lo guiarán por el proceso de configuración de los controles necesarios.
+**Detalle:** use Microsoft Defender for Cloud para supervisar los entornos de App Service. Cuando Defender for Cloud identifica posibles vulnerabilidades de seguridad, crea [recomendaciones](../../security-center/asset-inventory.md) que lo guiarán por el proceso de configuración de los controles necesarios.
 
 ## <a name="azure-cloud-services"></a>Azure Cloud Services
 [Azure Cloud Services](../../cloud-services/cloud-services-choose-me.md) es un ejemplo de PaaS. Al igual que Azure App Service, esta tecnología está diseñada para ser compatible con aplicaciones escalables, confiables y de funcionamiento asequible. En la misma manera que App Service se hospeda en máquinas virtuales (VM), así ocurre también con Azure Cloud Services. Sin embargo, tiene más control sobre las máquinas virtuales. Puede instalar su propio software en las máquinas virtuales que usan Azure Cloud Services y puede tener acceso a ellas remotamente.

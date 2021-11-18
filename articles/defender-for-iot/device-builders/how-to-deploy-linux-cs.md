@@ -2,13 +2,13 @@
 title: Instalación e implementación del agente basado en C# para Linux
 description: Aprenda a instalar e implementar el agente de seguridad basado en C# de Defender para IoT en Linux.
 ms.topic: conceptual
-ms.date: 05/26/2021
-ms.openlocfilehash: 8dd6119d4f1a6e8a738d34521234d2691ba8c883
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 11/09/2021
+ms.openlocfilehash: 5a403af7f5c0b6f2b8d5d497979be06fee404a19
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018121"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306099"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Implementación del agente de seguridad basado en C# de Defender para IoT en Linux
 
@@ -74,8 +74,7 @@ Para desinstalar al agente, ejecute el script con el parámetro – u: `./Instal
 
     `systemctl status ASCIoTAgent.service`
 
-1. Habilite el registro.
-   Si el agente no se inicia el agente, active el registro para más información.
+1. Habilite el registro. Si el agente no se inicia el agente, active el registro para más información.
 
    Para activar el registro:
 
@@ -112,5 +111,5 @@ Para desinstalar al agente, ejecute el script con el parámetro – u: `./Instal
 - Lea la [información general](overview.md) del servicio Defender for IoT.
 - Más información sobre Defender para IoT [Qué es una solución basada en agente para los generadores de dispositivos](architecture-agent-based.md)
 - Habilite el [servicio](quickstart-onboard-iot-hub.md)
-- Leer [Preguntas más frecuentes sobre el agente de Azure Defender para IoT](resources-agent-frequently-asked-questions.md)
+- Lea las [Preguntas más frecuentes sobre el agente de Microsoft Defender para IoT](resources-agent-frequently-asked-questions.md).
 - Obtenga información acerca de las [alertas](concept-security-alerts.md)

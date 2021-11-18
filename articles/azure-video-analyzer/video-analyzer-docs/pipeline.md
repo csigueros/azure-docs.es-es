@@ -4,12 +4,12 @@ description: Una canalización de Azure Video Analyzer que permite ingerir, pr
 ms.topic: conceptual
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 2e1eefc30140d56b1f4d7970e59f235d04799d67
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 261cbc17f8bd54d16c10b3f97a997cb6ac594fdb
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131552551"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132287160"
 ---
 # <a name="pipeline"></a>Canalización
 
@@ -143,7 +143,7 @@ Si la caché se llena, el módulo perimetral de Video Analyzer comenzará a elim
 
 #### <a name="iot-hub-message-sink"></a>Receptor de mensajes de IoT Hub
 
-Un nodo receptor de mensajes de IoT Hub permite publicar eventos en el centro de IoT Edge. El centro de IoT Edge puede configurarse para enrutar los datos a otros módulos o aplicaciones del dispositivo perimetral o a IoT Hub en la nube (según las rutas especificadas en el manifiesto de implementación). El nodo receptor de mensajes de IoT Hub puede aceptar eventos de nodos de procesadores de nivel superior, como un nodo del procesador de detección de movimiento o de un servicio de inferencia externo, a través de un nodo de procesador de extensiones HTTP.
+Un nodo receptor de mensajes de IoT Hub permite publicar eventos en el centro de IoT Edge. El centro de IoT Edge puede configurarse para enrutar los datos a otros módulos o aplicaciones del dispositivo perimetral o a IoT Hub en la nube (según las rutas especificadas en el manifiesto de implementación). El nodo receptor de mensajes de IoT Hub puede aceptar eventos de nodos de procesador de nivel superior, como un nodo de procesador de detección de movimiento o de un servicio de inferencia externo, a través de un nodo de procesador de extensiones HTTP.
 
 ## <a name="rules-on-the-use-of-nodes"></a>Reglas sobre el uso de los nodos
 

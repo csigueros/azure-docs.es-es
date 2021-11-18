@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54155113920c61d2f32474f0fac2414a6751bcdf
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 997b3ec9b784b8b52b826b526102a97bce7d3286
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131067420"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301062"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
@@ -44,7 +44,7 @@ Todas las directivas se aplican en dos fases:
       - Dispositivo administrado (combinación de Azure AD compatible o híbrido) 
       - Términos de uso 
       - Controles personalizados  
-   - Una vez satisfechos todos los controles de concesión, aplique controles de sesión (aplicación forzada, Microsoft Cloud App Security y duración del token). 
+   - Una vez satisfechos todos los controles de concesión, aplique controles de sesión (exigidos por la aplicación, Microsoft Defender for Cloud Apps y duración del token). 
    - La fase 2 de la evaluación de directivas se realiza para todas las directivas habilitadas. 
 
 ## <a name="assignments"></a>Assignments
@@ -128,7 +128,7 @@ Los administradores pueden elegir si requerir uno de los controles anteriores o 
    - Actualmente solo funciona con Exchange Online y SharePoint Online.
       - Pasa información del dispositivo para permitir el control de la experiencia que concede acceso completo o limitado.
 - Utilizar el Control de aplicaciones de acceso condicional
-   - Usa señales de Microsoft Cloud App Security para hacer cosas como: 
+   - Usa señales de Microsoft Defender for Cloud Apps para hacer cosas como: 
       - Bloquear las acciones de descargar, cortar, copiar e imprimir documentos confidenciales.
       - Supervisar el comportamiento de sesión de riesgo.
       - Requerir el etiquetado de archivos confidenciales.
@@ -162,4 +162,4 @@ El artículo [Directivas de acceso condicional habituales](concept-conditional-a
 
 [Administración del cumplimiento del dispositivo con Intune](/intune/device-compliance-get-started)
 
-[Microsoft Cloud App Security y acceso condicional](/cloud-app-security/proxy-intro-aad)
+[Microsoft Defender for Cloud Apps y acceso condicional](/cloud-app-security/proxy-intro-aad)

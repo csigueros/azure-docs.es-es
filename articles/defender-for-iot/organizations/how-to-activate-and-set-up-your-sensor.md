@@ -1,14 +1,14 @@
 ---
 title: Activación y configuración del sensor
 description: En este artículo se describe cómo iniciar sesión en una consola de sensor y cómo activarla.
-ms.date: 04/29/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 256e2b941d0eb2f24331abd892b798014cf0eb5d
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 86c5215e91a32fd67a29e157df2c3ab8606f15b8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020962"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278975"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Activación y configuración del sensor
 
@@ -20,7 +20,7 @@ Los analistas de seguridad y los usuarios de solo lectura no pueden activar un s
 
 ## <a name="sign-in-and-activation-for-administrator-users"></a>Inicio de sesión y activación para usuarios administradores
 
-Los administradores que inician sesión por primera vez deben comprobar que cuentan con acceso a los archivos de recuperación de contraseña y activación que se descargaron durante la incorporación del sensor. En caso contrario, necesitarán permisos de administrador de seguridad, de colaborador de la suscripción o de propietario de la suscripción de Azure para generar dichos archivos en el portal de Azure Defender para IoT.
+Los administradores que inician sesión por primera vez deben comprobar que cuentan con acceso a los archivos de recuperación de contraseña y activación que se descargaron durante la incorporación del sensor. En caso contrario, necesitarán permisos de administrador de seguridad, de colaborador de la suscripción o de propietario de la suscripción de Azure para generar dichos archivos en Azure Portal mediante Defender para IoT.
 
 ### <a name="first-time-sign-in-and-activation-checklist"></a>Lista de comprobación del primer inicio de sesión y activación
 
@@ -32,22 +32,22 @@ Antes de iniciar sesión en la consola del sensor, los usuarios administradores 
 
 - Una contraseña inicial. Si compró un sensor preconfigurado en Arrow, debe generar una contraseña al iniciar sesión por primera vez.
 
-- El archivo de activación asociado a este sensor. El archivo se generó y descargó durante la incorporación del sensor en el portal de Defender para IoT.
+- El archivo de activación asociado a este sensor. El archivo se generó y descargó durante la incorporación del sensor mediante Defender para IoT.
 
 - Un certificado firmado por una entidad de certificación SSL/TLS que su empresa requiera.
 
 ### <a name="about-activation-files"></a>Acerca de los archivos de activación
 
-El sensor se incorporó a Azure Defender para IoT en un modo de administración concreto:
+El sensor se incorporó a Microsoft Defender para IoT en un modo de administración concreto:
 
 | Tipo de modo | Descripción |
 |--|--|
-| **Modo conectado a la nube** | La información que detecta el sensor se muestra en la consola del sensor. Además, se proporciona información de alertas mediante el centro de IoT, que puede compartirse con otros servicios de Azure, como Azure Sentinel. También puede habilitar las actualizaciones automáticas de inteligencia sobre amenazas. |
+| **Modo conectado a la nube** | La información que detecta el sensor se muestra en la consola del sensor. Además, se proporciona información de alertas mediante el centro de IoT, que puede compartirse con otros servicios de Azure, como Microsoft Sentinel. También puede habilitar las actualizaciones automáticas de inteligencia sobre amenazas. |
 | **Modo conectado de manera local** | La información que detecta el sensor se muestra en la consola del sensor. La información de detección también se comparte con la consola de administración local si el sensor está conectado a ella. |
 
 Se generó y descargó un archivo de activación conectado de manera local o conectado a la nube para este sensor durante la incorporación. El archivo de activación contiene instrucciones para el modo de administración del sensor. *Se debe cargar un archivo de activación único para cada sensor que implemente.*  La primera vez que inicie sesión, deberá cargar el archivo de activación correspondiente a este sensor.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-activation-file-download-button.png" alt-text="Incorporación de un sensor en el portal de Azure Defender para IoT.":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-activation-file-download-button.png" alt-text="Defender para IoT en Azure Portal, incorporación de sensor.":::
 
 ### <a name="about-certificates"></a>Acerca de los certificados
 
@@ -77,7 +77,7 @@ Vea [Administración de certificados](how-to-manage-individual-sensors.md#manage
 
 1. Vaya a la consola del sensor desde el explorador web mediante la dirección IP definida durante la instalación. Se abre el cuadro de diálogo de inicio de sesión.
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-sensor-log-in-screen.png" alt-text="Sensor de Azure Defender para IoT.":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-sensor-log-in-screen.png" alt-text="Sensores de Microsoft Defender para IoT.":::
 
 1. Escriba las credenciales que se definieron al instalar el sensor o seleccione la opción **Password recovery** (Recuperación de contraseña). Si compró un sensor preconfigurado en Arrow, genere primero una contraseña. Para obtener más información sobre la recuperación de contraseñas, consulte [Investigar el error de contraseña en el inicio de sesión inicial](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in).
 
@@ -130,7 +130,7 @@ Para los usuarios con versiones anteriores a la 10.0, la licencia puede expirar 
 
 **Para activar la licencia:**
 
-1. Abra un caso para el equipo de [soporte técnico](https://ms.portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support).
+1. Abra un caso para el equipo de [soporte técnico](https://portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support).
 
 1. Proporcione al equipo de soporte técnico el número del identificador de activación.
 
@@ -146,15 +146,15 @@ Para los usuarios con versiones anteriores a la 10.0, la licencia puede expirar 
 
 ### <a name="subsequent-sign-ins"></a>Inicios de sesión posteriores
 
-Después de la activación del primer uso, se abre la consola del sensor de Azure Defender para IoT después de iniciar sesión sin necesidad de un archivo de activación. Solo necesitará las credenciales de inicio de sesión.
+Después de la activación del primer uso, se abre la consola del sensor de Microsoft Defender para IoT después de iniciar sesión sin necesidad de un archivo de activación. Solo necesitará las credenciales de inicio de sesión.
 
-Después de iniciar sesión, se abre la consola de Azure Defender para IoT.
+Después de iniciar sesión, se abre la consola de Microsoft Defender para IoT.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-log-in-screen-dashboard-v2.png" alt-text="Consola de Azure Defender para IoT.":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-log-in-screen-dashboard-v2.png" alt-text="Consola de Microsoft Defender para IoT.":::
 
 ## <a name="initial-setup-and-learning-for-administrators"></a>Configuración y aprendizaje iniciales (para administradores)
 
-Después del primer inicio de sesión, el sensor de Azure Defender para IoT comienza a supervisar la red automáticamente. Los dispositivos de red aparecerán en las secciones Mapa de dispositivos e Inventario de dispositivos. Azure Defender para IoT comenzará a detectar y enviará alertas sobre todos los incidentes operativos y de seguridad que se produzcan en la red. Después, podrá crear informes y consultas en función de la información detectada.
+Después del primer inicio de sesión, el sensor de Microsoft Defender para IoT comienza a supervisar la red automáticamente. Los dispositivos de red aparecerán en las secciones Mapa de dispositivos e Inventario de dispositivos. Microsoft Defender para IoT comenzará a detectar y enviará alertas sobre todos los incidentes operativos y de seguridad que se produzcan en la red. Después, podrá crear informes y consultas en función de la información detectada.
 
 Inicialmente, esta actividad se realiza en el modo de aprendizaje, en el que se indica al sensor que aprenda la actividad habitual de la red. Por ejemplo, el sensor aprende sobre los dispositivos detectados en la red, los protocolos detectados en la red y las transferencias de archivos que se producen entre dispositivos específicos. Esta actividad se convierte en la actividad de base de referencia de la red.
 
@@ -176,7 +176,7 @@ Defina la configuración del sistema del sensor. Por ejemplo:
 
 ### <a name="disable-learning-mode"></a>Deshabilitación del modo de aprendizaje
 
-Después de ajustar la configuración del sistema, puede permitir que el sensor de Azure Defender para IoT se ejecute en modo de aprendizaje hasta que crea que las detecciones del sistema reflejan con precisión la actividad de la red.
+Después de ajustar la configuración del sistema, puede permitir que el sensor de Microsoft Defender para IoT se ejecute en modo de aprendizaje hasta que crea que las detecciones del sistema reflejan con precisión la actividad de la red.
 
 El modo de aprendizaje debe ejecutarse durante aproximadamente dos a seis semanas, según el tamaño de la red y su complejidad. Después de deshabilitar el modo de aprendizaje, toda la actividad que difiera de la actividad de base de referencia desencadenará una alerta.
 
@@ -224,7 +224,7 @@ Se accede a las herramientas de la consola desde el menú lateral.
 | Periodo | Icono | Descripción |
 |---|---|---|
 | Usuarios | :::image type="icon" source="media/concept-sensor-console-overview/users-icon-azure.png" border="false"::: | Defina usuarios y roles con varios niveles de acceso. |
-| Reenvío | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Reenvíe información de alertas a los asociados y a los orígenes internos (por ejemplo, Azure Sentinel) que se integran con Defender para IoT, a las direcciones de correo electrónico y a los servidores de webhook, entre otros. <br /> Consulte [Reenvío de la información de las alertas](how-to-forward-alert-information-to-partners.md) para más información. |
+| Reenvío | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Reenvíe información de alertas a los asociados y a los orígenes internos (por ejemplo, Microsoft Sentinel) que se integran con Defender para IoT, a las direcciones de correo electrónico y a los servidores de webhook, entre otros. <br /> Consulte [Reenvío de la información de las alertas](how-to-forward-alert-information-to-partners.md) para más información. |
 | Configuración del sistema | :::image type="icon" source="media/concept-sensor-console-overview/system-settings-icon-azure.png" border="false"::: | Configure las opciones del sistema. Por ejemplo, defina la configuración de DHCP, proporcione los detalles del servidor de correo o cree un alias de puerto. |
 | Importar configuración | :::image type="icon" source="media/concept-sensor-console-overview/import-settings-icon-azure.png" border="false"::: | Muestre la ventana **Importar configuración**. Puede realizar cambios manuales en la información de un dispositivo.<br /> Consulte [Importación de información del dispositivo](how-to-import-device-information.md) para más información. |
 

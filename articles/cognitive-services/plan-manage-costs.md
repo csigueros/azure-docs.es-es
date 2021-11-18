@@ -6,13 +6,13 @@ ms.author: pafarley
 ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.topic: how-to
-ms.date: 10/28/2021
-ms.openlocfilehash: 2fa5a5867bc64da126e24c65b1b6d0c5d618ae18
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/03/2021
+ms.openlocfilehash: 2f436f971b151fb4043ca459bb36442a2d504491
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131446550"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132026033"
 ---
 # <a name="plan-and-manage-costs-for-azure-cognitive-services"></a>Planeamiento y administración de los costos de Azure Cognitive Services
 
@@ -38,11 +38,13 @@ Para más información, consulte [Precios de Azure Cognitive Services](https://a
 
 Cognitive Services se ejecuta en la infraestructura de Azure que [genera los costos](https://azure.microsoft.com/pricing/details/cognitive-services/) al implementar el nuevo recurso. Es importante que sepa que cuanto mayor sea la infraestructura más costos se pueden generar. Estos costos deben administrarse cuando se realizan cambios en los recursos implementados. 
 
-### <a name="how-youre-charged-for-cognitive-services"></a>¿Cómo se cobra Cognitive Services?
+Al crear o usar recursos de Cognitive Services, es posible que se le cobre en función de los servicios que use. Hay dos modelos de facturación disponibles para Cognitive Services: pago por uso y nivel de compromiso.
 
-Al crear o usar recursos de Cognitive Services, es posible que se le cobrarán los medidores siguientes en función de los servicios que use:
+## <a name="pay-as-you-go"></a>Pago por uso
 
-| Servicio | Medidor(es) | Información de facturación | 
+Con los precios de Pago por uso, se le factura según la oferta de Cognitive Services que use, en función de su información de facturación.
+
+| Servicio | Instancias | Información de facturación | 
 |---------|-------|---------------------|
 | **Visión** | | |
 | [Computer Vision](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) | Gratis, Estándar (S1) | Facturado por el número de transacciones. El precio por transacción varía en función de la característica (Lectura, OCR, Análisis espacial). Para conocer todos los detalles al respecto, consulte [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/). |
@@ -59,6 +61,17 @@ Al crear o usar recursos de Cognitive Services, es posible que se le cobrarán l
 | [Anomaly Detector](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/) | Gratis, Estándar | Facturado por el número de transacciones. | 
 | [Content Moderator](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/) | Gratis, Estándar | Facturado por el número de transacciones. |
 | [Personalizer](https://azure.microsoft.com/pricing/details/cognitive-services/personalizer/) | Gratis, Estándar (S0) | Se factura por transacciones al mes. Hay cuotas de almacenamiento y transacciones. Para conocer todos los detalles al respecto, consulte [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/personalizer/). | 
+
+## <a name="commitment-tier"></a>Nivel de compromiso
+
+Además del modelo de pago por uso, Cognitive Services tiene niveles de compromiso, que le permiten confirmar el uso de varias características de servicio a un precio fijo, lo que le permite tener un costo total predecible en función de las necesidades de la carga de trabajo.
+
+Con los precios del nivel de compromiso, se le factura según el plan que elija. Consulte [Inicio rápido: Precios del nivel de compromiso de compra](commitment-tier.md) para obtener información sobre los servicios disponibles, cómo registrarse y consideraciones al comprar un plan.
+
+> [!NOTE]
+> Si usa el recurso por encima de la cuota proporcionada por el plan de compromiso, se le cobrará por el uso adicional según la cantidad de uso por encima del límite mencionada en Azure Portal al adquirir un plan de compromiso. Para más información, consulte [Precios de Azure Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/).
+
+
 
 
 ### <a name="costs-that-typically-accrue-with-cognitive-services"></a>Costos que normalmente se generan con Cognitive Services

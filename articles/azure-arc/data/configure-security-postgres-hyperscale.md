@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 48732ac1f22d090afd3dd4b5607bd3d64ae51c8b
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 92a8e44352d287cd6be1b48ed2c0aa3bc004b75d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131555445"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132294226"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Configuración de la seguridad del grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 
@@ -139,7 +139,7 @@ Cuando se conecta con la aplicación y pasa una contraseña, buscará en la tabl
    select USERname from mysecrets where (USERpassword = crypt('WrongPassword', USERpassword));
    ```
 
-   Output 
+   Resultados 
 
    ```output
     USERname
@@ -151,7 +151,7 @@ Cuando se conecta con la aplicación y pasa una contraseña, buscará en la tabl
 
    ```console
    select USERname from mysecrets where (USERpassword = crypt('MySecretPasswrod', USERpassword));
-   ``` 
+   ```
 
    Salida:
 
@@ -229,7 +229,7 @@ Si existe la variable de entorno de **sesión** AZDATA_PASSWORD, pero no tiene n
    ```
 
 > [!NOTE]
-> Para comprobar si existe la variable de entorno de sesión AZDATA_PASSWORD y qué valor tiene, ejecute:
+> Para comprobar si existe la variable de entorno de la sesión AZDATA_PASSWORD y qué valor tiene, ejecute:
 > - En un cliente Linux:
 >
 > ```console

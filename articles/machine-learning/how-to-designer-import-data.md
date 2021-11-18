@@ -10,12 +10,12 @@ ms.author: keli19
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: designer
-ms.openlocfilehash: d08d691b7ef990ac351984798efd1562171a023a
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: c434319e48bb2bf1f7d0321a8200e9d42532e659
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131553425"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132289744"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importación de datos en el diseñador de Azure Machine Learning
 

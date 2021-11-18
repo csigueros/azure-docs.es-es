@@ -7,14 +7,14 @@ ms.author: cashton
 ms.topic: troubleshooting
 ms.date: 11/01/2021
 ms.custom: template-troubleshooting, ignite-fall-2021
-ms.openlocfilehash: afe37f4e7600f248f6ea3be50b0a1972946e381d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 235dccf84d28f159a4ef5337a431c27c0316d6ec
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090835"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158936"
 ---
-# <a name="azure-chaos-studio-troubleshooting"></a>Solución de problemas de Azure Chaos Studio
+# <a name="troubleshoot-issues-with-azure-chaos-studio"></a>Solución de problemas con Azure Chaos Studio
 
 A medida que usa Chaos Studio, es posible que encuentre algunos problemas ocasionalmente. En este artículo se detallan los problemas comunes y los pasos para solucionarlos.
 
@@ -47,6 +47,12 @@ Si está creando manualmente el objeto JSON del experimento, este error se debe 
 En la página Experimentos, haga clic en el nombre del experimento para ir a la vista Detalles del experimento. En la sección Historial, haga clic en el vínculo Detalles de la instancia de ejecución para obtener más información.
 
 ![Historial del experimento](images/run-experiment-history.png)
+
+### <a name="my-agent-based-fault-failed-with-error-verify-that-the-target-is-correctly-onboarded-and-proper-read-permissions-are-provided-to-the-experiment-msi"></a>Se produjo el siguiente error de mi agente: compruebe que el destino se ha incorporado correctamente y que se han concedido los permisos de lectura adecuados al msi del experimento.
+
+Esto puede ocurrir si se ha usado Azure Portal para incorporar el agente, que tiene un problema conocido: la habilitación de un destino basado en agente no asigna la identidad administrada asignada por el usuario a la máquina virtual o al conjunto de escalado de máquinas virtuales.
+
+Para resolver este problema, vaya a la máquina virtual o al conjunto de escalado de máquinas virtuales en Azure Portal y luego a **Identidad**, abra la pestaña **Asignado por el usuario** y **agregue** la identidad asignada por el usuario a la máquina virtual. Cuando termine, es posible que tenga que reiniciar la máquina virtual para que el agente se conecte.
 
 ### <a name="how-do-i-collect-agent-logs-on-a-linux-virtual-machine"></a>¿Cómo puedo recopilar registros de agente en una máquina virtual Linux?
 

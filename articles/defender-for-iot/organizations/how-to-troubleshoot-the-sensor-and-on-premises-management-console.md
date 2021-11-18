@@ -1,14 +1,14 @@
 ---
 title: Solución de problemas del sensor y de la consola de administración local
 description: Solucione los problemas de su sensor y la consola de administración local para eliminar los problemas que pueda tener.
-ms.date: 10/17/2021
+ms.date: 11/09/2021
 ms.topic: article
-ms.openlocfilehash: 791df9cc7b95ac32dfcc794136bc53df51e3a0a8
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 66e4d9b221176bb8a1413e679656c6df401459dd
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130131318"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278652"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Solución de problemas del sensor y de la consola de administración local
 
@@ -16,7 +16,7 @@ En este artículo se describen las herramientas básicas de solución de problem
 
 **Alertas**: Cuando la interfaz de sensor que supervisa el tráfico está inactiva, se crea una alerta.
 
-**SNMP**: El estado del sensor se supervisa mediante SNMP. Azure Defender para IoT responde a las consultas SNMP enviadas desde un servidor de supervisión autorizado.
+**SNMP**: El estado del sensor se supervisa mediante SNMP. Microsoft Defender para IoT responde a las consultas SNMP enviadas desde un servidor de supervisión autorizado.
 
 **Notificaciones del sistema**: Cuando una consola de administración controla el sensor, puede reenviar alertas sobre las copias de seguridad del sensor con errores y los sensores desconectados.
 

@@ -4,159 +4,100 @@ description: Describe cómo recopilar y analizar los datos de supervisión de lo
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/14/2021
-ms.openlocfilehash: 32c1b2d6cd2d5574e03cdb6ad65900d8df598b2b
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 09/15/2021
+ms.openlocfilehash: f93cd688ef22d7765edbd50e742262e9febec14c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130252770"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132297866"
 ---
-# <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervisión de recursos de Azure con Azure Monitor
-Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En este artículo se describen los datos de supervisión generados por los recursos de Azure y cómo puede usar las características de Azure Monitor para analizar y alertar sobre estos datos.
+# <a name="tutorial-monitor-azure-resources-with-azure-monitor"></a>Tutorial: Supervisión de los recursos de Azure con Azure Monitor
+Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. Esa supervisión es posible con Azure Monitor, un servicio de supervisión de la pila completa en Azure que proporciona un conjunto completo de características para supervisar tanto los recursos de Azure como los recursos que tenga en el entorno local y en otras nubes.
 
-> [!IMPORTANT]
-> Este artículo se aplica a todos los servicios de Azure que usan Azure Monitor. Los recursos de proceso, incluidas las máquinas virtuales y App Service, generan los mismos datos de supervisión que se describen aquí, pero también tienen un sistema operativo invitado que puede generar asimismo registros y métricas. Consulte la documentación de supervisión de estos servicios para más información sobre cómo recopilar y analizar estos datos.
+En este tutorial, aprenderá:
 
-## <a name="what-is-azure-monitor"></a>¿Qué es Azure Monitor?
-Azure Monitor es un servicio de supervisión de pila completo de Azure, que proporciona un conjunto completo de características para supervisar los recursos de Azure, además de los recursos locales y en otras nubes. La [Plataforma de datos de Azure Monitor](../data-platform.md) recopila datos en [registros](../logs/data-platform-logs.md) y [métricas](../essentials/data-platform-metrics.md), donde se pueden analizar conjuntamente con un conjunto completo de herramientas de supervisión. Consulte la lista completa de las aplicaciones y los servicios que se pueden supervisar mediante Azure Monitor en [¿Qué supervisa Azure Monitor?](../monitor-reference.md)
+> [!div class="checklist"]
+> * Qué es Azure Monitor y cómo se integra en el portal para otros servicios de Azure.
+> * Tipos de datos que recopila Azure Monitor para los recursos de Azure.
+> * Herramientas de Azure Monitor que se usan para recopilar y analizar datos.
 
-Al crear un recurso de Azure, se habilita Azure Monitor, y se inicia la recopilación de métricas y registros de actividad que puede [ver y analizar en Azure Portal](#monitoring-in-the-azure-portal). Con algunas opciones de configuración, puede recopilar datos de supervisión adicionales y habilitar características adicionales. Consulte [Supervisión de datos](#monitoring-data) a continuación para más información sobre los requisitos de configuración.
+> [!NOTE]
+> En este tutorial, se explican los conceptos relacionados con Azure Monitor y se hace un recorrido por diferentes elementos de menú. Para pasar a usar directamente las características de Azure Monitor, empiece con el [Tutorial: Análisis de las métricas de un recurso de Azure](../essentials/tutorial-metrics.md).
 
-
-## <a name="costs-associated-with-monitoring"></a>Costos asociados con la supervisión
-El análisis de los datos de supervisión que se recopilan de forma predeterminada no supone ningún costo. Incluye lo siguiente:
-
-- Recopilación de métricas de la plataforma y su análisis con el Explorador de métricas.
-- Recopilación del registro de actividad y su análisis en Azure Portal.
-- Creación de una regla de alerta de registro de actividad.
-
-Recopilar y exportar métricas no tiene ningún costo de Azure Monitor. Puede haber cargos por exportar determinadas categorías de registros de recursos, como se muestra en [Categorías admitidas para el registro de recursos](./resource-logs-categories.md). También puede haber costos relacionados asociados con el destino que elija para las métricas y los registros:
-
-- Costos asociados con la ingesta de datos y la retención al recopilar métricas y registros en el área de trabajo de Log Analytics. Consulte [Precios de Azure Monitor para Log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
-- Costos asociados con el almacenamiento de datos al recopilar métricas y registros en una cuenta de almacenamiento de Azure. Consulte [Precios de Azure Storage para Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
-- Costos asociados con el streaming de Event Hubs al reenviar métricas y registros a Azure Event Hubs. Consulte [Precios de Azure Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
-
-Puede haber costos de Azure Monitor asociados con lo siguiente. Consulte [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/):
-
-- Ejecución de una consulta de registro.
-- Creación de una regla de alerta de consulta de registro o métrica.
-- Envío de una notificación desde cualquier regla de alerta.
-- Acceso a las métricas mediante API.
 
 ## <a name="monitoring-data"></a>Supervisión de datos
-Los recursos de Azure generan [registros](../logs/data-platform-logs.md) y [métricas](../essentials/data-platform-metrics.md) que aparecen en el diagrama siguiente. Consulte la documentación de cada uno de los servicios de Azure para ver los datos específicos que generan y cualquier solución o información que proporcionen.
 
-![Información general](media/monitor-azure-resource/logs-metrics.png)
+### <a name="azure-monitor-data-collection"></a>Recopilación de datos con Azure Monitor
+En cuanto se crea un recurso de Azure, se habilita Azure Monitor y empieza a recopilar métricas y registros de actividad. Con algunas opciones de configuración, puede recopilar datos de supervisión adicionales y habilitar características adicionales. La plataforma de datos de Azure Monitor se compone de métricas y registros. Cada uno recopila diferentes tipos de datos y habilita diferentes características de Azure Monitor.
 
+- Las [métricas de Azure Monitor](../essentials/data-platform-metrics.md) almacenan datos numéricos de los recursos supervisados en una base de datos de serie temporal. La base de datos de métricas se crea automáticamente para cada suscripción de Azure. Use el [Explorador de métricas](../essentials/tutorial-metrics.md) para analizar los datos de los registros de Azure Monitor.
+- Los [registros de Azure Monitor](../logs/data-platform-logs.md) recopilan registros y datos de rendimiento donde pueden recuperarse y analizarse de diferentes formas mediante consultas de registro. Debe crear un área de trabajo de Log Analytics para recopilar los datos de registro. Use [Log Analytics](../logs/log-analytics-tutorial.md) para analizar los datos de los registros de Azure Monitor.
 
+### <a name="monitoring-data-from-azure-resources"></a>Supervisión de datos de los recursos de Azure
+Aunque los recursos de diferentes servicios de Azure tienen requisitos de supervisión diferentes, generan datos de supervisión con los mismos formatos con el fin de que pueda usar las mismas herramientas de Azure Monitor para analizar todos los recursos de Azure.
 
-- [Métricas de plataforma](../essentials/data-platform-metrics.md): valores numéricos que se recopilan automáticamente a intervalos regulares y describen algún aspecto de un recurso en un momento determinado. 
-- [Registros de recurso](./platform-logs-overview.md): proporcionan información de las operaciones realizadas dentro del mismo recurso de Azure (en el plano de datos), por ejemplo, obtención de un secreto de un almacén de claves o realización de una solicitud a una base de datos. El contenido y la estructura de estos registros de recurso varían según el servicio de Azure y el tipo de recurso.
-- [Registro de actividad](./platform-logs-overview.md): proporciona información general de las operaciones de cada recurso de Azure de la suscripción desde fuera (en el plano de administración), por ejemplo, creación de un nuevo recurso o inicio de una máquina virtual. Esta información es sobre los interrogantes qué, quién y cuándo para las operaciones de escritura (PUT, POST, DELETE) en los recursos de la suscripción.
+Los recursos de Azure generan los siguientes datos de supervisión:
 
-
-## <a name="configuration-requirements"></a>Requisitos de configuración
-
-### <a name="configure-monitoring"></a>Configuración de la supervisión
-Algunos datos de supervisión se recopilan automáticamente, pero es posible que tenga que configurar algunos valores en función de sus requisitos. Consulte la información siguiente y vea la información específica para cada tipo de datos de supervisión.
-
-- [Métricas de plataforma](../essentials/data-platform-metrics.md): las métricas de plataforma se recopilan automáticamente en [Métricas en Azure Monitor](../essentials/data-platform-metrics.md) sin necesidad de configuración. Cree una configuración de diagnóstico para enviar entradas a registros de Azure Monitor o reenviarlas fuera de Azure.
-- [Registros de recurso](./platform-logs-overview.md): los recursos de Azure generan automáticamente registros de recurso, pero estos no se recopilan sin una configuración de diagnóstico.  Cree una configuración de diagnóstico para enviar entradas a registros de Azure Monitor o reenviarlas fuera de Azure.
-- [Registro de actividad](./platform-logs-overview.md): el registro de actividad se recopila automáticamente sin necesidad de configuración y puede verse en Azure Portal. Cree una configuración de diagnóstico para copiarla en registros de Azure Monitor o reenviarla fuera de Azure.
-
-### <a name="log-analytics-workspace"></a>Área de trabajo de Log Analytics
-La recopilación de datos en los registros de Azure Monitor requiere un área de trabajo de Log Analytics. Puede empezar a supervisar rápidamente el servicio creando una nueva área de trabajo, pero también puede resultar útil usar un área de trabajo que recopila datos de otros servicios. Consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../logs/quick-create-workspace.md), para conocer más detalles sobre cómo crear un área de trabajo, y [Diseño de la implementación de registros de Azure Monitor](../logs/design-logs-deployment.md), como ayuda para determinar el mejor diseño de área de trabajo para sus requisitos. Si usa un área de trabajo existente en la organización, necesitará los permisos adecuados, tal como se describe en [Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor](../logs/manage-access.md). 
+- [Registro de actividad](./platform-logs-overview.md): eventos a nivel de suscripción que realizan un seguimiento de las operaciones de cada recurso de Azure; por ejemplo, la creación de un nuevo recurso o el inicio de una máquina virtual. Los eventos de registro de actividad se generan y recopilan automáticamente para verlos en Azure Portal. Puede crear una configuración de diagnóstico para enviar el registro de actividad a los registros de Azure Monitor.
+- [Métricas de plataforma](../essentials/data-platform-metrics.md): valores numéricos que se recopilan automáticamente a intervalos regulares y describen algún aspecto de un recurso en un momento determinado. Las métricas de plataforma se generan y recopilan automáticamente en las métricas de Azure Monitor.
+- [Registros de recurso](./platform-logs-overview.md): proporcionan información de las operaciones realizadas por un recurso de Azure; por ejemplo, la obtención de un secreto de un almacén de claves o el envío de una solicitud a una base de datos. Los registros de recurso se generan automáticamente, pero debe crear una configuración de diagnóstico para enviarlos a los registros de Azure Monitor.
+- [Registros y métricas de invitado de máquina virtual](): datos de rendimiento y registro del sistema operativo invitado de máquinas virtuales de Azure. Debe instalar un agente en la máquina virtual para recopilar estos datos y enviarlos a las métricas y los registros de Azure Monitor.
 
 
+## <a name="menu-options"></a>Opciones del menú
+Aunque se puede acceder a las características de Azure Monitor desde el menú **Supervisión** de Azure Portal, también se puede acceder a ellas directamente desde el menú de diferentes servicios de Azure. Si bien la experiencia puede ser ligeramente diferente en los distintos servicios de Azure, todos comparten un conjunto común de opciones de supervisión en Azure Portal. Este conjunto incluye las opciones **Información general** y **Registro de actividad**, junto con varias opciones en la sección **Supervisión** del menú. 
 
+:::image type="content" source="media/monitor-azure-resource/menu-01.png" lightbox="media/monitor-azure-resource/menu-01.png" alt-text="Menú Supervisión 1":::
+
+:::image type="content" source="media/monitor-azure-resource/menu-02.png" lightbox="media/monitor-azure-resource/menu-02.png" alt-text="Menú Supervisión 2":::
+
+
+## <a name="overview-page"></a>Página de información general
+La página **Información general** incluye detalles sobre el recurso y, a menudo, su estado actual. Por ejemplo, una máquina virtual muestra su estado de ejecución actual. Muchos servicios de Azure tienen una pestaña **Supervisión** que incluye gráficos para una serie de métricas clave. Es una forma rápida de ver el funcionamiento del recurso. Además, puede hacer clic en cualquiera de los gráficos para abrirlo en el Explorador de métricas y ver un análisis más detallado. 
+
+Consulte el [Tutorial: Análisis de las métricas de un recurso de Azure](../essentials/tutorial-metrics.md), donde se explica el uso del Explorador de métricas.
+
+![Página de información general](media/monitor-azure-resource/overview-page.png)
+### <a name="activity-log"></a>Registro de actividades 
+El elemento de menú **Registro de actividad** permite ver las entradas del [registro de actividad](../essentials/activity-log.md) del recurso actual. 
+
+:::image type="content" source="media/monitor-azure-resource/activity-log.png" lightbox="media/monitor-azure-resource/activity-log.png" alt-text="Registro de actividad":::
+
+## <a name="alerts"></a>Alertas
+La página **Alertas** muestra las alertas que se han desencadenado recientemente para el recurso. Las alertas lo avisan de forma proactiva cuando se encuentra algo importante en los datos de supervisión y pueden usar datos de las métricas o de los registros.
+
+Consulte el [Tutorial: Creación de una alerta de métrica para un recurso de Azure](../alerts/tutorial-metric-alert.md) o el [Tutorial: Creación de una alerta de consulta de registro para un recurso de Azure](../alerts/tutorial-log-alert.md) para saber cómo crear reglas de alertas y cómo ver las alertas.
+
+:::image type="content" source="media/monitor-azure-resource/alerts-view.png" lightbox="media/monitor-azure-resource/alerts-view.png" alt-text="Vista Alertas":::
+
+## <a name="metrics"></a>Métricas
+El elemento de menú **Métricas** abre el [Explorador de métricas](./metrics-getting-started.md), que permite trabajar con métricas individuales o combinar varias para identificar correlaciones y tendencias. Este es el mismo Explorador de métricas que se abre al hacer clic en alguno de los gráficos de la página **Información general**.
+
+Consulte el [Tutorial: Análisis de las métricas de un recurso de Azure](../essentials/tutorial-metrics.md), donde se explica el uso del Explorador de métricas.
+
+:::image type="content" source="media/monitor-azure-resource/metrics.png" lightbox="media/monitor-azure-resource/metrics.png" alt-text="Explorador de métricas":::
 
 
 ## <a name="diagnostic-settings"></a>Configuración de diagnóstico
-La configuración de diagnóstico define dónde se deben enviar los registros de recurso y las métricas para un recurso determinado. Los posibles destinos son:
+La página **Configuración de diagnóstico** permite crear una [configuración de diagnóstico](../essentials/diagnostic-settings.md) para recopilar los registros de un recurso. Puede enviarlos a varios sitios, pero lo más habitual es enviarlos a un área de trabajo de Log Analytics para poder analizarlos con esta característica.
 
-- [Área de trabajo de Log Analytics](./resource-logs.md#send-to-log-analytics-workspace), que permite analizar datos con otros datos de supervisión recopilados por Azure Monitor mediante unas consultas de registro eficaces y también aprovechar otras características de Azure Monitor, como alertas de registros y visualizaciones. 
-- [Event Hubs](./resource-logs.md#send-to-azure-event-hubs), para transmitir datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros. 
-- [Cuenta de almacenamiento de Azure](./resource-logs.md#send-to-azure-storage), que resulta útil para la auditoría, el análisis estático o la copia de seguridad.
+Consulte el [Tutorial: Recopilación y análisis de registros de recurso desde un recurso de Azure](../essentials/tutorial-resource-logs.md) para saber cómo crear una configuración de diagnóstico.
 
-Siga el procedimiento de [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../essentials/diagnostic-settings.md) para crear y administrar la configuración de diagnóstico mediante Azure Portal. Consulte [Creación de la configuración de diagnóstico en Azure con una plantilla de Resource Manager](./resource-manager-diagnostic-settings.md) para definirla en una plantilla y habilitar la supervisión completa para un recurso cuando se crea.
+:::image type="content" source="media/monitor-azure-resource/diagnostic-settings.png" lightbox="media/monitor-azure-resource/diagnostic-settings.png" alt-text="Configuración de diagnóstico":::
 
 
-## <a name="monitoring-in-the-azure-portal"></a>Supervisión en Azure Portal
- Puede acceder a los datos de supervisión para la mayoría de los recursos de Azure en el menú del recurso en Azure Portal. Esto le proporcionará acceso a los datos de un solo recurso con las herramientas de Azure Monitor estándar. Algunos servicios de Azure proporcionarán opciones diferentes, por lo que debe consultar la documentación de ese servicio para obtener información adicional. Use el menú **Azure Monitor** para analizar los datos de todos los recursos supervisados. 
 
-### <a name="overview"></a>Información general
-Muchos servicios incluirán datos de supervisión en su página **Información general** para una vista rápida de su funcionamiento. Esto se basará, normalmente, en un subconjunto de métricas de plataforma almacenadas en Métricas de Azure Monitor. En general, habrá otras opciones de supervisión disponibles en una sección **Supervisión** del menú de servicio.
-
-![Página de información general](media/monitor-azure-resource/overview-page.png)
+## <a name="insights"></a>Información detallada 
+El elemento de menú **Insights** muestra la información del recurso si el servicio de Azure tiene uno. [Insights](../monitor-reference.md) proporciona una experiencia de supervisión personalizada basada en la plataforma de datos de Azure Monitor y las características estándar. 
 
 
-### <a name="insights-and-solutions"></a>Insights y soluciones 
-Algunos servicios proporcionarán herramientas más allá de las características estándar de Azure Monitor. [Insights](../monitor-reference.md) proporciona una experiencia de supervisión personalizada basada en la plataforma de datos de Azure Monitor y las características estándar. Las [soluciones](../insights/solutions.md) proporcionan lógica de supervisión predefinida basada en los registros de Azure Monitor. 
+Consulte [Insights y visualizaciones mantenidas](../monitor-reference.md#insights-and-curated-visualizations) para obtener una lista de la información disponible y vínculos a la documentación correspondiente.
 
-Si un servicio tiene una conclusión de Azure Monitor, puede acceder a ella desde la opción **Supervisión** en el menú de cada recurso. Puede acceder a todas las conclusiones y las soluciones desde el menú de **Azure Monitor**.
-
-![Detalles en Azure Portal](media/monitor-azure-resource/insights.png)
-
-### <a name="metrics"></a>Métricas
-Analice las métricas en Azure Portal mediante el [explorador de métricas](./metrics-getting-started.md), que está disponible en el elemento de menú **Métricas** de la mayoría de los servicios. Esta herramienta permite trabajar con métricas individuales o combinar varias para identificar correlaciones y tendencias. 
-
-- Consulte [Introducción al Explorador de métricas de Azure](./metrics-getting-started.md) para más información sobre el Explorador de métricas.
-- Consulte [Características avanzadas del Explorador de métricas de Azure](../essentials/metrics-charts.md) para ver características avanzadas del Explorador de métricas, como el uso de varias métricas, y la aplicación de filtros y división.
-
-![Explorador de métricas en Azure Portal](media/monitor-azure-resource/metrics.png)
-
-
-### <a name="activity-log"></a>Registro de actividades 
-Vea las entradas del registro de actividad en Azure Portal con el filtro inicial establecido en el recurso actual. Copie el registro de actividad en un área de trabajo de Log Analytics para acceder a él, y usarlo en consultas y libros de registro. 
-
-- Consulte [Visualización y recuperación de eventos del registro de actividad de Azure](../essentials/activity-log.md#view-the-activity-log) para más información sobre la visualización del registro de actividad y la recuperación de entradas mediante varios métodos.
-- Consulte la documentación del servicio de Azure para conocer los eventos específicos que se registran.
-
-![Registro de actividad](media/monitor-azure-resource/activity-log.png)
-
-### <a name="azure-monitor-logs"></a>Registros de Azure Monitor
-Los registros de Azure Monitor consolidan los registros y las métricas de varios servicios, y otros orígenes de datos para su análisis con una herramienta de consulta eficaz. Como se ha descrito anteriormente, cree una configuración de diagnóstico para recopilar métricas de la plataforma, el registro de actividad y los registros de recursos en un área de trabajo de Log Analytics en Azure Monitor.
-
-[Log Analytics](../logs/log-analytics-tutorial.md) le permite trabajar con las [consultas de registros](../logs/log-query-overview.md), que es una característica eficaz de Azure Monitor que ayuda a realizar un análisis avanzado de los datos de registro mediante un lenguaje de consulta muy completo. Abra Log Analytics en **Registros** en el menú **Supervisión** para que un recurso de Azure funcione con las consultas de registro que usan el recurso como [ámbito de consulta](../logs/scope.md#query-scope). Esto le permite analizar datos en varias tablas solo para ese recurso. Use **Registros** en el menú de Azure Monitor para acceder a los registros de todos los recursos. 
-
-- Consulte [Introducción a las consultas de registro en Azure Monitor](../logs/get-started-queries.md) para ver un tutorial sobre el uso del lenguaje de consulta que se utiliza para escribir consultas de registro.
-- Consulte [Recopilación de registros de recurso de Azure en el área de trabajo de Log Analytics en Azure Monitor](./resource-logs.md#send-to-log-analytics-workspace) para información sobre cómo se recopilan los registros de recurso en los registros de Azure Monitor y detalles sobre cómo obtener acceso a ellos en una consulta.
-- Consulte [Modo de recopilación](./resource-logs.md#send-to-log-analytics-workspace) para ver una explicación de cómo se estructuran los datos del registro de recursos en los registros de Azure Monitor.
-- Consulte la documentación de cada servicio de Azure para más información sobre su tabla en los registros de Azure Monitor.
-
-![Log Analytics en Azure Portal](media/monitor-azure-resource/logs.png)
-
-## <a name="monitoring-from-command-line"></a>Supervisión desde la línea de comandos
-Puede acceder a los datos de supervisión recopilados en el recurso desde una línea de comandos o incluirlos en un script mediante [Azure PowerShell](/powershell/azure/) o la [interfaz de la línea de comandos de Azure](/cli/azure/). 
-
-- Consulte la [referencia de métricas de la CLI](/cli/azure/monitor/metrics) para acceder a los datos de métricas de la CLI.
-- Consulte la [referencia de Log Analytics de la CLI](/cli/azure/monitor/log-analytics) para acceder a los datos de los registros de Azure Monitor mediante una consulta de registro desde la CLI.
-- Consulte la [referencia de métricas de Azure PowerShell](/powershell/module/azurerm.insights/get-azurermmetric) para acceder a los datos de métricas desde Azure PowerShell.
-- Consulte la [referencia de consulta de registro de Azure PowerShell](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery) para acceder a los datos de los registros de Azure Monitor mediante una consulta de registro desde Azure PowerShell.
-
-## <a name="monitoring-from-rest-api"></a>Supervisión desde una API REST
-Incluya datos de supervisión recopilados desde el recurso en una aplicación personalizada mediante una API REST.
-
-- Consulte [Tutorial sobre la API REST de supervisión de Azure](./rest-api-walkthrough.md) para más información sobre el acceso a las métricas desde la API REST de Azure Monitor.
-- Consulte el artículo sobre la [API REST de Azure Log Analytics](https://dev.loganalytics.io/) para obtener información sobre cómo acceder a los datos de los registros de Azure Monitor mediante una consulta de registro desde Azure PowerShell.
-
-## <a name="alerts"></a>Alertas
-Las [alertas](../alerts/alerts-overview.md) le informan de forma proactiva y pueden tomar medidas cuando se detectan condiciones importantes en los datos que supervisa. Cree una regla de alerta que defina un destino para la alerta, las condiciones para la creación de una alerta y las acciones que se deben realizar en respuesta.
-
-Se usan diferentes tipos de datos de supervisión para distintos tipos de reglas de alerta.
-
-- [Alerta de registro de actividad](../alerts/alerts-activity-log.md): cree una alerta al crear una entrada en el registro de actividad que coincida con criterios específicos. Esto le permite recibir una notificación, por ejemplo, cuando se crea un tipo determinado de recurso o si se produce un error en un cambio de configuración.
-- [Alerta de métrica](../alerts/alerts-metric.md): cree una alerta cuando un valor de métrica supere un umbral determinado. Las alertas de métricas tienen más capacidad de respuesta que otras alertas y se pueden resolver automáticamente cuando se corrige el problema.
-- [Alerta de consulta de registro](../alerts/alerts-log.md): ejecute una consulta de registro a intervalos regulares y cree una alerta si se encuentra una condición determinada. Esto le permite realizar análisis complejos en varios conjuntos de datos.
-
-Use **Alertas** en el menú de un recurso para ver alertas y administrar las reglas de alerta para ese recurso. Solo las alertas del registro de actividad y las alertas de métricas utilizan recursos individuales de Azure como destino. Las alertas de consulta de registro usan un área de trabajo de Log Analytics como destino y se basan en una consulta que puede acceder a los registros almacenados en esa área de trabajo. Use el menú de Azure Monitor para ver y administrar las alertas de todos los recursos, y administrar las reglas de alerta de consultas de registro.
-
-- Consulte los artículos de los diferentes tipos de alerta anteriores para más información sobre la creación de reglas de alerta.
-- Consulte [Creación y administración de grupos de acciones en Azure Portal](../alerts/action-groups.md) para más información sobre cómo crear un grupo de acciones que le permita administrar las respuestas a las alertas.
-
-
+:::image type="content" source="media/monitor-azure-resource/insights.png" lightbox="media/monitor-azure-resource/insights.png" alt-text="Captura de pantalla de Insights":::
 
 ## <a name="next-steps"></a>Pasos siguientes
+Ahora que tiene un conocimiento básico de Azure Monitor, empiece a analizar algunas métricas de un recurso de Azure.
 
-* Consulte [Servicios, esquemas y categorías admitidos en los registros de recursos de Azure](./resource-logs-schema.md) para más información sobre los registros de recursos para los distintos servicios de Azure.
+> [!div class="nextstepaction"]
+> [Analizar métricas de un recurso de Azure](../essentials/tutorial-metrics.md)

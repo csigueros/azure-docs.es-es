@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Edge Secured-core Certification Requirements
 ms.service: certification
-ms.openlocfilehash: 81e9bc60a7749cdc155fc6997c198e834476dbf0
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+ms.openlocfilehash: 35091e1ccde554ce897dc629c3c372af05650458
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113031938"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293865"
 ---
 # <a name="edge-secured-core-certification-requirements-preview"></a>Requisitos para la certificación de Edge Secured-Core (versión preliminar) #
 
@@ -32,12 +32,12 @@ Edge Secured-Core es una certificación incremental en el programa de Azure Cert
 |Nombre|SecuredCore.Built-in.Security|
 |:---|:---|
 |Estado|Obligatorio|
-|Descripción|El propósito de la prueba es asegurarse de que los dispositivos puedan notificar la información de seguridad y los eventos mediante el envío de datos a Azure Defender para IoT.|
+|Descripción|El propósito de la prueba es asegurarse de que los dispositivos puedan notificar información y eventos de seguridad mediante el envío de datos a Microsoft Defender para IoT.|
 |Disponibilidad de destino|2021|
 |Se aplica a|Cualquier dispositivo|
 |SO|Independiente|
 |Tipo de validación|Manual/herramientas|
-|Validación |El dispositivo debe generar alertas y registros de seguridad. Registros de dispositivo y mensajes de alerta para Azure Security Center.<ol><li>Descarga e implementación del agente de seguridad desde GitHub</li><li>Valide el mensaje de alerta de Azure Defender para IoT.</li></ol>|
+|Validación |El dispositivo debe generar alertas y registros de seguridad. Registros de dispositivos y mensajes de alerta para Microsoft Defender for Cloud.<ol><li>Descarga e implementación del agente de seguridad desde GitHub</li><li>Valide el mensaje de alerta de Microsoft Defender para IoT.</li></ol>|
 |Recursos|[Azure Docs IoT Defender para IoT](../defender-for-iot/how-to-configure-agent-based-solution.md)|
 
 ---
@@ -97,7 +97,7 @@ Edge Secured-Core es una certificación incremental en el programa de Azure Cert
 |Se aplica a|Cualquier dispositivo|
 |SO|Independiente|
 |Tipo de validación|Manual/herramientas|
-|Validación|Dispositivo que se va a validar mediante el conjunto de herramientas para asegurarse de que el dispositivo admite la capacidad de administrar de forma remota y concretamente configuraciones de seguridad. Y el estado se devuelve a IoT Hub/Azure Defender para IoT.|
+|Validación|Dispositivo que se va a validar mediante el conjunto de herramientas para asegurarse de que el dispositivo admite la capacidad de administrar de forma remota y concretamente configuraciones de seguridad. Y el estado se comunica a IoT Hub/Microsoft Defender para IoT.|
 |Recursos||
 
 ---
@@ -218,7 +218,7 @@ Validación|Dispositivo que se va a validar mediante el conjunto de herramientas
 |Se aplica a|Cualquier dispositivo|
 |SO|Independiente|
 |Tipo de validación|Manual/herramientas|
-|Validación|Dispositivo que se va a validar a través del conjunto de herramientas para asegurarse de que se han ejecutado los puntos de referencia de las configuraciones del sistema IOT de Defender.|
+|Validación|Dispositivo que se va a validar mediante el conjunto de herramientas para asegurarse de que se han ejecutado los puntos de referencia de las configuraciones del sistema IOT de Defender for Cloud.|
 |Recursos| https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines <br> https://www.cisecurity.org/cis-benchmarks/ |
 
 ---

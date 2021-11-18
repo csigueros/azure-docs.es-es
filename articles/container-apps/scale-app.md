@@ -1,19 +1,19 @@
 ---
 title: Escalado en Azure Container Apps
 description: Obtenga información sobre cómo las aplicaciones se reducen y escalan horizontalmente en Azure Container Apps.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b02d4d06b855229f41a0bae0b04d1729a29e4e49
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 683545b892db4830e01f71faa2f77a097f9e8a9a
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131579015"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061180"
 ---
 # <a name="set-scaling-rules-in-azure-container-apps"></a>Establecer reglas de escalado en Azure Container Apps
 
@@ -31,6 +31,7 @@ Las reglas de escalado se definen en `resources.properties.template.scale`la sec
 - Si desea asegurarse de que una instancia de la aplicación siempre se está ejecutando, establezca `minReplicas` en 1 o superior.
 - Las réplicas que no se están procesando, pero que permanecen en memoria, se facturan en la categoría "cargo inactivo".
 - Los cambios en las reglas de escalado son un cambio de [ámbito de revisión](overview.md).
+- Cuando se usan reglas de escalado de eventos que no son HTTP, se recomienda establecer `activeRevisionMode` en `single`.
 
 > [!IMPORTANT]
 > Las cantidades de réplica son una cantidad de destino, no una garantía. Incluso si establece `maxReplicas` en `1`, no hay ninguna garantía de seguridad para subprocesos.

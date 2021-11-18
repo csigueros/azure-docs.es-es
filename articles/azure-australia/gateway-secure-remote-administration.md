@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: yvettep
-ms.openlocfilehash: 98554997056f8d09e4b6dde8751432b72fa6a8be
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 96d4d6273ef365435f7d21721600f145d40daae4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129232812"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132323538"
 ---
 # <a name="secure-remote-administration-of-your-gateway-in-azure-australia"></a>Protección de la administración remota de la puerta de enlace en Azure Australia
 
@@ -167,7 +167,7 @@ El servidor/host de salto es un punto centralizado para la administración. Tien
 
 ### <a name="just-in-time-jit-access"></a>Acceso Just-In-Time (JIT)
 
-JIT es una funcionalidad de Azure Security Center que utiliza grupos de seguridad de red (NSG) para bloquear el acceso a protocolos administrativos como RDP y SSH en las máquinas virtuales. Las aplicaciones hospedadas en máquinas virtuales continúan funcionando normalmente, pero para obtener acceso administrativo se debe solicitar solo para un tiempo establecido. Todas las solicitudes se registran con fines de auditoría.
+JIT es una funcionalidad de Microsoft Defender for Cloud que utiliza grupos de seguridad de red (NSG) para bloquear el acceso a protocolos administrativos como RDP y SSH en las máquinas virtuales. Las aplicaciones hospedadas en máquinas virtuales continúan funcionando normalmente, pero para obtener acceso administrativo se debe solicitar solo para un tiempo establecido. Todas las solicitudes se registran con fines de auditoría.
 
 |Recursos |Vínculo |
 |---|---|

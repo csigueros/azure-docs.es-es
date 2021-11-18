@@ -11,21 +11,24 @@ ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/04/2019
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: 612280242c528065c8ba74ccd745cca28e7af1bd
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 28bb5d12d2eb7657a199f902d6ffe6c542c86901
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130167052"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158505"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Uso de las plantillas de inicio rápido de Azure para configurar un grupo de disponibilidad para SQL Server en una máquina virtual de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-En este artículo se explica cómo usar las plantillas de inicio rápido de Azure para automatizar parcialmente la implementación de una configuración de grupo de disponibilidad Always On para máquinas virtuales (VM) con SQL Server en Azure. Son dos las plantillas de inicio rápido de Azure que se usan en este proceso: 
+> [!TIP]
+> Elimine la necesidad de una instancia de Azure Load Balancer para el grupo de disponibilidad Always On mediante la creación de las máquinas virtuales de SQL Server en [varias subredes](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) dentro de la misma red virtual de Azure.
+
+En este artículo se explica cómo usar las plantillas de inicio rápido de Azure para automatizar parcialmente la implementación de una configuración de grupo de disponibilidad Always On para máquinas virtuales (VM) con SQL Server en una única subred de Azure. Son dos las plantillas de inicio rápido de Azure que se usan en este proceso: 
 
    | Plantilla | Descripción |
    | --- | --- |
@@ -35,7 +38,7 @@ En este artículo se explica cómo usar las plantillas de inicio rápido de Azur
 
 Otras partes de la configuración del grupo de disponibilidad deben realizarse manualmente, como la creación del grupo de disponibilidad y del equilibrador de carga interno. En este artículo se proporciona la secuencia de pasos manuales y automatizados.
 
-Si bien en este artículo se usan las plantillas de inicio rápido de Azure para configurar el entorno del grupo de disponibilidad, también es posible hacerlo mediante [Azure Portal](availability-group-azure-portal-configure.md), [PowerShell o la CLI de Azure](availability-group-az-commandline-configure.md), o [manualmente](availability-group-manually-configure-tutorial.md). 
+Si bien en este artículo se usan las plantillas de inicio rápido de Azure para configurar el entorno del grupo de disponibilidad, también es posible hacerlo mediante [Azure Portal](availability-group-azure-portal-configure.md), [PowerShell o la CLI de Azure](availability-group-az-commandline-configure.md), o [manualmente](availability-group-manually-configure-tutorial-single-subnet.md). 
 
 > [!NOTE]
 > Ahora es posible migrar mediante lift and shift la solución de grupo de disponibilidad a SQL Server en máquinas virtuales de Azure mediante Azure Migrate. Para más información, consulte [Migración del grupo de disponibilidad](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md). 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 00aa377ffc7f713159f4ff8a55b562eaf809980b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d3b2be483c134724ceea37f1afb905eea498001c
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131064304"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132156005"
 ---
 #  <a name="deploy-sap-continuous-threat-monitoring-public-preview"></a>Implementación de la supervisión de amenazas continua de SAP (versión preliminar pública)
 
@@ -101,7 +101,7 @@ En este procedimiento se describe cómo asegurarse de que el sistema SAP tenga i
     > En el área **Import Options** (Opciones de importación) de SAP, puede ver la opción **Ignore Invalid Component Version** (Ignorar versión del componente no válida). Si aparece, seleccione esta opción antes de continuar.
     >
 
-1. Para importar la solicitud de cambio *14 (NPLK900140)* de SAP, cree un rol de SAP llamado **/MSFTSEN/SENTINEL_CONNECTOR**. Use el código de transacción de SAP **STMS_IMPORT**.
+1. Para importar la solicitud de cambio *14 (NPLK900163)* de SAP, cree un rol de SAP llamado **/MSFTSEN/SENTINEL_CONNECTOR**. Use el código de transacción de SAP **STMS_IMPORT**.
 
     Compruebe que el rol se crea con los permisos necesarios, como:
 

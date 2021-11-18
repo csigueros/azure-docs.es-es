@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: e3fede7fbb0f4951633ec74284fad00d2d66257b
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: ff2233f6a1b669856084cdd07591d99ee23dbe8c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131565835"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331231"
 ---
 # <a name="evaluate-model-component"></a>Componente Evaluate Model
 
@@ -138,8 +138,7 @@ Se notifican las siguientes métricas para evaluar los modelos de agrupación en
      Si este número es alto, puede significar que el clúster está muy disperso. Debe revisar esta estadística junto con **Average Distance to Cluster Center** (Distancia media al centro del clúster) para determinar la dispersión del clúster.   
 
 -   La puntuación de **Combined Evaluation** (Evaluación combinada) en la parte inferior de cada sección de resultados indica las puntuaciones medias de los clústeres creados en ese modelo determinado.  
-  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de componentes disponibles](component-reference.md) para Azure Machine Learning.
+Vea el [conjunto de componentes disponibles](component-reference.md) para Azure Machine Learning.

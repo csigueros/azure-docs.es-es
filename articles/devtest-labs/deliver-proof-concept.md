@@ -3,12 +3,12 @@ title: Entrega de una prueba de concepto
 description: Obtenga información sobre cómo entregar una prueba de concepto para que Azure DevTest Labs se pueda incorporar correctamente en un entorno empresarial.
 ms.topic: how-to
 ms.date: 06/2/2020
-ms.openlocfilehash: 03c8cc087f33ea6385fc0690f5634f33a3cbf0fd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fcd3ba364887fe26b13c74e16f3f50990d708549
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589974"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132325189"
 ---
 # <a name="deliver-a-proof-of-concept"></a>Entrega de una prueba de concepto 
 
@@ -19,7 +19,7 @@ Uno de los escenarios clave para Azure DevTest Labs es habilitar los entornos de
 * Habilitación del acceso a máquinas virtuales y otros recursos de Azure.
 * Configuración de un área de espacio aislado para que los desarrolladores aprendan y experimenten.
 
-DevTest Labs también proporciona las medidas protectoras de la directiva y controles de costos para que la empresa pueda proporcionar "autoservicio de Azure" a los desarrolladores que se adhieren a las directivas corporativas de seguridad, normativas y de cumplimiento. 
+Los controles de costos y los límites de protección de directivas de DevTest Labs ayudan a las empresas a proporcionar a los desarrolladores una solución de "Azure de autoservicio" que cumpla las directivas corporativas de cumplimiento, normativas y de seguridad. 
 
 Cada empresa tiene requisitos diferentes para el modo en que Azure DevTest Labs puede incorporarse correctamente en su entorno. En este artículo se describen los pasos más comunes que las empresas deben completar para garantizar una prueba de concepto correcta. Una prueba de concepto es el primer paso para una implementación de un extremo a otro correcta. 
 
@@ -37,8 +37,8 @@ Para empezar a entregar una prueba de concepto, es importante dedicar algún tie
 
 Para completar correctamente una prueba piloto o una prueba de concepto con DevTest Labs, hay algunos requisitos previos: 
 
-* **Suscripción de Azure**: las empresas suelen tener un [Contrato Enterprise](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement/) en vigor que permite el acceso a Azure, y pueden usar una suscripción nueva o existente para DevTest Labs. Como alternativa, las empresas pueden usar una [suscripción de Visual Studio](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) durante la fase piloto (aprovechando los créditos gratuitos de Azure). Si ninguna de estas opciones está disponible, una empresa puede crear y usar una [cuenta de Azure gratuita](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ). Si hay un Contrato Enterprise en su lugar, el uso de una [suscripción de Desarrollo/pruebas - Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) es una excelente opción para obtener acceso a los sistemas operativos de cliente Windows 10/Windows 8.1 y a las tarifas con descuento para las cargas de trabajo de desarrollo y pruebas. 
-* **Inquilino de Azure Active Directory**: para permitir la administración de usuarios (por ejemplo, agregar usuarios o agregar propietarios de laboratorios), esos usuarios deben formar parte del [inquilino de Azure Active Directory](https://azure.microsoft.com/services/active-directory/) usado en la suscripción a Azure en el escenario piloto. A menudo, las empresas configurarán la [identidad híbrida](../active-directory/hybrid/whatis-hybrid-identity.md) para permitir que los usuarios utilicen su identidad local en la nube, pero esto no es necesario para el piloto de DevTest Labs. 
+* **Suscripción de Azure**: las empresas suelen tener un [Contrato Enterprise](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement/) en vigor que permite el acceso a Azure, y pueden usar una suscripción nueva o existente para DevTest Labs. Como alternativa, las empresas pueden usar una [suscripción de Visual Studio](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) durante la fase piloto (aprovechando los créditos gratuitos de Azure). Si ninguna de estas opciones está disponible, una empresa puede crear y usar una [cuenta de Azure gratuita](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ). Si existe un Contrato Enterprise en vigor, una [suscripción a Desarrollo/pruebas - Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) es una opción excelente. Obtiene acceso a los sistemas operativos cliente Windows 10/Windows 8.1 y a las tarifas con descuento para las cargas de trabajo de desarrollo y pruebas. 
+* **Inquilino de Azure Active Directory**: para la administración, como agregar usuarios o agregar propietarios de laboratorios, los usuarios deben formar parte del [inquilino de Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para la suscripción de Azure utilizada en el escenario piloto. A menudo, las empresas configurarán la [identidad híbrida](../active-directory/hybrid/whatis-hybrid-identity.md) para permitir que los usuarios utilicen su identidad local en la nube. No necesita una identidad híbrida para el escenario piloto de DevTest Labs. 
 
 ## <a name="scoping-of-the-pilot"></a>Ámbito del piloto 
 
@@ -56,11 +56,11 @@ Responda a estas preguntas clave antes de comenzar el piloto:
 * ¿Cuál es la duración del piloto? Elija un período de tiempo que se alinee bien con el ámbito planeado, como dos semanas o un mes. 
 * Una vez completado el piloto, ¿qué ocurrirá con los recursos asignados que se usaron durante este período? ¿Tiene pensado descartar los recursos del piloto? Puede pensar lo siguiente:
    
-   "Si podemos planear el descarte de las máquinas virtuales y los laboratorios al final del piloto, podemos configurar una suscripción única para el piloto y hacer todo nuestro trabajo allí mientras resolvemos las preguntas del lanzamiento de escala en paralelo". 
+   "Si tenemos previsto lanzar las máquinas virtuales y los laboratorios al final del escenario piloto, podemos configurar una sola suscripción para el piloto y realizar todo nuestro trabajo allí. Podemos resolver preguntas sobre el lanzamiento de escalabilidad en paralelo". 
 
-Existe la tendencia general de configurar el piloto "perfecto" para que represente de forma idéntica el estado final que tendrá una vez que se lance el servicio en la empresa. Esta es una suposición falsa. Cuanto más se acerque a la versión "perfecta", más deberá completar *antes* de comenzar a trabajar en el piloto. La finalidad del piloto es tomar las decisiones correctas sobre la escalabilidad y el lanzamiento del servicio final. 
+Hay una tendencia a intentar que el piloto sea "perfecto", por lo que es idéntico al estado final después de implementar el servicio en la empresa. Esta hipótesis no es correcta. Cuanto más se acerque a la versión "perfecta", más deberá completar *antes* de comenzar a trabajar en el piloto. La finalidad del piloto es poder tomar las decisiones correctas sobre la escalabilidad vertical y el lanzamiento del servicio final. 
 
-El objetivo del piloto es elegir las cargas de trabajo y dependencias mínimas necesarias para responder a la pregunta de si Azure DevTest Labs es el servicio adecuado para la empresa. Es aconsejable elegir la carga de trabajo más sencilla con las dependencias mínimas para garantizar un éxito más rápido y claro. Si eso no es posible, elija una carga de trabajo más representativa que exponga las posibles complejidades para que el éxito de la fase piloto se pueda replicar en la fase de escalabilidad horizontal. 
+El objetivo del piloto debe ser elegir las cargas de trabajo y dependencias mínimas necesarias para decidir si Azure DevTest Labs es conveniente para su empresa. Es aconsejable que elija la carga de trabajo más sencilla con las dependencias mínimas para garantizar un éxito más rápido y claro. Si eso no es posible, elija una carga de trabajo más representativa que exponga las posibles complejidades para poder replicar el éxito del escenario piloto en la fase de escalabilidad horizontal. 
 
 En el ejemplo siguiente se muestra una prueba de concepto con el ámbito correcto. 
 
@@ -73,7 +73,7 @@ En esta sección se muestra un ejemplo que se usa para el ámbito de una prueba 
 
 ### <a name="overview"></a>Información general 
 
-Estamos planeando desarrollar un nuevo entorno en Azure basado en DevTest Labs para que los proveedores lo usen como un entorno aislado de la red corporativa. Para determinar si la solución cumplirá los requisitos, desarrollaremos una prueba de concepto para validar la solución de un extremo a otro. Hemos incluido varios proveedores para probar y verificar la experiencia. 
+Nuestra empresa planea desarrollar un nuevo entorno de Azure basado en DevTest Labs. Este entorno se aislará de la red corporativa. Para determinar si la solución cumplirá los requisitos, desarrollaremos una prueba de concepto para validar la solución de un extremo a otro. Hemos incluido varios proveedores para probar y verificar la experiencia. 
 
 ### <a name="outcomes"></a>Resultados 
 
@@ -93,7 +93,7 @@ Al compilar una prueba de concepto, nos centramos primero en los resultados (qu�
    * Documentos (como Microsoft Teams o SharePoint)  
    * Conversaciones (como Microsoft Teams) 
    * Elementos de trabajo (como Azure Boards) 
-* ¿Cuáles son los recursos necesarios para los proveedores? Esto incluye aplicaciones disponibles en la red, tanto localmente en las máquinas virtuales como en otros servidores necesarios. 
+* ¿Cuáles son los recursos necesarios para los proveedores? Los recursos incluyen aplicaciones disponibles en la red, tanto localmente en las máquinas virtuales como en otros servidores necesarios. 
 * ¿Las máquinas virtuales se unirán a un dominio en Azure? En ese caso, ¿será Azure Active Directory Domain Services (Azure AD DS) u otra opción? 
 * ¿Tenemos identificados el equipo o los proveedores que serán el objetivo de la prueba de concepto? ¿Quiénes serán los clientes del entorno?
 * ¿Qué región de Azure usaremos para la prueba de concepto? 
@@ -110,18 +110,18 @@ Esperamos que la solución tenga los componentes siguientes:
 * Los proveedores cuentan con una manera de conectarse correctamente a sus recursos. En concreto, una VPN de sitio a sitio permite el acceso directo a máquinas virtuales sin direcciones IP públicas.
 * Un conjunto de artefactos cubre el software requerido que necesitan los proveedores en las máquinas virtuales.
 
-## <a name="additional-planning-and-design-decisions"></a>Decisiones de planeamiento y diseño adicionales 
+## <a name="other-planning-and-design-decisions"></a>Otras decisiones de planeamiento y diseño 
 
 Antes de lanzar una solución completa de DevTest Labs, hay que tomar algunas decisiones importantes sobre planeamiento y diseño. La experiencia de trabajar en una prueba de concepto puede ayudarle a tomar estas decisiones. Tenga en cuenta lo siguiente: 
 
-* [Topología de la suscripción](../azure-resource-manager/management/azure-subscription-service-limits.md): los requisitos de nivel empresarial de los recursos de Azure pueden sobrepasar las **cuotas disponibles dentro de una sola suscripción**. Se requerirían así varias suscripciones o solicitudes de servicio de Azure para aumentar los límites iniciales de la suscripción. Es importante decidir con antelación cómo distribuir los recursos entre las suscripciones. Un recurso valioso es la [guía para la toma de decisiones sobre las suscripciones](/azure/architecture/cloud-adoption/decision-guides/subscriptions/) porque es difícil trasladar los recursos a otra suscripción más adelante. Por ejemplo, un laboratorio no se puede trasladar a otra suscripción después de crearlo.  
+* [Topología de la suscripción](../azure-resource-manager/management/azure-subscription-service-limits.md): los requisitos de nivel empresarial de los recursos de Azure pueden sobrepasar las **cuotas disponibles dentro de una sola suscripción**. Puede que necesite varias suscripciones o solicitudes de servicio de Azure para aumentar los límites iniciales de la suscripción. Es importante decidir por adelantado cómo distribuir los recursos entre suscripciones, ya que es difícil mover los recursos a otra suscripción más adelante. Por ejemplo, no puede trasladar un laboratorio a otra suscripción después de crearlo. Un recurso práctico es la [Guía de decisiones de suscripción](/azure/architecture/cloud-adoption/decision-guides/subscriptions/).   
 * **Topología de red**: la [infraestructura de red predeterminada](../app-service/networking-features.md) que crea automáticamente DevTest Labs puede no ser suficiente para cumplir los requisitos y las restricciones de los usuarios empresariales. Es habitual ver [redes virtuales conectadas de Azure ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/), [conexiones de concentrador y radio](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) para la conectividad entre suscripciones e incluso el [enrutamiento forzado](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) para garantizar únicamente la conectividad local. DevTest Labs permite que la redes virtuales existentes se conecten al laboratorio para habilitar su uso al crear máquinas virtuales nuevas en el laboratorio. 
-* **Acceso remoto de las máquinas virtuales**: existen muchas opciones para acceder de forma remota a las máquinas virtuales ubicadas en DevTest Labs. Lo más sencillo es usar direcciones IP públicas o direcciones IP públicas compartidas. Estos son [los valores de configuración disponibles en el laboratorio](devtest-lab-shared-ip.md). Si estas opciones no son suficientes, el uso de una puerta de enlace de acceso remoto también es una opción, tal como se muestra en la [arquitectura de referencia empresarial de DevTest Labs](devtest-lab-reference-architecture.md) y se describe más adelante en la [documentación de puerta de enlace de Escritorio remoto de DevTest Labs](configure-lab-remote-desktop-gateway.md). Las empresas también pueden usar ExpressRoute o una VPN de sitio a sitio para conectar sus laboratorios a su red local. Esta opción permite conexiones directas de Escritorio remoto o SSH a máquinas virtuales en función de su dirección IP privada sin exposición en Internet. 
+* **Acceso remoto de las máquinas virtuales**: existen muchas opciones para acceder de forma remota a las máquinas virtuales ubicadas en DevTest Labs. Lo más sencillo es usar direcciones IP públicas o direcciones IP públicas compartidas. [Esta configuración](devtest-lab-shared-ip.md) está disponible en el laboratorio. Si estas opciones no son suficientes, el uso de una puerta de enlace de acceso remoto también es una opción. La [arquitectura de referencia empresarial para DevTest Labs](devtest-lab-reference-architecture.md) muestra esta opción. Para más información, vea [Configuración del laboratorio de Azure DevTest Labs para usar una puerta de enlace de Escritorio remoto](configure-lab-remote-desktop-gateway.md). Las empresas también pueden usar ExpressRoute o una VPN de sitio a sitio para conectar sus laboratorios a su red local. Esta opción permite conexiones directas de Escritorio remoto o SSH a máquinas virtuales en función de sus direcciones IP privadas. No hay ninguna exposición a Internet. 
 * **Administración de permisos**: los dos permisos clave que se usan habitualmente en DevTest Labs son [propietario y usuario del laboratorio](devtest-lab-add-devtest-user.md). Es importante decidir antes de implementar DevTest Labs ampliamente en quién se confiará en cada nivel de acceso en el laboratorio. Un modelo común es el propietario del presupuesto (líder de equipo, por ejemplo) como propietario del laboratorio y los miembros del equipo como usuarios del laboratorio. Este modelo permite a la persona responsable del presupuesto (líder de equipo) ajustar la configuración de la directiva para mantener el equipo dentro del presupuesto.  
 
 ## <a name="completing-the-proof-of-concept"></a>Finalización de la prueba de concepto 
 
-Una vez que se han tratado los aprendizajes esperados, es el momento de completar el piloto. Este es el momento de recopilar comentarios de los usuarios, determinar si el piloto se realizó correctamente y decidir si la organización va a avanzar en un lanzamiento de escalabilidad de DevTest Labs en la empresa. También es un buen momento para considerar la automatización de la implementación de DevTest Labs y los recursos asociados para garantizar la coherencia a lo largo del lanzamiento de escalabilidad. 
+Una vez que se han tratado los aprendizajes esperados, es el momento de completar el piloto. Recopile comentarios de los usuarios, determine si el piloto se realizó correctamente y decida si la organización va a avanzar en un lanzamiento de escalabilidad empresarial de DevTest Labs. También es un buen momento para considerar la automatización de la implementación de DevTest Labs y los recursos asociados para garantizar la coherencia a lo largo del lanzamiento de escalabilidad. 
 
 ## <a name="next-steps"></a>Pasos siguientes 
 

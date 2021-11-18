@@ -9,12 +9,12 @@ ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 10/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 1bf17761ed7ddba74ea62f5545f44f1c4b57c8d3
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 0212c21a90caa533003d2304cfded72eb2370b49
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131456551"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286058"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled"></a>Implementación de una máquina virtual con el inicio seguro habilitado
 
@@ -22,9 +22,9 @@ ms.locfileid: "131456551"
 
 El [inicio seguro](trusted-launch.md) es una manera de mejorar la seguridad de las máquinas virtuales de [generación 2](generation-2.md). Protege frente a técnicas de ataque persistentes y avanzadas, gracias a la combinación de tecnologías de infraestructura como vTPM y el arranque seguro.
 
-## <a name="prerequisites"></a>Prerrequisitos 
+## <a name="prerequisites"></a>Requisitos previos 
 
-- Debe [incorporar su suscripción a Azure Security Center](https://azure.microsoft.com/services/security-center/?&ef_id=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&OCID=AID2200277_SEM_CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&gclid=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE#overview) si aún no lo está. Azure Security Center (ASC) tiene un nivel gratuito, que ofrece información muy útil para varios recursos de Azure e híbridos. El inicio de confianza aprovecha ASC para mostrar varias recomendaciones sobre el estado de las máquinas virtuales. 
+- Debe [incorporar su suscripción a Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/?&ef_id=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&OCID=AID2200277_SEM_CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&gclid=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE#overview) si aún no lo está. Microsoft Defender for Cloud tiene un nivel gratuito, que ofrece información muy útil para varios recursos de Azure e híbridos. El inicio seguro aprovecha Defender for Cloud para mostrar varias recomendaciones sobre el estado de las máquinas virtuales. 
 
 - Asigne iniciativas de directivas de Azure a su suscripción. Estas iniciativas de directiva solo deben asignarse una vez por suscripción. Esto instalará automáticamente todas las extensiones necesarias en todas las máquinas virtuales compatibles. 
     - Configurar los requisitos previos para habilitar la atestación de invitado en máquinas virtuales habilitadas para el inicio seguro 
@@ -158,9 +158,6 @@ Puede implementar máquinas virtuales con inicio seguro mediante una plantilla d
 [![Implementar en Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2FcreateUiDefinition.json)
 
 ---
-
-
-
 
 ## <a name="verify-or-update-your-settings"></a>Comprobación o actualización de la configuración
 

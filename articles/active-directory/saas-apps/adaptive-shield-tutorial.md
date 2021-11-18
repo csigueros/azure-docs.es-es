@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 91466d1c11d38ef5256258f11208a2048c0c3207
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 7639f247c55f051a869f93ee4d297b871ccbe6fa
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129662092"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281191"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-adaptive-shield"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Adaptive Shield
 
@@ -62,7 +62,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Adaptive Shield 
 Para configurar y probar el inicio de sesión único de Azure AD con Adaptive Shield, complete los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Adaptive Shield](#configure-adaptive-shield-sso)** : para configurar los valores del inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Adaptive Shield](#create-adaptive-shield-test-user)** : para tener un homólogo de B.Simon en Adaptive Shield vinculado a la representación del usuario en Azure AD.
@@ -153,4 +153,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Adaptive Shield, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Una vez configurado Adaptive Shield, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

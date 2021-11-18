@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 3/18/2021
 ms.author: sudbalas
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 296b2e2a6d006d878036e633c27e9b8c8aec1f95
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: 70f4e8627f22b400ee2b890dd05fa886137ff4b2
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112521377"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132369747"
 ---
-# <a name="azure-key-vault-backup"></a>Copia de seguridad de Azure Key Vault
+# <a name="azure-key-vault-backup-and-restore"></a>Copia de seguridad y restauración de Azure Key Vault
 
 En este documento se muestra cómo realizar copias de seguridad de secretos, claves y certificados almacenados en el almacén de claves. Esta copia de seguridad está diseñada para proporcionarle una copia sin conexión de todos los secretos en el caso improbable de que pierda el acceso al almacén de claves.
 
@@ -152,4 +152,6 @@ Restore-AzKeyVaultSecret -VaultName '{Key Vault Name}' -InputFile '{File Path}'
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Active el [registro y la supervisión](./logging.md) para Key Vault.
+
+- [Movimiento de un almacén de claves de Azure entre regiones](move-region.md)
+- [Habilitación del registro de Key Vault](howto-logging.md) para Key Vault

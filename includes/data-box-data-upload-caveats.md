@@ -3,14 +3,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: include
-ms.date: 09/28/2021
+ms.date: 11/10/2021
 ms.author: alkohli
-ms.openlocfilehash: 3a0a63d68c5a63eeb4ac7855b3541471814a734b
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: d02eb129dd66234cf7c8522ca8204fb0026da092
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129220680"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132353848"
 ---
 - Contenedores, recursos compartidos y carpetas:
   - No copie los archivos directamente en ninguno de los recursos compartidos creados previamente. Debe crear una carpeta en el recurso compartido y, después, copiar los archivos en ella.
@@ -21,6 +21,10 @@ ms.locfileid: "129220680"
   - Todos los archivos escritos en los recursos compartidos *StorageAccount_BlockBlob* y *StorageAccount_BlockBlob* se cargan como blob en bloques y blob en páginas, respectivamente.
   - Si una carpeta tiene el mismo nombre que un contenedor existente, el contenido de la carpeta se combina con el del contenedor. Los archivos o blobs que aún no están en la nube se agregan al contenedor. Si un archivo o blob tiene el mismo nombre que un archivo o blob que ya está en el contenedor, se sobrescribe el archivo o blob existente.
   - Todas las jerarquías de directorios vacías (sin archivos) creadas en las carpetas *StorageAccount_BlockBlob* y *StorageAccount_BlockBlob* no se cargan.
+- Si usa los protocolos SMB y NFS para las copias de datos, se recomienda que:
+  - Use diferentes cuentas de almacenamiento para SMB y NFS.
+  - No copie los mismos datos en el mismo destino final de Azure mediante SMB y NFS. En estos casos, no se puede determinar el resultado final.
+  - Aunque la copia a través de SMB y NFS en paralelo puede funcionar, no se recomienda hacerlo, ya que esto es propenso a errores humanos. Espere hasta que se complete la copia de datos SMB antes de iniciar una copia de datos NFS.
 - Administración de carga: 
   - Para mejorar el rendimiento durante las cargas de datos, se recomienda [habilitar recursos compartidos de archivos grandes en la cuenta de almacenamiento y aumentar la capacidad del recurso compartido a 100 TiB](../articles/storage/files/storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account). Los recursos compartidos de archivos grandes solo se admiten para las cuentas de almacenamiento con almacenamiento con redundancia local (LRS).
   - Si se han producido errores al cargar datos en Azure, se crea un registro de errores en la cuenta de almacenamiento de destino. La ruta de acceso a este registro de errores está disponible cuando se completa la carga. Puede examinar el registro para realizar acciones correctivas. No elimine datos del origen sin comprobar los datos cargados.

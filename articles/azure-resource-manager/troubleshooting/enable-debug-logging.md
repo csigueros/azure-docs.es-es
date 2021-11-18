@@ -3,14 +3,14 @@ title: Habilitación del registro de depuración
 description: Descripción de cómo habilitar el registro de depuración para solucionar problemas de los recursos de Azure implementados con plantillas de Azure Resource Manager (plantillas de ARM) o archivos Bicep.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 11/02/2021
+ms.date: 11/05/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d68041953979b594c83059a28a78e3440ca297ac
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: fcd2cbdf052f934bb797b3f1dab148d951d09167
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478333"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989656"
 ---
 # <a name="enable-debug-logging"></a>Habilitación del registro de depuración
 
@@ -44,7 +44,7 @@ Get-AzResourceGroupDeploymentOperation `
   -ResourceGroupName examplegroup
 ```
 
-Puede especificar una propiedad. Por ejemplo, la propiedad `StatusMessage` genera los mismos datos que la propiedad `response` de la CLI de Azure.
+Puede especificar una propiedad, como `StatusMessage` o `StatusCode`, para filtrar la salida.
 
 ```azurepowershell
 (Get-AzResourceGroupDeploymentOperation `
@@ -52,13 +52,11 @@ Puede especificar una propiedad. Por ejemplo, la propiedad `StatusMessage` gener
   -ResourceGroupName examplegroup).StatusMessage
 ```
 
-Use la CLI de Azure para obtener la información de `request` y `response` de depuración. En las versiones 4.8 y posteriores del módulo Az, `Get-AzResourceGroupDeploymentOperation` no incluye esas propiedades en la salida. Para obtener una lista de las propiedades disponibles, consulte [salidas](/powershell/module/az.resources/get-azresourcegroupdeploymentoperation#outputs).
-
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 No se puede habilitar el registro de depuración con la CLI de Azure, pero se pueden recuperar los datos del registro de depuración.
 
-Obtenga las operaciones de implementación con el comando siguiente:
+Obtenga las operaciones de implementación con el comando [az deployment operation group list](/cli/azure/deployment/operation/group#az_deployment_operation_group_list):
 
 ```azurecli
 az deployment operation group list \

@@ -1,18 +1,18 @@
 ---
 title: Creación y carga de un disco duro virtual de Linux basado en CentOS
 description: Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene un sistema operativo Linux basado en CentOS.
-author: danielsollondon
+author: srijang
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 12/01/2020
-ms.author: danis
-ms.openlocfilehash: 0dd27e395dfcb1542600301c3f49c47b220ff6a4
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.date: 11/09/2021
+ms.author: srijangupta
+ms.openlocfilehash: c7205e6c124369a3af13830c82c0ee60a4cb999e
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689867"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157010"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Preparación de una máquina virtual basada en CentOS para Azure
 
@@ -220,8 +220,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux CentO
     logout
     ```
 
-17. Haga clic en **Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
-
+17. Haga clic en **Acción -> Apagar** en el Administrador de Hyper-V. El disco duro virtual con Linux ya está listo para [cargarse en Azure](/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd).
 
 
 ## <a name="centos-70"></a>CentOS 7.0+
@@ -458,7 +457,7 @@ La preparación de una máquina virtual CentOS 7 para Azure es muy similar a Cen
     # logout
     ```
 
-15. Haga clic en **Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
+15. Haga clic en **Acción -> Apagar** en el Administrador de Hyper-V. El disco duro virtual con Linux ya está listo para [cargarse en Azure](/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

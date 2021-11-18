@@ -1,18 +1,18 @@
 ---
 title: Ventajas clave
 description: Obtenga información sobre los conceptos básicos de Defender para IoT.
-ms.date: 09/09/2021
+ms.date: 11/09/2021
 ms.topic: article
-ms.openlocfilehash: 284301f7a797f2a161aafe90ec641fc062738933
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: 271af4bbfe56771576dec32799b19f2c7aebf258
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132026470"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293447"
 ---
 # <a name="basic-concepts"></a>Conceptos básicos
 
-En este artículo se describen las principales ventajas de Azure Defender para IoT.
+En este artículo se describen las principales ventajas de Microsoft Defender para IoT.
 
 ## <a name="rapid-non-invasive-deployment-and-passive-monitoring"></a>Implementación rápida no invasiva y supervisión pasiva
 
@@ -57,7 +57,7 @@ La plataforma proporciona una interfaz de minería de datos intuitiva para la b�
 
 El modo de administración de sensores conectados a la nube determina dónde se muestra el dispositivo, la alerta y otra información detectada por el sensor.
 
-En el caso de **sensores conectados a la nube**, la información que el sensor detecta se muestra en la consola del sensor. Se proporciona información de alertas mediante un centro de IoT, que puede compartirse con otros servicios de Azure, como Azure Sentinel.
+En el caso de **sensores conectados a la nube**, la información que el sensor detecta se muestra en la consola del sensor. Se proporciona información de alertas mediante un centro de IoT, que puede compartirse con otros servicios de Azure, como Microsoft Sentinel.
 
 En el caso de **sensores conectados localmente**, la información que el sensor detecta se muestra en la consola del sensor. La información de detección también se comparte con la consola de administración local si el sensor está conectado a ella.
 

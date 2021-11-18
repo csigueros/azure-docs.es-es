@@ -87,6 +87,8 @@
               href: container-registry-oci-artifacts.md
             - name: Inserción y extracción de un gráfico de Helm
               href: container-registry-helm-repos.md
+            - name: Artefactos de cadena de suministro de inserción y extracción (versión preliminar)
+              href: container-registry-oras-artifacts.md
             - name: Visualización de repositorios
               href: container-registry-repositories.md
             - name: Importación de imágenes de contenedor

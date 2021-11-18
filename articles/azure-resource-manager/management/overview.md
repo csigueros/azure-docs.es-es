@@ -4,12 +4,12 @@ description: Describe cómo utilizar Administrador de recursos de Azure para la 
 ms.topic: overview
 ms.date: 08/27/2021
 ms.custom: contperf-fy21q1,contperf-fy21q3-portal
-ms.openlocfilehash: ecb9c163728536b56d119ffa5d67aa6650dbc7e7
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: f83021f35b76dc96c7ae841c2dd636de5b73c107
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123106506"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134531"
 ---
 # <a name="what-is-azure-resource-manager"></a>¿Qué es Azure Resource Manager?
 
@@ -81,9 +81,15 @@ Hay algunos factores importantes que se deben tener en cuenta al definir el grup
 
 * Los recursos de un grupo de recursos pueden encontrarse en regiones distintas a las del grupo de recursos.
 
-* Al crear un grupo de recursos, es preciso proporcionar una ubicación para dicho grupo de recursos. Pero puede preguntarse: "¿Por qué necesita un grupo de recursos una ubicación? Y si los recursos pueden tener ubicaciones distintas de las del grupo de recursos, ¿por qué es importante la ubicación de este?" Los grupos de recursos almacenan metadatos acerca de los recursos. Al especificar la ubicación del grupo de recursos, se especifica el lugar en que dichos metadatos se almacenan. Por motivos de compatibilidad, es posible que sea preciso asegurarse de que los datos se almacenan en una región concreta.
+* Al crear un grupo de recursos, debe proporcionar una ubicación para ese grupo de recursos. 
 
-   Si la región del grupo de recursos no está disponible temporalmente, no puede actualizar los recursos del grupo de recursos porque los metadatos no están disponibles. Los recursos de otras regiones seguirán funcionando según lo previsto, pero no podrá actualizarlos. Para más información sobre la creación de aplicaciones confiables, consulte [Diseño de aplicaciones de Azure confiables](/azure/architecture/checklist/resiliency-per-service).
+  Pero puede preguntarse: "¿Por qué necesita un grupo de recursos una ubicación? Y si los recursos pueden tener ubicaciones distintas de las del grupo de recursos, ¿por qué es importante la ubicación de este?" 
+
+  Los grupos de recursos almacenan metadatos acerca de los recursos. Al especificar la ubicación del grupo de recursos, se especifica el lugar en que dichos metadatos se almacenan. Por motivos de compatibilidad, es posible que sea preciso asegurarse de que los datos se almacenan en una región concreta. 
+  
+  Excepto en recursos globales como Azure Content Delivery Network, Azure Traffic Manager y Azure Front Door, si la región de un grupo de recursos no está disponible temporalmente, no puede actualizar los recursos del grupo de recursos porque los metadatos no están disponibles. Los recursos de otras regiones seguirán funcionando según lo previsto, pero no podrá actualizarlos. 
+   
+  Para más información sobre la creación de aplicaciones confiables, consulte [Diseño de aplicaciones de Azure confiables](/azure/architecture/checklist/resiliency-per-service).
 
 * Un grupo de recursos puede utilizarse para definir el ámbito de control de acceso para las acciones administrativas. Para administrar un grupo de recursos, se pueden asignar [directivas de Azure](../../governance/policy/overview.md), [roles de Azure](../../role-based-access-control/role-assignments-portal.md) o [bloqueos de recursos](lock-resources.md).
 

@@ -5,12 +5,12 @@ ms.service: azure-video-analyzer
 ms.topic: conceptual
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 35a7ad74c8f20ccf748140841332ee6e9b6cd27b
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: f463fafb4f11e935d45c42326c23e1a0e4ffb28f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131558808"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132297704"
 ---
 # <a name="connect-cameras-to-the-cloud"></a>Conexión de las cámaras a la nube
 
@@ -39,7 +39,7 @@ Este método permite que los dispositivos o cámaras RTSP se conecten a Video An
 
 Este método solo debe usarse para ejercicios de prueba de concepto supervisados, donde se puede admitir el permiso para que el servicio Video Analyzer acceda al dispositivo a través de Internet, sin un firewall. 
 
-Un caso de uso relacionado es cuando se implementa un módulo en una VM de Azure para simular una cámara RTSP, tal como se describe en este [inicio rápido](get-started-livepipelines-portal.md).
+Un caso de uso relacionado es cuando se implementa en una máquina virtual de Azure para simular una cámara RTSP, tal como se describe en este [inicio rápido](get-started-livepipelines-portal.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -9,12 +9,12 @@ author: lrtoyou1223
 ms.author: lle
 ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: 734c469afa43a178f5c7a50550426a47940b8f35
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8e0a2110458f57fb5485d982b6114574ac220eb5
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124820035"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132373372"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 
@@ -74,7 +74,7 @@ No se admite la instalación del entorno de ejecución de integración autohospe
 - Las ejecuciones de la actividad de copia se producen con una frecuencia concreta. El uso del procesador y la RAM en la máquina sigue el mismo patrón en los momentos de máxima actividad y en los de inactividad. El uso de recursos también depende en gran medida de la cantidad de datos que se mueven. Cuando hay varios trabajos de copia en curso, puede ver que el uso de los recursos aumenta durante las horas pico.
 - Puede que las tareas produzcan errores durante la extracción de datos en formatos Parquet, ORC o Avro. Para obtener más información sobre Parquet, consulte [Formato Parquet en Azure Data Factory](./format-parquet.md#using-self-hosted-integration-runtime). La creación del archivo se ejecuta en la máquina de integración autohospedada. Para que funcione según lo esperado, la creación del archivo requiere los siguientes requisitos previos:
   - Paquete [redistribuible de Visual C++ 2010](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) (x64)
-  - Versión 8 de Java Runtime (JRE) de un proveedor de JRE, como [AdoptOpenJDK](https://adoptopenjdk.net/). Asegúrese de que la variable de entorno `JAVA_HOME` esté establecida en la carpeta JRE (y no solo en la carpeta JDK).
+  - Versión 8 de Java Runtime (JRE) de un proveedor de JRE, como [AdoptOpenJDK](https://adoptopenjdk.net/). Asegúrese de que la variable de entorno JAVA_HOME esté establecida en la carpeta JDK (y no solo en la carpeta JRE).
 
 >[!NOTE]
 >Si va a ejecutarlo en una nube gubernamental, consulte [Conexión a una nube gubernamental](../azure-government/documentation-government-get-started-connect-with-ps.md).

@@ -1,22 +1,22 @@
 ---
-title: Creación de un laboratorio
-description: Este artículo le guiará por el proceso de creación de un laboratorio mediante Azure Portal y Azure DevTest Labs.
-ms.topic: how-to
-ms.date: 10/27/2021
-ms.openlocfilehash: ffec989e93bcd394c175a2b4a19c4cb72978beb0
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+title: 'Inicio rápido: Creación de un laboratorio en Azure Portal'
+description: En este inicio rápido, creará un laboratorio mediante Azure Portal y Azure DevTest Labs.
+ms.topic: quickstart
+ms.date: 11/04/2021
+ms.openlocfilehash: 5f86c09c4f2d6fab4ad590d7e0bf62194c666e10
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131464503"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286400"
 ---
-# <a name="create-a-lab-in-azure-devtest-labs"></a>Creación de un laboratorio con Laboratorios de desarrollo y pruebas de Azure
+# <a name="quickstart-create-a-lab-in-azure-devtest-labs-in-azure-portal"></a>Inicio rápido: Creación de un laboratorio de Azure DevTest Labs en Azure Portal
 
-Azure DevTest Labs abarca un grupo de recursos, como máquinas virtuales (VM) y redes de Azure. Esta infraestructura permite administrar mejor esos recursos mediante la especificación de límites y cuotas. Este artículo le guiará a través del proceso de creación de un laboratorio mediante Azure Portal.
+Para empezar a trabajar con Azure DevTest Labs, use Azure Portal para crear un laboratorio. Azure DevTest Labs abarca un grupo de recursos, como máquinas virtuales (VM) y redes de Azure. Esta infraestructura permite administrar mejor esos recursos mediante la especificación de límites y cuotas. Este inicio rápido le guiará a través del proceso de creación de un laboratorio mediante Azure Portal.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
-Suscripción a Azure. Para información sobre las opciones de compra de Azure, consulte [Instrucciones para contratar Azure](https://azure.microsoft.com/pricing/purchase-options/) o [Evaluación gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/). Debe ser el propietario de la suscripción para crear el laboratorio.
+Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Debe ser el propietario de la suscripción para crear el laboratorio.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -72,7 +72,7 @@ Proporcione la siguiente información:
 |Propiedad | Descripción |
 |---|---|
 |Red virtual| Mantenga el valor predeterminado o seleccione uno existente en la lista desplegable. Las redes virtuales están aisladas lógicamente entre sí en Azure. De manera predeterminada, las máquinas virtuales de la misma red virtual pueden acceder unas a otras.|
-|Subred| Mantenga el valor predeterminado o seleccione uno existente en la lista desplegable. Una subred es un intervalo de direcciones IP de la red virtual que se puede usar para aislar máquinas virtuales entre sí o de Internet.|
+|Subnet| Mantenga el valor predeterminado o seleccione uno existente en la lista desplegable. Una subred es un intervalo de direcciones IP de la red virtual que se puede usar para aislar máquinas virtuales entre sí o de Internet.|
 
 :::image type="content" source="./media/devtest-lab-create-lab/portal-create-networking.png" alt-text="Captura de pantalla de los detalles de red.":::
 
@@ -105,11 +105,24 @@ En la pestaña **Revisar y crear** se validan todas las configuraciones. Si toda
 
     :::image type="content" source="./media/devtest-lab-create-lab/lab-home-page.png" alt-text="Captura de pantalla de la página de información general de DevTest Labs.":::
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Elimine los recursos para evitar cargos por ejecutar el laboratorio en Azure. Si tiene previsto seguir el siguiente artículo para agregar una máquina virtual al laboratorio, puede limpiar los recursos después de finalizar ese artículo. De lo contrario, siga estos pasos.
+
+1. Vuelva a la página principal del laboratorio que ha creado.
+
+1. Seleccione **Eliminar** en el menú superior.
+
+   :::image type="content" source="./media/devtest-lab-create-lab/portal-lab-delete.png" alt-text="Captura de pantalla del botón Eliminar del laboratorio.":::
+
+1. En la página **¿Seguro que quiere eliminarlo?** , escriba el nombre del laboratorio en el cuadro de texto y seleccione **Eliminar**.
+
+1. Durante la eliminación, puede seleccionar **Notificaciones** en la parte superior de la pantalla para ver el progreso. La eliminación del laboratorio tarda un rato. Cuando se haya eliminado el laboratorio, continúe con el paso siguiente.
+
+1. Si creó el laboratorio en un grupo de recursos existente, se habrán quitado todos los recursos del laboratorio. Si creó un grupo de recursos para este tutorial, ahora está vacío y se puede eliminar. No habría sido posible eliminar el grupo de recursos anteriormente mientras el laboratorio todavía pertenecía a él.
+
 ## <a name="next-steps"></a>Pasos siguientes
+En este inicio rápido, ha creado un laboratorio. Para aprender a agregar una máquina virtual, pase al siguiente artículo:
 
-Una vez creado el laboratorio, le presentamos algunos pasos que se deben tener en cuenta:
-
-* [Adición de una máquina virtual a un laboratorio](devtest-lab-add-vm.md)
-* [Acceso seguro a un laboratorio](devtest-lab-add-devtest-user.md)
-* [Definición de directivas de laboratorio](devtest-lab-set-lab-policy.md)
-
+> [!div class="nextstepaction"]
+> [Creación y adición de máquinas virtuales a un laboratorio en Azure DevTest Labs](devtest-lab-add-vm.md)

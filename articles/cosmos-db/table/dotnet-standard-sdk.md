@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/03/2021
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 47d0862eefd713aa814ab7da2737565c33160cd3
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: fdf88bd530eedb37ff2637c7daf43433d9a0e427
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131559302"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284424"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Table API de .NET Standard de Azure Cosmos DB: descarga y notas de la versión
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
@@ -76,7 +76,8 @@ La serie 1.0.0 toma la dependencia de [Microsoft.Azure.DocumentDB.Core](https://
 * Versión de disponibilidad general
 
 ### <a name="0110-preview"></a><a name="0.11.0-preview"></a>0.11.0-preview
-* Se realizaron cambios en cómo se puede configurar CloudTableClient. Ahora toma una un objeto TableClientConfiguration durante la construcción. TableClientConfiguration proporciona diferentes propiedades para configurar el comportamiento del cliente dependiendo de si el punto de conexión de destino es Table API de Cosmos DB o Table API de Azure Storage.
+
+* Se realizaron cambios en cómo se puede configurar CloudTableClient. Ahora toma un objeto TableClientConfiguration durante la construcción. TableClientConfiguration proporciona diferentes propiedades para configurar el comportamiento del cliente dependiendo de si el punto de conexión de destino es Table API de Cosmos DB o Table API de Azure Storage.
 * Se agregó compatibilidad para TableQuery para que devuelva resultados en el criterio de ordenación de una columna personalizada. Esta característica solo se admite en los puntos de conexión de Table de Cosmos DB.
 * Se agregó compatibilidad para exponer RequestCharges en varios tipos de resultados. Esta característica solo se admite en los puntos de conexión de Table de Cosmos DB.
 

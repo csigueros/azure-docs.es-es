@@ -7,14 +7,14 @@ ms.author: aahi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 09/09/2021
+ms.date: 11/09/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5651f4241cb206413dc0a669965c006efce042b6
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: 2c1f9d8783ca293898ff77f851ac928c1b94413e
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131894908"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137883"
 ---
 # <a name="luis-role-based-access-control"></a>Control de acceso basado en rol de LUIS
 
@@ -67,14 +67,16 @@ Un usuario que solo debería validar y revisar las aplicaciones de LUIS. Normalm
         * Prueba de la aplicación
     :::column-end:::
     :::column span="":::
-      * Todas las API GET en: 
-         * [API de programación de LUIS v3.0 (versión preliminar)](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f)
-         * [API de programación de LUIS v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)
-      * Todas las API en: 
-         * [API de punto de conexión de LUIS v2.0](https://chinaeast2.dev.cognitive.azure.cn/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)
-         * [API de punto de conexión de LUIS v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8)
-         * [API de punto de conexión de LUIS v3.0 (versión preliminar)](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a9459a1fe8fa44c28dd8)
-      * Todas las API web de pruebas por lotes
+      Todas las API GET en: 
+        * [API de programación de LUIS v3.0 (versión preliminar)](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f)
+        * [API de programación de LUIS v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)
+
+      Todas las API en: 
+        * [API de punto de conexión de LUIS v2.0](https://chinaeast2.dev.cognitive.azure.cn/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)
+        * [API de punto de conexión de LUIS v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8)
+        * [API de punto de conexión de LUIS v3.0 (versión preliminar)](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a9459a1fe8fa44c28dd8)
+
+      Todas las API web de pruebas por lotes
     :::column-end:::
 :::row-end:::
 
@@ -92,25 +94,28 @@ Un usuario que es responsable de compilar y modificar la aplicación de LUIS com
 :::row-end:::
 :::row:::
     :::column span="":::
-      * Todas las funcionalidades del rol de lector de LUIS de Cognitive Services.
-      * Capacidad de agregar: 
-          * Grabaciones de voz
-          * Intenciones
-          * Entidades
+      * Todas las funcionalidades del rol de lector de LUIS de Cognitive Services. 
+
+      La capacidad de agregar: 
+        * Grabaciones de voz
+        * Intenciones
+        * Entidades
     :::column-end:::
     :::column span="":::
       * Todas las API del lector de LUIS
-      * Todas las API POST, PUT y DELETE en:
-         * [API de programación de LUIS v3.0 (versión preliminar)](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f)
-         * [API de programación de LUIS v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2d)
 
-          Excepto para:
-          * [Eliminar aplicación](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c39)
-          * [Trasladar la aplicación a otro recurso de Azure de creación de LUIS](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/apps-move-app-to-another-luis-authoring-azure-resource)
-          * [Publicar una aplicación](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c3b)
-          * [ Actualización de la configuración de la aplicación](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58aeface39e2bb03dcd5909e)
-          * [Asignar una cuenta de Azure de LUIS a una aplicación](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5be32228e8473de116325515)
-          * [Eliminar una cuenta de Azure de LUIS asignada de una aplicación](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5be32554f8591db3a86232e1)
+      Todas las API POST, PUT y DELETE en:
+
+        * [API de programación de LUIS v3.0 (versión preliminar)](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f)
+        * [API de programación de LUIS v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2d)
+
+        Excepto para:
+        * [Eliminar aplicación](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c39)
+        * [Trasladar la aplicación a otro recurso de Azure de creación de LUIS](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/apps-move-app-to-another-luis-authoring-azure-resource)
+        * [Publicar una aplicación](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c3b)
+        * [ Actualización de la configuración de la aplicación](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58aeface39e2bb03dcd5909e)
+        * [Asignar una cuenta de Azure de LUIS a una aplicación](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5be32228e8473de116325515)
+        * [Eliminar una cuenta de Azure de LUIS asignada de una aplicación](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5be32554f8591db3a86232e1)
     :::column-end:::
 :::row-end:::
 

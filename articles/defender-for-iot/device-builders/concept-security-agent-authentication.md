@@ -1,14 +1,14 @@
 ---
 title: Autenticación del agente de seguridad (versión preliminar)
 description: Existen dos métodos para realizar la autenticación de microagentes.
-ms.date: 1/20/2021
+ms.date: 11/09/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8dd8abaedaaababf4d84330c5bf8cb030bac55bd
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 2323a833d819a45eb3956cb89d155184b34ef058
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018226"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132290008"
 ---
 # <a name="micro-agent-authentication-methods-preview"></a>Métodos de autenticación de microagentes (versión preliminar)
 
@@ -20,7 +20,7 @@ Hay dos opciones para la autenticación con el microagente de Defender para IoT:
 
 ## <a name="authentication-using-a-connection-string"></a>Autenticación mediante una cadena de conexión 
 
-Para usar una cadena de conexión, es preciso agregar un archivo que utilice la cadena de conexión codificada en UTF-8 en el directorio del agente de Defender en un archivo denominado `connection_string.txt`. Por ejemplo,
+Para usar una cadena de conexión, es preciso agregar un archivo que utilice la cadena de conexión codificada en UTF-8 en el directorio del agente de Defender for Cloud, en un archivo denominado `connection_string.txt`. Por ejemplo,
 
 ```azurecli
 echo “<connection string>” > connection_string.txt 
@@ -37,15 +37,15 @@ sudo systemctl restart defender-iot-micro-agent.service
 
 Para realizar la autenticación mediante un certificado: 
 
-1. Coloque la parte pública con codificación PEM de un certificado en el directorio del agente de Defender, en un archivo denominado `certificate_public.pem`.
-1. Coloque la clave privada con codificación PEM en el directorio del agente de Defender, en un archivo denominado `certificate_private.pem`.
+1. Coloque la parte pública con codificación PEM de un certificado en el directorio del agente de Defender for Cloud, en un archivo denominado `certificate_public.pem`.
+1. Coloque la clave privada con codificación PEM en el directorio del agente de Defender, for Cloud, en un archivo denominado `certificate_private.pem`.
 1. Coloque la cadena de conexión adecuada en un archivo denominado `connection_string.txt`. Por ejemplo,
 
     ```azurecli
     HostName=<the host name of the iot hub>;DeviceId=<the id of the device>;ModuleId=<the id of the module>;x509=true 
     ```
 
-    Esta acción indica que el agente de Defender esperará que se proporcione un certificado para la autenticación. 
+    Esta acción indica que el agente de Defender for Cloud esperará que se proporcione un certificado para la autenticación. 
 
 1. Utilice el siguiente código para reiniciar el servicio: 
 

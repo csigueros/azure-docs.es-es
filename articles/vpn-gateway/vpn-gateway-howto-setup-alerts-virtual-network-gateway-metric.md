@@ -7,31 +7,40 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 05fbc5675d6ee3b6720d9db9e07e7010cf1d9172
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e17f86d08b5892c7df0a761e53e1f16dd43f127a
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89435664"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158312"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Configuración de alertas en métricas de VPN Gateway
 
 Este artículo le ayuda a configurar alertas en métricas de Azure VPN Gateway. Azure Monitor proporciona la capacidad de configurar alertas para los recursos de Azure. Puede configurar alertas para las puertas de enlace de red virtual del tipo "VPN".
 
-
-|**Métrica**   | **Unidad** | **Granularidad** | **Descripción** | 
-|---       | ---        | ---       | ---            | ---       |
-|**AverageBandwidth**| Bytes por segundo  | 5 minutos| Promedio de uso de ancho de banda combinado de todas las conexiones de sitio a sitio en la puerta de enlace.     |
-|**P2SBandwidth**| Bytes por segundo  | 1 minuto.  | Promedio de uso de ancho de banda combinado de todas las conexiones de punto a sitio en la puerta de enlace.    |
-|**P2SConnectionCount**| Count  | 1 minuto.  | Recuento de las conexiones de punto a sitio en la puerta de enlace.   |
-|**TunnelAverageBandwidth** | Bytes por segundo    | 5 minutos  | Promedio de utilización del ancho de banda de los túneles creados en la puerta de enlace. |
-|**TunnelEgressBytes** | Bytes | 5 minutos | Tráfico saliente en los túneles creados en la puerta de enlace.   |
-|**TunnelEgressPackets** | Count | 5 minutos | Recuento de los paquetes salientes en los túneles creados en la puerta de enlace.   |
-|**TunnelEgressPacketDropTSMismatch** | Count | 5 minutos | Recuento de los paquetes salientes eliminados de los túneles por un error de coincidencia del selector de tráfico. |
-|**TunnelIngressBytes** | Bytes | 5 minutos | Tráfico entrante en los túneles creados en la puerta de enlace.   |
-|**TunnelIngressPackets** | Count | 5 minutos | Recuento de los paquetes entrantes en los túneles creados en la puerta de enlace.   |
-|**TunnelIngressPacketDropTSMismatch** | Count | 5 minutos | Recuento de los paquetes entrantes eliminados de los túneles por un error de coincidencia del selector de tráfico. |
-
+| **Métrica**                                 | **Unidad**     | **Granularidad**     | **Descripción**                                                                         |
+| -------------------------------------------| ------------ | ------------------- | --------------------------------------------------------------------------------------- |
+| **BGP Peer Status**                        | Count        | 5 minutos           | Estado de conectividad medio de BGP por pares y por instancias.                              |
+| **BGP Routes Advertised**                  | Count        | 5 minutos           | Número de rutas anunciadas por pares y por instancias.                                  |
+| **BGP Routes Learned**                     | Count        | 5 minutos           | Número de rutas aprendidas por pares y por instancias.                                     |
+| **Ancho de banda P2S de puerta de enlace**                  | Bytes por segundo      | 1 minuto.            | Promedio de uso de ancho de banda combinado de todas las conexiones de punto a sitio en la puerta de enlace. |
+| **Ancho de banda S2S de puerta de enlace**                  | Bytes por segundo      | 5 minutos           | Promedio de uso de ancho de banda combinado de todas las conexiones de sitio a sitio en la puerta de enlace.  |
+| **Recuento de conexiones P2S**                   | Count        | 1 minuto.            | Recuento de las conexiones de punto a sitio en la puerta de enlace.                                      |
+| **Ancho de banda de túnel**                       | Bytes por segundo      | 5 minutos           | Promedio de utilización del ancho de banda de los túneles creados en la puerta de enlace.                        |
+| **Bytes de salida de túnel**                    | Bytes        | 5 minutos           | Número de bytes salientes de un túnel.                                                 |
+| **Tunnel Egress Packet Drop Count**        | Count        | 5 minutos           | Número de paquetes salientes eliminados por un túnel.                                         |
+| **Paquetes de salida de túnel**                  | Count        | 5 minutos           | Número de paquetes salientes de un túnel.                                               |
+| **Colocación de paquetes con error de coincidencia del selector de tráfico de túnel de salida**  | Count        | 5 minutos           | Número de paquetes salientes eliminados por los túneles por un error de coincidencia del selector de tráfico.      |
+| **Bytes de salida de túnel**                   | Bytes        | 5 minutos           | Número de bytes entrantes a un túnel.                                                   |
+| **Tunnel Ingress Packet Drop Count**       | Count        | 5 minutos           | Número de paquetes entrantes eliminados por un túnel.                                         |
+| **Paquetes de entrada de túnel**                 | Count        | 5 minutos           | Número de paquetes entrantes a un túnel.                                                 |
+| **Colocación de paquetes con error de coincidencia del selector de tráfico de túnel de entrada** | Count        | 5 minutos           | Número de paquetes entrantes eliminados por los túneles por un error de coincidencia del selector de tráfico.      |
+| **Tunnel MMSA Count**                      | Count        | 5 minutos           | Número de asociaciones de seguridad del modo principal presentes.                                      |
+| **Tunnel Peak PPS**                        | Count        | 5 minutos           | Número máximo de paquetes por segundo por túnel.                                            |
+| **Tunnel QMSA Count**                      | Count        | 5 minutos           | Número de asociaciones de seguridad del modo rápido presentes.                                     |
+| **Recuento total de flujos del túnel**                | Count        | 5 minutos           | Número de flujos distintos creados por túnel.                                            |
+| **Recuento de rutas de VPN de usuario**                   | Count        | 5 minutos           | Número de rutas VPN de usuario configuradas en VPN Gateway.                                |
+| **Recuento de prefijos de dirección de la red virtual**              | Count        | 5 minutos           | Número de prefijos de dirección de red virtual que usa o anuncia la puerta de enlace.                |
 
 ## <a name="set-up-azure-monitor-alerts-based-on-metrics-by-using-the-azure-portal"></a><a name="setup"></a>Configuración de alertas de Azure Monitor basadas en métricas mediante Azure Portal
 

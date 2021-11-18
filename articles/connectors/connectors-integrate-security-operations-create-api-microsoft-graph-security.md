@@ -9,16 +9,16 @@ ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: b32d5aee270e3380899a81f49b12a55c468f2bc5
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: f6661a794e03bdeb1069b0f04a25d8bf8abdcdc1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122865015"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132297684"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Mejore la protección frente a amenazas mediante la integración de las operaciones de seguridad con Microsoft Graph Security y Azure Logic Apps.
 
-Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el conector [Microsoft Graph Security](/graph/security-concept-overview), puede mejorar cómo la aplicación detecta, protege y responde frente a las amenazas mediante la creación de flujos de trabajo automatizados para la integración de productos, servicios y asociados de seguridad de Microsoft. Por ejemplo, puede crear [cuadernos de estrategias de Azure Security Center](../security-center/workflow-automation.md) que supervisen y administren las entidades de seguridad de Microsoft Graph, como las alertas. Estos son algunos de los escenarios admitidos por el conector Microsoft Graph Security:
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el conector [Microsoft Graph Security](/graph/security-concept-overview), puede mejorar cómo la aplicación detecta, protege y responde frente a las amenazas mediante la creación de flujos de trabajo automatizados para la integración de productos, servicios y asociados de seguridad de Microsoft. Por ejemplo, puede crear [cuadernos de estrategias de Microsoft Defender for Cloud](../security-center/workflow-automation.md) que supervisen y administren las entidades de seguridad de Microsoft Graph, como es el caso de las alertas. Estos son algunos de los escenarios admitidos por el conector Microsoft Graph Security:
 
 * Obtención de alertas basadas en consultas o por identificador de alerta. Por ejemplo, puede obtener una lista que incluya alertas de gravedad alta.
 
@@ -117,8 +117,8 @@ Para más información sobre las consultas que puede usar con este conector, con
 
 | Acción | Descripción |
 |--------|-------------|
-| **Obtener alertas** | Obtenga alertas filtrada por una o varias [propiedades de alerta](/graph/api/resources/alert), por ejemplo, `Provider eq 'Azure Security Center' or 'Palo Alto Networks'`. | 
-| **Obtener alerta por identificador** | Obtenga una alerta específica según el identificador de alerta. | 
+| **Obtener alertas** | Obtenga alertas filtrada por una o varias [propiedades de alerta](/graph/api/resources/alert), por ejemplo, `Provider eq 'Azure Security Center' or 'Palo Alto Networks'`. |
+| **Obtener alerta por identificador** | Obtenga una alerta específica según el identificador de alerta. |
 | **Actualizar alerta** | Actualice una alerta específica según el identificador de alerta. Para asegurarse de que pasa las propiedades obligatorias y modificables en la solicitud, consulte las [propiedades editables para alertas](/graph/api/alert-update). Por ejemplo, para asignar una alerta a un analista de seguridad para que puede investigarla, puede actualizar la propiedad **Assigned to** (Asignado a) de la alerta. |
 |||
 

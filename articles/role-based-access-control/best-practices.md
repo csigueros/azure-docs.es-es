@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: d58398c42cdc6faed758e5dba3431e0841fc0b03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f42a384c0ef8605de42243fcbb232d3ff615583
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555563"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301350"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Procedimientos recomendados para Azure RBAC
 
@@ -34,7 +34,7 @@ Para más información sobre la asignación de roles, consulte [Asignaciones de 
 
 ## <a name="limit-the-number-of-subscription-owners"></a>Limitación del número de propietarios de suscripciones
 
-Debe tener un máximo de 3 propietarios de suscripción para reducir el riesgo de vulneración por parte de un propietario en peligro. Esta recomendación se puede supervisar en Azure Security Center. Para otras recomendaciones de identidad y acceso en Security Center, consulte [Guía de referencia sobre las recomendaciones de seguridad](../security-center/recommendations-reference.md).
+Debe tener un máximo de 3 propietarios de suscripción para reducir el riesgo de vulneración por parte de un propietario en peligro. Esta recomendación se puede supervisar en Microsoft Defender for Cloud. En el caso de otras recomendaciones de identidad y acceso en Defender for Cloud, consulte [Guía de referencia sobre las recomendaciones de seguridad](../security-center/recommendations-reference.md).
 
 ## <a name="use-azure-ad-privileged-identity-management"></a>Utilice Azure AD Privileged Identity Management
 

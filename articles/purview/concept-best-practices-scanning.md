@@ -8,16 +8,16 @@ ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 10/08/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 85dc954dcb352f9bc2447e72322d35e8d5e73cb3
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 2313d8b544355dd2bdf5ca528faffbcc17f848e9
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131552665"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132309668"
 ---
 # <a name="azure-purview-scanning-best-practices"></a>Procedimientos recomendados de análisis de Azure Purview
 
-Azure Purview admite el análisis automatizado de orígenes de datos locales, en varias nubes y SaaS. Al ejecutar un "examen", se invoca el proceso para ingerir metadatos de los orígenes de datos registrados. Los metadatos seleccionados al final del proceso de examen y conservación incluyen metadatos técnicos como nombres de recursos de datos (nombres de tabla o nombres de archivo), el tamaño del archivo, las columnas y el linaje de datos, entre otros. En cuanto a los orígenes de datos estructurados (por ejemplo, el Sistema de administración de bases de datos relacionales), también se capturan los detalles del esquema. El proceso de protección aplica etiquetas de clasificación automatizadas en los atributos del esquema en función del conjunto de reglas de examen configurado y de las etiquetas de confidencialidad, si la cuenta de Purview está conectada a un centro de seguridad y cumplimiento (SCC) de Microsoft 365. 
+Azure Purview admite el análisis automatizado de orígenes de datos locales, en varias nubes y SaaS. Al ejecutar un "examen", se invoca el proceso para ingerir metadatos de los orígenes de datos registrados. Los metadatos seleccionados al final del proceso de examen y conservación incluyen metadatos técnicos como nombres de recursos de datos (nombres de tabla o nombres de archivo), el tamaño del archivo, las columnas y el linaje de datos, entre otros. En cuanto a los orígenes de datos estructurados (por ejemplo, el Sistema de administración de bases de datos relacionales), también se capturan los detalles del esquema. El proceso de protección aplica etiquetas de clasificación automatizadas en los atributos del esquema en función del conjunto de reglas de examen configurado y de las etiquetas de confidencialidad, si la cuenta de Purview está conectada a un centro de seguridad y cumplimiento de Microsoft 365.
 
 ## <a name="intended-audience"></a>Destinatarios
 

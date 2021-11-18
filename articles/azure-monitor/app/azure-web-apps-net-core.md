@@ -4,12 +4,12 @@ description: Supervisión del rendimiento de aplicaciones para Azure App Service
 ms.topic: conceptual
 ms.date: 08/05/2021
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 4bb5df82dcfd045100b4fe41c70538504cf2566b
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 747b79affc2cb2ef862c1fb4000879ddbbe5b9f5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131508238"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132308795"
 ---
 # <a name="application-monitoring-for-azure-app-service-and-aspnet-core"></a>Supervisión de aplicaciones para Azure App Service mediante ASP.NET Core 
 
@@ -22,6 +22,8 @@ Habilitar la supervisión en sus aplicaciones web basadas en ASP.NET Core que se
 > [!IMPORTANT]
 > Se admiten las siguientes versiones de ASP.NET Core para la instrumentación automática en Windows: ASP.NET Core 3.1, 5.0 y 6.0. Las versiones 2.0, 2.1, 2.2 y 3.0 se han retirado y ya no se admiten. Actualice a una [versión compatible](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) de .NET Core para que la instrumentación automática funcione.
 
+[No se admite](/dotnet/core/deploying/trimming/trim-self-contained)el **recorte de implementaciones independientes**. En su lugar, use [instrumentación manual](./asp-net-core.md) por medio de código.
+
 Vea la sección [Habilitar supervisión](#enable-monitoring ) a continuación para empezar a configurar Application Insights con el recurso de App Service. 
 
 # <a name="linux"></a>[Linux](#tab/Linux)
@@ -32,7 +34,7 @@ Vea la sección [Habilitar supervisión](#enable-monitoring ) a continuación pa
 > [!NOTE]
 > La instrumentación automática de Linux del portal de App Services está en versión preliminar pública. Estas versiones preliminares se proporcionan sin contrato de nivel de servicio. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 
- En Linux, se admiten la [implementación dependiente del marco](/dotnet/core/deploying/#publish-framework-dependent) y la [implementación independiente](/dotnet/core/deploying/#publish-self-contained). 
+[No se admite](/dotnet/core/deploying/trimming/trim-self-contained)el **recorte de implementaciones independientes**. En su lugar, use [instrumentación manual](./asp-net-core.md) por medio de código.
 
 Vea la sección [Habilitar supervisión](#enable-monitoring ) a continuación para empezar a configurar Application Insights con el recurso de App Service. 
 

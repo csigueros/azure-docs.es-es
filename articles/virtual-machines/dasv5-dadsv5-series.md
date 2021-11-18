@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 10/8/2021
-ms.openlocfilehash: 2a4a48a66def1633aea5b85d9e51bdcf8bc1378e
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: c9f2c270f8794effccd8439edd57422db15b71b6
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478256"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989933"
 ---
 # <a name="dasv5-and-dadsv5-series"></a>Series Dasv5 y Dadsv5
 
@@ -23,7 +23,7 @@ Las series Dasv5 y Dadsv5 usan el procesador de tercera generación EPYC<sup>T
 
 ## <a name="dasv5-series"></a>Serie Dasv5
 
-Las máquinas virtuales de la serie Dasv5 usan procesadores de tercera generación EPYC<sup>TM</sup> 7763v de AMD que pueden lograr una frecuencia máxima aumentada de 3,7 GHz. Los tamaños de la serie Dasv5 ofrecen una combinación de CPU virtual y memoria para la mayoría de las cargas de trabajo de producción. Las nuevas máquinas virtuales sin disco local proporcionan una mejor propuesta de valor para las cargas de trabajo que no requieren disco temporal local.
+Las máquinas virtuales de la serie Dasv5 usan procesadores de tercera generación EPYC<sup>TM</sup> 7763v de AMD que pueden lograr una frecuencia máxima aumentada de 3,5 GHz. Los tamaños de la serie Dasv5 ofrecen una combinación de CPU virtual y memoria para la mayoría de las cargas de trabajo de producción. Las nuevas máquinas virtuales sin disco local proporcionan una mejor propuesta de valor para las cargas de trabajo que no requieren disco temporal local.
 
 > [!NOTE]
 > Para ver las preguntas más frecuentes, consulte [Tamaños de máquina virtual de Azure sin disco temporal local](azure-vms-no-temp-disk.yml).
@@ -55,7 +55,7 @@ Las máquinas virtuales de la serie Dasv5 admiten los tipos de disco SSD estánd
 
 ## <a name="dadsv5-series"></a>Dadsv5-series
 
-La serie Dadsv5 usa procesadores de tercera generación EPYC<sup>TM</sup> 7763v de AMD que pueden lograr una frecuencia máxima aumentada de 3,7 GHz. Los tamaños de la serie Dadsv5 ofrecen una combinación de CPU virtual, memoria y almacenamiento temporal adecuados para la mayoría de las cargas de trabajo de producción. Las nuevas máquinas virtuales tienen un almacenamiento local un 50 % superior, así como un mejor IOPS del disco local para la lectura y la escritura, en comparación con los tamaños [Dav4/Dasv4](dav4-dasv4-series.md) de las máquinas virtuales de [segunda generación](generation-2.md).
+La serie Dadsv5 usa procesadores de tercera generación EPYC<sup>TM</sup> 7763v de AMD que pueden lograr una frecuencia máxima aumentada de 3,5 GHz. Los tamaños de la serie Dadsv5 ofrecen una combinación de CPU virtual, memoria y almacenamiento temporal adecuados para la mayoría de las cargas de trabajo de producción. Las nuevas máquinas virtuales tienen un almacenamiento local un 50 % superior, así como un mejor IOPS del disco local para la lectura y la escritura, en comparación con los tamaños [Dav4/Dasv4](dav4-dasv4-series.md) de las máquinas virtuales de [segunda generación](generation-2.md).
 
 Las máquinas virtuales de la serie Dadsv5 admiten los tipos de disco SSD estándar, HDD estándar y SSD prémium. También puede conectar almacenamiento en disco Ultra en función de su disponibilidad regional. El almacenamiento en disco se factura independientemente de las máquinas virtuales. [Consulte los precios de los discos](https://azure.microsoft.com/pricing/details/managed-disks/).
 
@@ -71,7 +71,7 @@ Las máquinas virtuales de la serie Dadsv5 admiten los tipos de disco SSD están
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal: IOPS/Mbps | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Rendimiento máximo del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>1</sup> | Nº máx. NIC | Ancho de banda de red máx. (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_D2ads_v5  | 2  | 8   | 75   | 4  | 9000/125    | 3750/82    | 10 000/600  | 2 | 12500  |
-| Standard_D4ads_v5  | 4  | 16  | 150  | 8  | 19 000/250   | 6400/144   | 20 000/600  | 2 | 12500  |
+| Standard_D4ads_v5  | 4  | 16  | 150  | 8  | 19000/250   | 6400/144   | 20 000/600  | 2 | 12500  |
 | Standard_D8ads_v5  | 8  | 32  | 300  | 16 | 38 000/500   | 12 800/200  | 20 000/600  | 4 | 12500  |
 | Standard_D16ads_v5 | 16 | 64  | 600  | 32 | 75 000/1000  | 25600/384  | 40 000/800  | 8 | 12500 |
 | Standard_D32ads_v5 | 32 | 128 | 1200 | 32 | 150 000/2000 | 51200/768  | 80 000/1000 | 8 | 16000 |

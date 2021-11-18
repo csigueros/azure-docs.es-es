@@ -11,12 +11,12 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, mlflow, devplatv2, no-code-deployment
-ms.openlocfilehash: 9e0b4944ee077248b2be2a11fdd4bacbc5af9824
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: a2328490185032e805a95f85b430d6742c76435c
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131842615"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132289895"
 ---
 # <a name="deploy-mlflow-models-to-managed-online-endpoint-preview"></a>Implementación de modelos de MLflow en un punto de conexión en línea administrado (versión preliminar)
 
@@ -24,17 +24,17 @@ En este artículo, aprenderá a implementar el modelo de [MLflow](https://www.ml
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
 
-* Debe tener un modelo de MLflow. Los ejemplos de este artículo se basan en los modelos de [https://github.com/Azure/azureml-examples/tree/cli-preview/cli/endpoints/online/mlflow](https://github.com/Azure/azureml-examples/tree/cli-preview/cli/endpoints/online/mlflow).
+* Debe tener un modelo de MLflow. Los ejemplos de este artículo se basan en los modelos de [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/mlflow](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/mlflow).
 
 [!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
 
 En los fragmentos de código usados en este artículo, la variable de entorno `ENDPOINT_NAME` contiene el nombre del punto de conexión que se va a crear y usar. Para establecerlo, use el siguiente comando de la CLI. Reemplace `<YOUR_ENDPOINT_NAME>` por el nombre del punto de conexión:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-mlflow.sh" ID="set_endpoint_name":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="set_endpoint_name":::
 
 ## <a name="deploy-using-cli-v2"></a>Implementación mediante la CLI (v2)
 
@@ -47,11 +47,11 @@ En este ejemplo se muestra cómo implementar un modelo de MLflow en un punto de 
 
     __create-endpoint.yaml__
 
-    :::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/mlflow/create-endpoint.yaml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/create-endpoint.yaml":::
 
 1. Para crear un nuevo punto de conexión mediante la configuración de YAML, use el siguiente comando:
 
-    :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_endpoint":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_endpoint":::
 
 1. Cree un archivo de configuración de YAML para la implementación. En el ejemplo siguiente se configura una implementación del modelo `sklearn-diabetes` en el punto de conexión creado en el paso anterior:
 
@@ -60,17 +60,21 @@ En este ejemplo se muestra cómo implementar un modelo de MLflow en un punto de 
 
     __sklearn-deployment.yaml__
 
-    :::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/mlflow/sklearn-deployment.yaml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sklearn-deployment.yaml":::
 
 1. Para crear la implementación mediante la configuración de YAML, use el siguiente comando:
 
-    :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_sklearn_deployment":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_sklearn_deployment":::
 
 ### <a name="invoke-the-endpoint"></a>Invocación del punto de conexión
 
-Una vez completada la implementación, use el siguiente comando para realizar una solicitud de puntuación al punto de conexión implementado. El archivo [sample-request-sklearn.json](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/endpoints/online/mlflow/sample-request-sklearn.json) usado en este comando se encuentra en el directorio `/cli/endpoints/online/mlflow` del repositorio azure-examples:
+Una vez completada la implementación, use el siguiente comando para realizar una solicitud de puntuación al punto de conexión implementado. El archivo [sample-request-sklearn.json](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/mlflow/sample-request-sklearn.json) usado en este comando se encuentra en el directorio `/cli/endpoints/online/mlflow` del repositorio azure-examples:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-mlflow.sh" ID="test_sklearn_deployment":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="test_sklearn_deployment":::
+
+**sample-request-sklearn.json**
+
+:::code language="json" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sample-request-sklearn.json":::
 
 La respuesta será similar al texto siguiente:
 
@@ -85,13 +89,13 @@ La respuesta será similar al texto siguiente:
 
 Una vez que haya terminado con el punto de conexión, use el siguiente comando para eliminarlo:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-mlflow.sh" ID="delete_endpoint":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="delete_endpoint":::
 
 ## <a name="deploy-using-azure-machine-learning-studio"></a>Implementación con Azure Machine Learning Studio
 
 En este ejemplo se muestra cómo puede implementar un modelo de MLflow en un punto de conexión en línea administrado mediante [Azure Machine Learning Studio](https://ml.azure.com).
 
-1. Registre el modelo con el formato de MLflow mediante el siguiente comando de YAML y la CLI. YAML usa un modelo scikit-learn de MLflow de [https://github.com/Azure/azureml-examples/tree/cli-preview/cli/endpoints/online/mlflow](https://github.com/Azure/azureml-examples/tree/cli-preview/cli/endpoints/online/mlflow).
+1. Registre el modelo con el formato de MLflow mediante el siguiente comando de YAML y la CLI. YAML usa un modelo scikit-learn de MLflow de [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/mlflow](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/mlflow).
 
     __sample-create-mlflow-model.yaml__
 
@@ -147,7 +151,7 @@ Esta sección le ayuda a comprender cómo implementar modelos en el punto de con
     > [!NOTE]
     > Si ha usado `mlflow.autolog()` en el script de entrenamiento, verá los artefactos del modelo en el historial de ejecución del trabajo. Azure Machine Learning se integra con la funcionalidad de seguimiento de MLflow. Puede usar `mlflow.autolog()` para que varios marcos de Machine Learning comunes registren parámetros de modelo, métricas de rendimiento, artefactos de modelo e incluso gráficos de importancia de características.
     >
-    > Para obtener más información, consulte [Entrenamiento de modelos con la CLI](how-to-train-cli.md#model-tracking-with-mlflow). Consulte también los [ejemplos de trabajo de entrenamiento](https://github.com/Azure/azureml-examples/tree/cli-preview/cli/jobs/single-step) en el repositorio de GitHub.
+    > Para obtener más información, consulte [Entrenamiento de modelos con la CLI](how-to-train-cli.md#model-tracking-with-mlflow). Consulte también los [ejemplos de trabajo de entrenamiento](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step) en el repositorio de GitHub.
 
     # <a name="azure-machine-learning-studio"></a>[Azure Machine Learning Studio](#tab/studio)
 

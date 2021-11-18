@@ -10,12 +10,12 @@ ms.subservice: azure-arc-data
 ms.date: 11/03/2021
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 384232e803469a2ccbe0480c0e4e41c01f96b7ee
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: ac5b33de1a95b413c7eba92d2bdeaa8cc05b3a05
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131852263"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132059571"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services"></a>Notas de la versión: servicios de datos habilitados para Azure Arc
 
@@ -67,27 +67,15 @@ Los comandos `sql` siguientes ahora admiten el modo de conexión directa:
 
 Puede continuar usando las variables de entorno `AZDATA_USERNAME` y `AZDATA_PASSWORD` como antes. Si solo proporciona `AZDATA_USERNAME` y `AZDATA_PASSWORD` y, a continuación, la implementación los usa para los paneles de registros y métricas.
 
-##### <a name="region-availability"></a>Disponibilidad regional
+##### <a name="region-availability"></a>Disponibilidad en regiones
 
-- El modo de conexión directa solo está disponible en las siguientes regiones de Azure para esta versión:
+Esta versión presenta la disponibilidad del modo de conexión directa en las siguientes regiones de Azure:
 
-   - Centro-norte de EE. UU
-   - Centro de EE. UU.
-   - Este de EE. UU.
-   - Este de EE. UU. 2
-   - Oeste de EE. UU.*
-   - Oeste de EE. UU. 2
-   - Oeste de EE. UU. 3*
-   - Sur de Reino Unido
-   - Oeste de Europa
-   - Norte de Europa
-   - Este de Australia
-   - Sudeste de Asia
-   - Centro de Corea del Sur
-   - Centro de Francia
+- Centro-Norte de EE. UU
+- Oeste de EE. UU.
+- Oeste de EE. UU. 3
 
-    \* Recién agregado para noviembre de 2011
-
+Para obtener una lista completa, consulte [Regiones admitidas](overview.md#supported-regions).
 
 #### <a name="azure-arc-enabled-sql-managed-instance"></a>SQL Managed Instance habilitado para Azure Arc
 

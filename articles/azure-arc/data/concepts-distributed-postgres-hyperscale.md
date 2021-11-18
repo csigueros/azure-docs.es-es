@@ -1,7 +1,7 @@
 ---
-title: Conceptos para la distribución de datos y el escalado horizontal del grupo de servidores de Hiperescala de PostgreSQL habilitada para Arc
+title: Conceptos para la distribución y el escalado horizontal de datos con un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 titleSuffix: Azure Arc-enabled data services
-description: Conceptos para la distribución de datos del grupo de servidores de Hiperescala de PostgreSQL habilitada para Arc
+description: Conceptos para la distribución de datos con un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -10,14 +10,14 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 69405ac6386587e6621c67532a8bd7f41450370e
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: aee8700274d074d94b6f6f8e1e153f256cb6e158
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113729945"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132294207"
 ---
-# <a name="concepts-for-distributing-data-with-arc-enabled-postgresql-hyperscale-server-group"></a>Conceptos para la distribución de datos del grupo de servidores de Hiperescala de PostgreSQL habilitada para Arc
+# <a name="concepts-for-distributing-data-with-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Conceptos para la distribución de datos con un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 
 En este artículo se explican los conceptos principales que son importantes para sacar el máximo partido de Hiperescala de PostgreSQL habilitada para Azure Arc.
 Los siguientes artículos vinculados señalan los conceptos explicados para Hiperescala (Citus) de Azure Database for PostgreSQL. Se trata de la misma tecnología de Hiperescala de PostgreSQL habilitada para Azure Arc, por lo que se aplican los mismos conceptos y perspectivas.
@@ -25,9 +25,9 @@ Los siguientes artículos vinculados señalan los conceptos explicados para Hipe
 **¿Cuál es la diferencia entre ellos?**
 - _Hiperescala (Citus) de Azure Database for PostgreSQL_
 
-Este es el factor de forma de hiperescala del motor de base de datos de Postgres disponible como base de datos como servicio en Azure (PaaS). Está basado en la extensión Citus, que habilita la experiencia de Hiperescala. En este factor de forma, el servicio se ejecuta en los centros de datos de Microsoft y es operado por Microsoft.
+Este es el factor de forma de hiperescala del motor de base de datos de Postgres disponible como base de datos como servicio en Azure (PaaS). Se basa en la extensión Citus, que habilita la experiencia de la Hiperescala. En este factor de forma, el servicio se ejecuta en los centros de datos de Microsoft y es operado por Microsoft.
 
-- _Hiperescala de PostgreSQL habilitada para Azure Arc_
+- _Hiperescala de PostgreSQL habilitado para Azure Arc_
 
 Este es el factor de forma de hiperescala del motor de base de datos de Postgres disponible con los servicios de datos habilitados para Azure Arc. En este factor de forma, los clientes proporcionan la infraestructura que hospeda los sistemas y los operan.
 
@@ -73,4 +73,3 @@ Consulte los detalles en [Coubicación de tablas](../../postgresql/concepts-hype
 - [Obtenga información acerca del escalado horizontal de los grupos de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc creados en el controlador de datos de Arc](scale-out-in-postgresql-hyperscale-server-group.md).
 - [Obtenga información sobre los servicios de datos habilitados para Azure Arc](https://azure.microsoft.com/services/azure-arc/hybrid-data-services).
 - [Obtenga información sobre Azure Arc](https://aka.ms/azurearc).
-

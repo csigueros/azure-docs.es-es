@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 11/09/2021
+ms.date: 11/10/2021
 ms.author: memildin
-ms.openlocfilehash: fa80d1891799aa1266a309552f5715e755cec8ab
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: fca622c8c49a16d9926a5fc1e8e0f0064ee758d7
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132057278"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157450"
 ---
 # <a name="important-upcoming-changes-to-microsoft-defender-for-cloud"></a>Próximos cambios importantes en Microsoft Defender for Cloud
 
@@ -32,11 +32,11 @@ Si busca las notas de la versión más recientes, puede encontrarlas en [Novedad
 |----------------------|---------------------------|
 | [Entrada en desuso de una alerta en versión preliminar: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)             | Noviembre de 2021|
 | [La implementación heredada de ISO 27001 se está reemplazando por la nueva ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| Noviembre de 2021|
-| [Cambios en las recomendaciones para administrar soluciones de protección de puntos de conexión](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | Noviembre de 2021| 
 | [La visualización de inventario de las máquinas locales usará una plantilla diferente para el nombre del recurso](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name)    | Noviembre de 2021    |
 | [Varios cambios en las recomendaciones de identidad](#multiple-changes-to-identity-recommendations)                                                                                          | Diciembre de 2021    |
 | [Cambios en una alerta de seguridad de Microsoft Defender para Storage](#changes-to-a-security-alert-from-microsoft-defender-for-storage)  | Noviembre de 2021    |
-| [Mejoras en la recomendación para clasificar datos confidenciales en bases de datos SQL](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                              | T1 2022    |
+| [Mejoras en la recomendación para clasificar datos confidenciales en bases de datos SQL](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)   | T1 2022    |
+| [Cambios en las recomendaciones para administrar soluciones de protección de puntos de conexión](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | Febrero de 2022| 
 |||
 
 ### <a name="deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses"></a>Entrada en desuso de una alerta en versión preliminar: ARM.MCAS_ActivityFromAnonymousIPAddresses
@@ -59,26 +59,6 @@ Hemos creado nuevas alertas que proporcionan esta información y la agregan. Ade
 La implementación heredada de ISO 27001 se eliminará del panel de cumplimiento normativo de Defender for Cloud. Si está haciendo un seguimiento del cumplimiento de la norma ISO 27001 mediante Defender for Cloud, incorpore el nuevo estándar ISO 27001:2013 para los grupos de administración o suscripciones pertinentes, y la norma ISO 27001 heredada actual pronto se eliminará del panel.
 
 :::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Panel de cumplimiento normativo de Defender for Cloud que muestra el mensaje sobre la eliminación de la implementación heredada de ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
-
-### <a name="changes-to-recommendations-for-managing-endpoint-protection-solutions"></a>Cambios en las recomendaciones para administrar soluciones de protección de puntos de conexión
-
-**Fecha estimada del cambio:** noviembre de 2021
-
-En agosto de 2021, hemos agregado dos nuevas recomendaciones **en versión preliminar** para implementar y mantener las soluciones de protección de puntos de conexión en las máquinas. Para obtener información detallada, consulta las [notas de la versión](release-notes.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
-
-Cuando las recomendaciones se liberan a disponibilidad general, reemplazarán las siguientes recomendaciones existentes:
-
-- **La protección de puntos de conexión instalada en las máquinas** reemplazará:
-    - [Instalar una solución de protección del punto de conexión en las máquinas virtuales (clave: 83f577bd-a1b6-b7e1-0891-12ca19d1e6df)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/83f577bd-a1b6-b7e1-0891-12ca19d1e6df)
-    - [Instalar una solución de protección del punto de conexión en las máquinas (clave: 383cf3bc-fdf9-4a02-120a-3e7e36c6bfee)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/383cf3bc-fdf9-4a02-120a-3e7e36c6bfee)
-
-- **Los problemas de estado de la protección de puntos de conexión que deben resolverse en las máquinas** reemplazarán la recomendación existente que tiene el mismo nombre. Las dos recomendaciones tienen claves de evaluación diferentes:
-    - Clave de evaluación para la recomendación de **versión preliminar**: 37a3689a-818e-4a0e-82ac-b1392b9bb000
-    - Clave de evaluación de la recomendación de **GA**: 3bcd234d-c9c7-c2a2-89e0-c01f419c1a8a
-
-Más información:
-- [Soluciones de protección de puntos de conexión admitidas por Defender for Cloud](supported-machines-endpoint-solutions-clouds.md#endpoint-supported)
-- [Cómo evalúan estas recomendaciones el estado de las soluciones implementadas](endpoint-protection-recommendations-technical.md)
 
 
 ### <a name="inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name"></a>La visualización de inventario de las máquinas locales usará una plantilla diferente para el nombre del recurso
@@ -138,9 +118,6 @@ Defender for Cloud incluye varias recomendaciones para mejorar la administració
     |||
  
 
-
-
-
 ### <a name="changes-to-a-security-alert-from-microsoft-defender-for-storage"></a>Cambios en una alerta de seguridad de Microsoft Defender para Storage
 
 **Fecha estimada del cambio:** noviembre de 2021
@@ -165,6 +142,28 @@ Cuando se realice el lanzamiento del cambio, se publicarán más detalles de est
 **Fecha estimada del cambio:** primer trimestre de 2022
 
 La recomendación **Los datos confidenciales de las bases de datos SQL deben clasificarse** del control de seguridad **Aplicación de la clasificación de datos** se reemplazará por una nueva versión que esté más alineada con la estrategia de clasificación de datos de Microsoft. Como consecuencia, el identificador de la recomendación también cambiará (actualmente es b0df6f56-862d-4730-8597-38c0fd4ebd59).
+
+
+### <a name="changes-to-recommendations-for-managing-endpoint-protection-solutions"></a>Cambios en las recomendaciones para administrar soluciones de protección de puntos de conexión
+
+**Fecha estimada del cambio:** febrero de 2022
+
+En agosto de 2021, hemos agregado dos nuevas recomendaciones **en versión preliminar** para implementar y mantener las soluciones de protección de puntos de conexión en las máquinas. Para obtener información detallada, consulta las [notas de la versión](release-notes.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
+
+Cuando las recomendaciones se liberan a disponibilidad general, reemplazarán las siguientes recomendaciones existentes:
+
+- **La protección de puntos de conexión instalada en las máquinas** reemplazará:
+    - [Instalar una solución de protección del punto de conexión en las máquinas virtuales (clave: 83f577bd-a1b6-b7e1-0891-12ca19d1e6df)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/83f577bd-a1b6-b7e1-0891-12ca19d1e6df)
+    - [Instalar una solución de protección del punto de conexión en las máquinas (clave: 383cf3bc-fdf9-4a02-120a-3e7e36c6bfee)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/383cf3bc-fdf9-4a02-120a-3e7e36c6bfee)
+
+- **Los problemas de estado de la protección de puntos de conexión que deben resolverse en las máquinas** reemplazarán la recomendación existente que tiene el mismo nombre. Las dos recomendaciones tienen claves de evaluación diferentes:
+    - Clave de evaluación para la recomendación de **versión preliminar**: 37a3689a-818e-4a0e-82ac-b1392b9bb000
+    - Clave de evaluación de la recomendación de **GA**: 3bcd234d-c9c7-c2a2-89e0-c01f419c1a8a
+
+Más información:
+- [Soluciones de protección de puntos de conexión admitidas por Defender for Cloud](supported-machines-endpoint-solutions-clouds.md#endpoint-supported)
+- [Cómo evalúan estas recomendaciones el estado de las soluciones implementadas](endpoint-protection-recommendations-technical.md)
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

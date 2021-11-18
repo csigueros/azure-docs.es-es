@@ -7,12 +7,12 @@ ms.topic: how-to
 author: ebolton-cyber
 ms.author: edewebolton
 ms.date: 03/10/2021
-ms.openlocfilehash: 876f4b42c77caba27ed94b42d784004b0bfd32ce
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4e3e3b281e90236704ebd50cd8ee1420947c4d56
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128598163"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331250"
 ---
 # <a name="test-a-virtual-machine-image"></a>Prueba de una imagen de máquina virtual
 
@@ -20,12 +20,12 @@ En este tema se explican los pasos para probar una imagen de máquina virtual (V
 
 ## <a name="deploy-an-azure-vm"></a>Implementación de una máquina virtual de Azure
 
-Para implementar una máquina virtual desde la imagen de Shared Image Gallery:
+Para implementar una máquina virtual desde Azure Compute Gallery (anteriormente conocido como Shared Image Gallery):
 
-1. Vaya a versión de la imagen de Shared Image Gallery.
-1. Haga clic en Crear máquina virtual.
+1. Vaya a la versión de imagen de Azure Compute Gallery.
+1. Seleccione **Crear máquina virtual**.
 1. Proporcione un nombre de máquina virtual y seleccione un tamaño de máquina virtual.
-1. Haga clic en Revisar y crear. Una vez superada la validación, haga clic en Crear.
+1. Seleccione **Revisar + crear**. Una vez que pase la validación, seleccione **Crear**.
 
 > [!NOTE]
 > Si necesita crear una máquina virtual a partir de un archivo VHD, siga las instrucciones de los siguientes artículos: [Preparación de una plantilla de Azure Resource Manager](#connect-the-certification-tool-to-a-vm-image) o [Implementación de una máquina virtual de Azure con PowerShell](#how-to-use-powershell-to-consume-the-self-test-api).

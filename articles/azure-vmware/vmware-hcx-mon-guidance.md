@@ -3,16 +3,21 @@ title: Guía de VMware HCX Mobility Optimized Networking (MON)
 description: Obtenga información sobre casos de uso específicos de Azure VMware Solution para Mobility Optimized Networking (MON).
 ms.topic: reference
 ms.date: 10/04/2021
-ms.openlocfilehash: 1b170615b5a0ec0df81a8be7c71b8ac5ae17a24a
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 34840fedbf2ae2dbf32711f4dfee307fe3a3a5ca
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424736"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132373334"
 ---
 # <a name="vmware-hcx-mobility-optimized-networking-mon-guidance"></a>Guía de VMware HCX Mobility Optimized Networking (MON)
 
+>[!NOTE]
+>
+>Las redes optimizadas para movilidad HCX son compatibles oficialmente con VMware y Azure VMware Solutions a partir de la versión HCX 4.1.0. 
+
 >[!IMPORTANT] 
+>
 >Antes de habilitar HCX MON, lea las siguientes limitaciones y configuraciones no admitidas:
 >
 >[Configuraciones de origen no admitidas para HCX NE](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-DBDB4D1B-60B6-4D16-936B-4AC632606909.html)

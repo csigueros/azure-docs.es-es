@@ -1,72 +1,51 @@
 - name: Entorno de App Service
+  href: index.yml
 - name: Información general
   items:
     - name: Acerca de App Service Environment
-      href: intro.md
-    - name: "App Service Environment\_v3"
       href: overview.md
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Creación de un ASE externo
-      href: create-external-ase.md
-    - name: Creación de un ASE interno
-      href: create-ilb-ase.md
-    - name: Creación de ASEv3
+    - name: Creación de App Service Environment en portal
       href: creation.md
 - name: Tutoriales
   items:
-    - name: Integración con un WAF
+    - name: Integración con Application Gateway
       href: integrate-with-application-gateway.md
-    - name: Configuración personalizada de ASE
-      href: app-service-app-service-environment-custom-settings.md
-- name: Ejemplos
-  items:
-    - name: Azure CLI
-      href: ../samples-cli.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-    - name: Azure PowerShell
-      href: ../samples-powershell.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+    - name: Escalado distribuido geográficamente
+      href: app-service-app-service-environment-geo-distributed-scale.md
 - name: Conceptos
   items:
     - name: Arquitectura de red
-      href: network-info.md
-    - name: Escalado distribuido geográficamente
-      href: app-service-app-service-environment-geo-distributed-scale.md
-    - name: Diagnóstico
-      href: ../overview-diagnostics.md
-    - name: Certificados
-      href: certificates.md
-    - name: Redes de ASEv3
       href: networking.md
+    - name: Redundancia de zona
+      href: overview-zone-redundancy.md
+    - name: Certificados
+      href: overview-certificates.md
+    - name: Diagnóstico
+      href: ../overview-diagnostics.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
 - name: Guías de procedimientos
   items:
-    - name: Uso de un ASE
-      href: using-an-ase.md
-    - name: Integración con Application Gateway
-      href: integrate-with-application-gateway.md
-    - name: Creación de un ASE a partir de una plantilla
-      href: create-from-template.md
-    - name: Configuración de túnel forzada
-      href: forced-tunnel-support.md
-    - name: Integración de Firewall
-      href: firewall-integration.md
-    - name: Redundancia de zona
-      href: zone-redundancy.md
-    - name: Uso de ASEv3
+    - name: Uso de App Service Environment
       href: using.md
+    - name: Aprovisionamiento de ASE desde una plantilla de ARM
+      href: create-from-template.md
+    - name: Configuración personalizada de ASE
+      href: app-service-app-service-environment-custom-settings.md
 - name: Referencia
   items:
     - name: Direcciones de administración
       href: management-addresses.md
     - name: Documentación de ASEv1
       items:
-        - name: ASEv1
+        - name: Acerca de App Service Environment v1
           href: app-service-app-service-environment-intro.md
         - name: Creación de ASEv1 a partir de una plantilla
           href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
         - name: Configuración de ASEv1
           href: app-service-web-configure-an-app-service-environment.md
-        - name: Configuración de escalado automático en ASEv1
+        - name: Configuración del escalado automático en ASEv1
           href: app-service-environment-auto-scale.md
         - name: Escalado horizontal de una aplicación en ASEv1
           href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
@@ -80,6 +59,26 @@
           href: app-service-app-service-environment-control-inbound-traffic.md
         - name: Uso de la seguridad por niveles
           href: app-service-app-service-environment-layered-security.md
+    - name: Documentación de ASEv2
+      items:
+        - name: Acerca de App Service Environment v2
+          href: intro.md
+        - name: Creación de un ASE v2 externo
+          href: create-external-ase.md
+        - name: Creación de un ASE v2 interno
+          href: create-ilb-ase.md
+        - name: Uso de un ASE v2
+          href: using-an-ase.md
+        - name: Arquitectura de red
+          href: network-info.md
+        - name: Redundancia de zona
+          href: zone-redundancy.md
+        - name: Certificados
+          href: certificates.md
+        - name: Configuración de túnel forzada
+          href: forced-tunnel-support.md
+        - name: Integración de Firewall
+          href: firewall-integration.md
 - name: Recursos
   items:
     - name: Azure Roadmap
@@ -98,12 +97,6 @@
       items:
         - name: Vídeos de Azure
           href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
-        - name: Manejo de l PaaS for the Enterprise with Azure App Service (Dominio de la PaaS para la empresa con Azure App Service)
-          href: 'https://channel9.msdn.com/Events/Ignite/2016/BRK3205/player'
-        - name: Deploying Highly Scalable and Secure Apps (Implementación de aplicaciones seguras y altamente escalables)
-          href: 'https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player'
-        - name: Running Enterprise Web and Mobile Apps on Azure App Service (Ejecución de aplicaciones web y móviles para empresas en Azure App Service)
-          href: 'https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player'
     - name: Libros de cocina
       items:
         - name: Scripts de implementación

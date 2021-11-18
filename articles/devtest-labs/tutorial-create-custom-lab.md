@@ -2,82 +2,111 @@
 title: Tutorial de creación de un laboratorio
 description: En este tutorial, se creará un laboratorio en Azure DevTest Labs desde Azure Portal. Los administradores de laboratorio configuran laboratorios, crean máquinas virtuales en los laboratorios y configuran las directivas.
 ms.topic: tutorial
-ms.date: 06/26/2020
-ms.openlocfilehash: 239f92aa172e4239403869e488ec7c9348623009
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/03/2021
+ms.openlocfilehash: 4a26501511adf65d2db8509120a1d4a014ef73ba
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131073129"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131578612"
 ---
-# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutorial: Configuración de un laboratorio mediante Azure DevTest Labs
-En este tutorial, va a crear un laboratorio mediante Azure Portal. El administrador de laboratorio configura un laboratorio en una organización, crea máquinas virtuales en el laboratorio y configura las directivas. Los usuarios de laboratorio (por ejemplo: desarrolladores y evaluadores) reclaman las máquinas virtuales en el laboratorio, se conectan a ellas y las usan. 
+# <a name="tutorial-set-up-a-lab-in-devtest-labs-using-the-azure-portal"></a>Tutorial: Configuración de un laboratorio en DevTest Labs mediante Azure Portal
 
-En este tutorial realizará lo siguiente:
+En este tutorial, va a crear un laboratorio mediante Azure Portal. El administrador de un laboratorio es quien configura un laboratorio en una organización, crea máquinas virtuales (VM) de Azure en él y configura directivas. Los usuarios de laboratorio (por ejemplo: desarrolladores y evaluadores) reclaman las máquinas virtuales en el laboratorio, se conectan a ellas y las usan. 
+
+En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Creación de un laboratorio
-> * Adición de máquinas virtuales al laboratorio
-> * Adición de un usuario al rol de usuario de laboratorio
+> * Adición de una máquina virtual (VM) de Azure al laboratorio
+> * Agregue un usuario y asígnele el rol **Usuario de DevTest Labs**.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="create-a-lab"></a>Creación de un laboratorio
-Los pasos siguientes muestran cómo usar Azure Portal para crear un laboratorio en Azure DevTest Labs. 
+
+En estos pasos se muestra cómo usar Azure Portal para crear un laboratorio en Azure DevTest Labs. 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. En el menú principal de la izquierda, seleccione **Crear un recurso**  (en la parte superior de la lista), seleccione **Herramientas de desarrollo** y haga clic en **DevTest Labs**. 
 
-    ![Nuevo menú de DevTest Lab](./media/tutorial-create-custom-lab/new-custom-lab-menu.png)
-1. En la ventana **Crear un laboratorio de DevTest Labs**, lleve a cabo las siguientes acciones: 
-    1. En **Nombre del laboratorio**, escriba un nombre para el laboratorio. 
-    2. En **Suscripción**, seleccione la suscripción en la que desea crear el laboratorio. 
-    3. En **Grupo de recursos**, seleccione **Crear nuevo** y escriba un nombre para el grupo de recursos. 
-    4. En **Ubicación**, seleccione la ubicación o región en la que desea crear el laboratorio. 
-    5. Seleccione **Crear**. 
-    6. Seleccione **Anclar al panel**. Una vez creado el laboratorio, este se muestra en el panel. 
+1. Escriba `DevTest Labs` en el cuadro de búsqueda y, luego, seleccione **DevTest Labs** en los resultados.
 
-        ![Creación de una sección de laboratorio de DevTest Labs](./media/tutorial-create-custom-lab/create-custom-lab-blade.png)
-2. Examine las notificaciones para confirmar que el laboratorio se crea correctamente. Haga clic en **Go to resource** (Ir al recurso).  
+    :::image type="content" source="./media/tutorial-create-custom-lab/portal-search-devtest-labs.png" alt-text="Captura de pantalla de la búsqueda en el portal de DevTest Labs.":::
 
-    ![Notification](./media/tutorial-create-custom-lab/creation-notification.png)
-3. Confirme que ve la página **DevTest Lab** de su laboratorio. 
+1. En la página **DevTest Labs**, seleccione **+ Crear**.
 
-    ![Página principal de su laboratorio](./media/tutorial-create-custom-lab/lab-home-page.png)
+1. En la página **Create Devtest Lab** (Crear laboratorio de DevTest Labs), en la pestaña **Basic Settings** (Configuración básica), proporcione la siguiente información:
+
+    |Propiedad | Descripción |
+    |---|---|
+    |Subscription| En la lista desplegable, seleccione la suscripción de Azure que se va a usar para el laboratorio.|
+    |Grupo&nbsp;de recursos| En la lista desplegable, seleccione el grupo de recursos existente o seleccione **Crear**.|
+    |Nombre del laboratorio| Escriba un nombre para el laboratorio.|
+    |Location| En la lista desplegable, seleccione una ubicación para el laboratorio.|
+    |Entornos públicos| Deje el valor predeterminado de **Activado**. El repositorio del entorno público contiene una lista de plantillas de Azure Resource Manager conservadas que permiten a los usuarios de los laboratorios crear recursos PaaS dentro de Labs.|
+
+    :::image type="content" source="./media/tutorial-create-custom-lab/create-custom-lab-blade.png" alt-text="Captura de pantalla de la pestaña Basic Settings (Configuración básica) para crear laboratorios de DevTest Labs.":::
+
+1. Seleccione **Revisar y crear** para validar la configuración y, luego, elija **Crear**. En este tutorial, sirven los valores predeterminados de las otras pestañas.
+
+1. Cuando finalice el proceso de creación, seleccione **Ir al recurso** en la notificación de implementación.
+
+    :::image type="content" source="./media/tutorial-create-custom-lab/creation-notification.png" alt-text="Captura de pantalla de la notificación de implementación de DevTest Labs.":::
+
+1. La página **Información general** del laboratorio es similar a la siguiente imagen:
+
+    :::image type="content" source="./media/tutorial-create-custom-lab/lab-home-page.png" alt-text="Captura de pantalla de la página Información general de DevTest Labs.":::
 
 ## <a name="add-a-vm-to-the-lab"></a>Adición de una máquina virtual al laboratorio
 
-1. En la página **DevTest Lab**, seleccione **+ Agregar** en la barra de herramientas. 
+1. En la página **DevTest Lab**, seleccione **+ Agregar** en la barra de herramientas.
 
-    ![Botón Agregar](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
-1. En la página **Elegir base de datos**, busque con la palabra clave (por ejemplo, Windows, Ubuntu) y seleccione una de las imágenes de base de la lista. 
-1. En la página **Máquina virtual**, realice las acciones siguientes: 
-    1. En **Nombre de máquina virtual**, escriba un nombre para la máquina virtual. 
-    2. En **Nombre de usuario**, escriba un nombre para el usuario que tiene acceso a la máquina virtual. 
-    3. En **Password** (Contraseña), escriba la contraseña del usuario. 
+    :::image type="content" source="./media/tutorial-create-custom-lab/add-vm-to-lab-button.png" alt-text="Captura de pantalla de la página de información general de DevTest Labs y del botón Agregar.":::
 
-        ![Captura de pantalla que muestra la página Configuración básica de "Crear recurso de laboratorio".](./media/tutorial-create-custom-lab/new-virtual-machine.png)
-1. Seleccione la pestaña **Advanced settings** (Configuración avanzada).
-    1. En **Hacer que esta máquina sea reclamable**, seleccione **Sí**.
-    2. Confirme que el **número de instancias** está establecido en **1**. Si se establece en **2**, se crean dos máquinas virtuales con nombres: `<base image name>00' and <base image name>01`. Por ejemplo, `win10vm00` y `win10vm01`.     
-    3. Seleccione **Submit** (Enviar). 
+1. En la página **Choose a base** (Elegir una base), seleccione una imagen de Marketplace para la máquina virtual. En esta guía se usa **Windows Server 2019 Datacenter**. Algunas opciones pueden variar si usa una imagen diferente.
 
-        ![Elegir base de datos](./media/tutorial-create-custom-lab/new-vm-advanced-settings.png)
-    9. Puede ver el estado de la máquina virtual en la lista de **Máquinas virtuales que se pueden reclamar**. La creación de la máquina virtual puede tardar aproximadamente 25 minutos. La máquina virtual se crea en un grupo de recursos independiente de Azure, cuyo nombre comienza por el nombre del grupo de recursos actual que tiene el laboratorio. Por ejemplo, si el laboratorio se encuentra en `labrg`, la máquina virtual se puede crear en el grupo de recursos `labrg3988722144002`. 
+1. En la pestaña **Basics Settings** (Configuración básica), proporcione la siguiente información:
 
-        ![Estado de la creación de la máquina virtual](./media/tutorial-create-custom-lab/vm-creation-status.png)
-1. Después de crear la máquina virtual, puede verla en la lista **Máquinas virtuales que se pueden reclamar**. 
+    |Propiedad |Descripción |
+    |---|---|
+    |Nombre&nbsp;de máquina&nbsp;virtual| El cuadro de texto se rellena previamente con un nombre único generado de forma automática. El nombre corresponde al nombre de usuario de la dirección de correo electrónico, seguido por un número único de tres dígitos. Déjelo así o escriba un nombre único de su elección.|
+    |Nombre de usuario| El cuadro de texto se rellena previamente con un nombre único generado de forma automática. El nombre corresponde al nombre de usuario dentro de la dirección de correo electrónico. Déjelo así o escriba el nombre que prefiera. A este usuario se le conceden privilegios de **administrador** en la máquina virtual.|
+    |Use a saved secret (Usar un secreto guardado)| Para los fines de este tutorial, deje la casilla desactivada. Puede guardar primero los secretos en Azure Key Vault y, luego, usarlos aquí. Para más información, consulte [Almacenamiento de secretos en un almacén de claves](devtest-lab-store-secrets-in-key-vault.md). Si prefiere usar un secreto guardado, active la casilla y, luego, seleccione el secreto en la lista desplegable **Secreto**.|
+    |Contraseña|Escriba una contraseña que tenga entre 8 y 123 caracteres.|
+    |Save as default password (Guardar como contraseña predeterminada)| Active la casilla para guardar la contraseña en la instancia de Azure Key Vault asociada al laboratorio.|
+    |Tamaño de la máquina virtual| Mantenga el valor predeterminado o seleccione **Cambiar tamaño** para seleccionar distintos componentes físicos. En este tutorial se usa **Standard_D4_v3**.|
+    |Tipo de disco del sistema operativo|Mantenga el valor predeterminado o seleccione otra opción en la lista desplegable.|
+    |Artifacts| No se usa en este tutorial.|
 
-    > [!NOTE] 
-    > En la página **Configuración avanzada** puede configurar la dirección IP pública, privada o de uso compartido para la máquina virtual. Cuando la **IP compartida** está habilitada, Azure DevTest Labs habilita RDP automáticamente para las máquinas virtuales Windows y SSH para las máquinas virtuales Linux. Si crea máquinas virtuales con direcciones **IP públicas**, RDP y SSH están habilitados sin cambios de DevTest Labs.  
+   :::image type="content" source="./media/tutorial-create-custom-lab/portal-lab-vm-basic-settings.png" alt-text="Captura de pantalla de la página de configuración básica de máquinas virtuales.":::
 
-## <a name="add-a-user-to-the-lab-user-role"></a>Adición de un usuario al rol de usuario de laboratorio
+1. Seleccione la pestaña **Configuración avanzada** y proporcione la siguiente información:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como [Administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator) o [Propietario](../role-based-access-control/built-in-roles.md#owner).
+    |Propiedad |Descripción |
+    |---|---|
+    |Virtual network| Déjela así o seleccione otra red en la lista desplegable.|
+    |Selector de&nbsp;subred| Déjelo así o seleccione otra subred en la lista desplegable.|
+    |Dirección IP| Para los fines de este tutorial, deje el valor predeterminado **Compartido**. Cuando se selecciona **Compartido**, Azure DevTest Labs habilita RDP automáticamente para las máquinas virtuales Windows y SSH para las máquinas virtuales Linux. Si selecciona **Público**, se habilitan RDP y SSH sin cambios en DevTest Labs.  |
+    |Fecha de expiración| Déjela como está, sin fecha de expiración, o seleccione el icono de calendario para establecer una fecha.|
+    |Hacer que esta máquina sea reclamable| Deje esta opción en **No**. Para que un usuario de laboratorio pueda reclamar la máquina virtual, seleccione **Sí**. Marcar la máquina como reclamable significa que no se le asignará la propiedad en el momento de la creación. |
+    |Número de instancias| Déjelo como está, en **1**. Número de instancias de máquina virtual que se crearán.|
+    |Automation | Opcional. Al seleccionar **Ver plantilla de ARM**, se abrirá la plantilla en una nueva página. Puede copiar y guardar la plantilla para crear la misma máquina virtual más tarde. Una vez guardada, puede utilizar la plantilla de Azure Resource Manager para [implementar nuevas máquinas virtuales con Azure PowerShell](../azure-resource-manager/templates/overview.md).|
 
-1. Abra el grupo de recursos que contiene el laboratorio que ha creado.
+   :::image type="content" source="./media/tutorial-create-custom-lab/portal-lab-vm-advanced-settings.png" alt-text="Página de configuración avanzada de la máquina virtual.":::
 
-1. En el menú de navegación, seleccione **Control de acceso (IAM)** .
+1. Vuelva a la pestaña **Basic Settings** (Configuración básica) y, luego, seleccione **Crear**.
+
+1. Volverá a la página **DevTest Lab** (Laboratorio de DevTest Labs). En **Mi laboratorio**, seleccione **Máquinas virtuales que se pueden reclamar**.
+
+   :::image type="content" source="./media/tutorial-create-custom-lab/portal-lab-vm-creation-status.png" alt-text="Captura de pantalla de la página de estado de creación de máquinas virtuales de laboratorio.":::
+
+1. Deje pasar unos minutos y, si las máquinas virtuales no aparecen, seleccione **Actualizar**. Los tiempos de instalación variarán en función del hardware, la imagen base y los artefactos seleccionados. La instalación de las configuraciones usadas en este tutorial tardó aproximadamente 12 minutos.
+
+## <a name="add-a-user-to-the-devtest-labs-user-role"></a>Adición de un usuario al rol de usuario de DevTest Labs
+
+1. Vaya al grupo de recursos que contiene el laboratorio que ha creado. Debe tener el rol de [Administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator) o [Propietario](../role-based-access-control/built-in-roles.md#owner).
+
+1. En el menú izquierdo, seleccione **Control de acceso (IAM)** .
 
 1. Seleccione **Agregar** > **Agregar asignación de roles**.
 
@@ -87,25 +116,29 @@ Los pasos siguientes muestran cómo usar Azure Portal para crear un laboratorio 
 
     ![Página Agregar asignación de roles con la pestaña Rol seleccionada.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
 
-1. En la pestaña **Miembros**, seleccione el usuario al que quiere asignar el rol deseado.
+1. En la pestaña **Miembros**, seleccione el usuario al que quiere asignar el rol.
 
 1. En la pestaña **Revisión y asignación**, seleccione **Revisión y asignación** para asignar el rol.
 
-
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-En el siguiente tutorial se muestra cómo un usuario de laboratorio puede reclamar y conectarse a una máquina virtual en el laboratorio. Si no quiere hacer ese tutorial, y limpiar los recursos creados como parte de este tutorial, siga estos pasos: 
 
-1. En Azure Portal, seleccione **Grupos de recursos** en el menú. 
+Elimine los recursos para evitar cargos por ejecutar el laboratorio y la máquina virtual en Azure. Si tiene previsto consultar el siguiente tutorial para acceder a la máquina virtual del laboratorio, puede limpiar los recursos cuando lo finalice. De lo contrario, siga estos pasos. 
 
-    ![Grupos de recursos](./media/tutorial-create-custom-lab/resource-groups.png)
-1. Seleccione el grupo de recursos en el que creó el laboratorio. 
-1. Seleccione **Eliminar grupo de recursos** en la barra de herramientas. La eliminación de un grupo de recursos supone la eliminación de todos los recursos del grupo, incluido el laboratorio. 
+1. Vuelva a la página principal del laboratorio que ha creado.
 
-    ![Grupo de recursos de laboratorio](./media/tutorial-create-custom-lab/lab-resource-group.png)
-1. Repita estos pasos para eliminar el grupo de recursos adicionales que se creó automáticamente con el nombre `<your resource group name><random numbers>`. Por ejemplo: `splab3988722144001`. Las máquinas virtuales se crean en este grupo de recursos en lugar de en el grupo de recursos en el que existe el laboratorio. 
+1. Seleccione **Eliminar** en el menú superior.
+
+   :::image type="content" source="./media/tutorial-create-custom-lab/portal-lab-delete.png" alt-text="Captura de pantalla del botón Eliminar del laboratorio.":::
+
+1. En la página **¿Seguro que quiere eliminarlo?** , escriba el nombre del laboratorio en el cuadro de texto y seleccione **Eliminar**.
+
+1. Durante la eliminación, puede seleccionar **Notificaciones** en la parte superior de la pantalla para ver el progreso. La eliminación del laboratorio tarda un rato. Cuando se haya eliminado el laboratorio, continúe con el paso siguiente.
+
+1. Si creó el laboratorio en un grupo de recursos existente, se quitarán todos los recursos del laboratorio. Si creó un grupo de recursos para este tutorial, ahora está vacío y se puede eliminar. No habría sido posible eliminar el grupo de recursos anteriormente mientras el laboratorio todavía pertenecía a él.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha creado un laboratorio con una máquina virtual y ha dado acceso al usuario al laboratorio. Para más información sobre cómo acceder al laboratorio como un usuario de laboratorio, avance al tutorial siguiente:
+
+En este tutorial, ha creado un laboratorio, ha agregado una máquina virtual y, luego, ha dado acceso al laboratorio a un usuario. Para más información sobre cómo acceder al laboratorio como un usuario de laboratorio, avance al tutorial siguiente:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Acceso al laboratorio](tutorial-use-custom-lab.md)

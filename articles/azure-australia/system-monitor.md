@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: yvettep
-ms.openlocfilehash: 775b2e366d335944205197aad97c1752b6ee7d04
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 8c67cc2ff2d918b8d44d8a362b3b6c1609f17f13
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "117029152"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312852"
 ---
 # <a name="system-monitoring-for-security-in-azure-australia"></a>Supervisión del sistema para la seguridad en Azure Australia
 
@@ -19,18 +19,18 @@ Tener una sólida estrategia de seguridad que incluya la supervisión en tiempo 
 
 La seguridad en la nube es un esfuerzo conjunto entre el cliente y el proveedor de la nube. Hay cuatro servicios que Microsoft Azure proporciona para facilitar estos requisitos teniendo en cuenta las recomendaciones contenidas en los [controles del manual de seguridad (ISM) del centro para la ciberseguridad australiano (ACSC)](https://acsc.gov.au/infosec/ism/index.htm), en concreto, la implementación de un registro de eventos centralizado, la auditoría de registros de eventos y la valoración y administración de vulnerabilidades de seguridad. Los servicios de Microsoft Azure son:
 
-* Azure Security Center
+* Microsoft Defender for Cloud
 * Azure Monitor
 * Azure Advisor
 * Azure Policy
 
 El ACSC recomienda que utilice estos servicios para datos **PROTEGIDOS.** Mediante el uso de estos servicios, puede supervisar y analizar de forma proactiva los entornos de TI, y tomar decisiones informadas sobre cuál es la mejor ubicación para asignar los recursos. Cada uno de estos servicios forma parte de una solución combinada para proporcionarle la mejor visión, recomendaciones y protección posibles.
 
-## <a name="azure-security-center"></a>Azure Security Center
+## <a name="microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud
 
-[Azure Security Center](../security-center/security-center-introduction.md) proporciona una consola de administración de seguridad unificada que se usa para supervisar y mejorar la seguridad de los recursos de Azure y los datos hospedados. Azure Security Center incluye Puntuación de seguridad, una puntuación que está basada en un análisis del estado de la configuración de procedimientos recomendados de Azure Advisor y el cumplimiento general de Azure Policy.
+[Microsoft Defender for Cloud](../security-center/security-center-introduction.md) proporciona una consola de administración de seguridad unificada que se usa para supervisar y mejorar la seguridad de los recursos de Azure y los datos hospedados. Microsoft Defender for Cloud incluye Puntuación de seguridad, una puntuación que está basada en un análisis del estado de la configuración de procedimientos recomendados de Azure Advisor y el cumplimiento general de Azure Policy.
 
-Azure Security Center proporciona a los clientes de Azure las siguientes características:
+Microsoft Defender for Cloud proporciona a los clientes de Azure las siguientes características:
 
 * Directiva de seguridad, valoración y recomendaciones
 * Búsqueda y recopilación de eventos de seguridad
@@ -39,13 +39,13 @@ Azure Security Center proporciona a los clientes de Azure las siguientes caracte
 * Control de acceso Just-in-Time a las máquinas virtuales
 * Seguridad híbrida
 
-El ámbito de los recursos supervisados por Azure Security Center se puede expandir para incluir los recursos locales admitidos en un entorno de nube híbrida. Esto incluye los recursos locales supervisados actualmente por una versión compatible de System Center Operations Manager.
+El ámbito de los recursos supervisados por Microsoft Defender for Cloud se puede expandir para incluir los recursos locales admitidos en un entorno de nube híbrida. Esto incluye los recursos locales supervisados actualmente por una versión compatible de System Center Operations Manager.
 
-El nivel "estándar" de Security Center también proporciona controles de seguridad basados en la nube que las [8 estrategias esenciales del ASD](https://acsc.gov.au/publications/protect/essential-eight-explained.htm) requieren. Estos controles incluyen el filtrado de aplicaciones y la restricción de privilegios administrativos mediante el acceso Just-in-Time.
+Las características de seguridad mejoradas de Defender for Cloud proporcionan controles de seguridad basados en la nube requeridos por [ASD Essential 8](https://acsc.gov.au/publications/protect/essential-eight-explained.htm). Estos controles incluyen el filtrado de aplicaciones y la restricción de privilegios administrativos mediante el acceso Just-in-Time.
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
-[Azure Monitor](../azure-monitor/overview.md) es la solución de registro centralizado para todos los recursos de Azure que incluye log Analytics y Application Insights. A partir de los recursos de Azure se recopilan dos tipos de datos clave: registros y métricas. Una vez recopilada en Azure Monitor, la información de registro se puede usar en una amplia gama de herramientas y con diferentes propósitos.
+[Azure Monitor](../azure-monitor/overview.md) es la solución de registro centralizado para todos los recursos de Azure que incluye Log Analytics y Application Insights. A partir de los recursos de Azure se recopilan dos tipos de datos clave: registros y métricas. Una vez recopilada en Azure Monitor, la información de registro se puede usar en una amplia gama de herramientas y con diferentes propósitos.
 
 ![Introducción a Azure Monitor](media/overview.png)
 
@@ -60,7 +60,7 @@ Azure Monitor también incluye el "registro de actividad de Azure". El registro 
 * Rendimiento
 * Coste
 
-Las recomendaciones de seguridad generadas por Azure Advisor forman parte del análisis de seguridad general proporcionado por Azure Security Center.
+Las recomendaciones de seguridad generadas por Azure Advisor forman parte del análisis de seguridad general proporcionado por Microsoft Defender for Cloud.
 
 La información recopilada por Azure Advisor proporciona a los administradores:
 
@@ -72,7 +72,7 @@ La información recopilada por Azure Advisor proporciona a los administradores:
 
 [Azure Policy](../governance/policy/overview.md) proporciona la capacidad de aplicar reglas que controlan los tipos de recursos de Azure y su configuración permitida. Policy se puede usar para controlar la creación y configuración de recursos, o para auditar la configuración en un entorno. Estos resultados de auditoría se pueden usar para formar la base de las actividades de corrección. Azure Policy difiere del control de acceso basado en rol (RBAC) de Azure; Azure Policy se usa para restringir los recursos y su configuración, mientras que Azure RBAC se utiliza para restringir el acceso con privilegios a los usuarios de Azure.
 
-Tanto si se está aplicando la directiva específica como si se está auditando el efecto de la misma, el cumplimiento de la directiva se supervisa continuamente y se proporciona información de cumplimiento general y específica del recurso a los administradores. Los datos de cumplimiento de Azure Policy se proporcionan a Azure Security Center y forman parte de la Puntuación de seguridad.
+Tanto si se está aplicando la directiva específica como si se está auditando el efecto de la misma, el cumplimiento de la directiva se supervisa continuamente y se proporciona información de cumplimiento general y específica del recurso a los administradores. Los datos de cumplimiento de Azure Policy se proporcionan a Microsoft Defender for Cloud y forman parte de la puntuación de seguridad.
 
 ## <a name="key-design-considerations"></a>Consideraciones clave sobre el diseño
 
@@ -92,7 +92,7 @@ Cualquier solución de registro debería, siempre que sea posible, consolidar lo
 
 Este requisito se cumple para todos los clientes de Azure con Azure Monitor. Esta oferta no solo proporciona un repositorio de registro centralizado en Azure para todos los recursos de Azure, sino que también permite transmitir los datos a un centro de eventos de Azure. Azure Event Hubs proporciona un servicio de ingesta de datos en tiempo real y totalmente administrado. Una vez que los datos de Azure Monitor se transmiten a un centro de eventos de Azure, los datos también se pueden conectar fácilmente con los repositorios de Administración de eventos e información de seguridad (SIEM) ya existentes y con otras herramientas de supervisión de terceros.
 
-Microsoft también ofrece su propia solución de SIEM nativa de Azure, Azure Sentinel. Azure Sentinel admite una amplia variedad de conectores de datos y se puede usar para supervisar eventos de seguridad en toda la empresa. Mediante la combinación de los datos de los [conectores de datos](../sentinel/connect-data-sources.md) admitidos, el aprendizaje automático integrado de Azure Sentinel y el lenguaje de consulta Kusto, se le proporciona a los administradores de seguridad una única solución para la detección de alertas, la visibilidad de amenazas, búsqueda proactiva y respuesta a amenazas. Azure Sentinel también proporciona una característica de búsqueda y de cuaderno que permite a los administradores de seguridad registrar todos los pasos realizados como parte de una investigación de seguridad en un cuaderno de estrategias reutilizable que se puede compartir dentro de una organización. Los administradores de seguridad pueden incluso usar el [análisis de usuario](../sentinel/overview.md) integrado para investigar las acciones de un único usuario designado.
+Microsoft también ofrece su propia solución de SIEM nativa de Azure, Microsoft Sentinel. Microsoft Sentinel admite una amplia variedad de conectores de datos y se puede usar para supervisar eventos de seguridad en toda la empresa. Mediante la combinación de los datos de los [conectores de datos](../sentinel/connect-data-sources.md) admitidos, el aprendizaje automático integrado de Microsoft Sentinel y el lenguaje de consulta Kusto, se le proporciona a los administradores de seguridad una única solución para la detección de alertas, la visibilidad de amenazas, búsqueda proactiva y respuesta a amenazas. Microsoft Sentinel también proporciona una característica de búsqueda y de cuaderno que permite a los administradores de seguridad registrar todos los pasos realizados como parte de una investigación de seguridad en un cuaderno de estrategias reutilizable que se puede compartir dentro de una organización. Los administradores de seguridad pueden incluso usar el [análisis de usuario](../sentinel/overview.md) integrado para investigar las acciones de un único usuario designado.
 
 ### <a name="logged-events-and-log-detail"></a>Eventos registrados y detalles de registro
 
@@ -104,7 +104,7 @@ Los registros recopilados en Azure se encuentran en una de las tres categorías 
 
 * **Registro del plano de datos**: contienen eventos generados como parte de la utilización de recursos de Azure. Incluye orígenes como registros de eventos de Windows, incluidos los registros de sistema, seguridad y aplicación.
 
-* **Eventos procesados**: estos eventos contienen información sobre eventos y alertas que Azure ha procesado de manera automática en nombre del cliente. Un ejemplo de evento procesado son las alertas de Azure Security Center.
+* **Eventos procesados**: estos eventos contienen información sobre eventos y alertas que Azure ha procesado de manera automática en nombre del cliente. Un ejemplo de un evento procesado es una alerta de Microsoft Defender for Cloud.
 
 La supervisión de la máquina virtual de Azure se ha mejorado mediante la implementación del agente de máquina virtual tanto para Windows como para Linux. Esto aumenta notablemente la amplitud de información de registro recopilada. La implementación de este agente puede configurarse para que se produzca automáticamente mediante Azure Security Center.
 
@@ -130,9 +130,9 @@ La auditoría de registros se puede mejorar mediante el uso de soluciones de sup
 
 ### <a name="vulnerability-assessment-and-management"></a>Evaluación y administración de vulnerabilidades
 
-El ISM indica que la valoración y administración rutinarias de las vulnerabilidades son esenciales. Su entorno de TI evoluciona constantemente y las amenazas de seguridad externas están perennemente cambiando. Con Azure Security Center puede realizar evaluaciones de vulnerabilidades automatizadas y obtener una guía sobre cómo planear y realizar actividades de corrección.
+El ISM indica que la valoración y administración rutinarias de las vulnerabilidades son esenciales. Su entorno de TI evoluciona constantemente y las amenazas de seguridad externas están perennemente cambiando. Con Microsoft Defender for Cloud puede realizar evaluaciones de vulnerabilidades automatizadas y obtener una guía sobre cómo planear y realizar actividades de corrección.
 
-La Puntuación de seguridad en Azure Security Center ofrece una lista de recomendaciones cuya aplicación mejorará la seguridad de su entorno. La lista se ordena por el impacto en la Puntuación de seguridad general de mayor a menor. Ordenar la lista por impacto le permite centrarse en las recomendaciones de prioridad más alta que presentan el mayor valor para mejorar la seguridad.
+La puntuación de seguridad de Microsoft Defender for Cloud ofrece una lista de recomendaciones cuya aplicación mejorará la seguridad de su entorno. La lista se ordena por el impacto en la Puntuación de seguridad general de mayor a menor. Ordenar la lista por impacto le permite centrarse en las recomendaciones de prioridad más alta que presentan el mayor valor para mejorar la seguridad.
 
 Azure Policy también desempeña una parte fundamental en la evaluación de vulnerabilidades continuada. Los tipos de directivas disponibles en Azure Policy van desde la aplicación de etiquetas y valores de recursos para restringir las regiones de Azure en las que se pueden crear recursos, hasta el bloqueo de la creación de tipos de recursos concretos de forma conjunta. Un conjunto de directivas de Azure se puede agrupar en iniciativas. Las iniciativas se usan para combinar directivas de Azure relacionadas que, cuando se aplican juntas como un grupo, forman la base de un objetivo de seguridad o cumplimiento específico.
 
@@ -142,12 +142,12 @@ Todas las directivas de Azure implementadas contribuyen a la Puntuación de segu
 
 ## <a name="getting-started"></a>Introducción
 
-Para empezar con Azure Security Center y hacer uso completo de Azure Monitor, Advisor y Policy, Microsoft recomienda los siguientes pasos iniciales:
+Para empezar con Microsoft Defender for Cloud y hacer uso completo de Azure Monitor, Advisor y Policy, Microsoft recomienda los siguientes pasos iniciales:
 
-* Habilitación de Azure Security Center
-* Actualización al nivel Estándar
-* Habilitación del aprovisionamiento automático de Microsoft Monitoring Agent para admitir Azure Virtual Machines
-* Revisión, priorización y mitigación de las recomendaciones y alertas de seguridad en el panel del centro de seguridad
+* Habilitar Microsoft Defender for Cloud
+* Habilitar las características de seguridad mejoradas de Microsoft Defender for Cloud
+* Habilitar el aprovisionamiento automático del agente de Log Analytics en las máquinas compatibles
+* Revisar, priorizar y mitigar las recomendaciones y alertas de seguridad que se muestran en los paneles de Defender for Cloud
 
 ## <a name="next-steps"></a>Pasos siguientes
 

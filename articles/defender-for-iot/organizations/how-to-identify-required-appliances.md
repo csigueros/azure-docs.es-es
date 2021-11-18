@@ -1,14 +1,14 @@
 ---
 title: Identificación de los dispositivos necesarios
 description: Obtenga información sobre las aplicaciones virtuales y dispositivos de hardware para los sensores certificador de Defender para IoT y la consola de administración local.
-ms.date: 06/21/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 22a79bc1f78536df1dd1c248b75eb3b4db8b443d
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 1b0f96ac19c014ff2cc89df10cae3f21b38211ff
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130238555"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343598"
 ---
 # <a name="identify-required-appliances"></a>Identificación de los dispositivos necesarios
 
@@ -271,7 +271,6 @@ Después de comprar el dispositivo, vaya a **Defender para IoT** > **Network Sen
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Acerca de la instalación de Azure Defender para IoT](how-to-install-software.md)
+[Acerca de la instalación de Microsoft Defender para IoT](how-to-install-software.md)
 
-[Acerca de la configuración de red de Azure Defender para IoT](how-to-set-up-your-network.md)
-
+[Acerca de la configuración de red de Microsoft Defender para IoT](how-to-set-up-your-network.md)

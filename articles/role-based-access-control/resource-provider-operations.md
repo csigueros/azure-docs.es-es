@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 09/28/2021
 ms.custom: generated
-ms.openlocfilehash: a4ac1b31688fe1ac37fe52fd38da338848d3cd07
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0a27e519cb9588388e78d25174bcb893923790d4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131037803"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132347073"
 ---
 # <a name="azure-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure
 
@@ -7354,8 +7354,8 @@ Servicio de Azure: [seguridad de IoT](../iot-fundamentals/iot-security-architect
 > [!div class="mx-tableFixed"]
 > | Acción | Descripción |
 > | --- | --- |
-> | Microsoft.IoTSecurity/unregister/action | Anula el registro de la suscripción para Azure Defender para IoT |
-> | Microsoft.IoTSecurity/register/action | Registra la suscripción para Azure Defender para IoT. |
+> | Microsoft.IoTSecurity/unregister/action | Anula el registro de la suscripción de Microsoft Defender for IoT |
+> | Microsoft.IoTSecurity/register/action | Registra la suscripción de Defender for IoT |
 > | Microsoft.IoTSecurity/defenderSettings/read | Obtiene la configuración de IoT Defender. |
 > | Microsoft.IoTSecurity/defenderSettings/write | Crea o actualiza la configuración de IoT Defender. |
 > | Microsoft.IoTSecurity/defenderSettings/delete | Elimina la configuración de IoT Defender. |
@@ -8776,13 +8776,13 @@ Servicio de Azure: Microsoft Monitoring Insights
 
 ### <a name="microsoftsecurityinsights"></a>Microsoft.SecurityInsights
 
-Servicio de Azure: [Azure Sentinel](../sentinel/index.yml)
+Servicio de Azure: [Microsoft Sentinel](../sentinel/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Acción | Descripción |
 > | --- | --- |
-> | Microsoft.SecurityInsights/register/action | Registra la suscripción a Azure Sentinel. |
-> | Microsoft.SecurityInsights/unregister/action | Cancela el registro de la suscripción de Azure Sentinel. |
+> | Microsoft.SecurityInsights/register/action | Registra la suscripción a Microsoft Sentinel |
+> | Microsoft.SecurityInsights/unregister/action | Anula el registro de la suscripción de Microsoft Sentinel |
 > | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Comprueba la autorización y la licencia del usuario. |
 > | Microsoft.SecurityInsights/Aggregations/read | Obtiene información agregada. |
 > | Microsoft.SecurityInsights/alertRules/read | Obtiene las reglas de alerta. |
