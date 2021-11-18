@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/05/2021
-ms.openlocfilehash: 4f72252bf375f9341b08f99b57e540784b47429a
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 40652feccd86c5c88ab4624d2eeaad012851ed0a
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132486308"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719326"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Creación y conexión de un clúster de Azure Kubernetes Service
 
@@ -48,7 +48,7 @@ Azure Machine Learning puede implementar modelos de Machine Learning entrenados 
 
 - Si quiere usar un clúster de AKS privado (mediante Azure Private Link), primero debe crear el clúster y, a continuación, **adjuntarlo** al área de trabajo. Para obtener más información, consulte [Creación de un clúster privado de Azure Kubernetes Service](../aks/private-clusters.md).
 
-- El uso de un [nombre de dominio completo (FQDN) público con un clúster de AKS privado](/azure/aks/private-clusters#create-a-private-aks-cluster-with-a-public-fqdn) __no se admite__ con Azure Machine Learning. 
+- El uso de un [nombre de dominio completo (FQDN) público con un clúster de AKS privado](../aks/private-clusters.md#create-a-private-aks-cluster-with-a-public-fqdn) __no se admite__ con Azure Machine Learning. 
 
 - El nombre de proceso del clúster de AKS DEBE ser único en el área de trabajo de Azure ML. Puede incluir letras, dígitos y guiones. Debe empezar por una letra, terminar con una letra o un dígito y tener una longitud de entre 3 y 24 caracteres.
  

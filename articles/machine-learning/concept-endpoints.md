@@ -11,12 +11,12 @@ author: rsethur
 ms.reviewer: laobri
 ms.custom: devplatv2, ignite-fall-2021
 ms.date: 10/21/2021
-ms.openlocfilehash: 7129286a0a91e27e80ebe4a6f3fc99e2b0e6c9b8
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: b832daad3ca667df404617bdb4efc96e54b5c5ea
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132135925"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719948"
 ---
 # <a name="what-are-azure-machine-learning-endpoints-preview"></a>¿Qué son los puntos de conexión de Azure Machine Learning (versión preliminar)? 
 
@@ -106,7 +106,7 @@ No obstante, los [puntos de conexión en línea administrados](#managed-online-e
 
 ### <a name="autoscaling"></a>Escalado automático
 
-El escalado automático ejecuta automáticamente la cantidad adecuada de recursos para controlar la carga en la aplicación. Los puntos de conexión administrados admiten el escalado automático mediante la integración con la característica de [escalado automático de Azure Monitor](/azure/azure-monitor/autoscale/autoscale-overview.md). Puede configurar el escalado basado en métricas (por ejemplo, el uso de CPU > 70 %), el escalado basado en programación (por ejemplo, las reglas de escalado para horas punta de actividad) o una combinación.
+El escalado automático ejecuta automáticamente la cantidad adecuada de recursos para controlar la carga en la aplicación. Los puntos de conexión administrados admiten el escalado automático mediante la integración con la característica de [escalado automático de Azure Monitor](../azure-monitor/autoscale/autoscale-overview.md). Puede configurar el escalado basado en métricas (por ejemplo, el uso de CPU > 70 %), el escalado basado en programación (por ejemplo, las reglas de escalado para horas punta de actividad) o una combinación.
 
 :::image type="content" source="media/concept-endpoints/concept-autoscale.png" alt-text="Captura de pantalla que muestra que la flexibilidad del escalado automático proporciona instancias entre el número mínimo y máximo, en función de las reglas":::
 
@@ -172,7 +172,7 @@ Para crear una implementación por lotes, debe especificar los siguientes elemen
 - Script de puntuación: código necesario para realizar la puntuación o inferencia
 - Entorno: una imagen de Docker con dependencias de Conda
 
-Si va a implementar [modelos de MLFlow](how-to-use-mlflow.md), no es necesario proporcionar un script de puntuación y un entorno de ejecución, ya que ambos se generan automáticamente.
+Si va a implementar [modelos de MLFlow](how-to-train-cli.md#model-tracking-with-mlflow), no es necesario proporcionar un script de puntuación y un entorno de ejecución, ya que ambos se generan automáticamente.
 
 Aprenda a [implementar y usar puntos de conexión por lotes con la CLI de Azure](how-to-use-batch-endpoint.md) y el [portal web de Studio](how-to-use-batch-endpoints-studio.md).
 

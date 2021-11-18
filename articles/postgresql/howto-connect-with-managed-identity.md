@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 7cc4b086a4ec9d89187345a66d6ae3e39c999ca0
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 8d7e05ba1e4a21ded5d90de6bea301e4cd94451a
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130232184"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132547655"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Conexión con identidad administrada a Azure Database for PostgreSQL
 
@@ -44,7 +44,7 @@ Recupere el identificador de aplicación de la identidad administrada asignada p
 
 ```azurecli
 # Get the client ID (application ID) of the system-assigned managed identity
-az ad sp list --display-name obs-locdev-wus2 --query [*].appId --out tsv
+az ad sp list --display-name vm-name --query [*].appId --out tsv
 ```
 
 ## <a name="creating-a-postgresql-user-for-your-managed-identity"></a>Creación de un usuario de PostgreSQL para la identidad administrada
@@ -103,12 +103,10 @@ namespace Driver
 {
     class Script
     {
-        // Obtain connection string information from the portal
-        //
+        // Obtain connection string information from the portal for use in the following variables
         private static string Host = "HOST";
         private static string User = "USER";
         private static string Database = "DATABASE";
-        //private static string ClientId = "CLIENT_ID";
 
         static async Task Main(string[] args)
         {

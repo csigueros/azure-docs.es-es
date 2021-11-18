@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 795ad31b83f3a6f1acdd8bcc7561e6d75556b311
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: d439078615a091642e15b3895f0468b846a964fb
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131892426"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704640"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli"></a>Inicio rápido: Creación de un clúster de Azure Managed Instance for Apache Cassandra mediante la CLI de Azure
 
@@ -123,7 +123,7 @@ En este inicio rápido se muestra cómo usar los comandos de la CLI de Azure par
    > Tenga en cuenta también que `--availability-zone` está establecido en `false`. Para habilitar las zonas de disponibilidad, establezca esta opción en `true`. 
 
    > [!WARNING]
-   > Las zonas de disponibilidad no se admiten en todas las regiones. Se producirá un error en las implementaciones si selecciona una región en la que no se admiten las zonas de disponibilidad. Consulte [aquí](/azure/availability-zones/az-overview#azure-regions-with-availability-zones) las regiones admitidas. La implementación correcta de las zonas de disponibilidad también depende de la disponibilidad de los recursos de proceso en todas las zonas de la región dada. Podría producirse un error en las implementaciones si la SKU o la capacidad que ha seleccionado no están disponibles en todas las zonas. 
+   > Las zonas de disponibilidad no se admiten en todas las regiones. Se producirá un error en las implementaciones si selecciona una región en la que no se admiten las zonas de disponibilidad. Consulte [aquí](../availability-zones/az-overview.md#azure-regions-with-availability-zones) las regiones admitidas. La implementación correcta de las zonas de disponibilidad también depende de la disponibilidad de los recursos de proceso en todas las zonas de la región dada. Podría producirse un error en las implementaciones si la SKU o la capacidad que ha seleccionado no están disponibles en todas las zonas. 
 
 1. Una vez que se crea el centro de datos, si quiere escalar o reducir verticalmente los nodos que contiene, ejecute el comando [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_update). Cambie el valor del parámetro `node-count` al valor deseado:
 

@@ -9,17 +9,17 @@ ms.date: 10/25/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.openlocfilehash: 15921a8666d6c55c90ed6d751f60a555c9c06d81
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 7cf307fc3490af7f3517606932c1277cd58abcfa
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132138679"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716488"
 ---
 # <a name="call-summary-and-call-diagnostic-logs-preview"></a>Versión preliminar de registros de resumen de llamadas y de diagnóstico de llamadas
 
 > [!IMPORTANT]
-> A continuación se hace referencia a los registros habilitados mediante [Azure Monitor](/azure/azure-monitor/overview) (consulte también las [preguntas más frecuentes](/azure/azure-monitor/faq)). Para habilitar estos registros para Communications Services, consulte [Habilitación del registro en Configuración de diagnósticos](./enable-logging.md).
+> A continuación se hace referencia a los registros habilitados mediante [Azure Monitor](../../../azure-monitor/overview.md) (consulte también las [preguntas más frecuentes](../../../azure-monitor/faq.yml)). Para habilitar estos registros para Communications Services, consulte [Habilitación del registro en Configuración de diagnósticos](./enable-logging.md).
 
 
 ## <a name="data-concepts"></a>Conceptos de datos

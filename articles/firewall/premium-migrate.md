@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 10/26/2021
+ms.date: 11/02/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a27f2432ec309f6ff9203921122ddd9f6b1860eb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 574c1f7f84ae34b1a1158b61206135de79ee73af
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131086234"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132548071"
 ---
 # <a name="migrate-to-azure-firewall-premium"></a>Migración a Azure Firewall Prémium
 
@@ -140,7 +140,7 @@ function TransformPolicyToPremium {
                         ResourceGroupName = $Policy.ResourceGroupName 
                         Location = $Policy.Location 
                         ThreatIntelMode = $Policy.ThreatIntelMode 
-                        BasePolicy = $Policy.BasePolicy.Id
+                        BasePolicy = $Policy.BasePolicy.Id 
                         DnsSetting = $Policy.DnsSettings 
                         Tag = $Policy.Tag 
                         SkuTier = "Premium" 
@@ -169,12 +169,18 @@ function TransformPolicyToPremium {
 
 function ValidateAzNetworkModuleExists {
     Write-Host "Validating needed module exists"
-    $networkModule = Get-InstalledModule -Name "Az.Network" -ErrorAction SilentlyContinue
-    if (($null -eq $networkModule) -or ($networkModule.Version -lt 4.5.0)){
+    $networkModule = Get-InstalledModule -Name "Az.Network" -MinimumVersion 4.5 -ErrorAction SilentlyContinue
+    if ($null -eq $networkModule) {
         Write-Host "Please install Az.Network module version 4.5.0 or higher, see instructions: https://github.com/Azure/azure-powershell#installation"
         exit(1)
     }
+    $resourceModule = Get-InstalledModule -Name "Az.Resources" -MinimumVersion 4.2 -ErrorAction SilentlyContinue
+    if ($null -eq $resourceModule) {
+        Write-Host "Please install Az.Resources module version 4.2.0 or higher, see instructions: https://github.com/Azure/azure-powershell#installation"
+        exit(1)
+    }
     Import-Module Az.Network -MinimumVersion 4.5.0
+    Import-Module Az.Resources -MinimumVersion 4.2.0
 }
 
 ValidateAzNetworkModuleExists
@@ -187,6 +193,9 @@ TransformPolicyToPremium -Policy $policy
 ## <a name="migrate-azure-firewall-using-stopstart"></a>Migración de Azure Firewall mediante Start/Stop
 
 Si usa la SKU de Azure Firewall Estándar con la directiva de firewall, puede utilizar el método Allocate/Deallocate para migrar dicha SKU a Prémium. Este enfoque de migración se admite en los firewalls tanto de centro de conectividad de red virtual como de centro de conectividad seguro. Al migrar la implementación de un centro de conectividad seguro, conservará la dirección IP pública del firewall.
+
+El requisito mínimo de la versión de Azure PowerShell es 6.5.0. Para más información, consulte [Az 6.5.0](https://www.powershellgallery.com/packages/Az/6.5.0).
+
  
 ### <a name="migrate-a-vnet-hub-firewall"></a>Migración de un firewall de centro de conectividad de red virtual
 
@@ -210,7 +219,6 @@ Si usa la SKU de Azure Firewall Estándar con la directiva de firewall, puede ut
 
 ### <a name="migrate-a-secure-hub-firewall"></a>Migración de un firewall de centro de conectividad seguro
 
-El requisito mínimo de la versión de Azure PowerShell es 6.5.0. Para más información, consulte [Az 6.5.0](https://www.powershellgallery.com/packages/Az/6.5.0).
 
 - Desasignar el firewall estándar
 

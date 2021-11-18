@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/1/2021
 ms.author: jol
-ms.openlocfilehash: 2246b54b6831d0e88581c80aedc4e39388c6f377
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 49c8e47fd695c2a65807ace4c33f07937544f149
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132327393"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719739"
 ---
 # <a name="smb-over-quic-with-automanage-machine-best-practices"></a>SMB a través de QUIC con procedimientos recomendados para máquinas con Automanage
 
-SMB a través de QUIC ofrece una "VPN SMB" para teletrabajadores, usuarios de dispositivos móviles y sucursales, lo que proporciona conectividad segura y confiable a servidores de archivos perimetrales a través de redes que no son de confianza, como Internet. Para obtener más información sobre SMB a través de QUIC y sobre cómo configurar SMB a través de QUIC, consulte [SMB a través de QUIC](https://aka.ms/smboverquic).
+SMB a través de QUIC ofrece una "VPN SMB" para teletrabajadores, usuarios de dispositivos móviles y sucursales, lo que proporciona conectividad segura y confiable a servidores de archivos perimetrales a través de redes que no son de confianza, como Internet. Para obtener más información sobre SMB a través de QUIC y sobre cómo configurar SMB a través de QUIC, consulte [SMB a través de QUIC](/windows-server/storage/file-server/smb-over-quic).
 
 Además, SMB a través de QUIC se integra con los procedimientos recomendados para máquinas con Automanage para Windows Server a fin de facilitar la administración de SMB a través de QUIC. QUIC usa certificados para proporcionar su cifrado y las organizaciones suelen tener dificultades para mantener infraestructuras de clave pública complejas. Los procedimientos recomendados para máquinas con Automanage garantizan que los certificados no expiren sin previo aviso y que SMB a través de QUIC permanezca habilitado para una continuidad máxima del servicio.
 
@@ -61,4 +61,4 @@ Los procedimientos recomendados de la máquina podrían tardar un par de horas e
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Más información sobre SMB a través de QUIC](https://aka.ms/smboverquic)
+> [Más información sobre SMB a través de QUIC](/windows-server/storage/file-server/smb-over-quic)

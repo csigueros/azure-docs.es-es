@@ -1,22 +1,22 @@
 ---
 title: Azure IoT Hub y Event Grid | Microsoft Docs
 description: Use Azure Event Grid para desencadenar procesos basados en acciones que se producen en IoT Hub.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: robinsh
+ms.author: lizross
 ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: f8d1d3cf8553c768bb2bee015be2f5995214fe62
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: da56bb4818d46f9d68e1cb8beecf16d5e771b72e
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123478723"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132554662"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reacción a eventos de IoT Hub usando Event Grid para desencadenar acciones
 

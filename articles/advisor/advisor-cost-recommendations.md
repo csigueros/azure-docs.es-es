@@ -3,12 +3,12 @@ title: Reducción de los costos de servicio con Azure Advisor
 description: Utilice Azure Advisor para optimizar el costo de las implementaciones de Azure.
 ms.topic: article
 ms.date: 10/29/2021
-ms.openlocfilehash: 32f5ca4f54eb5267abb9fe68655aa43226408610
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 099a68dc637380696990c19f404b8da1e5abc419
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131443896"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706866"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Reducción de los costos de servicio con Azure Advisor
 
@@ -109,6 +109,9 @@ Advisor identifica los recursos en los que reducir la directiva de caché de la 
 
 ## <a name="configure-manual-throughput-instead-of-autoscale-on-your-azure-cosmos-db-database-or-container"></a>Configuración del rendimiento manual en lugar de la escalabilidad automática en la base de datos o el contenedor de Azure Cosmos DB
 En función del uso de los últimos 7 días, la utilización del rendimiento manual antes que la escalabilidad automática puede suponerle ahorros en los costos. El rendimiento manual es más rentable cuando el uso medio del rendimiento máximo (RU/s) es mayor que un 66 % o menor o igual que un 10 %. La cantidad de ahorro en costes representa un ahorro potencial derivado del uso del rendimiento manual recomendado, en función de la utilización en los últimos 7 días. El ahorro real puede variar en función del rendimiento manual establecido y de si el uso medio del rendimiento sigue siendo similar al del período de tiempo analizado. El ahorro estimado no tiene en cuenta ningún descuento que se pueda aplicar a su cuenta.
+
+## <a name="enable-autoscale-on-your-azure-cosmos-db-database-or-container"></a>Habilitación de la escalabilidad automática en una base de datos o un contenedor de Azure Cosmos DB
+En función del uso que ha hecho en los últimos 7 días, puede ahorrar habilitando la escalabilidad automática. Para cada hora, comparamos las RU/s aprovisionadas con el uso real de las RU/s (a qué escalabilidad automática se habría escalado) y calculamos el ahorro de costos a lo largo del período de tiempo. La escalabilidad automática ayuda a optimizar el uso de RU/s y el costo por uso mediante la reducción vertical cuando no está en uso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

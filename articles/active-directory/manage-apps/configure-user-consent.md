@@ -13,14 +13,14 @@ ms.date: 06/01/2021
 ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2, contperf-fy22q2
-ms.openlocfilehash: cbdf0ed80397d5cd63cd7c38f12f6432e420ec7c
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 65cae86cd6183932df20a1642661bc277254fed3
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129998036"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552040"
 ---
-# <a name="configure-how-end-users-consent-to-applications-using-azure-active-directory"></a>Configuración del consentimiento de los usuarios finales a las aplicaciones mediante Azure Active Directory
+# <a name="configure-how-end-users-consent-to-applications"></a>Configuración del consentimiento de los usuarios finales a las aplicaciones
 
 Puede integrar las aplicaciones con la Plataforma de identidad de Microsoft para permitir que los usuarios inicien sesión con su cuenta profesional o educativa y accedan a los datos de su organización con el fin de ofrecer experiencias enriquecidas controladas por datos.
 

@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff1b95ac26be1697e5211c024bc148222823e36d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d0f9f67ab3b09cbf0382b27d88c0be804b4e1e78
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128622101"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132705500"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Solución de errores durante la sincronización
 Pueden producirse errores cuando se sincronizan datos de identidad de Windows Server Active Directory (AD DS) con Azure Active Directory (Azure AD). En este artículo se proporciona información general sobre los distintos tipos de errores de sincronización, algunos de los posibles escenarios que provocan dichos errores y las posibles maneras de corregirlos. También se incluyen los tipos de error comunes, pero puede que no cubra todos los posibles errores.
@@ -133,7 +133,9 @@ El motivo más común por el que aparece el error ObjectTypeMismatch es que dos 
 #### <a name="description"></a>Descripción
 El esquema de Azure Active Directory no permite que dos o más objetos tengan el mismo valor en los atributos siguientes. Es decir, cada objeto de Azure AD debe tener un valor único en estos atributos en una instancia determinada.
 
+* Correo
 * ProxyAddresses
+* SignInName
 * UserPrincipalName
 
 Si Azure AD Connect intenta agregar un objeto nuevo o actualizar un objeto existente con un valor para los atributos anteriores que ya está asignado a otro objeto de Azure Active Directory, la operación producirá el error de sincronización "AttributeValueMustBeUnique".

@@ -2,17 +2,17 @@
 title: 'Solución de problemas: firewall de aplicaciones web de Azure'
 description: En este artículo se proporciona información de solución de problemas para el firewall de aplicaciones web de Azure Application Gateway.
 services: web-application-firewall
-author: vhorne
+author: KumudD
 ms.service: web-application-firewall
 ms.date: 11/14/2019
-ms.author: ant
+ms.author: kumud
 ms.topic: conceptual
-ms.openlocfilehash: 483d261a8cc107d01cfb7a405eac43667d7efcc6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9db2e6a3c0ee90a81b4f6cb363c3513314c18944
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92131843"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550995"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Solución de problemas del firewall de aplicaciones web (WAF) de Azure Application Gateway
 

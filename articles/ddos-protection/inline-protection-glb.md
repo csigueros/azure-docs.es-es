@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.author: yitoh
 ms.date: 10/21/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 79e4507cb573dfe6893081df737a0e604810fbc5
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 49e4bc5dbe2214cafe039ceb0d6163a42f388629
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091480"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715328"
 ---
 # <a name="inline-l7-ddos-protection-with-gateway-load-balancer-and-partner-nvas"></a>Protección contra DDoS L7 en línea con Gateway Load Balancer y NVA de asociados
 
@@ -31,7 +31,7 @@ Gateway Load Balancer es una SKU de Azure Load Balancer destinada específicamen
 
 Con las funcionalidades de Gateway LB, puede implementar, escalar y administrar NVA con facilidad: encadenar una instancia de Gateway LB al punto de conexión público simplemente requiere un clic.  Puede insertar dispositivos para una variedad de escenarios, como firewalls, análisis avanzado de paquetes, sistemas de detección y prevención de intrusiones o escenarios personalizados que se adapten a sus necesidades en la ruta de acceso de red con Gateway LB. En escenarios con NVA, es especialmente importante que los flujos sean "simétricos": esto garantiza que las sesiones se mantengan y sean simétricas. Gateway LB mantiene la simetría de flujo a una instancia específica del grupo de back-end.
 
-Para obtener más información sobre Gateway Load Balancer, consulte la documentación y el producto [Gateway LB](https://aka.ms/gatewaylb). 
+Para obtener más información sobre Gateway Load Balancer, consulte la documentación y el producto [Gateway LB](../load-balancer/gateway-overview.md). 
 
 ## <a name="inline-ddos-protection-with-gateway-lb-and-partner-nvas"></a>Protección contra DDoS en línea con Gateway LB y NVA de asociados
 
@@ -52,5 +52,5 @@ Al habilitar Azure DDoS Protection Standard en la red virtual de front-end del e
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre los [asociados de protección contra DDoS L7 en línea](https://aka.ms/inlineddospartners)
-- Más información sobre [Azure DDoS Protection Standard](https://aka.ms/ddosprotectiondocs)
-- Más información sobre [Gateway Load Balancer](https://aka.ms/gatewaylb)
+- Más información sobre [Azure DDoS Protection Standard](./ddos-protection-overview.md)
+- Más información sobre [Gateway Load Balancer](../load-balancer/gateway-overview.md)

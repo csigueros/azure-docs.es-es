@@ -13,14 +13,14 @@ ms.date: 07/29/2021
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: bokacevi, dacurwin
-ms.openlocfilehash: 9a0e9988bfdc76dd27473d243f671d13b4115cd4
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: e1cc07606664d39b6cc6e1c030935323d868b2a9
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132326536"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549097"
 ---
-# <a name="cloud-app-visibility-and-control-in-azure-active-directory"></a>Control y visibilidad de aplicaciones en la nube en Azure Active Directory
+# <a name="cloud-app-visibility-and-control"></a>Control y visibilidad de aplicaciones en la nube
 
 Para sacar el máximo partido de las aplicaciones y los servicios en la nube, un equipo de TI debe encontrar el equilibrio adecuado entre respaldar el acceso y conservar el control para proteger datos críticos. Microsoft Defender for Cloud Apps proporciona visibilidad enriquecida, control durante el trayecto de los datos y análisis sofisticados para identificar y combatir las ciberamenazas en todos los servicios en la nube de Microsoft y de terceros.
 

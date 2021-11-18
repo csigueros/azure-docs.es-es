@@ -1,18 +1,18 @@
 ---
 title: Supervisión de Azure IoT Hub
 description: Comience aquí para obtener información sobre cómo supervisar Azure IoT Hub
-author: robinsh
-ms.author: robinsh
+author: eross-msft
+ms.author: lizross
 ms.topic: conceptual
 ms.service: iot-hub
 ms.custom: subject-monitoring
 ms.date: 10/26/2021
-ms.openlocfilehash: 9782190bb917492770f6870675bff768b80ff61a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5a4c5902a42a2efd0b75bdbcbf5d5d90ddab335b
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131061432"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550390"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Supervisión de Azure IoT Hub
 

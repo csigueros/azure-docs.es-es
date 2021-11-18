@@ -6,12 +6,12 @@ ms.author: tefa
 ms.date: 09/06/2021
 ms.service: signalr
 ms.topic: conceptual
-ms.openlocfilehash: 1d332fd5d69b088717501771ccc03d8d24126478
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: b65dc12c3854a1730f74bf679a724e651985883b
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478421"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716913"
 ---
 # <a name="authorize-request-to-signalr-resources-with-azure-ad-from-managed-identities"></a>Autorización de solicitudes a recursos de SignalR con Azure AD desde identidades administradas
 Azure SignalR Service admite solicitudes de autorización de Azure Active Directory (Azure AD) desde [identidades administradas de recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
@@ -144,9 +144,9 @@ services.AddSignalR().AddAzureSignalR(option =>
 > [!WARNING]
 > El enlace de desencadenador de SignalR todavía no admite la conexión basada en identidades y las cadenas de conexión siguen siendo necesarias.
 
-Los enlaces de SignalR de Azure Functions usan la [configuración de la aplicación](/azure/azure-functions/functions-how-to-use-azure-function-app-settings) en el portal o [`local.settings.json`](/azure/azure-functions/functions-develop-local#local-settings-file) en el entorno local a fin de configurar una identidad administrada para acceder a los recursos de SignalR.
+Los enlaces de SignalR de Azure Functions usan la [configuración de la aplicación](../azure-functions/functions-how-to-use-azure-function-app-settings.md) en el portal o [`local.settings.json`](../azure-functions/functions-develop-local.md#local-settings-file) en el entorno local a fin de configurar una identidad administrada para acceder a los recursos de SignalR.
 
-Es posible que necesite un grupo de pares clave-valor para configurar una identidad. Las claves de todos los pares clave-valor deben comenzar con un **prefijo de nombre de conexión** (el valor predeterminado es `AzureSignalRConnectionString`) y un separador (`__` en el portal y `:` en el entorno local). El prefijo se puede personalizar con la propiedad de enlace [`ConnectionStringSetting`](/azure/azure-functions/functions-bindings-signalr-service).
+Es posible que necesite un grupo de pares clave-valor para configurar una identidad. Las claves de todos los pares clave-valor deben comenzar con un **prefijo de nombre de conexión** (el valor predeterminado es `AzureSignalRConnectionString`) y un separador (`__` en el portal y `:` en el entorno local). El prefijo se puede personalizar con la propiedad de enlace [`ConnectionStringSetting`](../azure-functions/functions-bindings-signalr-service.md).
 
 #### <a name="using-system-assigned-identity"></a>Uso de la identidad asignada por el sistema
 

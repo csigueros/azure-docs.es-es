@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021
-ms.openlocfilehash: 7a9f0692f45f1d97824d4428e6a777e38b372d8a
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: cc2c0aa4ad0c13a2521981dc7ab8fa5482e19327
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132025938"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132713637"
 ---
 # <a name="how-to-create-custom-text-classification-projects"></a>Creación de proyectos de clasificación personalizada de texto
 
@@ -55,7 +55,7 @@ Si es la primera vez que inicia sesión, verá que aparece una ventana en [Langu
 
 :::image type="content" source="../../media/create-new-resource-small.png" alt-text="Captura de pantalla que muestra la pantalla de creación de recursos en Language Studio." lightbox="../../media/create-new-resource.png":::
 
-Para usar la clasificación personalizada, deberá [crear una cuenta de Azure Storage](/azure/storage/common/storage-account-create) si aún no tiene una. 
+Para usar la clasificación personalizada, deberá [crear una cuenta de Azure Storage](../../../../storage/common/storage-account-create.md) si aún no tiene una. 
 
 A continuación, deberá asignar los [roles correctos](#roles-for-your-storage-account) para que la cuenta de almacenamiento se conecte al recurso de idioma. 
 
@@ -86,7 +86,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterFile <path-to-parameters-file>
 ```
 
-Consulte la documentación de la plantilla de ARM para obtener información sobre la [implementación de plantillas](/azure/azure-resource-manager/templates/deploy-powershell#parameter-files) y los [archivos de parámetros](/azure/azure-resource-manager/templates/parameter-files?tabs=json).
+Consulte la documentación de la plantilla de ARM para obtener información sobre la [implementación de plantillas](../../../../azure-resource-manager/templates/deploy-powershell.md#parameter-files) y los [archivos de parámetros](../../../../azure-resource-manager/templates/parameter-files.md?tabs=json).
 
 --- 
 
@@ -100,7 +100,7 @@ Puede usar un recurso de idioma existente para empezar a trabajar con la clasifi
 |Plan de tarifa     | Asegúrese de que el recurso existente esté en el plan de tarifa Estándar(**S**). Solo se admite este plan de tarifa. Si el recurso no usa este plan de tarifa, deberá crear un nuevo recurso.        |
 |Identidad administrada     | Asegúrese de que la configuración de la identidad administrada del recurso esté habilitada. De lo contrario, consulte la sección siguiente. |
 
-Para usar la clasificación personalizada, deberá [crear una cuenta de Azure Storage](/azure/storage/common/storage-account-create) si aún no tiene una. 
+Para usar la clasificación personalizada, deberá [crear una cuenta de Azure Storage](../../../../storage/common/storage-account-create.md) si aún no tiene una. 
 
 A continuación, deberá asignar los [roles correctos](#roles-for-your-storage-account) para que la cuenta de almacenamiento se conecte al recurso de idioma. 
 
@@ -135,8 +135,8 @@ Para establecer los roles adecuados en la cuenta de almacenamiento:
 
 * Como requisito previo para crear un proyecto de clasificación personalizada de texto, los datos de entrenamiento se deben cargar en un contenedor de blobs de la cuenta de almacenamiento. Puede crear y cargar archivos de entrenamiento directamente desde Azure o mediante la herramienta Explorador de Azure Storage. La herramienta Explorador de Azure Storage permite cargar más datos en menos tiempo.
 
-  * [Creación y carga de archivos desde Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
-  * [Creación y carga de archivos mediante el Explorador de Azure Storage](/azure/vs-azure-tools-storage-explorer-blobs)
+  * [Creación y carga de archivos desde Azure](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
+  * [Creación y carga de archivos mediante el Explorador de Azure Storage](../../../../vs-azure-tools-storage-explorer-blobs.md)
 
 * Solo puede usar archivos `.txt` para la clasificación personalizada de texto. Si los datos están en otro formato, puede usar la [herramienta de utilidades de idiomas de Cognitive Services](https://aka.ms/CognitiveServicesLanguageUtilities) para convertir el archivo a formato `.txt`.
 

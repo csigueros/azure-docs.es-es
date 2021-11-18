@@ -5,12 +5,12 @@ author: rboucher
 ms.author: robb
 ms.topic: conceptual
 ms.date: 10/27/2021
-ms.openlocfilehash: ed96dc7fbb00cd836251a38c2383af7e65a25871
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 44b0659e5a8b2f70db0c260dc5becac8f928e56e
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131470478"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719815"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integraciones de asociados de Azure Monitor
 
@@ -102,9 +102,9 @@ Gracias a esta experiencia unificada, podrá:
 -   Optimizar el inicio de sesión único (SSO) en Datadog. Ya no es necesario un inicio de sesión independiente desde el portal de Datadog. 
 -   Obtener una facturación unificada para el servicio Datadog mediante la facturación de suscripciones de Azure.
 
-La [integración de Datadog con Azure](/azure/partner-solutions/datadog/overview) está disponible en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview). 
+La [integración de Datadog con Azure](../partner-solutions/datadog/overview.md) está disponible en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview). 
 
-Para obtener documentación sobre la integración, vea [Integración de Datadog con Azure](/azure/partner-solutions/datadog/). Si todavía usa la anterior integración configurada manualmente, vea la [documentación en el sitio web de Datadog](https://docs.datadoghq.com/integrations/azure/).
+Para obtener documentación sobre la integración, vea [Integración de Datadog con Azure](../partner-solutions/datadog/index.yml). Si todavía usa la anterior integración configurada manualmente, vea la [documentación en el sitio web de Datadog](https://docs.datadoghq.com/integrations/azure/).
 
 ## <a name="dynatrace"></a>Dynatrace
 
@@ -385,7 +385,3 @@ Si usa Azure Monitor para enrutar los datos de supervisión a un centro de event
 - [Acceso a métricas mediante la API REST](essentials/rest-api-walkthrough.md)
 - [Transmitir el registro de actividad a un servicio que no es de Microsoft](essentials/activity-log.md#legacy-collection-methods)
 - [Transmisión de los registros de recursos a un servicio que no es de Microsoft](essentials/resource-logs.md#send-to-azure-event-hubs)
-
-
-
-

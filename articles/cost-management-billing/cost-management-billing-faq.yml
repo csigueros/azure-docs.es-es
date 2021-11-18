@@ -10,12 +10,12 @@ metadata:
   ms.topic: conceptual
   ms.date: 10/22/2021
   ms.author: banders
-  ms.openlocfilehash: c38966a630d61279ab34328bf7a76204fb0079ee
-  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.openlocfilehash: 0dac08754b6beae7072e4e07a672bac2c3d8fb31
+  ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/22/2021
-  ms.locfileid: "130229453"
+  ms.lasthandoff: 11/17/2021
+  ms.locfileid: "132719492"
 title: Preguntas frecuentes sobre Cost Management + Billing
 summary: ''
 sections:
@@ -161,7 +161,7 @@ sections:
       Consulte [Visualización de los cargos de máquinas virtuales de acceso puntual](./costs/cost-analysis-common-uses.md#view-your-spot-vm-charges).
   - question: ¿Cómo se obtiene un informe de los detalles de una reserva?
     answer: >
-      Lea la documentación de la API para [generar un informe de los detalles de una reserva](/azure/cost-management-billing/reservations/reservation-utilization).
+      Lea la documentación de la API para [generar un informe de los detalles de una reserva](./reservations/reservation-utilization.md).
 - name: Preguntas sobre Azure Contrato Enterprise (EA) y el portal de EA
   questions:
   - question: ¿Cómo se asignan permisos de SPN a una inscripción?

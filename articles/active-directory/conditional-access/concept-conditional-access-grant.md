@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 11/04/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb, sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21bf4b8abfac8df9fe5791ccbbf37a619be65c7f
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 9636841a53621d7b840123e72846b31bf3c6334e
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132369690"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132705443"
 ---
 # <a name="conditional-access-grant"></a>Acceso condicional: Conceder
 
@@ -69,6 +69,8 @@ Los dispositivos deben estar registrados en Azure AD para poder marcarlos como c
    - Para los dispositivos inscritos con sistemas MDM de terceros, consulte [Compatibilidad con asociados de cumplimiento de dispositivos de terceros en Intune](/mem/intune/protect/device-compliance-partners).
    - El acceso condicional no puede considerar Microsoft Edge en modo InPrivate como un dispositivo compatible.
 
+> [!NOTE]
+> En Windows 7, iOS, Android, macOS y algunos exploradores web de terceros, Azure AD identifica el dispositivo mediante un certificado de cliente que se aprovisiona cuando el dispositivo se registra con Azure AD. Cuando un usuario inicia sesión por primera vez a través del explorador, se le pide que seleccione el certificado. El usuario final debe seleccionar este certificado para poder seguir usando el explorador.
 
 ### <a name="require-hybrid-azure-ad-joined-device"></a>Requerir un dispositivo unido a Azure AD híbrido
 

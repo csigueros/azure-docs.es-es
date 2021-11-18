@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 07/09/2021
 ms.author: niwashbu
-ms.openlocfilehash: efd5b643608b8d3de5cacbc1f810a9b1e9efb612
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: febbd30bc342569f0a1e6dfb7b0de938cc461e65
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131501597"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717386"
 ---
 # <a name="azure-automanage-for-windows-server"></a>Azure Automanage para Windows Server
 
@@ -55,7 +55,7 @@ SMB a través de QUIC ofrece una "VPN SMB" para teletrabajadores, usuarios de di
 
 SMB a través de QUIC también se integra con los [procedimientos recomendados para máquinas con Automanage para Windows Server](automanage-windows-server.md) a fin de facilitar la administración de SMB a través de QUIC. QUIC usa certificados para proporcionar su cifrado y las organizaciones suelen tener dificultades para mantener infraestructuras de clave pública complejas. Los procedimientos recomendados para máquinas con Automanage garantizan que los certificados no expiren sin previo aviso y que SMB a través de QUIC permanezca habilitado para una continuidad máxima del servicio.
 
-Para obtener más información, consulte [SMB a través de QUIC](https://aka.ms/smboverquic) y [Administración de SMB a través de QUIC con procedimientos recomendados para máquinas con Automanage](automanage-smb-over-quic.md).
+Para obtener más información, consulte [SMB a través de QUIC](/windows-server/storage/file-server/smb-over-quic) y [Administración de SMB a través de QUIC con procedimientos recomendados para máquinas con Automanage](automanage-smb-over-quic.md).
  
 
 ### <a name="extended-network-for-azure"></a>Red extendida para Azure

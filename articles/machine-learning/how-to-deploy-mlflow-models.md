@@ -8,15 +8,15 @@ ms.author: cgronlun
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
-ms.date: 05/25/2021
+ms.date: 10/25/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: c5dd42aa86b661fc6b1174cf0834610168d92f4c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e77c2729d9cab3fb7c50a808c2220412e287dec5
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124819413"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719891"
 ---
 # <a name="deploy-mlflow-models-as-azure-web-services"></a>Implementación de modelos de MLflow como servicios web de Azure
 

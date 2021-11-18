@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
-ms.openlocfilehash: 555269beeb5e8b36597998a8941e2b64120691b4
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 661716e57ee3a4f73082db593f3dfd96a6f7cedc
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132484158"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704987"
 ---
 # <a name="tutorial-enrich-a-cognitive-search-index-with-custom-entities-from-your-data"></a>Tutorial: Enriquecimiento de un índice de Cognitive Search con entidades personalizadas a partir de los datos
 
-En las empresas, tener una gran cantidad de documentos electrónicos puede suponer que la búsqueda en ellos sea una tarea larga y costosa. [Azure Cognitive Search](/azure/search/search-create-service-portal) puede ayudar a buscar en los archivos, en función de sus índices. El NER personalizado puede facilitar esta tarea, ya que extrae las entidades pertinentes de los archivos y enriquece el proceso de indexación de estos archivos.
+En las empresas, tener una gran cantidad de documentos electrónicos puede suponer que la búsqueda en ellos sea una tarea larga y costosa. [Azure Cognitive Search](../../../../search/search-create-service-portal.md) puede ayudar a buscar en los archivos, en función de sus índices. El NER personalizado puede facilitar esta tarea, ya que extrae las entidades pertinentes de los archivos y enriquece el proceso de indexación de estos archivos.
 
 En este tutorial aprenderá a:
 
@@ -32,9 +32,9 @@ En este tutorial aprenderá a:
 
 * [Un recurso de idioma de Azure conectado a una cuenta de Azure Blob Storage](../how-to/create-project.md).
     * Para facilitar la instalación, se recomienda seguir las instrucciones para crear un recurso mediante Azure Portal. 
-* [Un servicio de Azure Cognitive Search](/azure/search/search-create-service-portal) en la suscripción actual.
+* [Un servicio de Azure Cognitive Search](../../../../search/search-create-service-portal.md) en la suscripción actual.
     * Puede usar cualquier nivel y cualquier región para este servicio.
-* Una [aplicación de funciones de Azure](/azure/azure-functions/functions-create-function-app-portal).
+* Una [aplicación de funciones de Azure](../../../../azure-functions/functions-create-function-app-portal.md).
 * Descargue estos [datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2175226).
 
 ## <a name="create-a-custom-ner-project-through-language-studio"></a>Creación de un proyecto de NER personalizado mediante Language Studio
@@ -107,7 +107,7 @@ A continuación, deberá preparar los secretos para la función de Azure. Los se
 
 2. Después de descargar la función de ejemplo, abra el archivo *program.cs* y escriba los secretos de la aplicación.
 
-3. [Publique la función en Azure](/azure/azure-functions/functions-develop-vs?tabs=in-process#publish-to-azure).
+3. [Publique la función en Azure](../../../../azure-functions/functions-develop-vs.md?tabs=in-process#publish-to-azure).
 
 ## <a name="use-the-integration-tool"></a>Uso de la herramienta de integración
 
@@ -153,4 +153,4 @@ Reemplace `name-your-index-here` por el nombre del índice que aparece en la ins
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Búsqueda de la aplicación con el SDK de Cognitive Search](/azure/search/search-howto-dotnet-sdk#run-queries)
+* [Búsqueda de la aplicación con el SDK de Cognitive Search](../../../../search/search-howto-dotnet-sdk.md#run-queries)

@@ -3,12 +3,12 @@ title: Temas del sistema en Azure Event Grid
 description: Describe los temas del sistema en Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.openlocfilehash: 2c0bf2879ce2b137faf33f1ec00d456ab884ccf8
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 7e0354ec2b9aa5c8644998d618db9db693979b62
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130035113"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550009"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Temas del sistema en Azure Event Grid
 Un tema del sistema en Event Grid representa uno o varios eventos publicados por los servicios de Azure, como Azure Storage y Azure Event Hubs. Por ejemplo, un tema del sistema puede representar **todos los eventos de blobs** o solo los eventos de **blob creado** y **blobs eliminado** publicados para una **cuenta de almacenamiento específica**. En este ejemplo, cuando se carga un blob en la cuenta de almacenamiento, el servicio de Azure Storage publica un evento de **blob creado** en el tema del sistema en Event Grid, que luego reenvía el evento a los [suscriptores](event-handlers.md) del tema que reciben y procesan el evento. 
@@ -44,7 +44,7 @@ Anteriormente, un tema del sistema estaba implícito y no se exponía para simpl
 
 - [Ver los temas del sistema en Azure Portal](create-view-manage-system-topics.md#view-all-system-topics)
 - Exportar plantillas de Resource Manager para los temas del sistema y las suscripciones de eventos en Azure Portal
-- [Configurar registros de diagnóstico para los temas del sistema](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-system-topic)
+- [Configurar registros de diagnóstico para los temas del sistema](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-event-grid-system-topics)
 - Configurar alertas sobre los errores de publicación y entrega 
 
 ## <a name="lifecycle-of-system-topics"></a>Ciclo de vida de los temas del sistema

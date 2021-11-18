@@ -10,12 +10,12 @@ ms.subservice: azure-arc-data
 ms.date: 11/03/2021
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: ac5b33de1a95b413c7eba92d2bdeaa8cc05b3a05
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 7d41d8b0d9150b811bd6111b7e0f95eeb7fce079
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132059571"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707783"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services"></a>Notas de la versión: servicios de datos habilitados para Azure Arc
 
@@ -40,8 +40,8 @@ Los comandos `sql` siguientes ahora admiten el modo de conexión directa:
    ```console
    az arcdata dc create
    az arcdata dc delete
-   az arcdata sql mi-arc create
-   az arcdata sql mi-arc delete
+   az sql mi-arc create
+   az sql mi-arc delete
    ```
  
 #### <a name="data-controller"></a>Controlador de datos

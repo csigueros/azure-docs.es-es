@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
-ms.openlocfilehash: 9712b198e8be9a7a90699cc6ce544a627bfdea63
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: cedc8dbcaaf05c54ae624b4c1ab548a900231cf1
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131510349"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718495"
 ---
 # <a name="overview-of-archive-tier-in-azure-backup"></a>Introducción al nivel de acceso de archivo en Azure Backup
 
@@ -37,9 +37,9 @@ El nivel de acceso de archivo admite las cargas de trabajo siguientes:
 
 El nivel de acceso de archivo admite los siguientes clientes:
 
-- [PowerShell](/azure/backup/use-archive-tier-support?pivots=client-powershelltier)
-- [CLI](/azure/backup/use-archive-tier-support?pivots=client-clitier)
-- [Azure Portal](/azure/backup/use-archive-tier-support?pivots=client-portaltier)
+- [PowerShell](./use-archive-tier-support.md?pivots=client-powershelltier)
+- [CLI](./use-archive-tier-support.md?pivots=client-clitier)
+- [Azure Portal](./use-archive-tier-support.md?pivots=client-portaltier)
 
 ## <a name="how-azure-backup-moves-recovery-points-to-the-vault-archive-tier"></a>¿Cómo mueve Azure Backup los puntos de recuperación al nivel de acceso de archivo de almacén?
 

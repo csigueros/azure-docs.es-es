@@ -12,12 +12,12 @@ author: vladai78
 ms.author: vladiv
 ms.reviewer: mathoma, vladiv, sachinp, wiassaf
 ms.date: 10/18/2021
-ms.openlocfilehash: 5014c0b22d14f43baa99ad9eac3eb27ed6526c5b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 0be0ef8bdf421f6ac75467ce2226915b060a5b8e
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131473573"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714987"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Introducción a los límites de recursos de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -149,7 +149,7 @@ Actualmente, Instancia administrada de SQL admite la implementación solo en los
 ## <a name="regional-resource-limitations"></a>Limitaciones de recursos regionales
 
 > [!Note]
-> Puede encontrar la información más reciente sobre la disponibilidad por región de las suscripciones en la sección [Seleccionar regiones](https://aka.ms/sqlcapacity).
+> Puede encontrar la información más reciente sobre la disponibilidad por región de las suscripciones en la sección [Seleccionar regiones](../capacity-errors-troubleshoot.md).
 
 Los tipos de suscripción compatibles pueden contener un número limitado de recursos por región. Instancia administrada de SQL tiene dos límites predeterminados por región de Azure (que se pueden aumentar a petición mediante la creación de una [solicitud de soporte técnico especial en Azure Portal](../database/quota-increase-request.md)), en función de un tipo de suscripción:
 

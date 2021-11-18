@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 11/11/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 368622d7f0ea914541ce1385405a40e28ca2576b
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: e74b4bb2b1df116e33c11b7c7028cf74d1105987
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132282203"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710547"
 ---
 # <a name="run-automation-runbooks-on-a-hybrid-runbook-worker"></a>Ejecución de runbooks de Automation en una instancia de Hybrid Runbook Worker
 
@@ -34,7 +34,7 @@ Azure Automation controla los trabajos en Hybrid Runbook Worker de forma diferen
 Los trabajos de instancias de Hybrid Runbook Worker se ejecutan en la cuenta de **sistema** local.
 >[!NOTE]
 >  Para ejecutar PowerShell 7.x en una instancia de Hybrid Runbook Worker de Windows, consulte [Instalación de PowerShell en Windows](/powershell/scripting/install/installing-powershell-on-windows).
-> Actualmente, solo se admite la incorporación basada en extensiones de Hybrid Worker, tal como se mencionó [aquí](/azure/automation/extension-based-hybrid-runbook-worker-install). 
+> Actualmente, solo se admite la incorporación basada en extensiones de Hybrid Worker, tal como se mencionó [aquí](./extension-based-hybrid-runbook-worker-install.md). 
 
 Asegúrese de que conoce la ruta de acceso donde se encuentra el ejecutable *pwsh.exe* y que se agrega a la variable de entorno PATH. Reinicie la instancia de Hybrid Runbook Worker una vez completada la instalación.
 
@@ -42,7 +42,7 @@ Asegúrese de que conoce la ruta de acceso donde se encuentra el ejecutable *pws
 
 >[!NOTE]
 > Para ejecutar PowerShell 7.x en una instancia de Hybrid Runbook Worker de Linux, consulte [Instalación de PowerShell en Linux](/powershell/scripting/install/installing-powershell-on-linux).
-> Actualmente, solo se admite la incorporación basada en extensiones de Hybrid Worker, tal como se mencionó [aquí](/azure/automation/extension-based-hybrid-runbook-worker-install).
+> Actualmente, solo se admite la incorporación basada en extensiones de Hybrid Worker, tal como se mencionó [aquí](./extension-based-hybrid-runbook-worker-install.md).
 
 
 Se crean las cuentas de servicio **nxautomation** y **omsagent**. El script de creación y asignación de permisos se puede ver en [https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data). La cuentas, con los permisos sudo correspondientes, deben estar presentes durante la [instalación de la instancia de Hybrid Runbook Worker en Linux](automation-linux-hrw-install.md). Si intenta instalar el trabajo y la cuenta no está presente o no tiene los permisos adecuados, se producirá un error de la instalación. No cambie los permisos de la carpeta `sudoers.d` ni su propiedad. Se requiere permiso sudo para las cuentas y no se deben quitar los permisos. Su restricción a determinadas carpetas o comandos puede dar lugar a un cambio importante. El usuario **nxautomation** habilitado como parte de Update Management solo ejecuta runbooks firmados.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 01a82e178725cc310e5e693c738de047f09c1b7a
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: df663a2327ff60bcb76aa56acda0d92429b5f249
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131505600"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132713618"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutorial: Configuración de una puerta de enlace de red virtual para ExpressRoute con Azure Portal
 > [!div class="op_single_selector"]
@@ -84,7 +84,7 @@ Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-exp
     | Nombre de la dirección IP pública | Proporcione un nombre para la dirección IP pública. |
 
     > [!IMPORTANT]
-    > Si planea usar el emparejamiento privado basado en IPv6 sobre ExpressRoute, asegúrese de crear la puerta de enlace con una dirección IP pública de tipo Estándar y estática siguiente las [instrucciones de PowerShell](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway).
+    > Si planea usar el emparejamiento privado basado en IPv6 sobre ExpressRoute, asegúrese de crear la puerta de enlace con una dirección IP pública de tipo Estándar y estática siguiente las [instrucciones de PowerShell](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway).
     > 
     > 
 

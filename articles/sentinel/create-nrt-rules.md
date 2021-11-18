@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +13,12 @@ ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9e807363a1a1cc058d6b54c009f9ff90d6a5aa93
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 33f6417193944a4596e6900af5c68ae52aa4aca4
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132277892"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721487"
 ---
 # <a name="work-with-near-real-time-nrt-detection-analytics-rules-in-microsoft-sentinel"></a>Trabajar con reglas de análisis de detección casi en tiempo real (NRT) en Microsoft Sentinel
 
@@ -28,7 +26,7 @@ ms.locfileid: "132277892"
 >
 > - Las reglas casi en tiempo real (NRT) se encuentran actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
-Las [reglas de análisis casi en tiempo real](near-real-time-rules.md) de Microsoft Sentinel ofrecen una detección de amenazas al minuto integrada. Este tipo de regla se diseñó para tener una gran capacidad de respuesta mediante la ejecución de su consulta a intervalos de solo un minuto de diferencia.
+Las [reglas de análisis casi en tiempo real](near-real-time-rules.md) de Microsoft Sentinel ofrecen una detección de amenazas al minuto integrada. Este tipo de regla se diseñó para tener una gran capacidad de respuesta mediante la ejecución de su consulta a intervalos de un minuto de diferencia.
 
 Por el momento, estas plantillas tienen una aplicación limitada, como se describe a continuación, pero la tecnología está evolucionando y creciendo rápidamente.
 

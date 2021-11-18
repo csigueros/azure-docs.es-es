@@ -9,12 +9,12 @@ ms.reviewer: tzgitlin
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.openlocfilehash: 739867e66bf111d19226ea99198d4d5efec0eeb5
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: aa240292a3263c6ad7ab922654cc4cab5df1d88c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478139"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720323"
 ---
 # <a name="azure-synapse-data-explorer-data-ingestion-overview-preview"></a>Información general de la ingesta de datos del Explorador de datos de Azure Synapse (versión preliminar)
 
@@ -57,7 +57,7 @@ Para aquellas organizaciones que deseen que sea un servicio externo el que reali
 
 <!-- * **[IoT Hub](https://azure.microsoft.com/services/iot-hub/)**: A pipeline that is used for the transfer of data from supported IoT devices to Azure Synapse Data Explorer. For more information, see [Ingest from IoT Hub](ingest-data-iot-hub.md). -->
 
-* **Canalizaciones de Synapse**: un servicio de integración de datos totalmente administrado para cargas de trabajo analíticas en [canalizaciones de Synapse](/azure/data-factory/copy-activity-overview?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics) se conecta con más de 90 orígenes admitidos para proporcionar una transferencia de datos eficaz y resistente. Las canalizaciones de Synapse preparan, transforman y enriquecen los datos para proporcionar información que se puede supervisar de varias formas. Este servicio se puede usar como solución de un solo uso, en una escala de tiempo periódica o desencadenada por eventos específicos.
+* **Canalizaciones de Synapse**: un servicio de integración de datos totalmente administrado para cargas de trabajo analíticas en [canalizaciones de Synapse](../../../data-factory/copy-activity-overview.md?context=%2fazure%2fsynapse-analytics%2fcontext%2fcontext&tabs=synapse-analytics) se conecta con más de 90 orígenes admitidos para proporcionar una transferencia de datos eficaz y resistente. Las canalizaciones de Synapse preparan, transforman y enriquecen los datos para proporcionar información que se puede supervisar de varias formas. Este servicio se puede usar como solución de un solo uso, en una escala de tiempo periódica o desencadenada por eventos específicos.
 
 <!-- ### Ingestion using connectors and plugins
 
@@ -105,7 +105,7 @@ Hay varios métodos por los que los datos se pueden ingerir directamente al moto
 
   * **Ingesta desde consulta**: se envía un comando de control [.set, .append, .set-or-append o .set-or-replace](/azure/data-explorer/kusto/management/data-ingestion/ingest-from-query?context=/azure/synapse-analytics/context/context) al motor y los datos se especifican indirectamente como los resultados de una consulta o un comando.
 
-  * **Ingesta desde almacenamiento (extracción)** : se envía un comando de control [.ingest into](/data-explorer/kusto/management/data-ingestion/ingest-from-storage?context=/azure/synapse-analytics/context/context) al motor con los datos almacenados en algún almacenamiento externo (por ejemplo, Azure Blob Storage) al que el motor puede acceder y al que el comando señala.
+  * **Ingesta desde almacenamiento (extracción)** : se envía un comando de control [.ingest into](/azure/data-explorer/kusto/management/data-ingestion/ingest-from-storage?context=/azure/synapse-analytics/context/context) al motor con los datos almacenados en algún almacenamiento externo (por ejemplo, Azure Blob Storage) al que el motor puede acceder y al que el comando señala.
 
 Para ver un ejemplo del uso de comandos de control de ingesta, consulte [Análisis con el Explorador de datos](../../get-started-analyze-data-explorer.md).
 
@@ -118,7 +118,7 @@ Para ver un ejemplo del uso de comandos de control de ingesta, consulte [Anális
 | [**ADX Kafka**](ingest-data-kafka.md) | | | | |
 | [**ADX to Apache Spark**](spark-connector.md) | | | | |
 | [**LogStash**](ingest-data-logstash.md) | | | | |
-| [**Azure Data Factory (ADF)**](./data-factory-integration.md) | [Supported data formats](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) | unlimited *(per ADF restrictions) | Batching or per ADF trigger | Supports formats that are usually unsupported, large files, can copy from over 90 sources, from on perm to cloud | This method takes relatively more time until data is ingested. ADF uploads all data to memory and then begins ingestion. |
+| [**Azure Data Factory (ADF)**](./data-factory-integration.md) | [Supported data formats](../../../data-factory/copy-activity-overview.md#supported-data-stores-and-formats) | unlimited *(per ADF restrictions) | Batching or per ADF trigger | Supports formats that are usually unsupported, large files, can copy from over 90 sources, from on perm to cloud | This method takes relatively more time until data is ingested. ADF uploads all data to memory and then begins ingestion. |
 |[ **Power Automate**](./flow.md) | | | | Ingestion commands as part of flow| Must have high-performing response time |
 | [**IoT Hub**](ingest-data-iot-hub-overview.md) | [Supported data formats](ingest-data-iot-hub-overview.md#data-format)  | N/A | Batching, streaming | IoT messages, IoT events, IoT properties | |
 | [**Event Hub**](ingest-data-event-hub-overview.md) | [Supported data formats](ingest-data-event-hub-overview.md#data-format) | N/A | Batching, streaming | Messages, events | |

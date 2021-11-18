@@ -13,14 +13,14 @@ ms.date: 09/02/2021
 ms.author: davidmu
 ms.reviewer: lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 610679e7a720f6736b575d2e58bc424de9e96d8d
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 62c4659d4784fb539a536131553dac73d8dcc278
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129617898"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552059"
 ---
-# <a name="create-collections-on-the-my-apps-portal-in-azure-active-directory"></a>Creación de colecciones en el portal Aplicaciones en Azure Active Directory
+# <a name="create-collections-on-the-my-apps-portal"></a>Creación de colecciones en el portal Mis aplicaciones
 
 Los usuarios pueden usar el portal Mis aplicaciones para ver e iniciar las aplicaciones basadas en la nube a las que tienen acceso. De forma predeterminada, todas las aplicaciones a las que puede tener acceso un usuario se muestran juntas en una sola página. Para organizar mejor esta página para los usuarios, si tiene una licencia de Azure AD Premium P1 o P2, puede configurar colecciones. Con una colección, puede agrupar las aplicaciones que están relacionadas (por ejemplo, por rol de trabajo, tarea o proyecto) y mostrarlas en una pestaña independiente. Una colección aplica básicamente un filtro a las aplicaciones a las que un usuario ya puede acceder, por lo que el usuario solo ve las aplicaciones del área de trabajo que se le han asignado.
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.openlocfilehash: 76036b42693b17480f4e5ede8d93d981bf40d739
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: b20910e7692d5cea979997f32263c8e74385b564
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131429667"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724983"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Planeamiento de una aplicación administrada de Azure para una oferta de Aplicación de Azure
 
@@ -32,7 +32,7 @@ Uso de una Aplicación de Azure: Plan de aplicación administrada en las siguien
 | ------------ | ------------- |
 | Una suscripción de Azure | Las aplicaciones administradas se deben implementar en la suscripción del cliente, pero las puede administrar un tercero. |
 | Facturación y medición | Los recursos se proporcionan en la suscripción de Azure de un cliente. Las transacciones de VM que usan el modelo de pago por uso se realizan con el cliente mediante Microsoft y se facturan con la suscripción de Azure del cliente. <br><br> En el caso de las VM con el modelo "traiga su propia licencia", Microsoft factura los costos de infraestructura derivados en la suscripción del cliente, mientras que usted realizará la transacción de las tarifas de licencia de software directamente con el cliente. |
-| Disco duro virtual (VHD) compatible con Azure | Las máquinas virtuales deben estar basadas en Windows o Linux. Para más información, consulte:<br> * [Creación de un recurso técnico de máquina virtual de Azure](./azure-vm-create-certification-faq.yml#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (discos duros virtuales de Windows).<br> *  [Distribuciones de Linux aprobadas en Azure](../virtual-machines/linux/endorsed-distros.md) (para discos duros virtuales de Linux). |
+| Disco duro virtual (VHD) compatible con Azure | Las máquinas virtuales deben estar basadas en Windows o Linux. Para más información, consulte:<br> * [Creación de un recurso técnico de máquina virtual de Azure](./azure-vm-certification-faq.yml#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (discos duros virtuales de Windows).<br> *  [Distribuciones de Linux aprobadas en Azure](../virtual-machines/linux/endorsed-distros.md) (para discos duros virtuales de Linux). |
 | Atribución de uso del cliente | Todas las nuevas ofertas de la aplicación de Azure deben incluir un GUID de [atribución de uso del cliente para asociados de Azure](azure-partner-customer-usage-attribution.md). Para obtener más información sobre la atribución de uso del cliente y cómo habilitarla, consulte [Atribución de uso del cliente para asociados de Azure](azure-partner-customer-usage-attribution.md). |
 | Paquete de implementación | Necesitará un paquete de implementación que permita a los clientes implementar el plan. Si crea varios planes que requieren la misma configuración técnica, puede usar el mismo paquete. Para más información, consulte la siguiente sección: Paquete de implementación. |
 |||
@@ -124,7 +124,7 @@ Opcionalmente, puede proporcionar un punto de conexión de webhook HTTPS para re
 
 Azure anexa `/resource` al final del URI del webhook antes de llamarlo. Por lo tanto, la dirección URL del webhook debe terminar en `/resource`, a pesar de que no se debe incluir en el URI que se escribió en el cuadro **Dirección URL del punto de conexión de notificaciones** en el Centro de partners. Por ejemplo, si escribe `https://contoso.com` como el URI del punto de conexión de notificaciones, se produce una llamada a `https://contoso.com/resource`.
 
-Al escuchar eventos de las notificaciones de la aplicación administrada, asegúrese de que escucha `https://<url>/resource` y no solo la dirección URL establecida. Si desea una notificación de ejemplo, consulte [Esquema de la notificación](/azure/azure-resource-manager/managed-applications/publish-notifications#notification-schema).
+Al escuchar eventos de las notificaciones de la aplicación administrada, asegúrese de que escucha `https://<url>/resource` y no solo la dirección URL establecida. Si desea una notificación de ejemplo, consulte [Esquema de la notificación](../azure-resource-manager/managed-applications/publish-notifications.md#notification-schema).
 
 ## <a name="customize-allowed-customer-actions-optional"></a>Personalización de las acciones de cliente permitidas (opcional)
 

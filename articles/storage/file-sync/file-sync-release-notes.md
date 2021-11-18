@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/9/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 19e1d5f8eab559114f26d10a15c835cf0758b225
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 27a5e1e1341b93a8172a179db1dc8596c103a184
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132133225"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716037"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de la versión del agente de Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Las instalaciones de Windows Server se transforman en una memoria caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a los datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -62,7 +62,7 @@ Las notas siguientes se corresponden a la versión 14.0.0.0 del agente de Azure
     - Al quitar un punto de conexión de servidor desde del portal, ahora se proporcionan instrucciones paso a paso en función del motivo de la eliminación del punto de conexión de servidor, de modo que pueda evitar la pérdida de datos y asegurarse de que los datos están donde deben estar (un servidor o un recurso compartido de archivos de Azure). Esta característica también incluye nuevos cmdlets de PowerShell (Get-StorageSyncStatus y New-StorageSyncUploadSession) que puede usar en el servidor local para facilitar el proceso de desaprovisionamiento.
 
 - Mejoras en el cmdlet Invoke-AzStorageSyncChangeDetection
-    - Antes de la versión v14, si se realizaban cambios directamente en el recurso compartido de archivos de Azure, se podía usar el cmdlet Invoke-AzStorageSyncChangeDetection para detectar los cambios y sincronizarlos con los servidores del grupo de sincronización. Pero el cmdlet no se ejecutaba si la ruta especificada contenía más de 10 000 elementos. Se ha mejorado el cmdlet Invoke-AzStorageSyncChangeDetection y el límite de 10 000 elementos ya no se aplica al examinar todo el recurso compartido. Para más información, consulte la documentación sobre [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection).
+    - Antes de la versión v14, si se realizaban cambios directamente en el recurso compartido de archivos de Azure, se podía usar el cmdlet Invoke-AzStorageSyncChangeDetection para detectar los cambios y sincronizarlos con los servidores del grupo de sincronización. Pero el cmdlet no se ejecutaba si la ruta especificada contenía más de 10 000 elementos. Se ha mejorado el cmdlet Invoke-AzStorageSyncChangeDetection y el límite de 10 000 elementos ya no se aplica al examinar todo el recurso compartido. Para más información, consulte la documentación sobre [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection).
 
 - Otras mejoras
     - Ahora Azure File Sync se admite en la región Oeste de EE. UU. 3.

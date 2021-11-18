@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 11/09/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2c1f9d8783ca293898ff77f851ac928c1b94413e
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 5d7469e8eb31acb1a9fdeece78affc1d12e33727
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132137883"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718457"
 ---
 # <a name="luis-role-based-access-control"></a>Control de acceso basado en rol de LUIS
 
-LUIS admite el control de acceso basado en rol de Azure (Azure RBAC), un sistema de autorización que permite administrar el acceso individual a los recursos de Azure. Con Azure RBAC, se asignan diferentes miembros del equipo a distintos niveles de permisos para los recursos de creación de LUIS. Para obtener más información, consulte la [documentación de Azure RBAC](/azure/role-based-access-control/).
+LUIS admite el control de acceso basado en rol de Azure (Azure RBAC), un sistema de autorización que permite administrar el acceso individual a los recursos de Azure. Con Azure RBAC, se asignan diferentes miembros del equipo a distintos niveles de permisos para los recursos de creación de LUIS. Para obtener más información, consulte la [documentación de Azure RBAC](../../role-based-access-control/index.yml).
 
 ## <a name="add-role-assignment-to-language-understanding-authoring-resource"></a>Adición de la asignación de roles al recurso de creación de Language Understanding
 
@@ -34,11 +34,11 @@ Azure RBAC se puede asignar a un recurso de creación de Language Understanding.
 1. En la pestaña **Miembros**, seleccione un usuario, grupo, entidad de servicio o identidad administrada.
 1. En la pestaña **Revisión y asignación**, seleccione **Revisión y asignación** para asignar el rol.
 
-En cuestión de minutos, al destino se le asignará el rol seleccionado en el ámbito seleccionado. Para obtener ayuda con estos pasos, consulte [Asignación de roles de Azure mediante Azure Portal](/azure/role-based-access-control/role-assignments-portal).
+En cuestión de minutos, al destino se le asignará el rol seleccionado en el ámbito seleccionado. Para obtener ayuda con estos pasos, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="security"></a>Seguridad 
 
-LUIS admite la autenticación de Azure Active Directory (AAD). Para obtener más información, vea [Autenticación mediante Azure Active Directory](/azure/cognitive-services/authentication#authenticate-with-azure-active-directory).
+LUIS admite la autenticación de Azure Active Directory (AAD). Para obtener más información, vea [Autenticación mediante Azure Active Directory](../authentication.md#authenticate-with-azure-active-directory).
 
 ## <a name="luis-role-types"></a>Tipos de roles de LUIS
 
@@ -144,4 +144,4 @@ Estos usuarios son los guardianes de las aplicaciones de LUIS en un entorno de p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Administración de recursos de Azure](/azure/cognitive-services/luis/luis-how-to-azure-subscription?branch=pr-en-us-171715&tabs=portal#authoring-resource)
+* [Administración de recursos de Azure](./luis-how-to-azure-subscription.md?branch=pr-en-us-171715&tabs=portal#authoring-resource)

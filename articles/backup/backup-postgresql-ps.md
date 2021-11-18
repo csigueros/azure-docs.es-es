@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: v-amallick
 ms.date: 10/14/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 47beb64c518bbd55090c9cf6cd50068635310d25
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d11bebf36de7c5ffd7fae8b774ee428ae3a652b2
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093773"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714739"
 ---
 # <a name="back-up-azure-postgresql-databases-using-azure-powershell"></a>Restauración de bases de datos de Azure PostgreSQL mediante Azure PowerShell
 
@@ -62,17 +62,17 @@ Después de crear el almacén, vamos a crear una directiva de copia de seguridad
 
 ### <a name="understand-postgresql-backup-policy"></a>Información sobre la directiva de copia de seguridad de PostgreSQL
 
-Aunque la copia de seguridad de disco ofrece varias copias de seguridad al día y la copia de seguridad de blobs es una copia de seguridad *continua* sin desencadenador, la copia de seguridad de PostgreSQL ofrece protección de archivo. Los datos de copia de seguridad que se envían por primera vez al almacén se pueden mover al *nivel de acceso de archivo* en base a una regla definida o a un *ciclo de vida*. En este contexto, vamos a entender el objeto de directiva de copia de seguridad para PostgreSQL.
+Aunque la copia de seguridad de disco ofrece varias copias de seguridad al día y la copia de seguridad de blobs es una copia de seguridad *continua* sin desencadenador, la copia de seguridad de PostgreSQL ofrece protección de archivo. Los datos de copia de seguridad que se envían por primera vez al almacén se pueden mover al *nivel de acceso de archivo* según una regla definida o un *ciclo de vida*. En este contexto, vamos a conocer el objeto de directiva de copia de seguridad para PostgreSQL.
 
 -  Regla de directiva
    -  Regla de copia de seguridad
       -  Parámetro de copia de seguridad
          -  Tipo de copia de seguridad (una copia de seguridad completa de la base de datos en este caso)
-         -  Almacén de datos inicial (dónde llegarán inicialmente las copias de seguridad)
+         -  Almacén de datos inicial (al que llegarán inicialmente las copias de seguridad)
          -  Desencadenador (cómo se desencadena la copia de seguridad)
             -  Basada en una programación
             -  Criterios de etiquetado predeterminados (una "etiqueta" predeterminada para todas las copias de seguridad programadas. Esta etiqueta vincula las copias de seguridad a la regla de retención).
-   -  Regla de retención predeterminada (regla que se aplicará a todas las copias de seguridad, de forma predeterminada, en el almacén de datos inicial)
+   -  Regla de retención predeterminada (regla que se aplicará a todas las copias de seguridad, de manera predeterminada, en el almacén de datos inicial)
 
 Por lo tanto, este objeto define qué tipo de copias de seguridad se desencadenan, cómo se desencadenan (a través de una programación), con qué se etiquetan, a dónde llegan (un almacén de datos) y el ciclo de vida de los datos de copia de seguridad en un almacén de datos. El objeto predeterminado de PowerShell para PostgreSQL indica que se desencadena una copia de seguridad *completa* cada semana y que llegarán al almacén, donde se almacenan durante tres meses.
 
@@ -85,13 +85,13 @@ El objeto de PowerShell resultante es el siguiente:
    -  Regla de copia de seguridad
       -  Parámetro de copia de seguridad
          -  Tipo de copia de seguridad (una copia de seguridad completa de la base de datos en este caso)
-         -  Almacén de datos inicial (dónde llegarán inicialmente las copias de seguridad)
+         -  Almacén de datos inicial (al que llegarán inicialmente las copias de seguridad)
          -  Desencadenador (cómo se desencadena la copia de seguridad)
             -  Basada en una programación
             -  Criterios de etiquetado predeterminados (una "etiqueta" predeterminada para todas las copias de seguridad programadas. Esta etiqueta vincula las copias de seguridad a la regla de retención).
             -  Nuevos criterios de etiquetado para la nueva regla de retención con el mismo nombre "X"
-   -  Regla de retención predeterminada (regla que se aplicará a todas las copias de seguridad, de forma predeterminada, en el almacén de datos inicial)
-   -  Una nueva regla de retención denominada "X"
+   -  Regla de retención predeterminada (regla que se aplicará a todas las copias de seguridad, de manera predeterminada, en el almacén de datos inicial)
+   -  Una nueva regla de retención llamada "X"
       -  Ciclo de vida
          -  Almacén de datos de origen
          -  Eliminación después del período de tiempo en el almacén de datos de origen
@@ -246,7 +246,7 @@ $keyURI = "https://testkeyvaulteus.vault.azure.net/secrets/ossdbkey"
 
 El almacén de Backup tiene que conectarse al servidor de PostgreSQL y, a continuación, acceder a la base de datos a través de las claves presentes en el almacén de claves. Por lo tanto, requiere acceso al servidor de PostgreSQL y al almacén de claves. Se concede acceso al MSI del almacén de Backup.
 
-[Obtenga información sobre los permisos adecuados](/azure/backup/backup-azure-database-postgresql-overview#set-of-permissions-needed-for-azure-postgresql-database-backup) que debe conceder para realizar una copia de seguridad del MSI del almacén en el servidor de PostgreSQL y el almacén de claves de Azure, donde se almacenan las claves de la base de datos.
+[Obtenga información sobre los permisos adecuados](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup) que debe conceder para realizar una copia de seguridad del MSI del almacén en el servidor de PostgreSQL y el almacén de claves de Azure, donde se almacenan las claves de la base de datos.
 
 ### <a name="prepare-the-request"></a>Preparación de la solicitud
 

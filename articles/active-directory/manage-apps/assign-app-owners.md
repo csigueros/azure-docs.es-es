@@ -12,14 +12,14 @@ ms.subservice: app-mgmt
 ms.topic: how-to
 ms.date: 08/03/2021
 ms.author: saibandaru
-ms.openlocfilehash: f08b2c40e5a81804274472a31150c1f0f3187d9e
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 2eb7d911dae8e0ebf61a2d50ae692b0af2dcf1ca
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129659248"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132555458"
 ---
-# <a name="assign-enterprise-application-owners-in-azure-active-directory"></a>Asignación de propietarios de una aplicación empresarial en Azure Active Directory
+# <a name="assign-enterprise-application-owners"></a>Asignación de propietarios de aplicaciones empresariales
 
 La asignación de propietarios es una manera sencilla de conceder la posibilidad de administrar todos los aspectos de la configuración de Azure AD para un registro de aplicación o aplicación empresarial específicos. Como propietario, un usuario puede administrar la configuración de la aplicación empresarial que es específica de la organización, como la configuración del inicio de sesión único, el aprovisionamiento y las asignaciones de usuarios. Un propietario también puede agregar o quitar otros propietarios. A diferencia de los administradores globales, los propietarios solo pueden administrar las aplicaciones empresariales que poseen.
 

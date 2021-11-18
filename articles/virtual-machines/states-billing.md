@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: 7458a35b6227ca620f08a02aaadc5b95e8528141
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 02e7c76d9fea9801fd733aa6380cf063012cb491
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132134344"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709090"
 ---
 # <a name="states-and-billing-status-of-azure-virtual-machines"></a>Estados y estado de facturación de Azure Virtual Machines
 
@@ -93,9 +93,9 @@ Los estados de aprovisionamiento del sistema operativo solo se aplican a las má
 
 ## <a name="troubleshooting-vm-states"></a>Solución de problemas de estados de la máquina virtual
 
-Para solucionar problemas específicos de los estados de la máquina virtual, consulte [Solución de problemas de implementación de máquinas virtuales Windows](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) y [Solución de problemas de implementación de máquinas virtuales Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux).
+Para solucionar problemas específicos de los estados de la máquina virtual, consulte [Solución de problemas de implementación de máquinas virtuales Windows](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) y [Solución de problemas de implementación de máquinas virtuales Linux](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux).
 
-Si necesita más ayuda de solución de problemas, visite [Documentación de solución de problemas de máquinas virtuales de Azure](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines).
+Si necesita más ayuda de solución de problemas, visite [Documentación de solución de problemas de máquinas virtuales de Azure](/troubleshoot/azure/virtual-machines/welcome-virtual-machines).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

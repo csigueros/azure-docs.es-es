@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/10/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e66556e7233779d9fa7f9e2746839147cea42d54
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 15d55f82483f496da314fe7b81c3369cc03d1a2f
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132349953"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717494"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-with-f5-big-ip-for-header-based-authentication"></a>Tutorial: Integración de inicio de sesión único de Azure Active Directory con F5 BIG-IP para la autenticación basada en encabezados
 
@@ -30,7 +30,7 @@ La integración de las aplicaciones publicadas de BIG-IP en Azure AD proporcion
 
 - Administración de identidades y acceso desde un solo plano de control: [Azure Portal](https://azure.microsoft.com/features/azure-portal)
 
-Para obtener información sobre todas las ventajas, vea el artículo sobre [Integración de F5 BIG-IP y Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration) y [qué es el acceso a aplicaciones y el inicio de sesión único con Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para obtener información sobre todas las ventajas, vea el artículo sobre [Integración de F5 BIG-IP y Azure AD](./f5-aad-integration.md) y [qué es el acceso a aplicaciones y el inicio de sesión único con Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -68,7 +68,7 @@ No es necesario tener experiencia previa en BIG-IP, pero necesitará lo siguient
 
 - Una suscripción gratuita de Azure AD u otra de nivel superior
 
-- Una instancia de BIG-IP existente o [implementar una instancia de BIG-IP Virtual Edition (VE) en Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
+- Una instancia de BIG-IP existente o [implementar una instancia de BIG-IP Virtual Edition (VE) en Azure](./f5-bigip-deployment-guide.md)
 
 - Cualquiera de las siguientes SKU de licencias de F5 BIG-IP
 
@@ -80,13 +80,13 @@ No es necesario tener experiencia previa en BIG-IP, pero necesitará lo siguient
 
   - [Licencia de evaluación gratuita](https://www.f5.com/trial/big-ip-trial.php) completa de 90 días de BIG-IP.
 
-- Identidades de usuario [sincronizadas](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) desde un directorio local en Azure AD
+- Identidades de usuario [sincronizadas](../hybrid/how-to-connect-sync-whatis.md) desde un directorio local en Azure AD
 
-- Una cuenta con [permisos](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator) de administrador de la aplicación de Azure AD
+- Una cuenta con [permisos](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator) de administrador de la aplicación de Azure AD
 
-- [Certificado SSL](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide#ssl-profile) para publicar servicios a través de HTTPS o el uso de certificados predeterminados durante las pruebas
+- [Certificado SSL](./f5-bigip-deployment-guide.md#ssl-profile) para publicar servicios a través de HTTPS o el uso de certificados predeterminados durante las pruebas
 
-- Una aplicación basada en encabezados existente o [configurar una aplicación de encabezados de IIS sencilla](https://docs.microsoft.com/previous-versions/iis/6.0-sdk/ms525396(v=vs.90)) para pruebas
+- Una aplicación basada en encabezados existente o [configurar una aplicación de encabezados de IIS sencilla](/previous-versions/iis/6.0-sdk/ms525396(v=vs.90)) para pruebas
 
 ## <a name="deployment-modes"></a>Modos de implementación
 
@@ -99,7 +99,7 @@ En este tutorial se trata el enfoque avanzado, que proporciona una forma más fl
 
 ## <a name="adding-f5-big-ip-from-the-azure-ad-gallery"></a>Adición de F5 BIG-IP desde la galería de Azure AD
 
-La configuración de la confianza de federación de SAML entre BIG-IP APM y Azure AD es uno de los primeros pasos para implementar el acceso híbrido seguro. Establece la integración necesaria para que BIG-IP traspase la autenticación previa y el [acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) a Azure AD, antes de conceder acceso al servicio publicado.
+La configuración de la confianza de federación de SAML entre BIG-IP APM y Azure AD es uno de los primeros pasos para implementar el acceso híbrido seguro. Establece la integración necesaria para que BIG-IP traspase la autenticación previa y el [acceso condicional](../conditional-access/overview.md) a Azure AD, antes de conceder acceso al servicio publicado.
 
 1. Inicie sesión en el portal de Azure AD con una cuenta que tenga derechos de administrador de la aplicación.
 
@@ -156,13 +156,13 @@ La configuración de la confianza de federación de SAML entre BIG-IP APM y Azur
 
    ![Captura de pantalla en la que se muestran los atributos del usuario y la configuración de notificaciones](./media/f5-big-ip-header-advanced/user-attributes-claims.png)
 
-   No dude en agregar cualquier otra notificación específica que la aplicación publicada de BIG-IP pueda esperar como encabezado. Las notificaciones definidas además del conjunto predeterminado solo se emitirán si existen en Azure AD. Del mismo modo, las pertenencias de [roles o grupos](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-group-claims) de directorio también se deben definir en un objeto de usuario de Azure AD antes de que puedan emitirse como una notificación.
+   No dude en agregar cualquier otra notificación específica que la aplicación publicada de BIG-IP pueda esperar como encabezado. Las notificaciones definidas además del conjunto predeterminado solo se emitirán si existen en Azure AD. Del mismo modo, las pertenencias de [roles o grupos](../hybrid/how-to-connect-fed-group-claims.md) de directorio también se deben definir en un objeto de usuario de Azure AD antes de que puedan emitirse como una notificación.
 
 9. En la sección **Certificado de firma de SAML**, seleccione el botón **Descargar** para guardar el archivo **XML de metadatos de federación** en el equipo.
 
    ![Captura de pantalla en la que se muestra el certificado de firma de SAML](./media/f5-big-ip-header-advanced/saml-signing-certificate.png)
 
-Los certificados de firma de SAML que Azure AD crea tienen una duración de tres años y deben administrarse con la [guía](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on) publicada.
+Los certificados de firma de SAML que Azure AD crea tienen una duración de tres años y deben administrarse con la [guía](./manage-certificates-for-federated-single-sign-on.md) publicada.
 
 ### <a name="azure-ad-authorization"></a>Autorización de Azure AD
 
@@ -406,6 +406,6 @@ Consulte estos artículos para obtener más información:
 
 - [El fin de las contraseñas, cambie al modo sin contraseña](https://www.microsoft.com/security/business/identity/passwordless)
 
-- [¿Qué es el acceso condicional?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional?](../conditional-access/overview.md)
 
 - [Marco de confianza cero de Microsoft para habilitar el trabajo remoto](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)

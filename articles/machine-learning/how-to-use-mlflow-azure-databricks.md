@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 27fb89c1c534d9a538fb6e89951adee40350fe8f
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 3face1aa4cb16f13275053b6b5320d4aff1ccdfe
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131558219"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716379"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning"></a>Seguimiento de experimentos de aprendizaje automático de Azure Databricks con MLflow y Azure Machine Learning
 
@@ -26,7 +26,7 @@ En este artículo, aprenderá a habilitar el identificador URI de seguimiento y 
 
 Vea [MLflow y Azure Machine Learning (versión preliminar)](concept-mlflow.md) para obtener otras integraciones de la funcionalidad de MLflow y Azure Machine Learning.
 
-Si tiene un proyecto de MLflow para entrenar con Azure Machine Learning, vea [Entrenamiento de modelos de Machine Learning con MLflow y Azure Machine Learning (versión preliminar)](how-to-train-mlflow-projects.md).
+Si tiene un proyecto de MLflow para entrenar con Azure Machine Learning, consulte [Entrenamiento de modelos de Machine Learning con MLflow y Azure Machine Learning (versión preliminar)](how-to-train-mlflow-projects.md).
 
 > [!TIP]
 > La información de este documento va destinada principalmente a aquellos científicos de datos y desarrolladores que deseen supervisar el proceso de entrenamiento del modelo. Los administradores que estén interesados en la supervisión del uso de recursos y eventos desde Azure Machine Learning, como cuotas, ejecuciones de entrenamiento completadas o implementaciones de modelos completadas pueden consultar [Supervisión de Azure Machine Learning](monitor-azure-machine-learning.md).

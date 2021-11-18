@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 9/20/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: b0452588b8eb9eebbf8ab592ad2d0a8a0e9a6b92
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b0d2e22f0d23f558221b88d7c02539dd29dd8cae
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131066793"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132708733"
 ---
 # <a name="deploy-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-using-bicep"></a>Implementación del complemento Open Service Mesh (OSM) en Azure Kubernetes Service (AKS) mediante Bicep
 
 En este artículo se explica cómo implementar el complemento OSM en AKS mediante una plantilla de [Bicep](../azure-resource-manager/bicep/index.yml).
 
-[Bicep](/azure/azure-resource-manager/bicep/overview) es un lenguaje específico de dominio (DSL) que usa sintaxis declarativa para implementar recursos de Azure. Bicep se puede usar en lugar de crear plantillas de [ARM](/azure/azure-resource-manager/templates/overview) de Azure para implementar los recursos de Azure de infraestructura como código.
+[Bicep](../azure-resource-manager/bicep/overview.md) es un lenguaje específico de dominio (DSL) que usa sintaxis declarativa para implementar recursos de Azure. Bicep se puede usar en lugar de crear plantillas de [ARM](../azure-resource-manager/templates/overview.md) de Azure para implementar los recursos de Azure de infraestructura como código.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

@@ -9,12 +9,12 @@ ms.reviewer: tzgitlin
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.openlocfilehash: 624658dda4f78270e6e3da75920c2fe76e112fb6
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 54599b7d57b09b0815086231b5cc76cfbffc18b8
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478236"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720272"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-synapse-data-explorer"></a>Ingesta de datos del centro de eventos en el Explorador de datos de Azure Synapse
 
@@ -27,7 +27,7 @@ ms.locfileid: "131478236"
 
 [!INCLUDE [data-connector-intro](../includes/data-explorer-ingest-data-intro.md)]
 
-El Explorador de datos de Azure Synapse ofrece la ingesta (carga de datos) de Event Hubs, una plataforma de streaming de macrodatos y un servicio de ingesta de eventos. [Event Hubs](/azure/event-hubs/event-hubs-about) puede procesar millones de eventos por segundo prácticamente en tiempo real. En este artículo creará un centro de eventos, se conectará a él desde el Explorador de datos de Azure Synapse y verá el flujo de datos a través del sistema.
+El Explorador de datos de Azure Synapse ofrece la ingesta (carga de datos) de Event Hubs, una plataforma de streaming de macrodatos y un servicio de ingesta de eventos. [Event Hubs](../../../event-hubs/event-hubs-about.md) puede procesar millones de eventos por segundo prácticamente en tiempo real. En este artículo creará un centro de eventos, se conectará a él desde el Explorador de datos de Azure Synapse y verá el flujo de datos a través del sistema.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -53,7 +53,7 @@ El Explorador de datos de Azure Synapse ofrece la ingesta (carga de datos) de Ev
         .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp", "Properties": {"Path": "$.timeStamp"}},{"column":"Name", "Properties": {"Path":"$.name"}} ,{"column":"Metric", "Properties": {"Path":"$.metric"}}, {"column":"Source", "Properties": {"Path":"$.source"}}]'
         ```
 
-- Se recomienda usar una identidad [administrada asignada por el usuario](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity) o una [identidad administrada asignada por el sistema](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) para la conexión de datos (opcional).
+- Se recomienda usar una identidad [administrada asignada por el usuario](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity) o una [identidad administrada asignada por el sistema](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) para la conexión de datos (opcional).
 - [Una aplicación de ejemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que genera los datos y los envía a un centro de eventos. Descargue la aplicación de ejemplo en el sistema.
 - [Visual Studio de 2019](https://visualstudio.microsoft.com/vs/) para ejecutar la aplicación de ejemplo.
 
@@ -140,7 +140,7 @@ Rellene el formulario con la siguiente información y, después, seleccione **Cr
 | Espacio de nombres del centro de eventos | Nombre único del espacio de nombres | Nombre elegido anteriormente que identifica el espacio de nombres. |
 | Centro de eventos | *test-hub* | El centro de eventos que ha creado. |
 | Grupo de consumidores | *test-group* | Grupo de consumidores definido en el centro de eventos que creó. |
-| Propiedades del sistema de eventos | Seleccione las propiedades pertinentes. | [Propiedades del sistema del centro de eventos](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). Si hay varios registros por cada mensaje de evento, las propiedades del sistema se agregarán al primero de ellos. Cuando agregue las propiedades del sistema, [cree](/azure/data-explorer/kusto/management/create-table-command?context=/azure/synapse-analytics/context/context) o [actualice](/azure/data-explorer/kusto/management/alter-table-command?context=/azure/synapse-analytics/context/context) el esquema de tabla y la [asignación](/azure/data-explorer/kusto/management/mappings?context=/azure/synapse-analytics/context/context) para incluir las propiedades seleccionadas. |
+| Propiedades del sistema de eventos | Seleccione las propiedades pertinentes. | [Propiedades del sistema del centro de eventos](../../../service-bus-messaging/service-bus-amqp-protocol-guide.md#message-annotations). Si hay varios registros por cada mensaje de evento, las propiedades del sistema se agregarán al primero de ellos. Cuando agregue las propiedades del sistema, [cree](/azure/data-explorer/kusto/management/create-table-command?context=/azure/synapse-analytics/context/context) o [actualice](/azure/data-explorer/kusto/management/alter-table-command?context=/azure/synapse-analytics/context/context) el esquema de tabla y la [asignación](/azure/data-explorer/kusto/management/mappings?context=/azure/synapse-analytics/context/context) para incluir las propiedades seleccionadas. |
 | Compresión | *None* | Tipo de compresión de la carga de mensajes del centro de eventos. Tipos de compresión admitidos: *Ninguno, Gzip*.|
 | Identidad administrada | Asignada por el sistema | La identidad administrada que usa el clúster de Data Explorer para el acceso de lectura del centro de eventos.<br /><br />**Nota**:<br />Cuando se crea la conexión de datos:<br/>\- Las *identidades asignadas por el sistema* se crean automáticamente si no existen.<br />\- A la identidad administrada se le asigna automáticamente el rol *Receptor de datos de Azure Event Hubs* y se agrega al clúster de Data Explorer. Se recomienda comprobar que el rol se asignó y que la identidad se agregó al clúster. |
 
@@ -247,5 +247,5 @@ Si no piensa volver a usar el centro de eventos, limpie **test-hub-rg** para evi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Análisis con el Explorador de datos](../../get-started-analyze-data-explorer.md)
-- [Supervisión de grupos del Explorador de datos](../data-explorer-monitor-pools.md)
+- [Análisis con Data Explorer](../../get-started-analyze-data-explorer.md)
+- [Supervisión de grupos de Data Explorer](../data-explorer-monitor-pools.md)

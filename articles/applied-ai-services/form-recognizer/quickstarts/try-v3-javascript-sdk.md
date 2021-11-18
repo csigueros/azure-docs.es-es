@@ -11,12 +11,12 @@ ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 364eea405653ac54032787a14a612fbc57de03db
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d3af8169bf482acbbc7122c55094231e834b3aa9
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030871"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709830"
 ---
 # <a name="quickstart-form-recognizer-javascript-client-library-sdks-v30--preview"></a>Inicio rápido: SDK de la biblioteca cliente de JavaScript de Form Recognizer v3.0 | Versión preliminar
 
@@ -48,7 +48,7 @@ En este inicio rápido, usará las siguientes características para analizar y e
 * Un recurso de Cognitive Services o Form Recognizer. Una vez que tenga la suscripción de Azure, cree un recurso de Form Recognizer de [servicio único](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) o de [varios servicios](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) en Azure Portal para obtener la clave y el punto de conexión. Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
 
     > [!TIP]
-    > Cree un recurso de Cognitive Services si tiene previsto acceder a varios servicios de Cognitive Services en un único punto de conexión o clave. Para acceder únicamente a Form Recognizer, cree un recurso de Form Recognizer. Tenga en cuenta que necesitará un recurso de servicio único si tiene previsto usar la [autenticación de Azure Active Directory](/azure/active-directory/authentication/overview-authentication).
+    > Cree un recurso de Cognitive Services si tiene previsto acceder a varios servicios de Cognitive Services en un único punto de conexión o clave. Para acceder únicamente a Form Recognizer, cree un recurso de Form Recognizer. Tenga en cuenta que necesitará un recurso de servicio único si tiene previsto usar la [autenticación de Azure Active Directory](../../../active-directory/authentication/overview-authentication.md).
 
 * Una vez implementado el recurso, seleccione **Ir al recurso**. Necesitará la clave y el punto de conexión del recurso que ha creado para conectar la aplicación a la API de Form Recognizer. En una sección posterior de este mismo inicio rápido, pegará la clave y el punto de conexión en el código siguiente:
 
@@ -68,7 +68,7 @@ En este inicio rápido, usará las siguientes características para analizar y e
     npm init
     ```
 
-1. Instale el paquete npm de la biblioteca cliente `ai-form-recognizer`.
+1. Instale el paquete npm de la biblioteca cliente `ai-form-recognizer`:
 
     ```console
     npm install @azure/ai-form-recognizer@4.0.0-beta.1 @azure/identity

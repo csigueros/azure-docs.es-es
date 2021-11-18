@@ -8,12 +8,12 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: e96d3219668475760556c209b3d7a4d59da1b275
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: aed27dd50e5880e3f4dd1f06233f47d75f02379f
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131423363"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715404"
 ---
 # <a name="certificates-overview-for-azure-cloud-services-classic"></a>Introducción a los certificados de Azure Cloud Services (clásico)
 
@@ -49,7 +49,7 @@ Los certificados de administración le permiten autenticar con el modelo de impl
 ### <a name="limitations"></a>Limitaciones
 Hay un límite de 100 certificados de administración por suscripción. También hay un límite de 100 certificados de administración para todas las suscripciones bajo un identificador de usuario de un administrador de servicio específico. Si ya ha se ha usado el identificador de usuario para el administrador de la cuenta para agregar 100 certificados de administración y se necesitan más certificados, puede agregar un coadministrador para añadir certificados adicionales. 
 
-Además, los certificados de administración no se pueden usar con suscripciones de CSP, ya que las suscripciones de CSP solo admiten el modelo de implementación de Azure Resource Manager y los certificados de administración usan el modelo de implementación clásica. Consulte [Implementación mediante Azure Resource Manager frente a la implementación clásica](/azure/azure-resource-manager/management/deployment-models) y [Descripción de la autenticación con el SDK de Azure para .NET](/dotnet/azure/sdk/authentication) a fin de obtener más información sobre las opciones de las suscripciones de CSP.
+Además, los certificados de administración no se pueden usar con suscripciones de CSP, ya que las suscripciones de CSP solo admiten el modelo de implementación de Azure Resource Manager y los certificados de administración usan el modelo de implementación clásica. Consulte [Implementación mediante Azure Resource Manager frente a la implementación clásica](../azure-resource-manager/management/deployment-models.md) y [Descripción de la autenticación con el SDK de Azure para .NET](/dotnet/azure/sdk/authentication) a fin de obtener más información sobre las opciones de las suscripciones de CSP.
 
 <a name="create"></a>
 ## <a name="create-a-new-self-signed-certificate"></a>Creación de un nuevo certificado autofirmado

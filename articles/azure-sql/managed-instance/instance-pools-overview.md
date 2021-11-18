@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: mathoma
 ms.date: 10/25/2021
-ms.openlocfilehash: 3812be11d53b8a9c70e871b88ee61c474312c872
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9d052b7107a8ee85a7794f370849db0e6193f3a8
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131031392"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716854"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>¿Qué es un grupo de Instancia administrada de Azure SQL (versión preliminar)?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,7 +82,7 @@ Existen varias limitaciones de recursos con respecto a los grupos de instancias 
     - Un grupo de 8 núcleos virtuales admite hasta 200 bases de datos.
     - Un grupo de 16 núcleos virtuales admite hasta 400 bases de datos.
     - Un grupo de 24 núcleos virtuales y superior admite hasta 500 bases de datos.
-- La autenticación de Azure AD se puede usar después de crear o establecer una instancia administrada con la marca `-AssignIdentity`. Para más información, consulte [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) y [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance). Los usuarios pueden establecer entonces un administrador de Azure AD para la instancia siguiendo los pasos que se indican en [Aprovisionamiento de un administrador de Azure AD (SQL Managed Instance)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
+- La autenticación de Azure AD se puede usar después de crear o establecer una instancia administrada con la marca `-AssignIdentity`. Para más información, consulte [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) y [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance). Los usuarios pueden establecer entonces un administrador de Azure AD para la instancia siguiendo los pasos que se indican en [Aprovisionamiento de un administrador de Azure AD (SQL Managed Instance)](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
 La asignación de almacenamiento total y el número de bases de datos en todas las instancias tiene que ser inferior o igual que los límites expuestos por los grupos de instancias.
 

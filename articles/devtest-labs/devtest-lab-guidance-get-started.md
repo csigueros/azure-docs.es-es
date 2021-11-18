@@ -4,12 +4,12 @@ description: Este artículo proporciona los escenarios principales de uso de Azu
 ms.topic: conceptual
 ms.date: 06/20/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 9daf32e5094616a98b6fcd6b1f337eadf2d7ee82
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: f717043555321bb00aecd62ea4e41067e75217aa
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130235022"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722209"
 ---
 # <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Escenarios conocidos de uso de Azure DevTest Labs
 Según las necesidades de la empresa, DevTest Labs puede configurarse para satisfacer requisitos diferentes.  En este artículo se tratan los escenarios más habituales. Cada escenario aborda las ventajas del uso de DevTest Labs y los recursos para implementar estos escenarios.  

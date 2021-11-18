@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/10/2021
 ms.author: alexeyo
-ms.openlocfilehash: 06d54a7d42efd1cad9088785d24095abc039337b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2a660375e8ffa3fd77e58d963fbc5c7e3fa1849c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124737082"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706523"
 ---
 # <a name="speech-service-quotas-and-limits"></a>Cuotas y límites del servicio de voz
 
@@ -68,7 +68,7 @@ En las tablas siguientes, los parámetros sin la fila "Ajustable" **no** se pued
 |--|--|--|
 | **Número máximo de transacciones por segundo (TPS) por recurso de voz** |  |  |
 | API en tiempo real. Voz estándar, Voz neuronal, Voz personalizada y Voz neuronal personalizada | 200<sup>4</sup> | 200<sup>4</sup> |
-| Ajustable | No<sup>4</sup> | No<sup>4</sup> |
+| Ajustable | No<sup>4</sup> | Sí<sup>4</sup> |
 | **Cuotas específicas de HTTP** |  |  |
 | Longitud máxima de audio generada por solicitud | 10 min | 10 min |
 | Número máximo total de etiquetas `<voice>` y `<audio>` distintivas en SSML | 50 | 50 |

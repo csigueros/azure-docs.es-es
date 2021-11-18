@@ -7,12 +7,12 @@ ms.date: 11/02/2021
 ms.author: helohr
 manager: femila
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 5faea9929fb62af8736e62ca6e629cb2bde01f3a
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 5ba286a6023927d2c4d4821fb631a0df0b326b6c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131452174"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704048"
 ---
 # <a name="azure-virtual-desktop-for-azure-stack-hci-preview"></a>Azure Virtual Desktop para Azure Stack HCI (versión preliminar)
 
@@ -52,8 +52,6 @@ Lo siguiente afecta a cuánto cuesta ejecutar Azure Virtual Desktop para Azure S
 ## <a name="known-issues-and-limitations"></a>Limitaciones y problemas conocidos
 
 Somos conscientes de los siguientes problemas que afectan a la versión preliminar pública de Azure Virtual Desktop para Azure Stack HCI:
-
-- Actualmente, las implementaciones de Azure Virtual Desktop con [RDP Shortpath](shortpath.md) no se pueden conectar a hosts de sesión que se ejecutan en Azure Stack HCI.
 
 - Los grupo de hosts de Azure Stack HCI no admiten actualmente las siguientes características de Azure Virtual Desktop:
     

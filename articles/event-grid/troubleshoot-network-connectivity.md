@@ -5,12 +5,12 @@ author: batrived
 ms.topic: article
 ms.date: 09/28/2021
 ms.author: batrived
-ms.openlocfilehash: c565a465dbab683295cf42248640bbbf8242412c
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 38b3834b6c7c20e15f466b7af2fb7aa2b1780547
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129229950"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132548032"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>Solución de problemas de conectividad - Azure Event Grid
 
@@ -71,7 +71,7 @@ Para obtener más información, consulte [Configuración de reglas de firewall d
 
 #### <a name="find-the-ip-addresses-blocked-by-ip-firewall"></a>Busque las direcciones IP bloqueadas por el firewall de IP
 
-Habilite los registros de diagnóstico para el tema o dominio de Event Grid [Habilitar los registros de diagnóstico](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-custom-topic). Verá la dirección IP para la conexión que se ha denegado.
+Habilite los registros de diagnóstico para el tema o dominio de Event Grid [Habilitar los registros de diagnóstico](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-event-grid-topics-and-event-grid-domains). Verá la dirección IP para la conexión que se ha denegado.
 
 ```json
 {

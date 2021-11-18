@@ -11,12 +11,12 @@ author: inbarckMS
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81d3ce6564c0ed4233f34bc43d661b2d9e1c1388
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 6e52deae12ae44fbf0eb52b8377960530459fca7
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131505410"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717665"
 ---
 # <a name="find-and-address-gaps-in-strong-authentication-coverage-for-your-administrators"></a>Detección y solución de brechas en la cobertura de autenticación sólida de los administradores
 
@@ -50,7 +50,7 @@ En función de las brechas detectadas, exija que los administradores usen la aut
 
 - Ejecute el [asistente para habilitar MFA](https://aka.ms/MFASetupGuide) para elegir la directiva de MFA.
 
-- Si asigna roles de administrador personalizados o integrados en [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure), exija la autenticación multifactor tras la activación del rol.
+- Si asigna roles de administrador personalizados o integrados en [Privileged Identity Management](../privileged-identity-management/pim-configure.md), exija la autenticación multifactor tras la activación del rol.
 
 ## <a name="use-passwordless-and-phishing-resistant-authentication-methods-for-your-administrators"></a>Uso de métodos de autenticación resistentes a la suplantación de identidad (phishing) y sin contraseña para los administradores
 
@@ -58,8 +58,6 @@ Una vez que los administradores apliquen la autenticación multifactor y hayan e
 
 - [Inicio de sesión telefónico (con Microsoft Authenticator)](concept-authentication-authenticator-app.md)
 - [FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
-- [Windows Hello para empresas](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-overview)
+- [Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-overview)
 
 Puede leer más sobre estos métodos de autenticación y sus consideraciones de seguridad en [Métodos de autenticación de Azure AD](concept-authentication-methods.md).
-
-

@@ -10,12 +10,12 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 10/21/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 53b64b804b07f60741be1a72e671e8ade4710e15
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 2a512226a507d890963ee9e407c7eb8330e33fc5
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132055120"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552325"
 ---
 # <a name="cli-v2-command-component-yaml-schema"></a>Esquema YAML del componente de comando de la CLI (v2)
 
@@ -95,7 +95,7 @@ Los comandos `az ml component` se pueden usar para administrar los componentes d
 
 Hay ejemplos de componentes de comandos disponibles en el repositorio de GitHub de ejemplos. A continuación se muestran ejemplos seleccionados.
 
-Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipeline-with-components). A continuación se muestran varios.
+Hay ejemplos disponibles en el [repositorio de GitHub de ejemplos](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components). A continuación se muestran varios.
 
 ## <a name="hello-world-command-component"></a>Componente de comando Hola mundo
 

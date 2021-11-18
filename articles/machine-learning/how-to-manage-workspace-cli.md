@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/23/2021
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8f98b1d5d020df0b8a2047fa5881c6d978a0ad94
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: a258a84930201a48aa70577d1349104b9cd6a480
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132281748"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723501"
 ---
 # <a name="manage-azure-machine-learning-workspaces-using-azure-cli"></a>Administración de áreas de trabajo de Azure Machine Learning usando la CLI de Azure
 
@@ -367,7 +367,7 @@ az group delete -g <resource-group-name>
 
 Para obtener más información, consulte la documentación de [az ml workspace delete](/cli/azure/ml/workspace#az_ml_workspace_delete).
 
-Si eliminó el área de trabajo por error, podrá recuperar los cuadernos. Consulte [esta documentación](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion).
+Si eliminó el área de trabajo por error, podrá recuperar los cuadernos. Consulte [esta documentación](./how-to-high-availability-machine-learning.md#workspace-deletion).
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

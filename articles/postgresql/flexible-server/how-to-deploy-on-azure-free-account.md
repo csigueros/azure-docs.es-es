@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 08/23/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 0d1ba0118360f579b675f4f64d8ecba1b4764ff5
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 95f67a28b1aec292150bd5124638febddf66a164
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131425411"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722133"
 ---
 # <a name="use-an-azure-free-account-to-try-azure-database-for-postgresql---flexible-server-for-free"></a>Uso de una cuenta gratuita de Azure para probar Azure Database for PostgreSQL: servidor flexible de forma gratuita
 
@@ -93,7 +93,7 @@ Para completar este tutorial, necesita:
     
     Con el acceso público, el acceso al servidor se limita a las direcciones IP permitidas que incluye en una regla de firewall. Este método evita que herramientas y aplicaciones externas se conecten al servidor o a las bases de datos de este, a menos que cree una regla para abrir el firewall para una dirección IP o un intervalo específico.
     
-    Con el acceso privado (integración con red virtual), el acceso al servidor se limita a la red virtual. Para más información sobre los métodos de conectividad, [**vea Introducción a las redes**](https://docs.microsoft.com/azure/postgresql/flexible-server/concepts-networking).
+    Con el acceso privado (integración con red virtual), el acceso al servidor se limita a la red virtual. Para más información sobre los métodos de conectividad, [**vea Introducción a las redes**](./concepts-networking.md).
     
     Para los fines de este tutorial, habilite el acceso público para conectarse al servidor.
 
@@ -184,4 +184,3 @@ Como alternativa, si no cree que vaya a necesitar estos recursos en el futuro, e
 
 > [!div class="nextstepaction"]
 >[Implementación de una aplicación de Django con App Service y PostgreSQL](tutorial-django-app-service-postgres.md)
-

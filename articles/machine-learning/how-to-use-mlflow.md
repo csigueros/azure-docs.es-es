@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: b407c248d20e60effbc7c64b56f857590671ef70
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 8935412a7858dc8b3c4ab9b87e8990bb228c5977
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131556224"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716341"
 ---
 # <a name="track-ml-models-with-mlflow-and-azure-machine-learning"></a>Seguimiento de modelos de Machine Learning con MLflow y Azure Machine Learning
 
@@ -26,7 +26,7 @@ Las funcionalidades admitidas son:
 
 + Realizar un seguimiento de las métricas y los artefactos de los experimentos, así como registrarlos, en el [área de trabajo de Azure Machine Learning](./concept-azure-machine-learning-architecture.md#workspace). Si ya usa Seguimiento de MLflow para los experimentos, el área de trabajo proporciona una ubicación centralizada, segura y escalable para almacenar los modelos y las métricas de entrenamiento.
 
-+ [Envíe trabajos de entrenamiento con proyectos de MLflow con compatibilidad de back-end con Azure Machine Learning](how-to-train-mlflow-projects.md). Puede enviar trabajos localmente con el seguimiento de Azure Machine Learning o migrar las ejecuciones a la nube, por ejemplo, a través de un [Proceso de Azure Machine Learning](how-to-create-attach-compute-cluster.md).
++ [Envíe trabajos de entrenamiento con proyectos de MLflow con compatibilidad de back-end con Azure Machine Learning (versión preliminar)](how-to-train-mlflow-projects.md). Puede enviar trabajos localmente con el seguimiento de Azure Machine Learning o migrar las ejecuciones a la nube, por ejemplo, a través de un [Proceso de Azure Machine Learning](how-to-create-attach-compute-cluster.md).
 
 + Hacer un seguimiento de modelos y administrarlos en MLflow y el registro de modelos de Azure Machine Learning.
 

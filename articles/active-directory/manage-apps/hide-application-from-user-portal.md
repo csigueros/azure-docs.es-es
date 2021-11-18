@@ -13,14 +13,14 @@ ms.date: 09/23/2021
 ms.author: davidmu
 ms.reviewer: lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c76498e27d7cba32e7129b1fcca57e20ab11cfb
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: f80469924b9a4bbc53ac076751026071be2955ad
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061492"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550748"
 ---
-# <a name="hide-an-enterprise-application-in-azure-active-directory"></a>Ocultación de una aplicación empresarial en Azure Active Directory
+# <a name="hide-an-enterprise-application"></a>Ocultación de una aplicación empresarial
 
 Obtenga información sobre cómo ocultar aplicaciones empresariales en Azure Active Directory. Aunque una aplicación se oculte, los usuarios seguirán teniendo los permisos para ella.
 

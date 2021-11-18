@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.openlocfilehash: ccd2e196f1e1a44a79f0d4f9f1f07e4a69f2b974
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: f3ec562a6a33c2211f6acaf661a1ee3125a86149
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132053129"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718077"
 ---
 # <a name="azure-key-vault-security"></a>Seguridad de Azure Key Vault
 
@@ -41,7 +41,7 @@ El servicio Azure Private Link permite acceder a Azure Key Vault y a los servici
 - A pesar de las vulnerabilidades conocidas del protocolo TLS, no hay ningún ataque conocido que permita a un agente malintencionado extraer cualquier información de su almacén de claves cuando el atacante inicie una conexión con una versión de TLS que tenga vulnerabilidades. El atacante todavía tendría que autenticarse y autorizarse a sí mismo, y siempre y cuando los clientes legítimos se conecten siempre con versiones de TLS recientes, no existe la posibilidad de que las credenciales se hayan filtrado de las vulnerabilidades de versiones de TLS anteriores.
 
 > [!NOTE]
-> En el caso de Azure Key Vault, asegúrese de que la aplicación que accede al servicio Keyvault se ejecute en una plataforma que admita TLS 1.2 o una versión más reciente. Si la aplicación depende de .NET Framework, también se debe actualizar. También puede realizar los cambios del registro mencionados en [este artículo](https://docs.microsoft.com/troubleshoot/azure/active-directory/enable-support-tls-environment) para habilitar explícitamente el uso de TLS 1.2 en el nivel de sistema operativo y para .NET Framework.
+> En el caso de Azure Key Vault, asegúrese de que la aplicación que accede al servicio Keyvault se ejecute en una plataforma que admita TLS 1.2 o una versión más reciente. Si la aplicación depende de .NET Framework, también se debe actualizar. También puede realizar los cambios del registro mencionados en [este artículo](/troubleshoot/azure/active-directory/enable-support-tls-environment) para habilitar explícitamente el uso de TLS 1.2 en el nivel de sistema operativo y para .NET Framework.
 
 ## <a name="key-vault-authentication-options"></a>Opciones de autenticación de Key Vault
 

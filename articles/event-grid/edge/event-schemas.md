@@ -8,12 +8,12 @@ ms.reviewer: spelluru
 ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: de328fb70f8abc32a89b8d5b54b0cb40a12f9356
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: accf7e5a30b07cbfe6a95bc33eb00a5e3aa23998
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110370384"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716398"
 ---
 # <a name="event-schemas"></a>Esquemas de eventos
 
@@ -53,7 +53,7 @@ El esquema EventGrid consta de un conjunto de propiedades necesarias con la que 
 
 Todos los eventos tienen los datos de nivel superior siguientes:
 
-| Propiedad | Tipo | Obligatorio | Descripción |
+| Propiedad | Tipo | Requerido | Descripción |
 | -------- | ---- | ----------- |-----------
 | topic | string | No | Debe coincidir con el tema en el que se publica. Si no se especifica, Event Grid lo rellena con el nombre del tema en el que se publica. |
 | subject | string | Sí | Ruta al asunto del evento definida por el anunciante. |
@@ -105,11 +105,11 @@ No hay propiedades obligatorias. Depende de la entidad de publicación determina
 
 ## <a name="cloudevent-schema"></a>Esquema CloudEvent
 
-Además de los esquemas anteriores, Event Grid admite de manera nativa eventos en el [esquema JSON CloudEvents](https://github.com/cloudevents/spec/blob/master/json-format.md). CloudEvents es una especificación abierta para describir datos de eventos. Simplifica la interoperabilidad al proporcionar un esquema de eventos común para la publicación y el consumo de eventos. Forma parte de [CNCF](https://www.cncf.io/) y la versión disponible actual es 1.0-rc1.
+Además de los esquemas anteriores, Event Grid admite de manera nativa eventos en el [esquema JSON CloudEvents](https://github.com/cloudevents/spec/blob/main/cloudevents/formats/json-format.md). CloudEvents es una especificación abierta para describir datos de eventos. Simplifica la interoperabilidad al proporcionar un esquema de eventos común para la publicación y el consumo de eventos. Forma parte de [CNCF](https://www.cncf.io/) y la versión disponible actual es 1.0-rc1.
 
 ### <a name="cloudevent-schema-properties"></a>Propiedades del esquema CloudEvent
 
-Consulte la [especificación de CloudEvents](https://github.com/cloudevents/spec/blob/master/json-format.md#3-envelope) sobre las propiedades de sobre obligatorias.
+Consulte la [especificación de CloudEvents](https://github.com/cloudevents/spec/blob/main/cloudevents/formats/json-format.md#3-envelope) sobre las propiedades de sobre obligatorias.
 
 ### <a name="example--cloud-event"></a>Ejemplo: evento en la nube
 ```json

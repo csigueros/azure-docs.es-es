@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/31/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: fd29b9b7356bc16132d46f125d3f3cf2792c1654
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: 259d39eb80907a8c27e77db91bc369d97e690169
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132000568"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716018"
 ---
 # <a name="tutorial-diagnostic-settings-of-jvm-options-for-advanced-troubleshooting-in-azure-spring-cloud"></a>Tutorial: configuración del diagnóstico de las opciones de JVM para la solución de problemas avanzada en Azure Spring Cloud
 
@@ -27,7 +27,7 @@ Para completar este ejercicio, necesitará lo siguiente:
 * Al menos una aplicación ya creada en su instancia de servicio.
 * Al menos un [almacenamiento persistente ya enlaza en la aplicación](how-to-built-in-persistent-storage.md) para guardar los archivos de diagnóstico generados.
 
-Los usuarios pueden seguir la [documentación de implementación](https://docs.microsoft.com/cli/azure/spring-cloud/app/deployment?view=azure-cli-latest) para configurar los parámetros de inicio de la aplicación basada en JVM. En la sección siguiente se proporcionan varios ejemplos. **Lo que debe hacer es agregar el parámetro en jvm-options.**
+Los usuarios pueden seguir la [documentación de implementación](/cli/azure/spring-cloud/app/deployment?view=azure-cli-latest) para configurar los parámetros de inicio de la aplicación basada en JVM. En la sección siguiente se proporcionan varios ejemplos. **Lo que debe hacer es agregar el parámetro en jvm-options.**
 
 ## <a name="generate-a-heap-dump-when-out-of-memory"></a>Generación de un volcado de memoria del montón cuando la memoria es insuficiente
 ```heap dump when OOM
@@ -87,7 +87,3 @@ O bien, el cliente puede usar los siguientes comandos para anexar el almacenamie
 ```
    
    Si los clientes desean tener el volcado en su propio archivo de Azure dado anteriormente, <PATH_TO_HEAP_DUMP_FOLDER> como "/test/Path". Si los clientes desean usar la ruta de acceso en la ruta de acceso de montaje, asegúrese de que ya se ha creado la ruta de acceso secundaria.
-
-
-
-

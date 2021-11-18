@@ -7,12 +7,12 @@ author: v-amallick
 ms.service: backup
 ms.author: v-amallick
 ms.assetid: 55fa0a81-018f-4843-bef8-609a44c97dcd
-ms.openlocfilehash: 7e4aa84c8e45ad15a2faa1c02c6ad938e126c0d0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cc5decd55c9724b486e657dcac70f38eb8c875a5
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131017643"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719967"
 ---
 # <a name="back-up-azure-postgresql-databases-using-azure-data-protection-via-rest-api"></a>Copia de seguridad de bases de datos de Azure PostgreSQL con Azure Data Protection a través de la API REST
 
@@ -52,7 +52,7 @@ El servicio Azure Backup no almacena el nombre de usuario y la contraseña para 
 
 El almacén de Backup tiene que conectarse al servidor de PostgreSQL y, a continuación, acceder a la base de datos a través de las claves presentes en el almacén de claves. Por lo tanto, requiere acceso al servidor de PostgreSQL y al almacén de claves. Se concede acceso al MSI del almacén de Backup.
 
-[Obtenga información sobre los permisos adecuados](/azure/backup/backup-azure-database-postgresql-overview#set-of-permissions-needed-for-azure-postgresql-database-backup) que debe conceder para realizar una copia de seguridad del MSI del almacén en el servidor de PostgreSQL y el almacén de claves de Azure, donde se almacenan las claves de la base de datos.
+[Obtenga información sobre los permisos adecuados](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup) que debe conceder para realizar una copia de seguridad del MSI del almacén en el servidor de PostgreSQL y el almacén de claves de Azure, donde se almacenan las claves de la base de datos.
 
 ### <a name="prepare-the-request-to-configure-backup"></a>Preparación de la solicitud para configurar una copia de seguridad
 

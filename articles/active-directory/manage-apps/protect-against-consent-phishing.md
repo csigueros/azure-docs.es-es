@@ -13,14 +13,14 @@ ms.date: 08/09/2021
 ms.custom: template-concept
 ms.author: cchiedo
 ms.reviewer: tilarso
-ms.openlocfilehash: 497d508b0e338f410dbed19c4ba931a97c6c03f7
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: cad0102bf76cd63553049045ea55e0e7fb8f16d0
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132292383"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550691"
 ---
-# <a name="protecting-against-consent-phishing-in-azure-active-directory"></a>Protección contra la suplantación de identidad de consentimiento en Azure Active Directory
+# <a name="protecting-against-consent-phishing"></a>Protección contra la suplantación de identidad en el consentimiento
 
 La productividad ya no se limita a las redes privadas y el trabajo ha cambiado drásticamente hacia los servicios en la nube. Aunque las aplicaciones en la nube permiten a los empleados ser productivos de forma remota, los atacantes también pueden usar ataques basados en la aplicación para obtener acceso a datos valiosos de la organización. Es posible que esté familiarizado con los ataques centrados en los usuarios, como la suplantación de identidad en el correo electrónico o el riesgo de credenciales. La ***suplantación de identidad en el consentimiento*** es otro vector de amenaza que se debe tener en cuenta.
 En este artículo se explora qué es la suplantación de identidad en el consentimiento, qué hace Microsoft para protegerle y qué pasos pueden seguir las organizaciones para protegerse.

@@ -14,14 +14,14 @@ ms.author: davidmu
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: d6daa398c560bf7112539291f76fe4188abb76a1
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 8f8140362a7b2709aaf1ea635e61a43e84eb503a
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129231622"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132546583"
 ---
-# <a name="plan-a-single-sign-on-deployment-in-azure-active-directory"></a>Planificación de una implementación de inicio de sesión único en Azure Active Directory
+# <a name="plan-a-single-sign-on-deployment"></a>Planeación de una implementación de inicio de sesión único
 
 En este artículo se proporciona información que puede usar para planear la implementación del [inicio de sesión único (SSO)](what-is-single-sign-on.md) en Azure Active Directory (Azure AD). Al planear la implementación del SSO con sus aplicaciones de Azure AD, debe tener en cuenta estas preguntas:
 
@@ -92,7 +92,7 @@ Desde la perspectiva del inicio de sesión, las aplicaciones con cuentas compart
 
 Hay varias maneras de configurar una aplicación para el inicio de sesión único. La elección de un método de SSO depende de cómo esté configurada la aplicación para la autenticación.
 - Las aplicaciones en la nube pueden usar los métodos OpenID Connect, OAuth, SAML, basado en contraseña o vinculado para el inicio de sesión único. El inicio de sesión único también se puede deshabilitar.
-- Las aplicaciones locales pueden usar métodos de inicio de sesión único basado en contraseña, de autenticación integrada de Windows, basado en encabezados o vinculado para el inicio de sesión único. Las opciones locales funcionan si las aplicaciones están configuradas para el [proxy de aplicación](../app-proxy/what-is-application-proxy.md).
+- Las aplicaciones locales pueden usar métodos de inicio de sesión único basado en contraseña, de autenticación integrada, basado en encabezados o vinculado para el inicio de sesión único. Las opciones locales funcionan si las aplicaciones están configuradas para [Application Proxy](../app-proxy/what-is-application-proxy.md).
 
 Este diagrama de flujo puede ayudarle a decidir qué método de inicio de sesión único es el mejor en su caso.
 

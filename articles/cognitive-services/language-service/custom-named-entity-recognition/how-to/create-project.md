@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-ner, references_regions, ignite-fall-2021
-ms.openlocfilehash: c7dfe80162ab406c6dde32ad54ff251e001f5416
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: 97b4a527fe049f4a36839ed38b1498307ea30d36
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132027686"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132705082"
 ---
 # <a name="how-to-create-custom-ner-projects"></a>Creación de proyectos de NER personalizado
 
@@ -54,7 +54,7 @@ Si es la primera vez que inicia sesión, verá que aparece una ventana en [Langu
 
 :::image type="content" source="../../media/create-new-resource-small.png" alt-text="Captura de pantalla de creación del recurso en Language Studio." lightbox="../../media/create-new-resource.png":::
 
-Para usar NER personalizado, deberá [crear una cuenta de almacenamiento de Azure](/azure/storage/common/storage-account-create) si aún no tiene una. 
+Para usar NER personalizado, deberá [crear una cuenta de almacenamiento de Azure](../../../../storage/common/storage-account-create.md) si aún no tiene una. 
 
 A continuación, deberá asignar los [roles correctos](#roles-for-your-storage-account) para que la cuenta de almacenamiento se conecte al recurso de idioma. 
 
@@ -85,7 +85,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterFile <path-to-parameters-file>
 ```
 
-Consulte la documentación de la plantilla de ARM para obtener información sobre la [implementación de plantillas](/azure/azure-resource-manager/templates/deploy-powershell#parameter-files) y los [archivos de parámetros](/azure/azure-resource-manager/templates/parameter-files?tabs=json).
+Consulte la documentación de la plantilla de ARM para obtener información sobre la [implementación de plantillas](../../../../azure-resource-manager/templates/deploy-powershell.md#parameter-files) y los [archivos de parámetros](../../../../azure-resource-manager/templates/parameter-files.md?tabs=json).
 
 --- 
 
@@ -99,7 +99,7 @@ Puede usar un recurso de idioma existente para empezar a trabajar con NER person
 |Plan de tarifa     | Asegúrese de que el recurso existente esté en el plan de tarifa Estándar(**S**). Solo se admite este plan de tarifa. Si el recurso no usa este plan de tarifa, deberá crear un nuevo recurso.        |
 |Identidad administrada     | Asegúrese de que la configuración de la identidad administrada del recurso esté habilitada. De lo contrario, consulte la sección siguiente. |
 
-Para usar NER personalizado, deberá [crear una cuenta de almacenamiento de Azure](/azure/storage/common/storage-account-create) si aún no tiene una. 
+Para usar NER personalizado, deberá [crear una cuenta de almacenamiento de Azure](../../../../storage/common/storage-account-create.md) si aún no tiene una. 
 
 A continuación, deberá asignar los [roles correctos](#roles-for-your-storage-account) para que la cuenta de almacenamiento se conecte al recurso de idioma. 
 
@@ -134,8 +134,8 @@ Para establecer los roles adecuados en la cuenta de almacenamiento:
 
 * Como requisito previo para crear un proyecto de NER personalizado, los datos de entrenamiento deben cargarse en un contenedor de blobs de la cuenta de almacenamiento. Puede crear y cargar archivos de entrenamiento desde Azure directamente o mediante la herramienta Explorador de Azure Storage. La herramienta Explorador de Azure Storage permite cargar más datos en menos tiempo.
 
-  * [Creación y carga de archivos desde Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
-  * [Creación y carga de archivos mediante el Explorador de Azure Storage](/azure/vs-azure-tools-storage-explorer-blobs)
+  * [Creación y carga de archivos desde Azure](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
+  * [Creación y carga de archivos mediante el Explorador de Azure Storage](../../../../vs-azure-tools-storage-explorer-blobs.md)
 
 * Solo puede usar archivos `.txt` para NER personalizado. Si los datos están en otro formato, puede usar la [herramienta de utilidades de idioma de Cognitive Services](https://aka.ms/CognitiveServicesLanguageUtilities) para convertir el archivo al formato `.txt`.
 

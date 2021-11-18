@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.author: ssambare
 author: shivanissambare
 ms.custom: deploy, devplatv2
-ms.openlocfilehash: d4c65af505725f3f667dd2ad51902717352e4c42
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 017ddd81ea07f3febc4d708024d448f3b09c5344
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132063672"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723594"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Servicio de alto rendimiento con Triton Inference Server (versión preliminar) 
 
@@ -40,7 +40,7 @@ En este artículo, aprenderá a implementar Triton y un modelo en un punto de co
 * Acceso a las VM de la serie NCv3 de su suscripción de Azure.
 
     > [!IMPORTANT]
-    > Es posible que tenga que solicitar un aumento de cuota para su suscripción para poder usar esta serie de VM. Para más información, consulte [Serie NCv3](/azure/virtual-machines/ncv3-series).
+    > Es posible que tenga que solicitar un aumento de cuota para su suscripción para poder usar esta serie de VM. Para más información, consulte [Serie NCv3](../virtual-machines/ncv3-series.md).
 
 [!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
 
@@ -89,7 +89,7 @@ En esta sección se muestra cómo puede implementar Triton en un punto de conexi
     > [!IMPORTANT]
     > Para que la implementación sin código (NCD) de Triton funcione, es necesario establecer **`model_format`** en **`Triton`** . Para obtener más información, [compruebe el esquema de YAML del modelo de la CLI (v2)](reference-yaml-model.md).
     >
-    > Esta implementación usa una VM Standard_NC6s_v3. Es posible que deba solicitar un aumento de cuota para su suscripción para poder usar esta VM. Para más información, consulte [Serie NCv3](/azure/virtual-machines/ncv3-series).
+    > Esta implementación usa una VM Standard_NC6s_v3. Es posible que deba solicitar un aumento de cuota para su suscripción para poder usar esta VM. Para más información, consulte [Serie NCv3](../virtual-machines/ncv3-series.md).
 
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/triton/single-model/create-managed-deployment.yaml":::
 

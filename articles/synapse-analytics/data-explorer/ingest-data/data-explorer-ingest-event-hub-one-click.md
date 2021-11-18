@@ -9,12 +9,12 @@ ms.reviewer: tzgitlin
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.openlocfilehash: dbdf77da2434c71de29f45885d3e08ad304e54ea
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 6bfb614f3f0263b6ceff3fbf1e00a6c90215c6a2
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478393"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720214"
 ---
 # <a name="use-one-click-ingestion-to-create-an-event-hub-data-connection-for-azure-synapse-data-explorer-preview"></a>Uso de la ingesta con un clic para crear una conexión de datos de centro de eventos para el Explorador de datos de Azure Synapse (versión preliminar)
 
@@ -25,7 +25,7 @@ ms.locfileid: "131478393"
 > * [Python](data-explorer-ingest-event-hub-python.md)
 > * [Plantilla de Azure Resource Manager](data-explorer-ingest-event-hub-resource-manager.md)
 
-El Explorador de datos de Azure Synapse ofrece la ingesta (carga de datos) de Event Hubs, una plataforma de streaming de macrodatos y un servicio de ingesta de eventos. [Event Hubs](/azure/event-hubs/event-hubs-about) puede procesar millones de eventos por segundo prácticamente en tiempo real. En este artículo, conectará un centro de eventos a una tabla del Explorador de datos de Azure Synapse mediante la experiencia de [ingesta con un solo clic](data-explorer-ingest-data-one-click.md).
+El Explorador de datos de Azure Synapse ofrece la ingesta (carga de datos) de Event Hubs, una plataforma de streaming de macrodatos y un servicio de ingesta de eventos. [Event Hubs](../../../event-hubs/event-hubs-about.md) puede procesar millones de eventos por segundo prácticamente en tiempo real. En este artículo, conectará un centro de eventos a una tabla del Explorador de datos de Azure Synapse mediante la experiencia de [ingesta con un solo clic](data-explorer-ingest-data-one-click.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -40,7 +40,7 @@ El Explorador de datos de Azure Synapse ofrece la ingesta (carga de datos) de Ev
 
 1. En Synapse Studio, en el panel izquierdo, seleccione **Datos**.
 
-1. En las **bases de datos del Explorador de datos**, haga clic con el botón derecho en la base de datos correspondiente y seleccione **Open in Azure Data Explorer** (Abrir en Azure Data Explorer).
+1. En **Data Explorer Databases** (Bases de datos de Data Explorer), haga clic con el botón derecho en la base de datos pertinente y seleccione **Open in Azure Data Explorer** (Abrir en Azure Data Explorer).
 
     :::image type="content" source="../media/ingest-data-one-click/open-azure-data-explorer-synapse.png" alt-text="Captura de pantalla Azure Synapse Studio, en la que se muestra Azure Data Explorer en el contexto de un grupo específico.":::
 
@@ -80,7 +80,7 @@ Se abrirá la ventana **Ingest new data** (Ingerir nuevos datos) con la pestaña
     | Espacio de nombres del centro de eventos |  | Nombre que identifica el espacio de nombres. |
     | Centro de eventos |  | Centro de eventos que quiere usar. |
     | Grupo de consumidores |  | Grupo de consumidores definido en el centro de eventos. |
-    | Propiedades del sistema de eventos | Seleccione las propiedades pertinentes. | [Propiedades del sistema del centro de eventos](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). Si hay varios registros por cada mensaje de evento, las propiedades del sistema se agregarán al primero de ellos. Cuando agregue las propiedades del sistema, [cree](/azure/data-explorer/kusto/management/create-table-command?context=/azure/synapse-analytics/context/context) o [actualice](/azure/data-explorer/kusto/management/alter-table-command?context=/azure/synapse-analytics/context/context) el esquema de tabla y la [asignación](/azure/data-explorer/kusto/management/mappings?context=/azure/synapse-analytics/context/context) para incluir las propiedades seleccionadas. |
+    | Propiedades del sistema de eventos | Seleccione las propiedades pertinentes. | [Propiedades del sistema del centro de eventos](../../../service-bus-messaging/service-bus-amqp-protocol-guide.md#message-annotations). Si hay varios registros por cada mensaje de evento, las propiedades del sistema se agregarán al primero de ellos. Cuando agregue las propiedades del sistema, [cree](/azure/data-explorer/kusto/management/create-table-command?context=/azure/synapse-analytics/context/context) o [actualice](/azure/data-explorer/kusto/management/alter-table-command?context=/azure/synapse-analytics/context/context) el esquema de tabla y la [asignación](/azure/data-explorer/kusto/management/mappings?context=/azure/synapse-analytics/context/context) para incluir las propiedades seleccionadas. |
 
 1. Seleccione **Next: Schema** (Siguiente: Esquema).
 
@@ -110,5 +110,5 @@ En la ventana **Ingesta continua desde el centro de eventos** establecida, todos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Análisis con el Explorador de datos](../../get-started-analyze-data-explorer.md)
-- [Supervisión de grupos del Explorador de datos](../data-explorer-monitor-pools.md)
+- [Análisis con Data Explorer](../../get-started-analyze-data-explorer.md)
+- [Supervisión de grupos de Data Explorer](../data-explorer-monitor-pools.md)

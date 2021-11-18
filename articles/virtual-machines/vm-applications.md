@@ -10,12 +10,12 @@ ms.date: 11/02/2021
 ms.author: cynthn
 ms.reviewer: amjads
 ms.custom: ''
-ms.openlocfilehash: b43d2c5f20afa67c40115430903b97d49fef4e08
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: b2d5c3c1d204771b8380a06ac9c103d4473e0d8f
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478131"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132708995"
 ---
 # <a name="vm-applications-overview-preview"></a>Introducción a las aplicaciones de máquina virtual (versión preliminar)
 
@@ -39,7 +39,7 @@ Los paquetes de aplicación proporcionan ventajas con respecto a otros métodos 
 - Compatibilidad con máquinas virtuales y conjuntos de escalado flexibles y uniformes
 
 - Si tiene ha aplicado reglas de grupo de seguridad de red (NSG) a la máquina virtual o al conjunto de escalado, puede que no sea posible descargar los paquetes de un repositorio de Internet. Además, con las cuentas de almacenamiento, para descargar paquetes en máquinas virtuales bloqueadas sería necesario configurar vínculos privados.
-- Las aplicaciones de máquina virtual se pueden usar con la directiva [DeployIfNotExists](/azure/governance/policy/concepts/effects).
+- Las aplicaciones de máquina virtual se pueden usar con la directiva [DeployIfNotExists](../governance/policy/concepts/effects.md).
 
 
 ## <a name="what-are-vm-app-packages"></a>¿Qué son los paquetes de aplicaciones de máquina virtual?
@@ -306,5 +306,3 @@ Get-AzVmss -name <VMSS name> -ResourceGroupName <resource group name> -InstanceV
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Descubra cómo [crear e implementar paquetes de aplicación de máquina virtual](vm-applications-how-to.md).
-
-

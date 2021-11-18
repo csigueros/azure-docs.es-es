@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/02/2021
 ms.reviewer: amjads
 ms.custom: ''
-ms.openlocfilehash: f5978c40acdbcc842400224fb3cdaed7c49255da
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: b98d8da852ed280638af33c6e9c52e1ea6963fbb
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478301"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709033"
 ---
 # <a name="create-and-deploy-vm-applications-preview"></a>Creación e implementación de aplicaciones de máquina virtual (versión preliminar)
 
@@ -21,7 +21,7 @@ Las aplicaciones de máquina virtual son un tipo de recurso de Azure Compute Gal
 
 
 > [!IMPORTANT]
-> **Las aplicaciones de máquina virtual de Azure Compute Gallery** se encuentran actualmente en versión preliminar pública.
+> Las **aplicaciones de máquina virtual de Azure Compute Gallery** se encuentran actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
@@ -51,7 +51,7 @@ if ($remainder -ne 0){
     }
 ```
 
-Debe asegurarse de que los archivos están disponibles públicamente o necesitará el URI de SAS para los archivos de la cuenta de almacenamiento. Puede usar [Explorador de Storage](/azure/vs-azure-tools-storage-explorer-blobs) para crear rápidamente un URI de SAS si todavía no tiene uno.
+Debe asegurarse de que los archivos están disponibles públicamente o necesitará el URI de SAS para los archivos de la cuenta de almacenamiento. Puede usar [Explorador de Storage](../vs-azure-tools-storage-explorer-blobs.md) para crear rápidamente un URI de SAS si todavía no tiene uno.
 
 ## <a name="create-the-vm-application"></a>Creación de la aplicación de máquina virtual
 

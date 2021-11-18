@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: conceptual
 ms.date: 10/29/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 4cf92148accf1d07aaafc0a1640de36e2884a9c5
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: 8dc09c009f4254aa7f4149f95fe73bb4d7a406f9
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131893450"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704110"
 ---
 # <a name="customer-managed-keys---overview"></a>Información general de las claves administradas por el cliente
 
@@ -20,7 +20,7 @@ Azure Managed Instance for Apache Cassandra proporciona la funcionalidad de cifr
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Configure un secreto mediante Azure Key Vault. Obtenga más información sobre Azure Key Vault [aquí](/azure/key-vault/secrets/about-secrets).
+- Configure un secreto mediante Azure Key Vault. Obtenga más información sobre Azure Key Vault [aquí](../key-vault/secrets/about-secrets.md).
 - Implemente una red virtual en el grupo de recursos y aplique el rol de colaborador de red con la entidad de servicio de Azure Cosmos DB como miembro. Consulte [Creación de un clúster de Azure Managed Instance for Apache Cassandra mediante la CLI de Azure](create-cluster-cli.md) para obtener más información. 
 
 > [!IMPORTANT]

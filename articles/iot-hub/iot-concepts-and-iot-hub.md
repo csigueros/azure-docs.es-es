@@ -1,18 +1,18 @@
 ---
 title: Conceptos de IoT y Azure IoT Hub | Microsoft Docs
 description: En este artículo se describen los conceptos básicos para los usuarios nuevos de Azure IoT Hub
-author: robinsh
-ms.author: robinsh
+author: eross-msft
+ms.author: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/07/2021
-ms.openlocfilehash: 0ba840e4382aba96ead1d97f954362539833ba97
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: d04f5b8ace6bfb331e9460745271d15b82a3fb98
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129670392"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132553471"
 ---
 # <a name="iot-concepts-and-azure-iot-hub"></a>Conceptos de IoT y Azure IoT Hub
 

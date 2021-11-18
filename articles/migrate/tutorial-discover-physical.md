@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 11/12/2021
 ms.custom: mvc
-ms.openlocfilehash: 1a12e8ddf419b4e7b26d82e76a59de43fb73ddb4
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: 9f4f8d4d113d3eac381f1b8504dc9987073319d9
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132402416"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724774"
 ---
 # <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Detección de servidores físicos con Azure Migrate: Discovery and assessment
 
@@ -301,7 +301,7 @@ Una vez finalizada la detección, puede verificar que los servidores aparezcan e
 Una vez iniciada la detección, puede eliminar cualquiera de los servidores agregados desde el administrador de configuración del dispositivo; para ello, busque el nombre del servidor en la tabla **Add discovery source** (Agregar origen de detección) y haga clic en **Delete** (Eliminar).
 
 >[!NOTE]
-> Si elige eliminar un servidor en el que se ha iniciado la detección, se detendrá la detección y la evaluación en curso, lo que puede afectar a la clasificación de confianza de la evaluación que incluye a este servidor. [Más información](/azure/migrate/common-questions-discovery-assessment#why-is-the-confidence-rating-of-my-assessment-low)
+> Si elige eliminar un servidor en el que se ha iniciado la detección, se detendrá la detección y la evaluación en curso, lo que puede afectar a la clasificación de confianza de la evaluación que incluye a este servidor. [Más información](./common-questions-discovery-assessment.md#why-is-the-confidence-rating-of-my-assessment-low)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

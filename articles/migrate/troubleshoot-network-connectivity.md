@@ -7,12 +7,12 @@ ms.manager: deseelam
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/03/2021
-ms.openlocfilehash: 4c23367862728d42148971b4941d6c94a750c227
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 8b71f6d0a3dade62ff701c3586c232a6cc7210d4
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131504614"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724831"
 ---
 # <a name="troubleshoot-network-connectivity"></a>Solución de problemas de conectividad de red
 Este artículo le ayuda a solucionar problemas de conectividad de red mediante Azure Migrate con puntos de conexión privados.
@@ -192,7 +192,7 @@ Si la resolución DNS es incorrecta, siga estos pasos:
 
 1. **Consideraciones sobre el servidor proxy**: si el dispositivo usa un servidor proxy para la conectividad de salida, es posible que tenga que validar la configuración y los ajustes de red para asegurarse de que las direcciones URL de vínculo privado son accesibles y se pueden enrutar según lo previsto.
 
-    - Si el servidor proxy es para la conectividad a Internet, podría tener que agregar reglas o reenviadores de tráfico para omitir el servidor proxy para los FQDN de vínculo privado. Obtenga [más información](/azure/migrate/how-to-use-azure-migrate-with-private-endpoints#set-up-prerequisites) sobre cómo agregar reglas de omisión de proxy.
+    - Si el servidor proxy es para la conectividad a Internet, podría tener que agregar reglas o reenviadores de tráfico para omitir el servidor proxy para los FQDN de vínculo privado. Obtenga [más información](./how-to-use-azure-migrate-with-private-endpoints.md#set-up-prerequisites) sobre cómo agregar reglas de omisión de proxy.
     - Como alternativa, si el servidor proxy es para todo el tráfico de salida, asegúrese de que el servidor proxy puede resolver los FQDN de vínculo privado en sus respectivas direcciones IP privadas. Una solución rápida es actualizar de forma manual los registros DNS en el servidor proxy con las asignaciones de DNS y las direcciones IP privadas asociadas, como se muestra anteriormente. Esta opción solo se recomienda para pruebas.
 
 1. Si el problema persiste, [consulte esta sección](#validate-the-private-dns-zone) para obtener más información sobre la solución de problemas.
@@ -279,7 +279,7 @@ Si la resolución DNS es incorrecta, siga estos pasos:
 
 1. **Consideraciones sobre el servidor proxy**: si el dispositivo usa un servidor proxy para la conectividad de salida, es posible que tenga que validar la configuración y los ajustes de red para asegurarse de que las direcciones URL de vínculo privado son accesibles y se pueden enrutar según lo previsto.
 
-    - Si el servidor proxy es para la conectividad a Internet, podría tener que agregar reglas o reenviadores de tráfico para omitir el servidor proxy para los FQDN de vínculo privado. Obtenga [más información](/azure/migrate/how-to-use-azure-migrate-with-private-endpoints#set-up-prerequisites) sobre cómo agregar reglas de omisión de proxy.
+    - Si el servidor proxy es para la conectividad a Internet, podría tener que agregar reglas o reenviadores de tráfico para omitir el servidor proxy para los FQDN de vínculo privado. Obtenga [más información](./how-to-use-azure-migrate-with-private-endpoints.md#set-up-prerequisites) sobre cómo agregar reglas de omisión de proxy.
     - Como alternativa, si el servidor proxy es para todo el tráfico de salida, asegúrese de que el servidor proxy puede resolver los FQDN de vínculo privado en sus respectivas direcciones IP privadas. Una solución rápida es actualizar de forma manual los registros DNS en el servidor proxy con las asignaciones de DNS y las direcciones IP privadas asociadas, como se muestra anteriormente. Esta opción solo se recomienda para pruebas.
 
 1. Si el problema persiste, [consulte esta sección](#validate-the-private-dns-zone) para obtener más información sobre la solución de problemas.

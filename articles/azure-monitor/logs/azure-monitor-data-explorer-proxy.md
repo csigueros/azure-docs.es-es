@@ -2,16 +2,16 @@
 title: Consulta entre recursos en Azure Data Explorer mediante Azure Monitor
 description: Use Azure Monitor para realizar consultas entre productos entre Azure Data Explorer, áreas de trabajo de Log Analytics y aplicaciones clásicas de Application Insights en Azure Monitor.
 author: osalzberg
-ms.author: bwren
+ms.author: orens
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 498fc101f257b05d24826cead8906b513ec34ccd
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: be0ee4853bc47e2f52d960f28e7d2f151c73861b
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122324533"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715366"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Consulta entre recursos en Azure Data Explorer mediante Azure Monitor
 Azure Monitor admite las consultas entre los servicios Azure Data Explorer, [Application Insights](../app/app-insights-overview.md) y [Log Analytics](../logs/data-platform-logs.md). Después puede consultar el clúster de Azure Data Explorer mediante las herramientas de Log Analytics o Application Insights y hacer referencia al mismo en una consulta entre servicios. En el artículo se muestra cómo realizar una consulta entre servicios.
@@ -19,9 +19,6 @@ Azure Monitor admite las consultas entre los servicios Azure Data Explorer, [App
 En el diagrama siguiente se muestra el flujo entre servicios de Azure Monitor:
 
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="Diagrama que muestra el flujo de consultas entre un usuario, Azure Monitor, un proxy y Azure Data Explorer.":::
-
->[!NOTE]
-> La consulta entre servicios de Azure Monitor está en versión preliminar pública. Póngase en contacto con el [equipo de servicio](mailto:ADXProxy@microsoft.com) si tiene alguna duda.
 
 ## <a name="cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer"></a>Consulta entre los recursos de Log Analytics o Application Insights y Azure Data Explorer
 

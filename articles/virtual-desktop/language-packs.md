@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/03/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 59ab350f9dd6ce4776d15ffd7e0390bf03ea2c6f
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: e4df2c2bbe4806ae39d23373c36890cd92125bea
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132277308"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704199"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Adición de paquetes de idioma a una imagen multisesión de Windows 10
 
@@ -50,8 +50,6 @@ Necesita lo siguiente para personalizar las imágenes multisesión de Windows 1
         - Si usa Windows 10, versión 1903 o 1909:
           - [Windows 10, versión 1903 o 1909 LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_1903_32_64_ARM64_MultiLng_LngPkAll_LXP_ONLY.iso)
         - Si usa Windows 10, versión 2004, 20H2 o 21H1, use la información de [Adición de idiomas en Windows 10: Problemas conocidos](/windows-hardware/manufacture/desktop/language-packs-known-issue) para averiguar cuál de los siguientes archivos ISO de LXP es el adecuado para usted:
-          - [Windows 10, versión 2004, 20H2 o 21H1 **9B** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
-          - [Windows 10, versión 2004, 20H2 o 21H1 **9C** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY)
           - [Windows 10, versión 2004, 20H2 o 21H1 **10C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
           - [Windows 10, versión 2004, 20H2 o 21H1 **11C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2011C.iso)
           - [Windows 10, versión 2004, 20H2 o 21H1 **1C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2101C.iso)
@@ -60,7 +58,7 @@ Necesita lo siguiente para personalizar las imágenes multisesión de Windows 1
           - [Windows 10, versión 2004, 20H2 o 21H1 **5C** LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2105C.iso)
           - [Windows 10, versión 2004, 20H2 o 21H1 **7C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2107C.iso)
           - [Windows 10, versión 2004, 20H2 o 21H1 **9C** LXP ISO](https://software-download.microsoft.com/download/db/LanguageExperiencePack.2109C.iso)
-          - [Windows 10, versión 2004, 20H2 o 21H1 **9C** LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2110C.iso)
+          - [Windows 10, versión 2004, 20H2 o 21H1 **10C** LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2110C.iso)
 
 - Un recurso compartido de Azure Files o un recurso compartido de archivos en una máquina virtual del servidor de archivos de Windows
 

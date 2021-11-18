@@ -13,14 +13,14 @@ ms.date: 07/11/2017
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 499ce4c7875a1805b5845614221ffef0641816d6
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 271ed6ed115cfca134dc6af7ced9d03bbbc61663
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129617784"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549135"
 ---
-# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in-azure-active-directory"></a>Mensaje de error que se muestra en un página de la aplicación cuando el usuario inicia sesión en Azure Active Directory
+# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Mensaje de error en la página de la aplicación cuando el usuario inicia sesión
 
 En este escenario, Azure Active Directory (Azure AD) inicia la sesión del usuario. Pero la aplicación muestra un mensaje de error y no permite al usuario finalizar el flujo de inicio de sesión. El problema es que la aplicación no aceptó la respuesta de Azure AD.
 

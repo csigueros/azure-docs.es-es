@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/28/2021
 ms.author: mitagaki
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: aff4093863b1813e22fc6050ff4050cf4133bdd6
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: fbcea71a200ec65e2c179f98230e7a87775ebd80
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131508373"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706542"
 ---
 # <a name="back-up-and-recover-speech-customer-resources"></a>Copia de seguridad y recuperación de recursos de cliente de voz
 
@@ -122,6 +122,6 @@ Compruebe las [voces públicas disponibles](./language-support.md#neural-voices)
 
 ### <a name="speaker-recognition"></a>Speaker Recognition
 
-Speaker Recognition usa [regiones emparejadas de Azure](/azure/best-practices-availability-paired-regions) para realizar automáticamente operaciones de conmutación por error. Las inscripciones del hablante y las firmas de voz se copian periódicamente para evitar la pérdida de datos y para su uso en caso de una interrupción.
+Speaker Recognition usa [regiones emparejadas de Azure](../../best-practices-availability-paired-regions.md) para realizar automáticamente operaciones de conmutación por error. Las inscripciones del hablante y las firmas de voz se copian periódicamente para evitar la pérdida de datos y para su uso en caso de una interrupción.
 
 Durante una interrupción, el servicio de Speaker Recognition conmutará por error automáticamente a una región emparejada y usará los datos de copia de seguridad para continuar procesando las solicitudes hasta que la región principal vuelva a estar en línea.

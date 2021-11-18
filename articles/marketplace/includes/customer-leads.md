@@ -7,12 +7,12 @@ ms.topic: include
 author: emuench
 ms.author: mingshen
 ms.date: 10/09/2020
-ms.openlocfilehash: e42447ff61c256f7be2a7d8b65eb1640ce3e025c
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: b7ea687f5c74a764b728417a29c5e18721f34d71
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551325"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710075"
 ---
 Al publicar una oferta en el marketplace comercial con el Centro de partners, conéctela a un sistema de administración de relaciones con clientes (CRM). Esto le permite recibir información de contacto del cliente en cuanto alguien expresa interés en el producto o lo usa. Es necesario conectarse a un CRM si desea habilitar una versión de prueba (consulte la sección anterior). De lo contrario, la conexión a CRM es opcional.
 

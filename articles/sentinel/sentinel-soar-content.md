@@ -7,20 +7,18 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 ms.assetid: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2021
 ms.author: yelevin
-ms.openlocfilehash: ef52fc14bac736221d2dd457705981878c930ef6
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 28b5e0de931df0f84c2761babc9b0a85a7bbe9c2
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132350049"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711724"
 ---
 # <a name="azure-sentinel-soar-content-catalog"></a>Catálogo de contenido SOAR de Azure Sentinel
 
@@ -56,7 +54,7 @@ Puede encontrar integraciones de SOAR y sus componentes en los siguientes lugare
 
 | Producto | Componentes de integración | Compatible con | Escenarios |
 | --- | --- | --- | --- |
-| **Jira** | [Conector administrado de Logic Apps](/connectors/jira/)<br><br>Playbooks | Microsoft<br><br>Comunidad | Sincronización de incidentes |
+| **Jira** | [Conector administrado de Logic Apps](/connectors/jira/)<br><br>Playbooks | Microsoft<br><br>comunidad | Sincronización de incidentes |
 |
 
 ## <a name="check-point"></a>Punto de comprobación
@@ -70,8 +68,8 @@ Puede encontrar integraciones de SOAR y sus componentes en los siguientes lugare
 
 | Producto | Componentes de integración | Compatible con | Escenarios |
 | --- | --- | --- | --- |
-| **Cisco ASA,<br>Cisco Meraki** | Conector personalizado Logic Apps<br><br>Playbooks | Comunidad | Bloquear direcciones IP |
-| **Cisco FirePower** | Conector personalizado Logic Apps<br><br>Playbooks | Comunidad | Bloquear direcciones IP y direcciones URL |
+| **Cisco ASA,<br>Cisco Meraki** | Conector personalizado Logic Apps<br><br>Playbooks | comunidad | Bloquear direcciones IP |
+| **Cisco FirePower** | Conector personalizado Logic Apps<br><br>Playbooks | comunidad | Bloquear direcciones IP y direcciones URL |
 | **Cisco ISE**<br>([Disponible como solución](sentinel-solutions-catalog.md#cisco)) | Conector personalizado Logic Apps<br><br>Playbooks | Microsoft |  |
 | **Cisco Umbrella**<br>([Disponible como solución](sentinel-solutions-catalog.md#cisco)) | Conector personalizado Logic Apps<br><br>Playbooks | Microsoft | Dominios de bloque, <br>administración de directivas, <br>administración de listas de destino, <br>enriquecimiento e investigación |
 |
@@ -87,14 +85,14 @@ Puede encontrar integraciones de SOAR y sus componentes en los siguientes lugare
 
 | Producto | Componentes de integración | Compatible con | Escenarios |
 | --- | --- | --- | --- |
-| **Big-IP** | Playbooks | Comunidad | Bloquear direcciones IP y direcciones URL |
+| **Big-IP** | Playbooks | comunidad | Bloquear direcciones IP y direcciones URL |
 |
 
 ## <a name="forcepoint"></a>Forcepoint
 
 | Producto | Componentes de integración | Compatible con | Escenarios |
 | --- | --- | --- | --- |
-| **Forcepoint NGFW** | Conector personalizado Logic Apps<br><br>Playbooks | Comunidad | Bloquear direcciones IP y direcciones URL |
+| **Forcepoint NGFW** | Conector personalizado Logic Apps<br><br>Playbooks | comunidad | Bloquear direcciones IP y direcciones URL |
 |
 
 ## <a name="fortinet"></a>Fortinet
@@ -116,7 +114,7 @@ Puede encontrar integraciones de SOAR y sus componentes en los siguientes lugare
 
 | Producto | Componentes de integración | Compatible con | Escenarios |
 | --- | --- | --- | --- |
-| **Have I Been Pwned** | Conector personalizado Logic Apps<br><br>Playbooks | Comunidad |  |
+| **Have I Been Pwned** | Conector personalizado Logic Apps<br><br>Playbooks | comunidad |  |
 |
 
 ## <a name="hyas"></a>HYAS
@@ -130,36 +128,36 @@ Puede encontrar integraciones de SOAR y sus componentes en los siguientes lugare
 
 | Producto | Componentes de integración | Compatible con | Escenarios |
 | --- | --- | --- | --- |
-| **Resistente** | Conector personalizado Logic Apps<br><br>Playbooks | Comunidad | Sincronización de incidentes |
+| **Resistente** | Conector personalizado Logic Apps<br><br>Playbooks | comunidad | Sincronización de incidentes |
 |
 
 ## <a name="microsoft"></a>Microsoft
 
 | Producto | Componentes de integración | Compatible con | Escenarios |
 | --- | --- | --- | --- |
-| **Azure DevOps** | Conector administrado de Logic Apps<br><br>Playbooks | Microsoft<br><br>Comunidad | Sincronización de incidentes |
+| **Azure DevOps** | Conector administrado de Logic Apps<br><br>Playbooks | Microsoft<br><br>comunidad | Sincronización de incidentes |
 | **Azure Firewall**<br>([Disponible como solución](sentinel-solutions-catalog.md#azure)) | Conector personalizado Logic Apps<br><br>Playbooks | Microsoft | Bloquear direcciones IP |
-| **Azure AD Identity Protection** | [Conector administrado de Logic Apps](/connectors/azureadip/)<br><br>Playbooks | Microsoft<br><br>Comunidad | Enriquecimiento de usuarios, <br>Corrección de usuarios |
-| **Azure AD** | [Conector administrado de Logic Apps](/connectors/azuread/)<br><br>Playbooks | Microsoft<br><br>Comunidad | Enriquecimiento de usuarios, <br>Corrección de usuarios |
+| **Azure AD Identity Protection** | [Conector administrado de Logic Apps](/connectors/azureadip/)<br><br>Playbooks | Microsoft<br><br>comunidad | Enriquecimiento de usuarios, <br>Corrección de usuarios |
+| **Azure AD** | [Conector administrado de Logic Apps](/connectors/azuread/)<br><br>Playbooks | Microsoft<br><br>comunidad | Enriquecimiento de usuarios, <br>Corrección de usuarios |
 | **Azure Data Explorer** | [Conector administrado de Logic Apps](/connectors/kusto/) | Microsoft | Consulta e investigación |
-| **Azure Log Analytics Data Collector** | [Conector administrado de Logic Apps](/connectors/azureloganalyticsdatacollector/) | Microsoft<br><br>Comunidad | Consulta e investigación |
-| **Microsoft Defender para punto de conexión** | [Conector administrado de Logic Apps](/connectors/wdatp/)<br><br>Playbooks | Microsoft<br><br>Comunidad | Enriquecimiento de puntos de conexión, <br>aislamiento de puntos de conexión |
-| **Microsoft Teams** | [Conector administrado de Logic Apps](/connectors/teams/)<br><br>Playbooks | Microsoft<br><br>Comunidad | Notificaciones, <br>Colaboración, <br>crear respuestas con implicación de usuarios |
+| **Azure Log Analytics Data Collector** | [Conector administrado de Logic Apps](/connectors/azureloganalyticsdatacollector/) | Microsoft<br><br>comunidad | Consulta e investigación |
+| **Microsoft Defender para punto de conexión** | [Conector administrado de Logic Apps](/connectors/wdatp/)<br><br>Playbooks | Microsoft<br><br>comunidad | Enriquecimiento de puntos de conexión, <br>aislamiento de puntos de conexión |
+| **Microsoft Teams** | [Conector administrado de Logic Apps](/connectors/teams/)<br><br>Playbooks | Microsoft<br><br>comunidad | Notificaciones, <br>Colaboración, <br>crear respuestas con implicación de usuarios |
 |
 
 ## <a name="okta"></a>Okta
 
 | Producto | Componentes de integración | Compatible con | Escenarios |
 | --- | --- | --- | --- |
-| **Okta** | Conector administrado de Logic Apps<br><br>Playbooks | Comunidad | Enriquecimiento de usuarios, <br>Corrección de usuarios |
+| **Okta** | Conector administrado de Logic Apps<br><br>Playbooks | comunidad | Enriquecimiento de usuarios, <br>Corrección de usuarios |
 |
 
 ## <a name="palo-alto"></a>Palo Alto
 
 | Producto | Componentes de integración | Compatible con | Escenarios |
 | --- | --- | --- | --- |
-| **Palo Alto PAN-OS**<br>([Disponible como solución](sentinel-solutions-catalog.md#palo-alto)) | Conector personalizado Logic Apps<br><br>Playbooks | Comunidad | Bloquear direcciones IP y direcciones URL |
-| **Wildfire** | Conector personalizado Logic Apps<br><br>Playbooks | Comunidad | Enriquecimiento y respuesta de Filehash |
+| **Palo Alto PAN-OS**<br>([Disponible como solución](sentinel-solutions-catalog.md#palo-alto)) | Conector personalizado Logic Apps<br><br>Playbooks | comunidad | Bloquear direcciones IP y direcciones URL |
+| **Wildfire** | Conector personalizado Logic Apps<br><br>Playbooks | comunidad | Enriquecimiento y respuesta de Filehash |
 |
 
 ## <a name="proofpoint"></a>Proofpoint
@@ -196,35 +194,35 @@ Puede encontrar integraciones de SOAR y sus componentes en los siguientes lugare
 
 | Producto | Componentes de integración | Compatible con | Escenarios |
 | --- | --- | --- | --- |
-| **ServiceNow** | [Conector administrado de Logic Apps](/connectors/service-now/)<br><br>Playbooks | Microsoft<br><br>Comunidad | Sincronización de incidentes |
+| **ServiceNow** | [Conector administrado de Logic Apps](/connectors/service-now/)<br><br>Playbooks | Microsoft<br><br>comunidad | Sincronización de incidentes |
 |
 
 ## <a name="slack"></a>Slack
 
 | Producto | Componentes de integración | Compatible con | Escenarios |
 | --- | --- | --- | --- |
-| **Slack** | [Conector administrado de Logic Apps](/connectors/slack/)<br><br>Playbooks | Microsoft<br><br>Comunidad | Notificación, <br>Colaboración |
+| **Slack** | [Conector administrado de Logic Apps](/connectors/slack/)<br><br>Playbooks | Microsoft<br><br>comunidad | Notificación, <br>Colaboración |
 |
 
 ## <a name="virus-total"></a>VirusTotal
 
 | Producto | Componentes de integración | Compatible con | Escenarios |
 | --- | --- | --- | --- |
-| **VirusTotal** | [Conector administrado de Logic Apps](/connectors/virustotal/)<br><br>Playbooks | Microsoft<br><br>Comunidad | Enriquecimiento de entidades |
+| **VirusTotal** | [Conector administrado de Logic Apps](/connectors/virustotal/)<br><br>Playbooks | Microsoft<br><br>comunidad | Enriquecimiento de entidades |
 |
 
 ## <a name="vmware"></a>VMware
 
 | Producto | Componentes de integración | Compatible con | Escenarios |
 | --- | --- | --- | --- |
-| **Carbon Black Cloud**<br>([Disponible como solución](sentinel-solutions-catalog.md#vmware)) | Conector personalizado Logic Apps<br><br>Playbooks | Comunidad | Enriquecimiento de puntos de conexión, <br>aislamiento de puntos de conexión |
+| **Carbon Black Cloud**<br>([Disponible como solución](sentinel-solutions-catalog.md#vmware)) | Conector personalizado Logic Apps<br><br>Playbooks | comunidad | Enriquecimiento de puntos de conexión, <br>aislamiento de puntos de conexión |
 |
 
 ## <a name="zendesk"></a>Zendesk
 
 | Producto | Componentes de integración | Compatible con | Escenarios |
 | --- | --- | --- | --- |
-| **Zendesk** | [Conector administrado de Logic Apps](/connectors/zendesk/)<br><br>Playbooks | Microsoft<br><br>Comunidad | Sincronización de incidentes |
+| **Zendesk** | [Conector administrado de Logic Apps](/connectors/zendesk/)<br><br>Playbooks | Microsoft<br><br>comunidad | Sincronización de incidentes |
 |
 
 ## <a name="zscaler"></a>Zscaler

@@ -11,12 +11,12 @@ ms.reviewer: laobri
 ms.date: 11/03/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
-ms.openlocfilehash: 02f65a5c07536afb1fb20c3f85c444f2376c9b34
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: f24e09dfbc2486b131efd754c742a984ab7c0dfc
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132137578"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719872"
 ---
 # <a name="troubleshooting-online-endpoints-deployment-and-scoring-preview"></a>Solución de problemas de implementación y puntuación de puntos de conexión en línea (versión preliminar)
 
@@ -249,9 +249,7 @@ Al acceder a los puntos de conexión en línea con solicitudes REST, los código
 | 401 | No autorizado | No tiene permiso para realizar la acción solicitada, como puntuación, o el token ha expirado. |
 | 404 | No encontrado | La dirección URL no es correcta. |
 | 408 | Tiempo de espera de solicitud | La ejecución del modelo tardó más que el tiempo de espera proporcionado en `request_timeout_ms` en el elemento `request_settings` de la configuración de implementación del modelo.|
-| 413 | Carga demasiado grande | La carga de la solicitud es superior a 1,5 megabytes. |
 | 424 | Error del modelo | Si el contenedor del modelo devuelve una respuesta distinta de 200, Azure devuelve el error 424. Consulte los encabezados de respuesta `ms-azureml-model-error-statuscode` y `ms-azureml-model-error-reason` para más información. |
-| 424 | Carga de respuesta demasiado grande | Si el contenedor devuelve una carga superior a 1,5 megabytes, Azure devuelve el error 424. |
 | 429 | Limitación de frecuencia | Intentó enviar más de 100 solicitudes por segundo al punto de conexión. |
 | 429 | Demasiadas solicitudes pendientes | El modelo está recibiendo más solicitudes de las que puede manejar. Se permiten 2 * `max_concurrent_requests_per_instance` * `instance_count` solicitudes cada vez. Las solicitudes adicionales se rechazan. Puede confirmar esta configuración en la configuración de implementación del modelo en `request_settings` y `scale_settings`. Si usa la escalabilidad automática, el modelo recibe solicitudes más rápido de lo que el sistema puede escalarse verticalmente. Con la escalabilidad automática, puede intentar volver a enviar solicitudes con [retroceso exponencial](https://aka.ms/exponential-backoff). Si lo hace, puede dar tiempo a que se ajuste el sistema. |
 | 500 | Error interno del servidor | Error en la infraestructura aprovisionada por Azure ML. |

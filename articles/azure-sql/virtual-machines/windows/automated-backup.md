@@ -15,12 +15,12 @@ ms.date: 05/03/2018
 ms.author: pamela
 ms.reviewer: mathoma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 047280e5db0ce67a80b44dee224196d2ac6668c4
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 5910a432f2dce0afe43506fe8d66cc2c0f09a599
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130166241"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550710"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automated Backup v2 para Azure Virtual Machines (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,8 +30,6 @@ ms.locfileid: "130166241"
 > * [SQL Server 2016 +](automated-backup.md)
 
 La copia de seguridad automatizada v2 configura automáticamente la [copia de seguridad administrada en Microsoft Azure](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure) para todas las bases de datos nuevas y existentes en una máquina virtual de Azure que ejecuta las ediciones Standard, Enterprise o Developer de SQL Server 2016 o versiones posteriores. Esto le permite configurar copias de seguridad de datos normales que utilizan el almacenamiento de blobs de Azure. Automated Backup v2 depende de la [Extensión del agente de IaaS (infraestructura como servicio) de SQL Server](sql-server-iaas-agent-extension-automate-management.md).
-
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para utilizar Automated Backup v2, revise los siguientes requisitos previos:

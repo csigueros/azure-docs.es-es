@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/27/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 99e2fbce479b575759a442f9dc278723adb2b25f
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 56c2e5849381becfcd561828300cf4780a1e168b
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132062382"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132708824"
 ---
 # <a name="call-the-prediction-api"></a>Llamada a la API de predicción
 
@@ -50,7 +50,7 @@ Una vez que se ha publicado el modelo, puede recuperar la información necesaria
 
 ## <a name="submit-data-to-the-service"></a>Envío de datos al servicio
 
-En esta guía, se da por supuesto que ya ha construido un objeto **[CustomVisionPredictionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-dotnet-preview)** , llamado `predictionClient`, con la clave de predicción y la dirección URL del punto de conexión de Custom Vision. Para obtener instrucciones sobre cómo configurar esta característica, siga uno de los [inicios rápidos](quickstarts/image-classification.md).
+En esta guía, se da por supuesto que ya ha construido un objeto **[CustomVisionPredictionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-dotnet-preview)** , llamado `predictionClient`, con la clave de predicción y la dirección URL del punto de conexión de Custom Vision. Para obtener instrucciones sobre cómo configurar esta característica, siga uno de los [inicios rápidos](quickstarts/image-classification.md).
 
 En esta guía, usará una imagen local, por lo que debe descargar una imagen que quiera enviar al modelo entrenado. El código siguiente solicita al usuario que especifique una ruta de acceso local y obtiene la secuencia de bytes del archivo en esa ruta de acceso.
 
@@ -71,7 +71,7 @@ private static byte[] GetImageAsByteArray(string imageFilePath)
 }
 ```
 
-El método **[ClassifyImageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclientextensions.classifyimageasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Prediction_CustomVisionPredictionClientExtensions_ClassifyImageAsync_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Prediction_ICustomVisionPredictionClient_System_Guid_System_String_System_IO_Stream_System_String_System_Threading_CancellationToken_)** toma el identificador del proyecto y la imagen almacenada localmente, y puntúa la imagen según el modelo especificado.
+El método **[ClassifyImageAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclientextensions.classifyimageasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Prediction_CustomVisionPredictionClientExtensions_ClassifyImageAsync_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Prediction_ICustomVisionPredictionClient_System_Guid_System_String_System_IO_Stream_System_String_System_Threading_CancellationToken_)** toma el identificador del proyecto y la imagen almacenada localmente, y puntúa la imagen según el modelo especificado.
 
 ```csharp
 // Make a prediction against the new project
@@ -81,7 +81,7 @@ var result = predictionApi.ClassifyImageAsync(project.Id, publishedModelName, by
 
 ## <a name="determine-how-to-process-the-data"></a>Determinación de cómo se procesan los datos
 
-Opcionalmente, puede configurar cómo realiza el servicio la operación de puntuación eligiendo métodos alternativos (consulte los métodos de la clase **[CustomVisionPredictionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-dotnet)** ). 
+Opcionalmente, puede configurar cómo realiza el servicio la operación de puntuación eligiendo métodos alternativos (consulte los métodos de la clase **[CustomVisionPredictionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-dotnet)** ). 
 
 Puede usar una versión no asincrónica del método anterior para simplificar, pero esto puede hacer que el programa se bloquee durante un período de tiempo apreciable.
 
@@ -91,7 +91,7 @@ Los métodos **-WithHttpMessages** devuelven la respuesta HTTP sin procesar de l
 
 ## <a name="get-results-from-the-service"></a>Obtención de resultados a partir del servicio
 
-El servicio devuelve los resultados en forma de un objeto **[ImagePrediction](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-dotnet)** . La propiedad **Predictions** contiene una lista de objetos **[PredictionModel](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.models.predictionmodel?view=azure-dotnet)** , cada uno de los cuales representa la predicción de un solo objeto. Incluyen el nombre de la etiqueta y las coordenadas del rectángulo delimitador donde se detectó el objeto en la imagen. A continuación, la aplicación puede analizar estos datos para, por ejemplo, mostrar la imagen con los campos de objeto etiquetados en una pantalla. 
+El servicio devuelve los resultados en forma de un objeto **[ImagePrediction](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-dotnet)** . La propiedad **Predictions** contiene una lista de objetos **[PredictionModel](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.models.predictionmodel?view=azure-dotnet)** , cada uno de los cuales representa la predicción de un solo objeto. Incluyen el nombre de la etiqueta y las coordenadas del rectángulo delimitador donde se detectó el objeto en la imagen. A continuación, la aplicación puede analizar estos datos para, por ejemplo, mostrar la imagen con los campos de objeto etiquetados en una pantalla. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

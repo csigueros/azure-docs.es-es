@@ -9,16 +9,16 @@ ms.reviewer: tzgitlin
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.openlocfilehash: aaada2bd1a778fd6e5bed4ea6a42e847b3e9d983
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: a87bb5a7876cc1f6d83919c3faa7dc2f3de3b2f2
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478168"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715784"
 ---
 # <a name="event-hub-data-connection-preview"></a>Conexión de datos de centro de eventos (versión preliminar)
 
-[Azure Event Hubs](/azure/event-hubs/event-hubs-about) es una plataforma de streaming de macrodatos y un servicio de ingesta de eventos. El Explorador de datos de Azure Synapse ofrece la ingesta de datos continua desde centros de eventos administrados por el cliente.
+[Azure Event Hubs](../../../event-hubs/event-hubs-about.md) es una plataforma de streaming de macrodatos y un servicio de ingesta de eventos. El Explorador de datos de Azure Synapse ofrece la ingesta de datos continua desde centros de eventos administrados por el cliente.
 
 La canalización de ingesta del centro de eventos transfiere los eventos al Explorador de datos de Azure Synapse en varios pasos. En primer lugar, se crea un centro de eventos en Azure Portal. Después, se crea una tabla de destino en el Explorador de datos de Azure Synapse en la que se realizará la ingesta de [datos en un formato determinado](#data-format) mediante el uso de las [propiedades de ingesta](#ingestion-properties) especificadas. La conexión de Event Hubs debe conocer el [enrutamiento de eventos](#events-routing). Los datos se insertan con las propiedades seleccionadas según la [asignación de propiedades del sistema de eventos](#event-system-properties-mapping). [Cree una conexión](#event-hub-connection) a Event Hubs para [crear un centro de eventos](#create-an-event-hub) y [enviar eventos](#send-events). Este proceso se puede administrar desde [Azure Portal](data-explorer-ingest-event-hub-portal.md), mediante programación con [C#](data-explorer-ingest-event-hub-csharp.md) o [Python](data-explorer-ingest-event-hub-python.md) o con una [plantilla de Azure Resource Manager](data-explorer-ingest-event-hub-resource-manager.md).
 
@@ -111,7 +111,7 @@ Si ha seleccionado **Propiedades del sistema de eventos** en la sección **Orige
 
 ### <a name="create-an-event-hub"></a>Creación de un centro de eventos
 
-Si aún no lo tiene, [cree un centro de eventos](/azure/event-hubs/event-hubs-create). La conexión a Event Hubs se puede administrar desde [Azure Portal](data-explorer-ingest-event-hub-portal.md), mediante programación con [C#](data-explorer-ingest-event-hub-csharp.md) o [Python](data-explorer-ingest-event-hub-python.md) o con una [plantilla de Azure Resource Manager](data-explorer-ingest-event-hub-resource-manager.md).
+Si aún no lo tiene, [cree un centro de eventos](../../../event-hubs/event-hubs-create.md). La conexión a Event Hubs se puede administrar desde [Azure Portal](data-explorer-ingest-event-hub-portal.md), mediante programación con [C#](data-explorer-ingest-event-hub-csharp.md) o [Python](data-explorer-ingest-event-hub-python.md) o con una [plantilla de Azure Resource Manager](data-explorer-ingest-event-hub-resource-manager.md).
 
 > [!Note]
 > * El número de particiones no es modificable, por lo que debería tener en cuenta el escalado a largo plazo a la hora de configurar este número.
@@ -125,7 +125,7 @@ Para obtener un ejemplo de cómo generar datos de ejemplo, consulte [Ingesta de 
 
 ## <a name="set-up-geo-disaster-recovery-solution"></a>Configuración de una solución de recuperación ante desastres geográfica
 
-Event Hubs ofrece una solución de [recuperación ante desastres geográfica](/azure/event-hubs/event-hubs-geo-dr). El Explorador de datos de Azure Synapse no admite los espacios de nombres del centro de eventos con `Alias`. Para implementar la recuperación ante desastres geográfica en la solución, cree dos conexiones de datos del centro de eventos: una para el espacio de nombres principal y otra para el espacio de nombres secundario. El Explorador de datos de Azure Synapse escuchará en ambas conexiones del centro de eventos.
+Event Hubs ofrece una solución de [recuperación ante desastres geográfica](../../../event-hubs/event-hubs-geo-dr.md). El Explorador de datos de Azure Synapse no admite los espacios de nombres del centro de eventos con `Alias`. Para implementar la recuperación ante desastres geográfica en la solución, cree dos conexiones de datos del centro de eventos: una para el espacio de nombres principal y otra para el espacio de nombres secundario. El Explorador de datos de Azure Synapse escuchará en ambas conexiones del centro de eventos.
 
 > [!NOTE]
 > Es responsabilidad del usuario implementar una conmutación por error del espacio de nombres principal en el espacio de nombres secundario.

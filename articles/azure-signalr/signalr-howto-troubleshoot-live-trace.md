@@ -6,12 +6,12 @@ ms.author: wanl
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/30/2021
-ms.openlocfilehash: 6fecb2f492a71781706e19a407a87cb1af7dc006
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 1f361b8a785f108f985dbae23290150c46170daa
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131470269"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132705308"
 ---
 # <a name="how-to-use-live-trace-tool-for-azure-signalr-service"></a>Uso de la herramienta de seguimiento activo para Azure SignalR Service
 
@@ -57,14 +57,14 @@ Los seguimientos activos capturados en tiempo real por la herramienta de seguimi
 | Id. de usuario | Identidad del usuario |
 | IP | Dirección IP del cliente |
 | Persistente del servidor | Modo de enrutamiento del cliente. Los valores permitidos son `Disabled`, `Preferred` y `Required`. Para más información, consulte [ServerStickyMode](https://github.com/Azure/azure-signalr/blob/master/docs/run-asp-net-core.md#serverstickymode). |
-| Transporte | Transporte que el cliente puede usar para enviar solicitudes HTTP. Los valores permitidos son: `WebSockets`, `ServerSentEvents` y `LongPolling`. Para más información, consulte [HttpTransportType](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.http.connections.httptransporttype). |
+| Transporte | Transporte que el cliente puede usar para enviar solicitudes HTTP. Los valores permitidos son: `WebSockets`, `ServerSentEvents` y `LongPolling`. Para más información, consulte [HttpTransportType](/dotnet/api/microsoft.aspnetcore.http.connections.httptransporttype). |
 | Id. de seguimiento de mensajes | El identificador único de un mensaje |
 | Plantilla de ruta | La plantilla de ruta de la API |
-| Método HTTP | El método HTTP (POST/GET/PUT/DELETE) |
-| Resolución | El localizador uniforme de recursos |
+| Método HTTP | Método HTTP (POST/GET/PUT/DELETE) |
+| Resolución | Localizador uniforme de recursos |
 | Identificación de seguimiento | El identificador único para representar una solicitud |
 | Código de estado | El código de respuesta HTTP |
-| Duration | La duración entre la recepción y el procesamiento de la respuesta |
+| Duration | Duración entre la recepción y el procesamiento de la solicitud |
 | Encabezados | La información adicional pasada por el cliente y el servidor con una solicitud o respuesta HTTP |
 | Id. de invocación | El identificador único que representa una invocación (solo disponible para ASP.NET SignalR) |
 | Tipo de mensaje | El tipo del mensaje (BroadcastDataMessage/JoinGroupMessage/LeaveGroupMessage/...) |

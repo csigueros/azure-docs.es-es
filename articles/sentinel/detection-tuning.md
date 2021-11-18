@@ -3,16 +3,15 @@ title: Obtención de recomendaciones de ajuste preciso para las reglas de análi
 description: Obtenga información sobre cómo ajustar las reglas de detección de amenazas en Microsoft Sentinel mediante el uso de recomendaciones generadas automáticamente para reducir los falsos positivos y, al mismo tiempo, mantener la cobertura de detección de amenazas.
 author: yelevin
 ms.author: yelevin
-ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1b1d71f2c8a6a5f74d68d9480b918743a707cc83
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 4e9e94d091869d8b9e6d19c0300b3c563ce9d958
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132521517"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724337"
 ---
 # <a name="get-fine-tuning-recommendations-for-your-analytics-rules-in-microsoft-sentinel"></a>Obtención de recomendaciones de ajuste preciso para las reglas de análisis en Microsoft Sentinel
 
@@ -46,7 +45,7 @@ El área **Optimización de conclusiones** consta de varios paneles por los que 
 
     Esta conclusión es el resultado de una consulta de Log Analytics. Si selecciona **Average alerts per incident** (Promedio de alertas por incidente), se le redirigirá a la consulta de Log Analytics que produjo esta conclusión. Si selecciona **Incidentes abiertos**, se le redirigirá a la hoja **Incidentes**.
 
-1. El segundo panel de conclusiones le recomienda que excluya una lista de [entidades](entities-in-azure-sentinel.md). Estas entidades están muy correlacionadas con los incidentes que ha cerrado y que ha clasificado como **falsos positivos**. Seleccione el signo más junto a cada entidad de la lista para excluirla de la consulta en ejecuciones futuras de esta regla. 
+1. El segundo panel de conclusiones le recomienda que excluya una lista de [entidades](entities.md). Estas entidades están muy correlacionadas con los incidentes que ha cerrado y que ha clasificado como **falsos positivos**. Seleccione el signo más junto a cada entidad de la lista para excluirla de la consulta en ejecuciones futuras de esta regla. 
 
     :::image type="content" source="media/detection-tuning/entity-exclusion.png" alt-text="Captura de pantalla de la recomendación de exclusión de entidades.":::
 

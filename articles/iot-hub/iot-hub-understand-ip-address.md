@@ -1,18 +1,18 @@
 ---
 title: Uso de la dirección IP de IoT Hub | Microsoft Docs
 description: Aprenda a consultar la dirección IP de IoT Hub y sus propiedades. La dirección IP de IoT Hub puede cambiar durante determinados escenarios, como la recuperación ante desastres o la conmutación por error regional.
-author: robinsh
-ms.author: robinsh
+author: eross-msft
+ms.author: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/21/2021
-ms.openlocfilehash: a2c500072dfd1137f14d7ae663c6736bf6328c33
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: b4d3dd6f8ffe3016f5d9842d4b562141ae73dee4
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866315"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132548736"
 ---
 # <a name="iot-hub-ip-addresses"></a>Direcciones IP de IoT Hub
 

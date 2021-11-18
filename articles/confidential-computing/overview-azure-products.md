@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/04/2021
 ms.author: stempesta
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 77cd51a87ba1f7ba7f17ed69c102a4020d7bae2a
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 604a0bbb8af6a6f5663f75438faec321292494be
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132284405"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722266"
 ---
 # <a name="confidential-computing-on-azure"></a>Computación confidencial en Azure
 
@@ -51,7 +51,7 @@ Nuestros servicios actualmente disponibles con carácter general para el públic
 - [Contenedores compatibles con enclave](enclave-aware-containers.md) que se ejecutan en Azure Kubernetes Service (AKS). Los nodos de computación confidencial de AKS usan Intel SGX para crear entornos de enclave aislados en los nodos entre cada aplicación de contenedor.
 - [Always Encrypted con enclaves seguros en Azure SQL](/sql/relational-databases/security/encryption/always-encrypted-enclaves). La confidencialidad de los datos confidenciales está protegida contra el malware y los usuarios no autorizados con privilegios elevados mediante la ejecución de consultas SQL directamente dentro de un TEE cuando la instrucción SQL contiene cualquier operación sobre datos cifrados que requieran el uso del enclave seguro en el que se ejecuta el motor de base de datos.
 - [Microsoft Azure Attestation](../attestation/overview.md), un servicio de atestación remota para validar la confiabilidad de varios entornos de ejecución de confianza (TEE) y comprobar la integridad de los archivos binarios que se ejecutan dentro de los entornos de ejecución de confianza.
-- [HSM administrado de Azure Key Vault](/azure/key-vault/managed-hsm/) es un servicio en la nube que cumple los estándares, completamente administrado, de alta disponibilidad y de un solo inquilino que le permite proteger las claves criptográficas de las aplicaciones en la nube mediante módulos de seguridad de hardware (HSM) validados de nivel 3 de FIPS 140-2.
+- [HSM administrado de Azure Key Vault](../key-vault/managed-hsm/index.yml) es un servicio en la nube que cumple los estándares, completamente administrado, de alta disponibilidad y de un solo inquilino que le permite proteger las claves criptográficas de las aplicaciones en la nube mediante módulos de seguridad de hardware (HSM) validados de nivel 3 de FIPS 140-2.
 - [Azure IoT Edge](../iot-edge/deploy-confidential-applications.md) admite aplicaciones confidenciales que se ejecutan dentro de enclaves seguros en un dispositivo de Internet de las cosas (IoT). Los dispositivos de IoT a menudo se exponen a alteraciones y falsificación, porque los actores no válidos pueden acceder físicamente a ellos. Los dispositivos IoT Edge confidenciales agregan confianza e integridad en el perímetro mediante la protección del acceso a los datos capturados por el propio dispositivo, y almacenados en él, antes de transmitirlos en secuencias a la nube.
 
 Otros servicios están actualmente en versión preliminar, entre los que se incluyen:

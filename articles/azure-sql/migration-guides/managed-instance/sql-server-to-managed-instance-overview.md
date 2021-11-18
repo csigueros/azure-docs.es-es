@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
 ms.date: 09/07/2021
-ms.openlocfilehash: 62f895fdea75ff97154910c177cda04413663d68
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 3ae0d4da03407716e932febf4d9db2c4f0091521
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129352044"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714264"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-managed-instance"></a>Información general sobre la migración: de SQL Server a Azure SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -89,7 +89,7 @@ Se recomiendan las siguientes herramientas de migración:
 |[Extensión Azure SQL Migration para Azure Data Studio](../../../dms/migration-using-azure-data-studio.md)  | La extensión Azure SQL Migration para Azure Data Studio proporciona las funcionalidades de valoración y migración de SQL Server en Azure Data Studio. Admite migraciones en los modos en línea (para las que necesitan un tiempo de inactividad mínimo) o sin conexión (para aquellas migraciones en las que el tiempo de inactividad persiste mientras dura la migración). |
 | [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | Este servicio de Azure le ayuda a detectar y evaluar su patrimonio de datos de SQL a escala en VMware. Proporciona recomendaciones de implementación de Azure SQL, el tamaño de destino y las estimaciones mensuales. | 
 |[Azure Database Migration Service](../../../dms/tutorial-sql-server-to-managed-instance.md)  | Este servicio de Azure admite la migración en el modo sin conexión para las aplicaciones que pueden permitirse un tiempo de inactividad durante el proceso de migración. A diferencia de la migración continua en el modo en línea, la migración en el modo sin conexión ejecuta una restauración única de una copia de seguridad completa de la base de datos del origen al destino. | 
-|[Copia de seguridad y restauración nativa](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance admite la restauración de copias de seguridad de bases de datos de SQL Server nativas (archivos. bak). Es la opción de migración más sencilla para aquellos clientes que pueden proporcionar copias de seguridad de bases de datos completas para Azure Storage. También se admiten copias de seguridad completas y diferenciales, que se documentan en la [sección de recursos de migración](#migration-assets) más adelante en este artículo.| 
+|[Copia de seguridad y restauración nativa](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance admite la restauración de copias de seguridad de bases de datos de SQL Server nativas (archivos. bak). Es la opción de migración más sencilla para aquellos clientes que pueden proporcionar copias de seguridad de bases de datos completas para Azure Storage.| 
 |[Servicio de reproducción de registros](../../managed-instance/log-replay-service-migrate.md) | Este servicio en la nube está habilitado para Managed Instance basado en la tecnología de trasvase de registros de SQL Server. Es una opción de migración para aquellos clientes que pueden proporcionar copias de seguridad de bases de datos completas, diferenciales y de registros para Azure Storage. El Servicio de reproducción de registros se usa para restaurar archivos de copia de seguridad de Azure Blob Storage a SQL Managed Instance.| 
 | | |
 

@@ -1,21 +1,21 @@
 ---
 title: Información sobre la compatibilidad con AMQP de Azure IoT Hub | Microsoft Docs
 description: 'Guía del desarrollador: compatibilidad con dispositivos que se conectan a puntos de conexión orientados a dispositivos y orientados a servicios de IoT Hub mediante el protocolo AMQP. Incluye información sobre la compatibilidad integrada con AMQP de los SDK de dispositivo IoT de Azure.'
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/30/2019
-ms.author: robinsh
+ms.author: lizross
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: f0aaa996d6520a69f5546976d89c7cc4aa802d38
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: ccdf206c9ccd9d91b125af658bf03d3ec40c4b02
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481362"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549990"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Comunicación con el centro de IoT mediante el protocolo AMQP
 

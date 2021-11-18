@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: eriklind
 ms.custom: ''
-ms.openlocfilehash: 37b03d96e67016bb9a250cd889da93fb30578d54
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 211721d66b1a69020860f5ba24aaf2bae525afdf
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130240193"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717247"
 ---
 # <a name="add-a-heat-map-layer-to-the-azure-maps-visual-for-power-bi"></a>Incorporación de una capa de mapa térmico al objeto visual de Azure Maps para Power BI
 
@@ -32,8 +32,8 @@ Un mapa térmico es útil cuando los usuarios desean visualizar datos comparativ
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- [Introducción al objeto visual de Azure Maps para Power BI](/azure/azure-maps/power-bi-visual-getting-started).
-- [Información sobre las capas en el objeto visual de Azure Maps para Power BI](/azure/azure-maps/power-bi-visual-understanding-layers).
+- [Introducción al objeto visual de Azure Maps para Power BI](./power-bi-visual-getting-started.md).
+- [Información sobre las capas en el objeto visual de Azure Maps para Power BI](./power-bi-visual-understanding-layers.md).
 
 ## <a name="add-the-heat-map-layer"></a>Incorporación de la capa de mapa térmico
 

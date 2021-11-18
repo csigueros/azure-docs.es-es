@@ -16,17 +16,17 @@ ms.date: 11/02/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdd706be5107558422971336cdb598c1148d6f83
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 397809ed8717cb323836ee6ca1243bff1e4df6fb
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131511330"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709963"
 ---
 # <a name="trigger-custom-logic-apps-with-azure-ad-entitlement-management"></a>Desencadenamiento de una instancia de Logic Apps personalizada con administración de derechos de Azure AD
 
 
-[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) se puede usar para automatizar flujos de trabajo personalizados y conectar aplicaciones y servicios en un solo lugar. Los usuarios pueden integrar Logic Apps con la administración de derechos para ampliar sus flujos de trabajo de gobernanza más allá de los principales casos de uso de la administración de derechos.
+[Azure Logic Apps](../../logic-apps/logic-apps-overview.md) se puede usar para automatizar flujos de trabajo personalizados y conectar aplicaciones y servicios en un solo lugar. Los usuarios pueden integrar Logic Apps con la administración de derechos para ampliar sus flujos de trabajo de gobernanza más allá de los principales casos de uso de la administración de derechos.
 
 Después, estas instancias de Logic Apps se pueden desencadenar para ejecutarse de acuerdo con los casos de uso de administración de derechos, como cuando se concede o solicita un paquete de acceso. Por ejemplo, un administrador podría crear y vincular una aplicación lógica personalizada a la administración de derechos para que cuando un usuario solicite un paquete de acceso, se desencadene una aplicación lógica que garantice que al usuario también se le asignen ciertas características en una aplicación SAAS de terceros (como Salesforce) o se le envíe un correo electrónico personalizado.
 
@@ -99,7 +99,7 @@ Estos desencadenadores para Logic Apps se controlan en una nueva pestaña dentro
 
 1. Aquí puede ver todas las extensiones personalizadas (Logic Apps) que ha agregado a este catálogo. Para editar un flujo de trabajo de aplicación lógica o a fin de crear uno para una aplicación lógica recién agregada, seleccione la extensión personalizada de aplicación lógica en **Punto de conexión**. Esto abrirá el diseñador de aplicaciones lógicas y le permitirá crear el flujo de trabajo.  
 
- Para más información sobre la creación de flujos de trabajo de aplicación lógica, vea [Creación de flujos de trabajo automatizados con Azure Logic Apps en Azure Portal](https://docs.microsoft.com/azure/logic-apps/quickstart-create-first-logic-app-workflow).
+ Para más información sobre la creación de flujos de trabajo de aplicación lógica, vea [Creación de flujos de trabajo automatizados con Azure Logic Apps en Azure Portal](../../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="add-custom-extension-to-access-package-policy"></a>Adición de una extensión personalizada para acceder a la directiva de paquetes 
 

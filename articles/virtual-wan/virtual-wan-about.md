@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: overview
 ms.date: 06/02/2021
 ms.author: cherylmc
-ms.openlocfilehash: 7ca51e5dfba89307be28d277e50715b04f829004
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: 28225273957fa6b3150fd5d117bcfe662893d09d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132028066"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132703894"
 ---
 # <a name="what-is-azure-virtual-wan"></a>¿Qué es Azure Virtual WAN?
 
@@ -97,7 +97,7 @@ El enrutador puede tener cuatro estados de enrutamiento: Provisioned, Provisioni
 
 Todos los enrutadores del centro virtual admiten un rendimiento agregado de hasta 50 Gbps. 
 
-La conectividad entre las conexiones de red virtual asume de manera predeterminada un carga de trabajo total de 2000 máquinas virtuales en todas las redes virtuales conectadas a un único centro virtual. Este [límite](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits) se puede aumentar abriendo una solicitud de soporte técnico al cliente en línea. Para conocer las consecuencias para los costos, consulte los costos de *Unidad de infraestructura de enrutamiento* en la página [Precios de Azure Virtual WAN](https://azure.microsoft.com/pricing/details/virtual-wan/). 
+La conectividad entre las conexiones de red virtual asume de manera predeterminada un carga de trabajo total de 2000 máquinas virtuales en todas las redes virtuales conectadas a un único centro virtual. Este [límite](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) se puede aumentar abriendo una solicitud de soporte técnico al cliente en línea. Para conocer las consecuencias para los costos, consulte los costos de *Unidad de infraestructura de enrutamiento* en la página [Precios de Azure Virtual WAN](https://azure.microsoft.com/pricing/details/virtual-wan/). 
 
 #### <a name="transit-connectivity-between-vpn-and-expressroute"></a><a name="transit-er"></a>Conectividad de tránsito entre VPN y ExpressRoute
 
@@ -139,4 +139,3 @@ Suscríbase a la fuente RSS y vea las actualizaciones más recientes de las cara
 
 - [Tutorial: Creación de una conexión de sitio a sitio mediante Virtual WAN](virtual-wan-site-to-site-portal.md)
 - [Módulo de Learn: Introducción a Azure Virtual WAN](/learn/modules/introduction-azure-virtual-wan/)
-

@@ -9,16 +9,16 @@ ms.reviewer: tzgitlin
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.openlocfilehash: 8eb32d529c8024733ba6d0bbdec72cc370ebb5d6
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 14b5129a29e7d09e86ebfd8874654e55be6f1cb6
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478098"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715841"
 ---
 # <a name="event-grid-data-connection-preview"></a>Conexión de datos de Event Grid (versión preliminar)
 
-La ingesta de Event Grid es una canalización que escucha en Azure Storage y actualiza Azure Data Explorer para extraer información cuando se producen eventos suscritos. El Explorador de datos ofrece la ingesta de datos continua desde Azure Storage (Blob Storage y ADLSv2) con una suscripción de [Azure Event Grid](/azure/event-grid/overview) para las notificaciones sobre blobs creados o cambios de nombre de blobs y la transmisión de estas notificaciones al Explorador de datos mediante un centro de eventos.
+La ingesta de Event Grid es una canalización que escucha en Azure Storage y actualiza Azure Data Explorer para extraer información cuando se producen eventos suscritos. El Explorador de datos ofrece la ingesta de datos continua desde Azure Storage (Blob Storage y ADLSv2) con una suscripción de [Azure Event Grid](../../../event-grid/overview.md) para las notificaciones sobre blobs creados o cambios de nombre de blobs y la transmisión de estas notificaciones al Explorador de datos mediante un centro de eventos.
 
 La canalización de ingesta de datos de Event Grid tiene varios pasos. Se crea una tabla de destino en el Explorador de datos en la que se realizará la ingesta de [datos en un formato determinado](#data-format). Luego, se crea una conexión de datos de Event Grid en el Explorador de datos. La conexión de datos de Event Grid debe conocer la información de [enrutamiento de eventos](#events-routing), como la tabla a la que se van a enviar los datos y la asignación de la tabla. También se especifican las [propiedades de la ingesta](#ingestion-properties), que describen los datos que se van a ingerir, la tabla de destino y la asignación. Puede generar datos de ejemplo y [cargar blobs](#upload-blobs) o [cambiar el nombre de los blobs](#rename-blobs) para probar la conexión. [Elimine los blobs](#delete-blobs-using-storage-lifecycle) después de la ingesta. Este proceso se puede administrar a través de [Azure Portal](data-explorer-ingest-event-grid-portal.md). <!-- , using [one-click ingestion](one-click-ingestion-new-table.md), programmatically with [C#](data-connection-event-grid-csharp.md) or [Python](data-connection-event-grid-python.md), or with the [Azure Resource Manager template](data-connection-event-grid-resource-manager.md). -->
 
@@ -31,7 +31,7 @@ La canalización de ingesta de datos de Event Grid tiene varios pasos. Se crea u
     - El tamaño de datos sin comprimir original debe formar parte de los metadatos del blob o, de lo contrario, el Explorador de datos lo estimará. El límite de tamaño sin comprimir por cada archivo de la ingesta es de 4 GB.
 
 > [!NOTE]
-> La suscripción de notificación de Event Grid se puede establecer en cuentas de Azure Storage para `BlobStorage`, `StorageV2` o [Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction).
+> La suscripción de notificación de Event Grid se puede establecer en cuentas de Azure Storage para `BlobStorage`, `StorageV2` o [Data Lake Storage Gen2](../../../storage/blobs/data-lake-storage-introduction.md).
 
 ## <a name="ingestion-properties"></a>Propiedades de la ingesta
 
@@ -73,7 +73,7 @@ Puede crear un blob a partir de un archivo local, establecer las propiedades de 
 > - Use `BlockBlob` para generar los datos. No se admite `AppendBlob`.
 > - El uso del SDK de Azure Data Lake Storage Gen2 requiere el uso de `CreateFile` para cargar los archivos y el elemento `Flush` al final con el parámetro de cierre establecido en "true".
 <!-- > For a detailed example of Data Lake Gen2 SDK correct usage, see [upload file using Azure Data Lake SDK](data-connection-event-grid-csharp.md#upload-file-using-azure-data-lake-sdk). -->
-> - Cuando el punto de conexión del centro de eventos no reconoce la recepción de un evento, Azure Event Grid activa un mecanismo de reintento. Si se produce un error en esta entrega del reintento, Event Grid puede entregar los eventos sin entregar a una cuenta de almacenamiento mediante un proceso de *puesta en cola de mensajes fallidos*. Para más información, vea [Entrega y reintento de entrega de mensajes de Event Grid](/azure/event-grid/delivery-and-retry#retry-schedule-and-duration).
+> - Cuando el punto de conexión del centro de eventos no reconoce la recepción de un evento, Azure Event Grid activa un mecanismo de reintento. Si se produce un error en esta entrega del reintento, Event Grid puede entregar los eventos sin entregar a una cuenta de almacenamiento mediante un proceso de *puesta en cola de mensajes fallidos*. Para más información, vea [Entrega y reintento de entrega de mensajes de Event Grid](../../../event-grid/delivery-and-retry.md).
 
 ## <a name="rename-blobs"></a>Cambio del nombre de los blobs
 

@@ -6,12 +6,12 @@ author: v-amallick
 ms.date: 10/20/2021
 ms.author: v-amallick
 ms.service: backup
-ms.openlocfilehash: 31e68c8a25dcf4fee199a7c73869cc5de64793e9
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 158235789186748b4acb887a7861299d749a984d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090900"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709885"
 ---
 # <a name="monitor-the-health-of-your-backups-using-azure-backup-metrics-preview"></a>Supervisión del estado de las copias de seguridad mediante Azure Backup Metrics (versión preliminar)
 
@@ -23,7 +23,7 @@ Azure Backup ofrece las siguientes funcionalidades clave:
 * Capacidad de escribir reglas de alertas personalizadas en estas métricas para supervisar de forma eficaz el estado de los elementos de copia de seguridad.
 * Capacidad de enrutar las alertas de métricas desencadenadas por distintos canales de notificación admitidos por Azure Monitor, como correo electrónico, ITSM, webhook, aplicaciones lógicas, entre otros.
 
-[Más información sobre las métricas de Azure Monitor](/azure/azure-monitor/essentials/data-platform-metrics).
+[Más información sobre las métricas de Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
@@ -114,7 +114,7 @@ Para configurar alertas y notificaciones para las métricas, siga estos pasos:
 
 1. Para configurar notificaciones para estas alertas mediante grupos de acciones, configure un grupo de acciones como parte de la regla de alertas o cree una regla de acción independiente.
 
-   Se admiten varios canales de notificación, como correo electrónico, ITSM, webhook, aplicación lógica y SMS. [Más información sobre los grupos de acciones](/azure/azure-monitor/alerts/action-groups).
+   Se admiten varios canales de notificación, como correo electrónico, ITSM, webhook, aplicación lógica y SMS. [Más información sobre los grupos de acciones](../azure-monitor/alerts/action-groups.md).
 
    :::image type="content" source="./media/metrics-overview/action-group-inline.png" alt-text="Captura de pantalla que muestra el proceso para configurar notificaciones para estas alertas mediante grupos de acciones." lightbox="./media/metrics-overview/action-group-expanded.png":::
 
@@ -123,7 +123,7 @@ Para configurar alertas y notificaciones para las métricas, siga estos pasos:
    - Para generar una alerta por cada error de trabajo independientemente de que el error se deba a la misma causa subyacente (comportamiento sin estado), anule la selección de la opción **Automatically resolve alerts** (Resolver alertas automáticamente) en la regla de alertas.
    - Como alternativa, para configurar las alertas como con estado, active la misma casilla. Por lo tanto, cuando se active una alerta de métrica en el ámbito, otro error no creará una nueva alerta de métrica. La alerta se resuelve automáticamente si la condición de generación de la alerta se evalúa como falsa durante tres ciclos de evaluación sucesivos. Se generan nuevas alertas si la condición vuelve a evaluarse como verdadera.
 
-[Obtenga más información sobre el comportamiento con estado y sin estado de las alertas de métricas de Azure Monitor](/azure/azure-monitor/alerts/alerts-troubleshoot-metric#make-metric-alerts-occur-every-time-my-condition-is-met).
+[Obtenga más información sobre el comportamiento con estado y sin estado de las alertas de métricas de Azure Monitor](../azure-monitor/alerts/alerts-troubleshoot-metric.md#make-metric-alerts-occur-every-time-my-condition-is-met).
 
 :::image type="content" source="./media/metrics-overview/auto-resolve-alert-inline.png" alt-text="Captura de pantalla que muestra el proceso para configurar el comportamiento de resolución automática." lightbox="./media/metrics-overview/auto-resolve-alert-expanded.png":::
 
@@ -154,9 +154,9 @@ Según la configuración de las reglas de alertas, la alerta activada aparece en
 
 ### <a name="accessing-metrics-programmatically"></a>Acceso a las métricas mediante programación
 
-Para acceder a la funcionalidad de métricas, puede usar los distintos clientes de programación, como PowerShell, la CLI o la API REST. Consulte la [documentación de la API REST de Azure Monitor](/azure/azure-monitor/essentials/rest-api-walkthrough) para obtener más detalles.
+Para acceder a la funcionalidad de métricas, puede usar los distintos clientes de programación, como PowerShell, la CLI o la API REST. Consulte la [documentación de la API REST de Azure Monitor](../azure-monitor/essentials/rest-api-walkthrough.md) para obtener más detalles.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Más información sobre la supervisión y la generación de informes en Azure Backup](monitoring-and-alerts-overview.md).
-- [Más información sobre las métricas de Azure Monitor](/azure/azure-monitor/essentials/data-platform-metrics).
-- [Más información sobre las alertas de Azure](/azure/azure-monitor/alerts/alerts-overview).
+- [Más información sobre las métricas de Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).
+- [Más información sobre las alertas de Azure](../azure-monitor/alerts/alerts-overview.md).

@@ -3,12 +3,12 @@ title: Introducción y comandos de la CLI de Bicep
 description: Describe los comandos que puede usar en la CLI de Bicep. Estos comandos incluyen la creación de plantillas de Azure Resource Manager desde Bicep.
 ms.topic: conceptual
 ms.date: 10/18/2021
-ms.openlocfilehash: ff5eea15c5e8e3b4f92cdde73d1dfd25865488f0
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.openlocfilehash: bbb9bbb0f960cac27cba794da410842b80356fb6
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130137626"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551945"
 ---
 # <a name="bicep-cli-commands"></a>Comandos de la CLI de Bicep
 
@@ -138,7 +138,7 @@ Por ejemplo:
 az bicep publish storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
 ```
 
-El comando `publish` no reconoce los alias que ha definido en un archivo [bicepconfig.json](bicep-config.md). Proporcione la ruta de acceso completa del módulo.
+El comando `publish` no reconoce los alias que ha definido en un archivo [bicepconfig.json](bicep-config-modules.md). Proporcione la ruta de acceso completa del módulo.
 
 > [!WARNING]
 > La publicación en el mismo destino sobrescribe el módulo anterior. Se recomienda incrementar la versión al actualizar.

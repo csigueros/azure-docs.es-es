@@ -6,12 +6,12 @@ ms.date: 10/20/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
-ms.openlocfilehash: b02758f35c12355e401bc94028364df60004bb3e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 02380588d4c238fe293027423969460aa0c62738
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090879"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707649"
 ---
 # <a name="multi-user-authorization-using-resource-guard-preview"></a>Autorización multiusuario mediante Resource Guard (versión preliminar)
 
@@ -77,7 +77,7 @@ Este es el flujo de eventos en un escenario normal:
 1. Ahora, el administrador de copia de seguridad inicia la operación crítica.
 1. Azure Resource Manager comprueba si el administrador de copia de seguridad tiene permisos suficientes o no. Puesto que el administrador de copia de seguridad ahora tiene el rol Colaborador en Resource Guard, la solicitud se completa.
    - Si el administrador de copia de seguridad no tuviese los permisos o roles necesarios, no habría podido completar la solicitud.
-1. El administrador de seguridad garantiza que los privilegios para realizar operaciones críticas se revoquen una vez realizadas las acciones autorizadas o después de un plazo definido. El uso de herramientas JIT [Azure Active Directory Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure) puede ser útil para garantizar esto.
+1. El administrador de seguridad garantiza que los privilegios para realizar operaciones críticas se revoquen una vez realizadas las acciones autorizadas o después de un plazo definido. El uso de herramientas JIT [Azure Active Directory Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) puede ser útil para garantizar esto.
 
 >[!NOTE]
 >- MUA ofrece protección para las operaciones enumeradas anteriormente realizadas solo en los almacenes de Recovery Services. Las operaciones realizadas directamente en el origen de datos (es decir, el recurso o la carga de trabajo de Azure que está protegida) están fuera del ámbito de Resource Guard. 
@@ -103,7 +103,7 @@ El almacén de RS y Resource Guard están **en suscripciones diferentes, pero en
 El almacén de RS y Resource Guard están **en inquilinos distintos**. </br> El administrador de copia de seguridad no tiene acceso a Resource Guard, la suscripción correspondiente ni el inquilino correspondiente.| El máximo aislamiento entre el administrador de copia de seguridad y el administrador de seguridad, por lo tanto, la máxima seguridad. | Es relativamente difícil de probar, ya que se requieren dos inquilinos o directorios para la prueba. | Asegúrese de que los permisos o roles se asignen correctamente para el recurso, la suscripción o el directorio.
 
  >[!NOTE]
- > En este artículo, se mostrará la creación de la instancia de Resource Guard en un inquilino distinto, lo que ofrece la máxima protección. En cuanto a la solicitud y aprobación de solicitudes para realizar operaciones críticas, en este artículo se demuestran mediante el uso de [Azure Active Directory Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure) en el inquilino que alberga Resource Guard. De manera opcional, puede usar otros mecanismos para administrar los permisos JIT en Resource Guard según la configuración.
+ > En este artículo, se mostrará la creación de la instancia de Resource Guard en un inquilino distinto, lo que ofrece la máxima protección. En cuanto a la solicitud y aprobación de solicitudes para realizar operaciones críticas, en este artículo se demuestran mediante el uso de [Azure Active Directory Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) en el inquilino que alberga Resource Guard. De manera opcional, puede usar otros mecanismos para administrar los permisos JIT en Resource Guard según la configuración.
 
 ## <a name="creating-a-resource-guard"></a>Creación de una instancia de Resource Guard
 
@@ -199,7 +199,7 @@ A continuación se muestra una ilustración de lo que sucede cuando el administr
 
 ## <a name="authorize-critical-protected-operations-using-azure-ad-privileged-identity-management"></a>Autorización de operaciones críticas (protegidas) mediante Azure AD Privileged Identity Management
 
-En los apartados siguientes se describe la autorización de estas solicitudes mediante PIM. Hay casos en los que es posible que tenga que realizar operaciones críticas en las copias de seguridad, y MUA puede ayudarle a asegurarse de que se realicen solo cuando existan las aprobaciones o permisos correctos. Como se ha mencionado anteriormente, el administrador de copia de seguridad debe tener un rol de Colaborador en la instancia de Resource Guard para realizar operaciones críticas que se encuentren en el ámbito de Resource Guard. Una de las maneras de permitir Just-In-Time para estas operaciones es mediante el uso de [Azure Active Directory (Azure AD) Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure).
+En los apartados siguientes se describe la autorización de estas solicitudes mediante PIM. Hay casos en los que es posible que tenga que realizar operaciones críticas en las copias de seguridad, y MUA puede ayudarle a asegurarse de que se realicen solo cuando existan las aprobaciones o permisos correctos. Como se ha mencionado anteriormente, el administrador de copia de seguridad debe tener un rol de Colaborador en la instancia de Resource Guard para realizar operaciones críticas que se encuentren en el ámbito de Resource Guard. Una de las maneras de permitir Just-In-Time para estas operaciones es mediante el uso de [Azure Active Directory (Azure AD) Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
 
 >[!NOTE]
 > Si bien Azure AD PIM es el enfoque recomendado, puede usar métodos manuales o personalizados para administrar el acceso del administrador de copia de seguridad en Resource Guard. Para administrar manualmente el acceso a Resource Guard, use la opción "Control de acceso (IAM)" en la barra de navegación izquierda de Resource Guard y conceda el rol **Colaborador** al administrador de copia de seguridad.
@@ -254,7 +254,7 @@ Tenga en cuenta que si esto no se configura, las solicitudes se aprobarán autom
 
 Una vez que el administrador de seguridad crea una asignación apta, el administrador de copia de seguridad debe activar la asignación del rol Colaborador para poder realizar acciones protegidas. El **administrador de copia de seguridad** realiza las siguientes acciones para activar la asignación de roles.
 
-1. Vaya a [Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure). Si la instancia de Resource Guard está en otro directorio, cambie a ese directorio y, a continuación, vaya a [Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure).
+1. Vaya a [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md). Si la instancia de Resource Guard está en otro directorio, cambie a ese directorio y, a continuación, vaya a [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
 1. Vaya a Mis roles > Recursos de Azure en el menú izquierdo.
 1. El administrador de copia de seguridad puede ver una asignación apta para el rol Colaborador. Haga clic en **Activar** para activarla.
 1. El administrador de copia de seguridad recibe una notificación en el portal acerca de que la solicitud se envía para su aprobación.
@@ -264,7 +264,7 @@ Una vez que el administrador de seguridad crea una asignación apta, el administ
 ### <a name="approve-activation-of-requests-to-perform-critical-operations"></a>Aprobación de la activación de solicitudes para realizar operaciones críticas
 
 Una vez que el administrador de copia de seguridad genera una solicitud para activar el rol Colaborador, el **administrador de seguridad** revisará y aprobará la solicitud.
-1. En el inquilino de seguridad, vaya a [Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure).
+1. En el inquilino de seguridad, vaya a [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
 1. Vaya a **Aprobar solicitudes**.
 1. En **Recursos de Azure**, se puede ver la solicitud generada por el administrador de copia de seguridad, que solicita la activación como **Colaborador**.
 1. Revise la solicitud. Si es genuina, seleccione la solicitud y haga clic en **Aprobar** para aprobarla.
@@ -281,11 +281,10 @@ Una vez aprobada la solicitud del administrador de copia de seguridad para el ro
 ## <a name="disable-mua-on-a-recovery-services-vault"></a>Deshabilitación de MUA en un almacén de Recovery Services
 
 Deshabilitar MUA es una operación protegida y, por lo tanto, se protege mediante MUA. Es decir, el administrador de copia de seguridad debe tener el rol Colaborador necesario en la instancia de Resource Guard. Aquí se describen los detalles sobre cómo obtener este rol. A continuación encontrará un resumen de los pasos para deshabilitar MUA en un almacén.
-1. El administrador de copia de seguridad solicita al administrador de seguridad el rol **Colaborador** en la instancia de Resource Guard. Puede solicitarlo para usar los métodos aprobados por la organización, como los procedimientos JIT, por ejemplo, [Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure), u otros procedimientos y herramientas internos. 
+1. El administrador de copia de seguridad solicita al administrador de seguridad el rol **Colaborador** en la instancia de Resource Guard. Puede solicitarlo para usar los métodos aprobados por la organización, como los procedimientos JIT, por ejemplo, [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), u otros procedimientos y herramientas internos. 
 1. El administrador de seguridad aprueba la solicitud (si decide que merece ser aprobada) e informa al administrador de copia de seguridad. Ahora, el administrador de copia de seguridad tiene el rol "Colaborador" en la instancia de Resource Guard.
 1. El administrador de copia de seguridad va hasta el almacén > Propiedades > Multi-user Authorization (Autorización multiusuario).
 1. Haga clic en **Update** (Actualizar).
    1. Desactive la casilla Proteger con Protección de recursos.
    1. Elija el directorio que contiene la instancia de Resource Guard y compruebe el acceso mediante el botón Autenticar (si procede).
    1. Después de **autenticación**, haga clic en **Guardar**. Con el acceso correcto, la solicitud debería completarse correctamente.
-

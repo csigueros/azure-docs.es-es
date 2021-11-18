@@ -11,14 +11,16 @@ ms.reviewer: nibaccam
 ms.date: 06/16/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 11358869e727948627e76c0f56c049b95c0abbb9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7148abe48a3d1c7d79e989f7af825e8eeaab86ed
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124784788"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714777"
 ---
-# <a name="train-ml-models-with-mlflow-projects-and-azure-machine-learning"></a>Entrenamiento de modelos de Machine Learning con proyectos de MLflow y Azure Machine Learning
+# <a name="train-ml-models-with-mlflow-projects-and-azure-machine-learning-preview"></a>Entrenamiento de modelos de Machine Learning con MLflow y Azure Machine Learning (versión preliminar)
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 En este artículo, aprenderá a habilitar el identificador URI de seguimiento y la API de registro de MLflow, que en conjunto se conocen como [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), para enviar trabajos de entrenamiento con [proyectos de MLflow](https://www.mlflow.org/docs/latest/projects.html) y compatibilidad de back-end con Azure Machine Learning. Puede enviar trabajos localmente con el seguimiento de Azure Machine Learning o migrar las ejecuciones a la nube, por ejemplo, a través de un [Proceso de Azure Machine Learning](./how-to-create-attach-compute-cluster.md).
 

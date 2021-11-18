@@ -8,12 +8,12 @@ author: trkeya
 ms.author: trkeya
 ms.date: 07/09/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d13b76e406398dcad37abb170b1f43439ab8bad4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: eb0c7430733da9956acb12eadd6dd348e2fa5c0d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662908"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724945"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>Actualización de ofertas existentes en el Marketplace comercial
 
@@ -87,7 +87,7 @@ Ahora que ha ocultado el plan con el precio anterior, cree una copia de ese plan
 
 1. En el Centro de partners, vuelva a **Plan overview** (Información general del plan).
 2. Seleccione **Crear nuevo plan**. Rellene los campos **Id. de plan** y **Nombre del plan** y, luego, seleccione **Crear**.
-1. Para volver a usar la configuración técnica del plan que ha ocultado, active la casilla **Reuse technical configuration** (Reutilizar la configuración técnica). Lea [Creación de planes para una oferta de máquina virtual](azure-vm-create-plans.md) para obtener más información.
+1. Para volver a usar la configuración técnica del plan que ha ocultado, active la casilla **Reuse technical configuration** (Reutilizar la configuración técnica). Lea [Creación de planes para una oferta de máquina virtual](azure-vm-plan-overview.md) para obtener más información.
     > [!IMPORTANT]
     > Si selecciona **This plan reuses technical configuration from another plan** (Este plan reutiliza la configuración técnica de otro plan), no podrá dejar de distribuir el plan principal más adelante. No use esta opción si quiere dejar de distribuir el plan principal.
 3. Complete todas las secciones necesarias del nuevo plan, incluido el nuevo precio.

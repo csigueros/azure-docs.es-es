@@ -6,12 +6,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/28/2021
-ms.openlocfilehash: 419258da22c82939f0e3959ffbf97547977b393a
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 1513634376b0019822ad83f803395231b2ca3b7c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131577695"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724888"
 ---
 # <a name="whats-new-in-the-microsoft-commercial-marketplace"></a>Novedades de marketplace comercial de Microsoft
 
@@ -24,9 +24,9 @@ Obtenga información sobre actualizaciones importantes en el programa de marketp
 | Ofertas | La instalación y el mantenimiento de objetos visuales de Power BI se migrará desde la Tienda Office al marketplace comercial este mes. En [estas preguntas más frecuentes](power-bi-visual-faq.yml) se proporciona un resumen de las mejoras en el proceso de envío de la oferta. Para empezar, vea [Planificación de una oferta de objeto visual de Power BI](marketplace-power-bi-visual.md).| 2021-09-21 |
 | Ofertas | Aunque anteriormente los [planes privados](private-plans.md) solo estaban disponibles en Azure Portal, ahora también están disponibles en Microsoft AppSource. | 10-09-2021 |
 | Análisis | Los publicadores de ofertas de aplicaciones de Azure pueden ver el estado de implementación de la oferta en los informes de calidad de servicio (QoS). QoS ayuda a los publicadores a comprender los motivos de los errores de implementación de la oferta y proporciona conclusiones útiles para su corrección. Para obtener más información, vea [Panel de calidad de servicio (QoS)](quality-of-service-dashboard.md). | 07-09-2021 |
-| Ofertas | Ahora hay propiedades adicionales en el nivel de plan disponibles para las ofertas de máquina virtual de Azure. Vea el artículo sobre las [propiedades de configuración técnica de máquinas virtuales](azure-vm-create-plans.md#properties) para obtener más información. | 26-07-2021 |
+| Ofertas | Ahora hay propiedades adicionales en el nivel de plan disponibles para las ofertas de máquina virtual de Azure. Vea el artículo sobre las [propiedades de configuración técnica de máquinas virtuales](azure-vm-plan-overview.md#properties) para obtener más información. | 26-07-2021 |
 | Tarifas | Microsoft ha reducido su tarifa del servicio de tienda estándar al 3 %. Vea [Capacidades de transacción de marketplace comercial](marketplace-commercial-transaction-capabilities-and-considerations.md#examples-of-pricing-and-store-fees) y preguntas comunes sobre pagos e impuestos, "[¿Cómo encuentro la tarifa actual del servicio Store y la tarifa de pago?](/partner-center/payout-faq)". | 14-07-2021 |
-| Ofertas | Los editores pueden publicar una máquina virtual (VM) que han creado en el entorno local. Para obtener más información, vea [Creación de una máquina virtual mediante una imagen propia](azure-vm-create-using-own-image.md). | 23-06-2021 |
+| Ofertas | Los editores pueden publicar una máquina virtual (VM) que han creado en el entorno local. Para obtener más información, vea [Creación de una máquina virtual mediante una imagen propia](azure-vm-use-own-image.md). | 23-06-2021 |
 | Involucración del cliente | Ahora los editores pueden responder a las revisiones de los usuarios en Azure Marketplace o AppSource. Para obtener más información, vea [Panel de análisis de Calificaciones y opiniones del Centro de partners](ratings-reviews.md). | 03-06-2021 |
 |
 

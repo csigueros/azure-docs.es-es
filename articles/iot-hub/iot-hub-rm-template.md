@@ -1,20 +1,20 @@
 ---
 title: Creación de un centro de IoT de Azure mediante una plantilla (.NET) | Microsoft Docs
 description: Describe cómo usar una plantilla de Azure Resource Manager para crear un centro de IoT con el programa C#.
-author: robinsh
-ms.author: robinsh
+author: eross-msft
+ms.author: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2b54ba1314cbb95b2bc56c47ae39a92ff7252a79
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d7766dc41a47a4cb21fb76c1552c6689d84ee3ea
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750746"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549399"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Creación de un centro de IoT con una plantilla de Azure Resource Manager (.NET)
 

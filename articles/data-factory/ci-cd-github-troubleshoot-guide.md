@@ -10,12 +10,12 @@ ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
 ms.date: 11/09/2021
-ms.openlocfilehash: d3d792f6b51dc24b17d86d6a6fecc83697445a5a
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: 283285045de43f147eefe68b380b1f6819c9b80a
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132157717"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720101"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-azure-data-factory-and-synapse-analytics"></a>Solución de problemas de CI/CD, Azure DevOps y GitHub en Azure Data Factory y Synapse Analytics 
 
@@ -330,7 +330,7 @@ Se produce un error en la implementación de la plantilla de ARM, como DataFacto
 La implementación de la plantilla de ARM está intentando cambiar el tipo de un entorno de ejecución de integración existente. Esto no está permitido y provocará un error de implementación porque Data Factory requiere el mismo nombre y el mismo tipo de entorno de ejecución de integración en todas las fases de CI/CD.
 
 ##### <a name="resolution"></a>Resolución
-Si quiere compartir entornos de ejecución de integración en todas las fases, considere la posibilidad de usar una factoría ternaria solo para contener los entornos de ejecución de integración compartidos. Puede usar esta factoría compartida en todos los entornos como un tipo de entorno de ejecución de integración vinculado. Para más información, consulte [Integración y entrega continuas en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/continuous-integration-delivery#best-practices-for-cicd).
+Si quiere compartir entornos de ejecución de integración en todas las fases, considere la posibilidad de usar una factoría ternaria solo para contener los entornos de ejecución de integración compartidos. Puede usar esta factoría compartida en todos los entornos como un tipo de entorno de ejecución de integración vinculado. Para más información, consulte [Integración y entrega continuas en Azure Data Factory](./continuous-integration-delivery.md#best-practices-for-cicd).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

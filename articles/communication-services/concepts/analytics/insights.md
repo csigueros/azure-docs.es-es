@@ -9,17 +9,17 @@ ms.date: 10/25/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: data
-ms.openlocfilehash: 1a11cc68d197d53ab2348c7b6ae625c6659a6884
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: bfe0d0a6fbc47ff1cdce238d6c30c3f50c118bdd
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132138605"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716550"
 ---
 # <a name="communications-services-insights-preview"></a>Información de Communications Services (versión preliminar)
 
 ## <a name="overview"></a>Información general
-Dentro del recurso Communications Services, hemos proporcionado una característica **Información** en versión preliminar que muestra una serie de visualizaciones de datos que transmiten información detallada de los registros y métricas de Azure Monitor supervisados para Communication Services. Las visualizaciones en esta característica son posibles a través de [Libros de Azure Monitor](/azure/azure-monitor/visualize/workbooks-overview). Para aprovechar las ventajas de la herramienta Libros, siga las instrucciones descritas en [Habilitación de Azure Monitor en Configuración de diagnóstico](enable-logging.md) y, para habilitar Libros, deberá enviar los registros a un destino del [área de trabajo de Log Analytics](/azure/azure-monitor/logs/log-analytics-overview). 
+Dentro del recurso Communications Services, hemos proporcionado una característica **Información** en versión preliminar que muestra una serie de visualizaciones de datos que transmiten información detallada de los registros y métricas de Azure Monitor supervisados para Communication Services. Las visualizaciones en esta característica son posibles a través de [Libros de Azure Monitor](../../../azure-monitor/visualize/workbooks-overview.md). Para aprovechar las ventajas de la herramienta Libros, siga las instrucciones descritas en [Habilitación de Azure Monitor en Configuración de diagnóstico](enable-logging.md) y, para habilitar Libros, deberá enviar los registros a un destino del [área de trabajo de Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md). 
 
 :::image type="content" source="media\workbooks\insights-overview-2.png" alt-text="Información de Communication Services":::
 
@@ -130,4 +130,4 @@ La edición de estos paneles no modifica la pestaña **Información**, sino que 
 
 :::image type="content" source="media\workbooks\workbooks-tab.png" alt-text="Pestaña Libros":::
 
-Para ver una descripción detallada de los libros, consulte la documentación de [Libros de Azure Monitor](/azure/azure-monitor/visualize/workbooks-overview).
+Para ver una descripción detallada de los libros, consulte la documentación de [Libros de Azure Monitor](../../../azure-monitor/visualize/workbooks-overview.md).

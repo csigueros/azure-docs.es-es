@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
-ms.openlocfilehash: 35f57b29f20e4b9ca0105c2395a34376e25a8c8a
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 04a01833498154a1446e7f00aafb505b37e9e335
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132489121"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132705025"
 ---
 # <a name="how-to-prepare-data-and-define-a-schema-for-custom-ner"></a>Preparación de datos y definición de un esquema para NER personalizado
 
@@ -63,8 +63,8 @@ La calidad de los datos con los que entrena el modelo afecta enormemente al rend
 
 Como requisito previo para crear un proyecto, los datos de entrenamiento deben cargarse en un contenedor de blobs de la cuenta de almacenamiento. Puede crear y cargar archivos de entrenamiento desde Azure directamente o mediante la herramienta Explorador de Azure Storage. La herramienta Explorador de Azure Storage permite cargar más datos rápidamente.  
 
-* [Creación y carga de archivos desde Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
-* [Creación y carga de archivos mediante el Explorador de Azure Storage](/azure/vs-azure-tools-storage-explorer-blobs)
+* [Creación y carga de archivos desde Azure](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
+* [Creación y carga de archivos mediante el Explorador de Azure Storage](../../../../vs-azure-tools-storage-explorer-blobs.md)
 
 Solo puede usar archivos `.txt`. Si los datos están en otro formato, puede usar el [comando de análisis CLUtils](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/main/CustomTextAnalytics.CLUtils/Solution/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md) para cambiar el formato del archivo.
 
@@ -72,4 +72,4 @@ Solo puede usar archivos `.txt`. Si los datos están en otro formato, puede usar
  
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si aún no lo ha hecho, cree un proyecto NER personalizado. Si es la primera vez que usa NER personalizado, considere la posibilidad de seguir el [inicio rápido](../quickstart.md) para crear un proyecto de ejemplo. También puede ver el [tutorial](../how-to/create-project.md) para obtener más detalles sobre lo que necesita para crear un proyecto. 
+Si aún no lo ha hecho, cree un proyecto NER personalizado. Si es la primera vez que usa NER personalizado, considere la posibilidad de seguir el [inicio rápido](../quickstart.md) para crear un proyecto de ejemplo. También puede ver el [tutorial](../how-to/create-project.md) para obtener más detalles sobre lo que necesita para crear un proyecto.

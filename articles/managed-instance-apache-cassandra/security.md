@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: conceptual
 ms.date: 10/29/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: a5a34f539c8f2820c46736783f6d23d5b265164c
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 96b03347adcabdd5bd25d4f57c5ea80946832610
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131858483"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723330"
 ---
 # <a name="security-in-azure-managed-instance-for-apache-cassandra---overview"></a>Información general sobre seguridad en Azure Managed Instance for Apache Cassandra
 
@@ -34,7 +34,7 @@ La seguridad de los datos constituye una responsabilidad compartida entre el cli
 |Supervisión de los ataques|Azure Managed Instance for Apache Cassandra está integrado con [Azure Monitor](../azure-monitor/overview.md). Mediante el uso de registros de actividad y de auditoría, puede supervisar su cuenta para detectar actividad normal y anómala. Puede ver qué operaciones se realizaron en los recursos, quién inició la operación, cuándo se produjo, el estado de la operación y muchas más tareas.|
 |Respuesta a ataques|Una vez que se ha puesto en contacto con el equipo de asistencia técnica de Azure para informar de un posible ataque, se inicia un proceso de respuesta a incidentes de cinco pasos. El objetivo de dicho proceso es restaurar las operaciones y la seguridad de los servicios a su estado normal lo antes posible después de que se detecte un problema y se inicie una investigación.|
 |Servidores revisados|Como una base de datos administrada, Azure Managed Instance for Apache Cassandra elimina la necesidad de administrar y aplicar revisiones a servidores, que se hace automáticamente.|
-|Certificaciones| Para obtener la lista más actualizada de certificaciones, consulte el [sitio de cumplimiento general de Azure](https://www.microsoft.com/trustcenter/compliance/complianceoffering).
+|Certificaciones| Para obtener la lista más actualizada de certificaciones, consulte el [sitio de cumplimiento general de Azure](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

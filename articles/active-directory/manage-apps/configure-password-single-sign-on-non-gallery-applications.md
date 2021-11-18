@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: f8b32e5adda8d09f928b6fc6b447a9363998017f
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 0d54ba24ee13bc0084dbe6f4a14d54e38c94cded
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130074064"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132546849"
 ---
-# <a name="add-password-based-single-sign-on-to-an-application-in-azure-active-directory"></a>Adición del inicio de sesión único basado en contraseña a una aplicación en Azure Active Directory
+# <a name="add-password-based-single-sign-on-to-an-application"></a>Adición del inicio de sesión único basado en contraseña a una aplicación
 
 En este artículo, se muestra cómo configurar el inicio de sesión único (SSO) basado en contraseña en Azure Active Directory (Azure AD). Con el inicio de sesión único basado en contraseña, un usuario inicia sesión en la aplicación con un nombre de usuario y una contraseña la primera vez que accede. Después del primer inicio de sesión, Azure AD envía el nombre de usuario y la contraseña a la aplicación. 
 

@@ -12,14 +12,14 @@ ms.topic: how-to
 ms.date: 10/23/2021
 ms.author: davidmu
 ms.reviewer: alamaral
-ms.openlocfilehash: 4076b4ab582289e6b8de55a827ef834191099f47
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: d06dc25abf6ae83fd975a0d8d7fe38d905290e92
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131427634"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550786"
 ---
-# <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Asignación de usuarios y grupos en una aplicación de Azure Active Directory
+# <a name="assign-users-and-groups-to-an-application"></a>Administración de la asignación de usuarios para una aplicación en Azure Active Directory
 
 En este artículo se muestra cómo asignar usuarios y grupos a una aplicación empresarial en Azure Active Directory (Azure AD) mediante PowerShell. Cuando se asigna un usuario a una aplicación, esta aparece en el portal Mis aplicaciones del usuario para que pueda acceder a ella con facilidad. Si la aplicación expone roles, también se puede asignar un rol concreto al usuario.
 

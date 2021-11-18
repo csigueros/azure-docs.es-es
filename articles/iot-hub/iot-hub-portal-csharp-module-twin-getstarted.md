@@ -1,20 +1,20 @@
 ---
 title: Identidad del módulo y módulo gemelo de Azure IoT Hub (porta y .NET)
 description: Aprenda a crear la identidad de módulo y a actualizar módulos gemelos mediante el portal y .NET.
-author: robinsh
-ms.author: robinsh
+author: eross-msft
+ms.author: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: ea0c6b0c045e74b24db62a088deb0c524d9c5b13
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 993a59f1c47bd0920c120a19252367489c768807
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729834"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132555080"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Introducción a la identidad de módulo y los módulos gemelos de IoT Hub con el portal y un dispositivo .NET
 

@@ -9,36 +9,36 @@ ms.date: 10/25/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: data
-ms.openlocfilehash: 05ae40fc974228bf93641be3786294aab59c243a
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 42e7a6d972131125130e3dc1976b1061a32e07a9
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132138582"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716683"
 ---
 # <a name="log-analytics-for-communications-services-preview"></a>Log Analytics para Communications Services (versión preliminar)
 
 ## <a name="overview-and-access"></a>Introducción y acceso
 
-Para poder aprovechar las ventajas de usar [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) con los registros de Communications Services, primero debe seguir los pasos descritos en [Habilitación del registro en Configuración de diagnóstico](enable-logging.md). Cuando haya habilitado los registros y un [área de trabajo de Log Analytics](/azure/azure-monitor/logs/design-logs-deployment), tendrá acceso a muchos [paquetes de consulta predeterminados](/azure/azure-monitor/logs/query-packs#default-query-pack) útiles que le ayudarán a visualizar y comprender rápidamente los datos disponibles en los registros, que se describen a continuación. Mediante Log Analytics, también obtiene acceso a más información de Communication Services a través de Libros de Azure Monitor (consulte [Información de Communications Services](insights.md)), puede crear sus propias consultas y libros y puede [acceder a la API REST](https://dev.loganalytics.io/) en cualquier consulta.
+Para poder aprovechar las ventajas de usar [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) con los registros de Communications Services, primero debe seguir los pasos descritos en [Habilitación del registro en Configuración de diagnóstico](enable-logging.md). Cuando haya habilitado los registros y un [área de trabajo de Log Analytics](../../../azure-monitor/logs/design-logs-deployment.md), tendrá acceso a muchos [paquetes de consulta predeterminados](../../../azure-monitor/logs/query-packs.md#default-query-pack) útiles que le ayudarán a visualizar y comprender rápidamente los datos disponibles en los registros, que se describen a continuación. Mediante Log Analytics, también obtiene acceso a más información de Communication Services a través de Libros de Azure Monitor (consulte [Información de Communications Services](insights.md)), puede crear sus propias consultas y libros y puede [acceder a la API REST](https://dev.loganalytics.io/) en cualquier consulta.
 
 ### <a name="access"></a>Access
 Para acceder a las consultas, comience en la página del recurso Communications Services y, luego, haga clic en "Registros" en el panel de navegación izquierdo dentro de la sección Supervisión:
 
 :::image type="content" source="media\log-analytics\access-log-analytics.png" alt-text="Navegación por Log Analytics":::
 
-Desde allí, se muestra una pantalla modal que contiene todos los [paquetes de consulta predeterminados](/azure/azure-monitor/logs/query-packs#default-query-pack) disponibles para Communication Services, con la lista de los paquetes de consulta disponibles por los que puede navegar, a la izquierda.
+Desde allí, se muestra una pantalla modal que contiene todos los [paquetes de consulta predeterminados](../../../azure-monitor/logs/query-packs.md#default-query-pack) disponibles para Communication Services, con la lista de los paquetes de consulta disponibles por los que puede navegar, a la izquierda.
 
 :::image type="content" source="media\log-analytics\log-analytics-modal-resource.png" alt-text="Modal de consulta de Log Analytics" lightbox="media\log-analytics\log-analytics-modal-resource.png":::
 
-Aunque cierre la pantalla modal, podrá navegar a los distintos paquetes de consulta y acceder directamente a los datos en forma de tablas en función del esquema de los registros y las métricas que ha habilitado en la configuración de diagnóstico. Aquí, puede crear sus propias consultas a partir de los datos mediante [KQL (Kusto)](/azure/data-explorer/kusto/query/). Puede encontrar más información sobre el uso, la edición y la creación de consultas en [Consultas de Log Analytics](/azure/azure-monitor/logs/queries).
+Aunque cierre la pantalla modal, podrá navegar a los distintos paquetes de consulta y acceder directamente a los datos en forma de tablas en función del esquema de los registros y las métricas que ha habilitado en la configuración de diagnóstico. Aquí, puede crear sus propias consultas a partir de los datos mediante [KQL (Kusto)](/azure/data-explorer/kusto/query/). Puede encontrar más información sobre el uso, la edición y la creación de consultas en [Consultas de Log Analytics](../../../azure-monitor/logs/queries.md).
 
 :::image type="content" source="media\log-analytics\log-analytics-queries-resource.png" alt-text="Consultas de Log Analytics en el recurso" lightbox="media\log-analytics\log-analytics-queries-resource.png":::
 
 :::image type="content" source="media\log-analytics\log-analytics-tables-resource.png" alt-text="Tablas de Log Analytics en el recurso" lightbox="media\log-analytics\log-analytics-tables-resource.png":::
 
 ## <a name="default-query-packs-for-call-summary-and-call-diagnostic-logs"></a>Paquetes de consulta predeterminados para los registros de resumen de llamadas y diagnóstico de llamadas
-A continuación, se muestran descripciones de cada consulta del [paquete de consulta predeterminado](/azure/azure-monitor/logs/query-packs#default-query-pack) para los [registros de resumen de llamadas y diagnóstico de llamadas](call-logs-azure-monitor.md), junto con ejemplos de código y salidas de ejemplo para cada consulta disponible:
+A continuación, se muestran descripciones de cada consulta del [paquete de consulta predeterminado](../../../azure-monitor/logs/query-packs.md#default-query-pack) para los [registros de resumen de llamadas y diagnóstico de llamadas](call-logs-azure-monitor.md), junto con ejemplos de código y salidas de ejemplo para cada consulta disponible:
 ### <a name="call-overview-queries"></a>Consultas de información general de llamadas
 #### <a name="number-of-participants-per-call"></a>Número de participantes por llamada
 

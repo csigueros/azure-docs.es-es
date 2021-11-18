@@ -11,12 +11,12 @@ author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/05/2021
 ms.custom: devx-track-python, ignite-fall-2021
-ms.openlocfilehash: a2b818aaea5bc737d1b68f9e88dd5c0611c297f1
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: d566f40bfeef4e49e85cacb8183509b512d52715
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132135897"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132725021"
 ---
 # <a name="configure-inbound-and-outbound-network-traffic"></a>Configuración del tráfico de red entrante y saliente
 
@@ -327,7 +327,7 @@ Al usar Azure Kubernetes Service con Azure Machine Learning, se debe permitir 
 
 ### <a name="azure-arc-enabled-kubernetes"></a>Kubernetes habilitado para Azure Arc <a id="arc-kubernetes"></a>
 
-Los clústeres de Kubernetes habilitados para Azure Arc dependen de las conexiones de Azure Arc. Asegúrese de cumplir los [requisitos de red de Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#meet-network-requirements).
+Los clústeres de Kubernetes habilitados para Azure Arc dependen de las conexiones de Azure Arc. Asegúrese de cumplir los [requisitos de red de Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#meet-network-requirements).
 
 Los hosts de esta sección se usan para implementar la extensión de Azure Machine Learning en clústeres de Kubernetes y enviar cargas de trabajo de entrenamiento e inferencia a los clústeres.
 

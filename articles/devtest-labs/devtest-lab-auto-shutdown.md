@@ -3,12 +3,12 @@ title: Configuración de la directiva de apagado automático para laboratorios y
 description: Descubra cómo establecer programaciones y directivas de apagado automático para Azure DevTest Labs o para máquinas virtuales individuales (VM) con el fin de apagar las máquinas virtuales a una hora concreta del día.
 ms.topic: how-to
 ms.date: 11/01/2021
-ms.openlocfilehash: b795ab8baaec5ea84823d4741f1bfcc48c990204
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 028e52ccd4068524bcd9b4c8c5adb707d4400d70
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131503417"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722285"
 ---
 # <a name="configure-auto-shutdown-for-labs-and-vms-in-devtest-labs"></a>Configuración del apagado automático de laboratorios y máquinas virtuales en DevTest Labs
 
@@ -38,7 +38,7 @@ De forma predeterminada, esta programación se aplica a todas las máquinas virt
 
 ## <a name="configure-lab-auto-shutdown-policy"></a>Configuración de la directiva de apagado automático de un laboratorio
 
-Como propietario de un laboratorio, puede controlar su costo y reducir sus residuos mediante la administración de la configuración de la directiva de apagado automático del laboratorio. Para saber cómo configurar todas las directivas de laboratorio, consulte [Definición de las directivas de laboratorio en Azure DevTest Labs](devtest-lab-set-lab-policy.md). 
+Como propietario de un laboratorio, puede controlar su costo y reducir sus residuos mediante la administración de la configuración de la directiva de apagado automático del laboratorio. Para saber cómo configurar todas las directivas de laboratorio, consulte [Definición de las directivas de laboratorio en Azure DevTest Labs](devtest-lab-set-lab-policy.md).
 
 > [!IMPORTANT]
 > Los cambios en la directiva de apagado automático se aplican solo a las nuevas máquinas virtuales creadas en el laboratorio y no a las máquinas virtuales ya existentes.
@@ -217,9 +217,9 @@ Ahora, realice la integración con el cliente de correo electrónico.
 
    ![Captura de pantalla que muestra la opción Enviar correo electrónico (V2).](media/devtest-lab-auto-shutdown/select-send-email.png)
 
-1. En el formulario **Enviar correo electrónico (V2)** , rellene los campos **Para**, **Asunto** y **Cuerpo**. 
+1. En el formulario **Enviar correo electrónico (V2)** , rellene los campos **Para**, **Asunto** y **Cuerpo**.
 
-   Seleccione **Agregar contenido dinámico** para rellenar automáticamente la notificación con los valores que usan la aplicación y los conectores. Por ejemplo, en **Para**, seleccione **propietario**. Rellene el campo **Asunto** con **vmName** y **labName**. Agregue contenido como **skipUrl** y **delayUrl** al cuerpo del mensaje.
+   Seleccione **Agregar contenido dinámico** para rellenar automáticamente la notificación con los valores que usan la aplicación y los conectores. Por ejemplo, en **Para**, seleccione **propietario**. Rellene el campo **Asunto** con **vmName** y **labName**. Agregue contenido como los valores **skipUrl** y **delayUrl** al cuerpo del mensaje.
 
    ![Captura de pantalla que muestra un correo electrónico de notificación de ejemplo.](media/devtest-lab-auto-shutdown/email-options.png)
 
@@ -233,4 +233,4 @@ Ahora puede copiar la dirección URL del webhook. Seleccione el paso **Cuando se
 
 - [Inicio automático de máquinas virtuales del laboratorio](devtest-lab-auto-startup-vm.md)
 - [Definición de directivas de laboratorio en Azure DevTest Labs](devtest-lab-set-lab-policy.md)
-- [Recepción y respuesta de solicitudes HTTPS entrantes en Azure Logic Apps](/azure/connectors/connectors-native-reqres)
+- [Recepción y respuesta de solicitudes HTTPS entrantes en Azure Logic Apps](../connectors/connectors-native-reqres.md)

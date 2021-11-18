@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 02/17/2021
 ms.author: mbaldwin
-ms.openlocfilehash: d89cde13500757ae38ceaba66044b10225508cb9
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: d89cd4faa67f769f01c0d0a1c1288b6dc8776aed
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131460913"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722627"
 ---
 # <a name="about-keys"></a>Acerca de las claves
 
@@ -87,8 +87,8 @@ Consulte [Tipos de claves, algoritmos y operaciones](about-keys-details.md) para
 
 | Cuándo se usa | Ejemplos |
 |--------------|-------------|
-| Cifrado de datos del servidor de Azure para proveedores de recursos integrados con claves administradas por el cliente | - [Cifrado del servidor mediante claves administradas por el cliente en Azure Key Vault](https://docs.microsoft.com/azure/security/fundamentals/encryption-models#server-side-encryption-using-customer-managed-keys-in-azure-key-vault) |
-| Cifrado de datos del cliente | - [Cifrado del cliente con Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption?tabs=dotnet)|
+| Cifrado de datos del servidor de Azure para proveedores de recursos integrados con claves administradas por el cliente | - [Cifrado del servidor mediante claves administradas por el cliente en Azure Key Vault](../../security/fundamentals/encryption-models.md#server-side-encryption-using-customer-managed-keys-in-azure-key-vault) |
+| Cifrado de datos del cliente | - [Cifrado del cliente con Azure Key Vault](../../storage/common/storage-client-side-encryption.md?tabs=dotnet)|
 | TLS sin clave | - Uso de [bibliotecas cliente](../general/client-libraries.md#client-libraries-per-language-and-object) de claves |
 
 ## <a name="next-steps"></a>Pasos siguientes

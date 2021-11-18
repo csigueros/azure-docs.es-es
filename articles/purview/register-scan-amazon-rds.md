@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/18/2021
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: eb8140fa1d4c9328bf69fb84b867255876a235c6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: fab51bd25489527c36e37d5f60233fa62256367c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131017596"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722589"
 ---
 # <a name="amazon-rds-multi-cloud-scanning-connector-for-azure-purview-public-preview"></a>Multi-Cloud Scanning Connector de Amazon RDS para Azure Purview (versión preliminar pública)
 
@@ -192,7 +192,7 @@ Las credenciales admitidas para los orígenes de datos de Amazon RDS incluyen so
 
 ### <a name="create-a-secret-for-your-rds-credentials-to-use-in-purview"></a>Creación de un secreto para las credenciales de RDS a fin de usarlo en Purview
 
-1.  Agregue la contraseña a una instancia de Azure KeyVault como secreto. Para obtener más información, vea [Establecimiento y recuperación de un secreto de Key Vault mediante Azure Portal](/azure/key-vault/secrets/quick-create-portal).
+1.  Agregue la contraseña a una instancia de Azure KeyVault como secreto. Para obtener más información, vea [Establecimiento y recuperación de un secreto de Key Vault mediante Azure Portal](../key-vault/secrets/quick-create-portal.md).
 
 1.  Agregue una directiva de acceso a la instancia de Key Vault con los permisos **Get** y **List**. Por ejemplo:
 

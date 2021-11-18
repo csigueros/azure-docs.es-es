@@ -6,16 +6,16 @@ ms.date: 10/23/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
-ms.openlocfilehash: eef655cb482bbfe61bcd645f6038616b4321229c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0d30731af6366a859b86341b318b1f8d9b5663a2
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131017392"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714207"
 ---
 # <a name="restore-azure-postgresql-databases-using-azure-data-protection-rest-api"></a>Restauración de bases de datos de Azure PostgreSQL mediante la API REST de Azure Data Protection
 
-En este artículo se explica cómo restaurar [bases de datos de Azure PostgreSQL](/azure/postgresql/overview#azure-database-for-postgresql---single-server) en un servidor de Azure PostgreSQL del que se ha creado una copia de seguridad con Azure Backup.
+En este artículo se explica cómo restaurar [bases de datos de Azure PostgreSQL](../postgresql/overview.md#azure-database-for-postgresql---single-server) en un servidor de Azure PostgreSQL del que se ha creado una copia de seguridad con Azure Backup.
 
 Al ser una base de datos PaaS, no se admite la opción Recuperación de la ubicación original (OLR) para restaurar mediante la sustitución de la base de datos existente (desde la que se realizaron las copias de seguridad). Puede restaurar desde un punto de recuperación para crear una nueva base de datos en el mismo servidor de Azure PostgreSQL o en cualquier otro servidor de PostgreSQL. Esto se denomina Recuperación de ubicación alternativa (ALR) y ayuda a mantener tanto la base de datos de origen como la base de datos restaurada (nueva).
 
@@ -41,9 +41,9 @@ Haremos referencia a un almacén de copia de seguridad existente _TestBkpVault_ 
 
 El almacén de Backup usa la identidad administrada para obtener acceso a otros recursos de Azure. Para restaurar desde la copia de seguridad, la identidad administrada del almacén de Backup requiere un conjunto de permisos en el servidor de Azure PostgreSQL en el que se debe restaurar la base de datos.
 
-Para asignar los permisos pertinentes para la identidad administrada asignada por el sistema del almacén en el servidor PostgreSQL de destino, consulte el [conjunto de permisos necesarios para realizar una copia de seguridad de la base de datos de Azure PostgreSQL](/azure/backup/backup-azure-database-postgresql-overview#set-of-permissions-needed-for-azure-postgresql-database-restore).
+Para asignar los permisos pertinentes para la identidad administrada asignada por el sistema del almacén en el servidor PostgreSQL de destino, consulte el [conjunto de permisos necesarios para realizar una copia de seguridad de la base de datos de Azure PostgreSQL](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore).
 
-Para restaurar el punto de recuperación como archivos en una cuenta de almacenamiento, la identidad administrada asignada por el sistema del almacén de Backup necesita acceso a la cuenta de almacenamiento de destino, como se menciona [aquí](/azure/backup/restore-azure-database-postgresql#restore-permissions-on-the-target-storage-account).
+Para restaurar el punto de recuperación como archivos en una cuenta de almacenamiento, la identidad administrada asignada por el sistema del almacén de Backup necesita acceso a la cuenta de almacenamiento de destino, como se menciona [aquí](./restore-azure-database-postgresql.md#restore-permissions-on-the-target-storage-account).
 
 ### <a name="fetching-the-relevant-recovery-point"></a>Captura del punto de recuperación pertinente
 

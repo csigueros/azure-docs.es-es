@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/08/2021
 ms.author: ryanwi
-ms.custom: aaddev, content-perf, FY21Q1
+ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: ac1fa8db8d153365f990c4d3eff120a254ed8096
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: e90eca24095c4aa88dbaaf5dc1daf694c6a7f9dd
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129060638"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719758"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Configuración de las directivas de vigencia de tokens (versión preliminar)
 Puede especificar la duración de un token de acceso, SAML o identificador emitido por la plataforma de Microsoft Identity. La vigencia de los tokens se puede configurar para todas las aplicaciones de una organización, para una aplicación multiinquilino (multiorganización) o para una entidad de servicio específica de una organización. Para obtener más información, lea [Vigencias de tokens configurables](active-directory-configurable-token-lifetimes.md).

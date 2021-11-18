@@ -12,12 +12,12 @@ manager: karenhoran
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: f5320812be623437099ed0ab587dbbe3d4abe6ef
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: d2abaed55177a0e7acae22e3045ba68f56a5494e
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132158752"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718192"
 ---
 # <a name="troubleshoot-hybrid-azure-ad-joined-devices"></a>Solución de problemas de dispositivos unidos a Azure AD híbrido
 
@@ -35,7 +35,7 @@ En este artículo se da por supuesto que [ha configurado dispositivos unidos a A
 
 
 > [!NOTE] 
-> Para solucionar los problemas comunes de registro de dispositivos, use la [herramienta de solución de problemas de registro de dispositivos](https://aka.ms/DSRegTool).
+> Para solucionar los problemas comunes de registro de dispositivos, use la [herramienta de solución de problemas de registro de dispositivos](/samples/azure-samples/dsregtool/dsregtool/).
 
 
 ## <a name="troubleshoot-join-failures"></a>Solución de errores de unión

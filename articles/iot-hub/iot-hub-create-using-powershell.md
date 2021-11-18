@@ -1,19 +1,19 @@
 ---
 title: Creación de una instancia de Azure IoT Hub mediante un cmdlet de PowerShell | Microsoft Docs
 description: Aprenda a usar los cmdlets de PowerShell para crear un grupo de recursos y luego crear un centro de IoT en el grupo de recursos. También aprenda a quitar el centro.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: robinsh
+ms.author: lizross
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: accfb6d4a5191d3c9729ffe075924d44891c0cb3
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 1730887d38edf2d64a3456a188a50c3becaabbad
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110702345"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551850"
 ---
 # <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>Creación de una instancia de IoT Hub mediante el cmdlet New-AzlotHub
 

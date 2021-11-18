@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/27/2021
 ms.author: danlep
-ms.openlocfilehash: eaeacb016098df74d4a8ff7f20ebf677e4322479
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 0833e80c17294bc50489f37b21a0b605a0b0ac9d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131447462"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717513"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Cómo integrar Azure API Management con Azure Application Insights
 
@@ -110,7 +110,7 @@ Application Insights recibe:
 Puede emitir métricas personalizadas si configura la directiva [`emit-metric`](api-management-advanced-policies.md#emit-metrics). 
 
 Para que las métricas agregadas previamente de Application Insights estén disponibles en API Management, tendrá que habilitar manualmente las métricas personalizadas en el servicio.
-1. Use la directiva [`emit-metric`](api-management-advanced-policies.md#emit-metrics) con la [API de creación o actualización](https://docs.microsoft.com/rest/api/apimanagement/2021-04-01-preview/api-diagnostic/create-or-update).
+1. Use la directiva [`emit-metric`](api-management-advanced-policies.md#emit-metrics) con la [API de creación o actualización](/rest/api/apimanagement/2021-04-01-preview/api-diagnostic/create-or-update).
 1. Agregue `"metrics":true` a la carga, junto con cualquier otra propiedad.
 
 > [!NOTE]

@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 03/08/2021
-ms.openlocfilehash: c3e509a67eaf4bcc921032e762f54402f650ae3e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 13689ab5880a37569224cbd041ab9ab1ac6bda70
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971222"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132713599"
 ---
 # <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>Disponibilidad geográfica y compatibilidad con monedas del marketplace comercial
 
@@ -198,7 +198,7 @@ Para más información sobre cómo especificar el precio de tipos de oferta conc
 
 - [Creación de una oferta de aplicación de Azure](azure-app-offer-setup.md)
 - [Creación de una oferta de contenedor de Azure](azure-container-offer-setup.md)
-- [Creación de una oferta de máquina virtual de Azure](azure-vm-create.md)
+- [Creación de una oferta de máquina virtual de Azure](azure-vm-offer-setup.md)
 - [Creación de una oferta de servicios de consultoría](./create-consulting-service-offer.md)
 - [Creación de una oferta de Dynamics 365 for Customer Engagement y Power Apps](dynamics-365-customer-engage-offer-setup.md)
 - [Creación de una oferta de Dynamics 365 for Operations](dynamics-365-operations-offer-setup.md)

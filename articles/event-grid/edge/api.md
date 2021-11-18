@@ -8,12 +8,12 @@ ms.reviewer: spelluru
 ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: d9e634597d82b6cac52237f0c800cdfc33bc883a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fd04c533b3791ba0628b09aba13dc4884599f7a8
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635420"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716417"
 ---
 # <a name="rest-api"></a>API DE REST
 En este artículo se describen las API REST de Azure Event Grid en IoT Edge
@@ -50,7 +50,7 @@ En el caso de **CloudEventSchemaV1_0**, el valor de Content-Type puede ser uno d
     
 `Content-Type: application/cloudevents-batch+json; charset=utf-8`
 
-En el caso de **CloudEventSchemaV1_0** en modo binario, consulte la [documentación](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md) para obtener más detalles.
+En el caso de **CloudEventSchemaV1_0** en modo binario, consulte la [documentación](https://github.com/cloudevents/spec/blob/main/cloudevents/bindings/http-protocol-binding.md) para obtener más detalles.
 
 ### <a name="error-response"></a>Respuesta de error
 Todas las API devuelven un error con la carga útil siguiente:

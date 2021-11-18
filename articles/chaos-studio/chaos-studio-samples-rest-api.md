@@ -8,12 +8,12 @@ ms.date: 11/01/2021
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: edbaeece6a486c170603304dfe328974e6b70879
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f06c89e61f9ed1889502417ca5708493dd9d2e33
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131092870"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718476"
 ---
 # <a name="use-the-chaos-studio-rest-apis-to-run-and-manage-chaos-experiments"></a>Uso de las API REST de Chaos Studio para ejecutar y administrar experimentos de caos
 
@@ -132,7 +132,7 @@ az rest --method get --url "https://management.azure.com/{experimentId}/executio
 
 | Nombre de parámetro | Definición | Búsqueda |
 | --- | --- | --- |
-| {apiVersion} | Versión de la API que se usará al ejecutar el comando proporcionado | Se encuentra en la [documentación de API](https://aka.ms/chaosrestapi). |
+| {apiVersion} | Versión de la API que se usará al ejecutar el comando proporcionado | Se encuentra en la [documentación de API](/rest/api/chaosstudio/). |
 | {experimentId} | Identificador de recurso de Azure para el experimento | Se encuentra en la [hoja del portal de experimentos de Chaos Studio](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.chaos%2Fchaosexperiments). |
 | {chaosProviderType} | Tipo o nombre del proveedor de Chaos Studio | Los proveedores disponibles se encuentran en la [lista de tipos de configuración del proveedor actual](chaos-studio-fault-providers.md). |
 | {experimentName.json} | JSON con la configuración del experimento de caos | Generado por el usuario |

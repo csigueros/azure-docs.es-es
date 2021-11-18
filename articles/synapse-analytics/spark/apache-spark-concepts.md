@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 51b2e8cd968c4c14777d196d90686b13158aef42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1ca0fd208ed739118708630a80b4829ce7519704
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98120315"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715746"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Conceptos básicos de Apache Spark en Azure Synapse Analytics
 
@@ -80,7 +80,7 @@ En el siguiente artículo se describe cómo solicitar un aumento en la cuota del
 - Seleccione "Azure Synapse Analytics" como el tipo de servicio.
 - En la ventana detalles de la cuota, seleccione Apache Spark (núcleo virtual) por área de trabajo.
 
-[Solicitud de un aumento de la cuota estándar desde Ayuda y soporte técnico](../../azure-portal/supportability/per-vm-quota-requests.md#request-a-standard-quota-increase-from-help--support)
+[Solicitud de un aumento de la cuota estándar desde Ayuda y soporte técnico](../../azure-portal/supportability/per-vm-quota-requests.md)
 
 ### <a name="spark-pool-level"></a>Nivel de grupo de Spark
 

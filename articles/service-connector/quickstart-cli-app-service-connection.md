@@ -7,12 +7,12 @@ ms.service: serviceconnector
 ms.topic: quickstart
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 5e4864db07dbf7618e5b8e03a29e08c1344d7ebd
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: d6d0f69f09f95694b718be17fe5567060d67c7b2
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132553408"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714720"
 ---
 # <a name="quickstart-create-a-service-connection-in-app-service-with-the-azure-cli"></a>Inicio rápido: Creación de una conexión de servicio en App Service con la CLI de Azure
 
@@ -56,7 +56,7 @@ az webapp connection create storage-blob --secret
 #### <a name="using-managed-identity"></a>[Con la identidad administrada](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
-> El uso de una identidad administrada requiere que tenga el permiso para la [asignación de roles de Azure AD](/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal). Si no tiene el permiso, se producirá un error en la creación de la conexión. Puede pedir al propietario de la suscripción el permiso o usar la clave de acceso para crear la conexión.
+> El uso de una identidad administrada requiere que tenga el permiso para la [asignación de roles de Azure AD](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Si no tiene el permiso, se producirá un error en la creación de la conexión. Puede pedir al propietario de la suscripción el permiso o usar la clave de acceso para crear la conexión.
 
 Use el comando [az webapp connection](/cli/azure/webapp/connection) de la CLI de Azure para crear una conexión de servicio a un almacenamiento de blobs con la identidad administrada asignada por el sistema, proporcionando la siguiente información:
 

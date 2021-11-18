@@ -7,20 +7,18 @@ author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: d51d2e09-a073-41c8-b396-91d60b057e6a
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 26bee8145176c5cba98286d5df7c2807c808a2c7
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: c20d94c34e83a6720888358b470a718e6c406d2b
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132346807"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710920"
 ---
 # <a name="windows-security-event-sets-that-can-be-sent-to-microsoft-sentinel"></a>Conjuntos de eventos de seguridad de Windows que pueden enviarse a Microsoft Sentinel
 

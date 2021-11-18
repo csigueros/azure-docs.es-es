@@ -8,12 +8,12 @@ author: joshuha-msft
 ms.author: joowen
 ms.date: 05/12/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e19e3eba40d843ae27a3d0817525f7ed65394d10
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 3205d5c3be7fe13cbaa4b881a3de6bffc15e9fd8
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131844608"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550919"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parámetros globales en Azure Data Factory
 
@@ -114,5 +114,5 @@ Set-AzDataFactoryV2 -InputObject $dataFactory -Force
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre el [proceso de integración e implementación continuas](continuous-integration-delivery.md) de Azure Data Factory.
+* Más información sobre el [proceso de integración e implementación continuas](continuous-integration-delivery-improvements.md) de Azure Data Factory.
 * Más información sobre cómo usar el [lenguaje de expresiones del flujo de control](control-flow-expression-language-functions.md).

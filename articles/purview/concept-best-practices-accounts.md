@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 10/12/2021
-ms.openlocfilehash: c061fcd27cbafae20732f7ab1436b3a55a5a8dc0
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 5e6faa2eb9556207aae7583044755bc9d01b0502
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130214821"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721848"
 ---
 # <a name="azure-purview-accounts-architectures-and-best-practices"></a>Arquitecturas de las cuentas de Azure Purview y procedimientos recomendados  
 
@@ -64,7 +64,7 @@ Si su organización tiene datos en varias zonas geográficas y debe mantener los
 
 Actualmente, Purview no admite servicios multiinquilino. Si tiene orígenes de datos de Azure distribuidos entre varias suscripciones de Azure en diferentes inquilinos de Azure Active Directory, se recomienda implementar cuentas de Azure Purview independientes en cada inquilino. 
 
-Se aplica una excepción a los orígenes de datos basados en máquinas virtuales e inquilinos de Power BI. Para obtener más información sobre cómo examinar y registrar una cuenta entre inquilinos de Power BI en una sola cuenta de Purview, consulte [Registro y examen de una cuenta entre inquilinos Power BI](/azure/purview/register-scan-power-bi-tenant#register-and-scan-a-cross-tenant-power-bi). 
+Se aplica una excepción a los orígenes de datos basados en máquinas virtuales e inquilinos de Power BI. Para obtener más información sobre cómo examinar y registrar una cuenta entre inquilinos de Power BI en una sola cuenta de Purview, consulte [Registro y examen de una cuenta entre inquilinos Power BI](./register-scan-power-bi-tenant.md). 
 
 :::image type="content" source="media/concept-best-practices/accounts-multiple-tenants.png" alt-text="Captura de pantalla que muestra varias cuentas de Azure Purview basadas en requisitos de servicios multiinquilino."lightbox="media/concept-best-practices/accounts-multiple-tenants.png"::: 
 

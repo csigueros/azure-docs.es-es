@@ -4,8 +4,6 @@ description: Obtenga información sobre los escenarios detectados por Fusion, qu
 services: sentinel
 documentationcenter: na
 author: yelevin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
@@ -13,12 +11,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 25322a02f0165a7f905e7bbd9d7653e56929fe2f
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: a82b5f3507d67a2cdbcf065fa8a5452108afa54a
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132277702"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721126"
 ---
 # <a name="scenarios-detected-by-the-microsoft-sentinel-fusion-engine"></a>Escenarios detectados por el motor Fusion de Microsoft Sentinel
 

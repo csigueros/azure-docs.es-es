@@ -12,12 +12,12 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 06/23/2021
-ms.openlocfilehash: 8f056fd416b6bbb36296a57fca26906852eb3af8
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: 81d87e48b7c57eed172dbbc4b5bf7d427dae764c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132156566"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717006"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -90,7 +90,7 @@ Los auditores pueden usar Azure Monitor para revisar los registros de los objeto
 > Tanto la eliminación temporal como la protección de purga deben estar habilitadas en los almacenes de claves para los servidores que se configuran con el TDE administrado por el cliente, así como los servidores existentes que usan el TDE administrado por el cliente.
 
 - Conceda al servidor o a la instancia administrada acceso al almacén de claves (*get*, *wrapKey* o *unwrapKey*) con su identidad de Azure Active Directory. Al usar Azure Portal, la identidad de Azure AD se crea automáticamente cuando se crea el servidor. Al usar PowerShell o la CLI de Azure, se debe crear explícitamente la identidad de Azure AD y se debe comprobar la finalización. Consulte [Configuración de TDE con BYOK](transparent-data-encryption-byok-configure.md) y [Configuración de TDE con BYOK para SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) para obtener instrucciones detalladas paso a paso cuando se usa PowerShell.
-    - En función del modelo de permisos del almacén de claves (directiva de acceso o RBAC de Azure), se puede conceder acceso al almacén de claves creando una directiva de acceso en el almacén de claves o creando una nueva asignación de roles RBAC de Azure con el rol [Usuario de cifrado de servicio criptográfico de Key Vault](/azure/key-vault/general/rbac-guide#azure-built-in-roles-for-key-vault-data-plane-operations).
+    - En función del modelo de permisos del almacén de claves (directiva de acceso o RBAC de Azure), se puede conceder acceso al almacén de claves creando una directiva de acceso en el almacén de claves o creando una nueva asignación de roles RBAC de Azure con el rol [Usuario de cifrado de servicio criptográfico de Key Vault](../../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations).
 
 - Al usar un firewall con AKV, debe habilitar la opción *Permitir que los servicios de confianza de Microsoft omitan el firewall*.
 

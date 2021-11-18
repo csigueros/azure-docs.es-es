@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/08/2021
-ms.openlocfilehash: c93a788686cd4ae7c0f20535b2ca0b4746fbdff2
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: c30b88361b4b617b092995cb8ddc0138ffcc8240
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132349926"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706599"
 ---
 # <a name="network-data-access-with-azure-machine-learning-studio"></a>Acceso a datos de red con Estudio de Azure Machine Learning
 
@@ -41,9 +41,9 @@ En general, el acceso a datos desde Estudio implica las comprobaciones siguiente
     - Si la autenticación se realiza mediante una identidad de usuario, es importante saber *qué* usuario está intentando acceder al almacenamiento.
 2. ¿Tienen permiso?
     - ¿Las credenciales son correctas? Si es así, ¿la entidad de servicio, la identidad administrada, etc., tiene los permisos necesarios en el almacenamiento? Los permisos se conceden mediante controles de acceso basado en roles de Azure (RBAC de Azure).
-    - El [Lector](/azure/role-based-access-control/built-in-roles#reader) de la cuenta de almacenamiento lee los metadatos del almacenamiento.
-    - El [Lector de datos de blobs de almacenamiento](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) lee datos dentro de un contenedor de blobs.
-    - El [Colaborador](/azure/role-based-access-control/built-in-roles#contributor) permite el acceso de escritura a una cuenta de almacenamiento.
+    - El [Lector](../role-based-access-control/built-in-roles.md#reader) de la cuenta de almacenamiento lee los metadatos del almacenamiento.
+    - El [Lector de datos de blobs de almacenamiento](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) lee datos dentro de un contenedor de blobs.
+    - El [Colaborador](../role-based-access-control/built-in-roles.md#contributor) permite el acceso de escritura a una cuenta de almacenamiento.
     - Es posible que se requieran más roles en función del tipo de almacenamiento.
 3. ¿Desde dónde se produce el acceso?
     - Usuario: ¿la dirección IP del cliente está en el intervalo de red virtual o subred?
@@ -74,7 +74,7 @@ Vea las secciones siguientes para obtener información sobre las limitaciones al
 
 Si usa una cuenta de almacenamiento existente como __almacenamiento predeterminado__ al crear un área de trabajo, la carpeta `azureml-filestore` del almacén de archivos no se creará automáticamente. Esta carpeta es necesaria al enviar experimentos de [AutoML](concept-automated-ml.md).
 
-Para evitar este problema, puede permitir que Azure Machine Learning cree el almacenamiento predeterminado al crear el área de trabajo o asegurarse de que la cuenta de almacenamiento existente __no__ está en la red virtual al crear el área de trabajo. Para obtener más información sobre redes con una cuenta de Azure Storage, vea [Configuración de cuentas de Azure Storage con redes virtuales](/azure/storage/common/storage-network-security).
+Para evitar este problema, puede permitir que Azure Machine Learning cree el almacenamiento predeterminado al crear el área de trabajo o asegurarse de que la cuenta de almacenamiento existente __no__ está en la red virtual al crear el área de trabajo. Para obtener más información sobre redes con una cuenta de Azure Storage, vea [Configuración de cuentas de Azure Storage con redes virtuales](../storage/common/storage-network-security.md).
 
 ### <a name="azure-storage-firewall"></a>Firewall de Azure Storage
 
@@ -105,4 +105,3 @@ En Azure SQL Database, la opción __Deny public network access__ (Denegación d
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre la habilitación de Estudio en una red, vea [Uso de Estudio de Azure Machine Learning en una red virtual de Azure](how-to-enable-studio-virtual-network.md).
-

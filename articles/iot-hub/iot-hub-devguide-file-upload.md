@@ -1,8 +1,8 @@
 ---
 title: Información sobre la carga de archivos de Azure IoT Hub | Microsoft Docs
 description: 'Guía del desarrollador: uso de la característica de carga de archivos de IoT Hub para administrar la carga de archivos desde un dispositivo a un contenedor de blobs de Azure Storage.'
-author: robinsh
-ms.author: robinsh
+author: eross-msft
+ms.author: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 991a55da8a4359192e499e464f034a8742055c99
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 36ecdb4fc1442447e1f0e80019db6039556e75e4
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131005335"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718213"
 ---
 # <a name="upload-files-with-iot-hub"></a>Carga de archivos con IoT Hub
 
@@ -32,7 +32,7 @@ Si necesita ayuda para decidir cuándo usar propiedades notificadas, mensajes de
 
 Un centro de IoT facilita la carga de archivos desde dispositivos conectados proporcionándoles un URI con firma de acceso compartido (SAS) por cada carga para un contenedor de blobs y una cuenta de Azure Storage que se hayan preconfigurado con el centro. El uso de cargas de archivos con IoT Hub comprende tres partes: la preconfiguración de una cuenta de almacenamiento de Azure y un contenedor de blobs en ioT Hub, la carga de archivos desde los dispositivos y, opcionalmente, la notificación a los servicios de back-end de que se han completado las cargas de archivos.
 
-Para poder usar la característica de carga de archivos, debe asociar una [cuenta de Azure Storage](/azure/storage/common/storage-account-overview) y un [contenedor de blobs](/azure/storage/blobs/storage-blobs-introduction) al centro de IoT. También puede configurar opciones para controlar la autenticación de IoT Hub en Azure Storage, el período de vida (TTL) de los URI con SAS que el centro de IoT entrega a los dispositivos y las notificaciones de carga de archivos a los servicios de back-end. Para obtener más información, vea [Asociación de una cuenta de Azure Storage a IoT Hub](#associate-an-azure-storage-account-with-iot-hub).
+Para poder usar la característica de carga de archivos, debe asociar una [cuenta de Azure Storage](../storage/common/storage-account-overview.md) y un [contenedor de blobs](../storage/blobs/storage-blobs-introduction.md) al centro de IoT. También puede configurar opciones para controlar la autenticación de IoT Hub en Azure Storage, el período de vida (TTL) de los URI con SAS que el centro de IoT entrega a los dispositivos y las notificaciones de carga de archivos a los servicios de back-end. Para obtener más información, vea [Asociación de una cuenta de Azure Storage a IoT Hub](#associate-an-azure-storage-account-with-iot-hub).
 
 Los dispositivos siguen un proceso de tres pasos para cargar un archivo en el contenedor de blobs asociado:
 
@@ -54,7 +54,7 @@ IoT Hub impone límites en cuanto al número de cargas de archivos que se pueden
 
 Para poder usar las características de carga de archivos, debe asociar una cuenta de Azure Storage y un contenedor de blobs al centro de IoT. Todas las cargas de archivos de dispositivos registrados en su centro de IoT irán a este contenedor. Para configurar una cuenta de almacenamiento y un contenedor de blobs en su centro de IoT, consulte [Configuración de cargas de archivos de IoT Hub mediante Azure Portal](iot-hub-configure-file-upload.md), [Configuración de cargas de archivos de IoT Hub mediante la CLI de Azure](iot-hub-configure-file-upload-cli.md) o [Configuración de cargas de archivos de IoT Hub mediante PowerShell](iot-hub-configure-file-upload-powershell.md). También puede usar las API de administración de IoT Hub para configurar las cargas de archivos mediante programación.
 
-Si usa el portal, puede crear una cuenta de almacenamiento y un contenedor durante la configuración. De lo contrario, para crear una cuenta de almacenamiento, consulte [Creación de una cuenta de Storage](../storage/common/storage-account-create.md) en la documentación de Azure Storage. Cuando ya tenga una cuenta de almacenamiento, puede ver cómo crear un contenedor de blobs en las [guías de inicio rápido de Azure Blob Storage](/azure/storage/blobs/storage-quickstart-blobs-portal).
+Si usa el portal, puede crear una cuenta de almacenamiento y un contenedor durante la configuración. De lo contrario, para crear una cuenta de almacenamiento, consulte [Creación de una cuenta de Storage](../storage/common/storage-account-create.md) en la documentación de Azure Storage. Cuando ya tenga una cuenta de almacenamiento, puede ver cómo crear un contenedor de blobs en las [guías de inicio rápido de Azure Blob Storage](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 Hay otras opciones de configuración que controlan el comportamiento de las cargas de archivos y las notificaciones de esas cargas. En las secciones siguientes, se explican todas las opciones de configuración disponibles. Dependiendo de si usa Azure Portal, la CLI de Azure, PowerShell o las API de administración para configurar las cargas de archivos, es posible que algunas de estas opciones no estén disponibles. Asegúrese de establecer la opción **enableFileUploadNotifications** si desea que se envíen notificaciones a los servicios de back-end cuando se complete una carga de archivos.
 
@@ -172,9 +172,9 @@ hello world
 
 El trabajo con las API de Azure Storage está fuera del ámbito de este artículo. Además de las API REST de Azure Blob Storage para las que se incluyen vínculos en esta sección, puede explorar la siguiente documentación como ayuda para comenzar:
 
-* Si desea obtener más información sobre cómo trabajar con blobs en Azure Storage, consulte la documentación de [Azure Blob Storage](/azure/storage/blobs/).
+* Si desea obtener más información sobre cómo trabajar con blobs en Azure Storage, consulte la documentación de [Azure Blob Storage](../storage/blobs/index.yml).
 
-* Para obtener información sobre el uso de los SDK de cliente de Azure Storage para cargar blobs, vea [Referencia de la API de Azure Blob Storage](/azure/storage/blobs/reference).  
+* Para obtener información sobre el uso de los SDK de cliente de Azure Storage para cargar blobs, vea [Referencia de la API de Azure Blob Storage](../storage/blobs/reference.md).  
 
 ## <a name="device-notify-iot-hub-of-a-completed-file-upload"></a>Dispositivo: notificación a IoT Hub de que se ha completado una carga de archivos
 
@@ -247,6 +247,6 @@ Los servicios pueden usar las notificaciones para administrar las cargas. Por ej
 
 * [Compatibilidad de IoT Hub con identidades administradas](iot-hub-managed-identity.md)
 
-* [Documentación de Azure Blob Storage](/azure/storage/blobs/)
+* [Documentación de Azure Blob Storage](../storage/blobs/index.yml)
 
 * En [SDK de dispositivo y servicio IoT de Azure](iot-hub-devguide-sdks.md) se muestran los diversos SDK de lenguaje que puede usar para desarrollar aplicaciones para dispositivo y de servicio que interactúen con IoT Hub.

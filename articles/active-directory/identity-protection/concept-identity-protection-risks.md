@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c783ec82455e1460e3508357c29167c40ca4e9db
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 01d2e07e10c22a8a01c32391c43367d3e548a758
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132307979"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714435"
 ---
 # <a name="what-is-risk"></a>¿Qué es el riesgo?
 
@@ -40,7 +40,7 @@ Es posible que las detecciones en tiempo real no se muestren en los informes dur
 
 ### <a name="user-linked-detections"></a>Detecciones vinculadas al usuario
 
-Se puede detectar una actividad de riesgo para un usuario que no está vinculada a un inicio de sesión malintencionado específico, sino al propio usuario. La detección de estos riesgos se calcula sin conexión, con orígenes de inteligencia sobre amenazas internas y externas de Microsoft, como los investigadores de seguridad, los profesionales de los cuerpos de seguridad, los equipos de seguridad de Microsoft y otros orígenes de confianza.
+Se puede detectar una actividad de riesgo para un usuario que no está vinculada a un inicio de sesión malintencionado específico, sino al propio usuario. 
 
 Estos riesgos se calculan sin conexión, usando orígenes de inteligencia sobre amenazas internas y externas de Microsoft, incluidos los investigadores de seguridad, los profesionales de la aplicación de la ley, los equipos de seguridad de Microsoft y otros orígenes de confianza.
 

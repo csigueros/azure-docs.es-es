@@ -5,17 +5,15 @@ services: sentinel
 author: batamig
 ms.author: bagol
 ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: 91838bc13fc8efe7f2fbae17dd6276ee78aa1bb8
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 0d298bfc2414c21efa8db869fae7bd9ab5f66632
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132308093"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132712631"
 ---
 # <a name="large-scale-security-analytics-using-microsoft-sentinel-notebooks-and-azure-synapse-integration-public-preview"></a>Análisis de seguridad a gran escala usando la integración de Microsoft Sentinel Notebooks y Azure Synapse (versión preliminar pública)
 
@@ -54,9 +52,9 @@ Para usar Azure Synapse con Microsoft Sentinel Notebooks, debe tener los siguien
 |Tipo  |Detalles  |
 |---------|---------|
 |**Microsoft Sentinel**     |- El rol de **colaborador de Microsoft Sentinel**, con el fin de guardar e iniciar cuadernos desde Microsoft Sentinel.         |
-|**Azure Machine Learning**     |- Un rol de **propietario** o **colaborador** de nivel de grupo de recursos, para crear una nueva área de trabajo de Azure Machine Learning si es necesario. <br>- Un rol de **colaborador** en el área de trabajo de Azure Machine Learning donde se ejecuta Microsoft Sentinel Notebooks.    <br><br>Para obtener más información, consulte [Administración del acceso a un área de trabajo de Azure Machine Learning](/azure/machine-learning/how-to-assign-roles).     |
-|**Azure Synapse Analytics**     | - Un rol de **propietario** de nivel de grupo de recursos, para crear una nueva área de trabajo de Azure Synapse.<br>- Un rol de **colaborador** en el área de trabajo de Azure Synapse para ejecutar las consultas. <br>- Un rol de **colaborador** en el área de trabajo de Azure Synapse Analytics en Synapse Studio.   <br><br>Para obtener más información, consulte [Descripción de los roles necesarios para realizar tareas comunes en Synapse](/azure/synapse-analytics/security/synapse-workspace-understand-what-role-you-need).     |
-|**Azure Data Lake Storage Gen2**     | - Un rol de **colaborador** de Log Analytics, para exportar datos de un área de trabajo de Log Analytics.<br>- Un rol de colaborador de Azure Blob Storage, para consultar datos desde un lago de datos.  <br><br>Para más información, consulte [Asignación de un rol de Azure](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).|
+|**Azure Machine Learning**     |- Un rol de **propietario** o **colaborador** de nivel de grupo de recursos, para crear una nueva área de trabajo de Azure Machine Learning si es necesario. <br>- Un rol de **colaborador** en el área de trabajo de Azure Machine Learning donde se ejecuta Microsoft Sentinel Notebooks.    <br><br>Para obtener más información, consulte [Administración del acceso a un área de trabajo de Azure Machine Learning](../machine-learning/how-to-assign-roles.md).     |
+|**Azure Synapse Analytics**     | - Un rol de **propietario** de nivel de grupo de recursos, para crear una nueva área de trabajo de Azure Synapse.<br>- Un rol de **colaborador** en el área de trabajo de Azure Synapse para ejecutar las consultas. <br>- Un rol de **colaborador** en el área de trabajo de Azure Synapse Analytics en Synapse Studio.   <br><br>Para obtener más información, consulte [Descripción de los roles necesarios para realizar tareas comunes en Synapse](../synapse-analytics/security/synapse-workspace-understand-what-role-you-need.md).     |
+|**Azure Data Lake Storage Gen2**     | - Un rol de **colaborador** de Log Analytics, para exportar datos de un área de trabajo de Log Analytics.<br>- Un rol de colaborador de Azure Blob Storage, para consultar datos desde un lago de datos.  <br><br>Para más información, consulte [Asignación de un rol de Azure](../storage/blobs/assign-azure-role-data-access.md?tabs=portal).|
 |     |         |
 
 ### <a name="connect-to-azure-ml-and-synapse-workspaces"></a>Conexión a áreas de trabajo de Azure Machine Learning y Synapse
@@ -77,7 +75,7 @@ En la parte superior de la página **Notebooks** de Microsoft Sentinel, seleccio
 > Una instancia de Azure Data Lake Storage Gen2 es una instancia de Data Lake integrada que se incluye con todas las áreas de trabajo de Azure Synapse. Asegúrese de seleccionar o crear una nueva instancia de Data Lake que se encuentre en la misma región que el área de trabajo de Microsoft Sentinel. Esto es necesario para cuando exporte los datos, como se describe más adelante en este artículo.
 >
 
-Para obtener más información, consulte la [documentación de Azure Synapse](/azure/synapse-analytics/quickstart-create-workspace).
+Para obtener más información, consulte la [documentación de Azure Synapse](../synapse-analytics/quickstart-create-workspace.md).
 
 
 ## <a name="configure-your-azure-synapse-analytics-integration"></a>Configuración de la integración de Azure Synapse Analytics
@@ -102,13 +100,13 @@ Microsoft Sentinel proporciona el cuaderno integrado **Azure Synapse: configurar
 
 1. Ejecute las celdas de los pasos iniciales del cuaderno para cargar las bibliotecas y funciones de Python necesarias y para autenticarse en los recursos de Azure.
 
-1. Ejecute las celdas del paso 4, **Configuración de un grupo de Azure Synapse Spark** para crear un nuevo [grupo de Azure Synapse Apache Spark](/azure/synapse-analytics/spark/apache-spark-pool-configurations) que se usará al ejecutar las consultas de macrodatos.
+1. Ejecute las celdas del paso 4, **Configuración de un grupo de Azure Synapse Spark** para crear un nuevo [grupo de Azure Synapse Apache Spark](../synapse-analytics/spark/apache-spark-pool-configurations.md) que se usará al ejecutar las consultas de macrodatos.
 
-1. Ejecute las celdas del paso 5, **Configuración del área de trabajo de Azure Machine Learning y servicios vinculados** para asegurarse de que el área de trabajo de Azure Machine Learning puede comunicarse con el área de trabajo de Azure Synapse. Para obtener más información, consulte [Vinculación de las áreas de trabajo de Azure Synapse y Azure Machine Learning, y asociación de grupos de Azure Spark](/azure/machine-learning/how-to-link-synapse-ml-workspaces).
+1. Ejecute las celdas del paso 5, **Configuración del área de trabajo de Azure Machine Learning y servicios vinculados** para asegurarse de que el área de trabajo de Azure Machine Learning puede comunicarse con el área de trabajo de Azure Synapse. Para obtener más información, consulte [Vinculación de las áreas de trabajo de Azure Synapse y Azure Machine Learning, y asociación de grupos de Azure Spark](../machine-learning/how-to-link-synapse-ml-workspaces.md).
 
 1. Ejecute las celdas del paso 6, **Exportación de datos de Azure Log Analytics a Azure Data Lake Storage Gen2** para exportar los datos que quiera usar para las consultas de Azure Log Analytics a Azure Data Lake Storage.
 
-Una vez que los datos estén en Azure Data Lake Storage, está listo para empezar a ejecutar consultas de macrodatos con Azure Synapse. Para obtener más información, consulte [Exportación de datos de Log Analytics en Azure Monitor](/azure/azure-monitor/logs/logs-data-export?tabs=portal).
+Una vez que los datos estén en Azure Data Lake Storage, está listo para empezar a ejecutar consultas de macrodatos con Azure Synapse. Para obtener más información, consulte [Exportación de datos de Log Analytics en Azure Monitor](../azure-monitor/logs/logs-data-export.md?tabs=portal).
 
 ## <a name="hunt-on-historical-data-at-scale"></a>Búsqueda de datos históricos a escala
 
@@ -259,4 +257,4 @@ Para más información, consulte:
 
 - [Uso de cuadernos de Jupyter para buscar amenazas de seguridad](notebooks.md)
 - [Tutorial: Introducción a Jupyter Notebook y MSTICPy en Microsoft Sentinel](notebook-get-started.md)
-- [Vinculación de las áreas de trabajo de Azure Synapse y Azure Machine Learning, y asociación de grupos de Azure Spark (versión preliminar)](/azure/machine-learning/how-to-link-synapse-ml-workspaces)
+- [Vinculación de las áreas de trabajo de Azure Synapse y Azure Machine Learning, y asociación de grupos de Azure Spark (versión preliminar)](../machine-learning/how-to-link-synapse-ml-workspaces.md)

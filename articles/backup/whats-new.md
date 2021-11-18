@@ -3,12 +3,12 @@ title: Novedades de Azure Backup
 description: Obtenga información acerca de las nuevas características de Azure Backup.
 ms.topic: conceptual
 ms.date: 10/20/2021
-ms.openlocfilehash: 78d6b8cee1ad2442278497c5ca3e282b19d1beb6
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: d63182c46f47353801ca30c086aa341ebd3b9e92
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997255"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716702"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novedades de Azure Backup
 
@@ -56,11 +56,11 @@ Un objetivo de punto de recuperación bajo es un requisito clave para Azure File
 
 Mediante Azure Backup no solo se pueden crear directivas de copia de seguridad, sino también modificar las directivas de copia de seguridad existentes para tomar varias instantáneas al día. Con esta funcionalidad, también se puede definir la duración en que se desencadenarían los trabajos de copia de seguridad. Esta funcionalidad le permite alinear la programación de copia de seguridad con las horas de trabajo cuando hay actualizaciones frecuentes en el contenido de Azure Files.
 
-Para más información, consulte el artículo en que se indica [cómo configurar varias copias de seguridad al día mediante la directiva de copia de seguridad](/azure/backup/manage-afs-backup#create-a-new-policy).
+Para más información, consulte el artículo en que se indica [cómo configurar varias copias de seguridad al día mediante la directiva de copia de seguridad](./manage-afs-backup.md#create-a-new-policy).
 
 ## <a name="azure-backup-metrics-and-metrics-alerts-in-preview"></a>Métricas y alertas de métricas de Azure Backup (versión preliminar)
 
-Azure Backup ahora ofrece un conjunto de métricas integradas a través de [Azure Monitor](/azure/azure-monitor/essentials/data-platform-metrics) que le permiten supervisar el estado de sus copias de seguridad. También puede configurar reglas de alertas que desencadenan alertas cuando las métricas superan los umbrales definidos.
+Azure Backup ahora ofrece un conjunto de métricas integradas a través de [Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md) que le permiten supervisar el estado de sus copias de seguridad. También puede configurar reglas de alertas que desencadenan alertas cuando las métricas superan los umbrales definidos.
 
 Azure Backup ofrece estas funcionalidades clave:
  

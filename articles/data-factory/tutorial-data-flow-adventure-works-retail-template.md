@@ -7,12 +7,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 10/18/2021
-ms.openlocfilehash: 888a6c78572940dd69ef2161fc1ded979259d63f
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 99f91c76addbacb64290c54435b5b3c760eabc5c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130181559"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704795"
 ---
 # <a name="adventureworks-template-documentation"></a>Documentación de la plantilla de AdventureWorks
 
@@ -48,7 +48,7 @@ Si tiene el conjunto de datos AdventureWorks cargado en otra base de datos, pued
 
 
 ## <a name="dataset-and-sourcetarget-models"></a>Conjunto de datos y modelos de origen/destino
-El conjunto de datos AdventureWorks en formato Excel puede descargarse desde este [sitio de GitHub](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/AdventureWorks%20Data.zip). Además, puede acceder a la [definición de esquema para las bases de datos de origen y de destino](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/AdventureWorksSchemas.xlsx). Use el diseñador de bases de datos de Synapse y vuelva a crear las bases de datos de origen y de destino con el esquema de Excel que descargó anteriormente. Para obtener más información sobre el diseñador de bases de datos, consulte esta [documentación](https://aka.ms/SynapseDatabaseDesignerDocumentation).
+El conjunto de datos AdventureWorks en formato Excel puede descargarse desde este [sitio de GitHub](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/AdventureWorks%20Data.zip). Además, puede acceder a la [definición de esquema para las bases de datos de origen y de destino](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/AdventureWorksSchemas.xlsx). Use el diseñador de bases de datos de Synapse y vuelva a crear las bases de datos de origen y de destino con el esquema de Excel que descargó anteriormente. Para obtener más información sobre el diseñador de bases de datos, consulte esta [documentación](../synapse-analytics/database-designer/concepts-database-templates.md).
 
 En las bases de datos creadas, asegúrese de que los flujos de datos apuntan a las tablas correctas mediante la edición de las listas desplegables en la configuración de origen y receptor de la base de datos del área de trabajo. Para cargar los datos en el modelo de origen, coloque los archivos .csv que se proporcionan en el conjunto de datos de ejemplo en las carpetas correctas que se especifican en las tablas. Una vez hecho esto, solo es necesario ejecutar las canalizaciones.
 

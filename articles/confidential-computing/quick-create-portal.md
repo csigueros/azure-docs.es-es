@@ -1,20 +1,20 @@
 ---
 title: 'Inicio rápido: creación de una máquina virtual Intel SGX en Azure Portal'
 description: Para empezar a trabajar con sus implementaciones, aprenda a crear rápidamente una máquina virtual Intel SGX en Azure Portal.
-author: JBCook
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/1/2021
-ms.author: JenCook
+ms.author: stempesta
 ms.custom: mode-portal, ignite-fall-2021
-ms.openlocfilehash: ebb48c3c3b0f7273b7ceeebd8a615b19444dab5b
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 541be4642ca6ac0097a0bd1c15f19ec589dba7a1
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131508407"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707374"
 ---
 # <a name="quickstart-create-intel-sgx-vm-in-the-azure-portal"></a>Inicio rápido: creación de una máquina virtual Intel SGX en Azure Portal
 
@@ -159,5 +159,4 @@ Descubra cómo puede crear aplicaciones de computación confidencial. Para ello,
 > [!div class="nextstepaction"]
 > [Compilación de ejemplos del SDK de Open Enclave](https://github.com/openenclave/openenclave/blob/master/samples/README.md)
 
-Microsoft Azure Attestation es un marco de atestación basado en ECDSA gratuito, para comprobar de forma remota la confiabilidad de varios TEE y la integridad de los archivos binarios que se ejecutan dentro de ellos. [Más información](/azure/attestation/overview)
-
+Microsoft Azure Attestation es un marco de atestación basado en ECDSA gratuito, para comprobar de forma remota la confiabilidad de varios TEE y la integridad de los archivos binarios que se ejecutan dentro de ellos. [Más información](../attestation/overview.md)

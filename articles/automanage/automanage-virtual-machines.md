@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/19/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: b93169ced916f5d16adcbd11fcc2d2217a07b643
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 9730f95f6a384a03fffa0fb3a56b37ef3292b3ab
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131451186"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715480"
 ---
 # <a name="preview-azure-automanage-for-machine-best-practices"></a>Versión preliminar: procedimientos recomendados de Azure Automanage para máquinas
 
@@ -132,7 +132,7 @@ Los perfiles personalizados permiten personalizar los servicios y la configuraci
 > Si desea cambiar el perfil de configuración de una máquina, simplemente puede volver a configurarlo con el perfil de configuración deseado. Sin embargo, si el estado de la máquina es "Necesita actualización", primero deberá deshabilitar y volver a habilitar Automanage. 
 
 Aquí puede obtener una lista completa de los servicios de Azure que participan y consultar si admiten preferencias:
-- [Automanage para Linux](automanage-windows-server.md)
+- [Automanage para Linux](automanage-linux.md)
 - [Automanage para Windows Server](automanage-windows-server.md)
 
 

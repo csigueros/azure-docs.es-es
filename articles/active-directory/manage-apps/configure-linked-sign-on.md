@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: c8404b7ec361c90a6153cadc7ec6a71efb17fd1c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bc50777e503c50ca68955b8324b75c7c6aa66c77
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128639629"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132548489"
 ---
-# <a name="add-linked-single-sign-on-to-an-application-in-azure-active-directory"></a>Adición del inicio de sesión único vinculado a una aplicación en Azure Active Directory
+# <a name="add-linked-single-sign-on-to-an-application"></a>Adición del inicio de sesión único vinculado a una aplicación
 
 En este artículo se muestra cómo configurar el inicio de sesión único (SSO) basado en vínculo para la aplicación en Azure Active Directory (Azure AD). El inicio de sesión único basado en vínculo permite a Azure AD proporcionar inicio de sesión único a una aplicación que ya está configurada para el inicio de sesión único en otro servicio. La opción Vinculado permite configurar la ubicación de destino cuando un usuario selecciona la aplicación en el portal de Microsoft 365 o Aplicaciones de la organización.
 

@@ -1,21 +1,21 @@
 ---
 title: Administración de dispositivos automática a escala con Azure IoT Hub | Microsoft Docs
 description: Uso de configuraciones automáticas de Azure IoT Hub para administrar varios dispositivos o módulos IoT
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/26/2021
-ms.author: robinsh
+ms.author: lizross
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 02be8a37814eb37e50425b7593b7717b1f0a292e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ed6fb0e9e889705a20021061852c3e72737b3652
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131068365"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132553959"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Administración automática de dispositivos y módulos IoT mediante Azure Portal
 

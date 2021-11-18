@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 10/29/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
-ms.openlocfilehash: f683d7192d73cc04b23b58243ba27ccc62afb010
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: a5d7e7c0ca696e0e0a38519879dbad94301f5f0c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131468639"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706656"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Uso de un área de trabajo con un servidor DNS personalizado
 
@@ -26,7 +26,7 @@ Al usar un área de trabajo de Azure Machine Learning con un punto de conexión 
 > En este artículo se habla de cómo buscar los nombres de dominio completos (FQDN) y las direcciones IP de estas entradas si se quieren registrar manualmente registros DNS en la solución DNS. Además, en este artículo se proporcionan recomendaciones de arquitectura sobre cómo configurar la solución DNS personalizada para que resuelva automáticamente los FQDN en las direcciones IP correctas. En este artículo NO se proporciona información sobre la configuración de los registros DNS de estos elementos. Consulte la documentación del software de DNS para obtener información sobre cómo agregar registros.
 
 > [!WARNING]
-> Si usa un punto de conexión privado para otros servicios de Azure en los que se basa el área de trabajo de aprendizaje automático, como Azure Storage, Azure Key Vault o Azure Container Registry. También debe crear entradas de DNS o usar un reenviador condicional para estos servicios. Para obtener más información, vea [Configuración de DNS para puntos de conexión privados de Azure](/azure/private-link/private-endpoint-dns).
+> Si usa un punto de conexión privado para otros servicios de Azure en los que se basa el área de trabajo de aprendizaje automático, como Azure Storage, Azure Key Vault o Azure Container Registry. También debe crear entradas de DNS o usar un reenviador condicional para estos servicios. Para obtener más información, vea [Configuración de DNS para puntos de conexión privados de Azure](../private-link/private-endpoint-dns.md).
 
 > [!TIP]
 > Este artículo forma parte de una serie sobre la protección de un flujo de trabajo de Azure Machine Learning. Consulte los demás artículos de esta serie:

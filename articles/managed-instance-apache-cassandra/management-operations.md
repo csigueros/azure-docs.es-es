@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: overview
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: d5a3dfe84c18d85d83148dc30a6092b85245e7b5
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 53e454ba84747c0e5fdeb009bc9f53e51480be9d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093791"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715271"
 ---
 # <a name="management-operations-in-azure-managed-instance-for-apache-cassandra"></a>Operaciones de administración en Azure Managed Instance for Apache Cassandra
 
@@ -30,7 +30,7 @@ Azure Managed Instance for Apache Cassandra proporciona operaciones de implement
 
 ## <a name="maintenance"></a>Mantenimiento
 
-* El servicio ejecuta automáticamente la [reparación de Nodetool](https://docs.datastax.com/cassandra-oss/3.0/cassandra/tools/toolsRepair.html) mediante la herramienta [Reaper](http://cassandra-reaper.io/). Esta herramienta se ejecuta una vez cada semana. Puede deshabilitarla si usa su propio servicio para realizar una [implementación híbrida](configure-hybrid-cluster.md).
+* El servicio ejecuta automáticamente la [reparación de Nodetool](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/tools/toolsRepair.html) mediante la herramienta [Reaper](http://cassandra-reaper.io/). Esta herramienta se ejecuta una vez cada semana. Puede deshabilitarla si usa su propio servicio para realizar una [implementación híbrida](configure-hybrid-cluster.md).
 
 * La supervisión del estado del nodo consta de:
 

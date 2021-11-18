@@ -11,12 +11,12 @@ ms.author: danil
 ms.reviewer: mathoma, bonova, danil
 ms.date: 10/21/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: dad341c2d4323346619c20da105f7f50f21f67bc
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 0bc0bf771d8a50acfe09ab4b4abdded4dc078c49
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131431035"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707668"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferencias de T-SQL entre SQL Server y una Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -391,7 +391,7 @@ No se admite la [búsqueda semántica](/sql/relational-databases/search/semantic
 
 ### <a name="linked-servers"></a>Servidores vinculados
 
-Los [servidores vinculados](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) en SQL Managed Instance admiten un número limitado de destinos:
+Los [servidores vinculados](/sql/relational-databases/linked-servers/linked-servers-database-engine) en SQL Managed Instance admiten un número limitado de destinos:
 
 - Los destinos admitidos son SQL Managed Instance, SQL Database, grupos de Azure Synapse SQL [sin servidor](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) y dedicados e instancias de SQL Server. 
 - Las transacciones de escritura distribuidas solo son posibles entre instancias administradas. Vea [Transacciones distribuidas](../database/elastic-transactions-overview.md) para obtener más información. Sin embargo, no se admite MS DTC.
@@ -405,7 +405,7 @@ Operaciones:
 - La función `OPENDATASOURCE` se puede usar para ejecutar consultas solo en instancias de SQL Server. Se pueden administrar de forma local o en máquinas virtuales. Solo se admiten los valores `SQLNCLI`, `SQLNCLI11` y `SQLOLEDB` como proveedor. Un ejemplo es `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consulte [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
 - Los servidores vinculados no se pueden usar para leer archivos (Excel y CSV) de los recursos compartidos de red. Intente usar [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file), [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) que lee los archivos CSV de Azure Blob Storage o un [servidor vinculado que hace referencia a un grupo de SQL sin servidor en Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/). Realice un seguimiento de estas solicitudes en el [elemento de comentarios de la Instancia administrada de SQL](https://feedback.azure.com/d365community/idea/db80cf6e-3425-ec11-b6e6-000d3a4f0f84)|.
 
-Los servidores vinculados de Azure SQL Managed Instance admiten tanto la autenticación de SQL como la [autenticación de AAD](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine#linked-servers-with-azure-sql-managed-instance).
+Los servidores vinculados de Azure SQL Managed Instance admiten tanto la autenticación de SQL como la [autenticación de AAD](/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine#linked-servers-with-azure-sql-managed-instance).
 
 ### <a name="polybase"></a>PolyBase
 

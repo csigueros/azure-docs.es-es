@@ -10,12 +10,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/03/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 050a9690f22ef34b39d89a5cd0cf4d8a6c7d340b
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: bb35d3bd246a4915d30c00bb6afd87e43d661c5a
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131503060"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719663"
 ---
 # <a name="azure-ad-only-authentication-with-azure-sql"></a>Autenticación solo de Azure AD con Azure SQL
 
@@ -403,17 +403,17 @@ Cuando la autenticación solo de Azure AD está habilitada para SQL Database, n
 - [Trabajos elásticos](job-automation-overview.md)
 - [SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md)
 - [Captura de datos modificados (CDC)](/sql/relational-databases/track-changes/about-change-data-capture-sql-server): si crea una base de datos en Azure SQL Database como usuario de Azure AD y habilita en ella la captura de datos modificados, un usuario de SQL no podrá deshabilitar ni realizar cambios en los artefactos de CDC. Aun así, otro usuario de Azure AD podrá habilitar o deshabilitar CDC en la misma base de datos. De forma similar, si crea una instancia de Azure SQL Database como usuario de SQL, la habilitación o deshabilitación de CDC como usuario de Azure AD no funcionará.
-- [Replicación transaccional](/azure/azure-sql/managed-instance/replication-transactional-overview): dado que se requiere la autenticación de SQL para la conectividad entre los participantes de la replicación, cuando se habilita la autenticación solo de Azure AD, la replicación transaccional no se admite para SQL Database en escenarios en los que la replicación transaccional se usa para insertar los cambios realizados en Azure SQL Managed Instance, SQL Server local o una instancia de SQL Server de una máquina virtual de Azure en una base de datos de Azure SQL Database
-- [SQL Insights](/azure/azure-monitor/insights/sql-insights-overview)
+- [Replicación transaccional](../managed-instance/replication-transactional-overview.md): dado que se requiere la autenticación de SQL para la conectividad entre los participantes de la replicación, cuando se habilita la autenticación solo de Azure AD, la replicación transaccional no se admite para SQL Database en escenarios en los que la replicación transaccional se usa para insertar los cambios realizados en Azure SQL Managed Instance, SQL Server local o una instancia de SQL Server de una máquina virtual de Azure en una base de datos de Azure SQL Database
+- [SQL Insights](../../azure-monitor/insights/sql-insights-overview.md)
 - Instrucción EXEC AS para las cuentas de miembros de un grupo de Azure AD
 
 ### <a name="limitations-for-azure-ad-only-authentication-in-managed-instance"></a>Limitaciones de la autenticación solo de Azure AD en Instancia administrada
 
 Cuando la autenticación solo de Azure AD está habilitada para Instancia administrada, no se admiten las siguientes características:
 
-- [Replicación transaccional](/azure/azure-sql/managed-instance/replication-transactional-overview) 
+- [Replicación transaccional](../managed-instance/replication-transactional-overview.md) 
 - Los [trabajos del Agente SQL en Instancia administrada](../managed-instance/job-automation-managed-instance.md) admiten la autenticación solo de Azure AD. Sin embargo, el usuario de Azure AD que sea miembro de un grupo de Azure AD que tenga acceso a la instancia administrada no puede ser propietario de los trabajos del Agente SQL.
-- [SQL Insights](/azure/azure-monitor/insights/sql-insights-overview)
+- [SQL Insights](../../azure-monitor/insights/sql-insights-overview.md)
 - Instrucción EXEC AS para las cuentas de miembros de un grupo de Azure AD
 
 Para obtener más información sobre las limitaciones, consulte [Diferencias de T-SQL entre SQL Server y Azure SQL Managed Instance](../managed-instance/transact-sql-tsql-differences-sql-server.md#logins-and-users).

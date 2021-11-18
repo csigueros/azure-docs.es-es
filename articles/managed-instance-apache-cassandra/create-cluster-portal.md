@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 19f8a81f98e9d56c5c418f0d48b381f77cfb881c
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 03b5cc8b56e7d6825ec7bee5ec61d156e960123b
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131848442"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704219"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal"></a>Inicio rápido: Creación de un clúster de Azure Managed Instance for Apache Cassandra desde Azure Portal
 
@@ -66,12 +66,12 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
    * **Availability zone** (Zona de disponibilidad): active esta casilla si desea habilitar las zonas de disponibilidad.
    * **SKU Size** (Tamaño de SKU): elija entre los tamaños de SKU de máquina virtual disponibles.
    * **No. of disks** (Número de discos): elija el número de discos p30 que se conectarán a cada nodo de Cassandra.
-   * **SKU Size** (Tamaño de SKU): elija el número de nodos de Cassandra que se implementarán en este centro de datos.
+   * **No. of nodes** (Número de nodos): elija el número de nodos de Cassandra que se implementarán en este centro de datos.
 
    :::image type="content" source="./media/create-cluster-portal/create-datacenter-page.png" alt-text="Revisión del resumen para crear el centro de datos." lightbox="./media/create-cluster-portal/create-datacenter-page.png" border="true":::
 
    > [!WARNING]
-   > Las zonas de disponibilidad no se admiten en todas las regiones. Se producirá un error en las implementaciones si selecciona una región en la que no se admiten las zonas de disponibilidad. Consulte [aquí](/azure/availability-zones/az-overview#azure-regions-with-availability-zones) las regiones admitidas. La implementación correcta de las zonas de disponibilidad también depende de la disponibilidad de los recursos de proceso en todas las zonas de la región dada. Podría producirse un error en las implementaciones si la SKU que ha seleccionado o la capacidad no están disponibles en todas las zonas. 
+   > Las zonas de disponibilidad no se admiten en todas las regiones. Se producirá un error en las implementaciones si selecciona una región en la que no se admiten las zonas de disponibilidad. Consulte [aquí](../availability-zones/az-overview.md#azure-regions-with-availability-zones) las regiones admitidas. La implementación correcta de las zonas de disponibilidad también depende de la disponibilidad de los recursos de proceso en todas las zonas de la región dada. Podría producirse un error en las implementaciones si la SKU que ha seleccionado o la capacidad no están disponibles en todas las zonas. 
 
 1. A continuación, seleccione **Revisar y crear** > **Crear**.
 
@@ -95,7 +95,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
    :::image type="content" source="./media/create-cluster-portal/add-datacenter.png" alt-text="Click on add datacenter." lightbox="./media/create-cluster-portal/add-datacenter.png" border="true":::
 
    > [!WARNING]
-   > If you are adding a datacenter in a different region, you will need to select a different virtual network. You will also need to ensure that this virtual network has connectivity to the primary region's virtual network created above (and any other virtual networks that are hosting datacenters within the managed instance cluster). Take a look at [this article](/azure/virtual-network/tutorial-connect-virtual-networks-portal#peer-virtual-networks) to learn how to peer virtual networks using Azure portal. You also need to make sure you have applied the appropriate role to your virtual network before attempting to deploy a managed instance cluster, using the below CLI command.
+   > If you are adding a datacenter in a different region, you will need to select a different virtual network. You will also need to ensure that this virtual network has connectivity to the primary region's virtual network created above (and any other virtual networks that are hosting datacenters within the managed instance cluster). Take a look at [this article](../virtual-network/tutorial-connect-virtual-networks-portal.md#peer-virtual-networks) to learn how to peer virtual networks using Azure portal. You also need to make sure you have applied the appropriate role to your virtual network before attempting to deploy a managed instance cluster, using the below CLI command.
    >
    > ```azurecli-interactive  
    >     az role assignment create \

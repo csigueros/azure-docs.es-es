@@ -6,12 +6,12 @@ ms.author: tefa
 ms.date: 09/06/2021
 ms.service: signalr
 ms.topic: conceptual
-ms.openlocfilehash: 8297a715d66206bbad2721faaca89c3616744ce4
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 2ad3fd5a6a4aa3d002c75558e798e6deedf043df
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478287"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716932"
 ---
 # <a name="authorize-request-to-signalr-resources-with-azure-ad-from-azure-applications"></a>Autorización de solicitudes a recursos de SignalR con Azure AD desde aplicaciones de Azure
 
@@ -108,7 +108,7 @@ En este ejemplo se muestra cómo asignar un rol `SignalR App Server` a una entid
 > [!IMPORTANT]
 > Las asignaciones de roles de Azure pueden tardar hasta 30 minutos en propagarse.
 
-Para más información sobre cómo asignar y administrar asignaciones de roles de Azure, vea estos artículos:
+Para obtener más información sobre cómo asignar y administrar asignaciones de roles de Azure, consulte estos artículos:
 - [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md)
 - [Asignación de roles de Azure mediante la API REST](../role-based-access-control/role-assignments-rest.md)
 - [Asignación de roles de Azure mediante Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
@@ -181,9 +181,9 @@ services.AddSignalR().AddAzureSignalR(option =>
 > [!WARNING]
 > El enlace de desencadenador de SignalR todavía no admite la conexión basada en identidades y las cadenas de conexión siguen siendo necesarias.
 
-Los enlaces de SignalR de Azure Functions usan la [configuración de aplicación](/azure/azure-functions/functions-how-to-use-azure-function-app-settings) en el portal o [`local.settings.json`](/azure/azure-functions/functions-develop-local#local-settings-file) en el entorno local a fin de configurar identidades de aplicación de Azure para acceder a los recursos de SignalR.
+Los enlaces de SignalR de Azure Functions usan la [configuración de aplicación](../azure-functions/functions-how-to-use-azure-function-app-settings.md) en el portal o [`local.settings.json`](../azure-functions/functions-develop-local.md#local-settings-file) en el entorno local a fin de configurar identidades de aplicación de Azure para acceder a los recursos de SignalR.
 
-En primer lugar, debe especificar el URI de servicio de SignalR Service, cuya clave es `serviceUri`, comienza con un **prefijo de nombre de conexión** (el valor predeterminado es `AzureSignalRConnectionString`) y un separador (`__` en Azure Portal y `:`en el archivo local.settings.json). El nombre de conexión se puede personalizar con la propiedad de enlace [`ConnectionStringSetting`](/azure/azure-functions/functions-bindings-signalr-service). Siga leyendo para encontrar el ejemplo.
+En primer lugar, debe especificar el URI de servicio de SignalR Service, cuya clave es `serviceUri`, comienza con un **prefijo de nombre de conexión** (el valor predeterminado es `AzureSignalRConnectionString`) y un separador (`__` en Azure Portal y `:`en el archivo local.settings.json). El nombre de conexión se puede personalizar con la propiedad de enlace [`ConnectionStringSetting`](../azure-functions/functions-bindings-signalr-service.md). Siga leyendo para encontrar el ejemplo.
 
 Después, elija configurar la identidad de la aplicación de Azure en [variables de entorno predefinidas](#configure-identity-in-pre-defined-environment-variables) o en [variables especificadas de SignalR](#configure-identity-in-signalr-specified-variables).
 

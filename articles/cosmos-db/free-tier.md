@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: sngun
-ms.openlocfilehash: 55b37ce3f96bc187e4420fc16924b02639c9a7df
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ddc09c428a7779f5e059ead02dbd869a592813e5
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749941"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132554782"
 ---
 # <a name="azure-cosmos-db-free-tier"></a>Nivel Gratis de Azure Cosmos DB 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -29,7 +29,7 @@ Puede tener una cuenta de Azure Cosmos DB de nivel Gratis por cada suscripción
 
 En el modelo de rendimiento compartido, al aprovisionar el rendimiento en una base de datos, este se comparte entre todos sus contenedores. Al usar el nivel Gratis, puede aprovisionar una base de datos compartida con hasta 1000 RU/s de forma gratuita. Todos los contenedores de la base de datos compartirán el rendimiento. 
 
-Al igual que con la cuenta normal, en la cuenta de nivel Gratis, una base de datos de rendimiento compartido puede tener hasta 25 contenedores. Las bases de datos adicionales con rendimiento compartido o contenedores con un rendimiento por encima de 1000 RU/s se facturan al precio normal. En una cuenta de nivel Gratis, puede crear hasta 5 bases de datos de rendimiento compartido.
+Al igual que con la cuenta normal, en la cuenta de nivel Gratis, una base de datos de rendimiento compartido puede tener hasta 25 contenedores. Las bases de datos adicionales con rendimiento compartido o contenedores con un rendimiento por encima de 1000 RU/s se facturan al precio normal.
 
 ## <a name="free-tier-with-azure-discount"></a>Nivel Gratis con descuento de Azure
 

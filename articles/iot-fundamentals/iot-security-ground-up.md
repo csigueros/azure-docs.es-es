@@ -1,18 +1,18 @@
 ---
 title: Seguridad de Internet de las cosas (IoT) desde el principio
 description: En este artículo se describen las características de seguridad integradas de los aceleradores de la solución de Microsoft Azure IoT
-author: robinsh
+author: eross-msft
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: robinsh
-ms.openlocfilehash: 7072e2c0bfa054a670ac3fb09590378d3ef055a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: lizross
+ms.openlocfilehash: dabf077cd244d0cf62546128d6478e061b86530e
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "72789721"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132547882"
 ---
 # <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Seguridad de Internet de las cosas (IoT) desde el principio
 

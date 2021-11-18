@@ -7,12 +7,12 @@ ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
 ms.date: 06/17/2021
-ms.openlocfilehash: ef710559cb8d51b21e859bb08c50c5a2ed07b74c
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: 7d07518d29626448957525ee36e1170e4b912835
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131894210"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707912"
 ---
 # <a name="whats-new-in-azure-database-for-mysql---single-server"></a>Novedades de Azure Database for MySQL: servidor único
 
@@ -26,7 +26,7 @@ En este artículo se resumen las nuevas versiones y características de Azure Da
 
 - **Problemas conocidos**
 
-El cliente MySQL 8.0.27 no es compatible con Azure Database for MySQL: servidor único. Todas las conexiones del cliente MySQL 8.0.27 creadas mediante mysql.exe o Workbench producirán un error. Como solución alternativa, considere la posibilidad de usar una versión anterior del cliente (anterior a MySQL 8.0.27) o, en su lugar, cree una instancia de [Azure Database for MySQL: servidor flexible](https://docs.microsoft.com/azure/mysql/flexible-server/overview).
+El cliente MySQL 8.0.27 no es compatible con Azure Database for MySQL: servidor único. Todas las conexiones del cliente MySQL 8.0.27 creadas mediante mysql.exe o Workbench producirán un error. Como solución alternativa, considere la posibilidad de usar una versión anterior del cliente (anterior a MySQL 8.0.27) o, en su lugar, cree una instancia de [Azure Database for MySQL: servidor flexible](./flexible-server/overview.md).
 
 ## <a name="june-2021"></a>Junio de 2021
   

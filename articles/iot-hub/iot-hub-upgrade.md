@@ -1,18 +1,18 @@
 ---
 title: Actualización de Azure IoT Hub | Microsoft Docs
 description: Cambie el nivel de precios y de escala para que IoT Hub obtenga más funcionalidades de administración de dispositivos y mensajería.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: robinsh
-ms.openlocfilehash: afd7a50a9c18299fb295d6ed978ce1b22bf90e9c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.author: lizross
+ms.openlocfilehash: b6604dd246e4a98e58251a3de1c05365e405cfc2
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131072586"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551508"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Cómo actualizar IoT Hub
 

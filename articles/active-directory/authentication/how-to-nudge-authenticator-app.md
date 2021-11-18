@@ -11,11 +11,11 @@ author: mjsantani
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd27eb5e55b679d8cfd1589857cc88d7f27917d1
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131054369"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132590856"
 ---
 # <a name="how-to-nudge-users-to-set-up-microsoft-authenticator-preview---microsoft-authenticator-app"></a>Cómo sugerir a los usuarios que configuren Microsoft Authenticator (versión preliminar): aplicación Microsoft Authenticator
 
