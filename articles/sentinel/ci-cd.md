@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +13,12 @@ ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9548e3dfd01e4cc0c48a0d5e61a68a0c1b3276d4
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 0b321f268f74c020b35e79d44e39a66e53337642
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132336836"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724508"
 ---
 # <a name="deploy-custom-content-from-your-repository-public-preview"></a>Implementación de contenido personalizado desde el repositorio (versión preliminar pública)
 
@@ -42,7 +40,7 @@ Al crear contenido personalizado, puede almacenarlo y administrarlo en sus propi
 
 Antes de conectar el área de trabajo de Microsoft Sentinel a un repositorio de control de código fuente externo, asegúrese de que tiene:
 
-- Acceso a un repositorio de GitHub o Azure DevOps, con cualquier archivo de contenido personalizado que quiera implementar en sus áreas de trabajo en las [plantillas de Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/) pertinentes.
+- Acceso a un repositorio de GitHub o Azure DevOps, con cualquier archivo de contenido personalizado que quiera implementar en sus áreas de trabajo en las [plantillas de Azure Resource Manager (ARM)](../azure-resource-manager/templates/index.yml) pertinentes.
 
     Microsoft Sentinel admite actualmente conexiones solo con repositorios de GitHub y Azure DevOps.
 
@@ -105,7 +103,7 @@ Cada conexión puede admitir varios tipos de contenido personalizado, como regla
     # <a name="azure-devops"></a>[Azure DevOps](#tab/azure-devops)
 
     > [!NOTE]
-    > Al crear conexiones de Azure DevOps, los [usuarios invitados](/azure/active-directory/external-identities/what-is-b2b) no pueden conectarse de momento a un área de trabajo que no esté en su propio inquilino de Azure Active Directory. Estos escenarios entre inquilinos aún no son compatibles con las conexiones de Azure DevOps.
+    > Al crear conexiones de Azure DevOps, los [usuarios invitados](../active-directory/external-identities/what-is-b2b.md) no pueden conectarse de momento a un área de trabajo que no esté en su propio inquilino de Azure Active Directory. Estos escenarios entre inquilinos aún no son compatibles con las conexiones de Azure DevOps.
     >
 
     Está autorizado automáticamente a que Azure DevOps use las credenciales actuales de Azure. Para garantizar una conectividad válida, [compruebe que ha sido autorizado en la misma cuenta de Azure DevOps](https://aex.dev.azure.com/) a la que se conecta desde Microsoft Sentinel o use una ventana del explorador InPrivate para crear la conexión.
@@ -298,7 +296,7 @@ Cada instalación de la aplicación Microsoft Sentinel tiene un identificador �
 
 Use el contenido personalizado de Microsoft Sentinel de la misma manera que usaría el contenido de serie.
 
-Para más información, consulte:
+Para obtener más información, consulte:
 
 - [Detección e implementación de soluciones de Microsoft Sentinel (versión preliminar pública)](sentinel-solutions-deploy.md)
 - [Conectores de datos de Microsoft Sentinel](connect-data-sources.md)
