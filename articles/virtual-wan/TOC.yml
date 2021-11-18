@@ -200,7 +200,11 @@
         - name: Azure Monitor Insights
           href: azure-monitor-insights.md
         - name: Configuración de capturas de paquetes de VPN de sitio a sitio
-          href: packet-capture-site-to-site-powershell.md
+          items:
+            - name: Portal de Azure
+              href: packet-capture-site-to-site-portal.md
+            - name: PowerShell
+              href: packet-capture-site-to-site-powershell.md
 - name: Referencia
   items:
     - name: Azure PowerShell
