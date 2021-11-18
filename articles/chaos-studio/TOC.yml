@@ -71,9 +71,9 @@
     - name: Límites de servicio
       href: chaos-studio-service-limits.md
     - name: Documentación de la API de REST
-      href: 'https://docs.microsoft.com/rest/api/chaosstudio'
+      href: /rest/api/chaosstudio
     - name: SDK de Python
-      href: 'https://docs.microsoft.com/python/api/azure-mgmt-chaos/?view=azure-python-preview'
+      href: /python/api/azure-mgmt-chaos/?view=azure-python-preview
 - name: Recursos
   items:
     - name: Azure Roadmap

@@ -132,7 +132,7 @@
           href: app/data-retention-privacy.md
     - name: Alertas
       items:
-        - name: Introducción
+        - name: Información general
           href: alerts/alerts-overview.md
         - name: Alertas de métricas
           href: alerts/alerts-metric-overview.md
@@ -650,7 +650,7 @@
         - name: Introducción sobre Application Insights
           href: app/app-insights-overview.md
         - name: Preguntas más frecuentes
-          href: /azure/azure-monitor/faq#application-insights
+          href: ./faq.yml
         - name: SDK de Application Insights
           items:
             - name: .NET

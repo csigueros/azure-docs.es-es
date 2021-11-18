@@ -10,8 +10,9 @@
   expanded: true
   items:
     - name: Implementación de la primera aplicación de contenedor
+      expanded: true
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: quickstart-portal.md
         - name: Azure CLI
           href: get-started.md

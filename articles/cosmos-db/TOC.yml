@@ -148,7 +148,7 @@
       items:
         - name: Recursos de Cosmos DB
           items:
-            - name: Azure Portal
+            - name: Portal de Azure
               href: sql/create-cosmosdb-resources-portal.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -624,7 +624,7 @@
               href: sql/change-feed-design-patterns.md
             - name: Lectura de la fuente de cambios
               href: sql/read-change-feed.md
-            - name: sql/Procesador de fuente de cambios
+            - name: Procesador de fuente de cambios
               href: sql/change-feed-processor.md
             - name: Desencadenar Azure Functions
               displayName: change feed

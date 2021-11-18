@@ -9,12 +9,12 @@ metadata:
   author: johnkemnetz
   ms.author: johnkem
   ms.date: 08/24/2021
-  ms.openlocfilehash: 776dd66dddd2e781b3c78ae8bfd0823215332d59
-  ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+  ms.openlocfilehash: 58cd0ace885b8f7852fd13e0612d71e3b77b1b8b
+  ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/12/2021
-  ms.locfileid: "132401884"
+  ms.lasthandoff: 11/17/2021
+  ms.locfileid: "132715347"
 landingContent:
 - title: Acerca de Azure Chaos Studio
   linkLists:
@@ -55,9 +55,9 @@ landingContent:
     - text: Proveedores de errores
       url: chaos-studio-fault-providers.md
     - text: Documentación de la API REST
-      url: https://docs.microsoft.com/rest/api/chaosstudio
+      url: /rest/api/chaosstudio
     - text: SDK de Python
-      url: https://docs.microsoft.com/python/api/azure-mgmt-chaos/?view=azure-python-preview
+      url: /python/api/azure-mgmt-chaos/?view=azure-python-preview
 - title: Ejemplos
   linkLists:
   - linkListType: sample
