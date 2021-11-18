@@ -16,6 +16,12 @@
   items:
     - name: "Creación de plantillas Bicep: VS\_Code"
       href: quickstart-create-bicep-use-visual-studio-code.md
+    - name: CI/CD
+      items:
+        - name: Bicep con canalizaciones
+          href: add-template-to-azure-pipelines.md
+        - name: Bicep con Acciones de GitHub
+          href: deploy-github-actions.md
 - name: Tutoriales
   items:
     - name: 'Microsoft Learn: Bicep'
@@ -124,12 +130,6 @@
             - name: Paso de valores confidenciales
               displayName: key vault
               href: key-vault-parameter.md
-        - name: CI/CD
-          items:
-            - name: Bicep con canalizaciones
-              href: add-template-to-azure-pipelines.md
-            - name: Bicep con Acciones de GitHub
-              href: deploy-github-actions.md
     - name: Definición de configuración
       items:
         - name: Archivo de configuración de Bicep

@@ -232,6 +232,8 @@
           href: high-availability-guide-rhel-ibm-db2-luw.md
     - name: 'Capa de aplicación de SAP: SUSE Linux Enterprise Server'
       items:
+        - name: Instalación de SAP NetWeaver de alta disponibilidad con NFS en Azure Files
+          href: high-availability-guide-suse-nfs-azure-files.md
         - name: Instalación de SAP NetWeaver de alta disponibilidad con Azure NetApp Files
           href: high-availability-guide-suse-netapp-files.md
         - name: Instalación de SAP NetWeaver de alta disponibilidad
@@ -244,7 +246,9 @@
           href: high-availability-guide-suse-pacemaker.md
     - name: 'Capa de aplicación de SAP: Red Hat Enterprise Linux'
       items:
-        - name: Instalación del sistema SAP NetWeaver de alta disponibilidad con Azure NetApp Files
+        - name: Instalación de SAP NetWeaver de alta disponibilidad con NFS en Azure Files
+          href: high-availability-guide-rhel-nfs-azure-files.md
+        - name: Instalación de SAP NetWeaver de alta disponibilidad con Azure NetApp Files
           href: high-availability-guide-rhel-netapp-files.md
         - name: Instalación de SAP NetWeaver de alta disponibilidad
           href: high-availability-guide-rhel.md
