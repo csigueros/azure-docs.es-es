@@ -14,14 +14,14 @@ ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.reviewer: miccohen
-ms.openlocfilehash: 3e00bce1090a623efbab0c84722e4dbc46200f5f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f5f1d631ad0fdcd484511987b1f79ce702e51fe9
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131039817"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339017"
 ---
-# <a name="deploy-an-f5-big-ip-virtual-edition-vm-to-azure-active-directory"></a>Implementación de una VM de F5 BIG-IP Virtual Edition en Azure Active Directory
+# <a name="deploy-an-f5-big-ip-virtual-edition-vm-to-azure"></a>Implementación de una VM de F5 BIG-IP Virtual Edition en Azure
 
 Este tutorial le guía a través del proceso completo de implementación de BIG-IP Vitural Edition (VE) en IaaS de Azure. Al final de este tutorial tendrá:
 
@@ -215,7 +215,7 @@ En los pasos siguientes se da por supuesto que la zona DNS del dominio público 
 
 6. Utilice la siguiente información para crear el primer registro de alias del DNS:
 
- | Campo | Valor |
+ | Campo | Value |
  |:-------|:-----------|
  |Subscription| La misma suscripción que la máquina virtual de BIG-IP|
  |Zona DNS| Zona DNS que tiene autorización para el sufijo de dominio comprobado que usarán los sitios web publicados, por ejemplo, www.contoso.com |
@@ -244,7 +244,7 @@ De forma predeterminada, las redes virtuales de Azure y las subredes asociadas s
 
 2. Seleccione la regla de entrada **Agregar** para especificar las siguientes propiedades de la regla del grupo de seguridad de red:
 
- |     Campo   |   Valor        |
+ |     Campo   |   Value        |
  |:------------|:------------|
  |Source| Any|
  |Source port ranges| *|

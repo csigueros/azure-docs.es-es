@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 62791850857770cba44eabf54719176e80cea48b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 14e978d554cf970c545b4108ac4baaa12836c131
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124803387"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132280980"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-adobe-sign"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Adobe Sign
 
@@ -204,4 +204,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Adobe Sign, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Adobe Sign, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

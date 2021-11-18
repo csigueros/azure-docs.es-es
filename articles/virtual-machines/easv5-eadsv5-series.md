@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 10/8/2021
-ms.openlocfilehash: 4628f6c6d368f5d62a8c7e5a2dd07adab9d0a3b5
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 3642323efddfab0c791273169e2c0fb0ec76f0b9
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478215"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131989914"
 ---
 # <a name="easv5-and-eadsv5-series"></a>Serie Easv5 y Eadsv5
 
@@ -23,7 +23,7 @@ Las series Easv5 y Eadsv5 usan el procesador de tercera generación EPYC<sup>T
 
 ## <a name="easv5-series"></a>Serie Easv5
 
-La serie Easv5 usa procesadores de tercera generación EPYC<sup>TM</sup> 7763v de AMD que pueden lograr una frecuencia máxima aumentada de 3,7 GHz. Los tamaños de la serie Easv5 ofrecen una combinación de CPU virtual y memoria que es ideal para aplicaciones empresariales que consumen mucha memoria. Las nuevas máquinas virtuales sin disco local proporcionan una mejor propuesta de valor para las cargas de trabajo que no requieren disco temporal local.
+La serie Easv5 usa procesadores de tercera generación EPYC<sup>TM</sup> 7763v de AMD que pueden lograr una frecuencia máxima aumentada de 3,5 GHz. Los tamaños de la serie Easv5 ofrecen una combinación de CPU virtual y memoria que es ideal para aplicaciones empresariales que consumen mucha memoria. Las nuevas máquinas virtuales sin disco local proporcionan una mejor propuesta de valor para las cargas de trabajo que no requieren disco temporal local.
 
 > [!NOTE]
 > Para ver las preguntas más frecuentes, consulte [Tamaños de máquina virtual de Azure sin disco temporal local](azure-vms-no-temp-disk.yml).
@@ -57,7 +57,7 @@ Las máquinas virtuales de la serie Easv5 admiten los tipos de disco SSD estánd
 
 ## <a name="eadsv5-series"></a>Serie Eadsv5
 
-La serie Eadsv5 usa procesadores de tercera generación EPYC<sup>TM</sup> 7763v de AMD que pueden lograr una frecuencia máxima aumentada de 3,7 GHz. Los tamaños de la serie Eadsv5 ofrecen una combinación de CPU virtual, memoria y almacenamiento temporal que es ideal para aplicaciones empresariales que consumen mucha memoria. Las nuevas máquinas virtuales tienen un almacenamiento local un 50 % superior, así como un mejor IOPS del disco local para la lectura y la escritura, en comparación con los tamaños [Eav4/Easv4](eav4-easv4-series.md) de las máquinas virtuales de [segunda generación](generation-2.md).
+La serie Eadsv5 usa procesadores de tercera generación EPYC<sup>TM</sup> 7763v de AMD que pueden lograr una frecuencia máxima aumentada de 3,5 GHz. Los tamaños de la serie Eadsv5 ofrecen una combinación de CPU virtual, memoria y almacenamiento temporal que es ideal para aplicaciones empresariales que consumen mucha memoria. Las nuevas máquinas virtuales tienen un almacenamiento local un 50 % superior, así como un mejor IOPS del disco local para la lectura y la escritura, en comparación con los tamaños [Eav4/Easv4](eav4-easv4-series.md) de las máquinas virtuales de [segunda generación](generation-2.md).
 
 Las máquinas virtuales de la serie Eadsv5 admiten los tipos de disco SSD estándar, HDD estándar y SSD prémium. También puede conectar almacenamiento en disco Ultra en función de su disponibilidad regional. El almacenamiento en disco se factura independientemente de las máquinas virtuales. [Consulte los precios de los discos](https://azure.microsoft.com/pricing/details/managed-disks/).
 

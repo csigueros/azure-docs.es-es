@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 ms.custom: devx-track-java
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: 31a7ed92f6fbdfc60753b91709738209acc38fc2
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 9c6fcc3fd0bff46bb3c1665b26502be188a3f83e
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131465485"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158708"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opciones de configuración: Application Insights de Azure Monitor para Java
 
@@ -39,14 +39,14 @@ Encontrará más detalles y opciones de configuración adicionales a continuaci�
 
 ## <a name="configuration-file-path"></a>Ruta del archivo de configuración
 
-De forma predeterminada, Application Insights Java 3.x espera que el archivo de configuración se denomine `applicationinsights.json` y que se encuentre en el mismo directorio que `applicationinsights-agent-3.2.2.jar`.
+De forma predeterminada, Application Insights Java 3.x espera que el archivo de configuración se denomine `applicationinsights.json` y que se encuentre en el mismo directorio que `applicationinsights-agent-3.2.3.jar`.
 
 Puede especificar la ruta de acceso a su propio archivo de configuración mediante
 
 * la variable de entorno `APPLICATIONINSIGHTS_CONFIGURATION_FILE`, o
 * la propiedad del sistema Java `applicationinsights.configuration.file`.
 
-Si especifica una ruta de acceso relativa, se resolverá de forma relativa al directorio en el que se encuentra `applicationinsights-agent-3.2.2.jar`.
+Si especifica una ruta de acceso relativa, se resolverá de forma relativa al directorio en el que se encuentra `applicationinsights-agent-3.2.3.jar`.
 
 ## <a name="connection-string"></a>Cadena de conexión
 
@@ -194,7 +194,6 @@ A partir de la versión 3.2.0, si desea establecer una dimensión personalizada
   ]
 }
 ```
-
 
 ## <a name="telemetry-processors-preview"></a>Procesadores de telemetría (versión preliminar)
 
@@ -437,6 +436,31 @@ La configuración se aplica a todas estas métricas:
 Le permite configurar el agente para generar las [credenciales de token](/java/api/overview/azure/identity-readme#credentials) necesarias para la autenticación de Azure Active Directory.
 Para obtener más información, consulte la documentación de [Autenticación](./azure-ad-authentication.md).
 
+## <a name="instrumentation-keys-overrides-preview"></a>Invalidaciones de claves de instrumentación (versión preliminar)
+
+Esta característica se encuentra en versión preliminar desde la versión 3.2.3.
+
+Las invalidaciones de claves de instrumentación permiten invalidar la [clave de instrumentación predeterminada](#connection-string), por ejemplo:
+* Establezca una clave de instrumentación para un prefijo `/myapp1` de ruta de acceso HTTP.
+* Establezca otra clave de instrumentación para otro prefijo `/myapp2/` de ruta de acceso HTTP.
+
+```json
+{
+  "preview": {
+    "instrumentationKeyOverrides": [
+      {
+        "httpPathPrefix": "/myapp1",
+        "instrumentationKey": "12345678-0000-0000-0000-0FEEDDADBEEF"
+      },
+      {
+        "httpPathPrefix": "/myapp2",
+        "instrumentationKey": "87654321-0000-0000-0000-0FEEDDADBEEF"
+      }
+    ]
+  }
+}
+```
+
 ## <a name="self-diagnostics"></a>Diagnóstico automático
 
 "Diagnóstico automático" hace referencia al registro interno de Application Insights Java 3.x.
@@ -463,7 +487,7 @@ De forma predeterminada, Application Insights Java 3.x registra en el nivel `IN
 
 `level` puede ser uno de `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` o `TRACE`.
 
-`path` incluye una ruta de acceso absoluta o relativa. Las rutas de acceso relativas se resuelven en el directorio donde se encuentra `applicationinsights-agent-3.2.2.jar`.
+`path` incluye una ruta de acceso absoluta o relativa. Las rutas de acceso relativas se resuelven en el directorio donde se encuentra `applicationinsights-agent-3.2.3.jar`.
 
 `maxSizeMb` es el tamaño máximo del archivo de registro antes de que se revierta.
 

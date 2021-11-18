@@ -11,23 +11,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 1ea079802a2628b8a698e108f6f689ff5e58f08b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 315f97e6c392578e10159c767c56111e6c34f544
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124750293"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286943"
 ---
 # <a name="view-and-configure-ddos-protection-alerts"></a>Visualización y configuración de alertas de protección contra DDoS
 
-La versión estándar de Azure DDoS Protection proporciona información detallada y visualización de ataques con DDoS Attack Analytics. Los clientes que protegen sus redes virtuales frente a ataques DDoS disponen de visibilidad detallada sobre el tráfico de ataques y las acciones llevadas a cabo para mitigarlos mediante informes de mitigación de ataques y registros de flujo de mitigación. La telemetría enriquecida se expone a través de Azure Monitor, incluidas las métricas detalladas mientras dure un ataque DDoS. Las alertas se pueden configurar para cualquiera de las métricas de Azure Monitor que expone DDoS Protection. El registro se puede integrar con [Azure Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection), Splunk (Azure Event Hubs), OMS Log Analytics y Azure Storage para realizar análisis avanzados con la interfaz de Azure Monitor Diagnostics.
+La versión estándar de Azure DDoS Protection proporciona información detallada y visualización de ataques con DDoS Attack Analytics. Los clientes que protegen sus redes virtuales frente a ataques DDoS disponen de visibilidad detallada sobre el tráfico de ataques y las acciones llevadas a cabo para mitigarlos mediante informes de mitigación de ataques y registros de flujo de mitigación. La telemetría enriquecida se expone a través de Azure Monitor, incluidas las métricas detalladas mientras dure un ataque DDoS. Las alertas se pueden configurar para cualquiera de las métricas de Azure Monitor que expone DDoS Protection. El registro se puede integrar adicionalmente con [Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection), Splunk (Azure Event Hubs), Log Analytics de OMS y Azure Storage para realizar análisis avanzados con la interfaz de diagnósticos de Azure Monitor.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Configurar alertas mediante Azure Monitor
 > * Configurar alertas mediante el portal
-> * Ver alertas en Azure Security Center
+> * Visualización de las alertas de Microsoft Defender for Cloud
 > * Validar y probar las alertas
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -74,16 +74,16 @@ Dentro de unos pocos minutos después de la detección del ataque, debería reci
 
 Puede aprender más sobre [configurar webhooks](../azure-monitor/alerts/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [aplicaciones lógicas](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para la creación de alertas.
 
-## <a name="view-alerts-in-azure-security-center"></a>Ver alertas en Azure Security Center
+## <a name="view-alerts-in-microsoft-defender-for-cloud"></a>Visualización de las alertas de Microsoft Defender for Cloud
 
-Azure Security Center proporciona una lista de [alertas de seguridad](../security-center/security-center-managing-and-responding-alerts.md), que cuentan con información para ayudarle a investigar y solucionar problemas. Gracias a esta característica, obtendrá una vista unificada de las alertas, incluyendo las alertas relacionadas con los ataques DDoS y las acciones que se tomaron para mitigar el ataque a corto plazo.
+Microsoft Defender for Cloud proporciona una lista de [alertas de seguridad](../security-center/security-center-managing-and-responding-alerts.md), con información para ayudarle a investigar y solucionar problemas. Gracias a esta característica, obtendrá una vista unificada de las alertas, incluyendo las alertas relacionadas con los ataques DDoS y las acciones que se tomaron para mitigar el ataque a corto plazo.
 Hay dos alertas específicas que verá en cualquier mitigación y detección de ataques DDoS:
 
 - **Ataque DDoS detectado para IP pública**: Esta alerta se genera cuando el servicio de protección contra DDoS detecta que una de sus direcciones IP públicas es el objetivo de un ataque DDoS.
 - **Ataque DDoS mitigado para IP pública**: Esta alerta se genera cuando se ha mitigado un ataque a la dirección IP pública.
-Para ver las alertas, abra el **Centro de seguridad** en Azure Portal. En **Protección contra amenazas**, seleccione **Alertas de seguridad**. La siguiente captura de pantalla muestra un ejemplo de las alertas de ataques DDoS.
+Para ver las alertas, abra el **Defender for Cloud** en Azure Portal. En **Protección contra amenazas**, seleccione **Alertas de seguridad**. La siguiente captura de pantalla muestra un ejemplo de las alertas de ataques DDoS.
 
-![Alerta de ataque DDoS en Azure Security Center](./media/manage-ddos-protection/ddos-alert-asc.png)
+![Alerta de DDoS en Microsoft Defender for Cloud](./media/manage-ddos-protection/ddos-alert-asc.png)
 
 Las alertas incluyen información general sobre la dirección IP pública que está bajo ataque, información de inteligencia geográfica y de amenazas y los pasos para solucionar el problema.
 
@@ -97,7 +97,7 @@ En este tutorial, ha aprendido a:
 
 - Configurar alertas mediante Azure Monitor
 - Configurar alertas mediante el portal
-- Ver alertas en Azure Security Center
+- Visualización de las alertas de Microsoft Defender for Cloud
 - Validar y probar las alertas
 
 Para obtener información sobre cómo probar y simular un ataque DDoS, consulte la guía de pruebas de simulación:

@@ -6,8 +6,8 @@ cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: d33602cf17ebd9004bd77d353d6315cd780e39d0
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 5a315d02b29e113958c1bf2e9004e33b9021caa7
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132373011"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520320"
 ---
 # <a name="advanced-siem-information-model-asim-schemas-public-preview"></a>Esquemas del modelo de información SIEM avanzado (ASIM) (versión preliminar pública)
 
@@ -106,7 +106,7 @@ ASIM define los siguientes campos para todos los esquemas:
 | **EventStartTime**      | Mandatory   | Fecha y hora  |      Si el origen admite agregación y el registro representa varios eventos, este campo especifica la hora a la que se generó el primer evento. <br><br>De lo contrario, este campo es un alias del campo [TimeGenerated](#timegenerated). |
 | **EventEndTime**        | Mandatory   | Alias      |      Alias del campo [TimeGenerated](#timegenerated).    |
 |  <a name="eventtype"></a>**EventType**           | Mandatory   | Enumerated |    Describe la operación notificada por el registro. Cada esquema documenta la lista de valores válidos para este campo. |
-| **EventSubType** | Opcional | Enumerated | Describe una subdivisión de la operación notificada en el campo [EventType](#eventtype). Cada esquema documenta la lista de valores válidos para este campo. |
+| **EventSubType** | Opcionales | Enumerated | Describe una subdivisión de la operación notificada en el campo [EventType](#eventtype). Cada esquema documenta la lista de valores válidos para este campo. |
 | <a name="eventresult"></a>**EventResult** | Mandatory | Enumerated | Uno de los siguientes valores: **Correcto**, **Parcial**, **Error** o **NA** (No aplicable).<br> <br>El valor se puede proporcionar en el registro de origen usando términos diferentes, que se deben normalizar con estos valores. El origen puede proporcionar también únicamente el campo [EventOriginalResultDetails](#eventresultdetails), que se debe analizar para obtener el valor de "EventResult".<br><br>Ejemplo: `Success`|
 | <a name="eventresultdetails"></a>**EventResultDetails** | Mandatory | Alias | Motivo o detalles del resultado notificado en el campo [**EventResult**](#eventresult). Cada esquema documenta la lista de valores válidos para este campo.<br><br>Ejemplo: `NXDOMAIN`|
 | **EventOriginalUid**    | Opcional    | String     |   Id. único del registro original, si lo proporciona el origen.<br><br>Ejemplo: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
@@ -124,7 +124,7 @@ ASIM define los siguientes campos para todos los esquemas:
 | <a name="dvcfqdn"></a>**DvcFQDN** | Opcional | String | El nombre de host del dispositivo en el que se produjo el evento o que informó del evento, según el esquema. <br><br> Ejemplo: `Contoso\DESKTOP-1282V4D`<br><br>**Nota**: Este campo admite tanto el formato FQDN tradicional como el formato de dominio\nombre de host de Windows. El campo [DvcDomainType](#dvcdomaintype) refleja el formato utilizado.  |
 | <a name ="dvcid"></a>**DvcId**               | Opcional    | String     | El identificador único del dispositivo en el que se produjo el evento o que informó del evento, según el esquema. <br><br>Ejemplo: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
 | **DvcIdType** | Opcionales | Enumerated | Tipo de [DvcId](#dvcid), si se conoce. Los valores posibles son:<br> - `AzureResourceId`<br>- `MDEid`<br><br>Si hay varios identificadores disponibles, use el primero de la lista y almacene los demás con los nombres de campo **DvcAzureResourceId** y **DvcMDEid**, respectivamente.<br><br>**Nota**: Este campo es necesario si se usa el campo [DvcId](#dvcid). |
-| **DvcMacAddr**          | Opcional    | MAC        |   Dirección MAC del dispositivo en el que se produjo el evento.  <br><br>Ejemplo: `00:1B:44:11:3A:B7`       |
+| **DvcMacAddr**          | Opcionales    | MAC        |   Dirección MAC del dispositivo en el que se produjo el evento.  <br><br>Ejemplo: `00:1B:44:11:3A:B7`       |
 | **DvcZone** | Opcional | String | La red en la que se produjo el evento o en la que se informó del evento, según el esquema. El dispositivo de informes define la zona.<br><br>Ejemplo: `Dmz` |
 | **DvcOs**               | Opcional    | String     |         Sistema operativo que se ejecuta en el dispositivo en el que se produjo el evento.    <br><br>Ejemplo: `Windows`    |
 | **DvcOsVersion**        | Opcional    | String     |   Versión del sistema operativo del dispositivo en el que se produjo el evento. <br><br>Ejemplo: `10` |

@@ -12,16 +12,16 @@ ms.date: 01/16/2020
 ms.author: jhakulin
 zone_pivot_groups: programming-languages-set-two
 ROBOTS: NOINDEX
-ms.openlocfilehash: 507ade69fc257b52a3fe632fcf652dcd5660d819
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: ec2bd2cb46ff96602ed39cf3c9c4e41ddcf5ab33
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123104247"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132155993"
 ---
 # <a name="configure-openssl-for-linux"></a>Configuración de OpenSSL para Linux
 
-Cuando usa cualquier versión del SDK de Voz anterior a la 1.9.0, [OpenSSL](https://www.openssl.org) se configura dinámicamente en la versión del sistema host. En versiones posteriores del SDK de Voz, OpenSSL se vincula estáticamente a la biblioteca principal del SDK de Voz. En el SDK de Voz se usan las versiones 1.9.0 a 1.16.0 de [OpenSSL, versión 1.1.1b](https://mta.openssl.org/pipermail/openssl-announce/2019-February/000147.html). A partir de la versión 1.17.0 del SDK de Voz, se usa [Open SSL versión 1.1.1k](https://mta.openssl.org/pipermail/openssl-announce/2021-March/000197.html).
+Tanto con la versión 1.19.0 del SDK de Voz como con las superiores, [OpenSSL](https://www.openssl.org) se configura dinámicamente en la versión del sistema host. En las versiones anteriores, OpenSSL está vinculado estáticamente a la biblioteca principal del SDK.
 
 Para garantizar la conectividad, compruebe que se han instalado los certificados de OpenSSL en el sistema. Ejecute un comando:
 ```bash
@@ -53,7 +53,7 @@ Establezca la variable de entorno `SSL_CERT_FILE` para que apunte a ese archivo 
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
 
-## <a name="certificate-revocation-checks"></a>Comprobaciones de revocación de certificados
+## <a name="certificate-revocation-checks"></a>Comprobaciones de revocación del certificado
 Al conectarse al servicio Voz, el SDK de Voz comprobará que el certificado TLS usado por dicho servicio no se ha revocado. Para realizar esta comprobación, el SDK de Voz necesitará acceso a los puntos de distribución de CRL para las entidades de certificación que utiliza Azure. En [este documento](../../security/fundamentals/tls-certificate-changes.md)se puede encontrar una lista de las posibles ubicaciones de descarga de CRL. Si un certificado se ha revocado o no se puede descargar la lista CRL, el SDK de Voz anulará la conexión y generará el evento Cancelado.
 
 Si la red donde se usa el SDK de Voz está configurada para impedir el acceso a las ubicaciones de descarga de CRL, la comprobación de CRL puede deshabilitarse o establecerse para que no genere errores si no se puede recuperar la lista CRL. Esta configuración se realiza a través del objeto de configuración utilizado para crear un objeto de reconocedor.

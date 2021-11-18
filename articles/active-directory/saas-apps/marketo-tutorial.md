@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 6e87f8b6f11ffc86d8e4f63facb2433b9f40b7c5
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7885b284ca4930203dd38e9b90957af7ef6b4c1f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124808695"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132285078"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Tutorial: integración de Azure Active Directory con Marketo
 
@@ -256,4 +256,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurada la aplicación Marketo, podrá aplicar el control de sesión, que protege a su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurada la aplicación Marketo, podrá aplicar el control de sesión, que protege a su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

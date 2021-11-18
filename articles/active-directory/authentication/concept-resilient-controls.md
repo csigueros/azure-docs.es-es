@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/13/2021
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c4ea1a6b66980081597f301f22243bfd7397630
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 522e3c3e22730ee038f2a77585b698b3ed89921e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129388344"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132321841"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crear una estrategia de administración de control de acceso resistente con Azure Active Directory
 
@@ -122,7 +122,7 @@ Una directiva de acceso condicional de contingencia es una **directiva de respal
 * Implemente el [Autoservicio de restablecimiento de contraseña de Azure AD (SSPR)](./tutorial-enable-sspr.md) y la [Protección con contraseña de Azure AD](./howto-password-ban-bad-on-premises-deploy.md) para asegurarse de que los usuarios no usan contraseñas comunes y términos que decide prohibir.
 * Use directivas que restrinjan el acceso dentro de las aplicaciones si no se alcanza un cierto nivel de autenticación en lugar de simplemente retroceder al acceso completo. Por ejemplo:
   * Configure una directiva de copia de seguridad que envíe la reclamación de sesión restringida a Exchange y SharePoint.
-  * Si la organización usa Microsoft Cloud App Security, considere la posibilidad de recurrir a una directiva que interactúe con MCAS y después MCAS permita acceso de solo lectura, pero no cargas.
+  * Si su organización usa Microsoft Defender for Cloud Apps, considere la posibilidad de volver a una directiva que interactúe con Defender for Cloud Apps y, a continuación, permita el acceso de solo lectura, pero no realizar cargas.
 * Ponga nombre a las directivas para encontrarlas con facilidad durante una interrupción. Incluya los siguientes elementos en el nombre de la directiva:
   * Un *número de etiqueta* para la directiva.
   * Texto para mostrar, esta directiva es solo para casos de emergencia. Por ejemplo: **HABILITAR EN CASO DE EMERGENCIA**

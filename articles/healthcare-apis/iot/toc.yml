@@ -31,13 +31,26 @@ items:
       - name: Recepción de datos del dispositivo mediante Azure IoT Hub
         href: device-data-through-iot-hub.md
       - name: Uso de asignaciones de dispositivos
-        href: how-to-use-device-mapping-iot.md
+        expanded: true
+        items:
+          - name: Asignaciones de dispositivos
+            href: how-to-use-device-mappings.md
+          - name: Asignaciones de JsonPathContentTemplate
+            href: how-to-use-jsonpath-content-mappings.md
+          - name: Asignaciones de funciones calculadas
+            href: how-to-use-calculated-functions-mappings.md
+          - name: Asignaciones de CollectionContentTemplate
+            href: how-to-use-collection-content-mappings.md
+          - name: Asignaciones de IotJsonPathContentTemplate
+            href: how-to-use-iot-jsonpath-content-mappings.md
+          - name: Asignaciones de IotCentralJsonContentTemplate
+            href: how-to-use-iot-central-json-content-mappings.md
       - name: Uso de funciones personalizadas
-        href: iot-connector-custom-functions.md
+        href: how-to-use-custom-functions.md
       - name: Uso de asignaciones de destino de FHIR
-        href: how-to-use-fhir-mapping-iot.md
+        href: how-to-use-fhir-mappings.md
       - name: Mostrar métricas
-        href: iot-display-metrics.md
+        href: how-to-display-metrics.md
   - name: Recursos
     expanded: true
     items:

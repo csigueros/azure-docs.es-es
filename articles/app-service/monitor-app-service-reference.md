@@ -7,12 +7,12 @@ ms.author: msangapu
 ms.service: app-service
 ms.custom: subject-monitoring
 ms.date: 04/16/2021
-ms.openlocfilehash: bf48bd5fd5155b7409d3868635ee3529cfd97b92
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 914587d60b5932d2f9af6eef400a1a5067974652
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131471067"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132290559"
 ---
 # <a name="monitoring-app-service-data-reference"></a>Supervisión de referencia de datos de App Service
 
@@ -54,7 +54,7 @@ En esta sección se enumeran los tipos de registros de recursos que se pueden re
 | AppServiceAppLogs | ASP.NET | ASP.NET | Imágenes Java SE y Tomcat <sup>1</sup> | Imágenes preparadas de Java SE y Tomcat <sup>1</sup> | Registros de aplicación |
 | AppServiceIPSecAuditLogs  | Sí | Sí | Sí | Sí | Solicitudes de reglas IP |
 | AppServicePlatformLogs  | TBA | Sí | Sí | Sí | Registros de operación de contenedor |
-| AppServiceAntivirusScanAuditLogs | Sí | Sí | Sí | Sí | [Registros de examen antivirus](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) con Microsoft Defender; **solo están disponibles para el nivel prémium** | 
+| AppServiceAntivirusScanAuditLogs | Sí | Sí | Sí | Sí | [Registros de examen antivirus](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) con Microsoft Defender for Cloud; **solo disponibles para el nivel prémium**. | 
 
 <sup>1</sup> Para las aplicaciones Java SE, agregue "$WEBSITE _AZMON_PREVIEW_ENABLED" a la configuración de la aplicación y establézcala en 1 o en true.
 

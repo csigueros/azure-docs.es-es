@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: memildin
-ms.openlocfilehash: 23908a7824e4e489da575fd1563b82c340d42def
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 628958b2b378b6b6d36b98c08f49c2f453f19af7
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131425186"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132056290"
 ---
 # <a name="continuously-export-microsoft-defender-for-cloud-data"></a>Exportación continua de datos de Microsoft Defender for Cloud
 
@@ -20,7 +20,7 @@ ms.locfileid: "131425186"
 
 Microsoft Defender for Cloud genera recomendaciones y alertas de seguridad detalladas. Puede verlas en el portal o mediante herramientas de programación. También puede que deba exportar parte o la totalidad de esta información para realizar el seguimiento con otras herramientas de supervisión de su entorno. 
 
-La **exportación continua** le permite personalizar completamente *qué* se exportará y *a dónde* irá. Por ejemplo, puede configurarla para que:
+Con la **exportación continua**, puede personalizar completamente *qué* se va a exportar y *dónde* irá. Por ejemplo, puede configurarla para que:
 
 - Todas las alertas de gravedad alta se envíen a una instancia de Azure Event Hubs.
 - Todos los hallazgos de gravedad media o superior de los exámenes de evaluación de vulnerabilidades de los servidores SQL Server se envíen a un área de trabajo de Log Analytics específica.
@@ -116,7 +116,7 @@ La exportación continua se puede configurar y administrar mediante las [API de 
 
 La API proporciona funcionalidad adicional que no está disponible en Azure Portal, por ejemplo:
 
-* **Mayor volumen**: la API permite crear varias configuraciones de exportación en una suscripción única. La página **Exportación continua** de la interfaz de usuario del portal de Defender for Cloud solo admite una configuración de exportación por suscripción.
+* **Mayor volumen**: con la API, puede crear varias configuraciones de exportación en una sola suscripción. La página **Exportación continua** de la interfaz de usuario del portal de Defender for Cloud solo admite una configuración de exportación por suscripción.
 
 * **Características adicionales**: la API ofrece parámetros adicionales que no se muestran en la interfaz de usuario. Por ejemplo, puede agregar etiquetas a su recurso de automatización, así como definir su exportación en función de un mayor conjunto de alertas y propiedades recomendadas que las que se ofrecen en la página **Exportación continua** de la interfaz de usuario del portal de Defender for Cloud.
 

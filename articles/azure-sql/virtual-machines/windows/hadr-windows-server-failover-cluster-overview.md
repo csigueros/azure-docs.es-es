@@ -11,15 +11,15 @@ ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/01/2021
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: dc007e4aeb68d3cecd156a650bd3c04de1fd26e0
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 66899b7b4c5a9cb77b7545d671ac27433f927d5a
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130162189"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132156882"
 ---
 # <a name="windows-server-failover-cluster-with-sql-server-on-azure-vms"></a>Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -80,9 +80,11 @@ Para empezar, consulte [Configuración del cuórum de clúster](hadr-cluster-quo
 
 ## <a name="virtual-network-name-vnn"></a>Nombre de red virtual (VNN)
 
+Para que no sienta que hay diferencia entre conectarse a la escucha de grupo de disponibilidad o a la instancia de clúster de conmutación por error y usar el entorno local, implemente las máquinas virtuales de SQL Server en varias subredes dentro de la misma red virtual. Tener varias subredes niega la necesidad de dependencia adicional de tener una instancia de Azure Load Balancer que enrute el tráfico a la solución de alta disponibilidad y recuperación ante desastres.  Para más información, consulte los apartado sobre [grupos de disponibilidad en varias subredes](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) e [instancias de clúster de conmutación por error](failover-cluster-instance-prepare-vm.md#subnets) en varias subredes. 
+
 En un entorno local tradicional, los recursos en clúster, como las instancias de clúster de conmutación por error o Grupos de disponibilidad Always On, se basan en Nombre de red virtual para enrutar el tráfico al destino adecuado, ya sea la instancia de clúster de conmutación por error o el agente de escucha del Grupo de disponibilidad Always On. El nombre virtual enlaza la dirección IP en DNS, y los clientes pueden usar el nombre virtual o la dirección IP para conectarse al destino de alta disponibilidad, independientemente de qué nodo posee actualmente el recurso. El VNN es un nombre y una dirección de red administrados por el clúster, y el servicio de clúster mueve la dirección de red de nodo a nodo durante un evento de conmutación por error. Durante un error, la dirección se desconecta en la réplica principal original y se conecta en la nueva réplica principal.
 
-En Azure Virtual Machines, se necesita un componente adicional para enrutar el tráfico desde el cliente al Nombre de red virtual del recurso en clústeres (instancia de clúster de conmutación por error o agente de escucha de un grupo de disponibilidad). En Azure, un equilibrador de carga contiene la dirección IP del VNN en la que se basan los recursos de SQL Server en clústeres, y es necesario para enrutar el tráfico al destino adecuado de alta disponibilidad. El equilibrador de carga también detecta errores en los componentes de red y mueve la dirección a un nuevo host. 
+En Azure Virtual Machines en una única subred, se necesita un componente adicional para enrutar el tráfico desde el cliente al Nombre de red virtual del recurso en clústeres (instancia de clúster de conmutación por error o agente de escucha de un grupo de disponibilidad). En Azure, un equilibrador de carga contiene la dirección IP del VNN en la que se basan los recursos de SQL Server en clústeres, y es necesario para enrutar el tráfico al destino adecuado de alta disponibilidad. El equilibrador de carga también detecta errores en los componentes de red y mueve la dirección a un nuevo host. 
 
 El equilibrador de carga distribuye los flujos de entrada que llegan al front-end y, a continuación, enruta ese tráfico a las instancias definidas por el grupo de back-end. El flujo de tráfico se configura mediante reglas de equilibrio de carga y sondeos de estado. Con FCI de SQL Server, las instancias del grupo de back-end son las máquinas virtuales de Azure que ejecutan SQL Server y, con los grupos de disponibilidad, el grupo de back-end es el agente de escucha. Hay un ligero retraso en la conmutación por error cuando se usa el equilibrador de carga, ya que el sondeo de estado realiza comprobaciones activas cada 10 segundos de forma predeterminada. 
 
@@ -92,11 +94,13 @@ Para empezar, aprenda a configurar Azure Load Balancer para una [instancia de cl
 **Versión de SQL compatible**: All   
 **Solución HADR admitida**: Instancia del clúster de conmutación por error y grupo de disponibilidad   
 
-La configuración del nombre de red virtual puede ser complicada, es una fuente adicional de error, puede provocar un retraso en la detección de errores, y hay una sobrecarga y un costo asociados a la administración del recurso adicional. Para abordar algunas de estas limitaciones, SQL Server 2019 introdujo la compatibilidad con la característica Nombre de red distribuida. 
+La configuración del nombre de red virtual puede ser complicada, es una fuente adicional de error, puede provocar un retraso en la detección de errores, y hay una sobrecarga y un costo asociados a la administración del recurso adicional. Para abordar algunas de estas limitaciones, SQL Server introdujo la compatibilidad con la característica Nombre de red distribuida. 
 
 ## <a name="distributed-network-name-dnn"></a>Nombre de red distribuida (DNN)
 
-A partir de SQL Server 2019, la característica Nombre de red distribuida proporciona una manera alternativa para que los clientes de SQL Server se conecten a la instancia de clúster de conmutación por error o al agente de escucha del grupo de disponibilidad de SQL Server sin usar un equilibrador de carga. 
+Para que no sienta que hay diferencia entre conectarse a la escucha de grupo de disponibilidad o a la instancia de clúster de conmutación por error y usar el entorno local, implemente las máquinas virtuales de SQL Server en varias subredes dentro de la misma red virtual. Tener varias subredes niega la necesidad de dependencia adicional de un DNN para enrutar el tráfico a la solución de alta disponibilidad y recuperación ante desastres. Para más información, consulte los apartado sobre [grupos de disponibilidad en varias subredes](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) e [instancias de clúster de conmutación por error](failover-cluster-instance-prepare-vm.md#subnets) en varias subredes. 
+
+En el caso de las máquinas virtuales con SQL Server implementadas en una única subred, la característica de nombre de red distribuida proporciona una manera alternativa para que los clientes de SQL Server se conecten a la instancia de clúster de conmutación por error o al agente de escucha del grupo de disponibilidad de SQL Server sin usar un equilibrador de carga. La característica de DNN está disponible a partir de [SQL Server 2016 SP3](https://support.microsoft.com/topic/kb5003279-sql-server-2016-service-pack-3-release-information-46ab9543-5cf9-464d-bd63-796279591c31), [SQL Server 2017 CU25](https://support.microsoft.com/topic/kb5003830-cumulative-update-25-for-sql-server-2017-357b80dc-43b5-447c-b544-7503eee189e9) y [SQL Server 2019 CU8](https://support.microsoft.com/topic/cumulative-update-8-for-sql-server-2019-ed7f79d9-a3f0-a5c2-0bef-d0b7961d2d72) en Windows Server 2016, y en las versiones posteriores.
 
 Cuando se crea un recurso DNN, el clúster enlaza el nombre DNS con las direcciones IP de todos los nodos del clúster. El cliente intentará conectarse a cada dirección IP de esta lista para averiguar a qué recurso conectarse. Puede acelerar este proceso si especifica `MultiSubnetFailover=True` en la cadena de conexión. Esta configuración indica al proveedor que pruebe todas las direcciones IP en paralelo, por lo que el cliente puede conectarse a la FCI o al cliente de escucha al instante. 
 

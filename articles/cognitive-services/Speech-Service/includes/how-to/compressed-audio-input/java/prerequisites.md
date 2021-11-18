@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: eur
-ms.openlocfilehash: 5de18cfe1f187f0531871dedce1ab842934569f2
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 625f980c94536db7d4f23323393e19e0d735437e
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131520996"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132156688"
 ---
 El control del audio comprimido se implementa mediante [GStreamer](https://gstreamer.freedesktop.org). Por motivos de licencia, los binarios de GStreamer no se compilan ni se vinculan con el SDK de Voz. En su lugar, tiene que usar los binarios compilados previamente para Android. Para descargar las bibliotecas compiladas previamente, vea [Instalación para desarrollo de Android](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 
@@ -77,7 +77,7 @@ APP_PLATFORM = android-21
 APP_BUILD_SCRIPT = Android.mk
 ```
 
-Puede compilar `libgstreamer_android.so` con el siguiente comando en Ubuntu 16.04 o 18.04. Las siguientes líneas de comandos solo se han probado para la [versión GStreamer de Android 1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2) con [Android NDK b16b.](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)
+Puede compilar `libgstreamer_android.so` con el siguiente comando en Ubuntu 18.04 o 20.04. Las siguientes líneas de comandos solo se han probado para la [versión GStreamer de Android 1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2) con [Android NDK b16b.](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)
 
 ```sh
 # Assuming wget and unzip already installed on the system

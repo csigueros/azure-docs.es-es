@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/07/2021
+ms.date: 11/09/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: badc03111d7c657685742505e53642498db344e9
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 50b3a4501eeeefe9bcdf59da8bb1e9eacda07bf9
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129668587"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157474"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>Configuración del grupo de acceso con privilegios (versión preliminar) en Privileged Identity Management
 
@@ -30,7 +30,7 @@ La configuración de roles es la configuración predeterminada que se aplica a l
 
 Siga estos pasos para abrir la configuración de un rol de grupo de acceso con privilegios de Azure.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que tenga el rol [Administrador global](../roles/permissions-reference.md#global-administrator) o que esté asignado como propietario del grupo.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que tenga el rol [Administrador global](../roles/permissions-reference.md#global-administrator), el rol Administrador de roles con privilegios o el rol Propietario del grupo.
 
 1. Abra **Azure AD Privileged Identity Management**.
 
@@ -64,10 +64,10 @@ Siga estos pasos para abrir la configuración de un rol de grupo de acceso con p
 
 En la pestaña **Notificaciones** de la página Configuración de roles, Privileged Identity Management permite realizar un control pormenorizado sobre quién recibe las notificaciones y qué notificaciones reciben.
 
-- **Desactivación de un correo electrónico**<br>Si desactiva la casilla de destinatario predeterminado y elimina los destinatarios adicionales, puede desactivar correos electrónicos específicos.  
-- **Limite de correos electrónicos a direcciones especificadas**<br>Si desactiva la casilla destinatario predeterminado, puede desactivar los mensajes de correo electrónico enviados a destinatarios predeterminados. Después puede agregar direcciones de correo electrónico adicionales como destinatarios adicionales. Si desea agregar más de una dirección de correo electrónico, sepárelas con un punto y coma (;).
-- **Envío de correos electrónicos a destinatarios predeterminados y a destinatarios adicionales**<br>Si selecciona la casilla de destinatario predeterminado y agrega direcciones de correo electrónico para destinatarios adicionales, puede enviar correos electrónicos al destinatario predeterminado y a destinatarios adicionales.
-- **Solo correo electrónico crítico**<br>Para cada tipo de correo electrónico, puede activar la casilla para recibir solo correos electrónicos críticos. Esto significa que Privileged Identity Management continuará enviando mensajes de correo electrónico a los destinatarios configurados solo cuando el correo electrónico requiera una acción inmediata. Por ejemplo, no se desencadenarán los mensajes de correo electrónico que pidan a los usuarios que amplíen su asignación de roles, pero sí los que requieran que los administradores aprueben una solicitud de ampliación.
+- **Desactivación de un correo electrónico**<br>Para desactivar correos electrónicos específicos, desactive la casilla de destinatario predeterminado y elimine cualquier otro destinatario.  
+- **Limite de correos electrónicos a direcciones especificadas**<br>Para desactivar los mensajes de correo electrónico enviados a destinatarios predeterminados, desactive la casilla de destinatario predeterminado. Luego, puede agregar otras direcciones de correo electrónico como destinatarios. Si desea agregar más de una dirección de correo electrónico, sepárelas con un punto y coma (;).
+- **Envío de correos electrónicos tanto a los destinatarios predeterminados como a otros destinatarios**<br>Para enviar correos electrónicos tanto al destinatario predeterminado como a otros destinatarios, seleccione la casilla del destinatario predeterminado y agregue las direcciones de correo electrónico de los restantes destinatarios.
+- **Solo correo electrónico crítico**<br>En todos los tipos de correo electrónico, puede activar la casilla para recibir solo correos electrónicos críticos. Esto significa que Privileged Identity Management continuará enviando mensajes de correo electrónico a los destinatarios especificados solo cuando el correo electrónico requiera una acción inmediata. Por ejemplo, no se desencadenarán los mensajes de correo electrónico que pidan a los usuarios que amplíen su asignación de roles, pero sí los que requieran que los administradores aprueben una solicitud de ampliación.
 
 ## <a name="assignment-duration"></a>Duración de la asignación
 

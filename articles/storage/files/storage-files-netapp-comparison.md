@@ -6,14 +6,14 @@ services: storage
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 11/15/2021
+ms.date: 8/31/2021
 ms.author: jeffpatt
-ms.openlocfilehash: 06c1c1e32c8e31f1762f3fbdc932612036c5a327
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: bf0d14d7eb592db12521bd9f682bc69642de9999
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132519294"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132137718"
 ---
 # <a name="azure-files-and-azure-netapp-files-comparison"></a>Comparación entre Azure NetApp Files y Azure Files
 
@@ -26,7 +26,7 @@ La mayoría de las cargas de trabajo que requieren almacenamiento de archivos en
 | Category | Azure Files | Azure NetApp Files |
 |---------|-------------------------|---------|
 | Descripción | [Azure Files](https://azure.microsoft.com/services/storage/files/) es un servicio de clase empresarial totalmente administrado y de alta disponibilidad que está optimizado para cargas de trabajo de acceso aleatorio con actualizaciones de datos locales.<br><br> Azure Files se basa en la misma plataforma de Azure Storage que otros servicios como Azure Blobs. | [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) es un servicio NAS (almacenamiento conectado a la red) de nivel empresarial, de alta disponibilidad y totalmente administrado, que puede administrar las cargas de trabajo más exigentes, de alto rendimiento y baja latencia, que requieren funcionalidades avanzadas de administración de datos. Permite la migración de cargas de trabajo, que se consideran "que no se pueden migrar" sin él.<br><br>  ANF se basa en un equipo sin sistema operativo de NetApp con sistema operativo de almacenamiento ONTAP que se ejecuta dentro del centro de datos de Azure para proporcionar una experiencia coherente de Azure y un rendimiento parecido al de un entorno local. |
-| Protocolos | Premium<br><ul><li>SMB 2.1, 3.0, 3.1.1</li><li>NFS 4.1</li><li>REST</li></ul><br>Estándar<br><ul><li>SMB 2.1, 3.0, 3.1.1</li><li>REST</li></ul><br> Para más información, consulte los [protocolos de recursos compartidos de archivos disponibles](./storage-files-planning.md#available-protocols). | Todos los niveles<br><ul><li>SMB 2.x, 3.x</li><li>NFS 3.0, 4.1</li><li>Acceso de protocolo doble (NFSv3/SMB)</li></ul><br> Para más información, consulte cómo crear volúmenes [NFS](../../azure-netapp-files/azure-netapp-files-create-volumes.md), [SMB](../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md) o de [protocolo doble](../../azure-netapp-files/create-volumes-dual-protocol.md). |
+| Protocolos | Premium<br><ul><li>SMB 2.1, 3.0, 3.1.1</li><li>NFS 4.1 (versión preliminar)</li><li>REST</li></ul><br>Estándar<br><ul><li>SMB 2.1, 3.0, 3.1.1</li><li>REST</li></ul><br> Para más información, consulte los [protocolos de recursos compartidos de archivos disponibles](./storage-files-planning.md#available-protocols). | Todos los niveles<br><ul><li>SMB 2.x, 3.x</li><li>NFS 3.0, 4.1</li><li>Acceso de protocolo doble (NFSv3/SMB)</li></ul><br> Para más información, consulte cómo crear volúmenes [NFS](../../azure-netapp-files/azure-netapp-files-create-volumes.md), [SMB](../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md) o de [protocolo doble](../../azure-netapp-files/create-volumes-dual-protocol.md). |
 | Disponibilidad regional | Premium<br><ul><li>Más de 30 regiones</li></ul><br>Estándar<br><ul><li>Todas las regiones</li></ul><br> Para obtener más información, vea [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage). | Todos los niveles<br><ul><li>Más de 28 regiones</li></ul><br> Para obtener más información, vea [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage). |
 | Redundancia | Premium<br><ul><li>LRS</li><li>ZRS</li></ul><br>Estándar<br><ul><li>LRS</li><li>ZRS</li><li>GRS</li><li>GZRS</li></ul><br> Para más información, consulte la sección sobre [redundancia](./storage-files-planning.md#redundancy). | Todos los niveles<br><ul><li>Alta disponibilidad local integrada</li><li>[Replicación entre regiones](../../azure-netapp-files/cross-region-replication-introduction.md)</li></ul> |
 | Acuerdo de Nivel de Servicio (SLA)<br><br> Tenga en cuenta que los Acuerdos de Nivel de Servicio para Azure Files y Azure NetApp Files se calculan de forma diferente. | [Acuerdo de Nivel de Servicio para Azure Files](https://azure.microsoft.com/support/legal/sla/storage/) | [Acuerdo de Nivel de Servicio para Azure NetApp Files](https://azure.microsoft.com/support/legal/sla/netapp) |  

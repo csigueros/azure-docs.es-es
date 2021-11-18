@@ -3,20 +3,20 @@ title: Refuerzo de la seguridad de los recursos con Azure Advisor
 description: Utilice Azure Advisor para mejorar la seguridad de las implementaciones de Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: f130135ed53dc2ba87f46cbf6f9faf0f07cc0654
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d2864460e2486d54140b6345f2e62fb1af1c859e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87057657"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132294340"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Refuerzo de la seguridad de los recursos con Azure Advisor
 
-Azure Advisor proporciona una vista coherente y consolidada de recomendaciones para todos los recursos de Azure. Se integra con Azure Security Center para proporcionarle recomendaciones sobre seguridad. Puede obtener recomendaciones sobre seguridad en la pestaña **Seguridad** del panel de Advisor.
+Azure Advisor proporciona una vista coherente y consolidada de recomendaciones para todos los recursos de Azure. Se integra con Microsoft Defender for Cloud para llevarle recomendaciones de seguridad. Puede obtener recomendaciones sobre seguridad en la pestaña **Seguridad** del panel de Advisor.
 
-El Centro de seguridad ayuda a evitar, detectar y responder a amenazas con más visibilidad y control de la seguridad en los recursos de Azure. Analiza periódicamente el estado de seguridad de los recursos de Azure. Cuando el Centro de seguridad identifica vulnerabilidades de seguridad potenciales, crea recomendaciones. Las recomendaciones lo guían en el proceso de configuración de los controles necesarios. 
+Defender for Cloud ayuda a evitar amenazas y a detectarlas y responder a ellas con más visibilidad y control sobre la seguridad de sus recursos de Azure. Analiza periódicamente el estado de seguridad de los recursos de Azure. Cuando Defender for Cloud Apps identifica vulnerabilidades de seguridad potenciales, crea recomendaciones. Las recomendaciones lo guían en el proceso de configuración de los controles necesarios. 
 
-Para obtener más información sobre las recomendaciones de seguridad, consulte [Administración de recomendaciones de seguridad en Azure Security Center](../security-center/security-center-recommendations.md).
+Para más información sobre cómo aplicar las recomendaciones de seguridad, consulte [Implementación de recomendaciones de seguridad en Microsoft Defender for Cloud](../security-center/security-center-recommendations.md).
 
 ## <a name="how-to-access-security-recommendations-in-azure-advisor"></a>Obtención de acceso a las recomendaciones sobre seguridad en Azure Advisor
 

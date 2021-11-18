@@ -6,12 +6,12 @@ ms.author: sandeepshah
 ms.service: purview
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: d357a85449a6ae734b3311f2649180b36646d4f4
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: bb5ba8386ab84f9ca4b3da6a34714a27fea38738
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129214339"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301425"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Procedimientos recomendados de implementación de Azure Purview
 
@@ -25,12 +25,12 @@ Una implementación bien planeada de una plataforma de gobierno de datos (por ej
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Acceso a Microsoft Azure con una suscripción de desarrollo o de producción.
-* Capacidad para crear recursos de Azure, incluida la instancia de Purview.
-* Acceso a orígenes de datos como Azure Data Lake Storage o Azure SQL en entornos de prueba, desarrollo o producción.
-  * En el caso de Data Lake Storage, el rol necesario para examinar es el rol de lector.
-  * En el caso de SQL, la identidad debe ser capaz de consultar las tablas para realizar el muestreo de las clasificaciones.
-* Acceso a Azure Security Center o a la capacidad de colaborar con el administrador de Security Center para el etiquetado de datos.
+- Acceso a Microsoft Azure con una suscripción de desarrollo o de producción.
+- Capacidad para crear recursos de Azure, incluida la instancia de Purview.
+- Acceso a orígenes de datos como Azure Data Lake Storage o Azure SQL en entornos de prueba, desarrollo o producción.
+  - En el caso de Data Lake Storage, el rol necesario para examinar es el rol de lector.
+  - En el caso de SQL, la identidad debe ser capaz de consultar las tablas para realizar el muestreo de las clasificaciones.
+- Acceso a Microsoft Defender for Cloud o posibilidad de colaborar con el administrador de Defender for Cloud para el etiquetado de datos
 
 ## <a name="identify-objectives-and-goals"></a>Identificación de objetivos
 

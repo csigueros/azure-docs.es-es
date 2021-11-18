@@ -59,7 +59,7 @@ items:
         items:
           - name: Crear un área de trabajo
             items:
-              - name: Azure Portal
+              - name: Azure portal
                 href: quickstart-create-workspace.md
                 displayName: quickstart
               - name: Azure CLI
@@ -448,7 +448,7 @@ items:
                     displayName: 'transparent, data, encryption'
           - name: Administración de cargas de trabajo
             items:
-              - name: Información general
+              - name: Introducción
                 href: ./sql-data-warehouse/sql-data-warehouse-workload-management.md?context=/azure/synapse-analytics/context/context
                 displayName: 'workload, management'
               - name: Clasificación de la carga de trabajo
@@ -666,6 +666,8 @@ items:
             href: quickstart-create-apache-spark-pool-portal.md
           - name: Creación de un grupo de Spark mediante Synapse Studio
             href: quickstart-create-apache-spark-pool-studio.md
+          - name: Creación de un grupo de Apache Spark acelerado por GPU
+            href: quickstart-create-apache-gpu-pool-portal.md
       - name: Tutoriales
         items:
           - name: Visualización de datos con cuadernos de Synapse Studio
@@ -688,6 +690,8 @@ items:
             href: ./spark/apache-spark-concepts.md
           - name: Configuraciones del grupo de Apache Spark
             href: ./spark/apache-spark-pool-configurations.md
+          - name: Grupos de Apache Spark acelerados por GPU
+            href: ./spark/apache-spark-gpu-concept.md
           - name: Delta Lake
             href: ./spark/apache-spark-what-is-delta-lake.md
           - name: Comportamiento de la escalabilidad automática de Apache Spark
@@ -746,6 +750,8 @@ items:
                 href: ./spark/apache-spark-performance.md
               - name: Optimización del rendimiento de Apache Spark mediante índices de Hiperescala
                 href: ./spark/apache-spark-performance-hyperspace.md
+              - name: Aceleración de las operaciones de ETL con NVIDIA RAPIDS
+                href: ./spark/apache-spark-rapids-gpu.md
           - name: Administración y supervisión
             items:
               - name: Desplazamiento al servidor de historial del grupo de Apache Spark
@@ -1343,7 +1349,7 @@ items:
                 href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
   - name: Machine Learning
     items:
-      - name: Información general
+      - name: Introducción
         items:
           - name: ¿Qué es el aprendizaje automático en Azure Synapse?
             href: machine-learning/what-is-machine-learning.md
@@ -1404,19 +1410,19 @@ items:
                   - name: Asistente de detección de anomalías
                     displayName: 'cognitive services, score model'
                     href: ./machine-learning/tutorial-cognitive-services-anomaly.md
-                  - name: Text Analytics con Apache Spark (MMLSpark)
+                  - name: Text Analytics con Apache Spark (SynapseML)
                     displayName: 'cognitive services, score model, applications'
                     href: ./machine-learning/tutorial-text-analytics-use-mmlspark.md
-                  - name: Computer Vision con Apache Spark (MMLSpark)
+                  - name: Computer Vision con Apache Spark (SynapseML)
                     displayName: 'cognitive services, score model, applications'
                     href: ./machine-learning/tutorial-computer-vision-use-mmlspark.md
-                  - name: Form Recognizer con Apache Spark (MMLSpark)
+                  - name: Form Recognizer con Apache Spark (SynapseML)
                     displayName: 'cognitive services, score model, applications'
                     href: ./machine-learning/tutorial-form-recognizer-use-mmlspark.md
-                  - name: Translator con Apache Spark (MMLSpark)
+                  - name: Translator con Apache Spark (SynapseML)
                     displayName: 'cognitive services, score model, applications'
                     href: ./machine-learning/tutorial-translator-use-mmlspark.md
-                  - name: Con Apache Spark (MMLSpark)
+                  - name: Con Apache Spark (SynapseML)
                     displayName: 'cognitive services, score model, applications'
                     href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
   - name: Data Catalog y gobernanza

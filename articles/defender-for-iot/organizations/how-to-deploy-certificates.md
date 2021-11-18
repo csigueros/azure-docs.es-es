@@ -1,18 +1,18 @@
 ---
 title: Implementación de certificados
 description: Aprenda a configurar e implementar certificados para Defender para IoT.
-ms.date: 08/29/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: d6a67a84dab6df165346ff2739d0ac56e2b8eff2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: df2b0484d9f9302443dc37870a6a97de31ded3b1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128602828"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343712"
 ---
 # <a name="about-certificates"></a>Acerca de los certificados
 
-En este artículo se proporciona la información necesaria para crear e implementar certificados para Azure Defender para IoT. Un responsable de certificados de seguridad, PKI u otros cualificado debería controlar la creación e implementación de certificados.
+En este artículo se proporciona la información necesaria para crear e implementar certificados para Microsoft Defender para IoT. Un responsable de certificados de seguridad, PKI u otros cualificado debería controlar la creación e implementación de certificados.
 
 Defender para IoT usa certificados SSL/TLS para proteger la comunicación entre los siguientes componentes del sistema: 
 
@@ -110,13 +110,17 @@ Algunas directivas de seguridad de la organización pueden bloquear el acceso a 
 
 Defender para IoT exige que cada certificado firmado por la entidad de certificación contenga un archivo .key y un archivo .crt. Estos archivos se cargan en el sensor y en la consola de administración local después del inicio de sesión. Algunas organizaciones pueden exigir un archivo .pem. Defender para IoT no necesita este tipo de archivo.
 
-**.crt: archivo contenedor de certificados**  
+**.crt: archivo contenedor de certificados**
+
 Archivo en formato .pem o .der con otra extensión. El Explorador de Windows lo reconoce como certificado. El Explorador de Windows no reconoce el archivo .pem.
 
-**.key: archivo de claves privadas**  
+**.key: archivo de claves privadas**
+
 Un archivo de claves tiene el mismo formato que un archivo PEM, pero con una extensión diferente.
 
-**.pem: archivo contenedor de certificados (opcional)** PEM es un archivo de texto que contiene la codificación Base64 del texto del certificado, un encabezado de texto sin formato y un pie de página que marca el principio y el final del certificado.
+**.pem: archivo de contenedor de certificados (opcional)**
+
+PEM es un archivo de texto que contiene la codificación Base64 del texto del certificado, un encabezado de texto sin formato y un pie de página que marca el principio y el final del certificado.
 
 Es posible que tenga que convertir tipos de archivos existentes en tipos compatibles. Vea [Conversión de archivos existentes en archivos compatibles](#convert-existing-files-to-supported-files) para obtener detalles.
 

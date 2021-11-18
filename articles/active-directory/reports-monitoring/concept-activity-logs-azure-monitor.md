@@ -17,20 +17,20 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1db2a820ab551130fbd9bba832c329b925a0f6a
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: 110170868ba477060c5cd8ba1fbf28428160e29e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997122"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305586"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registros de actividad de Azure AD en Azure Monitor
 
 Puede enrutar los registros de actividad de Azure Active Directory (Azure AD) a varios puntos de conexión para conseguir conclusiones de datos y una retención a largo plazo. Esta característica le permite:
 
 * Archivar los registros de actividad de Azure AD en una cuenta de almacenamiento de Azure para conservar los datos durante mucho tiempo.
-* Hacer streaming de los registros de actividad de Azure AD a un centro de eventos de Azure para analizarlos mediante conocidas herramientas de Administración de eventos e información de seguridad, como Splunk, QRadar y Azure Sentinel.
-* Integrar los registros de actividad de Azure AD con sus propias soluciones de registro personalizadas haciendo streaming a un centro de eventos.
+* Hacer streaming de los registros de actividad de Azure AD a un centro de eventos de Azure para analizarlos con herramientas conocidas de Administración de eventos e información de seguridad (SIEM), como Splunk, QRadar y Microsoft Sentinel.
+* Integrar los registros de actividad de Azure AD con sus propias soluciones de registro personalizadas haciendo streaming a un centro de eventos.
 * Envíe los registros de actividad de Azure AD a registros de Azure Monitor para permitir visualizaciones enriquecidas, supervisión y alertas sobre los datos conectados.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
@@ -39,7 +39,7 @@ Puede enrutar los registros de actividad de Azure Active Directory (Azure AD) a 
 
 ## <a name="supported-reports"></a>Informes admitidos
 
-Esta característica permite enrutar registros tanto de inicio de sesión como de auditoría de Azure AD a la cuenta de almacenamiento de Azure, un centro de eventos, registros de Azure Monitor o una solución personalizada. 
+Con esta característica, puede enrutar registros de auditoría y de inicios de sesión de Azure AD a la cuenta de Azure Storage, un centro de eventos, registros de Azure Monitor o una solución personalizada.
 
 * **Registros de auditoría**: el [informe de actividad de registros de auditoría](concept-audit-logs.md) proporciona acceso a información sobre los cambios aplicados al inquilino, como la administración de usuarios y grupos, o las actualizaciones aplicadas a los recursos del inquilino.
 * **Registros de inicio de sesión**: Con el [informe de actividad de inicios de sesión](concept-sign-ins.md), puede determinar quién ha realizado las tareas notificadas en el informe de registros de auditoría.
