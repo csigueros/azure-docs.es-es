@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 758f2a437347b767792afe5f1adfbab88fd2a9cd
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: fdb7b3bcaac2825e64111bdba4ad98554bfc02ae
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132715081"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339264"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnósticos de arranque de Azure
 
@@ -50,7 +50,7 @@ Al crear una máquina virtual en Azure Portal, el valor predeterminado es tener 
 Los diagnósticos de arranque con una cuenta de almacenamiento administrada se admiten en la CLI de Azure 2.12.0 y versiones posteriores. Si no especifica un nombre o un URI para una cuenta de almacenamiento, se usará una cuenta administrada. Para obtener más información y ejemplos de código, consulte la [documentación de la CLI para los diagnósticos de arranque](/cli/azure/vm/boot-diagnostics).
 
 ### <a name="enable-managed-boot-diagnostics-using-powershell"></a>Habilitación de diagnósticos de arranque administrados mediante PowerShell
-Los diagnósticos de arranque con una cuenta de almacenamiento administrada se admiten en Azure PowerShell 6.6.0 y versiones posteriores. Si no especifica un nombre o un URI para una cuenta de almacenamiento, se usará una cuenta administrada. Para obtener más información y ejemplos de código, consulte la [documentación de PowerShell para los diagnósticos de arranque](/powershell/module/az.compute/set-azvmbootdiagnostic?view=azps-6.6.0).
+Los diagnósticos de arranque con una cuenta de almacenamiento administrada se admiten en Azure PowerShell 6.6.0 y versiones posteriores. Si no especifica un nombre o un URI para una cuenta de almacenamiento, se usará una cuenta administrada. Para obtener más información y ejemplos de código, consulte la [documentación de PowerShell para los diagnósticos de arranque](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostic?view=azps-6.6.0).
 
 ### <a name="enable-managed-boot-diagnostics-using-azure-resource-manager-arm-templates"></a>Habilitación de diagnósticos de arranque administrados mediante plantillas de Azure Resource Manager (ARM)
 Todas las versiones de API posteriores a 2020-06-01 admiten los diagnósticos de arranque administrados. Para más información, consulte la [vista de instancia de diagnósticos de arranque](/rest/api/compute/virtualmachines/createorupdate#bootdiagnostics).
