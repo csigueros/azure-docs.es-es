@@ -1,20 +1,20 @@
 ---
 title: Entender mejor las amenazas globales, regionales y locales
 description: Conozca las amenazas globales, regionales y locales mediante el mapa del sitio de la consola de administración local.
-ms.date: 12/07/2020
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: db3b9fbca9acd6c4ce1cfe137a4024f66d8a6292
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 6cef79e708f5aff5eff2c02f2b0fe612aa11a224
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020370"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293238"
 ---
 # <a name="gain-insight-into-global-regional-and-local-threats"></a>Entender mejor las amenazas globales, regionales y locales
 
 El mapa del sitio de la consola de administración local le ayuda a lograr una cobertura de seguridad completa al dividir la red en segmentos geográficos y lógicos que reflejan la topología de su empresa:
 
-- **Nivel de instalación geográfica**: un sitio refleja un número de dispositivos agrupados según una ubicación geográfica presentada en el mapa. De forma predeterminada, Azure Defender para IoT le proporciona un mapa mundial. El mapa se actualiza para reflejar la estructura de la organización o la empresa. Por ejemplo, use un mapa que refleje los sitios de un determinado país, ciudad o campus industrial. Cuando el color del sitio cambia en el mapa, indica al equipo de SOC el estado crítico del sistema en la instalación.
+- **Nivel de instalación geográfica**: un sitio refleja un número de dispositivos agrupados según una ubicación geográfica presentada en el mapa. De forma predeterminada, Microsoft Defender para IoT le proporciona un mapa mundial. El mapa se actualiza para reflejar la estructura de la organización o la empresa. Por ejemplo, use un mapa que refleje los sitios de un determinado país, ciudad o campus industrial. Cuando el color del sitio cambia en el mapa, indica al equipo de SOC el estado crítico del sistema en la instalación.
 
   El mapa es interactivo y permite abrir cada sitio y profundizar en la información que contiene.
 

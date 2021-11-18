@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6828f1c02bbcccebcd6b96305b051ebfc996c1a7
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 6e06b908ed34f4edbdc85ab105a983cc32fbecc0
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130046228"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305434"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cuatro pasos para establecer las bases de una identidad segura con Azure Active Directory
 
@@ -77,15 +77,15 @@ Azure AD Application Proxy ofrece las siguientes ventajas:
 * Inicio de sesión único (SSO) en todos los dispositivos, recursos y aplicaciones en la nube y locales
 * Capacita a los usuarios finales para ser productivos en cualquier momento y lugar
 
-### <a name="discover-shadow-it-with-microsoft-cloud-app-security"></a>Detectar TI en la sombra con Microsoft Cloud App Security
+### <a name="discover-shadow-it-with-microsoft-defender-for-cloud-apps"></a>Detectar TI en la sombra con Microsoft Defender for Cloud Apps
 
 En las empresas modernas, los departamentos de TI no son a menudo conscientes de todas las aplicaciones en la nube que usan los usuarios para hacer su trabajo. Cuando a los administradores de TI se les pregunta por el número de aplicaciones que creen que usan sus empleados, como media dicen 30 o 40. En realidad, los empleados de la organización usan más de 1000 aplicaciones diferentes. El 80 % de los empleados usan aplicaciones no autorizadas que nadie ha revisado y que puede que no sean compatibles con las directivas de seguridad y cumplimiento.
 
-[Microsoft Cloud App Security (MCAS)](/cloud-app-security/what-is-cloud-app-security) puede ayudarle a identificar aplicaciones útiles que son populares entre los usuarios, y que es posible que TI no autorice, y agregarlas a la galería de aplicaciones empresariales para que los usuarios puedan beneficiarse de funcionalidades como inicio de sesión único y acceso condicional.
+[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) puede ayudarle a identificar aplicaciones útiles que son populares entre los usuarios, y que es posible que TI no autorice, y agregarlas a la galería de aplicaciones empresariales para que los usuarios puedan beneficiarse de funcionalidades como inicio de sesión único y acceso condicional.
 
-<em>"**Cloud App Security** nos ayuda a garantizar que nuestro personal usa correctamente las aplicaciones SaaS y en la nube de formas tales que respalden las directivas de seguridad fundamentales que ayudan a proteger Accenture".</em> --- [John Blasi, director general de seguridad de la información en Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>"**Defender for Cloud Apps** nos ayuda a garantizar que nuestro personal usa correctamente las aplicaciones SaaS y en la nube de formas tales que respalden las directivas de seguridad fundamentales que ayudan a proteger Accenture".</em> --- [John Blasi, director general de seguridad de la información en Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
-Además de detectar TI en la sombra, MCAS también puede determinar el nivel de riesgo de las aplicaciones, impedir el acceso no autorizado a los datos corporativos, evitar una posible pérdida de datos y otros riesgos de seguridad inherentes a las aplicaciones.
+Además de detectar TI en la sombra, Defender for Cloud Apps también puede determinar el nivel de riesgo de las aplicaciones, impedir el acceso no autorizado a los datos corporativos, evitar una posible pérdida de datos y otros riesgos de seguridad inherentes a las aplicaciones.
 
 ## <a name="step-2---establish-one-identity-for-every-user-automatically"></a>Paso 2: Establecimiento de una identidad para cada usuario automáticamente
 
@@ -204,13 +204,13 @@ Si no observa una reducción de las llamadas de soporte técnico, se recomienda 
 
 ### <a name="monitor-your-usage-of-apps-to-drive-insights"></a>Supervisar el uso de aplicaciones para extraer conclusiones
 
-Además de detectar la TI en la sombra, la supervisión del uso de las aplicaciones en la organización mediante [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) puede ayudarles a medida que se mueve a la nube para aprovechar la promesa de las aplicaciones de esta plataforma. También, le puede permitir tener el control de sus recursos gracias a la visibilidad mejorada sobre la actividad y al aumento de la protección de datos críticos en todas las aplicaciones en la nube. Supervisar el uso de las aplicaciones en su organización mediante MCAS puede ayudarle a responder a las preguntas siguientes:
+Además de detectar la TI en la sombra, la supervisión del uso de las aplicaciones en la organización mediante [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) puede ayudarles a medida que se mueve a la nube para aprovechar la promesa de las aplicaciones de esta plataforma. También, le puede permitir tener el control de sus recursos gracias a la visibilidad mejorada sobre la actividad y al aumento de la protección de datos críticos en todas las aplicaciones en la nube. Supervisar el uso de las aplicaciones en su organización mediante Defender for Cloud Apps puede ayudarle a responder a las preguntas siguientes:
 
 * ¿Qué aplicaciones no autorizadas usan los empleados para almacenar los datos?
 * ¿Dónde y cuándo se almacenan los datos confidenciales en la nube?
 * ¿Quién tiene acceso a datos confidenciales en la nube?
 
-*"Con Cloud App Security, podemos detectar rápidamente anomalías y tomar medidas".* --- [Eric LePenske, directivo superior de seguridad de la información en Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+*"Con Defender for Cloud Apps, podemos detectar rápidamente anomalías y tomar medidas".* --- [Eric LePenske, directivo superior de seguridad de la información en Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 ## <a name="summary"></a>Resumen
 
@@ -234,7 +234,7 @@ Se recomienda imprimir la lista de comprobación siguiente como referencia cuand
 ||Poner a prueba el autoservicio de restablecimiento de contraseña (SSPR) para un grupo|
 ||Supervisar los componentes híbridos mediante Azure AD Connect Health|
 ||Asignar roles de administrador con menos privilegios para las operaciones|
-||Detectar TI en la sombra con Microsoft Cloud App Security|
+||Detectar TI en la sombra con Microsoft Defender for Cloud Apps|
 ||Usar Azure Monitor para recopilar registros de datos para el análisis|
 
 ### <a name="next-two-weeks"></a>Próximas dos semanas

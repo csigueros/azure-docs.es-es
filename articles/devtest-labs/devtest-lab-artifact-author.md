@@ -1,14 +1,14 @@
 ---
 title: Creación de artefactos personalizados para la máquina virtual de Azure DevTest Labs
-description: Obtenga información sobre cómo crear artefactos para usarlos con Azure DevTest Labs, a fin de implementar y configurar aplicaciones después de aprovisionar una máquina virtual.
+description: Obtenga información sobre cómo crear y usar artefactos para implementar y configurar aplicaciones después de aprovisionar una máquina virtual.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: e19cd5002c150346661654930c22943d5cbc2523
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b10104a2dae0a81fde109901fed5341159785264
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662953"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132325151"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Creación de artefactos personalizados para la máquina virtual de DevTest Labs
 
@@ -19,7 +19,7 @@ Vea el siguiente vídeo para obtener información general de los pasos descritos
 >
 
 ## <a name="overview"></a>Información general
-Puede usar *artefactos* para implementar y configurar la aplicación después de aprovisionar una máquina virtual. Un artefacto consta de un archivo de definición de artefacto y de otros archivos de script que se almacenan en una carpeta de un repositorio de Git. Los archivos de definición de artefacto constan de JSON y expresiones que puede utilizar para especificar lo que desea instalar en una máquina virtual. Por ejemplo, puede definir el nombre de un artefacto, un comando que se va a ejecutar y los parámetros que están disponibles cuando se ejecuta el comando. Puede hacer referencia a otros archivos de script en el archivo de definición de artefacto por nombre.
+Puede usar *artefactos* para implementar y configurar la aplicación después de aprovisionar una máquina virtual. Un artefacto consta de un archivo de definición de artefacto y de otros archivos de script que se almacenan en una carpeta de un repositorio de Git. Los archivos de definición de artefacto constan de expresiones JSON que especifican lo que desea instalar en una máquina virtual. Por ejemplo, puede definir el nombre de un artefacto, un comando que se va a ejecutar y los parámetros disponibles para el comando. Puede hacer referencia a otros archivos de script en el archivo de definición de artefacto por nombre.
 
 ## <a name="artifact-definition-file-format"></a>Formato del archivo de definición de artefacto
 En el ejemplo siguiente se muestran las secciones que componen la estructura básica de un archivo de definición:
@@ -46,13 +46,13 @@ En el ejemplo siguiente se muestran las secciones que componen la estructura bá
 
 | Nombre del elemento | ¿Necesario? | Descripción |
 | --- | --- | --- |
-| $schema |No |Ubicación del archivo de esquema JSON. El archivo de esquema JSON puede ayudarle a probar la validez del archivo de definición. |
-| title |Sí |Nombre del artefacto que se muestra en el laboratorio. |
-| description |Sí |Descripción del artefacto que se muestra en el laboratorio. |
-| iconUri |No |Identificador URI del icono que se muestra en el laboratorio. |
-| targetOsType |Sí |Sistema operativo de la máquina virtual en que se instala el artefacto. Las opciones admitidas son Windows y Linux. |
-| parámetros |No |Los valores que se proporcionan cuando el comando de instalación del artefacto se ejecuta en un equipo. Esto le ayuda a personalizar el artefacto. |
-| runCommand |Sí |Comando de instalación de artefacto que se ejecuta en una máquina virtual. |
+| `$schema` |No |Ubicación del archivo de esquema JSON. El archivo de esquema JSON puede ayudarle a probar la validez del archivo de definición. |
+| `title` |Sí |Nombre del artefacto que se muestra en el laboratorio. |
+| `description` |Sí |Descripción del artefacto que se muestra en el laboratorio. |
+| `iconUri` |No |Identificador URI del icono que se muestra en el laboratorio. |
+| `targetOsType` |Sí |Sistema operativo de la máquina virtual en que se instala el artefacto. Las opciones admitidas son Windows y Linux. |
+| `parameters` |No |Los valores que se proporcionan cuando el comando de instalación del artefacto se ejecuta en un equipo. Los parámetros le ayudan a personalizar el artefacto. |
+| `runCommand` |Sí |Comando de instalación de artefacto que se ejecuta en una máquina virtual. |
 
 ### <a name="artifact-parameters"></a>Parámetros de artefacto
 En la sección de parámetros del archivo de definición, especifique los valores que un usuario puede indicar al instalar un artefacto. Puede hacer referencia a estos valores en el comando de instalación del artefacto.
@@ -71,16 +71,16 @@ Para definir los parámetros, use la estructura siguiente:
 
 | Nombre del elemento | ¿Necesario? | Descripción |
 | --- | --- | --- |
-| type |Sí |Tipo del valor de parámetro. Consulte la lista siguiente de los tipos permitidos. |
-| DisplayName |Sí |Nombre del parámetro que se muestra a un usuario en el laboratorio. |
-| description |Sí |Descripción del parámetro que se muestra en el laboratorio. |
+| `type` |Sí |Tipo del valor de parámetro. Consulte la lista siguiente de los tipos permitidos. |
+| `displayName` |Sí |Nombre del parámetro que se muestra a un usuario en el laboratorio. |
+| `description` |Sí |Descripción del parámetro que se muestra en el laboratorio. |
 
 Los tipos permitidos son:
 
-* string (cualquier cadena JSON válida)
-* int (cualquier entero JSON válido)
-* bool (cualquier booleano JSON válido)
-* array (cualquier matriz JSON válida)
+* `string` (cualquier cadena JSON válida)
+* `int` (cualquier entero JSON válido)
+* `bool` (cualquier booleano JSON válido)
+* `array` (cualquier matriz JSON válida)
 
 ## <a name="secrets-as-secure-strings"></a>Secretos como cadenas seguras
 Declare los secretos como cadenas seguras. Esta es la sintaxis para declarar un parámetro de cadena segura dentro de la sección `parameters` del archivo **artifactfile.json**:
@@ -108,14 +108,14 @@ Para consultar los archivos artifactfile.json y artifact.ps1 del ejemplo complet
 Otro punto importante que tener en cuenta es no registrar los secretos en la consola a medida que la salida se capture para la depuración de los usuarios. 
 
 ## <a name="artifact-expressions-and-functions"></a>Expresiones y funciones de artefacto
-Puede utilizar expresiones y funciones para construir el comando de instalación del artefacto.
-Las expresiones se incluyen entre corchetes ([ y ]) y se evalúan cuando se instala el artefacto. Las expresiones pueden aparecer en cualquier lugar en un valor de cadena JSON. Las expresiones siempre devuelven otro valor JSON. Si necesita usar una cadena literal que comienza por un corchete ([), debe usar dos corchetes ([[).
+Puede utilizar expresiones y funciones para construir el comando de instalación del artefacto. Las expresiones se evalúan cuando se instala el artefacto. Pueden aparecer expresiones en cualquier lugar de un valor de cadena JSON y devolver siempre otro valor JSON. Incluya las expresiones entre corchetes, [ y ]. Si necesita usar una cadena literal que comienza por un corchete [, debe usar dos corchetes [[.
+
 Normalmente, se utilizan expresiones con funciones para construir un valor. **Al igual que en JavaScript, las llamadas de función tienen el formato functionName(arg1, arg2, arg3)** .
 
 En la lista siguiente se muestran las funciones comunes:
 
 * **parameters(parameterName)** : devuelve un valor de parámetro que se proporciona cuando se ejecuta el comando de artefacto.
-* **concat(arg1, arg2, arg3,…)** : combina varios valores de cadena. Esta función puede tomar diversos argumentos.
+* **concat(arg1, arg2, arg3,…)** : combina varios valores de cadena. Esta función puede adoptar varios argumentos.
 
 En el ejemplo siguiente se muestra cómo utilizar expresiones y funciones para construir un valor:
 
@@ -141,8 +141,8 @@ En el ejemplo siguiente se muestra cómo utilizar expresiones y funciones para c
       
       Este es un ejemplo del aspecto que tendrá una carpeta de artefacto:
       
-      ![Ejemplo de la carpeta de artefacto](./media/devtest-lab-artifact-author/git-repo.png)
-5. Si está utilizando su propio repositorio para almacenar artefactos, agregue el repositorio al laboratorio siguiendo las instrucciones del artículo: [Adición de un repositorio de Git de artefactos y plantillas](devtest-lab-add-artifact-repo.md).
+      ![Captura de pantalla en la que se muestra un ejemplo de carpeta de artefactos.](./media/devtest-lab-artifact-author/git-repo.png)
+5. Si utiliza su propio repositorio para almacenar artefactos, agregue el repositorio al laboratorio siguiendo las instrucciones del artículo: [Adición de un repositorio de Git de artefactos y plantillas](devtest-lab-add-artifact-repo.md).
 
 ## <a name="related-articles"></a>Artículos relacionados
 * [How to diagnose artifact failures in DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md) (Diagnóstico de errores de artefactos en DevTest Labs)

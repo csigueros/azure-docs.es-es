@@ -6,14 +6,14 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 10/28/2021
+ms.date: 11/11/2021
 ms.author: banders
-ms.openlocfilehash: 932f8bd68ee36d34bb35d2e50acc8ac5954275b7
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 4632cd70192387da98f62a3ee96fcf0a3650aad1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131425811"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284386"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Creación de una suscripción de Azure adicional
 
@@ -71,6 +71,21 @@ Necesita los siguientes permisos para crear suscripciones:
 |Customer    | La suscripción se crea para el cliente que seleccione. Si solo tiene un cliente, la selección aparece atenuada.  |
 |Vendedor    | El revendedor que proporciona servicios al cliente. Este campo es opcional, solo se aplica a los proveedores indirectos en el modelo de dos niveles de CSP. |
 |Nombre     | El nombre para mostrar ayuda a identificar fácilmente la suscripción en Azure Portal.  |
+
+## <a name="create-a-subscription-as-a-partner-for-a-customer"></a>Creación de una suscripción como asociado para un cliente
+
+Los asociados con un contrato de partner usan los pasos siguientes para crear una nueva suscripción del plan de Microsoft Azure para sus clientes. La suscripción se crea en la cuenta y perfil de facturación del asociado.
+
+1.  Inicie sesión en Azure Portal con su cuenta del Centro de partners.
+Asegúrese de que está en el directorio Centro de partners (inquilino), no en el inquilino de un cliente.
+1.  Vaya a **Administración de costos + facturación**.
+1.  Seleccione el ámbito facturación de la cuenta de facturación en la que reside la cuenta de cliente.
+1.  En el menú de la izquierda, en **Facturación**, seleccione **Clientes**.
+1.  En la página Clientes, seleccione el cliente.
+1.  En el menú de la izquierda, en **Productos y servicios**, seleccione **Suscripciones de Azure**.
+1.  En la página Suscripción de Azure, seleccione **+ Agregar** para crear una suscripción.
+1.  Escriba los detalles de la suscripción y, cuando haya terminado, seleccione **Revisar y crear**.
+
 
 ## <a name="create-an-additional-azure-subscription-programmatically"></a>Creación de una suscripción a Azure adicional mediante programación
 

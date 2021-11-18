@@ -2,19 +2,17 @@
 title: Implementación del módulo de seguridad de IoT Edge
 description: Aprenda cómo implementar un agente de seguridad de Defender para IoT en IoT Edge.
 ms.topic: conceptual
-ms.date: 09/23/2021
-ms.openlocfilehash: 67c60841d4d1e9080c95cf50a71be6ad4a845ef1
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/09/2021
+ms.openlocfilehash: deb6a9e458351d512ccda4a1e5ef42fc921e628a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130238631"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306156"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implementación de un módulo de seguridad en el dispositivo IoT Edge
 
-El módulo **Defender para IoT** proporciona una solución de seguridad completa para los dispositivos IoT Edge.
-El módulo de seguridad recopila, agrega y analiza los datos de seguridad sin procesar del sistema operativo y del sistema de contenedores para generar alertas y recomendaciones de seguridad que requieren acción.
-Para aprender más, consulte [Módulo de seguridad de Azure Security Center for IoT](security-edge-architecture.md).
+El módulo **Defender para IoT** proporciona una solución de seguridad completa para los dispositivos IoT Edge. El módulo de seguridad recopila, agrega y analiza los datos de seguridad sin procesar del sistema operativo y del sistema de contenedores para generar alertas y recomendaciones de seguridad que requieren acción. Para aprender más, consulte [Módulo de seguridad de Azure Security Center for IoT](security-edge-architecture.md).
 
 En este artículo, aprenderá a implementar un módulo de seguridad en el dispositivo IoT Edge.
 
@@ -41,7 +39,7 @@ Siga estos pasos para implementar un módulo de seguridad de Defender para IoT p
 
 1. Desde Azure Portal, abra **Marketplace**.
 
-1. Seleccione **Internet de las cosas** y luego busque **Azure Security Center para IoT** y selecciónelo.
+1. Seleccione **Internet de las cosas** y luego busque **Microsoft Defender para IoT** y selecciónelo.
 
    :::image type="content" source="media/howto/edge-onboarding.png" alt-text="Selección de Defender para IoT":::
 

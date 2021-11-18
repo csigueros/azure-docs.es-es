@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rohithah, rarayudu, azla
 ms.topic: reference
 ms.date: 11/02/2021
-ms.openlocfilehash: eda51c5adb4d266e714b3a7ca26523b198dbcbc3
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 68d587888a915ed317b6a31f9000d0086adda21b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131442642"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132283493"
 ---
 # <a name="limits-and-configuration-reference-for-azure-logic-apps"></a>Referencia de límites y configuración para Azure Logic Apps
 
@@ -524,7 +524,7 @@ En esta sección se enumeran las direcciones IP entrantes solo para el servicio 
 >
 > Los siguientes conectores realizan devoluciones de llamada de webhook entrantes al servicio Logic Apps:
 >
-> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, Azure Sentinel, Business Central, Calendly, Common Data Service, DocuSign, DocuSign Demo, Dynamics 365 for Financials y Operations, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP*, turnos para Microsoft Teams, Teamwork Projects, Typeform
+> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, Microsoft Sentinel, Business Central, Calendly, Common Data Service, DocuSign, DocuSign Demo, Dynamics 365 for Financials y Operations, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP*, turnos para Microsoft Teams, Teamwork Projects, Typeform
 >
 > \* **SAP**: el autor de llamada de devolución depende de si el entorno de implementación es Azure o ISE de varios inquilinos. En el entorno multiinquilino, la puerta de enlace de datos local realiza la devolución de llamada al servicio Logic Apps. En un ISE, el conector SAP realiza la devolución de llamada al servicio Logic Apps.
 
@@ -638,7 +638,7 @@ En esta sección se enumeran las direcciones IP salientes para el servicio Azure
 | Oeste de Suiza | 51.107.239.66, 51.107.231.86, 51.107.239.112, 51.107.239.123, 51.107.225.190, 51.107.225.179, 51.107.225.186, 51.107.225.151, 51.107.239.83 |
 | Centro de Emiratos Árabes Unidos | 20.45.75.200, 20.45.72.72, 20.45.75.236, 20.45.79.239, 20.45.67.170, 20.45.72.54, 20.45.67.134, 20.45.67.135 |
 | Norte de Emiratos Árabes Unidos | 40.123.230.45, 40.123.231.179, 40.123.231.186, 40.119.166.152, 40.123.228.182, 40.123.217.165, 40.123.216.73, 40.123.212.104 |
-| Sur de Reino Unido | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24, 51.105.69.96 - 51.105.69.127 |
+| Sur de Reino Unido 2 | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24, 51.105.69.96 - 51.105.69.127 |
 | Oeste de Reino Unido | 51.141.54.185, 51.141.45.238, 51.141.47.136, 51.141.114.77, 51.141.112.112, 51.141.113.36, 51.141.118.119, 51.141.119.63 |
 | Centro-Oeste de EE. UU. | 52.161.27.190, 52.161.18.218, 52.161.9.108, 13.78.151.161, 13.78.137.179, 13.78.148.140, 13.78.129.20, 13.78.141.75, 13.71.199.128 - 13.71.199.159 |
 | Oeste de Europa | 40.68.222.65, 40.68.209.23, 13.95.147.65, 23.97.218.130, 51.144.182.201, 23.97.211.179, 104.45.9.52, 23.97.210.126, 13.69.71.160, 13.69.71.161, 13.69.71.162, 13.69.71.163, 13.69.71.164, 13.69.71.165, 13.69.71.166, 13.69.71.167, 13.69.71.160 - 13.69.71.191 |

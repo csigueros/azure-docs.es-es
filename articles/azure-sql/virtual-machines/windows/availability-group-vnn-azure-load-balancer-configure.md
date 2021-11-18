@@ -12,20 +12,23 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/14/2021
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: cddf36f1bd51b50d1642f92158adc3a3ba46cdc2
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 7c749744ef6dcad4ca8f233b1a85e07843ba0406
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161486"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158474"
 ---
 # <a name="configure-load-balancer-for-ag-vnn-listener"></a>Configuración del equilibrador de carga para el cliente de escucha de VNN para AG
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-En máquinas virtuales de Azure, los clústeres usan un equilibrador de carga para mantener una dirección IP que es preciso que esté en un único nodo de clúster a la vez. En esta solución, el equilibrador de carga contiene la dirección IP del cliente de escucha del nombre de red virtual (VNN) para el grupo de disponibilidad (AG) Always On. 
+> [!TIP]
+> Elimine la necesidad de una instancia de Azure Load Balancer para el grupo de disponibilidad Always On mediante la creación de las máquinas virtuales de SQL Server en [varias subredes](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) dentro de la misma red virtual de Azure.
+
+En máquinas virtuales de Azure, los clústeres usan un equilibrador de carga para mantener una dirección IP que es preciso que esté en un único nodo de clúster a la vez. En esta solución, el equilibrador de carga contiene la dirección IP del cliente de escucha del nombre de red virtual (VNN) para el grupo de disponibilidad (AG) Always On cuando las máquinas virtuales con SQL Server se encuentran en una única subred. 
 
 En este artículo aprende a configurar un equilibrador de carga mediante el servicio Azure Load Balancer. El equilibrador de carga enrutará el tráfico al [cliente de escucha del grupo de disponibilidad (AG)](availability-group-overview.md) con VM con SQL Server en Azure para lograr una alta disponibilidad y recuperación ante desastres (HADR). 
 
@@ -271,7 +274,7 @@ Para obtener más información, consulte:
 - [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
 - [Grupos de disponibilidad Always On para SQL Server en Azure Virtual Machines](availability-group-overview.md)
 - [Introducción a los grupos de disponibilidad Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
-- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)
+- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)
 
 
 

@@ -8,19 +8,44 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 10/21/2021
-ms.openlocfilehash: 5c2594e38db7a57e2861241d37405a8ce03b8494
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.date: 11/01/2021
+ms.openlocfilehash: 9f23037c5582b0e75107b3637f09a7b80c32a530
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131563176"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132028541"
 ---
 # <a name="azure-machine-learning-python-sdk-release-notes"></a>Notas de la versión del SDK de Azure Machine Learning para Python
 
 En este artículo obtendrá información sobre las versiones del SDK de Azure Machine Learning para Python.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](/python/api/overview/azure/ml/intro) de Azure Machine Learning.
 
 __Fuente RSS__: reciba notificaciones cuando esta página se actualice copiando y pegando la siguiente dirección URL en su lector de fuentes: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+## <a name="2021-11-08"></a>2021-11-08
+
+### <a name="azure-machine-learning-sdk-for-python-v1360"></a>SDK de Azure Machine Learning para Python v1.36.0
+  + **azureml-automl-dnn-vision**
+    + Se han limpiado errores tipográficos menores en algunos mensajes de error.
+  + **azureml-contrib-reinforcementlearning**
+    + Ya no se admite el envío de ejecuciones de aprendizaje de refuerzo que usan simuladores.
+  + **azureml-core**
+    + Se ha agregado compatibilidad con blobs Premium con particiones.
+    + Ya no se admite la especificación de nubes no públicas para la autenticación de identidad administrada.
+    + El usuario puede migrar el servicio web de AKS al punto de conexión en línea y la implementación que administra la CLI (v2).
+    + El tipo de instancia para los trabajos de entrenamiento en destinos de proceso de Kubernetes ahora se puede establecer mediante una propiedad de RunConfiguration: run_config.kubernetescompute.instance_type.
+  + **azureml-defaults**
+    + Se han quitado dependencias redundantes, como gunicorn y werkzeug.
+  + **azureml-interpret**
+    + Se ha actualizado el paquete azureml-interpret a la versión 0.21.* de interpret-community.
+  + **azureml-pipeline-steps**
+    + Ha entrado en desuso MpiStep en favor del uso de CommandStep para ejecutar el entrenamiento de ML (incluido el entrenamiento distribuido) en las canalizaciones.
+  + **azureml-train-automl-rutime**
+    + Se han actualizado los documentos del formato de salida de las predicciones de pruebas del modelo de AutoML.
+    + Se han agregado descripciones de docstring para los modelos de previsión Naive, SeasonalNaive, Average y SeasonalAverage.
+    + El resumen de caracterización ahora se almacena como un artefacto en la ejecución (compruebe si hay un archivo llamado "featurization_summary.json" en la carpeta outputs).
+    + Se ha habilitado la compatibilidad con indicadores categóricos para Tabnet Learner.
+    + Se ha agregado el parámetro downsample a automl_setup_model_explanations para permitir que los usuarios obtengan explicaciones sobre todos los datos sin bajar el muestreo estableciendo este parámetro en false.
+    
 
 ## <a name="2021-10-11"></a>11-10-2021
 

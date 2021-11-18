@@ -11,14 +11,14 @@ author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 853174bd96f0a88f8513df848aab7a3d34aceb28
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: e2ea3a8213fa57aa7c8066b81ea7c790ec0b1db9
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131451851"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131988831"
 ---
-# <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad"></a>Preguntas más frecuentes sobre la implementación híbrida de claves de seguridad FIDO2 en Azure AD 
+# <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad"></a>Preguntas más frecuentes sobre la implementación híbrida de claves de seguridad FIDO2 en Azure AD
 
 En este artículo se tratan las preguntas más frecuentes sobre la implementación de dispositivos unidos a Azure AD híbrido y el inicio de sesión sin contraseña en recursos locales. Con esta característica sin contraseña, puede habilitar la autenticación de Azure AD en dispositivos con Windows 10 unidos a Azure AD híbrido mediante llaves de seguridad FIDO2. Los usuarios pueden iniciar sesión en Windows en sus dispositivos usando credenciales modernas como las llaves FIDO2, y acceder a recursos tradicionales basados en Active Directory Domain Services (AD DS) con una experiencia de inicio de sesión único (SSO) que permite acceder directamente a sus recursos locales.
 
@@ -185,7 +185,7 @@ Hay dos partes: el entorno de AD DS local y el inquilino de Azure AD.
 El servidor Kerberos de Azure AD se representa en un entorno de AD DS local como un objeto de controlador de dominio (DC). Este objeto de controlador de dominio se compone a su vez de varios objetos:
 
 * *CN=AzureADKerberos,OU=Domain Controllers,\<domain-DN>*
-    
+
     Un objeto *Computer* que representa un controlador de dominio de solo lectura (RODC) en AD DS. No hay ningún equipo asociado a este objeto. En su lugar, es una representación lógica de un controlador de dominio.
 
 * *CN=krbtgt_AzureAD,CN=Users,\<domain-DN>*

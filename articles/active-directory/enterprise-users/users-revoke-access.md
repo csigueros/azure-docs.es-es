@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 03/29/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fdff97b2b0325d8c965000a309fb6c3232aee7f
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 10f530b703c67192104e3cb6ea553973b8534437
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129985188"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132292649"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Revocación del acceso de usuario en Azure Active Directory
 
@@ -123,7 +123,7 @@ Una vez que los administradores han realizado los pasos anteriores, el usuario n
 > [!NOTE]
 > Los datos del dispositivo no se pueden recuperar después de un borrado.
 
-- Use [Microsoft Cloud App Security (MCAS) para bloquear la descarga de datos](/cloud-app-security/use-case-proxy-block-session-aad) cuando sea necesario. Si solo se puede obtener acceso a los datos en línea, las organizaciones pueden supervisar las sesiones y lograr el cumplimiento de las directivas en tiempo real.
+- Use [Microsoft Defender for Cloud Apps para bloquear la descarga de datos](/cloud-app-security/use-case-proxy-block-session-aad) cuando sea necesario. Si solo se puede obtener acceso a los datos en línea, las organizaciones pueden supervisar las sesiones y lograr el cumplimiento de las directivas en tiempo real.
 
 - Habilite la [Evaluación de acceso continuo (CAE) en Azure AD](../conditional-access/concept-continuous-access-evaluation.md). CAE permite a los administradores revocar los tokens de sesión y los tokens de acceso para las aplicaciones que son compatibles con CAE.  
 

@@ -1,18 +1,18 @@
 ---
-title: Incorporación de un servidor habilitado para Azure Arc a Azure Sentinel
-description: Aprenda a agregar servidores habilitados para Azure Arc a Azure Sentinel y a supervisar de forma proactiva su estado de seguridad.
+title: Incorporación de un servidor habilitado para Azure Arc a Microsoft Sentinel
+description: Aprenda a agregar servidores habilitados para Azure Arc a Microsoft Sentinel y a supervisar de forma proactiva su estado de seguridad.
 ms.date: 07/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: d37a6b62a5a3d95cc02090b4536db2076b2e1b5c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9a7f7fb8edb6edf18d9f8d5fed0608520cb3b80f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124837240"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306498"
 ---
-# <a name="onboard-azure-arc-enabled-servers-to-azure-sentinel"></a>Incorporación de servidores habilitados para Azure Arc a Azure Sentinel
+# <a name="onboard-azure-arc-enabled-servers-to-microsoft-sentinel"></a>Incorporación de servidores habilitados para Azure Arc a Microsoft Sentinel
 
-En este artículo encontrará información que le permitirá incorporar el servidor habilitado para Azure Arc a [Azure Sentinel](../../sentinel/overview.md) y comenzar a recopilar eventos relacionados con la seguridad. Azure Sentinel proporciona una única solución para la detección de alertas, la visibilidad de amenazas y la búsqueda proactiva y la respuesta contra amenazas en toda la empresa.
+En este artículo encontrará información que le permitirá incorporar el servidor habilitado para Azure Arc a [Microsoft Sentinel](../../sentinel/overview.md) y comenzar a recopilar eventos relacionados con la seguridad. Microsoft Sentinel proporciona una única solución para la detección de alertas, la visibilidad de amenazas y la búsqueda proactiva y la respuesta contra amenazas en toda la empresa.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -20,13 +20,13 @@ Antes de comenzar, asegúrese de que cumple los requisitos siguientes:
 
 - Un [área de trabajo de Log Analytics.](../../azure-monitor/logs/data-platform-logs.md) Para obtener más información sobre las áreas de trabajo de Log Analytics, consulte [Diseño de su implementación de Azure Monitor Logs](../../azure-monitor/logs/design-logs-deployment.md).
 
-- Azure Sentinel está [habilitado en la suscripción](../../sentinel/quickstart-onboard.md).
+- Microsoft Sentinel está [habilitado en la suscripción](../../sentinel/quickstart-onboard.md).
 
 - La máquina o el servidor están conectados a servidores habilitados para Azure Arc.
 
-## <a name="onboard-azure-arc-enabled-servers-to-azure-sentinel"></a>Incorporación de servidores habilitados para Azure Arc a Azure Sentinel
+## <a name="onboard-azure-arc-enabled-servers-to-microsoft-sentinel"></a>Incorporación de servidores habilitados para Azure Arc a Microsoft Sentinel
 
-Azure Sentinel incluye una serie de conectores para las soluciones de Microsoft que están listos para usar y que proporcionan integración en tiempo real. Tanto en las máquinas físicas como en las virtuales, puede instalar el agente de Log Analytics que recopila los registros y los reenvía a Azure Sentinel. Los servidores habilitados para Azure Arc admiten la implementación del agente de Log Analytics mediante los métodos siguientes:
+Microsoft Sentinel incluye una serie de conectores para las soluciones de Microsoft que están listos para usar y que proporcionan integración en tiempo real. Tanto en las máquinas físicas como en las virtuales, puede instalar el agente de Log Analytics que recopila los registros y los reenvía a Microsoft Sentinel. Los servidores habilitados para Azure Arc admiten la implementación del agente de Log Analytics mediante los métodos siguientes:
 
 - Uso del marco de extensiones de VM.
 
@@ -43,8 +43,8 @@ Azure Sentinel incluye una serie de conectores para las soluciones de Microsoft 
 
 Se recomienda instalar el agente de Log Analytics para Windows o Linux con Azure Policy.
 
-Una vez conectados los servidores habilitados para Arc, los datos comienzan a transmitirse a Azure Sentinel y podrá comenzar a trabajar con ellos. Puede ver los registros en los [libros integrados](../../sentinel/get-visibility.md) y comenzar a crear consultas en Log Analytics para [investigar los datos](../../sentinel/investigate-cases.md).
+Una vez conectados los servidores habilitados para Arc, los datos comienzan a transmitirse a Microsoft Sentinel y podrá comenzar a trabajar con ellos. Puede ver los registros en los [libros integrados](../../sentinel/get-visibility.md) y comenzar a crear consultas en Log Analytics para [investigar los datos](../../sentinel/investigate-cases.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Empiece a [detectar amenazas con Azure Sentinel](../../sentinel/detect-threats-built-in.md).
+Empiece a [detectar amenazas con Microsoft Sentinel](../../sentinel/detect-threats-built-in.md).

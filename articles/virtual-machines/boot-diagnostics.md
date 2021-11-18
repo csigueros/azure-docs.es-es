@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: f0e8a9775fead0f2d54ccf131240f7d4cdefee4d
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: ceae158a8fab584b3674c62c621530dd2e6b25b9
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694425"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132155924"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnósticos de arranque de Azure
 
@@ -28,7 +28,7 @@ Al crear una máquina virtual en Azure Portal, los diagnósticos de arranque est
 
 Una experiencia alternativa de diagnóstico de arranque consiste en usar una cuenta de almacenamiento administrada por el usuario. Un usuario puede crear una cuenta de almacenamiento o usar una existente.
 > [!NOTE]
-> Las cuentas de almacenamiento administradas por el usuario asociadas con los diagnósticos de arranque requieren que la cuenta de almacenamiento y las máquinas virtuales asociadas residan en la misma suscripción. 
+> Las cuentas de almacenamiento administradas por el usuario asociadas con los diagnósticos de arranque requieren que la cuenta de almacenamiento y las máquinas virtuales asociadas residan en la misma región y suscripción. 
 
 
 

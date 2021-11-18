@@ -1,5 +1,5 @@
 ---
-title: Configuración de escuchas del grupo de disponibilidad y del equilibrador de carga (Azure Portal)
+title: Configuración de una escucha de grupo de disponibilidad y del equilibrador de carga (Azure Portal)
 description: Instrucciones paso a paso para crear un agente de escucha en un grupo de disponibilidad AlwaysOn para SQL Server en Azure Virtual Machines
 services: virtual-machines
 documentationcenter: na
@@ -11,33 +11,36 @@ ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 02/16/2017
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.custom: seo-lt-2019
 ms.reviewer: mathoma
-ms.openlocfilehash: d0489295cbc161f98ebe036ff79bdc2f2861877a
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 0077b6a237cefd5547b70b79044087d86a9ea236
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130250376"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157498"
 ---
-# <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configuración de un equilibrador de carga para un grupo de disponibilidad de SQL Server Always On en Azure Virtual Machines
+# <a name="configure-a-load-balancer--availability-group-listener-sql-server-on-azure-vms"></a>Configuración de una escucha de grupo de disponibilidad y del equilibrador de carga (SQL Server en máquinas virtuales de Azure)
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
+> [!TIP]
+> Elimine la necesidad de una instancia de Azure Load Balancer para el grupo de disponibilidad Always On mediante la creación de las máquinas virtuales de SQL Server en [varias subredes](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) dentro de la misma red virtual de Azure.
 
-En este artículo se explica cómo crear un equilibrador de carga para un grupo de disponibilidad de SQL Server Always On en instancias de Azure Virtual Machines que se ejecutan con Azure Resource Manager. Cuando las instancias de SQL Server están implementadas en Azure Virtual Machines, los grupos de disponibilidad necesitan un equilibrador de carga. El equilibrador de carga almacena la dirección IP del agente de escucha del grupo de disponibilidad. Si un grupo de disponibilidad abarca varias regiones, cada región necesitará su propio equilibrador de carga.
+
+En este artículo se explica cómo crear un equilibrador de carga para un grupo de disponibilidad Always On de SQL Server en instancias de Azure Virtual Machines de una sola subred que se ejecutan con Azure Resource Manager. Cuando las instancias de SQL Server están implementadas en Azure Virtual Machines, los grupos de disponibilidad necesitan un equilibrador de carga. El equilibrador de carga almacena la dirección IP del agente de escucha del grupo de disponibilidad. Si un grupo de disponibilidad abarca varias regiones, cada región necesitará su propio equilibrador de carga.
 
 Para completar esta tarea, debe tener un grupo de disponibilidad de SQL Server Always On implementado en máquinas virtuales de Azure que se ejecutan con Resource Manager. Las dos máquinas virtuales de SQL Server deben pertenecer al mismo conjunto de disponibilidad. Puede usar la [plantilla de Microsoft](./availability-group-quickstart-template-configure.md) para crear automáticamente el grupo de disponibilidad en Resource Manager. Esta plantilla crea automáticamente un equilibrador de carga interno. 
 
-Si lo prefiere, puede [configurar manualmente un grupo de disponibilidad](availability-group-manually-configure-tutorial.md).
+Si lo prefiere, puede [configurar manualmente un grupo de disponibilidad](availability-group-manually-configure-tutorial-single-subnet.md).
 
 En este artículo, es necesario que los grupos de disponibilidad ya estén configurados.  
 
 Artículos relacionados:
 
-* [Configuración de Grupos de disponibilidad AlwaysOn en la máquina virtual de Azure (GUI)](availability-group-manually-configure-tutorial.md)   
+* [Configuración de Grupos de disponibilidad AlwaysOn en la máquina virtual de Azure (GUI)](availability-group-manually-configure-tutorial-single-subnet.md)   
 * [Configuración de una conexión entre dos redes virtuales mediante Azure Resource Manager y PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 A lo largo de este artículo, va a crear y configurar un equilibrador de carga en Azure Portal. Una vez hecho esto, configurará el clúster para que utilice la dirección IP del equilibrador de carga para el agente de escucha del grupo de disponibilidad.

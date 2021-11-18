@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 07/06/2021
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 7e477f3d8df098f53abc4b1ad5f963f019b79ead
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 64a8259f859bb53be6464a9f522c4dcb5491ba21
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131470896"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132279336"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -203,7 +203,7 @@ En la tabla siguiente se muestran las descripciones y los tipos de registros adm
 | AppServiceAppLogs | ASP.NET y Tomcat <sup>1</sup> | ASP.NET y Tomcat <sup>1</sup> | Imágenes preparadas de Java SE y Tomcat <sup>2</sup> | Imágenes preparadas de Java SE y Tomcat <sup>2</sup> | Registros de aplicación |
 | AppServiceIPSecAuditLogs  | Sí | Sí | Sí | Sí | Solicitudes de reglas IP |
 | AppServicePlatformLogs  | TBA | Sí | Sí | Sí | Registros de operación de contenedor |
-| AppServiceAntivirusScanAuditLogs <sup>3</sup> | Sí | Sí | Sí | Sí | [Registros de examen antivirus](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) con Microsoft Defender; **solo están disponibles para el nivel prémium** | 
+| AppServiceAntivirusScanAuditLogs <sup>3</sup> | Sí | Sí | Sí | Sí | [Registros de examen antivirus](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) con Microsoft Defender for Cloud; **solo disponibles para el nivel prémium** | 
 
 <sup>1</sup> Para las aplicaciones Tomcat, agregue `TOMCAT_USE_STARTUP_BAT` a la configuración de la aplicación y establézcalo en `false` o en `0`. Debe estar en la versión *más reciente* de Tomcat y usar *java.util.logging*.
 

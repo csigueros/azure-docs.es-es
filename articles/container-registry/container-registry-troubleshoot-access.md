@@ -3,12 +3,12 @@ title: Solución de problemas de red con el registro
 description: Síntomas, causas y resolución de problemas comunes al acceder a un registro de contenedor de Azure en una red virtual o detrás de un firewall
 ms.topic: article
 ms.date: 05/10/2021
-ms.openlocfilehash: f5c51f14eb5ed5a950272e43e701ec7bcc44b901
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 4d3962a99fd462cfe3b613a4f0a9409b309b462f
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131446493"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132287141"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Solución de problemas de red con el registro
 
@@ -27,7 +27,7 @@ Puede encontrarse con uno o varios de los siguientes:
 * No se puede acceder a la configuración del registro ni verla en Azure Portal; tampoco se puede administrar el registro mediante la CLI de Azure
 * No se puede agregar o modificar la configuración de red virtual o las reglas de acceso público
 * ACR Tasks no puede insertar ni extraer imágenes
-* Azure Security Center no pueden examinar imágenes en el registro o los resultados de los exámenes no aparecen en Azure Security Center
+* Microsoft Defender for Cloud no puede examinar las imágenes del Registro o los resultados del examen no aparecen en dicho servicio
 * Recibirá un error `host is not reachable` al intentar acceder a un registro configurado con un punto de conexión privado.
 
 ## <a name="causes"></a>Causas
@@ -35,7 +35,7 @@ Puede encontrarse con uno o varios de los siguientes:
 * Un firewall o proxy de cliente impide el acceso: [solución](#configure-client-firewall-access)
 * Las reglas de acceso de la red pública en el registro impiden el acceso: [solución](#configure-public-access-to-registry)
 * La configuración de la red virtual o el punto de conexión privado impide el acceso: [solución](#configure-vnet-access)
-* Intente integrar Azure Security Center u otros servicios de Azure concretos con un registro que tenga un punto de conexión privado, un punto de conexión de servicio o reglas de acceso con direcciones IP públicas: [solución](#configure-service-access)
+* Intente integrar Microsoft Defender for Cloud u otros servicios de Azure concretos con un Registro que tenga un punto de conexión privado, un punto de conexión de servicio o reglas de acceso a direcciones IP públicas: [solución](#configure-service-access)
 
 ## <a name="further-diagnosis"></a>Diagnóstico detallado 
 
@@ -114,7 +114,7 @@ Vínculos relacionados:
 
 Actualmente, no se permite el acceso a un registro de contenedor con restricciones de red desde varios servicios de Azure:
 
-* Azure Security Center no puede realizar el [análisis de vulnerabilidades de imagen](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) en un registro que restringe el acceso a los puntos de conexión privados, las subredes seleccionadas o las direcciones IP. 
+* Microsoft Defender for Cloud no puede realizar el [examen de vulnerabilidades de imagen](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) en un Registro que restringe el acceso a puntos de conexión privados, subredes seleccionadas o direcciones IP. 
 * Los recursos de determinados servicios de Azure no pueden acceder a un registro de contenedor con restricciones de red, incluidos Azure App Service y Azure Container Instances.
 
 Si se requiere acceso o integración de estos servicios de Azure con el registro de contenedor, quite la restricción de red. Por ejemplo, quite los puntos de conexión privados del registro, o bien elimine o modifique las reglas de acceso público del registro.
@@ -123,7 +123,7 @@ A partir de enero de 2021, puede configurar un registro con restricción de red 
 
 Vínculos relacionados:
 
-* [Análisis de imágenes de Azure Container Registry por Security Center](../security-center/defender-for-container-registries-introduction.md)
+* [Examen de imágenes de Azure Container Registry mediante Microsoft Defender para registros de contenedor](../security-center/defender-for-container-registries-introduction.md)
 * [Envío de comentarios](https://feedback.azure.com/d365community/idea/cbe6351a-0525-ec11-b6e6-000d3a4f07b8)
 * [Permitir que los servicios de confianza accedan de forma segura a un registro de contenedor con restricciones de red](allow-access-trusted-services.md)
 

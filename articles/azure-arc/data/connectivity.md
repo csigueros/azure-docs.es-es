@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 11/03/2021
 ms.topic: conceptual
-ms.openlocfilehash: f8e52c61db68aaf85af70b6bfb373bd7b331bd29
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 61dec7d7c6391cacb5f25a2fccbda6b4d97b7033
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131555426"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132316154"
 ---
 # <a name="connectivity-modes-and-requirements"></a>Modos de conectividad y requisitos
 
@@ -34,7 +34,7 @@ Lo más importante es que si los servicios de datos habilitados para Azure Arc e
 
 Además, Azure Active Directory y el control de acceso basado en rol de Azure solo se pueden usar en el modo de conexión directa, ya que hay una dependencia de una conexión continua y directa con Azure para proporcionar esta funcionalidad.
 
-Algunos servicios conectados a Azure solo están disponibles cuando se puede llegar directamente a ellos, como los servicios de seguridad de Azure Defender, la información de los contenedores y el almacenamiento de blobs de Azure Backup.
+Algunos servicios conectados a Azure solo están disponibles cuando se puede llegar directamente a ellos, como los servicios de seguridad de Microsoft Defender for Cloud, la información de los contenedores y el almacenamiento de blobs de Azure Backup.
 
 ||**Conexión indirecta**|**Conexión directa**|**Nunca conectado**|
 |---|---|---|---|
@@ -57,7 +57,7 @@ Algunos servicios conectados a Azure solo están disponibles cuando se puede lle
 |**Supervisión**|Compatible<br/>Supervisión local con los paneles de Grafana y Kibana.|Compatible<br/>Además de los paneles de supervisión locales, puede _opcionalmente_ enviar datos de supervisión y registros a Azure Monitor para la supervisión a escala de varios sitios en un solo lugar. |
 |**Autenticación**|Use el nombre de usuario y la contraseña locales para el controlador de datos y la autenticación del panel. Use inicios de sesión de SQL y Postgres o Active Directory (AD no se admite actualmente, estará en versión preliminar pronto) para la conectividad con instancias de base de datos.  Use los proveedores de autenticación de K8s para la autenticación en la API de Kubernetes.|Además o en lugar de los métodos de autenticación para el modo conexión indirecta, puede usar _opcionalmente_ Azure Active Directory. **Pendiente de la disponibilidad en el modo de conexión directa**|
 |**Control de acceso basado en rol (RBAC)**|Use RBAC de Kubernetes en la API de Kubernetes. Use RBAC de SQL y Postgres para las instancias de base de datos.|Puede usar Azure Active Directory y Azure RBAC. **Pendiente de la disponibilidad en el modo de conexión directa**|
-|**Azure Defender**|No compatible|Planeada para el futuro.|
+|**Microsoft Defender for Cloud**|No compatible|Planeada para el futuro.|
 
 ## <a name="connectivity-requirements"></a>Requisitos de conectividad
 
@@ -75,7 +75,7 @@ Algunos servicios conectados a Azure solo están disponibles cuando se puede lle
 |**Azure Active Directory (AAD) (en un futuro)**|Entorno del cliente -> Azure -> Entorno del cliente|Opcionales|Es posible, pero puede que ya esté pagando por Azure AD.|Solo directo|Si desea usar Azure AD para la autenticación, la conectividad con Azure debe estar establecida en todo momento. Si no desea usar Azure AD para la autenticación, puede usar los Servicios de federación de Active Directory (ADFS) sobre Active Directory. **Pendiente de la disponibilidad en el modo de conexión directa**|
 |**Copia de seguridad y restauración**|Entorno del cliente -> Entorno del cliente|Obligatorio|No|Directa o indirecta|El servicio de copia de seguridad y restauración se puede configurar para que apunte a clases de almacenamiento local. **Pendiente de la disponibilidad en el modo de conexión directa**|
 |**Copia de seguridad de Azure - Retención a largo plazo (en un futuro)**| Entorno del cliente -> Azure | Opcionales| Sí, para Azure Storage | Solo directo |Es posible que desee enviar copias de seguridad que se realizan localmente a Azure Backup para la retención a largo plazo y fuera del sitio de las copias de seguridad y devolverlas al entorno local para su restauración. **Pendiente de la disponibilidad en el modo de conexión directa**|
-|**Servicios de seguridad de Azure Defender (en un futuro)**|Entorno del cliente -> Azure -> Entorno del cliente|Opcionales|Sí|Solo directo|**Pendiente de la disponibilidad en el modo de conexión directa**|
+|**Servicios de seguridad de Microsoft Defender for Cloud (futuros)**|Entorno del cliente -> Azure -> Entorno del cliente|Opcionales|Sí|Solo directo|**Pendiente de la disponibilidad en el modo de conexión directa**|
 |**Aprovisionamiento y cambios de configuración desde Azure Portal**|Entorno del cliente -> Azure -> Entorno del cliente|Opcional|No|Solo directo|El aprovisionamiento y los cambios de configuración se pueden realizar localmente mediante Azure Data Studio o la CLI apropiada.  En el modo de conexión directa, también podrá aprovisionar y realizar cambios de configuración desde Azure Portal.|
 
 

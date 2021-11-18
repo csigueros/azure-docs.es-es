@@ -1,40 +1,40 @@
 ---
-title: Trabajar con reglas de análisis de detección casi en tiempo real (NRT) en Azure Sentinel | Microsoft Docs
-description: En este artículo se explica cómo ver y crear reglas de análisis de detección casi en tiempo real (NRT) en Azure Sentinel.
+title: Trabajar con reglas de análisis de detección casi en tiempo real (NRT) en Microsoft Sentinel | Microsoft Docs
+description: En este artículo se explica cómo ver y crear reglas de análisis de detección casi en tiempo real (NRT) en Microsoft Sentinel.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/29/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 24492258021e3fc50a94926baad6578631b06125
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 69e639ad74388756217f06922d8cfcae62d28197
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091609"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521702"
 ---
-# <a name="work-with-near-real-time-nrt-detection-analytics-rules-in-azure-sentinel"></a>Trabajar con reglas de análisis de detección casi en tiempo real (NRT) en Azure Sentinel
+# <a name="work-with-near-real-time-nrt-detection-analytics-rules-in-microsoft-sentinel"></a>Trabajar con reglas de análisis de detección casi en tiempo real (NRT) en Microsoft Sentinel
 
 > [!IMPORTANT]
 >
 > - Las reglas casi en tiempo real (NRT) se encuentran actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
-Las [reglas de análisis casi en tiempo real](near-real-time-rules.md) de Azure Sentinel ofrecen una detección de amenazas al minuto integrada. Este tipo de regla se diseñó para tener una gran capacidad de respuesta mediante la ejecución de su consulta a intervalos de solo un minuto de diferencia.
+Las [reglas de análisis casi en tiempo real](near-real-time-rules.md) de Microsoft Sentinel ofrecen una detección de amenazas al minuto integrada. Este tipo de regla se diseñó para tener una gran capacidad de respuesta mediante la ejecución de su consulta a intervalos de un minuto de diferencia.
 
 Por el momento, estas plantillas tienen una aplicación limitada, como se describe a continuación, pero la tecnología está evolucionando y creciendo rápidamente.
 
 ## <a name="view-near-real-time-nrt-rules"></a>Visualización de reglas casi en tiempo real (NRT)
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Análisis**.
+1. En el menú de navegación de Microsoft Sentinel, seleccione **Análisis**.
 
 1. En la pestaña **Reglas activas** de la hoja **Analytics**, filtre la lista de plantillas de **NRT**:
 
@@ -48,7 +48,7 @@ Por el momento, estas plantillas tienen una aplicación limitada, como se descri
 
 Las reglas de NRT se crean de la misma manera que se crean reglas de [análisis de consultas programadas normales](detect-threats-custom.md):
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Análisis**.
+1. En el menú de navegación de Microsoft Sentinel, seleccione **Análisis**.
 
 1. Seleccione **Crear** en la barra de botones y, posteriormente, la **regla de consulta NRT** en la lista desplegable.
 
@@ -82,7 +82,7 @@ Las reglas de NRT se crean de la misma manera que se crean reglas de [análisis 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, ha aprendido a crear reglas de análisis casi en tiempo real (NRT) en Azure Sentinel.
+En este documento, ha aprendido a crear reglas de análisis casi en tiempo real (NRT) en Microsoft Sentinel.
 
-- Obtenga más información sobre las [reglas de análisis casi en tiempo real (NRT) en Azure Sentinel](near-real-time-rules.md).
+- Obtenga más información sobre las [reglas de análisis casi en tiempo real (NRT) en Microsoft Sentinel](near-real-time-rules.md).
 - Explore otros [tipos de reglas de análisis](detect-threats-built-in.md).

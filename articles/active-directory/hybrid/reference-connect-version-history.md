@@ -11,12 +11,12 @@ ms.subservice: hybrid
 ms.author: rodejo
 ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d58e688133af9f587e3b2c6d40d9f9cf07e5a60
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 1e90fccbae8217e8728f75c11c6df1d7d677fbb9
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131500894"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132133454"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -73,6 +73,9 @@ Sin embargo, si quiere obtener las características y actualizaciones más recie
 ### <a name="bug-fixes"></a>Corrección de errores
 - Se ha corregido un error que consistía en que el proceso de actualización automática intentaba actualizar los servidores de AADConnect con una versión del sistema operativo Windows anterior a la 2008 o 2008 R2 y generaba un error. Estas versiones de Windows Server ya no se admiten. En esta versión solo se intenta realizar la actualización automática en máquinas con Windows Server 2012 o posterior.
 - Se ha corregido un problema que consistía en que, en determinadas condiciones, miisserver se bloqueaba debido a una excepción de infracción de acceso.
+
+### <a name="known-issues"></a>Problemas conocidos
+- Hay un problema por el cual los clientes que tienen el punto de conexión V2 en ejecución con una versión anterior e intentan actualizar a la versión V1.6 más reciente verán que se restablece la limitación de 50 000 en la pertenencia a grupos. Este problema no se corregirá en la versión 1.6 y se requerirá que los clientes actualicen a AADConnect V2.0 si se trata de un problema para ellos.
 
 ## <a name="20280"></a>2.0.28.0
 

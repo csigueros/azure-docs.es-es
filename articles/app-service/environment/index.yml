@@ -1,0 +1,62 @@
+### YamlMime:Landing
+title: Documentación del entorno de App Service
+summary: Azure App Service Environment le permite hospedar aplicaciones web en un entorno completamente aislado y dedicado para ejecutar de forma segura aplicaciones de App Service a gran escala.
+metadata:
+  title: Documentación de Azure App Service Environment
+  description: Hospedar sitios web completamente aislados en un entorno seguro y escalable. Busque inicios rápidos, tutoriales y lea los conceptos que le ayudarán a tener éxito con App Service Environment.
+  ms.topic: landing-page
+  ms.service: app-service
+  ms.date: 11/15/2021
+  ms.openlocfilehash: e6dc1662808fa4faf58a22696f376f43a19cfc5b
+  ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 11/16/2021
+  ms.locfileid: "132525089"
+landingContent:
+- title: Acerca de App Service Environment
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es App Service Environment?
+      url: overview.md
+    - text: ¿Qué es App Service?
+      url: ../overview.md
+  - linkListType: whats-new
+    links:
+    - text: Actualizaciones del servicio
+      url: https://azure.microsoft.com/updates/?product=app-service
+- title: Introducción
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creación de una instancia de App Service Environment
+      url: creation.md
+  - linkListType: concept
+    links:
+    - text: Introducción a las redes
+      url: networking.md
+    - text: Redundancia de zona
+      url: overview-zone-redundancy.md
+    - text: Certificados
+      url: overview-certificates.md
+- title: Tareas comunes
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Integración con Application Gateway
+      url: integrate-with-application-gateway.md
+  - linkListType: how-to-guide
+    links:
+    - text: Tareas comunes de App Service Environment
+      url: using.md
+    - text: Aprovisionamiento de un ASE desde una plantilla de ARM
+      url: create-from-template.md
+    - text: Configuración de valores personalizados de ASE
+      url: app-service-app-service-environment-custom-settings.md
+  - linkListType: reference
+    links:
+    - text: Referencia de la CLI de Azure
+      url: /cli/azure/appservice/ase
+    - text: Resource Manager
+      url: /azure/templates/microsoft.web/2021-02-01/hostingenvironments?tabs=json

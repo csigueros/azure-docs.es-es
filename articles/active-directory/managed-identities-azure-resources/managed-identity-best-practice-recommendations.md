@@ -12,14 +12,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 10/15/2021
+ms.date: 11/09/2021
 ms.author: barclayn
-ms.openlocfilehash: b1dbdf7f7798458ec3ea3a7487f69a9dee244dda
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 400fe7d940a97ddf9fb885302edd93c8780491f5
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131474295"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132134813"
 ---
 # <a name="managed-identity-best-practice-recommendations"></a>Procedimientos recomendados para identidades administradas
 
@@ -38,7 +38,6 @@ A medida que se crean y eliminan identidades asignadas por el sistema junto con 
 Si la infraestructura necesita que varios recursos requieran acceso a los mismos recursos, se les puede asignar una única identidad asignada por el usuario. Se reducirá la sobrecarga de administración, ya que hay menos identidades distintas y asignaciones de roles que administrar.
 
 Si necesita que cada recurso tenga su propia identidad o tiene recursos que requieren un conjunto único de permisos y quiere que la identidad se elimine a medida que se elimina el recurso, deberá usar una identidad asignada por el sistema.
-
 
 | Escenario| Recomendación|Notas|
 |---|---|---|
@@ -89,7 +88,7 @@ Al conceder a cualquier identidad, incluida una identidad administrada, los perm
 
 ### <a name="consider-the-effect-of-assigning-managed-identities-to-azure-resources"></a>Consideración del efecto de asignar identidades administradas a recursos de Azure
 
-Es importante tener en cuenta que cuando se asigna una identidad administrada a un recurso de Azure, como una aplicación lógica de Azure, una función de Azure, una máquina virtual, etc., todos los permisos concedidos a la identidad administrada ahora están disponibles para el recurso de Azure. Esto es especialmente importante porque si un usuario tiene acceso para instalar o ejecutar código en este recurso, el usuario tiene acceso a todas las identidades asignadas o asociadas al recurso de Azure. El propósito de la identidad administrada es proporcionar al código que se ejecuta en un recurso de Azure acceso a otros recursos, sin necesidad de que los desarrolladores manipulen o introduzcan las credenciales directamente en el código para obtener ese acceso.
+Es importante tener en cuenta que cuando se asigna una identidad administrada a un recurso de Azure, como una aplicación lógica de Azure, una función de Azure, una máquina virtual, etc., todos los permisos concedidos a la identidad administrada ahora están disponibles para el recurso de Azure. Esto es importante porque si un usuario tiene acceso para instalar o ejecutar código en este recurso, el usuario tiene acceso a todas las identidades asignadas o asociadas al recurso de Azure. El propósito de la identidad administrada es proporcionar al código que se ejecuta en un recurso de Azure acceso a otros recursos, sin necesidad de que los desarrolladores manipulen o introduzcan las credenciales directamente en el código para obtener ese acceso.
 
 Por ejemplo, si a una identidad administrada (ClientId = 1234) se le ha concedido acceso de lectura y escritura a ***StorageAccount7755** _ y se ha asignado a _*_LogicApp3388_*_, Alice, que no tiene ningún permiso directo sobre la identidad administrada o la cuenta de almacenamiento, pero tiene permiso para ejecutar código en _*_LogicApp3388_*_, también puede leer o escribir datos en o desde _ *_StorageAccount7755_** mediante la ejecución del código que usa la identidad administrada.
 
@@ -109,3 +108,11 @@ Las asignaciones de roles no se eliminan automáticamente cuando se eliminan las
 Las asignaciones de roles asociadas a identidades administradas eliminadas se mostrarán con "Identidad no encontrada" cuando aparezcan en el portal. [Más información](../../role-based-access-control/troubleshooting.md#role-assignments-with-identity-not-found).
 
 :::image type="content" source="media/managed-identity-best-practice-recommendations/identity-not-found.png" alt-text="No se encontró la identidad para la asignación de roles.":::
+
+## <a name="limitation-of-using-azure-ad-groups-with-managed-identities-for-authorization"></a>Limitación del uso de grupos de Azure AD con identidades administradas para la autorización
+
+El uso de grupos de Azure AD para conceder acceso a los servicios es una excelente manera de simplificar el proceso de autorización. La idea es sencilla: conceder permisos a un grupo y agregar identidades al grupo para que hereden los mismos permisos. Se trata de un patrón bien establecido de varios sistemas locales y funciona bien cuando las identidades representan a los usuarios. Sin embargo, en el caso de las identidades no humanas, como las aplicaciones e identidades administradas de Azure AD, el mecanismo exacto no es adecuado actualmente. La implementación actual con Azure AD y el control de acceso basado en roles de Azure (RBAC de Azure), usa tokens de acceso emitidos por Azure AD para la autenticación de cada identidad. Sin embargo, si la identidad se agrega a un grupo, su pertenencia al grupo se expresa como una notificación en el token de acceso emitido por Azure AD. RBAC de Azure usa esta notificación para evaluar aún más las reglas de autorización para permitir o denegar el acceso.  
+
+Como la pertenencia al grupo es una notificación en el token de acceso, los cambios de pertenencia a grupos no tienen efecto hasta que se actualiza el token. Un usuario humano puede adquirir un nuevo token de acceso si cierra sesión e inicia sesión de nuevo. La infraestructura de Azure subyacente almacena en caché los tokens de la identidad administrada con fines de rendimiento y resistencia. Esto significa que los cambios en la pertenencia a grupos de una identidad administrada pueden tardar varias horas en tener efecto. En la actualidad, no es posible forzar la actualización del token de una identidad administrada antes de su expiración. Si cambia la pertenencia a grupos de una identidad administrada para agregar o quitar permisos, es posible que tenga que esperar varias horas hasta que el recurso de Azure que usa la identidad tenga el acceso correcto, en comparación con solo unos minutos si fuera a agregar o quitar permisos directamente en la identidad.
+
+Para asegurarse de que los cambios en los permisos de las identidades administradas se apliquen rápidamente, se recomienda agrupar los recursos de Azure mediante una [identidad administrada asignada por el usuario](how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azcli) con los permisos aplicados directamente a la identidad, en lugar de agregar o quitar identidades administradas de un grupo de Azure AD que tenga los permisos. Una identidad administrada asignada por el usuario se puede usar como un grupo porque se puede asignar a uno o varios recursos de Azure para usarla. La operación de asignación se puede controlar mediante el rol [Colaborador de identidad administrada](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) y el rol [Operador de identidad administrada](../../role-based-access-control/built-in-roles.md#managed-identity-operator).

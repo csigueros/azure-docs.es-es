@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: 6092476180614fe11f8c1199c079b0599f829779
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: b01049e8b2ceb851680cc73837f5f0609818372b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111554433"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132336855"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Información general de seguridad de Azure Virtual Machines
 Este artículo ofrece una introducción a las principales características de seguridad de Azure que pueden usarse con máquinas virtuales.
@@ -134,18 +134,18 @@ Más información:
 
 ## <a name="security-policy-management-and-reporting"></a>Informes y administración de directivas de seguridad
 
-Azure Security Center ayuda a evita y a detectar las amenazas, además de a responder a ellas. Security Center aporta visibilidad mejorada y control sobre la seguridad de los recursos de Azure. Proporciona una supervisión de la seguridad y una administración de directivas integradas en suscripciones de Azure. Le ayuda a detectar amenazas que podrían pasar desapercibidas, y funciona con un amplio ecosistema de soluciones de seguridad.
+Microsoft Defender for Cloud ayuda a evitar y a detectar las amenazas, además de a responder a ellas. Defender for Cloud aporta visibilidad mejorada y control sobre la seguridad de los recursos de Azure. Proporciona una supervisión de la seguridad y una administración de directivas integradas en suscripciones de Azure. Le ayuda a detectar amenazas que podrían pasar desapercibidas, y funciona con un amplio ecosistema de soluciones de seguridad.
 
-Security Center le ayuda a optimizar y supervisar la seguridad de las máquinas virtuales de la siguiente manera:
+Defender for Cloud le ayuda a optimizar y supervisar la seguridad de las máquinas virtuales de la siguiente manera:
 
 * Proporcionando [recomendaciones de seguridad](../../security-center/security-center-recommendations.md) para las máquinas virtuales. Las recomendaciones de ejemplo incluyen lo siguiente: aplicar actualizaciones del sistema, configurar puntos de conexión de listas de control de acceso, habilitar antimalware, habilitar grupos de seguridad de red y aplicar cifrado de discos.
 * Supervisando el estado de las máquinas virtuales.
 
 Más información:
 
-* [Introducción al Centro de seguridad de Azure](../../security-center/security-center-introduction.md)
-* [Preguntas más frecuentes sobre el Azure Security Center](../../security-center/faq-general.yml)
-* [Guía de planeamiento y operaciones de Azure Security Center](../../security-center/security-center-planning-and-operations-guide.md)
+* [Introducción a Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
+* [Preguntas frecuentes de Microsoft Defender for Cloud](../../security-center/faq-general.yml)
+* [Planificación y operaciones de Microsoft Defender for Cloud](../../security-center/security-center-planning-and-operations-guide.md)
 
 ## <a name="compliance"></a>Cumplimiento normativo
 

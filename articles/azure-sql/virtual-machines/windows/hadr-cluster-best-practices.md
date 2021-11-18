@@ -11,15 +11,15 @@ ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/01/2021
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: 40c68a77a3e432c5ff03da2a99e93255719e8898
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 8be0dc33d580314fd6b5e6472ed1cf41c5be2d4e
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130163422"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158428"
 ---
 # <a name="hadr-configuration-best-practices-sql-server-on-azure-vms"></a>Procedimientos recomendados para la configuración de HADR (SQL Server en Azure Virtual Machines)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,13 +36,14 @@ Revise la siguiente lista de comprobación para obtener una breve introducción 
 
 Para el clúster de Windows, tenga en cuenta estos procedimientos recomendados: 
 
+* Implemente las máquinas virtuales con SQL Server en varias subredes siempre que sea posible para evitar la dependencia de un nombre de red distribuida (DNN) o una instancia de Azure Load Balancer para enrutar el tráfico a la solución de alta disponibilidad y recuperación ante desastres. 
 * Cambie el clúster a parámetros menos agresivos para evitar interrupciones inesperadas de errores de red transitorios o mantenimiento de la plataforma de Azure. Para más información, consulte la [configuración de latidos y umbrales](#heartbeat-and-threshold). Para Windows Server 2012 y versiones posteriores, utilice los siguientes valores recomendados: 
    - **SameSubnetDelay**: 1 segundo
    - **SameSubnetThreshold**: 40 latidos
    - **CrossSubnetDelay**: 1 segundo
    - **CrossSubnetThreshold**: 40 latidos
 * Coloque las máquinas virtuales en un conjunto de disponibilidad o en distintas zonas de disponibilidad.  Para más información, consulte [Configuración de disponibilidad de máquinas virtuales.](#vm-availability-settings) 
-* Use una sola NIC por nodo de clúster y una sola subred. 
+* Use una sola NIC por nodo de clúster. 
 * Configure la [votación de cuórum](#quorum-voting) de clúster para usar 3 o más números de votos impares. No asigne votos a las regiones de recuperación ante desastres. 
 * Supervise detenidamente los [límites de recursos](#resource-limits) para evitar reinicios inesperados o conmutaciones por error debido a restricciones de recursos.
    - Asegúrese de que el sistema operativo, controladores y SQL Server disponen de las versiones más recientes. 
@@ -58,7 +59,7 @@ Para el grupo de disponibilidad SQL Server o la instancia de clúster de conmuta
    `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`.   
    Comience con 40 segundos. Si usa los valores `SameSubnetThreshold` y `SameSubnetDelay` flexibles recomendados anteriormente, no supere los 80 segundos para el valor de tiempo de espera de concesión.   
    - **Número máximo de errores en un período especificado**: establezca este valor en 6. 
-* Cuando use el nombre de red virtual (VNN) para conectarse a la solución HADR, especifique `MultiSubnetFailover = true` en la cadena de conexión, incluso si el clúster solo abarca una subred. 
+* Cuando use el nombre de red virtual (VNN) y Azure Load Balancer para conectarse a una solución de alta disponibilidad y recuperación ante desastres, especifique `MultiSubnetFailover = true` en la cadena de conexión, incluso si el clúster solo abarca una subred. 
    - Si el cliente no admite `MultiSubnetFailover = True`, es posible que deba establecer `RegisterAllProvidersIP = 0` y `HostRecordTTL = 300` para copiar en caché las credenciales de cliente durante períodos más cortos. Sin embargo, esto puede provocar consultas adicionales en el servidor DNS. 
 - Para conectarse a la solución HADR mediante el nombre de red distribuida (DNN), tenga en cuenta lo siguiente:
    - Debe usar un controlador cliente que admita `MultiSubnetFailover = True` y este parámetro debe estar en la cadena de conexión. 
@@ -115,15 +116,20 @@ Al modificar la configuración de voto de nodo, siga estas instrucciones:
 
 ## <a name="connectivity"></a>Conectividad
 
+Para que no sienta que hay diferencia entre conectarse a la escucha de grupo de disponibilidad o a la instancia de clúster de conmutación por error y usar el entorno local, implemente las máquinas virtuales de SQL Server en varias subredes dentro de la misma red virtual. El hecho de tener varias subredes elimina la necesidad de la dependencia adicional de una instancia de Azure Load Balancer o un nombre de red distribuida para enrutar el tráfico al cliente de escucha.  
 
-Es posible configurar un nombre de red virtual (VNN) o a partir de SQL Server 2019, un nombre de red distribuida (DNN) para las instancias de clúster de conmutación por error y los clientes de escucha del grupo de disponibilidad. 
+Para simplificar la solución de alta disponibilidad y recuperación ante desastres, implemente las máquinas SQL Server virtuales en varias subredes siempre que sea posible.  Para más información, consulte los apartado sobre [grupos de disponibilidad en varias subredes](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) e [instancias de clúster de conmutación por error](failover-cluster-instance-prepare-vm.md#subnets) en varias subredes. 
+
+Si las máquinas virtuales de SQL Server están en una sola subred, es posible configurar un nombre de red virtual (VNN) y un instancia de Azure Load Balancer, o bien un nombre de red distribuida (DNN) tanto para las instancias de clúster de conmutación por error como para las escuchas de grupo de disponibilidad. 
 
 El nombre de red distribuida es la opción de conectividad recomendada, cuando esté disponible: 
 - La solución de un extremo a otro es más sólida, dado que ya no tiene que mantener el recurso del equilibrador de carga. 
 - La eliminación de los sondeos del equilibrador de carga reduce al mínimo la duración de la conmutación por error. 
 - El nombre de red distribuida simplifica el aprovisionamiento y la administración de la instancia de clúster de conmutación por error o del cliente de escucha del grupo de disponibilidad con VM con SQL Server en Azure. 
 
-Si usa DNN, un grupo de disponibilidad o FCI que abarca varias subredes, debe usar un controlador de cliente que admita el parámetro MultiSubnetFailover y especificar MultiSubnetFailover=True en la cadena de conexión. En el caso de los grupos de disponibilidad, la cadena de conexión debe contener el número de puerto DNN (no es necesario para FCI). 
+Tenga en cuenta las limitaciones siguientes: 
+- El controlador del cliente debe admitir el parámetro `MultiSubnetFailover=True`. 
+- La característica de DNN está disponible a partir de [SQL Server 2016 SP3](https://support.microsoft.com/topic/kb5003279-sql-server-2016-service-pack-3-release-information-46ab9543-5cf9-464d-bd63-796279591c31), [SQL Server 2017 CU25](https://support.microsoft.com/topic/kb5003830-cumulative-update-25-for-sql-server-2017-357b80dc-43b5-447c-b544-7503eee189e9) y [SQL Server 2019 CU8](https://support.microsoft.com/topic/cumulative-update-8-for-sql-server-2019-ed7f79d9-a3f0-a5c2-0bef-d0b7961d2d72) en Windows Server 2016, y en las versiones posteriores.
 
 Para más información, consulte la [introducción al clúster de conmutación por error de Windows Server](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn). 
 
@@ -285,6 +291,8 @@ Los límites de máquina virtual o disco podrían dar lugar a un cuello de botel
 
 ## <a name="networking"></a>Redes
 
+Implemente las máquinas virtuales con SQL Server en varias subredes siempre que sea posible para evitar la dependencia de un nombre de red distribuida (DNN) o una instancia de Azure Load Balancer para enrutar el tráfico a la solución de alta disponibilidad y recuperación ante desastres.
+
 Use una sola NIC por servidor (nodo de clúster). La red de Azure tiene redundancia física, lo que hace que las NIC adicionales sean innecesarias en un clúster invitado de máquina virtual de Azure. El informe de validación de clúster le avisará de que solo se puede tener acceso a los nodos en una sola red. Puede omitir esta advertencia en los clústeres de conmutación por error invitados de máquinas virtuales de Azure. 
 
 Los límites de ancho de banda de una máquina virtual determinada se comparten entre las NIC y la adición de una NIC adicional no mejora el rendimiento del grupo de disponibilidad para SQL Server en máquinas virtuales de Azure. Por lo tanto, no es necesario agregar una segunda NIC. 
@@ -300,10 +308,7 @@ Considere un escenario en el que se crea un clúster de dos nodos y se pone en c
 5. Cuando NODE2 intenta establecer conectividad con NODE1, los paquetes dirigidos a NODE1 nunca abandonan NODE2, porque resuelve la dirección IP de NODE1 en sí mismo. NODE2 no puede establecer conectividad con NODE1, pierde el cuórum y cierra el clúster.
 6. NODE1 puede enviar paquetes a NODE2, pero NODE2 no puede responder. Node1 pierde el cuórum y cierra el clúster.
 
-Puede evitar este escenario asignando una dirección IP estática no utilizada al nombre de red del clúster para poner en línea el nombre de red del clúster. Por ejemplo, puede usar una dirección IP de vínculo local como 169.254.1.1. Para simplificar este proceso, vea [Configuración del clúster de conmutación por error de Windows en Azure para grupos de disponibilidad](https://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
-
-Para más información, vea [Configuración de grupos de disponibilidad en Azure (GUI)](./availability-group-quickstart-template-configure.md).
-
+Puede evitar este escenario asignando una dirección IP estática no utilizada al nombre de red del clúster para poner en línea el nombre de red del clúster y agregar la dirección IP a [Azure Load Balancer](availability-group-load-balancer-portal-configure.md).
 
 ## <a name="known-issues"></a>Problemas conocidos
 

@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/02/2020
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: 327c030708f37bffab05aa72884422a487b6b729
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 0eea2233a2b6b59c92b49ca325378a95301fc962
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130166945"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158859"
 ---
 # <a name="configure-azure-load-balancer-for-an-fci-vnn"></a>Configuración de Azure Load Balancer para un VNN de instancia de clúster de conmutación por error
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
+> [!TIP]
+> Elimine la necesidad de Azure Load Balancer para la instancia de clúster de conmutación por error mediante la creación de las máquinas virtuales de SQL Server en varias subredes dentro de la misma red virtual de Azure.
 
 En máquinas virtuales de Azure, los clústeres usan un equilibrador de carga para mantener una dirección IP que es preciso que esté en un único nodo de clúster a la vez. En esta solución, el equilibrador de carga contiene la dirección IP del nombre de red virtual (VNN) que utiliza el recurso en clúster en Azure. 
 
@@ -274,7 +277,7 @@ Para obtener más información, consulte:
 - [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
 - [Instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines](failover-cluster-instance-overview.md)
 - [Información general de las instancias de clúster de conmutación por error](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
-- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)
+- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)
 
 
 

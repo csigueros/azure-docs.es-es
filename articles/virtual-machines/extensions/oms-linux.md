@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 11/02/2021
-ms.openlocfilehash: 3c857f01ba5a706c8b20289221badbee3aa3dccf
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 5a65c30c9b1499441eae8bea51d90a49d0c4f390
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131471637"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132277151"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Log Analytics para Linux
 
@@ -22,7 +22,7 @@ ms.locfileid: "131471637"
 Los registros de Azure Monitor proporcionan funcionalidades de supervisión, generación de alertas y corrección de alertas a los recursos locales y en la nube. Microsoft, como editor de la extensión de máquina virtual de Log Analytics para Linux, es quien presta los servicios de soporte técnico para esta solución. La extensión instala el agente de Log Analytics en Azure Virtual Machines e inscribe las máquinas virtuales en un área de trabajo de Log Analytics. En este documento se especifican las plataformas compatibles, configuraciones y opciones de implementación de la extensión de máquina virtual de Log Analytics para Linux.
 
 > [!NOTE]
-> Los servidores habilitados para Azure Arc permiten implementar, quitar y actualizar extensiones de VM del agente de análisis de registros en máquinas Windows y Linux que no son de Azure, lo que simplifica la administración de la máquina híbrida durante su ciclo de vida. Para más información, vea [Administración de extensiones de máquina virtual con servidores habilitados para Azure Arc](../../azure-arc/servers/manage-vm-extensions.md).
+> Los servidores habilitados para Azure Arc permiten implementar, quitar y actualizar extensiones de VM del agente de análisis de registros en máquinas Windows y Linux que no son de Azure, lo que simplifica la administración de la máquina híbrida durante su ciclo de vida. Para obtener más información, vea [Administración de extensiones de máquina virtual con servidores habilitados para Azure Arc](../../azure-arc/servers/manage-vm-extensions.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -58,9 +58,9 @@ En la tabla siguiente se proporciona una asignación de la versión de la extens
 | 1.3.127.7 | [1.3.5-127](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent-201705-v1.3.5-127)|
 | 1.3.18.7 | [1.3.4-15](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent-201704-v1.3.4-15)|  
 
-### <a name="azure-security-center"></a>Azure Security Center
+### <a name="microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud
 
-Azure Security Center aprovisiona automáticamente el agente de Log Analytics y lo conecta con el área de trabajo de Log Analytics predeterminada creada por ASC en su suscripción a Azure. Si utiliza Azure Security Center, no siga los pasos de este documento. Si lo hace, sobrescribirá el área de trabajo configurada e interrumpirá la conexión con Azure Security Center.
+Microsoft Defender for Cloud aprovisiona automáticamente el agente de Log Analytics y lo conecta con el área de trabajo predeterminada de Log Analytics creada por Defender for Cloud de la suscripción de Azure. Si usa Microsoft Defender for Cloud, no siga los pasos descritos en este documento. Si lo hace, sobrescribirá el área de trabajo configurada e interrumpirá la conexión con Microsoft Defender for Cloud.
 
 ### <a name="internet-connectivity"></a>Conectividad de Internet
 

@@ -1,14 +1,14 @@
 ---
 title: Más información acerca de los dispositivos detectados por todos los sensores de la empresa
 description: Use el inventario de dispositivos de la consola de administración local para obtener una vista completa con la información de dispositivo de los sensores conectados. Use las herramientas de importación, exportación y filtrado para administrar esta información.
-ms.date: 12/02/2020
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 3a92d1950bd1fab5ea6e94a433aad1d74802fb23
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: 0025016dd449bf4083c707d4a6db5cd25bf66cfd
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132027268"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343674"
 ---
 # <a name="investigate-all-enterprise-sensor-detections-in-the-device-inventory"></a>Análisis de las detecciones de todos los sensores de la empresa del inventario de dispositivos
 
@@ -25,7 +25,7 @@ En la tabla siguiente se describen las columnas de la tabla del inventario de di
 | **Región** | Región que contiene este dispositivo. |
 | **Sitio** | Sitio que contiene este dispositivo. |
 | **Zona** | Zona que contiene este dispositivo. |
-| **Dispositivo** | Sensor de Azure Defender para IoT que protege este dispositivo. |
+| **Dispositivo** | Sensor de Microsoft Defender para IoT que protege este dispositivo. |
 | **Nombre** | Nombre de este dispositivo tal y como Defender para IoT lo ha detectado. |
 | **Type** | Tipo de dispositivo, como PLC o HMI. |
 | **Proveedor** | Nombre del proveedor del dispositivo, tal y como se define en la dirección MAC. |

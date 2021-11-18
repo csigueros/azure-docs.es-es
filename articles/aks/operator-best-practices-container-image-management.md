@@ -4,12 +4,12 @@ description: Obtenga información sobre los procedimientos recomendados del oper
 services: container-service
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: 998d8602b6aa0e71a04f75aff1c29551ba09c8a3
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: e6c767d1fdf765739f361b91df21e5bc104bc171
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105126"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306536"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la administración y la protección de las imágenes de contenedor en Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ En este artículo se indica cómo proteger los contenedores de AKS. Aprenderá a
 
 También puede leer los procedimientos recomendados para la [seguridad del clúster][best-practices-cluster-security] y la [seguridad de pod][best-practices-pod-security].
 
-También puede usar la [seguridad de contenedor de Security Center][security-center-containers] para facilitar el análisis de los contenedores en busca de vulnerabilidades. La [integración de Azure Container Registry][security-center-acr] con Security Center ayuda a proteger las imágenes y el Registro de vulnerabilidades.
+También puede usar la [seguridad de contenedor de Defender for Cloud][security-center-containers] para facilitar el análisis de los contenedores en busca de vulnerabilidades. La [integración de Azure Container Registry][security-center-acr] con Defender for Cloud ayuda a proteger las imágenes y el registro de vulnerabilidades.
 
 ## <a name="secure-the-images-and-run-time"></a>Proteger las imágenes y el tiempo de ejecución
 

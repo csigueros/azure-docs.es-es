@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/29/2020
 ms.author: jeedes
-ms.openlocfilehash: 1ae507e0c730f876448bcd501bdf787bbebd1af0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 68d0b88c994d47a2475e13f6cbf51a188f9b1b40
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124741735"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132280243"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nature-research"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Nature Research
 
@@ -58,7 +58,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con Nature Research 
 Para configurar y probar el inicio de sesión único de Azure AD con Nature Research, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Nature Research](#configure-nature-research-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
@@ -138,4 +138,4 @@ También puede usar el Panel de acceso de Microsoft para probar la aplicación e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Nature Research, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Nature Research, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

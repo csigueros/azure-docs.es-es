@@ -7,12 +7,12 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 10/05/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 507e7a97c0ec884580b0a29fd8a8691035221751
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 72e869b1439e5fd9bcb77af57bd4e0d3d8f6a677
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131085987"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324809"
 ---
 # <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-the-azure-portal"></a>Creación de un flujo de trabajo de integración con Azure Logic Apps (estándar) de inquilino único en Azure Portal
 
@@ -77,7 +77,7 @@ A medida que avance, completará estas tareas de alto nivel:
    | **Suscripción** | Sí | <*Azure-subscription-name*> | La suscripción de Azure que se usa para la aplicación lógica. |
    | **Grupo de recursos** | Sí | <*nombre del grupo de recursos de Azure*> | El grupo de recursos de Azure en el que se crea la aplicación lógica y los recursos relacionados. El nombre del recurso debe ser único entre las regiones y solo puede contener letras, números, guiones ( **-** ), caracteres de subrayado ( **_** ), paréntesis ( **()** ) y puntos ( **.** ). <p><p>En este ejemplo se crea un grupo de recursos denominado `Fabrikam-Workflows-RG`. |
    | **Tipo** | Sí | **Estándar** | Este tipo de recurso de aplicación lógica se ejecuta en el entorno de Azure Logic Apps de un solo inquilino y usa el [modelo de uso, facturación y precios Estándar](logic-apps-pricing.md#standard-pricing). |
-   | **Nombre de la aplicación lógica** | Sí | <*nombre-de-la-aplicación-lógica*> | Nombre que se va a usar para la aplicación lógica. El nombre del recurso debe ser único entre las regiones y solo puede contener letras, números, guiones ( **-** ), caracteres de subrayado ( **_** ), paréntesis ( **()** ) y puntos ( **.** ). <p><p>En este ejemplo se crea una aplicación lógica denominada `Fabrikam-Workflows`. <p><p>**Nota**: El nombre de la aplicación lógica obtiene automáticamente el sufijo, `.azurewebsites.net`, porque el recurso **Aplicación lógica (estándar)** está basado en el entorno de ejecución de Azure Logic Apps de inquilino único, que usa el modelo de extensibilidad de Azure Functions y se hospeda como una extensión en el sistema en tiempo de ejecución de Azure Functions. Azure Functions usa la misma convención de nomenclatura de aplicaciones. |
+   | **Nombre de la aplicación lógica** | Sí | <*nombre-de-la-aplicación-lógica*> | Nombre que se va a usar para la aplicación lógica. El nombre del recurso debe ser único entre las regiones y solo puede contener letras, números, guiones ( **-** ), caracteres de subrayado ( **_** ), paréntesis ( **()** ) y puntos ( **.** ). <p><p>En este ejemplo se crea una aplicación lógica denominada `Fabrikam-Workflows`. <p><p>**Nota**: El nombre de la aplicación lógica obtiene automáticamente el sufijo, `.azurewebsites.net`, porque el recurso **Logic App (Standard)** (Aplicación lógica [estándar]) está basado en el entorno de ejecución de Azure Logic Apps de inquilino único, que usa el modelo de extensibilidad de Azure Functions y se hospeda como una extensión en el entorno de ejecución de Azure Functions. Azure Functions usa la misma convención de nomenclatura de aplicaciones. |
    | **Publicar** | Sí | <*entorno-de-implementación*> | El destino de implementación de la aplicación lógica. De forma predeterminada, se selecciona **Flujo de trabajo** para la implementación en Azure Logic Apps de un solo inquilino. Azure crea un recurso de aplicación lógica vacío donde tiene que agregar el primer flujo de trabajo. <p><p>**Nota**: Actualmente, la opción **Contenedor de Docker** requiere una [*ubicación personalizada*](../azure-arc/kubernetes/conceptual-custom-locations.md) en un clúster de Kubernetes habilitado para Azure Arc, que puede utilizar con [instancias de Logic Apps habilitadas para Azure Arc (versión preliminar)](azure-arc-enabled-logic-apps-overview.md). Las ubicaciones del recurso de la aplicación lógica, la ubicación personalizada y el clúster deben tener los mismos valores. |
    | **Región** | Sí | <*Azure-region*> | Ubicación que se usará para crear el grupo de recursos y los recursos. En este ejemplo se implementa la aplicación lógica de ejemplo en Azure y se usa **Oeste de EE. UU.** <p>- Si seleccionó **Contenedor de Docker**, seleccione la ubicación personalizada. <p>- Para implementar en un recurso de [ASEv3,](../app-service/environment/overview.md) que debe existir primero, seleccione ese recurso de entorno en la lista **Región**. |
    |||||
@@ -148,7 +148,7 @@ Después de crear el recurso de aplicación lógica vacío, debe agregar su prim
 
 En este ejemplo se crea un flujo de trabajo que tiene estos pasos:
 
-* El [desencadenar Solicitud](../connectors/connectors-native-reqres.md) integrado, **Cuando se recibe una solicitud HTTP**, que recibe llamadas o solicitudes entrantes y crea un punto de conexión al que pueden llamar otros servicios o aplicaciones lógicas.
+* El [desencadenador de solicitud](../connectors/connectors-native-reqres.md) integrado, **Cuando se recibe una solicitud HTTP**, que recibe llamadas o solicitudes entrantes y crea un punto de conexión al que pueden llamar otros servicios o aplicaciones lógicas.
 
 * La [acción de Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), **Enviar correo electrónico**.
 
@@ -158,7 +158,7 @@ Antes de poder agregar un desencadenador a un flujo de trabajo en blanco, asegú
 
 1. Junto a la superficie del diseñador, en el panel **Agregar un desencadenador**, en el cuadro de búsqueda **Elija una operación**, compruebe que la pestaña **Integrado** esté seleccionada. En esta pestaña se muestran los desencadenadores que se ejecutan de forma nativa en Azure Logic Apps.
 
-1. En el cuadro de búsqueda **Elegir una operación**, escriba `when a http request` y seleccione el desencadenador Solicitud integrado denominado **Cuando se recibe una solicitud HTTP**.
+1. En el cuadro de búsqueda **Elegir una operación**, escriba `when a http request` y seleccione el desencadenador de solicitud integrado denominado **Cuando se recibe una solicitud HTTP**.
 
    ![Captura de pantalla que muestra el diseñador y el panel **Agregar un desencadenador** con el desencadenador "Cuando se recibe una solicitud HTTP" seleccionado.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger.png)
 

@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 07/13/2021
+ms.date: 11/10/2021
 ms.custom: contperf-fy20q4, tracking-python, security
-ms.openlocfilehash: 6a10384757552108aefc3dd828bf0fd7ddce2f82
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: b978955c375ff30f677a395ea549276b960a80d9
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427502"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293105"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Habilitación de Azure Machine Learning Studio en una Azure Virtual Network
 
@@ -71,11 +71,18 @@ En este artículo aprenderá a:
 
 ### <a name="azure-storage-account"></a>Cuenta de Azure Storage
 
-Hay un problema conocido en el que el almacén de archivos predeterminado no crea automáticamente la carpeta `azureml-filestore` necesaria para enviar experimentos de aprendizaje automático automatizado. Esto sucede cuando los usuarios seleccionan un almacén de archivos existente para establecerlo como predeterminado durante la creación del área de trabajo.
+Hay un problema conocido en el que el almacén de archivos predeterminado no crea automáticamente la carpeta `azureml-filestore` necesaria para enviar experimentos de aprendizaje automático automatizado. Este problema sucede cuando los usuarios seleccionan un almacén de archivos existente para establecerlo como predeterminado durante la creación del área de trabajo.
 
-Tiene dos opciones para evitar este problema: 1) Use el almacén de archivos predeterminado que se crea automáticamente durante la creación del área de trabajo. 2) Para seleccionar su propio almacén de archivos, asegúrese de que este está fuera de la red virtual durante la creación del área de trabajo. Una vez creada el área de trabajo, agregue la cuenta de almacenamiento a la red virtual.
+Para evitarlo, tiene dos opciones: 1) Usar el almacén de archivos predeterminado, que se crea automáticamente durante la creación del área de trabajo. 2) Seleccionar su propio almacén de archivos, pero asegurándose de que está fuera de la red virtual durante la creación del área de trabajo. Una vez creada el área de trabajo, agregue la cuenta de almacenamiento a la red virtual.
 
-Para resolver este problema, elimine la cuenta del almacén de archivos de la red virtual y, a continuación, agréguela de nuevo.
+Para resolver este problema, elimine la cuenta del almacén de archivos de la red virtual y, luego, vuelva a agregarla.
+
+### <a name="designer-sample-pipeline"></a>Canalización de ejemplo del diseñador
+
+Hay un problema conocido que consiste en que el usuario no puede ejecutar una canalización de ejemplo en la página principal del diseñador. El conjunto de datos de ejemplo que se usa en la canalización de ejemplo es el conjunto de datos global de Azure, que no puede satisfacer todo el entorno de red virtual.
+
+Para resolver este problema, puede usar un área de trabajo pública para ejecutar la canalización de ejemplo a fin de aprender a usar el diseñador y, luego, reemplazar el conjunto de datos de ejemplo por su propio conjunto de datos en el área de trabajo de la red virtual.
+
 ## <a name="datastore-azure-storage-account"></a>Almacén datos: cuenta de Azure Storage
 
 Siga estos pasos para habilitar el acceso a los datos almacenados en Azure Blob Storage y File Storage:
@@ -90,7 +97,7 @@ Siga estos pasos para habilitar el acceso a los datos almacenados en Azure Blob 
 1. **Conceda a la identidad administrada del área de trabajo el rol "Lector" para los puntos de conexión privados de almacenamiento.** Si el servicio de almacenamiento usa un __punto de conexión privado__, conceda a la identidad administrada del área de trabajo acceso de **Lector** al punto de conexión privado. La identidad administrada del área de trabajo de Azure AD se llama igual que el área de trabajo de Azure Machine Learning.
 
     > [!TIP]
-    > La cuenta de almacenamiento puede tener varios puntos de conexión privados. Por ejemplo, una cuenta de almacenamiento puede tener un punto de conexión privado independiente para el almacenamiento de blobs y archivos. Agregue la identidad administrada a ambos puntos de conexión.
+    > La cuenta de almacenamiento puede tener varios puntos de conexión privados. Por ejemplo, una cuenta de almacenamiento puede tener un punto de conexión privado independiente para blobs, archivos e instancias de DFS (Azure Data Lake Storage Gen2). Agregue la identidad administrada a todos estos puntos de conexión.
 
     Para más información, consulte el rol integrado [Lector](../role-based-access-control/built-in-roles.md#reader).
 
@@ -130,7 +137,7 @@ Si usa Azure Data Lake Storage Gen1 como almacén de datos, solo puede utilizar 
 
 Si usa Azure Data Lake Storage Gen2, como almacén de datos, puede usar listas de control de acceso de Azure RBAC y de estilo POSIX para controlar el acceso a los datos dentro de una red virtual.
 
-[Para usar Azure RBAC](../role-based-access-control/built-in-roles.md#storage-blob-data-reader), agregue la identidad administrada del área de trabajo al rol de **Lector de datos de blob**. Para obtener más información, consulte [Control de acceso basado en roles de Azure](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
+**Para usar Azure RBAC**, siga los pasos de la sección [Almacén de datos: cuenta de Azure Storage](#datastore-azure-storage-account) de este artículo. Data Lake Storage Gen2 se basa en Azure Storage, por lo que se aplican los mismos pasos al usar Azure RBAC.
 
 **Para usar las listas de control de acceso**, el acceso de la identidad administrada del área de trabajo se puede asignar como cualquier otra entidad de seguridad. Para obtener más información, vea [Listas de control de acceso en archivos y directorios](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
@@ -140,13 +147,13 @@ Para acceder a los datos almacenados en una base de datos de Azure SQL Database 
 
 Después de crear un usuario independiente de SQL, utilice el [comando GRANT de T-SQL](/sql/t-sql/statements/grant-object-permissions-transact-sql) para concederle permisos.
 
-## <a name="intermediate-module-output"></a>Salida del módulo intermedio
+## <a name="intermediate-component-output"></a>Salida de componente intermedio
 
-Cuando se usa la salida del módulo intermedio del diseñador de Azure Machine Learning, puede especificar la ubicación de salida de cualquier módulo del diseñador. Úselo para almacenar conjuntos de datos intermedios en una ubicación independiente para la seguridad, el registro o la auditoría. Para especificar la salida, siga estos pasos:
+Cuando se usa la salida de componente intermedio del diseñador de Azure Machine Learning, se puede especificar la ubicación de salida de cualquier componente del diseñador. Úselo para almacenar conjuntos de datos intermedios en una ubicación independiente para la seguridad, el registro o la auditoría. Para especificar la salida, siga estos pasos:
 
-1. Seleccione el módulo cuya salida quiere especificar.
-1. En el panel de configuración del módulo que aparece a la derecha, seleccione **Configuración de salida**.
-1. Especifique el almacén de datos que desea usar para cada salida del módulo.
+1. Seleccione el componente cuya salida quiere especificar.
+1. En el panel de configuración del componente que aparece a la derecha, seleccione **Configuración de salida**.
+1. Especifique el almacén de datos que quiere usar para cada salida de componente.
 
 Asegúrese de que tiene acceso a las cuentas de almacenamiento intermedias en la red virtual. De lo contrario, se producirá un error en la canalización.
 

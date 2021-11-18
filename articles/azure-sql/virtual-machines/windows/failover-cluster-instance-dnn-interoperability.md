@@ -11,18 +11,21 @@ ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/02/2020
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: b868de74376199fdc173c41e8711575b44e67200
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: adacd4e8264b7fcd4c0389f8d575247a17a664aa
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164790"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158967"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>Interoperabilidad de características con FCI y DNN de SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
+> [!TIP]
+> Elimine la necesidad de un nombre de red distribuida (DNN) para la instancia de clúster de conmutación por error mediante la creación de las máquinas virtuales de SQL Server en varias subredes dentro de la misma red virtual de Azure.
 
 Existen determinadas características de SQL Server que dependen de un nombre de red virtual (VNN) codificado de forma rígida. Por lo tanto, al utilizar el recurso de nombre de red distribuida (DNN) con la instancia de clúster de conmutación por error y SQL Server en máquinas virtuales de Azure, se requieren algunas atenciones adicionales. 
 
@@ -181,5 +184,5 @@ Para obtener más información, consulte:
 - [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
 - [Instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines](failover-cluster-instance-overview.md)
 - [Información general de las instancias de clúster de conmutación por error](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
-- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)
+- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)
 

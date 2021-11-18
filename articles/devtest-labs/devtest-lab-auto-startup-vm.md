@@ -3,14 +3,14 @@ title: Configuración del inicio automático de una máquina virtual
 description: Aprenda a configurar el inicio automático para las máquinas virtuales de un laboratorio. Esta configuración permite que las máquinas virtuales del laboratorio se inicien automáticamente según una programación.
 ms.topic: how-to
 ms.date: 10/21/2021
-ms.openlocfilehash: 8493a5037c01741c11f89ec5df84adac2d2d70c3
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: ea4220af8a3d7ade997b9e64b7164757edfc165a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130255031"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286723"
 ---
-# <a name="auto-startup-lab-virtual-machines"></a>Inicio automático de máquinas virtuales del laboratorio
+# <a name="start-up-lab-virtual-machines-automatically"></a>Inicio automático de máquinas virtuales de laboratorio
 
 El inicio automático permite iniciar automáticamente máquinas virtuales (VM) en un laboratorio a una hora programada cada día. Primero debe crear una directiva de inicio automático. Luego, debe seleccionar qué máquinas virtuales deben seguir la directiva. El paso adicional de seleccionar de forma afirmativa las máquinas virtuales para el inicio automático está pensado para evitar el inicio involuntario de las máquinas virtuales, que conllevaría un aumento de los costos.
 
@@ -18,7 +18,7 @@ En este artículo se muestra cómo configurar una directiva de inicio automátic
 
 ## <a name="configure-auto-start-settings-for-a-lab"></a>Configuración del inicio automático en un laboratorio 
 
-La directiva no aplica automáticamente el inicio automático a ninguna máquina virtual del laboratorio. Después de configurar la directiva, siga los pasos que se indican en [Habilitación del inicio automático para una máquina virtual en el laboratorio](#enable-auto-start-for-a-vm-in-the-lab).
+La directiva no aplica automáticamente el inicio automático a ninguna máquina virtual del laboratorio. Después de configurar la directiva, siga los pasos que se indican en [Habilitación del inicio automático para una máquina virtual en el laboratorio](#enable-auto start-for-a-vm-in-the-lab).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
@@ -64,4 +64,4 @@ Estos pasos continúan desde la sección anterior. Ahora que se ha creado una di
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para información sobre cómo configurar la directiva de apagado automático para un laboratorio, consulte [Administración de directivas de apagado automático para un laboratorio en Azure DevTest Labs](devtest-lab-auto-shutdown.md).
+- [Administre la directiva de apagado automático para un laboratorio en Azure DevTest Labs](devtest-lab-auto-shutdown.md)

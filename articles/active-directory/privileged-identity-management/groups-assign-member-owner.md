@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/07/2021
+ms.date: 11/09/2021
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f2978f2ee0eca3aef438d05f1e8aebbee3eeb1
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 62012b910ad1e08291760a2aea0747bf5d4c024d
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129667694"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157587"
 ---
 # <a name="assign-eligibility-for-a-privileged-access-group-preview-in-privileged-identity-management"></a>Asignación de la elegibilidad para un grupo de acceso con privilegios (versión preliminar) en Privileged Identity Management
 
@@ -34,7 +34,8 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) puede ay
 
 Siga estos pasos para hacer que un usuario sea elegible para ser miembro o propietario de un grupo de acceso con privilegios.
 
-1. [Inicie sesión en Azure AD](https://aad.portal.azure.com) con permisos de administrador global o de propietario de grupo.
+1. Inicie sesión en el [centro de administración de Azure AD](https://aad.portal.azure.com/) con un usuario que tenga el rol [Administrador global](../roles/permissions-reference.md#global-administrator), el rol Administrador de roles con privilegios o el rol Propietario del grupo.
+
 1. Seleccione **Grupos** y, a continuación, seleccione el grupo al que se pueden asignar roles que quiera administrar. Puede buscar o filtrar la lista.
 
     ![buscar un grupo al que se pueden asignar roles para administrarlo en PIM](./media/groups-assign-member-owner/groups-list-in-azure-ad.png)

@@ -131,8 +131,8 @@
           href: how-to-reports.md
     - name: Solución de problemas
       items:
-        - name: Solución de problemas de enrutamiento
-          href: troubleshoot-route-issues.md
+        - name: Solución de problemas de Front Door
+          href: ../troubleshoot-issues.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
         - name: Entidades de certificación permitidas
           href: 'https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT'
         - name: Compresión de archivos

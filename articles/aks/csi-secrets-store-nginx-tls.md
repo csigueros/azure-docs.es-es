@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: how-to
 ms.date: 10/19/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f7c40dbcf0944ca5c78182d72346f3fc295ef50c
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: dd6945da0b3c4170082d20e5481d06048b7c3dde
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131848750"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284804"
 ---
 # <a name="set-up-secrets-store-csi-driver-to-enable-nginx-ingress-controller-with-tls"></a>Configuración del controlador CSI del almacén de secretos para habilitar el controlador de entrada NGINX con TLS
 
@@ -23,13 +23,12 @@ La importación del certificado TLS de entrada en el clúster se puede realizar 
 - **Aplicación**: el manifiesto de implementación de la aplicación declara y monta el volumen del proveedor. Solo cuando se implementa la aplicación, el certificado pasa a estar disponible en el clúster y, cuando se quita la aplicación, también se quita el secreto. Este escenario se adapta a los equipos de desarrollo responsables de la infraestructura de seguridad de la aplicación y su integración con el clúster.
 - **Controlador de entrada**: la implementación de entrada se modifica para declarar y montar el volumen del proveedor. El secreto se importa cuando se crean pods de entrada. Los pods de la aplicación no tienen acceso al certificado TLS. Este escenario se adapta a escenarios en los que un equipo (es decir, TI) administra y aprovisiona componentes de infraestructura y redes (incluidos los certificados TLS HTTPS) y otros equipos administran el ciclo de vida de las aplicaciones. En este caso, la entrada es específica de un único espacio de nombres o una única carga de trabajo y se implementa en el mismo espacio de nombres que la aplicación.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 - Antes de empezar, asegúrese de que la versión de la CLI de Azure es >= `2.30.0`, o bien [instale la versión más reciente](/cli/azure/install-azure-cli).
 - Un clúster de AKS con el controlador CSI del almacén de secretos configurado.
 - Una instancia de Azure Key Vault.
-
 
 ## <a name="generate-a-tls-certificate"></a>Generación de un certificado TLS
 
@@ -66,7 +65,8 @@ kubectl create ns $NAMESPACE
 ```
 
 Seleccione un [método para proporcionar una identidad de acceso][csi-ss-identity-access] y configurar la clase YAML secretProviderClass en consecuencia. Además:
-- Asegúrese de usar `objectType=secret`, ya que esta es la única manera de obtener la clave privada y el certificado de AKV.
+
+- Asegúrese de usar `objectType=secret`, la única manera de obtener la clave privada y el certificado de AKV.
 - Establezca `kubernetes.io/tls` como `type` en la sección `secretObjects`.
 
 Consulte lo siguiente para obtener un ejemplo del aspecto que podría tener la clase SecretProviderClass:
@@ -352,6 +352,6 @@ curl -v -k --resolve demo.test.com:443:52.xx.xx.xx https://demo.test.com
 ```
 
 <!-- LINKS INTERNAL -->
-[csi-ss-identity-access]: ./csi-secrets-store-identity-access.md 
+[csi-ss-identity-access]: ./csi-secrets-store-identity-access.md
 <!-- LINKS EXTERNAL -->
 [kubernetes-ingress-tls]: https://kubernetes.io/docs/concepts/services-networking/ingress/#tls

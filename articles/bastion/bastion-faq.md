@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 09/07/2021
 ms.author: cherylmc
-ms.openlocfilehash: ea55c6d1ca0575ed2f8487b332f3341579bd3a88
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 30c96f2d7b679b0032a2b8c406cc6c210c143a11
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131852225"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132062177"
 ---
 # <a name="azure-bastion-faq"></a>Preguntas más frecuentes sobre Azure Bastion
 
@@ -71,7 +71,7 @@ Para crear una conexión, se requieren los siguientes roles:
 * Rol Lector en la máquina virtual.
 * Rol de lector en la tarjeta de interfaz de red con la dirección IP privada de la máquina virtual.
 * Rol Lector en el recurso de Azure Bastion.
-* Rol Lector en la red virtual (no es necesario si no hay ninguna red virtual emparejada).
+* Rol Lector en la red virtual de la máquina virtual de destino (en el caso de que Bastion esté en una red virtual emparejada).
 
 ### <a name="does-azure-bastion-require-an-rds-cal-for-administrative-purposes-on-azure-hosted-vms"></a><a name="rdscal"></a>¿Requiere Azure Bastion una CAL de RDS con fines administrativos en máquinas virtuales hospedadas en Azure?
 

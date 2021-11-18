@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: cauribeg
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71648781edd8d202add7ce2a7cc6584173f0451b
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: ca60db1da300bd0b9576a2f08f9cf28e5cf01b66
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537465"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132298531"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Creación de una aplicación web y Azure Cache for Redis mediante una plantilla
 
@@ -21,20 +21,21 @@ ms.locfileid: "129537465"
 
 En este artículo, aprenderá a crear una plantilla de Azure Resource Manager que implementa una aplicación web de Azure Cache for Redis. Aprenderá los siguientes detalles de implementación:
 
-- Cómo definir qué recursos se implementan 
-- Cómo definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación
+- Cómo definir los recursos que se van a implementar.
+- Cómo definir los parámetros que se especifican cuando se ejecuta la implementación.
 
 Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
-Para obtener más información sobre la creación de plantillas, consulte [Creación de plantillas de Administrador de recursos de Azure](../azure-resource-manager/templates/syntax.md). Para información sobre la sintaxis y las propiedades de JSON para los tipos de recursos de caché, consulte [Tipos de recursos Microsoft.Cache](/azure/templates/microsoft.cache/allversions).
+Para más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/templates/syntax.md). Para información sobre la sintaxis y las propiedades de JSON para los tipos de recursos de caché, consulte [Tipos de recursos Microsoft.Cache](/azure/templates/microsoft.cache/allversions).
 
 Para ver la plantilla completa, consulte [Plantilla Aplicación web con Azure Cache for Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/web-app-with-redis-cache/azuredeploy.json).
 
 ## <a name="what-you-will-deploy"></a>Lo que implementará
+
 En esta plantilla, implementará lo siguiente:
 
-* Aplicación web de Azure
-* Azure Cache for Redis
+- Aplicación web de Azure
+- Azure Cache for Redis
 
 Para ejecutar automáticamente la implementación, seleccione el botón siguiente:
 

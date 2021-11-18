@@ -10,32 +10,32 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
 ms.custom: security-recommendations
-ms.openlocfilehash: 260f8682766187ba9cedb3b5bf951e06548c0048
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 0fdd17b924fe8588e0ece24fc185456bd5dc3bc5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113727947"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312156"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Recomendaciones de seguridad para Queue Storage
 
 Este artículo contiene recomendaciones de seguridad para Queue Storage. La implementación de estas recomendaciones le ayudará a cumplir sus obligaciones de seguridad, tal y como se describe en nuestro modelo de responsabilidad compartida. Para más información sobre lo que Microsoft hace para cumplir las responsabilidades del proveedor de servicios, consulte [Responsabilidades compartidas de la informática en la nube](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf).
 
-Algunas de las recomendaciones incluidas en este artículo se pueden supervisar automáticamente mediante Azure Security Center. Azure Security Center es la primera línea de defensa en la protección de los recursos de Azure. Para más información sobre Azure Security Center, consulte [¿Qué es Azure Security Center?](../../security-center/security-center-introduction.md)
+Algunas de las recomendaciones incluidas en este artículo se pueden supervisar automáticamente mediante Microsoft Defender for Cloud. Microsoft Defender for Cloud es la primera línea de defensa para proteger los recursos de Azure. Para obtener más información sobre Microsoft Defender for Cloud, consulte [¿Qué es Microsoft Defender for Cloud?](../../security-center/security-center-introduction.md).
 
-Azure Security Center analiza periódicamente el estado de seguridad de los recursos de Azure para identificar posibles puntos vulnerables de la seguridad. Después, proporciona recomendaciones sobre cómo abordarlas. Para más información sobre las recomendaciones de seguridad de Azure Security Center, consulte [Recomendaciones de seguridad en Azure Security Center](../../security-center/security-center-recommendations.md).
+Microsoft Defender for Cloud analiza periódicamente el estado de seguridad de los recursos de Azure para identificar posibles vulnerabilidades de seguridad. Después, proporciona recomendaciones sobre cómo abordarlas. Para más información sobre las recomendaciones de Microsoft Defender for Cloud, consulte [Recomendaciones de seguridad en Microsoft Defender for Cloud](../../security-center/security-center-recommendations.md).
 
 ## <a name="data-protection"></a>Protección de los datos
 
-| Recomendación | Comentarios | Security Center |
+| Recomendación | Comentarios | Defender for Cloud |
 |-|----|--|
 | Usar el modelo de implementación de Azure Resource Manager | Cree cuentas de almacenamiento mediante el modelo de implementación de Azure Resource Manager, ya que así logrará importantes mejoras en la seguridad, entre las que se incluyen el control de acceso basado en roles (RBAC) y una auditoría superiores, gobernanza e implementación basados en Resource Manager, acceso a identidades administradas, acceso a los secretos de Azure Key Vault y autorización y autenticación basadas en Azure AD para acceder a datos y recursos de Azure Storage. Si es posible, migre las cuentas de almacenamiento existentes que usan el modelo de implementación clásica para que usen Azure Resource Manager. Para más información sobre Azure Resource Manager, consulte [Introducción a Azure Resource Manager](../../azure-resource-manager/management/overview.md). | - |
-| Habilitar Advanced Threat Protection en todas las cuentas de almacenamiento | Advanced Threat Protection para Azure Storage proporciona un nivel adicional de inteligencia de seguridad que detecta intentos poco habituales y potencialmente peligrosos de acceder a las cuentas de almacenamiento o vulnerarlas. En Azure Security Center se desencadenan alertas de seguridad cuando se producen anomalías en alguna actividad y también se envían por correo electrónico a los administradores de las suscripciones con detalles de la actividad sospechosa y recomendaciones sobre cómo investigar y solucionar las amenazas. Para más información, consulte [Advanced Threat Protection para Azure Storage](../common/azure-defender-storage-configure.md). | [Sí](../../security-center/security-center-remediate-recommendations.md) |
+| Habilitar Advanced Threat Protection en todas las cuentas de almacenamiento | [Microsoft Defender para Storage](../../security-center/defender-for-storage-introduction.md) proporciona una capa adicional de inteligencia de seguridad que detecta intentos poco habituales y potencialmente peligrosos de acceder a las cuentas de almacenamiento o vulnerarlas. En Microsoft Defender for Cloud se desencadenan alertas de seguridad cuando se producen actividades anómalas y también se envían por correo electrónico a los administradores de las suscripciones, con detalles de la actividad sospechosa y recomendaciones sobre cómo investigar y solucionar las amenazas. Para más información, vea el artículo sobre la [protección de las cuentas de Azure Storage](../../security-center/defender-for-storage-introduction.md). | [Sí](../../security-center/security-center-remediate-recommendations.md) |
 | Limitar los tokens de firma de acceso compartido (SAS) solo a conexiones HTTPS | Requerir HTTPS cuando un cliente usa un token de SAS para acceder a los datos de la cola ayuda a minimizar el riesgo de espionaje. Para obtener más información, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../common/storage-sas-overview.md). | - |
 
 ## <a name="identity-and-access-management"></a>Administración de identidades y acceso
 
-| Recomendación | Comentarios | Security Center |
+| Recomendación | Comentarios | Defender for Cloud |
 |-|----|--|
 | Usar Azure Active Directory (Azure AD) para autorizar el acceso a los datos de la cola | Azure AD proporciona seguridad superior y facilidad de uso sobre la autorización de clave compartida para autorizar solicitudes en Queue Storage. Para más información, consulte [Autorización del acceso a datos en Azure Storage](../common/authorize-data-access.md). | - |
 | Tener en cuenta la entidad de seguridad de menor privilegio al asignar permisos a una entidad de seguridad de Azure AD a través de Azure RBAC | Al asignar un rol a un usuario, grupo o aplicación, conceda a esa entidad de seguridad exclusivamente los permisos necesarios para que pueda realizar sus tareas. Limitar el acceso a los recursos ayuda a prevenir el mal uso involuntario y malintencionado de los datos. | - |
@@ -47,7 +47,7 @@ Azure Security Center analiza periódicamente el estado de seguridad de los recu
 
 ## <a name="networking"></a>Redes
 
-| Recomendación | Comentarios | Security Center |
+| Recomendación | Comentarios | Defender for Cloud |
 |-|----|--|
 | Configurar la versión mínima necesaria de Seguridad de la capa de transporte (TLS) para una cuenta de almacenamiento  | Exija a los clientes que usen una versión más segura de TLS para realizar solicitudes en una cuenta de Azure Storage configurando la versión mínima de TLS para esa cuenta. Para más información, consulte [Configuración de la versión mínima necesaria de Seguridad de la capa de transporte (TLS) para una cuenta de almacenamiento](../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).| - |
 | Habilitar la opción **Se requiere transferencia segura** en todas las cuentas de almacenamiento | Cuando habilite la opción **Se requiere transferencia segura**, deben usarse conexiones seguras para realizar todas las solicitudes realizadas en la cuenta de almacenamiento. Las solicitudes realizadas a través de HTTP producirán un error. Para más información, consulte [Requerir transferencia segura en Azure Storage](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). | [Sí](../../security-center/security-center-remediate-recommendations.md) |
@@ -59,7 +59,7 @@ Azure Security Center analiza periódicamente el estado de seguridad de los recu
 
 ## <a name="logging-and-monitoring"></a>Registro y supervisión
 
-| Recomendación | Comentarios | Security Center |
+| Recomendación | Comentarios | Defender for Cloud |
 |-|----|--|
 | Hacer un seguimiento de cómo se autorizan las solicitudes | Habilite el registro de Azure Storage para realizar un seguimiento de cómo se autorizó cada solicitud realizada en Azure Storage. Los registros indican si una solicitud se realizó de forma anónima o mediante un token OAuth 2.0, una clave compartida o una firma de acceso compartido (SAS). Para más información, consulte [Registro de Azure Storage Analytics](../common/storage-analytics-logging.md). | - |
 

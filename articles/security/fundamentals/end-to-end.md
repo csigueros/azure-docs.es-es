@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/07/2021
 ms.author: terrylan
-ms.openlocfilehash: 9e68df70afdc0f8e35ec862d9f9570dd13306191
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: eb96e21644f6318320ee8a5c7c33b83a73a59c94
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114466061"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335506"
 ---
 # <a name="end-to-end-security-in-azure"></a>Seguridad integral en Azure
 Una de las mejores razones para usar Azure en sus aplicaciones y servicios es poder aprovechar su amplia gama de funcionalidades y herramientas de seguridad. Estas herramientas y funcionalidades permiten crear soluciones seguras en la plataforma Azure segura. Microsoft Azure proporciona confidencialidad, integridad y disponibilidad para los datos del cliente, al mismo tiempo que hace posible una responsabilidad transparente.
@@ -50,7 +50,7 @@ El programa [Azure Security Benchmark](../benchmarks/introduction.md) incluye un
 
 | Servicio | Descripción |
 |------|--------|
-| [Azure Security Center](../../security-center/security-center-introduction.md)| Un sistema unificado de administración de seguridad de la infraestructura que fortalece la posición de seguridad de los centros de datos y proporciona protección avanzada contra amenazas en todas las cargas de trabajo híbridas que se encuentran en la nube, ya sea que estén en Azure o no, así como también en el entorno local. |
+| [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)| Un sistema unificado de administración de seguridad de la infraestructura que fortalece la posición de seguridad de los centros de datos y proporciona protección avanzada contra amenazas en todas las cargas de trabajo híbridas que se encuentran en la nube, ya sea que estén en Azure o no, así como también en el entorno local. |
 | **Administración de&nbsp;&&nbsp;identidades&nbsp;y acceso** | |
 | [Azure Active Directory (AD)](../../active-directory/fundamentals/active-directory-whatis.md)| El servicio de administración de identidades y acceso basado en la nube de Microsoft.  |
 |  | [Acceso condicional](../../active-directory/conditional-access/overview.md) es la herramienta que usa Azure AD para reunir las señales, tomar decisiones y aplicar las directivas de la organización. |
@@ -87,21 +87,21 @@ El programa [Azure Security Benchmark](../benchmarks/introduction.md) incluye un
 
 | Servicio | Descripción |
 |------|--------|
-| [Azure Defender](../../security-center/azure-defender.md) | Ofrece protección inteligente y avanzada para las cargas de trabajo y recursos híbridos y de Azure. El panel de Azure Defender en Security Center proporciona visibilidad y control de las características de protección de cargas de trabajo en la nube en el entorno. |
-| [Azure Sentinel](../../sentinel/overview.md) | Una solución nativa de nube y escalable para la administración de eventos de información de seguridad (SIEM) y la respuesta automatizada de orquestación de seguridad (SOAR). Sentinel ofrece análisis de seguridad inteligente e inteligencia frente a amenazas en toda la empresa, de forma que proporciona una única solución para la detección de alertas, la visibilidad de amenazas, la búsqueda proactiva y la respuesta a amenazas. |
+| [Microsoft Defender for Cloud](../../security-center/azure-defender.md) | Ofrece protección inteligente y avanzada para las cargas de trabajo y recursos híbridos y de Azure. El panel de protección de cargas de trabajo de Defender for Cloud proporciona visibilidad y control de las características de protección de cargas de trabajo en la nube para su entorno. |
+| [Microsoft Sentinel](../../sentinel/overview.md) | Una solución nativa de nube y escalable para la administración de eventos de información de seguridad (SIEM) y la respuesta automatizada de orquestación de seguridad (SOAR). Sentinel ofrece análisis de seguridad inteligente e inteligencia frente a amenazas en toda la empresa, de forma que proporciona una única solución para la detección de alertas, la visibilidad de amenazas, la búsqueda proactiva y la respuesta a amenazas. |
 | **Administración de&nbsp;&&nbsp;identidades&nbsp;y acceso** |  |
 | [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender) | Un conjunto unificado de defensa de la empresa que coordina de forma nativa la detección, la prevención, la investigación y la respuesta en relación con los puntos de conexión, las identidades, el correo electrónico y las aplicaciones para proporcionar protección integrada frente a ataques sofisticados antes y después de una infracción. |
 |  | [Microsoft Defender para punto de conexión](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) es una plataforma de seguridad empresarial para puntos de conexión diseñada para evitar, detectar, investigar y responder a amenazas avanzadas. |
 |  | [Microsoft Defender for Identity](/defender-for-identity/what-is) es una solución de seguridad basada en la nube que aprovecha las señales de Active Directory local para identificar, detectar e investigar amenazas avanzadas, identidades puestas en peligro y acciones malintencionadas dirigidas a la organización efectuadas por usuarios internos. |
 | [Azure AD Identity Protection](../../active-directory/identity-protection/howto-identity-protection-configure-notifications.md) | Envía dos tipos de correos electrónicos de notificación automatizados para ayudarle a administrar el riesgo de los usuarios y las detecciones de riesgos: correo electrónico de usuarios en riesgo detectados y correo electrónico de resumen semanal. |
 | **Infraestructura y red** |  |
-| [Azure Defender para IoT](../../defender-for-iot/overview.md) | Una solución de seguridad unificada para identificar dispositivos, vulnerabilidades y amenazas de IoT y OT. Permite proteger todo el entorno de IoT/OT, independientemente de que necesite proteger dispositivos IoT/OT existentes o incorporar seguridad a nuevas innovaciones de IoT. |
+| [Microsoft Defender para IoT](../../defender-for-iot/overview.md) | Una solución de seguridad unificada para identificar dispositivos, vulnerabilidades y amenazas de IoT y OT. Permite proteger todo el entorno de IoT/OT, independientemente de que necesite proteger dispositivos IoT/OT existentes o incorporar seguridad a nuevas innovaciones de IoT. |
 | [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) | Proporciona herramientas para supervisar, diagnosticar, ver métricas y habilitar o deshabilitar registros de recursos en una red virtual de Azure. Network Watcher está diseñado para supervisar y reparar el estado de la red de los productos de IaaS, lo que incluye máquinas virtuales, redes virtuales, puertas de enlace de aplicaciones y equilibradores de carga. |
 | [Registro de auditoría de Azure Policy](../../governance/policy/overview.md) | Ayuda a aplicar los estándares de la organización y a evaluar el cumplimiento a gran escala. Azure Policy utiliza registros de actividad, que están habilitados automáticamente para incluir el origen del evento, la fecha, el usuario, la marca de tiempo, las direcciones de origen y de destino, y otros elementos útiles. |
 | **Datos y aplicaciones** |  |
-| [Azure Defender para registros de contenedor](../../security-center/defender-for-container-registries-introduction.md) | Incluye un detector de vulnerabilidades para examinar las imágenes de los registros de Azure Container Registry basados en Azure Resource Manager y proporciona una mayor visibilidad de las vulnerabilidades de las imágenes. |
-| [Azure Defender para Kubernetes](../../security-center/defender-for-kubernetes-introduction.md) | Proporciona protección contra amenazas de nivel de clúster al supervisar los servicios administrados por AKS mediante los registros recuperados por Azure Kubernetes Service (AKS). |
-| [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) | Un agente de seguridad de acceso a la nube (CASB) que funciona en varias nubes. Proporciona visibilidad enriquecida, control sobre el viaje de los datos y análisis sofisticados para identificar y combatir las ciberamenazas en todos los servicios en la nube. |
+| [Microsoft Defender para registros de contenedor](../../security-center/defender-for-container-registries-introduction.md) | Incluye un detector de vulnerabilidades para examinar las imágenes de los registros de Azure Container Registry basados en Azure Resource Manager y proporciona una mayor visibilidad de las vulnerabilidades de las imágenes. |
+| [Microsoft Defender para Kubernetes](../../security-center/defender-for-kubernetes-introduction.md) | Proporciona protección contra amenazas de nivel de clúster al supervisar los servicios administrados por AKS mediante los registros recuperados por Azure Kubernetes Service (AKS). |
+| [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) | Un agente de seguridad de acceso a la nube (CASB) que funciona en varias nubes. Proporciona visibilidad enriquecida, control sobre el viaje de los datos y análisis sofisticados para identificar y combatir las ciberamenazas en todos los servicios en la nube. |
 
 ## <a name="investigate-and-respond"></a>Investigación y respuesta
 
@@ -109,14 +109,14 @@ El programa [Azure Security Benchmark](../benchmarks/introduction.md) incluye un
 
 | Servicio | Descripción |
 |------|--------|
-| [Azure Sentinel](../../sentinel/hunting.md) | Eficaces herramientas de búsqueda y consulta para buscar amenazas de seguridad en los orígenes de datos de la organización. |
+| [Microsoft Sentinel](../../sentinel/hunting.md) | Eficaces herramientas de búsqueda y consulta para buscar amenazas de seguridad en los orígenes de datos de la organización. |
 | [Registros &nbsp; y &nbsp; métricas &nbsp; de &nbsp; Azure Monitor](../../azure-monitor/overview.md) | Ofrece una solución completa para recopilar y analizar la telemetría del entorno local y en la nube y realizar acciones en función de estos datos. Azure Monitor [recopila datos de diversos orígenes y los agrega](../../azure-monitor/data-platform.md#observability-data-in-azure-monitor) a una plataforma de datos común donde se pueden usar en el análisis, la visualización y la generación de alertas. |
 | **Administración de&nbsp;&&nbsp;identidades&nbsp;y acceso** |  |
 | [Informes &nbsp; y &nbsp; supervisión &nbsp; de &nbsp; Azure AD](../../active-directory/reports-monitoring/index.yml) | Los [informes de Azure AD](../../active-directory/reports-monitoring/overview-reports.md) proporcionan una vista completa de la actividad del entorno. |
 |  | La [supervisión de Azure AD](../../active-directory/reports-monitoring/overview-monitoring.md) le permite enrutar los registros de actividad de Azure AD a diferentes puntos de conexión.|
 | [Historial de auditoría de PIM de Azure AD](../../active-directory/privileged-identity-management/pim-how-to-use-audit-log.md) | Muestra todas las asignaciones de roles y activaciones en los últimos 30 días de todos los roles con privilegios. |
 | **Datos y aplicaciones** |  |
-| [Microsoft Cloud App Security](/cloud-app-security/investigate) | Proporciona herramientas para mejorar su comprensión de lo que sucede en el entorno de nube. |
+| [Microsoft Defender for Cloud Apps](/cloud-app-security/investigate) | Proporciona herramientas para mejorar su comprensión de lo que sucede en el entorno de nube. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

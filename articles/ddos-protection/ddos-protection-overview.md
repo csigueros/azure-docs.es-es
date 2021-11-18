@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/9/2020
 ms.author: yitoh
-ms.openlocfilehash: 1aa06faa180f884a2b5848181f9b1a3a5a785c11
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3d473dd2c2e587d3c9563ca7171f7105311fa59a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128665290"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306403"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Introducción a Protección contra DDoS de Azure estándar
 
@@ -38,7 +38,7 @@ Azure DDoS Protection no almacena datos de los clientes.
 - **Ajuste adaptable:** la generación de perfiles de tráfico inteligente va conociendo con el tiempo el tráfico de la aplicación y selecciona y actualiza el perfil que resulta más adecuado para el servicio. El perfil se ajusta a medida que el tráfico cambia con el tiempo.
 - **Protección multicapa:** cuando se implementa con un firewall de aplicaciones web (WAF), DDoS Protection Standard protege en la capa de red (capas 3 y 4, que ofrece Azure DDoS Protection Standard) y en la capa de aplicación (capa 7, que ofrece un WAF). Entre las ofertas de WAF se incluyen la [SKU de WAF de Application Gateway](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure, así como ofertas de firewall de aplicaciones web de terceros disponibles en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
 - **Escala de mitigación amplia:** se pueden mitigar más de 60 tipos de ataque diferentes con capacidad global para protegerse contra los ataques DDoS más conocidos.
-- **Análisis de ataques:** ofrece informes detallados en incrementos de cinco minutos durante un ataque y un resumen completo después de que el ataque termine. Transmita los registros del flujo de mitigación a [Azure Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection) o a un sistema de administración de eventos e información de seguridad (SIEM) sin conexión para supervisar el sistema casi en tiempo real durante un ataque.
+- **Análisis de ataques:** ofrece informes detallados en incrementos de cinco minutos durante un ataque y un resumen completo después de que el ataque termine. Transmita los registros del flujo de mitigación a [Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection) o a un sistema de administración de eventos e información de seguridad (SIEM) sin conexión para supervisar el sistema casi en tiempo real durante un ataque.
 - **Métricas de ataques:** con Azure Monitor se puede acceder a un resumen de métricas de cada ataque.
 - **Alertas de ataques:** las alertas se pueden configurar en el inicio y la detención de un ataque y a lo largo de la duración del ataque mediante métricas de ataque integradas. Las alertas se integran en el software operativo, como los registros de Microsoft Azure Monitor, Splunk, Azure Storage, el correo electrónico y Azure Portal.
 - **Respuesta rápida de DDoS**: póngase en contacto con el equipo de respuesta rápida de DDoS Protection (DRR) para obtener ayuda con la investigación y el análisis de los ataques. Para obtener más información, vea [Respuesta rápida de DDoS](ddos-rapid-response.md).

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 03799c27173a06ba1ffb25ba117750e65bca6b31
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: f07cb6dc6e5ab01b4c172c660fa971b1ef2a3db9
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131842537"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286097"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Selección de la opción adecuada de MySQL Server en Azure
 
@@ -59,7 +59,7 @@ Las principales diferencias entre estas opciones se mencionan en la siguiente ta
 | SSL/TLS | Habilitado de forma predeterminada con compatibilidad con TLS v1.2, 1.1 y 1.0 | Habilitado de forma predeterminada con compatibilidad con TLS v1.2, 1.1 y 1.0| Compatible con TLS v1.2, 1.1 y 1.0 |
 | Cifrado de datos en reposo | Compatible con claves administradas por el cliente (BYOK) | Compatible con claves administradas por el servicio | No compatible|
 | Autenticación de Azure AD | Compatible | No compatible | No compatible|
-| Compatibilidad con Azure Defender | Sí | No | No |
+| Soporte técnico de Microsoft Defender para la nube | Sí | No | No |
 | Auditoría de servidor | Compatible | Compatible | Administrado por el usuario |
 | [**Aplicación de revisión y mantenimiento**](flexible-server/concepts-maintenance.md) | | |
 | Aplicación de revisiones del sistema operativo| Automático  | Automático  | Usuario administrado |

@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/12/2021
-ms.openlocfilehash: 6d13f5f79da2906d1b994d4ab83e06d0593eaefe
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e120d4fa4d85ba2d52821460da1aa62eafd0455d
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128586653"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158015"
 ---
 # <a name="choose-an-api-in-azure-cosmos-db"></a>Elección de una API en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -48,7 +48,7 @@ Esta API almacena los datos en formato de documento. Ofrece la mejor experiencia
 
 Si va a migrar desde otras bases de datos, como Oracle, DynamoDB, HBase, etc., y quiere usar las tecnologías modernizadas para compilar las aplicaciones, la API SQL es la opción recomendada. La API SQL admite análisis y ofrece aislamiento de rendimiento entre cargas de trabajo operativas y analíticas.
 
-### <a name="capacity-planning-for-migration-to-api-for-mongodb"></a>Planeamiento de la capacidad para la migración a la API para MongoDB
+### <a name="capacity-planning-for-migration-to-api-for-sqlcoreapi"></a>Planeamiento de la capacidad para la migración a la API para SQL(Core)API
 
 ¿Desea planear la capacidad para una migración a la API de SQL de Azure Cosmos DB desde un clúster de base de datos existente? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
 * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos replicado y con particiones existente, lea sobre cómo [calcular las unidades de solicitud mediante núcleos virtuales o vCPU](convert-vcore-to-request-unit.md).
@@ -95,4 +95,4 @@ Las aplicaciones escritas para Azure Table Storage pueden migrarse a Table API c
 * [Introducción a Table API de Azure Cosmos DB](create-table-dotnet.md)
 * ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de bases de datos existente.
     * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
-    * Si conoce las velocidades de solicitud típicas de la carga de trabajo de base de datos actual, lea sobre el [cálculo de las unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
+    * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

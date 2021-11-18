@@ -8,12 +8,12 @@ metadata:
   ms.topic: conceptual
   ms.date: 11/02/2021
   ms.custom: synapse-cosmos-db
-  ms.openlocfilehash: 8dc71afd5e134e1822df027e9b5f51dc33ed3b76
-  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+  ms.openlocfilehash: 0820524698e13e5fe2e73ac3f245232a0a7ac227
+  ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/03/2021
-  ms.locfileid: "131425848"
+  ms.lasthandoff: 11/10/2021
+  ms.locfileid: "132137211"
 title: Preguntas frecuentes sobre Azure Synapse Link para Azure Cosmos DB
 summary: >
   [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -52,16 +52,19 @@ sections:
       ¿El almacén analítico tiene algún impacto en los SLA transaccionales de Cosmos DB?
     answer: >
       No, ninguno.
+  - question: >
+      ¿Puedo usar Synapse Link en cuentas sin servidor de Azure Cosmos DB?
+    answer: "Sí, se admite. Sin embargo, los contenedores existentes solo se admiten para contenedores de SQL API y mediante la CLI de Azure o PowerShell.         \n"
 - name: Almacén analítico de Azure Cosmos DB
   questions:
   - question: >
       ¿Puedo habilitar el almacén analítico en contenedores existentes?
     answer: >
-      En este momento, solo se puede habilitar el almacén analítico para los contenedores nuevos (tanto en cuentas nuevas como ya existentes).
+      Actualmente, solo puede habilitar el almacén analítico para los contenedores de SQL API existentes.
   - question: >
       ¿Puedo deshabilitar el almacén analítico en mis contenedores de Azure Cosmos DB después de haberlo habilitado durante la creación del contenedor?
     answer: >
-      En este momento, el almacén analítico no se puede deshabilitar en un contenedor de Azure Cosmos DB después de haberlo habilitado durante la creación del contenedor.
+      Actualmente, no se puede deshabilitar el almacén analítico en un contenedor de Azure Cosmos DB.
   - question: >
       ¿El almacén analítico es compatible con los contenedores de Azure Cosmos DB que tienen rendimiento aprovisionado de escalabilidad automática?
     answer: >
@@ -188,9 +191,23 @@ sections:
   questions:
   - question: >
       En Azure Synapse Studio, ¿cómo puedo reconocer si estoy conectado a un contenedor de Azure Cosmos DB con el almacén analítico habilitado?
-    answer: "Un contenedor de Azure Cosmos DB habilitado con el almacén analítico tiene el siguiente icono:\n\n:::image type=\"content\" source=\"./media/synapse-link-frequently-asked-questions/analytical-store-icon.png\" alt-text=\"Icono: contenedor de Azure Cosmos DB habilitado con el almacén analítico\":::\n\nUn contenedor de almacén transaccional se representará con el siguiente icono:\n\n:::image type=\"content\" source=\"./media/synapse-link-frequently-asked-questions/transactional-store-icon.png\" alt-text=\"Icono: contenedor de Azure Cosmos DB habilitado con el almacén transaccional\":::\n \n"
+    answer: >
+      Un contenedor de Azure Cosmos DB habilitado con el almacén analítico tiene el siguiente icono:
+
+
+      :::image type="content" source="./media/synapse-link-frequently-asked-questions/analytical-store-icon.png" alt-text="Icono: contenedor de Azure Cosmos DB habilitado con el almacén analítico":::
+
+
+      Un contenedor de almacén transaccional se representará con el siguiente icono:
+
+
+      :::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Icono: contenedor de Azure Cosmos DB habilitado con el almacén transaccional":::
   - question: >
       ¿Cómo se pasan las credenciales de Azure Cosmos DB desde Azure Synapse Studio?
     answer: >
       En este momento, las credenciales de Azure Cosmos DB se pasan durante la creación del servicio que ha vinculado el usuario con acceso a las bases de datos de Azure Cosmos DB. El acceso a ese almacén está disponible para otros usuarios que tienen acceso al área de trabajo.
+  - question: >
+      ¿Puedo usar SQL Server Management Studio para consultar el almacén analítico mediante el grupo de SQL sin servidor de Synapse?
+    answer: >
+      Sí.
 additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\n* Obtener más información sobre las [ventajas de Azure Synapse Link](synapse-link.md#synapse-link-benefits).\n\n* Obtener más información sobre la [integración entre Azure Synapse Link y Azure Cosmos DB](synapse-link.md#synapse-link-integration).\n"

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 10/22/2021
-ms.openlocfilehash: 446943d4632ab6f659480574b7b0eb3db2bc9dcf
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 10e893886d98fc5ea6d79bf8092cc5b0d948d84a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131853099"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132309725"
 ---
 # <a name="create-and-manage-a-self-hosted-integration-runtime"></a>Creación y administración de un entorno de ejecución de integración autohospedado
 
@@ -21,7 +21,7 @@ En este artículo se describe cómo crear y administrar un entorno de ejecución
 > [!NOTE]
 > Integration Runtime de Purview no se puede compartir con una instancia de Integration Runtime de Azure Data Factory o Azure Synapse Analytics en la misma máquina. Debe instalarse en una máquina independiente.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Las versiones compatibles de Windows son:
   - Windows 8.1
@@ -172,7 +172,7 @@ En función de los orígenes, es posible que también tenga que permitir los dom
 | Varios dominios | Dependiente          | Dominios para cualquier otro origen al que se conectará SHIR. |
   
 > [!IMPORTANT]
-> En la mayoría de los entornos, también tendrá que confirmar que el DNS está configurado correctamente. Para confirmarlo, puede usar **nslookup** desde la máquina SHIR a fin de comprobar la conectividad a cada uno de los dominios anteriores. Cada operación nslookup debe devolver la dirección IP del recurso. Si usa [puntos de conexión privados](catalog-private-link.md), se debe devolver la dirección IP privada y no la dirección IP pública. Si no se devuelve ninguna dirección IP, o si al usar puntos de conexión privados se devuelve la dirección IP pública, tendrá que solucionar la asociación entre DNS y VNET, o el emparejamiento entre el punto de conexión privado y la red virtual.
+> En la mayoría de los entornos, también tendrá que confirmar que el DNS está configurado correctamente. Para confirmarlo, puede usar **nslookup** desde la máquina SHIR a fin de comprobar la conectividad a cada uno de los dominios anteriores. Cada nslookup debe devolver la dirección IP del recurso. Si usa [puntos de conexión privados](catalog-private-link.md), se debe devolver la dirección IP privada y no la dirección IP pública. Si no se devuelve ninguna dirección IP, o si al usar puntos de conexión privados se devuelve la dirección IP pública, tendrá que solucionar la asociación entre DNS y VNET, o el emparejamiento entre el punto de conexión privado y la red virtual.
 
 ## <a name="manage-a-self-hosted-integration-runtime"></a>Administración de un entorno de ejecución de integración autohospedado
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: f0c139ac775cf0761e1866853c959d7e98b20cf3
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e9038d90d84bd6007b280f712587cee3d628c9c1
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124821755"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132279827"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-roadmunk"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Roadmunk
 
@@ -177,4 +177,4 @@ En el portal Aplicaciones, al seleccionar el icono de **Roadmunk**, debería ini
 
 Después de configurar Roadmunk, puede aplicar el control de sesión. Este control de sesión protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. 
 
-Aprenda a [aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Aprenda a [aplicar el control de sesión mediante Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 11/02/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 795d54406230dbc7ea6e9666cfef51c8f96219fe
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 548e622548f7b55259cb08a5937d45ab2766df3f
+ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131576194"
+ms.lasthandoff: 11/09/2021
+ms.locfileid: "132061123"
 ---
 # <a name="use-asset-inventory-to-manage-your-resources-security-posture"></a>Uso del inventario de recursos para administrar la posición de seguridad de los recursos
 
@@ -74,7 +74,7 @@ En cuanto haya aplicado filtros, los valores de resumen se actualizarán para re
 > [!TIP]
 > La documentación de KQL proporciona una base de datos con algunos datos de ejemplo junto con algunas consultas sencillas para saber cómo funciona el lenguaje. [Más información en este tutorial de KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
-**Opciones de administración de recursos**: el inventario le permite realizar consultas de detección complejas. Cuando haya encontrado los recursos que coinciden con las consultas, el inventario proporciona accesos directos a operaciones como:
+**Opciones de administración de recursos**: cuando haya encontrado los recursos que coinciden con las consultas, el inventario proporciona accesos directos a operaciones como:
 
 - Asignación de etiquetas a los recursos filtrados: active las casillas junto a los recursos que quiere etiquetar.
 - Incorpore nuevos servidores a Defender for Cloud: use el botón de la barra de herramientas **Agregar servidores que no son de Azure**.

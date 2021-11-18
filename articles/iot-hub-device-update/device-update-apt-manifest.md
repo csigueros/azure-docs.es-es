@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/17/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 878748fcfc9b096e340b53c06969962af99f603f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 24c0d04b6a29b813dc23604594ca4b1b1235dc37
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561175"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132373220"
 ---
 # <a name="device-update-apt-manifest"></a>Manifiesto APT de Device Update
 
@@ -21,7 +21,7 @@ El manifiesto APT es un archivo JSON que describe los detalles de una actualizac
 
 ## <a name="overview"></a>Información general
 
-Cuando un manifiesto APT se entrega a un agente de Device Update como una actualización, el agente debe procesar el manifiesto y llevar a cabo las operaciones necesarias. Estas operaciones incluyen la descarga y la instalación de los paquetes especificados en el archivo de manifiesto APT y sus dependencias.
+Cuando un manifiesto APT se entrega a un agente de Device Update como una actualización, el agente debe procesar el manifiesto y llevar a cabo las operaciones necesarias. Estas operaciones incluyen la descarga y la instalación de los paquetes especificados en el archivo de manifiesto APT y sus dependencias desde un repositorio designado.
 
 Device Update admite APT UpdateType y APT Update Handler. Esta compatibilidad permite al agente de Device Update evaluar los paquetes de Debian instalados y actualizar los paquetes necesarios. 
 

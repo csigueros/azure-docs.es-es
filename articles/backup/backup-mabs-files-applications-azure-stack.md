@@ -2,13 +2,16 @@
 title: Copia de seguridad de archivos en máquinas virtuales de Azure Stack
 description: Use Azure Backup para hacer una copia de seguridad de los archivos y aplicaciones de Azure Stack, así como para restaurarlos, en el entorno de Azure Stack.
 ms.topic: conceptual
-ms.date: 06/05/2018
-ms.openlocfilehash: cae95c10c510969cc0553a54a506789d6be427d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 11/11/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: a6c92485ec89e06f9bf545181fe7e6341cd7bff4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89180990"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132284443"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Copia de seguridad de archivos y aplicaciones en Azure Stack
 
@@ -133,5 +136,10 @@ Para ver entidades de Azure Backup Server en Azure Portal, se pueden seguir esto
 
 Para obtener información sobre cómo usar Azure Backup Server para proteger otras cargas de trabajo, consulte uno de los siguientes artículos:
 
+* [Información sobre el servicio de Azure Backup](./backup-overview.md)
+* [Acerca de Azure AD](../active-directory/fundamentals/active-directory-whatis.md)
+* [Acerca del almacén de Recovery Services de Azure](./backup-azure-recovery-services-vault-overview.md)
+* [Acerca de las cuentas de Azure Storage](../storage/common/storage-introduction.md)
+* [Acerca de Azure Stack Hub](/azure-stack/operator/azure-stack-overview)
 * [Hacer una copia de seguridad de la granja de SharePoint](./backup-mabs-sharepoint-azure-stack.md)
 * [Hacer una copia de seguridad de SQL Server](./backup-mabs-sql-azure-stack.md)

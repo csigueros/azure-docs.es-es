@@ -1,14 +1,14 @@
 ---
 title: Actualización de datos de inteligencia sobre amenazas
 description: El paquete de datos de inteligencia sobre amenazas se proporciona con cada nueva versión de Defender para IoT o, si es necesario, entre versiones.
-ms.date: 04/17/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: f5282002f406c62341f5d104c14aa1cbe9ad32dd
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: ac743c9e8c53e40743bda0c50017885f40381971
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113019050"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293200"
 ---
 # <a name="threat-intelligence-research-and-packages"></a>Investigación y paquetes de inteligencia sobre amenazas #
 ## <a name="overview"></a>Información general ##
@@ -34,7 +34,7 @@ Esta inteligencia proporciona información contextual para enriquecer el anális
 
 Los paquetes de inteligencia sobre amenazas se proporcionan aproximadamente una vez al mes o incluso con más frecuencia, si es necesario. Los anuncios sobre los nuevos paquetes están disponibles en https://techcommunity.microsoft.com/t5/azure-defender-for-iot/bd-p/AzureDefenderIoT.
 
-También puede ver el último paquete entregado desde la sección de **actualización de inteligencia sobre amenazas** de la página **Actualizaciones** en el portal de Defender para IoT.  
+También puede ver el último paquete entregado desde la sección de **actualización de inteligencia sobre amenazas** de la página **Actualizaciones** de Defender para IoT en Azure Portal.
 
 ## <a name="update-threat-intelligence-packages-to-your-sensors"></a>Actualización de paquetes de inteligencia sobre amenazas en los sensores ##
 
@@ -52,12 +52,11 @@ Los paquetes de inteligencia sobre amenazas pueden actualizarse automáticamente
 
 ### <a name="manually-push-threat-intelligence-updates-to-sensors"></a>Inserción manual de actualizaciones de inteligencia sobre amenazas en los sensores ###
 
-Los sensores *conectados a la nube* pueden actualizarse de forma automática con los paquetes de inteligencia sobre amenazas. Sin embargo, puede adoptar un enfoque más conservador e insertar los paquetes en los sensores desde el portal de Azure Defender para IoT solo cuando lo considere necesario.
-Esta opción le permite controlar cuándo se instala un paquete, sin necesidad de descargarlo y luego cargarlo en los sensores.
+Los sensores *conectados a la nube* pueden actualizarse de forma automática con los paquetes de inteligencia sobre amenazas. Sin embargo, puede adoptar un enfoque más conservador e insertar los paquetes de Defender para IoT en los sensores solo cuando lo considere necesario. Esta opción le permite controlar cuándo se instala un paquete, sin necesidad de descargarlo y luego cargarlo en los sensores.
 
 **Para insertar los paquetes de forma manual:**
 
-1. Vaya a la página **Sites and Sensors** (Sitios y sensores) de Azure Defender para IoT.
+1. Vaya a la página **Sites and Sensors** (Sitios y sensores) de Microsoft Defender para IoT.
 1. Seleccione los puntos suspensivos (...) de un sensor y, a continuación, seleccione **Push Threat Intelligence update** (Insertar actualización de inteligencia sobre amenazas). El campo **Threat Intelligence update status** (Estado de actualización de inteligencia sobre amenazas) muestra el progreso de la actualización.
 
 #### <a name="change-the-threat-intelligence-update-mode"></a>Cambio del modo de actualización de la inteligencia sobre amenazas ####
@@ -71,15 +70,15 @@ Puede cambiar el modo de actualización de la inteligencia sobre amenazas del se
 
 ### <a name="download-packages-and-upload-to-sensors"></a>Descarga de paquetes y carga en los sensores ###
 
-Los paquetes pueden descargarse desde el portal de Defender para IoT y cargarse manualmente en sensores individuales. Si la consola de administración local administra los sensores, puede descargar los paquetes de inteligencia sobre amenazas en la consola de administración e incluirlos en varios sensores simultáneamente.
+Los paquetes se pueden descargar de Azure Portal y cargarse manualmente en sensores individuales. Si la consola de administración local administra los sensores, puede descargar los paquetes de inteligencia sobre amenazas en la consola de administración e incluirlos en varios sensores simultáneamente.
 
-:::image type="content" source="media/how-to-work-with-threat-intelligence-packages/download-screen.png" alt-text="Descarga de actualizaciones desde el portal de Azure Defender para IoT.":::
+:::image type="content" source="media/how-to-work-with-threat-intelligence-packages/download-screen.png" alt-text="Descarga de actualizaciones en Azure Portal.":::
 
 Esta opción está disponible para los sensores tanto *conectados a la nube* como *administrados localmente*.
 
 **Para cargar en un solo sensor:**
 
-1. Vaya a la página **Updates** (Actualizaciones) de Azure Defender para IoT.
+1. Vaya a la página **Actualizaciones** de Microsoft Defender para IoT.
 
 2. Descargue y guarde el paquete de **Threat Intelligence** (Inteligencia sobre amenazas).
 
@@ -93,7 +92,7 @@ Esta opción está disponible para los sensores tanto *conectados a la nube* com
 
 **Para cargar en varios sensores simultáneamente:**
 
-1. Vaya a la página **Updates** (Actualizaciones) de Azure Defender para IoT.
+1. Vaya a la página **Actualizaciones** de Microsoft Defender para IoT.
 
 2. Descargue y guarde el paquete de **Threat Intelligence** (Inteligencia sobre amenazas).
 
@@ -121,7 +120,7 @@ Revise la información siguiente de los paquetes de inteligencia sobre amenazas 
 
 Para revisar la información de inteligencia sobre amenazas:
 
-1. Vaya a la página **Sites and Sensors** (Sitios y sensores) de Azure Defender para IoT.
+1. Vaya a la página **Sites and Sensors** (Sitios y sensores) de Microsoft Defender para IoT.
 1. Revise la **versión de Inteligencia sobre amenazas** instalada en cada sensor. La nomenclatura de la versión se basa en el día en el que Defender para IoT compiló el paquete.
 1. Revise el **modo de inteligencia sobre amenazas**. *Automatic* (Automático) indica que los paquetes recién disponibles se instalarán de forma automática en los sensores cuando Defender para IoT los publique. *Manual* indica que puede insertar los paquetes recién disponibles directamente en los sensores según sea necesario.
 1. Revise el **estado de la actualización de inteligencia sobre amenazas**. Pueden mostrarse los estados siguientes:

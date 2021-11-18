@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.openlocfilehash: 94f1a1760c02401bbca04ac01af5dd9b10093311
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 37f33bb17b48f482f27a449871acc7256713c100
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131511323"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157559"
 ---
 # <a name="index-data-from-azure-files"></a>Indexación de datos de Azure Files
 
@@ -42,6 +42,9 @@ El indexador de Azure Files de Azure Cognitive Search puede extraer texto de los
 ## <a name="required-resources"></a>Recursos necesarios
 
 Se necesitan tanto Azure Cognitive Search como [Azure Files](https://azure.microsoft.com/services/storage/files/). Dentro de Azure Files, necesita un recurso compartido de archivos que proporciona contenido de origen.
+
+> [!NOTE]
+> Para indexar un recurso compartido de archivos, este debe admitir el acceso mediante la [API REST del plano de datos de archivos](/rest/api/storageservices/file-service-rest-api). [Los recursos compartidos NFS](../storage/files/files-nfs-protocol.md#support-for-azure-storage-features) no admiten la API REST del plano de datos de archivos y no se pueden usar con los indexadores de Azure Cognitive Search. [Los recursos compartidos SMB](../storage/files/files-smb-protocol.md) admiten la API REST del plano de datos de archivos y se pueden usar con los indexadores de Azure Cognitive Search.
 
 <a name="configure"></a>
 

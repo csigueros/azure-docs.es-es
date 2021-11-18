@@ -7,12 +7,12 @@ metadata:
   ms.service: purview
   ms.topic: conceptual
   ms.date: 05/08/2021
-  ms.openlocfilehash: cdde004521c6f99136bfa75f33359f3599b675df
-  ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+  ms.openlocfilehash: 8ab2749a1a0134f90644e1af082006b414a9b91f
+  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/29/2021
-  ms.locfileid: "129213448"
+  ms.lasthandoff: 11/11/2021
+  ms.locfileid: "132301368"
 title: Preguntas más frecuentes sobre Azure Purview
 summary: ''
 sections:
@@ -93,7 +93,7 @@ sections:
   - question: >
       Azure Purview, ¿examina y clasifica correos electrónicos, archivos PDF, etc., en mi SharePoint y OneDrive?
     answer: >
-      El examen de las bibliotecas y los sitios de SharePoint locales se proporciona mediante Azure Information Protection. El examen está disponible para su uso mediante la suscripción a Microsoft 365 de un cliente con las SKU siguientes: AIP P1, EMS E3 y Microsoft 365 E3. Si tiene alguna de estas SKU, debe tener los derechos adecuados para empezar a usar el examen de Azure Information Protection.
+      Actualmente, Purview no admite el examen de SharePoint y OneDrive. El examen de las bibliotecas y los sitios de SharePoint locales se proporciona mediante Azure Information Protection. El examen está disponible para su uso mediante la suscripción a Microsoft 365 de un cliente con las SKU siguientes: AIP P1, EMS E3 y Microsoft 365 E3. Si tiene alguna de estas SKU, debe tener los derechos adecuados para empezar a usar el examen de Azure Information Protection.
   - question: >
       ¿Cuál es el proceso que se usa para el examen?
     answer: >

@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: bf0972342cf70b542bef01a070f777dec615c13b
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 0789e9bb28868ce4d75aa48beb956fcb4dd74031
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131564373"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132345810"
 ---
 # <a name="show-the-configuration-of-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Visualización de la configuración de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 
@@ -55,7 +55,7 @@ kubectl get pods -n <namespace>
 
 El comando devuelve la lista de pods. Verá los pods usados por los grupos de servidores en función de los nombres asignados a esos grupos de servidores. Por ejemplo:
 
-```console 
+```console
 NAME                 READY   STATUS    RESTARTS   AGE
 bootstrapper-4jrtl   1/1     Running   0          12d
 control-kz8gh        2/2     Running   0          12d
@@ -78,8 +78,8 @@ postgres01w0-3       3/3     Running   0          2d19h
 
 ### <a name="what-pod-is-used-for-what-role-in-the-server-group"></a>¿Qué pod se usa para qué rol en el grupo de servidores?
 
-Cualquier nombre de pod con el sufijo `c` representa un nodo de coordinación. Cualquier nombre de nodo con el sufijo `w` es un nodo de trabajo.
-Por ejemplo, los cinco pods que hospedan el grupo de servidores:
+Cualquier nombre de pod con el sufijo `c` representa un nodo de coordinación. Cualquier nombre de nodo con sufijo `w` es nodo de trabajo, como los cinco pods que hospedan el grupo de servidores:
+
 - `postgres01c0-0`, el nodo de coordinación
 - `postgres01w0-0`, un nodo de trabajo
 - `postgres01w0-1`, un nodo de trabajo
@@ -88,14 +88,13 @@ Por ejemplo, los cinco pods que hospedan el grupo de servidores:
 
 Por ahora, puede omitir el carácter `0` que aparece después de `c` y `w` (ServerGroupName`c0`-x o ServerGroupName`w0`-x). Será una notación que se use cuando el producto ofrezca experiencias de alta disponibilidad.
 
-
 ### <a name="what-is-the-status-of-the-pods"></a>¿Cuál es el estado de los pods?
 
 Ejecute `kubectl get pods -n <namespace>` y examine la columna `STATUS`.
 
-### <a name="what-persistent-volume-claims-pvcs-are-being-used"></a>¿Qué notificaciones de volumen persistente (PVC) se usan? 
+### <a name="what-persistent-volume-claims-pvcs-are-being-used"></a>¿Qué notificaciones de volumen persistente (PVC) se usan?
 
-Para comprender qué PVC se usan, y cuáles se usan para datos, registros y copias de seguridad, ejecute: 
+Para comprender qué PVC se usan, y cuáles se usan para datos, registros y copias de seguridad, ejecute:
 
 ```console
 kubectl get pvc -n <namespace>
@@ -379,11 +378,11 @@ Status:
 Events:                      <none>
 ```
 
-####  <a name="interpret-the-configuration-information"></a>Interpretación de la información de configuración
+#### <a name="interpret-the-configuration-information"></a>Interpretación de la información de configuración
 
 Vamos a explicar algunos puntos específicos de interés de la descripción del elemento `servergroup` mostrada anteriormente. ¿Qué nos informa sobre este grupo de servidores?
 
-- Pertenece a la versión 12 de Postgres y ejecuta la extensión Citus: 
+- Pertenece a la versión 12 de Postgres y ejecuta la extensión Citus:
 
    ```output
    Spec:
@@ -410,7 +409,7 @@ Vamos a explicar algunos puntos específicos de interés de la descripción del 
           Workers:        4
    ```
 
-- Configuración de recursos: en este ejemplo, los nodos de coordinación y de trabajo tienen garantizados 256 MiB de memoria. Los nodos de coordinación y de trabajo no pueden usar más de 1 GiB de memoria. Tanto el nodo de coordinación como los nodos de trabajo tienen garantizado un núcleo virtual y no pueden consumir más de dos núcleos virtuales. 
+- Configuración de recursos: en este ejemplo, los nodos de coordinación y de trabajo tienen garantizados 256 MiB de memoria. Los nodos de coordinación y de trabajo no pueden usar más de 1 GiB de memoria. Tanto el nodo de coordinación como los nodos de trabajo tienen garantizado un núcleo virtual y no pueden consumir más de dos núcleos virtuales.
 
    ```console
         Scheduling:
@@ -437,8 +436,8 @@ Vamos a explicar algunos puntos específicos de interés de la descripción del 
                Memory:  256Mi
    ```
 
- - ¿Cuál es el estado del grupo de servidores? ¿Está disponible para mis aplicaciones? 
- 
+- ¿Cuál es el estado del grupo de servidores? ¿Está disponible para mis aplicaciones?
+
    Sí, todos los pods (el nodo de coordinación y los cuatro nodos de trabajo están listos).
 
    ```console
@@ -450,7 +449,8 @@ Vamos a explicar algunos puntos específicos de interés de la descripción del 
 Use los comandos de la CLI de Az.
 
 ### <a name="what-are-the-postgres-server-groups-deployed-and-how-many-workers-are-they-using"></a>¿Cuáles son los grupos de servidores de Postgres implementados y cuántos nodos de trabajo usan?
-Ejecute el siguiente comando: 
+
+Ejecute el siguiente comando.
 
    ```azurecli
    az postgres arc-server list --k8s-namespace <namespace> --use-k8s
@@ -488,6 +488,7 @@ az postgres arc-server show -n postgres01 --k8s-namespace arc --use-k8s
 Devuelve la información en un formato y contenido similar al devuelto por kubectl. Use la herramienta que prefiera para interactuar con el sistema.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - [Obtenga información sobre los conceptos de Hiperescala de PostgreSQL habilitada para Azure Arc](concepts-distributed-postgres-hyperscale.md).
 - [Obtenga información acerca de cómo escalar horizontalmente (agregar nodos de trabajo) un grupo de servidores](scale-out-in-postgresql-hyperscale-server-group.md).
 - [Obtenga información acerca de cómo escalar o reducir verticalmente (aumentar o reducir la memoria y/o los núcleos virtuales) de un grupo de servidores](scale-up-down-postgresql-hyperscale-server-group-using-cli.md).

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aec870e6027d9a6d2e6c3b66363f93c73fad5e78
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 6d3f6163cc8c5f642835562c631d1712f329a788
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064150"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132292536"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Gobernanza de las cuentas de servicio de Azure AD
 
@@ -111,7 +111,7 @@ Supervise de forma proactiva las cuentas de servicio para asegurarse de que los 
 
 * ¿Cambian los patrones de inicio de sesión de las cuentas de servicio?
 
-Le recomendamos que exporte los registros de inicio de sesión de Azure AD y los importe en sus herramientas existentes de Administración de eventos e información de seguridad (SIEM), como Azure Sentinel. Use SIEM para crear alertas y paneles.
+Le recomendamos que exporte los registros de inicio de sesión de Azure AD y los importe en sus herramientas existentes de Administración de eventos e información de seguridad (SIEM), como Microsoft Sentinel. Use SIEM para crear alertas y paneles.
 
 ### <a name="review-service-account-permissions"></a>Revisión de los permisos de la cuenta de servicio
 
@@ -195,4 +195,3 @@ Para obtener más información sobre la protección de las cuentas de servicio d
 
 
  
-

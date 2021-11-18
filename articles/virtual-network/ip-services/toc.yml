@@ -96,6 +96,10 @@ items:
             href: associate-public-ip-address-vm.md
           - name: Desasociar dirección IP pública de una máquina virtual
             href: remove-public-ip-address-vm.md
+          - name: 'Creación de una máquina virtual: red de doble pila'
+            items:
+              - name: Azure CLI
+                href: create-vm-dual-stack-ipv6-cli.md
           - name: 'Creación de una máquina virtual: IP pública estática'
             items:
               - name: Azure portal
@@ -114,7 +118,7 @@ items:
                 href: virtual-networks-static-private-ip-arm-cli.md
           - name: 'Creación de una máquina virtual: varias IP'
             items:
-              - name: Azure Portal
+              - name: Portal de Azure
                 href: virtual-network-multiple-ip-addresses-portal.md
               - name: Azure PowerShell
                 href: virtual-network-multiple-ip-addresses-powershell.md

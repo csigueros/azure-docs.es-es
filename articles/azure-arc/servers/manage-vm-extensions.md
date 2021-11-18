@@ -3,12 +3,12 @@ title: Administración de extensiones de VM con servidores habilitados para Azur
 description: Los servidores habilitados para Azure Arc pueden administrar la implementación de extensiones de máquina virtual que proporcionan tareas de automatización y configuración posteriores a la implementación con VM que no son de Azure.
 ms.date: 10/28/2021
 ms.topic: conceptual
-ms.openlocfilehash: e652b7c520345ad56a28a718448ac520af8237e3
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: d853317fad2da9d8d7f27cece4fd7d219cdc42dc
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131447367"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132294188"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Administración de extensiones de máquina virtual con servidores habilitados para Azure Arc
 
@@ -58,7 +58,7 @@ Los servidores habilitados para Arc admiten el movimiento de máquinas con una o
 
 |Extensión |Publicador |Tipo |Información adicional |
 |----------|----------|-----|-----------------------|
-|Detector de vulnerabilidades integrado de Azure Defender |Qualys |WindowsAgent.AzureSecurityCenter |[Solución de evaluación de vulnerabilidades integrada en Azure Defender para Azure y máquinas híbridas](../../security-center/deploy-vulnerability-assessment-vm.md)|
+|Examen de vulnerabilidades integrado de Microsoft Defender for Cloud |Qualys |WindowsAgent.AzureSecurityCenter |[Solución de evaluación de vulnerabilidades integrada de Defender for Cloud para Azure y máquinas híbridas](../../security-center/deploy-vulnerability-assessment-vm.md)|
 |Extensión de Microsoft Antimalware |Microsoft.Azure.Security |IaaSAntimalware |[Extensión de Microsoft Antimalware para Windows](../../virtual-machines/extensions/iaas-antimalware-windows.md) |
 |Extensión Custom Script |Microsoft.Compute | CustomScriptExtension |[Extensión de script personalizado de Windows](../../virtual-machines/extensions/custom-script-windows.md)|
 |Agente de Log Analytics |Microsoft.EnterpriseCloud.Monitoring |MicrosoftMonitoringAgent |[Extensión de máquina virtual de Log Analytics para Windows](../../virtual-machines/extensions/oms-windows.md)|
@@ -71,7 +71,7 @@ Los servidores habilitados para Arc admiten el movimiento de máquinas con una o
 
 |Extensión |Publicador |Tipo |Información adicional |
 |----------|----------|-----|-----------------------|
-|Detector de vulnerabilidades integrado de Azure Defender |Qualys |LinuxAgent.AzureSecurityCenter |[Solución de evaluación de vulnerabilidades integrada en Azure Defender para Azure y máquinas híbridas](../../security-center/deploy-vulnerability-assessment-vm.md)|
+|Examen de vulnerabilidades integrado de Microsoft Defender for Cloud |Qualys |LinuxAgent.AzureSecurityCenter |[Solución de evaluación de vulnerabilidades integrada de Defender for Cloud para Azure y máquinas híbridas](../../security-center/deploy-vulnerability-assessment-vm.md)|
 |Extensión Custom Script |Microsoft.Azure.Extensions |CustomScript |[Extensión de script personalizado de Linux versión 2](../../virtual-machines/extensions/custom-script-linux.md) |
 |Agente de Log Analytics |Microsoft.EnterpriseCloud.Monitoring |OmsAgentForLinux |[Extensión de máquina virtual de Log Analytics para Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Azure Monitor para VM (información detallada) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentLinux |[Extensión de máquina virtual de Dependency Agent para Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |

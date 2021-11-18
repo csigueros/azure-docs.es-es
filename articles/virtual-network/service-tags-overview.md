@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: c51829c8f046f68d3a7d1e47083f18eb7f4c8416
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 2affaf7b66c1a7872e1db2b92871c5d07e77cdd2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129858469"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132324638"
 ---
 # <a name="virtual-network-service-tags"></a>Etiquetas de servicio de red virtual
 <a name="network-service-tags"></a>
@@ -105,7 +105,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **LogicApps** | Logic Apps. | Ambos | No | No |
 | **LogicAppsManagement** | Tráfico de administración para Logic Apps. | Entrada | No | No |
 | **MicrosoftAzureFluidRelay** | Esta etiqueta representa las direcciones IP usadas para Azure Microsoft Fluid Relay Server. | Salida | No | No |
-| **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Salida | No | No |
+| **MicrosoftCloudAppSecurity** | Microsoft Defender for Cloud Apps. | Salida | No | No |
 | **MicrosoftContainerRegistry** | Registro de contenedor para imágenes de contenedor de Microsoft. <br/><br/>**Nota**: Esta etiqueta tiene una dependencia de la etiqueta **AzureFrontDoor.FirstParty**. | Salida | Sí | Sí |
 | **PowerBI** | Power BI. **Nota**: Esta etiqueta no se puede configurar actualmente desde Azure Portal. | Ambos | No | No|
 | **PowerPlatformInfra** | Esta etiqueta representa las direcciones IP usadas por la infraestructura para hospedar los servicios de Power Platform. **Nota**: Esta etiqueta no se puede configurar actualmente desde Azure Portal. | Salida | No | No |

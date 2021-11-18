@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 664a63e50b4b0ff1d239317fce653378461a5d4c
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 62ba9a8fa578ab12408160d9a6d19243474921fc
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113799310"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132277227"
 ---
 # <a name="deploy-azure-virtual-desktop-with-the-getting-started-feature"></a>Implementación de Azure Virtual Desktop con la característica de introducción
 
@@ -19,7 +19,7 @@ La nueva característica de introducción de Azure Portal es una manera rápida 
 
 ## <a name="requirements"></a>Requisitos
 
-Necesitará lo siguiente para usar la introducción:
+Deberá cumplir los siguientes requisitos para poder usar la introducción:
 
 - Un inquilino de Azure Active Directory (AD)
 - Una cuenta con permisos de administrador global en Azure AD
@@ -27,7 +27,7 @@ Necesitará lo siguiente para usar la introducción:
    >[!NOTE]
    >La característica de introducción no admite actualmente MSA, B2B ni cuentas de invitado.
 
-- Una suscripción de Azure activa
+- Una suscripción de Azure activa.
 
    >[!NOTE]
    >La característica de introducción no admite actualmente cuentas con autenticación multifactor.
@@ -37,8 +37,8 @@ Necesitará lo siguiente para usar la introducción:
 Si usa la característica de introducción en un entorno con Active Directory Domain Services (AD DS), también deberá cumplir estos requisitos:
 
 - Credenciales de administrador de dominio de AD DS
-- Debe configurar la conexión de Azure AD en la suscripción y asegurarse de que el contenedor "USERS" se está sincronizando con Azure AD
-- El controlador de dominio de la máquina virtual (VM) no debe tener extensiones DSC de tipo **Microsoft.Powershell.DSC**
+- Debe configurar la conexión de Azure AD en la suscripción y asegurarse de que el contenedor "USERS" se está sincronizando con Azure AD.
+- El controlador de dominio de la máquina virtual (VM) no debe tener extensiones DSC de tipo **Microsoft.Powershell.DSC**.
 
 Si usa la característica de introducción en un entorno sin un proveedor de identidades, estos son los requisitos adicionales que debe seguir:
 

@@ -3,15 +3,15 @@ title: Cálculo de los costos de almacenamiento de Azure Logic Apps de inquilino
 description: Calcule los costos de almacenamiento de los flujos de trabajo mediante la calculadora de almacenamiento de Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/13/2021
-ms.openlocfilehash: 860e84bf8e2378d4a9c433df81c5adfb6741169e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 11/10/2021
+ms.openlocfilehash: 995c620eeafc5a627a9f9d94733c80de47f2928d
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953826"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132369405"
 ---
 # <a name="estimate-storage-costs-for-workflows-in-single-tenant-azure-logic-apps"></a>Cálculo de los costos de almacenamiento de flujos de trabajo en Azure Logic Apps de inquilino único
 
@@ -35,8 +35,11 @@ Los costos de almacenamiento cambian en función del contenido del flujo de trab
 Si tiene un flujo de trabajo para calcular, obtenga el código JSON para el flujo de trabajo:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+
 1. Vaya al servicio **Logic Apps** y seleccione el flujo de trabajo.
+
 1. En el menú de la aplicación lógica, en **Herramientas de desarrollo**, seleccione **Vista de código de aplicación lógica**.
+
 1. Copie el código JSON del flujo de trabajo.
 
 ## <a name="estimate-storage-needs"></a>Cálculo de las necesidades de almacenamiento
@@ -57,7 +60,9 @@ Si tiene un flujo de trabajo para calcular, obtenga el código JSON para el fluj
    * Una opción para seleccionar todas las acciones con cargas de más de 32 KB.
 
 1. En **Monthly runs** (Ejecuciones mensuales), escriba el número de veces que ejecuta el flujo de trabajo cada mes.
+
 1. Seleccione **Calcular** y espere a que se ejecute el cálculo.
+
 1. En **Storage Operation Breakdown and Calculation Steps** (Desglose de la operación de almacenamiento y pasos de cálculo), revise los cálculos de **Operation Counts** (Recuentos de operaciones).
 
     Puede ver los recuentos de operaciones calculados por ejecución y por mes en las dos tablas. Se muestran las operaciones siguientes:
@@ -67,7 +72,7 @@ Si tiene un flujo de trabajo para calcular, obtenga el código JSON para el fluj
     * **Cola**, para las operaciones de colas de clase 2 de Colas de Azure.
     * **Tablas**, para operaciones de Table Storage de Azure.
 
-    Cada operación tiene un número de recuento mínimo, máximo y de "mejor suposición". Elija el número más pertinente que se usará para [calcular los costos de la operación de almacenamiento](#estimate-storage-costs) en función de su escenario individual. Normalmente, se recomienda usar el recuento de "mejor suposición" para una mayor precisión. Sin embargo, también puede usar el recuento máximo para asegurarse de que el cálculo de costos tiene un búfer.
+    Cada operación tiene un número de recuento mínimo, máximo y de "mejor suposición". Elija el número más pertinente que se usará para [calcular los costos de la operación de almacenamiento](#estimate-storage-costs) en función de su escenario individual. Como recomendación, use el recuento de "mejor suposición" para la precisión. Sin embargo, también puede usar el recuento máximo para asegurarse de que el cálculo de costos tiene un búfer.
 
     :::image type="content" source="./media/estimate-storage-costs/storage-calculator-results.png" alt-text="Captura de pantalla de la calculadora de almacenamiento de Logic Apps, que muestra la salida con operaciones calculadas." lightbox="./media/estimate-storage-costs/storage-calculator-results.png":::
 
@@ -81,22 +86,30 @@ Después de [calcular las necesidades de almacenamiento del flujo de trabajo de 
 
 ### <a name="estimate-blob-storage-operations-costs"></a>Cálculo de los costos de las operaciones de almacenamiento en blobs
 
-> [!NOTE]
-> Esta característica no está disponible actualmente. Por ahora, todavía puede usar la calculadora para calcular el [almacenamiento en cola](#estimate-queue-operations-costs) y el [almacenamiento en tabla](#estimate-table-operations-costs).
-
 Para calcular los costos mensuales de las operaciones de almacenamiento en blobs de la aplicación lógica:
 
 1. Vaya a la [calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/).
+
 1. En la pestaña **Productos**, seleccione **Almacenamiento** &gt; **Cuentas de almacenamiento**. O bien, en el cuadro de búsqueda de la **barra de búsqueda**, escriba **Cuentas de almacenamiento** y seleccione el icono.
-    :::image type="content" source="./media/estimate-storage-costs/pricing-calculator-storage-tile.png" alt-text="Captura de pantalla de la calculadora de precios de Azure, en la que se muestra el icono para agregar la vista Cuentas de almacenamiento." lightbox="./media/estimate-storage-costs/pricing-calculator-storage-tile.png":::
+
+   :::image type="content" source="./media/estimate-storage-costs/pricing-calculator-storage-tile.png" alt-text="Captura de pantalla de la calculadora de precios de Azure, en la que se muestra el icono para agregar la vista Cuentas de almacenamiento." lightbox="./media/estimate-storage-costs/pricing-calculator-storage-tile.png":::
+
 1. En la notificación de **cuentas de almacenamiento agregadas**, seleccione **Ver** para ver la sección **Cuentas de almacenamiento** de la calculadora. O bien, vaya manualmente la sección **Cuentas de almacenamiento** manualmente.
+
 1. En **Región,** seleccione la región de la aplicación lógica.
+
 1. En **Tipo**, seleccione **Almacenamiento de blobs en bloque**.
+
 1. En **Nivel de rendimiento**, seleccione el nivel de rendimiento.
+
 1. En **Redundancia**, seleccione el nivel de redundancia.
+
 1. No haga más ajustes.
-1. En **Operaciones de escritura**, escriba el número de operaciones de **blob (escritura)** de la calculadora de almacenamiento de Logic Apps *tal cual*.
-1. En **Operaciones de lectura**, escriba el número de operaciones de **blob (lectura)** de la calculadora de almacenamiento de Logic Apps *tal cual*.
+
+1. En **Operaciones de escritura**, escriba el número de operaciones de **blob (escritura)** de la calculadora de almacenamiento de Logic Apps *dividido entre 10 000*. Este paso es necesario porque la calculadora funciona en unidades transaccionales para las operaciones de almacenamiento.
+
+1. En **Operaciones de lectura**, escriba el número de operaciones de **blob (lectura)** de la calculadora de almacenamiento de Logic Apps *dividido entre 10 000*. Este paso es necesario porque la calculadora funciona en unidades transaccionales para las operaciones de almacenamiento.
+
 1. Revise los costos estimados de las operaciones de almacenamiento de blobs.
 
 ### <a name="estimate-queue-operations-costs"></a>Cálculo de los costos de las operaciones de cola
@@ -104,14 +117,23 @@ Para calcular los costos mensuales de las operaciones de almacenamiento en blobs
 Para calcular los costos mensuales de las operaciones de cola de la aplicación lógica:
 
 1. Vaya a la [calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/).
+
 1. En la pestaña **Productos**, seleccione **Almacenamiento** &gt; **Cuentas de almacenamiento**. O bien, en el cuadro de búsqueda de la **barra de búsqueda**, escriba **Cuentas de almacenamiento** y seleccione el icono.
-    :::image type="content" source="./media/estimate-storage-costs/pricing-calculator-storage-tile.png" alt-text="Captura de pantalla de la calculadora de precios de Azure, en la que se muestra el icono para agregar la vista Cuentas de almacenamiento." lightbox="./media/estimate-storage-costs/pricing-calculator-storage-tile.png":::
+
+   :::image type="content" source="./media/estimate-storage-costs/pricing-calculator-storage-tile.png" alt-text="Captura de pantalla de la calculadora de precios de Azure, en la que se muestra el icono para agregar la vista Cuentas de almacenamiento." lightbox="./media/estimate-storage-costs/pricing-calculator-storage-tile.png":::
+
 1. En la notificación de **cuentas de almacenamiento agregadas**, seleccione **Ver** para ver la sección **Cuentas de almacenamiento** de la calculadora. O bien, vaya manualmente la sección **Cuentas de almacenamiento** manualmente.
+
 1. En **Región,** seleccione la región de la aplicación lógica.
+
 1. En **Tipo**, seleccione **Queue Storage**.
+
 1. En **Tipo de cuenta de almacenamiento**, seleccione el tipo de cuenta de almacenamiento.
+
 1. En **Redundancia**, seleccione el nivel de redundancia.
+
 1. En **Operaciones de clase 2 de cola**, escriba el número de operaciones de **cola** de la calculadora de almacenamiento de Logic Apps *dividido por 10 000*. Este paso es necesario porque la calculadora funciona en unidades transaccionales para las operaciones de cola.
+
 1. Revise los costos estimados de las operaciones de cola.
 
 ### <a name="estimate-table-operations-costs"></a>Cálculo de los costos de las operaciones de tabla
@@ -119,14 +141,23 @@ Para calcular los costos mensuales de las operaciones de cola de la aplicación 
 Para calcular los costos mensuales de las operaciones de almacenamiento en tablas de la aplicación lógica:
 
 1. Vaya a la [calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/).
+
 1. En la pestaña **Productos**, seleccione **Almacenamiento** &gt; **Cuentas de almacenamiento**. O bien, en el cuadro de búsqueda de la **barra de búsqueda**, escriba **Cuentas de almacenamiento** y seleccione el icono.
-    :::image type="content" source="./media/estimate-storage-costs/pricing-calculator-storage-tile.png" alt-text="Captura de pantalla de la calculadora de precios de Azure, en la que se muestra el icono para agregar la vista Cuentas de almacenamiento." lightbox="./media/estimate-storage-costs/pricing-calculator-storage-tile.png":::
+
+   :::image type="content" source="./media/estimate-storage-costs/pricing-calculator-storage-tile.png" alt-text="Captura de pantalla de la calculadora de precios de Azure, en la que se muestra el icono para agregar la vista Cuentas de almacenamiento." lightbox="./media/estimate-storage-costs/pricing-calculator-storage-tile.png":::
+
 1. En la notificación de **cuentas de almacenamiento agregadas**, seleccione **Ver** para ver la sección **Cuentas de almacenamiento** de la calculadora. O bien, vaya manualmente la sección **Cuentas de almacenamiento** manualmente.
+
 1. En **Región,** seleccione la región de la aplicación lógica.
+
 1. En **Tipo**, seleccione **Table Storage**.
+
 1. En **Nivel**, seleccione el nivel de rendimiento.
+
 1. En **Redundancia**, seleccione el nivel de redundancia.
+
 1. En **Transacciones de almacenamiento**, escriba el número de operaciones de **tabla** de la calculadora de almacenamiento de Logic Apps *dividido por 10 000*. Este paso es necesario porque la calculadora funciona en unidades transaccionales para las operaciones de cola.
+
 1. Revise los costos estimados de las operaciones de almacenamiento en tablas.
 
 ## <a name="next-step"></a>Paso siguiente

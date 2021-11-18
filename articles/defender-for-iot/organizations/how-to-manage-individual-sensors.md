@@ -1,14 +1,14 @@
 ---
 title: Administración de sensores individuales
 description: Obtenga información sobre cómo administrar sensores individuales, lo que incluye la administración de archivos de activación y certificados, la realización de copias de seguridad y la actualización de un sensor independiente.
-ms.date: 08/25/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: fd708b2ab259b38ea6983c4d4a6dac319e416218
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: dbbf08f1e139a265b947cc99c7287765d6a6d03a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123424294"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132339960"
 ---
 # <a name="manage-individual-sensors"></a>Administración de sensores individuales
 
@@ -20,7 +20,7 @@ Use Azure Portal para la incorporación y el registro de sensores.
 
 ## <a name="manage-sensor-activation-files"></a>Administración de archivos de activación del sensor
 
-El sensor se incorpora a Azure Defender para IoT desde Azure Portal. Cada uno de los sensores se incorporaron como sensor conectado localmente o como sensor conectado a la nube.
+El sensor se incorpora a Microsoft Defender para IoT desde Azure Portal. Cada uno de los sensores se incorporaron como sensor conectado localmente o como sensor conectado a la nube.
 
 Descargue un archivo de activación único para cada sensor que implemente. Para obtener más información sobre cuándo y cómo usar un nuevo archivo, consulte [Carga de nuevos archivos de activación](#upload-new-activation-files). Si no puede cargar el archivo, vea [Solución de problemas de carga de archivos de activación](#troubleshoot-activation-file-upload).
 
@@ -78,11 +78,11 @@ Es posible que tenga que cargar un nuevo archivo de activación para un sensor i
 
 Recibirá un mensaje de error si no se pudo cargar el archivo de activación. Puede que se hayan producido los siguientes eventos:
 
-- **En el caso de los sensores conectados localmente**: el archivo de activación no es válido. Si el archivo no es válido, vaya al portal de Defender para IoT. En la página **Sensor Management** (Administración de sensores), seleccione el sensor con el archivo no válido y descargue un nuevo archivo de activación.
+- **En el caso de los sensores conectados localmente**: el archivo de activación no es válido. Si el archivo no es válido, vaya a [Defender para IoT en Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). En la página **Sensor Management** (Administración de sensores), seleccione el sensor con el archivo no válido y descargue un nuevo archivo de activación.
 
 - **En el caso de los sensores conectados a la nube**: El dispositivo no se puede conectar a Internet. Compruebe la configuración de red del sensor. Si el sensor necesita conectarse mediante un proxy web para tener acceso a Internet, compruebe que el servidor proxy está configurado correctamente en la pantalla **Sensor Network Configuration** (Configuración de red del sensor). Compruebe que \*.azure-devices.net:443 está permitido en el firewall y/o el proxy. Si no se admiten caracteres comodín o quiere tener mayor control, el nombre de dominio completo específico de Defender for IoT Hub se debería abrir en el firewall y/o el proxy. Para obtener más información, vea [Referencia: Puntos de conexión de IoT Hub](../../iot-hub/iot-hub-devguide-endpoints.md).  
 
-- **En el caso de los sensores conectados a la nube**: El archivo de activación es válido pero Defender para IoT lo rechazó. Si no puede resolver este problema, puede descargar otra activación desde la página Sites and Sensors (Sitios y sensores) de Defender para IoT. Si esto no funciona, póngase en contacto con Soporte técnico de Microsoft.
+- **En el caso de los sensores conectados a la nube**: El archivo de activación es válido pero Defender para IoT lo rechazó. Si no puede resolver este problema, puede descargar otra activación desde la página **Sites and Sensors** (Sitios y sensores) de [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). Si esto no funciona, póngase en contacto con Soporte técnico de Microsoft.
 
 ## <a name="manage-certificates"></a>Administración de certificados
 
@@ -164,7 +164,7 @@ Si el sensor se registró como sensor conectado a la nube, el nombre del sensor 
 
 Para cambiar el nombre:
 
-1. En el portal de Azure Defender para IoT, vaya a la página Sites and Sensors (Sitios y sensores).
+1. En [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), vaya a la página Sites and Sensors (Sitios y sensores).
 
 1. En esta página, elimine el sensor.
 

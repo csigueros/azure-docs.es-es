@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/2/2021
+ms.date: 11/9/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 33433fe8556befaf2e34424ba35e71a66d433533
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 19e1d5f8eab559114f26d10a15c835cf0758b225
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131452478"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132133225"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de la versión del agente de Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Las instalaciones de Windows Server se transforman en una memoria caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a los datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -23,7 +23,7 @@ En este artículo se tratan las notas de la versión de las versiones compatible
 ## <a name="supported-versions"></a>Versiones compatibles
 Se admiten las siguientes versiones de agentes de Azure File Sync:
 
-| Hito | Número de versión del agente | Fecha de la versión | Estado |
+| Hito | Número de versión del agente | Fecha de la versión | Status |
 |----|----------------------|--------------|------------------|
 | Versión V14: [KB5001872](https://support.microsoft.com/topic/92290aa1-75de-400f-9442-499c44c92a81)| 14.0.0.0 | 29 de octubre de 2021 | Compatible: lanzamiento como paquete piloto |
 | Versión V13: [KB4588753](https://support.microsoft.com/topic/632fb833-42ed-4e4d-8abd-746bd01c1064)| 13.0.0.0 | 12 de julio de 2021 | Compatible |
@@ -36,7 +36,7 @@ Se admiten las siguientes versiones de agentes de Azure File Sync:
 ## <a name="unsupported-versions"></a>Versiones no admitidas
 Las siguientes versiones de agentes de Azure File Sync han expirado y ya no se admiten:
 
-| Hito | Número de versión del agente | Fecha de la versión | Estado |
+| Hito | Número de versión del agente | Fecha de la versión | Status |
 |----|----------------------|--------------|------------------|
 | Versión V10 | 10.0.0.0 - 10.1.0.0 | N/D | No compatible: las versiones del agente expiraron el 28 de junio de 2021. |
 | Versión V9 | 9.0.0.0 - 9.1.0.0 | N/D | No compatible: las versiones del agente expiraron el 16 de febrero de 2021. |
@@ -55,6 +55,9 @@ Las siguientes versiones de agentes de Azure File Sync han expirado y ya no se a
 Las notas siguientes se corresponden a la versión 14.0.0.0 del agente de Azure File Sync (publicada el 29 de octubre de 2021).
 
 ### <a name="improvements-and-issues-that-are-fixed"></a>Mejoras y problemas que se han solucionado
+- Se han reducido las transacciones cuando se ejecuta el trabajo de enumeración de cambios en la nube. 
+    - Azure File Sync tiene un trabajo de enumeración de cambios en la nube que se ejecuta cada 24 horas para detectar los cambios realizados directamente en el recurso compartido de archivos de Azure y sincronizar esos cambios con los servidores de los grupos de sincronización. Hemos realizado mejoras para reducir el número de transacciones cuando se ejecuta este trabajo.
+
 - Mejora de las instrucciones de desaprovisionamiento de puntos de conexión de servidor en el portal
     - Al quitar un punto de conexión de servidor desde del portal, ahora se proporcionan instrucciones paso a paso en función del motivo de la eliminación del punto de conexión de servidor, de modo que pueda evitar la pérdida de datos y asegurarse de que los datos están donde deben estar (un servidor o un recurso compartido de archivos de Azure). Esta característica también incluye nuevos cmdlets de PowerShell (Get-StorageSyncStatus y New-StorageSyncUploadSession) que puede usar en el servidor local para facilitar el proceso de desaprovisionamiento.
 
@@ -63,6 +66,7 @@ Las notas siguientes se corresponden a la versión 14.0.0.0 del agente de Azure
 
 - Otras mejoras
     - Ahora Azure File Sync se admite en la región Oeste de EE. UU. 3.
+    - Se ha corregido un error que provocaba que el script FileSyncErrorsReport.ps1 no proporcionara la lista de todos los errores por elemento.
     - Se han reducido las transacciones cuando un archivo no se puede cargar de forma coherente debido a un error de sincronización por elemento.
     - Mejoras de confiabilidad y telemetría para la sincronización y la nube por niveles. 
 

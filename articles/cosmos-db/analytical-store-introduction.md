@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: fd9984d6db66413f3c53d20fa63ffb4e1a106f3d
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 712b1d3e7fde41991f9cea2d62e7e0864224509d
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131454549"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135201"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>¿Qué es el almacén analítico de Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -177,6 +177,21 @@ df = spark.read\
 ```
 
 * Ahora Azure Synapse Spark admite propiedades con espacios en blanco en sus nombres.
+
+* No se admiten los siguientes tipos de datos BSON y no se representarán en el almacén analítico:
+  * Decimal128
+  * Expresión regular
+  * Puntero de base de datos
+  * JavaScript
+  * Símbolo
+  * MinKey/MaxKey 
+
+* Cuando se usan cadenas DateTime que siguen el estándar UTC ISO 8601, se espera el comportamiento siguiente:
+  * Los grupos de Spark en Azure Synapse representarán estas columnas como `string`.
+  * Los grupos sin servidor de SQL en Azure Synapse representarán estas columnas como `varchar(8000)`.
+
+* Los grupos de SQL sin servidor de Azure Synapse admiten conjuntos de resultados con hasta 1000 columnas y exponer columnas anidadas también cuenta para ese límite. Tenga en cuenta esta información al diseñar la arquitectura de datos y modelar los datos transaccionales.
+
 
 ### <a name="schema-representation"></a>Representación del esquema
 

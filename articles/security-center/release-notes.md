@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 11/04/2021
+ms.date: 11/07/2021
 ms.author: memildin
-ms.openlocfilehash: 0e93c254a28aa62ce84f60daa02f91b247893a5b
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 19c1cad67d170e406e01e8c7c4816ab11722e4e4
+ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131577163"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131990328"
 ---
 # <a name="whats-new-in-microsoft-defender-for-cloud"></a>Novedades de Microsoft Defender for Cloud
 
@@ -38,6 +38,7 @@ Nuestra versión de Ignite incluye:
 - [Evaluaciones de control de seguridad ampliadas con Azure Security Benchmark v3](#expanded-security-control-assessments-with-azure-security-benchmark-v3).
 - [Sincronización de alertas bidireccionales opcionales del conector de Microsoft Sentinel; está publicada para disponibilidad general (GA)](#microsoft-sentinel-connectors-optional-bi-directional-alert-synchronization-released-for-general-availability-ga).
 - [Nueva recomendación para insertar registros de Azure Kubernetes Service (AKS) en Sentinel](#new-recommendation-to-push-azure-kubernetes-service-aks-logs-to-sentinel).
+- [Recomendaciones asignadas al marco MITRE ATT&CK®, publicadas en disponibilidad general (GA)](#recommendations-mapped-to-the-mitre-attck-framework---released-for-general-availability-ga)
 
 Otros cambios de noviembre incluyen:
 
@@ -64,9 +65,9 @@ Una nueva página de **configuración del entorno** le proporciona mayor visibil
 
 Cuando haya agregado las cuentas de AWS, Defender para la nube protege los recursos de AWS con cualquiera o todos los planes siguientes:
 
-- Las **características de CSPM de Defender para la nube** se extienden a los recursos de AWS. Este plan sin agente evalúa los recursos de AWS según las recomendaciones de seguridad específicas de AWS, que se incluyen en la puntuación de seguridad. También se evaluará el cumplimiento de los estándares integrados específicos de AWS (AWS CIS, AWS PCI DSS y Procedimientos recomendados de seguridad fundamentales de AWS). La [página de inventario de recursos](asset-inventory.md) de Defender para la nube es una característica habilitada para varias nubes que le permite administrar los recursos de AWS junto con los recursos de Azure.
-- **Microsoft Defender para Kubernetes** amplía la detección de amenazas de contenedor y defensas avanzadas a los **clústeres de Linux de Amazon EKS**.
-- **Microsoft Defender para servidores** proporciona detección de amenazas y defensas avanzadas para instancias de EC2 de Windows y Linux. Este plan incluye la licencia integrada de Microsoft Defender para punto de conexión, líneas de base de seguridad y evaluaciones de nivel de sistema operativo, análisis de evaluación de vulnerabilidades, controles de aplicaciones adaptables (AAC), supervisión de la integridad de archivos (FIM) y mucho más.
+- Las **características de CSPM de Defender para la nube** se extienden a los recursos de AWS. Este plan sin agente evalúa los recursos de AWS según las recomendaciones de seguridad específicas de AWS, que se incluyen en la puntuación de seguridad. También se evaluará el cumplimiento de los recursos de los estándares integrados específicos de AWS (AWS CIS, AWS PCI DSS y Procedimientos recomendados de seguridad fundamentales de AWS). La [página de inventario de recursos](asset-inventory.md) de Defender for Cloud es una característica habilitada para varias nubes, que permite administrar los recursos de AWS junto con los de Azure.
+- **Microsoft Defender para Kubernetes** amplía la detección de amenazas de contenedores y defensas avanzadas a los **clústeres Linux de Amazon EKS**.
+- **Microsoft Defender para servidores** proporciona la detección de amenazas y defensas avanzadas a las instancias de EC2 con Windows y Linux. Este plan incluye la licencia integrada de Microsoft Defender para punto de conexión, líneas de base de seguridad y evaluaciones de nivel de sistema operativo, análisis de evaluación de vulnerabilidades, controles de aplicaciones adaptables (AAC), supervisión de la integridad de archivos (FIM) y mucho más.
 
 Obtenga más información sobre cómo [conectar las cuentas de AWS a Microsoft Defender para la nube](quickstart-onboard-aws.md).
 
@@ -84,7 +85,7 @@ Obtenga más información sobre la [Clasificación de acciones de seguridad seg�
 ### <a name="expanded-security-control-assessments-with-azure-security-benchmark-v3"></a>Evaluaciones de control de seguridad ampliadas con Azure Security Benchmark v3
 Las recomendaciones de seguridad de Microsoft Defender para la nube están habilitadas y son compatibles con Azure Security Benchmark. 
 
-[Azure Security Benchmark](../security/benchmarks/introduction.md) es el conjunto de directrices específico de Azure creado por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. Este punto de referencia ampliamente respetado está basado en los controles del [Centro de seguridad de Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) y del [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) y hace hincapié en la seguridad centrada en la nube.
+[Azure Security Benchmark](../security/benchmarks/introduction.md) es el conjunto de directrices específico de Azure creado por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. Este punto de referencia, que cuenta con un amplísimo respaldo, se basa en los controles del [Centro de seguridad de Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) y del [Instituto Nacional de Normas y Tecnología (NIST)](https://www.nist.gov/), con un enfoque en seguridad centrada en la nube.
 
 A partir de Ignite 2021, Azure Security Benchmark **v3** está disponible en el [panel de cumplimiento normativo de Defender para la nube](update-regulatory-compliance-packages.md) y se habilita como la nueva iniciativa predeterminada para todas las suscripciones de Azure protegidas con Microsoft Defender para la nube. 
 
@@ -121,6 +122,22 @@ La nueva recomendación "Los registros de diagnóstico en los servicios de Kuber
 
 También se ha mejorado la recomendación "La auditoría en el servidor de SQL se debe habilitar" con las mismas funcionalidades de streaming de Sentinel. 
 
+
+### <a name="recommendations-mapped-to-the-mitre-attck-framework---released-for-general-availability-ga"></a>Recomendaciones asignadas al marco MITRE ATT&CK®, publicadas en disponibilidad general (GA)
+
+Hemos mejorado las recomendaciones de seguridad de Defender for Cloud para mostrar su posición en el marco MITRE ATT&CK®. Esta base de conocimiento de acceso global sobre las tácticas y técnicas de los actores de amenazas basadas en observaciones reales proporciona más contexto para ayudarle a comprender los riesgos asociados de las recomendaciones para su entorno.
+
+Encontrará estas tácticas siempre que acceda a la información de las recomendaciones:
+
+- Los **resultados de la consulta de Azure Resource Graph** para las recomendaciones pertinentes incluyen las tácticas y técnicas de MITRE ATT&CK®.
+
+- Las **páginas de detalles de las recomendaciones** muestran la asignación de todas las recomendaciones pertinentes:
+
+    :::image type="content" source="media/review-security-recommendations/tactics-window.png" alt-text="Captura de pantalla de la asignación de tácticas de MITRE para una recomendación.":::
+
+- **La página de recomendaciones de Defender for Cloud** tiene el nuevo filtro :::image type="icon" source="media/review-security-recommendations/tactics-filter-recommendations-page.png" border="false"::: para seleccionar recomendaciones según su táctica asociada:
+
+Más información en [Examen de las recomendaciones de seguridad](review-security-recommendations.md).
 
 ### <a name="microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution---released-for-general-availability-ga"></a>Se agregó la Administración de amenazas y vulnerabilidades de Microsoft como solución de evaluación de vulnerabilidades; versión disponible de forma general (GA)
 

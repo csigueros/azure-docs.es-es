@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 41d98bfa2fddc6575d53c2770e9411609acb68c1
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 1da7c5f189b3ffee7f74a4af94bda7fe2d755c74
+ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131845844"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "132025786"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Uso de Standard Load Balancer en Azure Kubernetes Service (AKS)
 
@@ -193,16 +193,16 @@ az aks create \
 ### <a name="configure-the-allocated-outbound-ports"></a>Configuración de los puertos de salida asignados
 
 > [!IMPORTANT]
-> Si tiene aplicaciones en el clúster que se espera que establezcan una gran cantidad de conexiones en un pequeño conjunto de destinos; por ejemplo, muchas instancias de front-end que se conectan a una base de datos de SQL, tiene un escenario muy susceptible de encontrar agotamiento de puertos SNAT (que se está quedando sin puertos desde los que conectarse). En estos casos, se recomienda aumentar los puertos de salida asignados y las direcciones IP de front-end salientes en el equilibrador de carga. Consulte a continuación el procedimiento para calcular correctamente estos valores.
+> Si tiene aplicaciones en el clúster que pueden establecer un gran número de conexiones a un pequeño conjunto de destinos, por ejemplo, muchas instancias de una aplicación de front-end que se conectan a una base de datos, es posible que tenga un escenario muy susceptible a sufrir el agotamiento de puertos SNAT. El agotamiento de puertos SNAT se produce cuando una aplicación se queda sin puertos de salida que pueda usar para establecer una conexión con otra aplicación u host. Si tiene un escenario en el que se pueda producir el agotamiento de puertos SNAT, se recomienda aumentar los puertos de salida asignados y las direcciones IP de front-end de salida en el equilibrador de carga para evitar el agotamiento del puerto SNAT. Consulte a continuación para obtener información sobre cómo calcular correctamente los puertos de salida y los valores de dirección IP de front-end de salida.
 
-A menos que se especifique lo contrario, AKS usará el valor predeterminado de los puertos de salida asignados que defina Standard Load Balancer al configurarlo. Este valor es **null** en la API de AKS o **0** en la API de SLB, tal como se muestra en el comando siguiente:
+De manera predeterminada, en su equilibrador de carga, AKS establece *AllocatedOutboundPorts* en `0`, lo que permite la [asignación automática de puertos de salida en función del tamaño del grupo de back-end][azure-lb-outbound-preallocatedports] al crear un clúster. Por ejemplo, si un clúster tiene 50 nodos o menos, se asignan 1024 puertos a cada nodo. A medida que aumenta el número de nodos del clúster, habrá menos puertos disponibles por nodo. Para mostrar el valor de *AllocatedOutboundPorts* para el equilibrador de carga del clúster de AKS, use `az network lb outbound-rule list`. Por ejemplo:
 
 ```azurecli-interactive
 NODE_RG=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 az network lb outbound-rule list --resource-group $NODE_RG --lb-name kubernetes -o table
 ```
 
-Los comandos anteriores mostrarán la regla de salida del equilibrador de carga, por ejemplo:
+La siguiente salida de ejemplo muestra que está habilitada la asignación automática de puertos de salida basada en el tamaño del grupo de back-end para el clúster:
 
 ```console
 AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name             Protocol    ProvisioningState    ResourceGroup
@@ -210,19 +210,31 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 0                         True              30                      aksOutboundRule  All         Succeeded            MC_myResourceGroup_myAKSCluster_eastus  
 ```
 
-Esta salida no significa que el clúster tenga 0 puertos, sino que usa la [asignación automática de puertos de salida en función del tamaño del grupo de back-end][azure-lb-outbound-preallocatedports]. Por ejemplo, si un clúster tiene 50 nodos o menos, se asignan 1024 puertos a cada nodo. A medida que aumenta el número de nodos del clúster, habrá menos puertos disponibles por nodo.
+Para configurar un valor específico para *AllocatedOutboundPorts* y la dirección IP de salida al crear o actualizar un clúster, use `load-balancer-outbound-ports` y `load-balancer-managed-outbound-ip-count`, `load-balancer-outbound-ips` o `load-balancer-outbound-ip-prefixes`. Antes de establecer un valor específico o aumentar un valor existente para los puertos de salida y las direcciones IP de salida, debe calcular el número adecuado de puertos de salida y direcciones IP. Utilice la ecuación siguiente para este cálculo, redondeado al entero más cercano: `64,000 ports per IP / <outbound ports per node> * <number of outbound IPs> = <maximum number of nodes in the cluster>`.
 
-Para definir o aumentar el número de puertos de salida asignados, se deben calcular los valores adecuados para el número de puertos de salida y el número de direcciones IP. El número de puertos de salida se fija por instancia en el valor especificado aquí. El valor de los puertos de salida debe ser un múltiplo de 8.
+Al calcular el número de puertos de salida y direcciones IP y establecer los valores, recuerde lo siguiente:
+* El número de puertos de salida se fija por cada nodo en función del valor que establezca.
+* El valor de los puertos de salida debe ser un múltiplo de 8.
+* Agregar más direcciones IP no agrega más puertos a ningún nodo. Proporciona capacidad para más nodos en el clúster.
+* Debe tener en cuenta los nodos que se puedan agregar como parte de las actualizaciones, incluido el recuento de nodos especificado mediante [valores maxSurge][maxsurge].
 
-Si se agregan más direcciones IP no se agregan más puertos a ningún nodo; en su lugar, se proporciona capacidad para más nodos del clúster. Al realizar este cálculo, asegúrese de tener en cuenta los nodos que se pueden agregar como parte de las actualizaciones, incluido el recuento de los nodos especificados a través de los [valores maxSurge](upgrade-cluster.md#customize-node-surge-upgrade). El cálculo del número de direcciones IP necesarias es `(<maximum number of nodes in the cluster> * <outbound ports per node>) / 64000`, redondeado al entero más cercano.
+En los ejemplos siguientes, se muestra cómo se ve afectado el número de puertos de salida y direcciones IP por los valores que establezca:
+- Si se utilizan los valores predeterminados y el clúster tiene 48 nodos, cada nodo tendrá 1024 puertos disponibles.
+- Si se utilizan los valores predeterminados y el clúster se escala de 48 a 52 nodos, cada nodo se actualizará de 1024 puertos disponibles a 512 puertos disponibles.
+- Si los puertos de salida se establecen en 1000 y el número de direcciones IP de salida se establece en 2, el clúster puede admitir un máximo de 128 nodos: `64,000 ports per IP / 1,000 ports per node * 2 IPs = 128 nodes`.
+- Si los puertos de salida se establecen en 1000 y el número de direcciones IP de salida se establece en 7, el clúster puede admitir un máximo de 448 nodos: `64,000 ports per IP / 1,000 ports per node * 7 IPs = 448 nodes`.
+- Si los puertos de salida se establecen en 4000 y el número de direcciones IP de salida se establece en 2, el clúster puede admitir un máximo de 32 nodos: `64,000 ports per IP / 4,000 ports per node * 2 IPs = 32 nodes`.
+- Si los puertos de salida se establecen en 4000 y el número de direcciones IP de salida se establece en 7, el clúster puede admitir un máximo de 112 nodos: `64,000 ports per IP / 4,000 ports per node * 7 IPs = 112 nodes`.
 
-Ejemplos:
-- Si no se proporciona ningún valor y el clúster tiene 48 nodos, cada nodo tendrá 1024 puertos disponibles.
-- Si no se proporciona ningún valor y el clúster aumenta a 52 nodos, cada nodo ahora tendrá 512 puertos disponibles.
-- Si los puertos de salida se establecen en 1000 y el número de direcciones IP salientes se establece en 2, el clúster puede admitir un máximo de 128 nodos (64 000 puertos por IP/1000 puertos por nodo x 2 direcciones IP = 128 nodos).
-- Si los puertos de salida se establecen en 4000 y el número de direcciones IP salientes se establece en 7, el clúster puede admitir un máximo de 112 nodos (64 000 puertos por IP/4000 puertos por nodo x 7 direcciones IP = 112 nodos).
+> [!IMPORTANT]
+> Después de calcular el número de puertos de salida y direcciones IP, compruebe que tiene capacidad de puertos de salida adicional para controlar los picos de nodos durante las actualizaciones. Es fundamental asignar suficientes puertos en exceso para los nodos adicionales necesarios para la actualización y otras operaciones. AKS se establece de forma predeterminada en un nodo de búfer para las operaciones de actualización. Si usa [valores maxSurge][maxsurge], multiplique los puertos de salida por nodo por el valor maxSurge para determinar el número de puertos necesarios. Por ejemplo, si calculó que necesitaba 4000 puertos por nodo con 7 direcciones IP en un clúster con un máximo de 100 nodos y un pico máximo de 2:
+> * 2 nodos de pico * 4000 puertos por nodo = 8000 puertos necesarios para los picos de nodos durante las actualizaciones.
+> * 100 nodos * 4000 puertos por nodo = 400 000 puertos necesarios para el clúster.
+> * 7 direcciones IP * 64 000 puertos por dirección IP = 448 000 puertos disponibles para el clúster.
+>
+> En el ejemplo anterior, se muestra que el clúster tiene una capacidad en exceso de 48 000 puertos, lo que es suficiente para controlar los 8000 puertos necesarios para los picos de nodos durante las actualizaciones.
 
-Una vez calculados los valores, se puede usar el siguiente comando para aplicarlos al clúster:
+Una vez calculados y comprobados los valores, puede aplicarlos mediante `load-balancer-outbound-ports` y `load-balancer-managed-outbound-ip-count`, `load-balancer-outbound-ips` o `load-balancer-outbound-ip-prefixes` al crear o actualizar un clúster. Por ejemplo:
 
 ```azurecli-interactive
 az aks update \
@@ -230,25 +242,6 @@ az aks update \
     --name myAKSCluster \
     --load-balancer-managed-outbound-ip-count 7 \
     --load-balancer-outbound-ports 4000
-```
-
-Para comprobar estos valores, suponga que el clúster tiene un tamaño máximo de 100 nodos y calcule el número de puertos necesarios (400 000) frente al número de puertos disponibles (448 000). Esta configuración proporcionaría puertos suficientes para un clúster de 100 nodos con espacio para la sobrecarga de nodos durante las actualizaciones.
-
-- 100 nodos x 4000 puertos por nodo = 400 000 puertos necesarios
-- 7 direcciones IP x 64 000 puertos por IP = 448 000 puertos disponibles.
-
-> [!IMPORTANT]
-> Debe [calcular la cuota necesaria y comprobar los requisitos][requisitos] antes de personalizar *allocatedOutboundPorts* para evitar problemas de conectividad o escalado. Es fundamental asignar suficientes puertos para los nodos adicionales necesarios para la actualización y otras operaciones. AKS se establece de forma predeterminada en un nodo de búfer para la actualización. Si usa [valores maxSurge](upgrade-cluster.md#customize-node-surge-upgrade), multiplique los puertos de salida por nodo por el valor maxSurge para determinar el número de puertos necesarios.
-
-También puede usar los parámetros **`load-balancer-outbound-ports`** al crear un clúster, pero debe especificar **`load-balancer-managed-outbound-ip-count`** , **`load-balancer-outbound-ips`** o **`load-balancer-outbound-ip-prefixes`** .  Por ejemplo:
-
-```azurecli-interactive
-az aks create \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --load-balancer-sku standard \
-    --load-balancer-managed-outbound-ip-count 2 \
-    --load-balancer-outbound-ports 1024 
 ```
 
 ### <a name="configure-the-load-balancer-idle-timeout"></a>Configuración del tiempo de espera de inactividad del equilibrador de carga
@@ -427,3 +420,4 @@ Obtenga más información sobre el uso de una instancia de Load Balancer interna
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
 [service-tags]: ../virtual-network/network-security-groups-overview.md#service-tags
+[maxsurge]: upgrade-cluster.md#customize-node-surge-upgrade

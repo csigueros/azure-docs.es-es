@@ -2,24 +2,21 @@
 title: Habilitación de la identidad administrada en temas y dominios personalizados de Azure Event Grid
 description: En este artículo se describe cómo habilitar una identidad de servicio administrada de un tema o un dominio personalizados de Azure Event Grid.
 ms.topic: how-to
-ms.date: 08/20/2021
-ms.openlocfilehash: 9a63e6ae65c1348e22418506bb3bf475aafc0c10
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.date: 11/09/2021
+ms.openlocfilehash: 1f9cae4c25c37d0fcb670804ae3450871dbd5259
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122633531"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132156586"
 ---
 # <a name="assign-a-managed-identity-to-an-event-grid-custom-topic-or-domain"></a>Asignación de una identidad administrada a un tema o un dominio personalizado de Event Grid 
-En este artículo se muestra cómo asignar una identidad asignada por el sistema o una identidad asignada por el usuario a un tema o un dominio personalizado de Event Grid. Para más información sobre las identidades administradas, consulte [¿Qué son las identidades administradas de recursos de Azure?](../active-directory/managed-identities-azure-resources/overview.md).
-
-> [!IMPORTANT]
-> Puede habilitar la identidad asignada por el sistema o la identidad asignada por el usuario para un tema o dominio de Event Grid, pero no ambas. Puede tener como máximo dos identidades asignadas por el usuario asignadas a un tema o dominio. 
+En este artículo se muestra cómo usar Azure Portal y la CLI para asignar una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) asignada por el sistema o por el usuario a un tema o un dominio personalizado de Event Grid. 
 
 ## <a name="enable-identity-when-creating-a-topic-or-domain"></a>Habilitación de la identidad al crear un tema o un dominio
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
-Puede asignar una identidad asignada por el sistema o una entidad asignada por el usuario a un tema o un dominio personalizado mientras la crea en Azure Portal. 
+En **Azure Portal**, al crear un tema o un dominio, puede asignar una identidad asignada por el sistema o dos identidades asignadas por el usuario, pero no ambos tipos de identidades. Una vez creado el tema o dominio, puede asignar ambos tipos de identidades siguiendo los pasos descritos en la sección [Habilitación de la identidad para un tema o dominio existente](#enable-identity-for-an-existing-custom-topic-or-domain).
 
 ### <a name="enable-system-assigned-identity"></a>Activar una identidad asignada por el sistema
 En la pestaña **Opciones avanzadas** del Asistente para la creación de temas o dominios, seleccione **Habilitar la identidad asignada por el sistema**. 
@@ -33,7 +30,9 @@ En la pestaña **Opciones avanzadas** del Asistente para la creación de temas o
 1. En la ventana **Seleccionar una identidad asignada por el usuario**, seleccione la suscripción que tiene la identidad asignada por l usuario, seleccione la **identidad asignada por usuario** y haga clic en **Seleccionar**. 
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/cli)
-También puede usar la CLI de Azure para crear un tema o un dominio personalizados con una identidad asignada por el sistema. Use el comando `az eventgrid topic create` con el parámetro `--identity` establecido en `systemassigned`. Si no especifica un valor para este parámetro, se utiliza el valor predeterminado `noidentity`. 
+También puede usar la CLI de Azure para crear un tema o un dominio personalizados con una identidad asignada por el sistema. Actualmente, la CLI de Azure no admite la asignación de una identidad administrada asignada por el usuario a un tema o dominio.  
+
+Use el comando `az eventgrid topic create` con el parámetro `--identity` establecido en `systemassigned`. Si no especifica un valor para este parámetro, se utiliza el valor predeterminado `noidentity`. 
 
 ```azurecli-interactive
 # create a custom topic with a system-assigned identity
@@ -42,16 +41,15 @@ az eventgrid topic create -g <RESOURCE GROUP NAME> --name <TOPIC NAME> -l <LOCAT
 
 Del mismo modo, puede usar el comando `az eventgrid domain create` para crear un dominio con una identidad asignada por el sistema.
 
-> [!NOTE]
-> La CLI de Azure no admite aún la asignación de una identidad administrada asignada por el usuario a un tema o dominio de Event Grid. 
-
 ---
 
 ## <a name="enable-identity-for-an-existing-custom-topic-or-domain"></a>Habilitación de una identidad para un tema o dominio personalizados existentes
 En esta sección, aprenderá a habilitar una identidad asignada por el sistema o una identidad asignada por el usuario para un tema o un dominio personalizado existente. 
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
-El siguiente procedimiento muestra cómo habilitar una identidad asignada por el sistema para un tema personalizado. Los pasos para habilitar una identidad para un dominio son similares. 
+Si usa Azure Portal, puede asignar una identidad administrada asignada por el sistema y hasta dos identidades administradas asignadas por el usuario a un tema existente o un dominio.
+
+Los procedimientos siguientes muestran cómo habilitar una identidad para un tema personalizado. Los pasos para habilitar una identidad para un dominio son similares. 
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 2. Busque **temas de Event Grid** en la barra de búsqueda de la parte superior.
@@ -78,6 +76,8 @@ El siguiente procedimiento muestra cómo habilitar una identidad asignada por el
 Puede usar pasos similares para habilitar una identidad de un dominio de Event Grid.
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/cli)
+También puede usar la CLI de Azure para asignar una identidad administrada asignada por el sistema a un dominio o tema personalizado existente. Actualmente, la CLI de Azure no admite la asignación de una identidad administrada asignada por el usuario a un tema o dominio.
+
 Use el comando `az eventgrid topic update` con `--identity` establecido en `systemassigned` para habilitar la identidad asignada por el sistema para un tema personalizado existente. Si desea deshabilitar la identidad, especifique `noidentity` como valor. 
 
 ```azurecli-interactive
@@ -86,9 +86,6 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 ```
 
 El comando para actualizar un dominio existente es similar (`az eventgrid domain update`).
-
-> [!NOTE]
-> La CLI de Azure no admite aún la asignación de una identidad administrada asignada por el usuario a un tema o dominio de Event Grid. 
 
 ---
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc8ceddce4d41244d72632db058aa58c0d919db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1cbdd8f5e69fb21c59be5017a3c28e1067062968
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565179"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132292612"
 ---
 # <a name="control-access-with-sensitivity-labels"></a>Control del acceso mediante etiquetas de confidencialidad 
 
@@ -33,16 +33,13 @@ Con las etiquetas de confidencialidad, podrá:
 Las etiquetas de confidencialidad del correo electrónico y otro contenido acompañan al contenido. Las etiquetas de confidencialidad de los contenedores pueden restringir el acceso al contenedor, pero el contenido del contenedor no hereda la etiqueta. Por ejemplo, un usuario podría acceder al contenido de un sitio protegido, descargarlo y compartirlo sin restricciones, a menos que el contenido también tuviera una etiqueta de confidencialidad.
 
  >[!NOTE]
->Para utilizar las etiquetas de confidencialidad, los usuarios deben iniciar sesión en su cuenta profesional o educativa de Microsoft. 
+>Para utilizar las etiquetas de confidencialidad, los usuarios deben iniciar sesión en su cuenta profesional o educativa de Microsoft.
 
- 
 ## <a name="permissions-necessary-to-create-and-manage-sensitivity-levels"></a>Permisos necesarios para crear y administrar niveles de confidencialidad
 
-Los miembros de su equipo de cumplimiento que vayan a crear las etiquetas de confidencialidad necesitarán permisos para el Centro de cumplimiento de Microsoft 365, el Centro de seguridad de Microsoft 365 o el Centro de seguridad y cumplimiento.
+Los miembros de su equipo de cumplimiento que vayan a crear las etiquetas de confidencialidad necesitarán permisos para el portal de Microsoft 365 Defender, el Centro de cumplimiento de Microsoft 365 o el Centro de seguridad y cumplimiento de Office 365.
 
 Los administradores globales de su inquilino tienen acceso a estos centros de administración, de forma predeterminada, y pueden conceder acceso a los responsables de cumplimiento normativo y a otras personas sin otorgarles todos los permisos de un administrador de inquilinos. Para este acceso de administrador limitado delegado, agregue usuarios a los grupos de roles de administrador de datos de cumplimiento, administrador de cumplimiento o administrador de seguridad.
-
- 
 
 ## <a name="determine-your-sensitivity-label-strategy"></a>Determinación de la estrategia de etiquetas de confidencialidad
 
@@ -148,7 +145,7 @@ Consulte los siguientes artículos sobre cómo proteger el acceso externo a los 
 
 4. [Uso de grupos con fines de seguridad](4-secure-access-groups.md)
 
-5. [Transición a B2B de Azure AD](5-secure-access-b2b.md)
+5. [Transición a Azure AD B2B](5-secure-access-b2b.md)
 
 6. [Acceso seguro mediante la administración de derechos](6-secure-access-entitlement-managment.md)
 

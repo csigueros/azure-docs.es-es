@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 08/09/2021
 author: palma21
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fefdb4619c017d7c43e4dfa84c8099450310ca2f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8a19cc69d14e32a20819618efcf60594aef34be9
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121743942"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371987"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster"></a>Inicio y detención de un clúster de Azure Kubernetes Service (AKS)
 
 Es posible que las cargas de trabajo de AKS no tengan que ejecutarse continuamente, por ejemplo, en el caso de un clúster de desarrollo que se use solo durante el horario comercial. Esto se traduce en momentos en que el clúster de Azure Kubernetes Service (AKS) podría estar inactivo, sin ejecutar más que los componentes del sistema. Para reducir la superficie del clúster, [escale todos los grupos de nodos `User` a 0](scale-cluster.md#scale-user-node-pools-to-0), aunque sigue siendo necesario que el [grupo `System`](use-system-pools.md) ejecute los componentes del sistema mientras el clúster está en ejecución.
-Para optimizar aún más los costos durante estos períodos, puede desactivar por completo (detener) el clúster. Esta acción detiene el plano de control y los nodos del agente, lo que permite ahorrar en todos los costos de proceso, a la vez que se mantienen todos los objetos y el estado del clúster almacenados para cuando se inicie de nuevo. Puede continuar justo donde se ha dejado después de un fin de semana o hacer que el clúster se ejecute solo mientras se ejecutan los trabajos por lotes.
+Para optimizar aún más los costos durante estos períodos, puede desactivar por completo (detener) el clúster. Esta acción detiene el plano de control y los nodos del agente, lo que permite ahorrar en todos los costos de proceso, a la vez que se mantienen todos los objetos (excepto pods independientes) y el estado del clúster almacenados para cuando se inicie de nuevo. Puede continuar justo donde se ha dejado después de un fin de semana o hacer que el clúster se ejecute solo mientras se ejecutan los trabajos por lotes.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -30,6 +30,7 @@ Cuando se usa la característica de inicio o detención del clúster, se aplican
 - El estado de clúster de un clúster de AKS detenido se conserva durante un máximo de 12 meses. Si el clúster se detiene durante más de 12 meses, no se puede recuperar su estado. Para obtener más información, vea [Directivas de soporte técnico para AKS](support-policies.md).
 - Solo puede iniciar o eliminar un clúster de AKS detenido. Para realizar cualquier operación, como escalado o actualización, primero inicie el clúster.
 - Los puntos de conexión privados aprovisionados por el cliente y vinculados al clúster privado deben eliminarse y volver a crearse al iniciar un clúster de AKS detenido.
+- Dado que el proceso de detenerse purga todos los nodos, se eliminarán los pods independientes (es decir, los pods no administrados por una implementación, StatefulSet, DaemonSet, job, etc.).
 
 ## <a name="stop-an-aks-cluster"></a>Detención de un clúster de AKS
 

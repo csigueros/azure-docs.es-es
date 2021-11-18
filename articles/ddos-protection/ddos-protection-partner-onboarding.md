@@ -8,12 +8,12 @@ mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 67b8e9e5c913323d1786427fcd102de9b98d2827
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 5168cbf417bf433632b6e2653dfa39dcdad11f92
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123310458"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306358"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Asociación con Azure DDoS Protection estándar
 En este artículo se describen las oportunidades de asociación habilitadas por Azure DDoS Protection estándar. Este artículo está diseñado para ayudar a los administradores de productos y a los roles de desarrollo empresarial a comprender las rutas de inversión, y para ofrecer información sobre las propuestas de valor de la asociación.
@@ -39,7 +39,7 @@ Para cada aplicación protegida, Azure DDoS Protection estándar ajusta automát
 ### <a name="attack-analytics-telemetry-monitoring-and-alerting"></a>Análisis, telemetría, supervisión y alertas de los ataques
 Azure DDoS Protection identifica y mitiga los ataques DDoS sin intervención del usuario.
 
-- Si el recurso protegido está en la suscripción que se trata en Azure Security Center, DDoS Protection estándar envía automáticamente una alerta a Security Center cada vez que se detecta y mitiga un ataque DDoS en la aplicación protegida.
+- Si el recurso protegido está en la suscripción que se trata en Microsoft Defender for Cloud, DDoS Protection estándar envía automáticamente una alerta a Defender for Cloud cada vez que se detecta y mitiga un ataque DDoS en la aplicación protegida.
 - De forma alternativa, para recibir una notificación cuando haya una mitigación activa en una dirección IP pública protegida, puede [configurar una alerta](alerts.md) en la métrica Under DDoS attack or not (Bajo ataque de DDoS o no).
 - También puede optar por crear alertas para las otras métricas de DDoS y [configurar la telemetría de ataques](telemetry.md) para entender la magnitud del ataque, el tráfico que se va a quitar, los vectores de ataque, los principales colaboradores, etc.
 

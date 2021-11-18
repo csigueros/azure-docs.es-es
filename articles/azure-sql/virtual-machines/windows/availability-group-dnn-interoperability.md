@@ -11,20 +11,23 @@ ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/08/2020
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: dd8713bcbe96c16e24305e05f693bbf15af327ab
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 79aefd5c4b41e86aeeb2f7f02f2df57397c4b36b
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130163050"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157482"
 ---
 # <a name="feature-interoperability-with-ag-and-dnn-listener"></a>Interoperabilidad de características con grupos de disponibilidad y cliente de escucha de DNN 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Existen determinadas características de SQL Server que dependen de un nombre de red virtual (VNN) codificado de forma rígida. Por tanto, al usar el cliente de escucha de nombre de red distribuida (DNN) con su grupos de disponibilidad Always On y SQL Server en máquinas virtuales de Azure, puede haber algunas consideraciones adicionales. 
+> [!TIP]
+> Elimine la necesidad de un nombre de red distribuida para el grupo de disponibilidad Always On mediante la creación de las máquinas virtuales de SQL Server en [varias subredes](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) dentro de la misma red virtual de Azure.
+
+Existen determinadas características de SQL Server que dependen de un nombre de red virtual (VNN) codificado de forma rígida. Por tanto, al usar el cliente de escucha de nombre de red distribuida (DNN) con su grupos de disponibilidad Always On y SQL Server en máquinas virtuales de Azure de una sola subred, puede haber algunas consideraciones adicionales. 
 
 En este artículo se detallan las características de SQL Server y la interoperabilidad con el cliente de escucha de DNN del grupo de disponibilidad. 
 
@@ -141,5 +144,5 @@ Para obtener más información, consulte:
 - [Grupos de disponibilidad Always On para SQL Server en Azure Virtual Machines](availability-group-overview.md)
 - [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
 - [Introducción a los grupos de disponibilidad Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
-- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)
+- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)
 

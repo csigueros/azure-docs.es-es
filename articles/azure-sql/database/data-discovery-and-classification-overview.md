@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/24/2021
 tags: azure-synapse
-ms.openlocfilehash: b24fcbac37288dd3c49fe64fe517dd31bbab03d2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4fd6360d1d549cd5c184dd5a1f3105d238ab9319
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124788408"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335810"
 ---
 # <a name="data-discovery--classification"></a>Clasificación y detección de datos
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -62,11 +62,11 @@ La clasificación incluye dos atributos de metadatos:
 
 La función de clasificación y detección de datos incluye un conjunto integrado de etiquetas de confidencialidad y un conjunto integrado de tipos de información y lógica de detección. Puede personalizar esta taxonomía y definir un conjunto y la categoría de construcciones de clasificación específicamente para su entorno.
 
-Se define y personaliza la taxonomía de clasificación en una ubicación central para toda la organización de Azure. Esa ubicación se encuentra en [Azure Security Center](../../security-center/security-center-introduction.md), como parte de la directiva de seguridad. Solo un usuario con derechos administrativos en el grupo de administración raíz de la organización puede realizar esta tarea.
+Se define y personaliza la taxonomía de clasificación en una ubicación central para toda la organización de Azure. Esa ubicación se encuentra en [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md), como parte de la directiva de seguridad. Solo un usuario con derechos administrativos en el grupo de administración raíz de la organización puede realizar esta tarea.
 
 Como parte de la administración de directivas, puede definir etiquetas personalizadas, clasificarlas y asociarlas con un conjunto de tipos de información seleccionado. También puede agregar sus propios tipos de información personalizados y configurarlos con patrones de cadena. Los patrones se agregan a la lógica de detección para identificar este tipo de datos en las bases de datos.
 
-Para más información, consulte [Personalización de la directiva de SQL Information Protection en Azure Security Center (versión preliminar)](../../security-center/security-center-info-protection-policy.md).
+Para más información, consulte [Personalización de la directiva de SQL Information Protection en Microsoft Defender for Cloud (versión preliminar)](../../security-center/security-center-info-protection-policy.md).
 
 Una vez definida la directiva de toda la organización, puede continuar con la clasificación de bases de datos individuales mediante la directiva personalizada.
 
@@ -114,7 +114,7 @@ Una vez definida la directiva de toda la organización, puede continuar con la c
 
 Un aspecto importante de la clasificación es la capacidad de supervisar el acceso a información confidencial. [Auditoría de Azure SQL](../../azure-sql/database/auditing-overview.md) se ha mejorado para incluir un nuevo campo en el registro de auditoría denominado `data_sensitivity_information`. Este campo registra las clasificaciones de confidencialidad (etiquetas) de los datos devueltos por una consulta. Este es un ejemplo:
 
-[ ![Registro de auditoría](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png#lightbox)
+[![Registro de auditoría](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png#lightbox)
 
 Estas son las actividades que realmente son auditables con información de confidencialidad:
 - ALTER TABLE ... DROP COLUMN

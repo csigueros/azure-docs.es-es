@@ -1,24 +1,24 @@
 ---
 title: Configuración de la red
 description: Obtenga información sobre la arquitectura de la solución, la preparación de la red, los requisitos previos y otra información necesaria para asegurarse de que ha configurado correctamente la red para que funcione con dispositivos de Azure Defender para IoT.
-ms.date: 11/07/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 150612e8e9d429e9fc2b8eb74f3ea7167a41495c
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: 1e41cc1f8e491e92d2fe4896b90e61b4cd3fe835
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132028370"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278823"
 ---
-# <a name="about-azure-defender-for-iot-network-setup"></a>Acerca de la configuración de red de Azure Defender para IoT
+# <a name="about-microsoft-defender-for-iot-network-setup"></a>Acerca de la configuración de red de Microsoft Defender para IoT
 
-Azure Defender para IoT ofrece supervisión continua de amenazas y detección de dispositivos de ICS. En la plataforma se incluyen los componentes siguientes:
+Microsoft Defender para IoT ofrece supervisión continua de amenazas y detección de dispositivos de ICS. En la plataforma se incluyen los componentes siguientes:
 
 **Sensores de Defender para IoT**: los sensores recopilan el tráfico de ICS mediante la supervisión pasiva (sin agente). Los sensores, pasivos y no intrusivos, tienen un impacto nulo sobre el rendimiento en las redes y los dispositivos de OT e IoT. El sensor se conecta a un puerto SPAN o a un TAP de red e inicia inmediatamente la supervisión de la red. Las detecciones se muestran en la consola del sensor. Allí puede verlos, investigarlos y analizarlos en un mapa de red, un inventario de dispositivos y una amplia variedad de informes. Algunos ejemplos son los informes de evaluación de riesgos, las consultas de minería de datos y los vectores de ataque.
 
 **Consola de administración local de Defender para IoT**: la consola de administración local proporciona una vista consolidada de todos los dispositivos de red. Ofrece una vista en tiempo real de las alertas y los indicadores de riesgo clave de OT e IoT en todas sus instalaciones. Al estar integrada estrechamente con los cuadernos de estrategias y flujos de trabajo de SOC, facilita la priorización de las actividades de mitigación y la correlación entre sitios de las amenazas.
 
-**Portal de Defender para IoT**: la aplicación Defender para IoT puede ayudarle a comprar dispositivos de soluciones, instalar y actualizar software, y actualizar paquetes de TI.
+**Defender para IoT en Azure Portal:** la aplicación Defender para IoT puede ayudarle a comprar dispositivos de soluciones, instalar y actualizar software, y actualizar paquetes de TI.
 
 En este artículo se proporciona información sobre la arquitectura de la solución, la preparación de la red, los requisitos previos y otra información necesaria para permitirle configurar correctamente la red a fin de que funcione con dispositivos de Defender para IoT. Los lectores que trabajan con la información de este artículo deben tener experiencia en el funcionamiento y la administración de redes de OT e IoT. Algunos ejemplos son ingenieros de automatización, jefes de planta, proveedores de servicios de infraestructura de red de OT, equipos de ciberseguridad, CISO o CIO.
 
@@ -132,7 +132,7 @@ Abra estos puertos para permitir servicios adicionales para Defender para IoT.
 | LDAP | TCP | Entrada o salida | 389 | Active Directory | Permite a Active Directory la administración de usuarios que tienen acceso para iniciar sesión en el sistema. | Consola de administración local y sensor | Servidor LDAP |
 | LDAPS | TCP | Entrada o salida | 636 | Active Directory | Permite a Active Directory la administración de usuarios que tienen acceso para iniciar sesión en el sistema. | Consola de administración local y sensor | Servidor LDAPS |
 | [SNMP](how-to-set-up-snmp-mib-monitoring.md) | UDP | Fuera | 161 | Supervisión | Supervisa el estado del sensor. | Consola de administración local y sensor | Servidor SNMP |
-| SMTP | TCP | Fuera | 25 | Email | Se usa para abrir el servidor de correo del cliente, con el fin de enviar correos electrónicos para alertas y eventos. | Sensor y consola de administración local | Servidor de correo electrónico |
+| SMTP | TCP | Fuera | 25 | Correo electrónico | Se usa para abrir el servidor de correo del cliente, con el fin de enviar correos electrónicos para alertas y eventos. | Sensor y consola de administración local | Servidor de correo electrónico |
 | syslog | UDP | Fuera | 514 | LEEF | Registros que se envían desde la consola de administración local al servidor de Syslog. | Consola de administración local y sensor | Servidor de Syslog |
 | DNS | TCP/UDP | Entrada o salida | 53 | DNS | Puerto del servidor DNS | Consola de administración local y sensor | Servidor DNS |
 | [WMI](how-to-configure-windows-endpoint-monitoring.md) | TCP/UDP | Fuera | 135, 1025-65535 | Supervisión | Supervisión de puntos de conexión de Windows | Sensor | Elemento de red relevante |
@@ -161,7 +161,7 @@ Para planificar la instalación del bastidor, realice lo siguiente:
 
 ## <a name="about-passive-network-monitoring"></a>Acerca de la supervisión de red pasiva
 
-El dispositivo recibe el tráfico de varios orígenes, ya sea por puertos de reflejo del conmutador (puertos SPAN) o por TAP de red. El puerto de administración está conectado a la red de administración de la empresa, corporativa o del sensor con conectividad a una consola de administración local o el portal de Defender para IoT.
+El dispositivo recibe el tráfico de varios orígenes, ya sea por puertos de reflejo del conmutador (puertos SPAN) o por TAP de red. El puerto de administración está conectado a la red de administración de la empresa, corporativa o del sensor con conectividad a una consola de administración local o a Defender para IoT en Azure Portal.
 
 :::image type="content" source="media/how-to-set-up-your-network/switch-with-port-mirroring.png" alt-text="Diagrama de un conmutador administrado con creación de reflejo del puerto.":::
 
@@ -605,7 +605,7 @@ Una introducción al diagrama de red industrial permitirá definir la ubicación
     > [!NOTE]
     > El dispositivo de Defender para IoT debe estar conectado a un conmutador de nivel inferior que vea el tráfico entre los puertos del conmutador.  
 
-1. **Dispositivos confirmados**: proporcione el número aproximado de dispositivos de red que se van a supervisar. Necesitará esta información al incorporar la suscripción al portal de Azure Defender para IoT. Durante el proceso de incorporación, se le pedirá que escriba el número de dispositivos en incrementos de 1000.
+1. **Dispositivos confirmados**: proporcione el número aproximado de dispositivos de red que se van a supervisar. Necesitará esta información al incorporar la suscripción a Defender para IoT en Azure Portal. Durante el proceso de incorporación, se le pedirá que escriba el número de dispositivos en incrementos de 1000.
 
 1. **Lista de subredes (opcional)** : proporcione una lista de subredes para las redes de producción y una descripción (opcional).
 

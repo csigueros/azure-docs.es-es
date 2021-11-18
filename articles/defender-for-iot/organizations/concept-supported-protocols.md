@@ -1,22 +1,22 @@
 ---
-title: Protocolos compatibles con Azure Defender para IoT
-description: Obtenga información sobre los protocolos que admite Azure Defender para IoT.
-ms.date: 09/20/2021
+title: Protocolos compatibles con Microsoft Defender para IoT
+description: Obtenga información sobre los protocolos compatibles con Microsoft Defender para IoT.
+ms.date: 11/09/2021
 ms.topic: article
-ms.openlocfilehash: 9320b43cf645e62d68baac39cdf4f06dd1825305
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ebfd983baf2e925fda66c5fc23edc380420db591
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128644436"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132305967"
 ---
 # <a name="support-for-iot-ot-ics-and-scada-protocols"></a>Compatibilidad con los protocolos IoT, OT, ICS y SCADA
 
-Azure Defender para IoT proporciona una plataforma de ciberseguridad abierta e interoperable de tecnología de operaciones (OT). Defender para IoT se implementa en muchas ubicaciones diferentes y reduce el riesgo de IoT, TI e ICS con implementaciones en entornos de OT exigentes y complejos en todas las zonas verticales y geográficas del sector.
+Microsoft Defender para IoT proporciona una plataforma de ciberseguridad abierta e interoperable de tecnología de operaciones (OT). Defender para IoT se implementa en muchas ubicaciones diferentes y reduce el riesgo de IoT, TI e ICS con implementaciones en entornos de OT exigentes y complejos en todas las zonas verticales y geográficas del sector.
 
 ## <a name="supported-protocols"></a>Protocolos admitidos
 
-Azure Defender para IoT admite una amplia gama de protocolos en una empresa diversa e incluye equipos de automatización industrial en todos los sectores industriales, redes empresariales y entornos del sistema de administración de edificios (BMS). En el caso de los protocolos personalizados o propietarios, Microsoft ofrece un SDK que facilita el desarrollo, la prueba y la implementación de disectores de protocolo personalizados como complementos. El SDK hace todo esto sin divulgar información de su propiedad; por ejemplo, cómo se diseñan los protocolos o evitando compartir PCAP que pueden contener información confidencial. Los protocolos admitidos se indican a continuación.
+Microsoft Defender para IoT admite una amplia gama de protocolos en una empresa diversa e incluye equipos de automatización industrial en todos los sectores industriales, redes empresariales y entornos del sistema de administración de edificios (BMS). En el caso de los protocolos personalizados o propietarios, Microsoft ofrece un SDK que facilita el desarrollo, la prueba y la implementación de disectores de protocolo personalizados como complementos. El SDK hace todo esto sin divulgar información de su propiedad; por ejemplo, cómo se diseñan los protocolos o evitando compartir PCAP que pueden contener información confidencial. Los protocolos admitidos se indican a continuación.
 
 ### <a name="supported-protocols-passive-monitoring"></a>Protocolos admitidos (supervisión pasiva)
 
@@ -119,4 +119,5 @@ Asimismo, esta comunidad proporciona tutoriales, foros de discusión, cursos dir
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más detalles en [Disector de protocolo de su propiedad en Horizon](references-horizon-sdk.md).
+
 Eche un vistazo a nuestra [API de Horizon](references-horizon-api.md).

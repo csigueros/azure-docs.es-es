@@ -7,16 +7,16 @@ ms.service: firewall-manager
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 7ede1c917bb44dd31aa59855a0b7c83eb478700a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 819509e08a5604957f01452e5c6ec33c20de2b2a
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651733"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132297494"
 ---
 # <a name="azure-firewall-threat-intelligence-configuration"></a>Configuración de inteligencia sobre amenazas de Azure Firewall
 
-El filtrado basado en inteligencia sobre amenazas puede configurarse para que una directiva de Azure Firewall envíe una alerta y deniegue el tráfico desde y hacia los dominios y las direcciones IP malintencionados. La direcciones IP y los dominios proceden de la fuente Inteligencia sobre amenazas de Microsoft. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) impulsa la inteligencia sobre amenazas de Microsoft y lo utilizan numerosos servicios, incluido Azure Security Center.<br>
+El filtrado basado en inteligencia sobre amenazas puede configurarse para que una directiva de Azure Firewall envíe una alerta y deniegue el tráfico desde y hacia los dominios y las direcciones IP malintencionados. La direcciones IP y los dominios proceden de la fuente Inteligencia sobre amenazas de Microsoft. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) impulsa la inteligencia sobre amenazas de Microsoft y se usa en numerosos servicios, como Microsoft Defender for Cloud.<br>
 
 Si ha configurado el filtrado basado en inteligencia sobre amenazas, las reglas asociadas se procesan antes que cualquiera de las reglas NAT, reglas de red o reglas de aplicación.
 

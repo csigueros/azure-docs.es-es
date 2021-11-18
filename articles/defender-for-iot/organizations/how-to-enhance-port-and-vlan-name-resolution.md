@@ -1,14 +1,14 @@
 ---
 title: Mejora de la resolución de nombres de puerto y VLAN
 description: Personalice los nombres de puerto y VLAN en los sensores para enriquecer la resolución del dispositivo.
-ms.date: 12/13/2020
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: de6fbe70d5a5359ad4e4c276642b9b9ed0cef00f
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 5c4f29f43534a797c5e8ac7142fd9633830f7859
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020442"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132331497"
 ---
 # <a name="enhance-port-vlan-and-os-resolution"></a>Mejora del puerto, VLAN y la resolución del sistema operativo
 
@@ -16,7 +16,7 @@ Puede personalizar los nombres de puerto y VLAN en los sensores para enriquecer 
 
 ## <a name="customize-port-names"></a>Personalización de los nombres de puerto
 
-Azure Defender para IoT asigna automáticamente nombres a los puertos reservados más universales, como DHCP o HTTP. Puede personalizar los nombres de otros puertos que Defender para IoT detecta. Así, puede asignar un nombre a un puerto no reservado porque ese puerto muestre una actividad inusualmente alta.
+Microsoft Defender para IoT asigna automáticamente nombres a los puertos reservados más universales, como DHCP o HTTP. Puede personalizar los nombres de otros puertos que Defender para IoT detecta. Así, puede asignar un nombre a un puerto no reservado porque ese puerto muestre una actividad inusualmente alta.
 
 Estos nombres aparecen en estos casos:
 

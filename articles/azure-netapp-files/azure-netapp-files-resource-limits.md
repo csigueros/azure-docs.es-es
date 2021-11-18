@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 11/09/2021
 ms.author: b-juche
-ms.openlocfilehash: 9404d6052093880ff25ded0492e4a3fb87202f09
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 1565ab6ecd0fe1c2f79237115c08f8d14091c158
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130252504"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132159003"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Límites de recursos para Azure NetApp Files
 
@@ -102,30 +102,38 @@ Puede aumentar el límite de maxfiles a 500 millones si la cuota del volumen es
 
 Puede crear una solicitud de soporte técnico de Azure para aumentar los límites ajustables de la tabla [Límites de recursos](#resource-limits). 
 
-1. Vaya a **Nueva solicitud de soporte técnico** en **Soporte técnico y solución de problemas**.
-1. En la pestaña **Descripción del problema**, proporcione la información solicitada.
-1. En la pestaña **Detalles adicionales**, haga clic en **Escribir detalles** en el campo Detalles de la solicitud.  
+1. Vaya a **Nueva solicitud de soporte técnico** en **Soporte técnico y solución de problemas**.   
+
+2. En la pestaña **Descripción del problema**, proporcione la información necesaria:
+    1. En **Tipo de problema**, seleccione **Límites de servicio y suscripción (cuotas)** .
+    2. En **Suscripción**, seleccione la suscripción. 
+    3. En **Tipo de cuota**, seleccione **Storage: límites de Azure NetApp Files**.  
+
+    ![Captura de pantalla que muestra la pestaña Descripción del problema.](../media/azure-netapp-files/support-problem-descriptions.png)
+
+3. En la pestaña **Detalles adicionales**, haga clic en **Escribir detalles** en el campo Detalles de la solicitud.  
 
     ![Captura de pantalla que muestra la pestaña Detalles y el campo Escribir detalles.](../media/azure-netapp-files/quota-additional-details.png)
 
-1. En la ventana Detalles de la cuota que aparece:  
-
-    1. En Tipo de cuota, seleccione el tipo de recurso que desea aumentar.  
-        Por ejemplo:  
+4. Para solicitar el aumento del límite, proporcione la siguiente información en la ventana Detalles de cuota que aparece:
+    1. En **Tipo de cuota**, seleccione el tipo de recurso que desea aumentar.  
+        Por ejemplo:   
         * *Cuota de capacidad regional por suscripción (TiB)*
         * *Número de cuentas de NetApp por región de Azure por suscripción*
         * *Número de volúmenes por suscripción*
 
-    1. En Region Requested (Región solicitada), seleccione su región.   
+    2. En **Region Requested** (Región solicitada), seleccione la región.   
         Los tamaños actual y predeterminado se muestran en Quota State (Estado de cuota).
-    1. Escriba un valor para solicitar el aumento para el tipo de cuota especificado.
+    
+    3. Escriba un valor para solicitar el aumento para el tipo de cuota especificado.
     
     ![Captura de pantalla que muestra cómo mostrar y solicitar el aumento de la cuota regional.](../media/azure-netapp-files/quota-details-regional-request.png)
 
-1. Haga clic en **Siguiente** y en **Revisar y crear** para crear la solicitud.
+5. Haga clic en **Guardar y continuar**. Haga clic en **Revisar y crear** para crear la solicitud.
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
 - [Información sobre la jerarquía del almacenamiento de Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 - [Modelo de costo de Azure NetApp Files](azure-netapp-files-cost-model.md)
 - [Cuota de capacidad regional para Azure NetApp Files](regional-capacity-quota.md)
+- [Solicitar acceso a la región para Azure NetApp Files](request-region-access.md)

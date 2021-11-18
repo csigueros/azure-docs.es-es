@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 392b9d5b753ff75ab64a2f21a87301ba17de24c3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4962849bb08983bb821d5ffed90a8312a52e9172
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131058015"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132335791"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Trasladar un área de trabajo de Log Analytics a otro grupo de recursos o suscripción
 
@@ -23,7 +23,7 @@ En este artículo, aprenderá los pasos para trasladar un área de trabajo de Lo
 ## <a name="verify-active-directory-tenant"></a>Comprobar el Inquilino de Active Directory
 Las suscripciones de origen y destino del área de trabajo deben existir dentro del mismo inquilino de Azure Active Directory. Use Azure PowerShell para verificar que ambas suscripciones tengan el mismo Identificador de inquilino.
 
-``` PowerShell
+```powershell
 (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
 (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
 ```
@@ -36,11 +36,11 @@ Las suscripciones de origen y destino del área de trabajo deben existir dentro 
   - Administración de actualizaciones
   - Seguimiento de cambios
   - Inicio y detención de máquinas virtuales durante las horas de trabajo
-  - Azure Security Center
+  - Microsoft Defender for Cloud
 
 >[!IMPORTANT]
-> **Clientes de Azure Sentinel**
-> - Actualmente, después de implementar Azure Sentinel en un área de trabajo, no se admite el traslado del área de trabajo a otro grupo de recursos o suscripción. 
+> **Clientes de Microsoft Sentinel**
+> - Actualmente, después de implementar Microsoft Sentinel en un área de trabajo, no se admite el traslado del área de trabajo a otro grupo de recursos o suscripción. 
 > - Si ya ha movido el área de trabajo, deshabilite todas las reglas activas en **Análisis** y vuelva a habilitarlas después de cinco minutos. Esto debe ser una solución efectiva en la mayoría de los casos; sin embargo, cabe reiterar que no se admite y se realiza bajo su responsabilidad.
 > - Azure Resource Manager podría tardar unas horas en completarse y es posible que las soluciones no respondan durante la operación.
 > 
@@ -69,7 +69,7 @@ Use el siguiente procedimiento para eliminar las soluciones con Azure Portal:
 
 Para eliminar las soluciones con PowerShell, use el cmdlet [Remove-AzResource](/powershell/module/az.resources/remove-azresource) como se muestra en el siguiente ejemplo:
 
-``` PowerShell
+```powershell
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "ChangeTracking(<workspace-name>)" -ResourceGroupName <resource-group-name>
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Updates(<workspace-name>)" -ResourceGroupName <resource-group-name>
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM(<workspace-name>)" -ResourceGroupName <resource-group-name>
@@ -99,7 +99,7 @@ Use el siguiente procedimiento para desvincular la cuenta de Automation del áre
 
 ## <a name="move-your-workspace"></a>Trasladar su área de trabajo
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 Use el siguiente procedimiento para trasladar su área de trabajo con Azure Portal:
 
 1. Abra el menú **Áreas de trabajo de Log Analytics** y luego seleccione su área de trabajo.
@@ -113,7 +113,7 @@ Use el siguiente procedimiento para trasladar su área de trabajo con Azure Port
 ### <a name="powershell"></a>PowerShell
 Para trasladar el área de trabajo con PowerShell, use [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) como en el ejemplo siguiente:
 
-``` PowerShell
+```powershell
 Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup01/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace" -DestinationSubscriptionId "00000000-0000-0000-0000-000000000000" -DestinationResourceGroupName "MyResourceGroup02"
 ```
 

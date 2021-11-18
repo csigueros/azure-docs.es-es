@@ -1,14 +1,14 @@
 ---
 title: Investigación de la recomendación de puntos de referencia de CIS
 description: Realice investigaciones básicas y avanzadas en función de las recomendaciones de línea base del sistema operativo.
-ms.date: 08/11/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 295345d43c48736f9f4572c8845f96560ce4f184
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8777b4c134dc92cd8e8a94424f57355239ee32c5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738095"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293580"
 ---
 # <a name="investigate-os-baseline-based-on-cis-benchmark-recommendation"></a>Investigación de la recomendación de línea base del sistema operativo (basada en el punto de referencia CIS)
 
@@ -16,13 +16,13 @@ Realice investigaciones básicas y avanzadas en función de las recomendaciones 
 
 ## <a name="basic-os-baseline-security-recommendation-investigation"></a>Investigación básica de la recomendación de seguridad del sistema operativo  
 
-Para investigar las recomendaciones de línea base del sistema operativo, vaya al portal de Azure Defender para IoT, en **IoT Hub**. Para más información, consulte cómo [investigar las recomendaciones de seguridad](quickstart-investigate-security-recommendations.md).
+Para investigar las recomendaciones de línea de base del sistema operativo, vaya a [Defender para IoT en Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). Para más información, consulte cómo [investigar las recomendaciones de seguridad](quickstart-investigate-security-recommendations.md).
 
 ## <a name="advanced-os-baseline-security-recommendation-investigation"></a>Investigación de las recomendaciones avanzadas de seguridad del sistema operativo  
 
 En esta sección se describe cómo conocer mejor los resultados de las pruebas de la línea base del sistema operativo y consultar eventos en Azure Log Analytics.  
 
-La investigación de las recomendaciones avanzadas de seguridad de línea base del sistema operativo solo se admite mediante Log Analytics. Conecte defender para IoT a un área de trabajo de Log Analytics antes de continuar. Para más información sobre las recomendaciones avanzadas de seguridad de línea base del sistema operativo, consulte cómo [configurar una solución basada en agente de Azure Defender para IoT](how-to-configure-agent-based-solution.md).
+La investigación de las recomendaciones avanzadas de seguridad de línea base del sistema operativo solo se admite mediante Log Analytics. Conecte defender para IoT a un área de trabajo de Log Analytics antes de continuar. Para más información sobre las recomendaciones avanzadas de seguridad de línea de base del sistema operativo, consulte [Configuración de una solución basada en agente de Microsoft Defender para IoT](how-to-configure-agent-based-solution.md).
 
 Para consultar las alertas de los eventos de seguridad de IoT en Log Analytics:
 

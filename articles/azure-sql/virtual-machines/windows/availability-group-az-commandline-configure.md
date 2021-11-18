@@ -10,25 +10,28 @@ ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/20/2020
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 605a95142b74c06ae1b7a78cd832ab535b7345bf
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 6607760ad11290daf0488a06357432bf5eb32306
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130167079"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157831"
 ---
 # <a name="use-powershell-or-az-cli-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Uso de PowerShell o la CLI de Azure para configurar un grupo de disponibilidad para SQL Server en una máquina virtual de Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-En este artículo se describe cómo usar [PowerShell](/powershell/scripting/install/installing-powershell) o la [CLI de Azure](/cli/azure/sql/vm) para implementar un clúster de conmutación por error de Windows, agregarle máquinas virtuales con SQL Server, así como crear el equilibrador de carga interno y el cliente de escucha de un grupo de disponibilidad Always On. 
+> [!TIP]
+> Elimine la necesidad de una instancia de Azure Load Balancer para el grupo de disponibilidad Always On mediante la creación de las máquinas virtuales de SQL Server en [varias subredes](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) dentro de la misma red virtual de Azure.
+
+En este artículo se describe cómo usar [PowerShell](/powershell/scripting/install/installing-powershell) o la [CLI de Azure](/cli/azure/sql/vm) para implementar un clúster de conmutación por error de Windows, agregarle máquinas virtuales con SQL Server, así como crear el equilibrador de carga interno y el cliente de escucha de un grupo de disponibilidad Always On con una única subred. 
 
 La implementación del grupo de disponibilidad se sigue realizando manualmente con SQL Server Management Studio (SSMS) o Transact-SQL (T-SQL). 
 
-Si bien en este artículo se usa PowerShell y la CLI de Azure para configurar el entorno del grupo de disponibilidad, también es posible hacerlo mediante [Azure Portal](availability-group-azure-portal-configure.md), [plantillas de inicio rápido de Azure](availability-group-quickstart-template-configure.md) o [manualmente](availability-group-manually-configure-tutorial.md). 
+Si bien en este artículo se usa PowerShell y la CLI de Azure para configurar el entorno del grupo de disponibilidad, también es posible hacerlo mediante [Azure Portal](availability-group-azure-portal-configure.md), [plantillas de inicio rápido de Azure](availability-group-quickstart-template-configure.md) o [manualmente](availability-group-manually-configure-tutorial-single-subnet.md). 
 
 > [!NOTE]
 > Ahora es posible migrar mediante lift-and-shift la solución de grupo de disponibilidad a SQL Server en máquinas virtuales de Azure mediante Azure Migrate. Para más información, consulte [Migración del grupo de disponibilidad](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md). 

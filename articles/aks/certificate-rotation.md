@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo rotar los certificados en un clús
 services: container-service
 ms.topic: article
 ms.date: 11/03/2021
-ms.openlocfilehash: 7651af1bc1b3229fa206dbb507a918d611b2eafc
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: cd1e55df9609adcc8d5d1d33b1853ba855889b8f
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131575776"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371626"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Rotación de certificados en Azure Kubernetes Service (AKS)
 
@@ -69,10 +69,15 @@ Para que AKS rote automáticamente los certificados que no son de CA, el clúste
 * australiacentral
 * australiaest
 
+#### <a name="how-to-check-whether-current-agent-node-pool-is-tls-bootstrapping-enabled"></a>¿Cómo comprobar si el grupo de nodos de agente actual está habilitado para el arranque TLS?
+Para comprobar si el arranque TLS está habilitado en el clúster, vaya a las rutas de acceso siguientes.  En un nodo de Linux: /var/lib/kubelet/bootstrap-kubeconfig En un nodo de Windows: c:\k\bootstrap-config
+
+> [Nota] La ruta de acceso del archivo puede cambiar a medida que la versión de k8s evolucione en el futuro.
+
 > [!IMPORTANT]
 >Una vez configurada una región, cree un nuevo clúster o actualice un clúster existente "az aks upgrade -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME" para establecer ese clúster en la rotación de certificados automáticos. 
 
-### <a name="limititation"></a>Limitación
+### <a name="limitation"></a>Limitación
 
 La rotación automática de certificados no se habilitará en un clúster que no sea de tipo rbac.
 
@@ -80,7 +85,7 @@ La rotación automática de certificados no se habilitará en un clúster que no
 ## <a name="rotate-your-cluster-certificates"></a>Rotar los certificados de clúster
 
 > [!WARNING]
-> La rotación de los certificados con `az aks rotate-certs` recreará todos los nodos y puede producir un tiempo de inactividad de hasta 30 minutos para el clúster de AKS.
+> La rotación de los certificados con `az aks rotate-certs` recreará todos los nodos y sus discos de SO y puede producir un tiempo de inactividad de hasta 30 minutos para el clúster de AKS.
 
 Use [az aks get-credentials][az-aks-get-credentials] para iniciar sesión en el clúster de AKS. Este comando también descarga y configura el certificado de cliente `kubectl` en el equipo local.
 

@@ -26,6 +26,9 @@
     - name: Autor
       expanded: true
       items:
+        - name: Estructura y sintaxis de archivos
+          displayName: 'parameters,variables,resources,outputs,condition'
+          href: file.md
         - name: Recursos
           items:
             - name: Declaración de recursos
@@ -136,9 +139,6 @@
           displayName: 'conversion issues,export,convert,playground'
 - name: Referencia
   items:
-    - name: Estructura de archivos de Bicep
-      displayName: 'parameters,variables,resources,outputs,condition'
-      href: file.md
     - name: Referencia del recurso
       href: /azure/templates/
     - name: Tipos de datos

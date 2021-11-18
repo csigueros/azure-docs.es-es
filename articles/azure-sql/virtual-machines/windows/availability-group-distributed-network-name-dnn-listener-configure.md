@@ -12,20 +12,23 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/07/2020
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: 3ad963def4866e7528527400ff259502441c9dbf
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: f4a79ae5b1083bf9091486e9f4d87c6fdad14747
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130165631"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132156893"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>Configuración de un cliente de escucha de DNN para un grupo de disponibilidad
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Con VM con SQL Server en Azure, el nombre de red distribuida (DNN) enruta el tráfico al recurso en clústeres adecuado. Proporciona una manera más fácil de conectarse a un grupos de disponibilidad (AG) Always On que el cliente de escucha de nombre de red virtual (VNN), sin necesidad de una instancia de Azure Load Balancer.
+> [!TIP]
+> Elimine la necesidad de un nombre de red distribuida para el grupo de disponibilidad Always On mediante la creación de las máquinas virtuales de SQL Server en [varias subredes](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) dentro de la misma red virtual de Azure.
+
+Con SQL Server en las máquinas virtuales de Azure, el nombre de red distribuida (DNN) enruta el tráfico al recurso en clústeres adecuado. Proporciona una manera más fácil de conectarse a un grupos de disponibilidad (AG) Always On que el cliente de escucha de nombre de red virtual (VNN), sin necesidad de una instancia de Azure Load Balancer.
 
 En este artículo aprenderá a configurar un cliente de escucha de DNN para reemplazar al cliente de escucha de VNN, y a enrutar el tráfico a un grupo de disponibilidad con VM con SQL Server en Azure para lograr una alta disponibilidad y recuperación ante desastres (HADR).
 

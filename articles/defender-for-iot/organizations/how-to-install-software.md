@@ -1,18 +1,18 @@
 ---
 title: Instalación de Defender para IoT
-description: Obtenga información sobre cómo instalar un sensor y la consola de administración local para Azure Defender para IoT.
-ms.date: 10/21/2021
+description: Obtenga información sobre cómo instalar un sensor y la consola de administración local para Microsoft Defender para IoT.
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 0548b1caa269431bb27a54e2dcbd297b2d4734a0
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 23776a9abf35cc8cdba512517163ab2f723b458d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130247595"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343788"
 ---
 # <a name="defender-for-iot-installation"></a>Instalación de Defender para IoT
 
-En este artículo se describe cómo instalar los siguientes componentes de Azure Defender para IoT:
+En este artículo se describe cómo instalar los siguientes componentes de Microsoft Defender para IoT:
 
 - **Sensor**: los sensores de Defender para IoT recopilan el tráfico de ICS mediante la supervisión pasiva (sin agente). Los sensores, pasivos y no invasivos, tienen un impacto nulo sobre el rendimiento en las redes y los dispositivos de OT e IoT. El sensor se conecta a un puerto SPAN o a un TAP de red e inicia inmediatamente la supervisión de la red. Las detecciones se ven en la consola del sensor. Allí puede verlas, investigarlas y analizarlas en un mapa de red, un inventario de dispositivos y una amplia variedad de informes. Algunos ejemplos son los informes de evaluación de riesgos, las consultas de minería de datos y los vectores de ataque.
 
@@ -73,7 +73,7 @@ Están disponibles las siguientes aplicaciones virtuales:
 
 ### <a name="access-the-iso-installation-image"></a>Acceso a la imagen de instalación ISO
 
-Se puede acceder a la imagen de instalación desde el portal de Defender para IoT.
+Puede acceder a la imagen de instalación desde Defender para IoT en Azure Portal.
 
 Para acceder al archivo, haga lo siguiente:
 
@@ -408,7 +408,7 @@ Para instalar el software, haga lo siguiente:
 
 1. Conecte la pantalla y el teclado al dispositivo y, a continuación, conéctese a la CLI.
 
-1. Conecte un CD externo o disco en memoria USB con la imagen ISO que descargó de la página **Actualizaciones** en el portal de Defender para IoT.
+1. Conecte un CD externo o disco en memoria USB con la imagen ISO que descargó de la página **Actualizaciones** de Defender para IoT en Azure Portal.
 
 1. Inicie el dispositivo.
 
@@ -494,7 +494,7 @@ Para instalarlo:
 
 1. Conecte la pantalla y el teclado al dispositivo y, a continuación, conéctese a la CLI.
 
-1. Conecte un CD externo o disco en memoria USB con la imagen ISO que descargó de la página **Actualizaciones** en el portal de Defender para IoT.
+1. Conecte un CD externo o disco en una memoria USB con la imagen ISO que descargó de la página **Actualizaciones** en la página de Defender para IoT en Azure Portal.
 
 1. Inicie el dispositivo.
 
@@ -631,7 +631,7 @@ La consola de administración local admite las opciones de implementación de Hy
 
 - Recursos de hardware disponibles para la máquina virtual
 
-- Archivo de instalación ISO para el sensor de Azure Defender para IoT
+- Archivo de instalación ISO para el sensor de Microsoft Defender para IoT
 
 Asegúrese de que el hipervisor esté en ejecución.
 
@@ -812,8 +812,7 @@ Puede mejorar la seguridad de la consola de administración local agregando una 
 
 :::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="Arquitectura global de la NIC secundaria.":::
 
-Ambas NIC serán compatibles con la interfaz de usuario (UI).
-Si decide no implementar una NIC secundaria, todas las características estarán disponibles a través de la NIC principal.
+Ambas NIC serán compatibles con la interfaz de usuario (UI). Si decide no implementar una NIC secundaria, todas las características estarán disponibles a través de la NIC principal.
 
 Si ya ha configurado la consola de administración local y quiere agregarle una NIC secundaria, siga estos pasos:
 

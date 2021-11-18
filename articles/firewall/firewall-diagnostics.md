@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 10/22/2021
 ms.author: victorh
-ms.openlocfilehash: d421986ebeb308efb0e076b1a80f537d49082ec5
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: f39a858b99bf21a17a250d7e62f4af39c7d8213d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130242356"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132343256"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Supervisión de métricas y registros de Azure Firewall
 
@@ -113,7 +113,7 @@ Puede ver y analizar los datos del registro de actividades con cualquiera de los
 
 * **Herramientas de Azure**: permiten recuperar información de los registros de actividades mediante Azure PowerShell, la CLI de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de actividades con Resource Manager](../azure-monitor/essentials/activity-log.md) se detallan instrucciones paso a paso de cada método.
 * **Power BI**: si todavía no tiene una cuenta de [Power BI](https://powerbi.microsoft.com/pricing), puede probarlo gratis. Con el [paquete de contenido de los registros de actividades de Azure para Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), puede analizar sus datos con los paneles preconfigurados que puede personalizar o usar tal cual.
-* **Azure Sentinel**: Los registros de Azure Firewall se pueden conectar a Azure Sentinel, de forma que es posible ver los datos de registro en los libros, usarlos para crear alertas personalizadas e incorporarlos para mejorar su investigación. El conector de datos de Azure Firewall en Azure Sentinel se encuentra actualmente en versión preliminar pública. Para más información, consulte [Conexión de datos desde Azure Firewall](../sentinel/data-connectors-reference.md#azure-firewall).
+* **Microsoft Sentinel**: Los registros de Azure Firewall se pueden conectar a Microsoft Sentinel, de forma que es posible ver los datos de registro en los libros, usarlos para crear alertas personalizadas e incorporarlos para mejorar su investigación. El conector de datos de Azure Firewall en Microsoft Sentinel se encuentra actualmente en versión preliminar pública. Para más información, consulte [Conexión de datos desde Azure Firewall](../sentinel/data-connectors-reference.md#azure-firewall).
 
    Consulte el siguiente vídeo de Mohit Kumar para obtener información general:
    > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWI4nn]

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b823fbcc124a67980fcd1f0440ae107de01fc20
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: f934e016f23e988cbe8673f80e96c4583b6aaec5
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114690405"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132292516"
 ---
 # <a name="secure-group-managed-service-accounts"></a>Protección de cuentas de servicio administradas de grupo
 
@@ -57,7 +57,7 @@ En la tabla siguiente se muestran posibles problemas de seguridad y mitigaciones
 | Problema de seguridad| Mitigación |
 | - | - |
 | Una gMSA es un miembro de grupos con privilegios. | <li>Revise las pertenencias a grupos. Para ello, puede crear un script de PowerShell para enumerar todas las pertenencias a grupos. A continuación, puede filtrar un archivo .csv resultante por los nombres de los archivos de gMSA.<li>Quite la gMSA de los grupos con privilegios.<li>Conceda a la gMSA solo los derechos y permisos necesarios para ejecutar su servicio (póngase en contacto con su proveedor de servicios). 
-| gMSA tiene acceso de lectura y escritura a los recursos confidenciales. | <li>Audite el acceso a los recursos confidenciales.<li>Archive los registros de auditoría en un SIEM, como Azure Log Analytics o Azure Sentinel, para su análisis.<li>Quite los permisos de recursos innecesarios si detecta un nivel de acceso no deseado. |
+| gMSA tiene acceso de lectura y escritura a los recursos confidenciales. | <li>Audite el acceso a los recursos confidenciales.<li>Archive los registros de auditoría en un SIEM, como Azure Log Analytics o Microsoft Sentinel, para su análisis.<li>Quite los permisos de recursos innecesarios si detecta un nivel de acceso no deseado. |
 | | |
 
 

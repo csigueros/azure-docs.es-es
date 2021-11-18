@@ -39,8 +39,10 @@
       href: language-identification-model.md
     - name: Análisis de streaming en vivo
       href: live-stream-analysis.md
-    - name: Personas observadas
+    - name: Personas que se observan en un vídeo
       href: observed-people-tracing.md
+    - name: Ropa detectada de la gente
+      href: detected-clothing.md
     - name: Detección de efectos de audio
       href: audio-effects-detection.md
     - name: Personalización de modelos de contenido

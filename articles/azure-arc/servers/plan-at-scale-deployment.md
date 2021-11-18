@@ -3,12 +3,12 @@ title: Planificación e implementación de servidores habilitados para Azure Arc
 description: Aprenda a habilitar un gran número de máquinas en servidores habilitados para Azure Arc a fin de simplificar la configuración de las funcionalidades esenciales de seguridad, administración y supervisión de Azure.
 ms.date: 08/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0a8bd9187d3d8d2394fe340eb1822f45e17a50b7
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: b32090caf8167874e61bbca0c5f3782557abd620
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129708962"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132340294"
 ---
 # <a name="plan-and-deploy-azure-arc-enabled-servers"></a>Planificación e implementación de servidores habilitados para Azure Arc
 
@@ -67,7 +67,7 @@ En esta fase, los ingenieros de sistemas o los administradores habilitan las car
 | Configuración del [control de acceso basado en rol](../../role-based-access-control/overview.md) (RBAC) | Desarrolle un plan para controlar quién tiene acceso a la administración de los servidores habilitados para Azure Arc y la capacidad de ver sus datos desde otros servicios y soluciones de Azure. | Un día |
 | Identificación de las máquinas con el agente de Log Analytics ya instalado | Ejecute la siguiente consulta de registro en [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md) para admitir la conversión de las implementaciones del agente de Log Analytics existentes en un agente administrado por extensiones:<br> Latido <br> &#124; where TimeGenerated > ago(30d) <br> &#124; where ResourceType == "machines" and (ComputerEnvironment == "Non-Azure") <br> &#124; summarize by Computer, ResourceProvider, ResourceType, ComputerEnvironment | Una hora |
 
-<sup>1</sup> Una consideración importante en el marco de la evaluación del diseño del área de trabajo de Log Analytics es la integración con Azure Automation para la compatibilidad con sus características Update Management y Seguimiento de cambios e inventario, así como con Azure Security Center y Azure Sentinel. Si su organización ya tiene una cuenta de Automation y ha habilitado sus características de administración vinculadas a un área de trabajo Log Analytics, evalúe si puede centralizar y optimizar las operaciones de administración, así como minimizar el costo, mediante el uso de los recursos existentes en lugar de duplicar una cuenta, un área de trabajo, etc.
+<sup>1</sup> Una consideración importante en el marco de la evaluación del diseño del área de trabajo de Log Analytics es la integración con Azure Automation para la compatibilidad con sus características Update Management y Seguimiento de cambios e inventario, así como Microsoft Defender for Cloud y Microsoft Sentinel. Si su organización ya tiene una cuenta de Automation y ha habilitado sus características de administración vinculadas a un área de trabajo Log Analytics, evalúe si puede centralizar y optimizar las operaciones de administración, así como minimizar el costo, mediante el uso de los recursos existentes en lugar de duplicar una cuenta, un área de trabajo, etc.
 
 ## <a name="phase-2-deploy-azure-arc-enabled-servers"></a>Fase 2: implementación de servidores habilitados para Azure Arc
 

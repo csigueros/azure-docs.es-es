@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/29/2021
+ms.date: 11/09/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2b27fcb43d815a6a2567ebb11c0ea768914582eb
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: a6f91fd8de1f208bcbe57a9e541ad1e73340e995
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131440970"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179479"
 ---
 # <a name="enrich-tokens-with-claims-from-external-sources-using-api-connectors"></a>Enriquecimiento de tokens con notificaciones de orígenes externos mediante conectores de API
 
@@ -144,7 +144,7 @@ Content-type: application/json
 }
 ```
 
-| Parámetro                                          | Tipo              | Requerido | Descripción                                                                                                                                                                                                                                                                            |
+| Parámetro                                          | Tipo              | Obligatorio | Descripción                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version     | String | Sí      | Versión de la API.                                                    |
 | action                                             | String            | Sí      | El valor debe ser `Continue`.                                                                                                                                                                                                                                                              |
@@ -191,7 +191,7 @@ La configuración del punto de conexión de API REST está fuera del ámbito de 
 
 Una notificación proporciona un almacenamiento temporal de datos durante la ejecución de una directiva de Azure AD B2C. Puede declarar notificaciones dentro de la sección del [esquema de notificaciones](claimsschema.md). 
 
-1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`**</em>.
+1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
 1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
 1. Agregue las notificaciones siguientes al elemento **ClaimsSchema**.  
@@ -250,8 +250,8 @@ Después de implementar la API REST, configure los metadatos del perfil técnico
 
 - **ServiceUrl**. Establezca la dirección URL del punto de conexión de la API REST.
 - **SendClaimsIn**. Especifique cómo se envían las notificaciones de entrada al proveedor de notificaciones RESTful.
-- **AuthenticationType**. Establezca el tipo de autenticación realizada por el proveedor de notificaciones RESTful. 
-- **AllowInsecureAuthInProduction**. En un entorno de producción, asegúrese de establecer estos metadatos en `true`.
+- **AuthenticationType**. Establezca el tipo de autenticación que realiza el proveedor de notificaciones RESTful, como `Basic` o `ClientCertificate`. 
+- **AllowInsecureAuthInProduction**. En un entorno de producción, asegúrese de establecer estos metadatos en `false`.
     
 Consulte los [metadatos del perfil técnico de RESTful](restful-technical-profile.md#metadata) para obtener más configuraciones.
 

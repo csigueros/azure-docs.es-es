@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a1653b9940f7b278d2d1a7e4b21bd2b9d57b9411
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 8e5f4e1a50b25fc9022444c25a2c1e091c5496e3
+ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131474825"
+ms.lasthandoff: 11/08/2021
+ms.locfileid: "131997483"
 ---
 # <a name="azure-spring-cloud-faq"></a>Preguntas frecuentes de Azure Spring Cloud
 
@@ -43,7 +43,7 @@ Azure Spring Cloud programa de forma inteligente las aplicaciones en los nodos d
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>¿En qué regiones está disponible Azure Spring Cloud?
 
-Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro-sur de EE. UU., Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Oeste de Europa, Norte de Europa, Sur de Reino Unido, Sudeste Asiático, Este de Australia, Centro de Canadá, Norte de Emiratos Árabes Unidos, Centro de la India, Centro de Corea del Sur, Este de Asia, Japón Oriental, Norte de Sudáfrica y Este de China 2 (región de Mooncake). [Más información](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
+Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro-sur de EE. UU., Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Oeste de Europa, Norte de Europa, Sur de Reino Unido, Sudeste Asiático, Este de Australia, Centro de Canadá, Norte de Emiratos Árabes Unidos, Centro de la India, Centro de Corea del Sur, Este de Asia, Japón Oriental, Norte de Sudáfrica, Sur de Brasil, Centro de Francia y Este de China 2 (Mooncake). [Más información](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
 
 ### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>¿Los datos de clientes se almacenan fuera de la región especificada?
 

@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 04/22/2021
 ms.topic: how-to
 ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 8f18b4f7c39ba16fbd70301c36d08319c2e3fcf9
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d7fa588c0711285c968c13ab14e319fb803e9785
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131065292"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132323474"
 ---
 # <a name="manage-azure-machine-learning-workspaces-in-the-portal-or-with-the-python-sdk"></a>Administración de áreas de trabajo de Azure Machine Learning en el portal o con el SDK de Python
 
@@ -134,7 +134,7 @@ Si tiene problemas para obtener acceso a su suscripción, consulte [Configuraci�
    Campo|Descripción 
    ---|---
    Nombre del área de trabajo |Escriba un nombre único que identifique el área de trabajo. En este ejemplo, se usa **docs-ws**. Los nombres deben ser únicos en el grupo de recursos. Utilice un nombre que sea fácil de recordar y que se diferencie del de las áreas de trabajo creadas por otros. El nombre del área de trabajo no distingue mayúsculas de minúsculas.
-   Suscripción |Seleccione la suscripción de Azure que quiera usar.
+   Subscription |Seleccione la suscripción de Azure que quiera usar.
    Resource group | Use un grupo de recursos existente en su suscripción o escriba un nombre para crear un nuevo grupo de recursos. Un grupo de recursos almacena los recursos relacionados con una solución de Azure. En este ejemplo, se usa **docs-aml**. Necesita el rol *colaborador* o *propietario* para usar un grupo de recursos existente.  Para obtener más información sobre el acceso, consulte [Administración del acceso a un área de trabajo de Azure Machine Learning](how-to-assign-roles.md).
    Region | Seleccione la región de Azure más cercana a los usuarios y los recursos de datos para crear el área de trabajo.
    | Cuenta de almacenamiento | Cuenta de almacenamiento predeterminada para el área de trabajo. De manera predeterminada, se crea una nueva. |
@@ -185,7 +185,7 @@ El SDK de Azure Machine Learning para Python proporciona la clase [PrivateEndpoi
 
 ### <a name="vulnerability-scanning"></a>Examen de vulnerabilidades
 
-Azure Security Center proporciona administración unificada de la seguridad y protección avanzada contra amenazas para cargas de trabajo en la nube híbrida. Debe permitir que Azure Security Center examine los recursos y seguir sus recomendaciones. Para más información, consulte [Introducción a Azure Defender para registros de contenedor](../security-center/defender-for-container-registries-introduction.md) e [Introducción a Azure Defender para Kubernetes](../security-center/defender-for-kubernetes-introduction.md).
+Microsoft Defender for Cloud proporciona características unificadas de administración para la seguridad y protección contra amenazas en todas las cargas de trabajo en la nube híbrida. Debe permitir que Microsoft Defender for Cloud analice los recursos y siga sus recomendaciones. Para más información, consulte [Examen de imágenes de Azure Container Registry mediante Defender for Cloud](../security-center/defender-for-container-registries-introduction.md) e [Integración de Azure Kubernetes Service en Defender for Cloud](../security-center/defender-for-kubernetes-introduction.md).
 
 ### <a name="advanced"></a>Avanzado
 

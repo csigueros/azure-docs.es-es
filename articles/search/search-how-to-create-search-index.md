@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 11/08/2021
-ms.openlocfilehash: d472d5c7e9ccec3ffb59f040a380fc0656c1ef5c
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.date: 11/12/2021
+ms.openlocfilehash: 2e2b10b5fd42a51951d35f7a1e73e1fcac68ba82
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132137724"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371683"
 ---
 # <a name="create-a-search-index-in-azure-cognitive-search"></a>Creación de un índice de búsqueda en Azure Cognitive Search
 
@@ -21,7 +21,7 @@ Las solicitudes de consulta en Azure Cognitive Search tienen como objetivo texto
 
 A menos que use un [indizador](search-howto-create-indexers.md), la creación y el relleno de un índice son tareas independientes. Para escenarios que no son de indizador, el siguiente paso después de la creación del índice será la [importación de datos](search-what-is-data-import.md). Para más información, consulte [Índices de búsqueda en Azure Cognitive Search](search-what-is-an-index.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Los permisos de escritura son necesarios para crear y cargar índices, concedidos a través de una [clave de API de administración](search-security-api-keys.md) en la solicitud. Como alternativa, si participa en la [versión preliminar pública del control de acceso basado en rol](search-security-rbac.md) de Azure Active Directory, puede emitir la solicitud como miembro del rol de colaborador de búsqueda.
 
@@ -44,14 +44,14 @@ Para minimizar el abandono en el proceso de diseño, en la tabla siguiente se de
 | Elemento | ¿Se puede actualizar? |
 |---------|-----------------|
 | Nombre | No |
-| Clave | No |
+| Key | No |
 | Tipos y nombres de campo | No |
 | Atributos de campo (que se puedan buscar, filtrar, clasificar, ordenar) | No |
 | Atributo de campo (recuperable) | Sí |
 | [Analyzer](search-analyzers.md) | Puede agregar y modificar analizadores personalizados en el índice. Con respecto a las asignaciones de analizador en campos de cadena, solo puede modificar "searchAnalyzer". Todas las demás asignaciones y modificaciones requieren una recompilación. |
 | [Perfiles de puntuación](index-add-scoring-profiles.md) | Sí |
 | [Proveedores de sugerencias](index-add-suggesters.md) | No |
-| [scripting remoto entre orígenes (CORS)](search-what-is-an-index.md#corsoptions) | Sí |
+| [scripting remoto entre orígenes (CORS)](#corsoptions) | Sí |
 | [Cifrado](search-security-manage-encryption-keys.md) | Sí |
 
 > [!NOTE]
@@ -181,6 +181,28 @@ En el caso de Cognitive Search, los SDK de Azure implementan características di
 | Python | [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) | [sample_index_crud_operations.py](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py) |
 
 ---
+
+<a name="corsoptions"></a>
+
+## <a name="set-corsoptions-for-cross-origin-queries"></a>Establecer `corsOptions` para las consultas entre orígenes
+
+Los esquemas de índice incluyen una sección para establecer `corsOptions`. JavaScript del lado cliente no puede llamar a ninguna API de forma predeterminada debido a que el explorador impedirá todas las solicitudes entre orígenes. Para permitir consultas de origen cruzado en el índice, habilite CORS (uso compartido de recursos entre orígenes) estableciendo el atributo **corsOptions**. Por motivos de seguridad, solamente las [API de consulta](search-query-create.md#choose-query-methods) admiten CORS.
+
+```json
+"corsOptions": {
+  "allowedOrigins": [
+    "*"
+  ],
+  "maxAgeInSeconds": 300
+```
+
+Es posible establecer para CORS las siguientes propiedades:
+
++ **allowedOrigins** (obligatorio): se trata de una lista de orígenes a los que se le concederá acceso a su índice. Esto significa que cualquier código JavaScript que se suministre desde esos orígenes podrá consultar el índice (suponiendo que proporcione la clave de API correcta). Cada origen tiene normalmente el formato `protocol://<fully-qualified-domain-name>:<port>` aunque `<port>` se omite a menudo. Para más información, consulte [Uso compartido de recursos entre orígenes (wikipedia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing).
+
+  Si desea permitir el acceso a todos los orígenes, incluya `*` como elemento único en la matriz **allowedOrigins**. *Esta práctica no es recomendable para los servicios de búsqueda de producción*, pero a menudo resulta útil para el desarrollo y la depuración.
+
++ **maxAgeInSeconds** (opcional): los exploradores usan este valor para determinar la duración (en segundos) para almacenar en la memoria caché las respuestas preparatorias de CORS. Esto debe ser un entero no negativo. Cuanto mayor sea este valor es, mejor será el rendimiento, pero más tiempo tardarán en surtir efecto los cambios en la directiva CORS. Si no se establece, se usará una duración predeterminada de 5 minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

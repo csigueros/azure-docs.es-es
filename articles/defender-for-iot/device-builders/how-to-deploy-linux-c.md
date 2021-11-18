@@ -2,13 +2,13 @@
 title: Instalación e implementación del agente basado en C para Linux
 description: Aprenda a instalar e implementar el agente de seguridad basado en C de Defender for IoT en Linux.
 ms.topic: conceptual
-ms.date: 05/26/2021
-ms.openlocfilehash: 46677a971165c65440310e21933f586cc685b771
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/09/2021
+ms.openlocfilehash: 1b1c81b73c6e7b0c32031de256b029a1a1164f4d
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128584875"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306118"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Implementación del agente de seguridad basado en C de Defender for IoT en Linux
 
@@ -80,5 +80,5 @@ Compruebe el estado de implementación, para lo que debe ejecutar:
 - Lea la [información general](overview.md) del servicio Defender for IoT.
 - Más información sobre Defender para IoT [Qué es una solución basada en agente para los generadores de dispositivos](architecture-agent-based.md)
 - Habilite el [servicio](quickstart-onboard-iot-hub.md)
-- Leer [Preguntas más frecuentes sobre el agente de Azure Defender para IoT](resources-agent-frequently-asked-questions.md)
+- Lea las [Preguntas más frecuentes sobre el agente de Microsoft Defender para IoT](resources-agent-frequently-asked-questions.md).
 - Obtenga información acerca de las [alertas de seguridad](concept-security-alerts.md)

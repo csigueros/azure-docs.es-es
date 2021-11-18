@@ -11,21 +11,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: eded4bfc37df72b9163aeac51d66c973b24838b2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a867ab015dedcbe5c8053b4ff26a98f406cbd6af
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124750253"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132286946"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Visualización y configuración del registro de diagnósticos de DDoS
 
-La versión estándar de Azure DDoS Protection proporciona información detallada y visualización de ataques con DDoS Attack Analytics. Los clientes que protegen sus redes virtuales frente a ataques DDoS disponen de visibilidad detallada sobre el tráfico de ataques y las acciones llevadas a cabo para mitigarlos mediante informes de mitigación de ataques y registros de flujo de mitigación. La telemetría enriquecida se expone a través de Azure Monitor, incluidas las métricas detalladas mientras dure un ataque DDoS. Las alertas se pueden configurar para cualquiera de las métricas de Azure Monitor que expone DDoS Protection. El registro se puede integrar con [Azure Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection), Splunk (Azure Event Hubs), OMS Log Analytics y Azure Storage para realizar análisis avanzados con la interfaz de Azure Monitor Diagnostics.
+La versión estándar de Azure DDoS Protection proporciona información detallada y visualización de ataques con DDoS Attack Analytics. Los clientes que protegen sus redes virtuales frente a ataques DDoS disponen de visibilidad detallada sobre el tráfico de ataques y las acciones llevadas a cabo para mitigarlos mediante informes de mitigación de ataques y registros de flujo de mitigación. La telemetría enriquecida se expone a través de Azure Monitor, incluidas las métricas detalladas mientras dure un ataque DDoS. Las alertas se pueden configurar para cualquiera de las métricas de Azure Monitor que expone DDoS Protection. El registro se puede integrar adicionalmente con [Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection), Splunk (Azure Event Hubs), Log Analytics de OMS y Azure Storage para realizar análisis avanzados con la interfaz de diagnósticos de Azure Monitor.
 
 Los siguientes registros de diagnóstico están disponibles para Azure DDoS Protection Standard: 
 
 - **DDoSProtectionNotifications**: se le enviarán notificaciones cada vez que un recurso de IP pública esté sufriendo un ataque y cuando haya terminado la mitigación del ataque.
-- **DDoSMitigationFlowLogs**: Los registros de flujo de mitigación de ataques le permiten revisar casi en tiempo real el tráfico descartado, el tráfico reenviado y otros puntos de datos interesantes durante un ataque DDoS activo. Puede ingerir el flujo constante de estos datos en Azure Sentinel o en sus sistemas SIEM de terceros mediante un centro de eventos para la supervisión casi en tiempo real, realizar acciones y solucionar la necesidad de sus operaciones de defensa.
+- **DDoSMitigationFlowLogs**: Los registros de flujo de mitigación de ataques le permiten revisar casi en tiempo real el tráfico descartado, el tráfico reenviado y otros puntos de datos interesantes durante un ataque DDoS activo. Puede ingerir el flujo constante de estos datos en Microsoft Sentinel o en sus sistemas SIEM de terceros mediante un centro de eventos para la supervisión casi en tiempo real, realizar posibles acciones y solucionar la necesidad de sus operaciones de defensa.
 - **DDoSMitigationReports**: Los informes de mitigación de ataques usan los datos del protocolo Netflow que se agrega para proporcionar información detallada sobre el ataque en el recurso. Cada vez que un recurso IP público es objeto de ataque, tan pronto se inicia la mitigación se inicia la generación de informes. Durante todo el período de mitigación, habrá un informe incremental que se genera cada cinco minutos y un informe posterior a la mitigación. Su finalidad es garantizar que en caso de que el ataque DDoS continúe durante mucho tiempo, podrá ver la instantánea más actual del informe de mitigación cada cinco minutos y un resumen completo una vez finalizada la mitigación del ataque. 
 - **AllMetrics**: proporciona todas las métricas posibles disponibles mientras dura un ataque de DDoS. 
 
@@ -165,11 +165,11 @@ Esta [directiva integrada](https://portal.azure.com/#blade/Microsoft_Azure_Polic
 
 ## <a name="view-log-data-in-workbooks"></a>Visualización de los datos de registro en los libros
 
-### <a name="azure-sentinel-data-connector"></a>Conector de datos de Azure Sentinel
+### <a name="microsoft-sentinel-data-connector"></a>Conector de datos de Microsoft Sentinel
 
-Puede conectar los registros a Azure Sentinel, ver y analizar los datos en los libros, crear alertas personalizadas e incorporarlas a procesos de investigación. Para conectarse a Azure Sentinel, consulte [Conexión a Azure Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection). 
+Puede conectar registros a Microsoft Sentinel, ver y analizar los datos de los libros, crear alertas personalizadas e incorporarlas a procesos de investigación. Para conectarse a Microsoft Sentinel, consulte [Conexión a Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection). 
 
-![Conector de DDoS de Azure Sentinel](./media/ddos-attack-telemetry/azure-sentinel-ddos.png)
+![Conector de DDoS de Microsoft Sentinel](./media/ddos-attack-telemetry/azure-sentinel-ddos.png)
 
 ### <a name="azure-ddos-protection-workbook"></a>Libro de Azure DDoS Protection
 

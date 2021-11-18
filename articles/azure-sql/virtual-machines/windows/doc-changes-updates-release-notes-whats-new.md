@@ -11,14 +11,14 @@ ms.subservice: service-overview
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/01/2021
+ms.date: 11/10/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 592f2ae9b3d09ce84296dca31d68031b7d5fff84
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3eeeb1a2525877cad031d1f0acd38de6c45b2bac
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131080923"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132157690"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Cambios en la documentación de SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,9 @@ Al implementar una máquina virtual (VM) de Azure con SQL Server instalado en e
 
 | Cambios | Detalles |
 | --- | --- |
+| **Eliminación de la necesidad de una instancia de Azure Load Balancer o un nombre de red distribuida para una alta disponibilidad y recuperación ante desastres** | Implemente las VM con SQL Server en varias subredes para eliminar la dependencia de Azure Load Balancer o del nombre de red distribuida (DNN) para enrutar el tráfico a la solución de alta disponibilidad o recuperación ante desastres (HADR). Consulte el tutorial sobre un [grupo de disponibilidad con varias subredes](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) o el artículo sobre la [preparación de la VM con SQL Server para FCI](failover-cluster-instance-prepare-vm.md#subnets) para más información. | 
 | **Evaluación de SQL** | Ahora es posible evaluar el estado de la máquina virtual con SQL Server en Azure Portal mediante [SQL Assessment](sql-assessment-for-sql-vm.md) para obtener recomendaciones que mejoren el rendimiento e identificar las configuraciones de procedimientos recomendados que faltan. Esta funcionalidad actualmente está en su versión preliminar. |
+| &nbsp; | &nbsp; |
 
 
 ## <a name="october-2021"></a>Octubre de 2021
@@ -37,6 +39,7 @@ Al implementar una máquina virtual (VM) de Azure con SQL Server instalado en e
 | Cambios | Detalles |
 | --- | --- |
 | **SQL La extensión IaaS ahora admite Ubuntu** | Se ha agregado compatibilidad para [registrar](../linux/sql-iaas-agent-extension-register-vm-linux.md) la máquina virtual con SQL Server que se ejecuta en Ubuntu Linux con la [extensión IaaS de SQL Server](../linux/sql-server-iaas-agent-extension-linux.md) para una funcionalidad limitada. | 
+| &nbsp; | &nbsp; |
 
 
 ## <a name="september-2021"></a>Septiembre de 2021
@@ -44,6 +47,7 @@ Al implementar una máquina virtual (VM) de Azure con SQL Server instalado en e
 | Cambios | Detalles |
 | --- | --- |
 | **El modo completo de la extensión IaaS de SQL ya no requiere reiniciar** | El reinicio del servicio SQL Server ya no es necesario al registrar la VM de SQL Server en [modo completo](sql-agent-extension-manually-register-single-vm.md#full-mode) de la [extensión Agente de IaaS de SQL](sql-server-iaas-agent-extension-automate-management.md). | 
+| &nbsp; | &nbsp; |
 
 
 ## <a name="july-2021"></a>Julio de 2021
@@ -51,6 +55,7 @@ Al implementar una máquina virtual (VM) de Azure con SQL Server instalado en e
 | Cambios | Detalles |
 | --- | --- |
 | **Reparación de la extensión IaaS de SQL Server en el portal** | Ahora es posible comprobar el estado de la extensión del agente IaaS de SQL Server desde Azure Portal y [repararlo](sql-agent-extension-manually-register-single-vm.md#repair-extension), si es necesario. | 
+| &nbsp; | &nbsp; |
 
 
 ## <a name="june-2021"></a>Junio de 2021
@@ -58,12 +63,15 @@ Al implementar una máquina virtual (VM) de Azure con SQL Server instalado en e
 | Cambios | Detalles |
 | --- | --- |
 | **Mejoras de seguridad en Azure Portal** | Cuando haya habilitado [Azure Defender para SQL](../../../security-center/defender-for-sql-usage.md), puede ver las recomendaciones de Security Center en el [recurso de máquinas virtuales de SQL de Azure Portal](manage-sql-vm-portal.md#security-center). | 
+| &nbsp; | &nbsp; |
+
 
 ## <a name="may-2021"></a>Mayo de 2021
 
 | Cambios | Detalles |
 | --- | --- |
 | **Actualización de contenido de HADR** | Hemos actualizado y mejorado nuestro contenido de alta disponibilidad y recuperación ante desastres (HADR). Ahora hay el artículo [Información general del clúster de conmutación por error de Windows Server](hadr-windows-server-failover-cluster-overview.md) disponible, así como un [procedimiento consolidado de configuración del quórum](hadr-cluster-quorum-configure-how-to.md) para las máquinas virtuales de SQL Server.  Además, hemos mejorado los [procedimientos recomendados del clúster](hadr-cluster-best-practices.md) con recomendaciones de configuración más completas que se han adoptado en la nube.| 
+| &nbsp; | &nbsp; |
 
 
 ## <a name="april-2021"></a>Abril de 2021
@@ -71,14 +79,14 @@ Al implementar una máquina virtual (VM) de Azure con SQL Server instalado en e
 | Cambios | Detalles |
 | --- | --- |
 | **Migración de alta disponibilidad a una máquina virtual** | Azure Migrate ofrece compatibilidad con la migración mediante lift-and-shift de toda la solución de alta disponibilidad a SQL Server en máquinas virtuales de Azure. Traiga el [grupo de disponibilidad](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) o la [instancia de clúster de conmutación por error](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) a máquinas virtuales de SQL Server Azure Migrate hoy mismo. | 
-
+| &nbsp; | &nbsp; |
 
 ## <a name="march-2021"></a>Marzo de 2021
 
 | Cambios | Detalles |
 | --- | --- |
 | **Actualización de procedimientos recomendados de rendimiento** | Hemos reescrito, actualizado y puesto al día la documentación de procedimientos recomendados de rendimiento, dividiendo un artículo en una serie que contiene: [una lista de comprobación](performance-guidelines-best-practices-checklist.md), la [guía de tamaño de máquinas virtuales](performance-guidelines-best-practices-vm-size.md), la [guía de almacenamiento](performance-guidelines-best-practices-storage.md) y [una recopilación de instrucciones base de referencia](performance-guidelines-best-practices-collect-baseline.md).   | 
-
+| &nbsp; | &nbsp; |
 
 
 ## <a name="2020"></a>2020

@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: yvettep
-ms.openlocfilehash: dae5f20231a6ccf348299a0f04fb6f2ccfda36ff
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 95d744785d95d5040e5d82d56d1905145111b682
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122183473"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132340276"
 ---
 # <a name="gateway-logging-auditing-and-visibility-in-azure-australia"></a>Registro, auditoría y visibilidad de puertas de enlace en Azure Australia
 
@@ -65,7 +65,7 @@ La arquitectura mostrada anteriormente se conforma de componentes discretos que 
 |Orígenes de registros|<ul><li>Application Gateway</li><li>VPN Gateway</li><li>Azure Firewall</li><li>Aplicaciones virtuales de red</li><li>Azure Load Balancer</li><li>Virtual Machines</li><li>Servidores del sistema de nombres de dominio (DNS)</li><li>Servidores de recopilación de registros o syslog</li><li>Grupos de seguridad de red</li><li>Azure Activity Log</li><li>Registro de diagnóstico de Azure</li><li>Azure Policy</li></ul>|
 |Recopilación de registros|<ul><li>Event Hubs</li><li>Network Watcher</li><li>Log Analytics</li></ul>|
 |Retención de registros|<ul><li>Azure Storage</li></ul>|
-| Análisis de registro|<ul><li>Azure Security Center (ASC)</li><li>Azure Advisor</li><li>Soluciones de Log Analytics<ul><li>Análisis de tráfico</li><li>DNS Analytics (versión preliminar)</li><li>Análisis de registros de actividad</li></ul></li><li>SIEM</li><li>ACSC</li></ul>|
+| Análisis de registro|<ul><li>Microsoft Defender for Cloud</li><li>Azure Advisor</li><li>Soluciones de Log Analytics<ul><li>Análisis de tráfico</li><li>DNS Analytics (versión preliminar)</li><li>Análisis de registros de actividad</li></ul></li><li>SIEM</li><li>ACSC</li></ul>|
 |Respuesta a los incidentes|<ul><li>Alertas de Azure</li><li>Azure Automation</li></ul>|
 |
 
@@ -129,7 +129,7 @@ Antes de que se pueda completar cualquier análisis, alerta o informe, se deben 
 |---|---|
 |Registros de control y administración|Proporcionan información sobre operaciones de Azure Resource Manager.|
 |Registros del plano de datos|Proporcionan información sobre eventos que se producen como parte del uso de recursos de Azure, como registros de una máquina virtual y registros de diagnóstico disponibles mediante Azure Monitor.|
-|Eventos procesados|Proporcionan información sobre eventos o alertas analizados que ha procesado Azure, como, por ejemplo, si Azure Security Center ha procesado y analizado suscripciones para proporcionar alertas de seguridad.|
+|Eventos procesados|Proporcionan información sobre eventos o alertas analizados que ha procesado Azure, como, por ejemplo, si Microsoft Defender for Cloud ha procesado y analizado suscripciones para proporcionar alertas de seguridad.|
 |
 
 ### <a name="application-gateway"></a>Application Gateway
@@ -182,9 +182,9 @@ Los registros de Azure Load Balancer se usan para obtener información útil sob
 |Métricas y diagnóstico de mantenimiento de Load Balancer Estándar|[https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics](../load-balancer/load-balancer-standard-diagnostics.md)|
 |
 
-### <a name="virtual-machines"></a>Virtual Machines
+### <a name="virtual-machines"></a>Máquinas virtuales
 
-Las instancias de Virtual Machines son puntos de conexión que envían y reciben comunicaciones de red, procesan datos y proporcionan servicios. Como las instancias de Virtual Machines pueden hospedar datos o servicios fundamentales del sistema, puede resultar esencial garantizar que funcionan correctamente y detectan incidentes de ciberseguridad. Las instancias de Virtual Machines recopilan varios registros de eventos y auditoría que pueden realizar un seguimiento del funcionamiento del sistema y las acciones realizadas en ese sistema. Los registros recopilados en Virtual Machines se pueden reenviar a un área de trabajo de Log Analytics mediante Microsoft Monitoring Agent, donde se pueden analizar mediante Azure Security Center y las soluciones de Log Analytics aplicables. Virtual Machines también puede integrarse directamente con Azure Event Hubs o con SIEM, ya sea directamente o mediante un servidor de recopilación de registros.
+Las instancias de Virtual Machines son puntos de conexión que envían y reciben comunicaciones de red, procesan datos y proporcionan servicios. Como las instancias de Virtual Machines pueden hospedar datos o servicios fundamentales del sistema, puede resultar esencial garantizar que funcionan correctamente y detectan incidentes de ciberseguridad. Las instancias de Virtual Machines recopilan varios registros de eventos y auditoría que pueden realizar un seguimiento del funcionamiento del sistema y las acciones realizadas en ese sistema. Los registros recopilados en Virtual Machines se pueden reenviar a un área de trabajo de Log Analytics mediante el agente de Log Analytics, donde Microsoft Defender for Cloud los puede analizar. Virtual Machines también puede integrarse directamente con Azure Event Hubs o con una solución SIEM, ya sea directamente o mediante un servidor de recopilación de registros.
 
 |Recursos|Vínculo|
 |---|---|
@@ -317,15 +317,15 @@ Azure Storage es el repositorio para registros de retención a largo plazo en Az
 
 Una vez generados y almacenados en una ubicación centralizada, los registros deben analizarse para ayudar a detectar incidentes de seguridad exitosos o fallidos. Cuando se detectan incidentes de seguridad, una agencia debe tener la capacidad de responder a esos incidentes y rastrear, contener y corregir cualquier amenaza.
 
-### <a name="azure-security-center-asc"></a>Azure Security Center (ASC)
+### <a name="microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud
 
-Azure Security Center proporciona administración unificada de la seguridad y protección avanzada contra amenazas. Azure Security Center puede aplicar directivas de seguridad en las cargas de trabajo, limitar la exposición a amenazas y detectar y responder a los ataques. Azure Security Center proporciona paneles y análisis en una amplia gama de componentes de Azure. El uso de Azure Security Center se especifica como un requisito en la guía del consumidor de ACSC.
+Microsoft Defender for Cloud proporciona características unificadas de administración para la seguridad y protección avanzada contra amenazas. Microsoft Defender for Cloud puede aplicar directivas de seguridad en las cargas de trabajo, limitar la exposición a amenazas y detectar y responder a los ataques. Microsoft Defender for Cloud proporciona paneles y análisis en una amplia gama de componentes de Azure. El uso de Microsoft Defender for Cloud se especifica como requisito en la guía para consumidores de ACSC.
 
 |Recursos|Vínculo|
 |---|---|
-|Documentación de Azure Security Center|[https://docs.microsoft.com/azure/security-center](../security-center/index.yml)|
-|Inicio rápido: Incorporación de una suscripción de Azure a Security Center Standard|[https://docs.microsoft.com/azure/security-center/security-center-get-started](../security-center/security-center-get-started.md)|
-|
+|Documentación de Microsoft Defender for Cloud|[https://docs.microsoft.com/azure/security-center](../security-center/index.yml)|
+|Inicio rápido: Habilitación de las características de seguridad mejorada de Microsoft Defender for Cloud|[https://docs.microsoft.com/azure/security-center/security-center-get-started](../security-center/enable-enhanced-security.md)|
+|||
 
 ### <a name="traffic-analytics"></a>Análisis de tráfico
 
@@ -370,7 +370,7 @@ SIEM es un sistema que proporciona almacenamiento centralizado, auditoría y an�
 
 |Recursos|Vínculo|
 |---|---|
-|Azure Sentinel (versión preliminar)|[https://azure.microsoft.com/services/azure-sentinel](https://azure.microsoft.com/services/azure-sentinel)|
+|Microsoft Sentinel (versión preliminar)|[https://azure.microsoft.com/services/azure-Sentinel](https://azure.microsoft.com/services/azure-sentinel)|
 |Documentación de SIEM|Consulte la documentación del proveedor para obtener instrucciones e información de la arquitectura de SIEM.|
 |Uso de Azure Monitor para su integración con herramientas SIEM|[https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools)|
 |
@@ -395,7 +395,7 @@ Las alertas de Azure se pueden usar para notificar al personal de soporte técni
 |Recursos|Vínculo|
 |---|---|
 |Introducción a las alertas en Microsoft Azure|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-alerts](../azure-monitor/alerts/alerts-overview.md)|
-|Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure|[https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts](../security-center/security-center-managing-and-responding-alerts.md)|
+|Administración de alertas de seguridad y respuesta a ellas en Microsoft Defender for Cloud|[https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts](../security-center/security-center-managing-and-responding-alerts.md)|
 |Alertas de registro de Azure Monitor|[https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response](../azure-monitor/alerts/alerts-log.md)|
 |
 

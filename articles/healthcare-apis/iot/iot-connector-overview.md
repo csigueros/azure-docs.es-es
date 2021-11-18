@@ -1,19 +1,19 @@
 ---
 title: ¿Qué es el conector de IoT? - API de Azure Healthcare
-description: En este artículo, aprenderá los pasos que realiza el conector de IoT antes de almacenar los datos de IoMT en el servicio FHIR.
+description: En este artículo, aprenderá los pasos que realiza el conector de IoT antes de almacenar datos de IoMT en el servicio FHIR.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 11/10/2021
+ms.date: 11/16/2021
 ms.author: jasteppe
-ms.openlocfilehash: 0e4d6c23be9911fe4d3d073540467fd101e7671e
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: b74b3c1aefe2c7dd05421385e672385196aab15e
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132337269"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719436"
 ---
 # <a name="what-is-iot-connector"></a>¿Qué es el conector de IoT?
 
@@ -28,7 +28,7 @@ A continuación se muestran las distintas fases por las que pasan los datos una 
 
 ## <a name="ingest"></a>Ingesta
 
-La ingesta es la primera fase en la que se reciben los datos del dispositivo en el servicio del conector de IoT. El punto de conexión de ingesta de los datos del dispositivo se hospeda en un centro de eventos de Azure. [La plataforma Azure Event Hubs](../../event-hubs/index.yml) admite un alto escalado y rendimiento con la capacidad de recibir y procesar millones de mensajes por segundo. También permite que el servicio del conector de IoT consuma mensajes de forma asincrónica, lo que elimina la necesidad de que los dispositivos esperen mientras se procesan los datos del dispositivo.
+La ingesta es la primera fase en la que se reciben los datos del dispositivo en el servicio del conector de IoT. El punto de conexión de ingesta de los datos del dispositivo se hospeda en un centro de eventos de Azure. [La plataforma Azure Event Hubs](../../event-hubs/index.yml) admite una gran escala y rendimiento con la capacidad de recibir y procesar millones de mensajes por segundo. También permite que el servicio del conector de IoT consuma mensajes de forma asincrónica, lo que elimina la necesidad de que los dispositivos esperen mientras se procesan los datos del dispositivo.
 
 > [!NOTE]
 > En este momento el único formato admitido para los datos del dispositivo es JSON.
@@ -39,20 +39,20 @@ Normalizar es la siguiente fase en la que los datos del dispositivo se recuperan
 
 ## <a name="group"></a>Grupo
 
-El grupo es la siguiente fase en la que los mensajes normalizados disponibles en la fase anterior se agrupan mediante tres parámetros diferentes: 
+Group es la siguiente fase en la que los mensajes normalizados disponibles en la fase anterior se agrupan mediante tres parámetros diferentes: 
 
 * Identidad del dispositivo
 * Tipo de medida 
 * Período de tiempo
 
-La agrupación de la identidad del dispositivo y el tipo de medida habilita el uso del tipo de medida [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData). Este tipo proporciona una manera concisa de representar una serie de medidas basadas en el tiempo de un dispositivo en FHIR, mientras que el período de tiempo controla la latencia en la que los recursos de observación generados por el conector de IoT se escriben en el servicio FHIR.
+La agrupación de la identidad del dispositivo y el tipo de medida habilita el uso del tipo de medida [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData). Este tipo proporciona una manera concisa de representar una serie de medidas basadas en el tiempo desde un dispositivo en FHIR, mientras que el período de tiempo controla la latencia en la que los recursos de observación generados por el conector de IoT se escriben en el servicio FHIR.
 
 > [!NOTE]
 > El valor de período de tiempo se establece de manera predeterminada en 15 minutos y no se puede configurar para la versión preliminar.
 
 ## <a name="transform"></a>Transformación
 
-En la fase Transformación, los mensajes agrupados normalizados se procesan a través de plantillas de asignación de destino de FHIR. Los mensajes que coinciden con un tipo de plantilla se transforman en recursos de observación basados en FHIR, tal y como se especifica mediante la asignación.
+En la fase De transformación, los mensajes agrupados normalizados se procesan a través de plantillas de asignación de destino de FHIR. Los mensajes que coinciden con un tipo de plantilla se transforman en recursos de observación basados en FHIR, tal y como se especifica mediante la asignación.
 
 En este momento, el recurso dispositivo, junto con su recurso patient asociado, también se recupera del servicio FHIR mediante el identificador de dispositivo presente en el mensaje. Estos recursos se agregan como una referencia al recurso Observación que se va a crear.
 
@@ -70,9 +70,9 @@ Una vez que se genera el recurso de Observation FHIR en la fase de transformaci�
 Para más información sobre las asignaciones de conectores de IoT, consulte estas guías:
 
 >[!div class="nextstepaction"]
->[Uso de asignaciones de dispositivos](how-to-use-device-mapping-iot.md)
+>[Uso de asignaciones de dispositivos](how-to-use-device-mappings.md)
 
 >[!div class="nextstepaction"]
->[Uso de asignaciones de destino de FHIR](how-to-use-fhir-mapping-iot.md)
+>[Uso de asignaciones de destino de FHIR](how-to-use-fhir-mappings.md)
 
-(FHIR&#174;) es una marca registrada [de HL7](https://hl7.org/fhir/) y se usa con el permiso HL7.
+(FHIR&#174;) es una marca comercial registrada de [HL7](https://hl7.org/fhir/) y se usa con el permiso hl7.

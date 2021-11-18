@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: System Architecture'
-ms.openlocfilehash: f76996f721287679982f92345ecc075c3db55aba
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7e21115bd1f55d79b1ba09b91cea05576a74dd75
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128612935"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132312541"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Información general sobre la administración de dispositivos con IoT Hub
 
@@ -69,7 +69,7 @@ Dentro de cada una de estas cinco fases, hay que cumplir varios requisitos de op
     * [Uso de propiedades de dispositivos gemelos](tutorial-device-twins.md)
     * [Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes](iot-hub-devguide-query-language.md)
     * [Configuración y supervisión de dispositivos IoT a escala](./iot-hub-automatic-device-management.md)
-    * [Azure Defender para IoT para que las organizaciones proporcionen una detección de amenazas completa](../defender-for-iot/organizations/overview.md)
+    * [Microsoft Defender para IoT para que las organizaciones proporcionen una detección de amenazas completa](../defender-for-iot/organizations/overview.md)
     * [Procedimientos recomendados para la configuración de dispositivos en una solución de IoT](iot-hub-configuration-best-practices.md)
 
 * **Retirada**: reemplazar o retirar dispositivos después de un error, ciclo de actualización o al final de la duración del servicio.  Use dispositivos gemelos para conservar la información del dispositivo si el dispositivo físico se va a reemplazar, o para archivarla si se va a retirar. Use el registro de identidades de IoT Hub para revocar de forma segura las credenciales y las identidades de los dispositivos.

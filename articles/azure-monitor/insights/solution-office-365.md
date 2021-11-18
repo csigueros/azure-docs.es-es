@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: c0cb4d4c1c9d37c7b449dd3e6d3c07ec2bd2476d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6bde571c0baefa14190dd65e93ca9cf49cb8281b
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124737401"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132290655"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solución de administración de Office 365 en Azure (versión preliminar)
 
@@ -18,19 +18,19 @@ ms.locfileid: "124737401"
 
 > [!IMPORTANT]
 > ## <a name="solution-update"></a>Actualización de la solución
-> Esta solución se ha reemplazado por la solución de disponibilidad general [Office 365](../../sentinel/data-connectors-reference.md#microsoft-office-365) en [Azure Sentinel](../../sentinel/overview.md) y la [solución de supervisión e informes de Azure AD](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). De forma conjunta, proporcionan una versión actualizada de la solución Office 365 de Azure Monitor anterior con una experiencia de configuración mejorada. Puede seguir usando la solución existente hasta el 31 de octubre de 2020.
+> Esta solución se ha reemplazado por la solución de disponibilidad general [Office 365](../../sentinel/data-connectors-reference.md#microsoft-office-365) en [Microsoft Sentinel](../../sentinel/overview.md) y la [solución de supervisión e informes de Azure AD](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). De forma conjunta, proporcionan una versión actualizada de la solución Office 365 de Azure Monitor anterior con una experiencia de configuración mejorada. Puede seguir usando la solución existente hasta el 31 de octubre de 2020.
 > 
-> Azure Sentinel es una solución de administración de eventos e información de seguridad nativa en la nube que ingiere registros y proporciona funcionalidad de SIEM adicional, como detecciones, investigaciones, búsqueda e información controlada por aprendizaje automático. El uso de Azure Sentinel ahora le proporcionará ingesta de registros de administración de Exchange y de actividad de Office 365 SharePoint.
+> Microsoft Sentinel es una solución de Administración de eventos e información de seguridad nativa de la nube que ingiere registros y proporciona funcionalidades de SIEM adicionales, como detecciones, investigaciones, búsqueda e información basada en aprendizaje automático. El uso de Microsoft Sentinel ahora le proporcionará ingesta de registros de administración de Exchange y de actividad de Office 365 SharePoint.
 > 
-> Los informes de Azure AD proporcionan una vista de registros más completa de la actividad de Azure AD en el entorno, lo que incluye eventos de inicio de sesión, eventos de auditoría y cambios en el directorio. Para conectarse a los registros de Azure AD, puede usar el [conector de Azure AD de Azure Sentinel](../../sentinel/connect-azure-active-directory.md) o configurar la [integración de registros de Azure AD con Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). 
+> Los informes de Azure AD proporcionan una vista de registros más completa de la actividad de Azure AD en el entorno, lo que incluye eventos de inicio de sesión, eventos de auditoría y cambios en el directorio. Para conectarse a los registros de Azure AD, puede usar el [conector de Azure AD para Microsoft Sentinel](../../sentinel/connect-azure-active-directory.md) o configurar la [integración de registros de Azure AD con Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). 
 >
 > La colección de registro de Azure AD está sujeta a los precios de Azure Monitor.  Para más información, vea [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 >
-> Para usar la solución Office 365 de Azure Sentinel:
-> 1. El uso del conector de Office 365 en Azure Sentinel afecta a los precios del área de trabajo. Para más información, vea [Precios de Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/).
+> Para usar la solución Office 365 en Microsoft Sentinel:
+> 1. El uso del conector de Office 365 en Microsoft Sentinel afecta a los precios del área de trabajo. Para más información, consulte [Precios de Microsoft Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/).
 > 2. Si ya usa la solución Office 365 de Azure Monitor, primero tendrá que desinstalarla mediante el script de la [sección de desinstalación siguiente](#uninstall).
-> 3. [Habilite la solución Azure Sentinel](../../sentinel/quickstart-onboard.md) en el área de trabajo.
-> 4. Vaya a la página **Conectores de datos** de Azure Sentinel y habilite el conector **Office 365**.
+> 3. [Habilite la solución Microsoft Sentinel](../../sentinel/quickstart-onboard.md) en su área de trabajo.
+> 4. Vaya a la página **Conectores de datos** de Azure Microsoft y habilite el conector **Office 365**.
 >
 > ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 > 
@@ -40,7 +40,7 @@ ms.locfileid: "124737401"
 > ### <a name="q-will-the-tables-and-schemas-be-changed"></a>P: ¿Se modificarán las tablas y los esquemas?
 > El nombre y el esquema de la tabla **OfficeActivity** seguirán siendo los mismos que en la solución actual. Puede seguir usando las mismas consultas en la nueva solución excluyendo las consultas que hacen referencia a datos de Azure AD.
 > 
-> Los registros de la nueva [solución de supervisión e informes de Azure AD](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md) se inscribirán en las tablas [SigninLogs](../../active-directory/reports-monitoring/concept-sign-ins.md) y [AuditLogs](../../active-directory/reports-monitoring/concept-audit-logs.md) en lugar de **OfficeActivity**. Para más información, vea [Procedimientos para analizar los registros de Azure AD](../../active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics.md), que también es relevante para los usuarios de Azure Sentinel y Azure Monitor.
+> Los registros de la nueva [solución de supervisión e informes de Azure AD](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md) se inscribirán en las tablas [SigninLogs](../../active-directory/reports-monitoring/concept-sign-ins.md) y [AuditLogs](../../active-directory/reports-monitoring/concept-audit-logs.md) en lugar de **OfficeActivity**. Para más información, consulte [Análisis de registros de Azure AD](../../active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics.md), que también es de interés para los usuarios de Microsoft Sentinel y Azure Monitor.
 > 
 > Estos son algunos ejemplos para convertir consultas de **OfficeActivity** a **SigninLogs**:
 > 
@@ -74,41 +74,41 @@ ms.locfileid: "124737401"
 > | summarize count() by OperationName
 > ```
 > 
-> ### <a name="q-how-can-i-on-board-azure-sentinel"></a>P: ¿Cómo puedo incorporar Azure Sentinel?
-> Azure Sentinel es una solución que puede habilitar en un área de trabajo de Log Analytics nueva o existente. Para más información, vea [Documentación sobre la incorporación de Azure Sentinel](../../sentinel/quickstart-onboard.md).
+> ### <a name="q-how-can-i-on-board-microsoft-sentinel"></a>P: ¿Cómo puedo incorporar Microsoft Sentinel?
+> Azure Sentinel es una solución que puede habilitar en un área de trabajo de Log Analytics nueva o existente. Para más información, consulte [Documentación sobre la incorporación de Microsoft Sentinel](../../sentinel/quickstart-onboard.md).
 >
-> ### <a name="q-do-i-need-azure-sentinel-to-connect-the-azure-ad-logs"></a>P: ¿Necesito Azure Sentinel para conectar los registros de Azure AD?
-> Puede configurar la [integración de registros de Azure AD con Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), que no está relacionado con la solución de Azure Sentinel. Azure Sentinel proporciona un conector nativo y contenido de serie para los registros de Azure AD. Para más información, vea la siguiente pregunta sobre el contenido de serie orientado a la seguridad.
+> ### <a name="q-do-i-need-microsoft-sentinel-to-connect-the-azure-ad-logs"></a>P: ¿Necesito Microsoft Sentinel para conectar los registros de Azure AD?
+> Puede configurar la [integración de registros de Azure AD con Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), lo que no está relacionado con la solución Microsoft Sentinel. Microsoft Sentinel proporciona un conector nativo y contenido predefinido para los registros de Azure AD. Para más información, vea la siguiente pregunta sobre el contenido de serie orientado a la seguridad.
 >
-> ###    <a name="q-what-are-the-differences-when-connecting-azure-ad-logs-from-azure-sentinel-and-azure-monitor"></a>P: ¿Cuáles son las diferencias al conectar registros de Azure AD desde Azure Sentinel y Azure Monitor?
-> Azure Sentinel y Azure Monitor se conectan a los registros de Azure AD en función de la misma [solución de informes y supervisión de Azure AD](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Azure Sentinel proporciona un conector nativo de un solo clic que conecta los mismos datos y proporciona información de supervisión.
+> ###    <a name="q-what-are-the-differences-when-connecting-azure-ad-logs-from-microsoft-sentinel-and-azure-monitor"></a>P: ¿Qué diferencias hay al conectar registros de Azure AD desde Microsoft Sentinel y Azure Monitor?
+> Microsoft Sentinel y Azure Monitor se conectan a los registros de Azure AD basándose en la misma [solución de informes y supervisión de Azure AD](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Microsoft Sentinel proporciona un conector nativo de un solo clic que conecta los mismos datos y suministra información de supervisión.
 >
 > ###    <a name="q-what-do-i-need-to-change-when-moving-to-the-new-azure-ad-reporting-and-monitoring-tables"></a>P: ¿Qué debo cambiar al pasar a las nuevas tablas de informes y supervisión de Azure AD?
 > Todas las consultas que usen datos de Azure AD, incluidas las consultas de alertas, paneles y cualquier contenido que se haya creado con datos de Azure AD de Office 365, se deben volver a crear con las nuevas tablas.
 >
-> Azure Sentinel y Azure AD proporcionan contenido integrado que puede usar al pasar a la solución de informes y supervisión de Azure AD. Para más información, vea la siguiente pregunta sobre contenido de serie orientado a la seguridad y [Procedimiento para usar libros de Azure Monitor para informes de Azure Active Directory](../../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md). 
+> Microsoft Sentinel y Azure AD proporcionan contenido integrado que puede usar al pasar a la solución de informes y supervisión de Azure AD. Para más información, vea la siguiente pregunta sobre contenido de serie orientado a la seguridad y [Procedimiento para usar libros de Azure Monitor para informes de Azure Active Directory](../../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md). 
 >
-> ### <a name="q-how-i-can-use-the-azure-sentinel-out-of-the-box-security-oriented-content"></a>P: ¿Cómo puedo usar el contenido de serie orientado a la seguridad de Azure Sentinel?
-> Azure Sentinel proporciona paneles de serie orientados a la seguridad, consultas de alertas personalizadas, consultas de búsqueda, investigación y funcionalidades de respuesta automatizadas basadas en los registros de Office 365 y Azure AD. Explore Azure Sentinel en GitHub y los tutoriales de Azure Sentinel para obtener más información:
+> ### <a name="q-how-i-can-use-the-microsoft-sentinel-out-of-the-box-security-oriented-content"></a>P: ¿Cómo puedo usar el contenido orientado a la seguridad predefinido de Microsoft Sentinel?
+> Microsoft Sentinel proporciona paneles orientados a la seguridad predefinidos, consultas de alertas personalizadas, consultas de búsqueda, investigación y funcionalidades de respuesta automatizadas basadas en los registros de Office 365 y Azure AD. Explore la comunidad de GitHub y los tutoriales de Microsoft Sentinel para obtener más información:
 >
 > - [Detección de amenazas integrada](../../sentinel/detect-threats-built-in.md)
 > - [Creación de reglas de análisis personalizadas para detectar amenazas sospechosas](../../sentinel/detect-threats-custom.md)
 > - [Supervisión de los datos](../../sentinel/monitor-your-data.md)
-> - [Investigación de incidentes con Azure Sentinel](../../sentinel/investigate-cases.md)
-> - [Configuración de respuestas automatizadas frente a amenazas en Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
-> - [Comunidad de Azure Sentinel en GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
+> - [Investigación de incidentes con Microsoft Sentinel](../../sentinel/investigate-cases.md)
+> - [Configuración de respuestas automatizadas frente a amenazas en Microsoft Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
+> - [Comunidad de GitHub de Microsoft Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
 > 
-> ### <a name="q-does-azure-sentinel-provide-additional-connectors-as-part-of-the-solution"></a>P: ¿Azure Sentinel proporciona conectores adicionales como parte de la solución?
-> Sí, vea [Conexión con orígenes de datos de Azure Sentinel](../../sentinel/connect-data-sources.md).
+> ### <a name="q-does-microsoft-sentinel-provide-additional-connectors-as-part-of-the-solution"></a>P: ¿Microsoft Sentinel proporciona conectores adicionales como parte de la solución?
+> Sí, consulte [Orígenes de datos de conexión de Microsoft Sentinel](../../sentinel/connect-data-sources.md).
 > 
 > ###    <a name="q-what-will-happen-on-october-31-do-i-need-to-offboard-beforehand"></a>P: ¿Qué ocurrirá el 31 de octubre? ¿Tengo que realizar la retirada con antelación?
 > 
 > - No podrá recibir datos de la solución **Office365**. La solución se quitará del área de trabajo y dejará de estar disponible en el marketplace.
-> - Para los clientes de Azure Sentinel, la solución **Office365** del área de trabajo de Log Analytics se incluirá en la solución **SecurityInsights** de Azure Sentinel.
-> - Si no retira la solución manualmente antes del 31 de octubre, los datos se desconectarán automáticamente, y se quitará la tabla **OfficeActivity**. Aún así, podrá restaurar la tabla cuando habilite el conector de Office 365 en Azure Sentinel, como se explica a continuación.
+> - Para los clientes de Microsoft Sentinel, la solución **Office365** del área de trabajo de Log Analytics se incluirá en la solución **SecurityInsights** de Microsoft Sentinel.
+> - Si no retira la solución manualmente antes del 31 de octubre, los datos se desconectarán automáticamente, y se quitará la tabla **OfficeActivity**. Con todo, podrá restaurar la tabla cuando habilite el conector de Office 365 en Microsoft Sentinel, como se explica a continuación.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>P: ¿Mis datos se transferirán a la nueva solución?
-> Sí. Cuando quite la solución **Office 365** del área de trabajo, los datos dejarán de estar disponibles temporalmente porque el esquema se ha quitado. Al habilitar el nuevo conector de **Office 365** en Azure Sentinel, el esquema se restaura en el área de trabajo y los datos ya recopilados estarán disponibles. 
+> Sí. Cuando quite la solución **Office 365** del área de trabajo, los datos dejarán de estar disponibles temporalmente porque el esquema se ha quitado. Al habilitar el nuevo conector de **Office 365** en Microsoft Sentinel, el esquema se restaura en el área de trabajo y los datos ya recopilados estarán disponibles. 
  
 
 La solución de administración de Office 365 permite supervisar el entorno de Office 365 en Azure Monitor.

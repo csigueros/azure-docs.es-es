@@ -7,16 +7,16 @@ manager: karenh444
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 11/11/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0044f96f58ba3aa868577b0d0664d71daeddbc7f
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 6659e28e1f2814f8bf2b0f08e21db25edae3dd66
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991078"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370695"
 ---
 # <a name="export-a-microsoft-identity-manager-connector-for-use-with-the-azure-ad-ecma-connector-host"></a>Exportación de un conector de Microsoft Identity Manager para su uso con el host del conector ECMA de Azure AD
 
@@ -26,7 +26,7 @@ ms.locfileid: "129991078"
 Puede importar en el host del conector ECMA de Azure Active Directory (Azure AD) una configuración para un conector específico desde una instalación del servicio de sincronización de Forefront Identity Manager o del servicio de sincronización de Microsoft Identity Manager (MIM Sync). La instalación de MIM Sync solo se usa para la configuración, no para la sincronización continua desde Azure AD.
 
 >[!IMPORTANT]
->Actualmente, solo se admite el conector SQL genérico para su uso con el host del conector ECMA de Azure AD.
+>Actualmente, solo se admiten los conectores SQL y LDAP genéricos para su uso con el host del conector ECMA de Azure AD.
 
 ## <a name="create-and-export-a-connector-configuration-in-mim-sync"></a>Creación y exportación de una configuración de conector en MIM Sync
 Si ya tiene MIM Sync con el conector ECMA configurado, vaya al paso 10.

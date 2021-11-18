@@ -1,19 +1,19 @@
 ---
 title: 'Recepción de datos del dispositivo mediante Azure IoT Hub: API de Azure Healthcare'
-description: En este tutorial, aprenderá a habilitar el enrutamiento de datos de dispositivos desde IoT Hub al servicio FHIR a través del conector de IoT.
+description: En este tutorial, aprenderá a habilitar el enrutamiento de datos de dispositivo desde IoT Hub al servicio FHIR a través del conector de IoT.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial
-ms.date: 11/10/2021
+ms.date: 11/16/2021
 ms.author: jasteppe
-ms.openlocfilehash: f12c5efe25f48ae16e4f59159936627a27b47212
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 9c4dd42d81374f75beb66f0564a2fb2b0fc38c01
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132283474"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709222"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Tutorial: Recepción de datos del dispositivo mediante Azure IoT Hub
 
@@ -25,7 +25,7 @@ El conector de IoT proporciona la capacidad de recopilar e ingerir datos de esta
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción de Azure activa: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Recurso de servicio de FHIR con al menos un conector de IoT: [implemente el conector de IoT mediante Azure Portal](deploy-iot-connector-in-azure.md)
+- Recurso de servicio de FHIR con al menos un conector de IoT: [implementación del conector de IoT mediante Azure Portal](deploy-iot-connector-in-azure.md)
 - Un recurso de Azure IoT Hub conectado a dispositivos reales o simulados: [Creación de un centro de IoT con Azure Portal](../../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
 
 > [!TIP]
@@ -33,13 +33,13 @@ El conector de IoT proporciona la capacidad de recopilar e ingerir datos de esta
 
 ## <a name="get-connection-string-for-iot-connector"></a>Obtener la cadena de conexión para el conector de IoT
 
-Azure IoT El centro requiere una cadena de conexión para conectarse de forma segura con el conector de IoT. Cree una nueva cadena de conexión para el conector de IoT como se describe en [Generación de una cadena de conexión.](../azure-api-for-fhir/iot-fhir-portal-quickstart.md#generate-a-connection-string) Caja fuerte esta cadena de conexión que se usará en el paso siguiente.
+Azure IoT Hub requiere una cadena de conexión para conectarse de forma segura con el conector de IoT. Cree una nueva cadena de conexión para el conector de IoT como se describe en [Generación de una cadena de conexión.](../azure-api-for-fhir/iot-fhir-portal-quickstart.md#generate-a-connection-string) Caja fuerte esta cadena de conexión que se usará en el paso siguiente.
 
 El conector de IoT usa una instancia de Azure Event Hubs en segundo plano para recibir los mensajes del dispositivo. La cadena de conexión creada anteriormente es básicamente la cadena de conexión a este centro de eventos subyacente.
 
 ## <a name="connect-azure-iot-hub-with-iot-connector"></a>Conectar Azure IoT Hub con el conector de IoT
 
-Azure IoT Hub admite una característica llamada [enrutamiento de mensajes](../../iot-hub/iot-hub-devguide-messages-d2c.md) que proporciona la funcionalidad de enviar datos del dispositivo a varios servicios de Azure, como Event Hubs, una cuenta de Azure Storage y Service Bus. El conector de IoT usa esta característica para conectarse y enviar datos de dispositivo desde Azure IoT Hub a su punto de conexión del centro de eventos.
+Azure IoT Hub admite una característica llamada [enrutamiento de mensajes](../../iot-hub/iot-hub-devguide-messages-d2c.md) que proporciona la funcionalidad de enviar datos del dispositivo a varios servicios de Azure, como Event Hubs, una cuenta de Azure Storage y Service Bus. El conector de IoT usa esta característica para conectarse y enviar datos del dispositivo desde Azure IoT Hub a su punto de conexión del centro de eventos.
 
 > [!NOTE] 
 > En este momento solo puede usar PowerShell o el comando de la CLI para crear el enrutamiento de mensajes porque el centro de eventos del conector de IoT no está hospedado en la suscripción del cliente, por lo que no será visible para usted a través de la Azure Portal. [](../../iot-hub/tutorial-routing.md) Sin embargo, una vez que se agregan los objetos de ruta de mensaje mediante PowerShell o la CLI, están visibles en Azure Portal y se pueden administrar desde allí.
@@ -59,7 +59,7 @@ Esta es la lista de parámetros que se usan con el comando para crear un punto d
 |EndpointName|endpoint-name|Nombre que le gustaría asignar al punto de conexión que se va a crear.|
 |EndpointType|endpoint-type|Tipo de punto de conexión al que necesita conectarse IoT Hub. Use el valor literal "EventHub" para PowerShell y "eventhub" para la CLI.|
 |EndpointResourceGroup|endpoint-resource-group|Nombre del grupo de recursos para el recurso del servicio FHIR del conector de IoT. Puede obtener este valor en la página Información general del servicio FHIR.|
-|EndpointSubscriptionID|endpoint-subscription-id|Identificador de suscripción del recurso del servicio FHIR del conector de IoT. Puede obtener este valor en la página Información general del servicio FHIR.|
+|EndpointSubscriptionID|endpoint-subscription-id|Identificador de suscripción para el recurso del servicio FHIR del conector de IoT. Puede obtener este valor en la página Información general del servicio FHIR.|
 |ConnectionString|connection-string|Cadena de conexión al conector de IoT. Use el valor que obtuvo en el paso anterior.|
 
 ### <a name="add-a-message-route"></a>Adición de una ruta de mensajes
@@ -93,7 +93,7 @@ Use el dispositivo (real o simulado) para enviar el mensaje de frecuencia cardí
 }
 ```
 > [!IMPORTANT]
-> Asegúrese de enviar el mensaje del dispositivo que se ajusta a las plantillas [de asignación](how-to-use-fhir-mapping-iot.md) configuradas con el conector de IoT.
+> Asegúrese de enviar el mensaje del dispositivo que se ajusta a las plantillas [de asignación](how-to-use-fhir-mappings.md) configuradas con el conector de IoT.
 
 ## <a name="view-device-data-in-fhir-service"></a>Visualización de los datos del dispositivo en el servicio FHIR
 
@@ -111,4 +111,4 @@ Comprender las distintas fases del flujo de datos en el conector de IoT.
 >[!div class="nextstepaction"]
 >[Flujo de datos del conector de IoT](iot-data-flow.md)
 
-(FHIR&#174;) es una marca comercial registrada de HL7 y se usa con el permiso de HL7.
+(FHIR&#174;) es una marca comercial registrada de HL7 y se usa con el permiso hl7.

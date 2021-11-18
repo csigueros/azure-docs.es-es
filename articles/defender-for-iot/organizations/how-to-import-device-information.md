@@ -1,18 +1,18 @@
 ---
 title: Importación de la información del dispositivo
 description: Los sensores de Defender para IoT supervisan y analizan el tráfico reflejado. En estos casos, se recomienda importar datos para enriquecer la información en los dispositivos que ya se han detectado.
-ms.date: 12/06/2020
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: eb82a3e5d360913acfead06adc03194d80f7fccb
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 3446a82ec71b03c8e1647b6f95db937e7ef7f488
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020265"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132293257"
 ---
 # <a name="import-device-information-to-a-sensor"></a>Importación de la información del dispositivo al sensor
 
-Un sensor de Azure Defender para IoT supervisa y analiza el tráfico reflejado. En algunos casos, debido a las directivas de configuración de red específicas de la organización, es posible que cierta información no se transmita.
+Un sensor de Microsoft Defender para IoT supervisa y analiza el tráfico reflejado. En algunos casos, debido a las directivas de configuración de red específicas de la organización, es posible que cierta información no se transmita.
 
 En estos casos, se recomienda importar datos para enriquecer la información en los dispositivos que ya se han detectado. Hay dos opciones disponibles para importar información a los sensores:
 

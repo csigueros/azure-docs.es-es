@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/08/2021
+ms.date: 11/09/2021
 ms.author: eur
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 645a45ed2ad16abc92b0dded9f1950a3e1ad47d6
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 14cf969fa5aba3f3fddd6fedc63c2ccf19d71e08
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131509944"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132133489"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Habla personalizada
 
@@ -92,9 +92,7 @@ Una vez cargado el conjunto de datos, tiene algunas opciones:
 
 Puede usar la [API de REST de conversión de voz en texto v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) para automatizar las operaciones relacionadas con los modelos personalizados. En concreto, puede usarla para cargar un conjunto de datos. Esto resulta especialmente útil si el archivo del conjunto de datos supera los 128 MB, ya que los archivos de ese tamaño no se pueden cargar mediante la opción *Archivo local* de Speech Studio. (También puede usar la opción *Blob de Azure o ubicación compartida* de Speech Studio para el mismo propósito que se describe en la sección anterior).
 
-Use cualquiera de las siguientes solicitudes para crear y cargar un conjunto de datos:
-* [Crear conjunto de datos](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset)
-* [Crear conjunto de datos a partir de formulario](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UploadDatasetFromForm)
+Para crear y cargar un conjunto de datos, use la solicitud [Crear conjunto de datos](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset).
 
 **Conjuntos de datos creados mediante la API de REST y proyectos de Speech Studio**
 
@@ -102,7 +100,7 @@ Un conjunto de datos creado con la API de REST de conversión de voz en texto v
 
 Al iniciar sesión en Speech Studio, su interfaz de usuario le avisa si detecta cualquier objeto no conectado (como conjuntos de datos cargados mediante la API de REST sin ninguna referencia de proyecto) y le ofrece conectar esos objetos a un proyecto existente. 
 
-Para conectar el nuevo conjunto de datos a un proyecto existente de Speech Studio durante su carga, use [Crear conjunto de datos](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) o [Crear conjunto de datos a partir de formulario](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UploadDatasetFromForm) y rellene el cuerpo de la solicitud según el formato siguiente:
+Para conectar el nuevo conjunto de datos a un proyecto existente de Speech Studio durante su carga, use [Crear conjunto de datos](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) y rellene el cuerpo de la solicitud según el formato siguiente:
 ```json
 {
   "kind": "Acoustic",
@@ -116,7 +114,7 @@ Para conectar el nuevo conjunto de datos a un proyecto existente de Speech Studi
 }
 ```
 
-La dirección URL de proyecto necesaria para el elemento `project` se puede obtener con la solicitud [Get Projects](https://westeurope.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects).
+La dirección URL de proyecto necesaria para el elemento `project` se puede obtener con la solicitud [Get Projects](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects).
 
 ## <a name="audio--human-labeled-transcript-data-for-trainingtesting"></a>Datos de transcripción de audio y con etiqueta humanos para pruebas y entrenamiento
 
@@ -192,7 +190,7 @@ Además, querrá tener en cuenta las siguientes restricciones:
 
 ## <a name="structured-text-data-for-training-public-preview"></a>Datos de texto estructurado para entrenamiento (versión preliminar pública)
 
-A menudo, las expresiones esperadas siguen un patrón determinado. Un patrón común es que las expresiones solo difieren en palabras o frases de una lista. Algunos ejemplos de esto podrían ser "Tengo una pregunta sobre `product`", donde `product` es una lista de posibles productos. O bien, "Hacer que ese `object` sea `color`", donde `object` es una lista de formas geométricas y `color` es una lista de colores. Para simplificar la creación de datos de entrenamiento y habilitar un mejor modelado dentro del modelo de lenguaje personalizado, puede usar un texto estructurado en formato Markdown para definir listas de elementos y, después, hacer referencia a ellos dentro de las expresiones de entrenamiento. Además, el formato Markdown también admite la especificación de la pronunciación fonética de las palabras. El formato Markdown comparte su formato con el marcado `.lu` que se usa para entrenar modelos de reconocimiento del lenguaje, en particular entidades de lista y expresiones de ejemplo. Para más información sobre el marcado `.lu` completo, consulte el <a href="/azure/bot-service/file-format/bot-builder-lu-file-format" target="_blank"> formato de archivo `.lu`</a>.
+A menudo, las expresiones esperadas siguen un patrón determinado. Un patrón común es que las expresiones solo difieren en palabras o frases de una lista. Algunos ejemplos de esto podrían ser "Tengo una pregunta sobre `product`", donde `product` es una lista de posibles productos. O bien, "Hacer que ese `object` sea `color`", donde `object` es una lista de formas geométricas y `color` es una lista de colores. Para simplificar la creación de datos de entrenamiento y habilitar un mejor modelado dentro del modelo de lenguaje personalizado, puede usar un texto estructurado en formato Markdown para definir listas de elementos y, después, hacer referencia a ellos dentro de las expresiones de entrenamiento. Además, el formato Markdown también admite la especificación de la pronunciación fonética de las palabras. El archivo Markdown debe tener la extensión `.md`. La sintaxis del formato Markdown es la misma que la de los modelos de Language Understanding, en particular, las entidades de lista y las expresiones de ejemplo. Para más información sobre la sintaxis completa del formato Markdown, consulte <a href="/azure/bot-service/file-format/bot-builder-lu-file-format" target="_blank">Formato de archivo .lu</a>.
 
 Este es un ejemplo del formato Markdown:
 

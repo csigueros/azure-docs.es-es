@@ -1,18 +1,18 @@
 ---
 title: Compatibilidad y retirada de características
 description: Defender para IoT seguirá dando soporte a C, C# y Edge hasta el 1 de marzo de 2022.
-ms.date: 07/18/2021
+ms.date: 11/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 37848fea276b7925e4e8bd711dd1abe4c0bd338e
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 441f01261ff3f22a39ac6754221fb671a362c387
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114400892"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132281880"
 ---
 # <a name="feature-support-and-retirement"></a>Compatibilidad y retirada de características
 
-En este artículo se describen las características de Azure Defender para IoT y la compatibilidad con diferentes funcionalidades dentro de Defender para IoT.
+En este artículo se describen las características de Microsoft Defender para IoT y la compatibilidad con diferentes funcionalidades dentro de Defender para IoT.
 
 ## <a name="defender-for-iot-c-c-and-edge-defender-iot-micro-agent-deprecation"></a>Retirada de Defender-IoT-micro-agent de Defender para IoT de C, C# y Edge
 
@@ -38,4 +38,4 @@ Durante la versión preliminar, el microagente puede experimentar cambios import
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte [Preguntas más frecuentes sobre el agente de Azure Defender para IoT](resources-agent-frequently-asked-questions.md).
+Consulte las [Preguntas más frecuentes sobre el agente de Microsoft Defender para IoT](resources-agent-frequently-asked-questions.md).

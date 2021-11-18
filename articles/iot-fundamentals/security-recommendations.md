@@ -11,21 +11,21 @@ ms.custom:
 - security-recommendations
 - amqp
 - mqtt
-ms.openlocfilehash: 401188de54050be932fc8d52f5cc4466378e15cd
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: e1582d45ea6108872f9e1ea03d890a5070fc5b98
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772038"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132297399"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Recomendaciones de seguridad para la implementación de Azure Internet of Things (IoT)
 
 Este artículo contiene recomendaciones de seguridad para IoT. La implementación de estas recomendaciones le ayudará a cumplir sus obligaciones de seguridad, tal y como se describe en nuestro modelo de responsabilidad compartida. Para más información sobre lo que Microsoft hace para cumplir las responsabilidades del proveedor de servicios, consulte [Responsabilidades compartidas de la informática en la nube](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
 
-Algunas de las recomendaciones incluidas en este artículo se pueden supervisar automáticamente mediante Azure Defender para IoT. Azure Defender para IoT es la primera línea de defensa en la protección de los recursos de Azure. Se encarga de analizar el estado de seguridad de los recursos de Azure para identificar posibles vulnerabilidades de seguridad. Después, proporciona recomendaciones sobre cómo abordarlas.
+Algunas de las recomendaciones incluidas en este artículo se pueden supervisar automáticamente mediante Microsoft Defender para IoT, que es la primera línea de defensa para proteger los recursos de Azure. Se encarga de analizar el estado de seguridad de los recursos de Azure para identificar posibles vulnerabilidades de seguridad. Después, proporciona recomendaciones sobre cómo abordarlas.
 
-- Para obtener más información sobre las recomendaciones de Azure Defender para IoT, consulte [Recomendaciones de seguridad de Azure Defender para IoT](../security-center/security-center-recommendations.md).
-- Para obtener información sobre Azure Defender para IoT, consulte [¿Qué es Azure Defender para IoT?](../security-center/security-center-introduction.md).
+- Para más información sobre las recomendaciones de Microsoft Defender para IoT, consulte [Recomendaciones de seguridad en Microsoft Defender para IoT](../security-center/security-center-recommendations.md).
+- Para más información sobre Microsoft Defender para IoT, consulte [¿Qué es Microsoft Defender para IoT?](../security-center/security-center-introduction.md)
 
 ## <a name="general"></a>General
 
@@ -59,7 +59,7 @@ Algunas de las recomendaciones incluidas en este artículo se pueden supervisar 
 
 ## <a name="monitoring"></a>Supervisión
 
-| Recomendación | Comentarios | Compatible con Azure Defender |
+| Recomendación | Comentarios | Compatible con Microsoft Defender para IoT |
 |-|----|--|
 | Supervisión del acceso no autorizado a los dispositivos |  Use la característica de registro del sistema operativo para supervisar las posibles vulneraciones de seguridad o alteraciones físicas del dispositivo o sus puertos. | Sí |
 | Supervisión de la solución de IoT desde la nube | Supervise el estado general de la solución de IoT Hub mediante las [métricas de Azure Monitor](../iot-hub/monitor-iot-hub.md). | Sí |

@@ -12,22 +12,26 @@ ms.custom: na, devx-track-azurepowershell
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/18/2020
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: bf458528503d8d2b74509b95ffde33c16c8e47f1
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 8d9e94ae12600223c6f54fb75cbc6c9648ecf7f9
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164014"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132156958"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Creación de una FCI con un recurso compartido de archivos Premium (SQL Server en VM de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
+> [!TIP]
+> Elimine la necesidad de una instancia de Azure Load Balancer o un nombre de red distribuida (DNN) para la instancia de clúster de conmutación por error mediante la creación de las máquinas virtuales de SQL Server en [varias subredes](failover-cluster-instance-prepare-vm.md#subnets) dentro de la misma red virtual de Azure.
+
+
 En este artículo se explica cómo crear una instancia de clúster de conmutación por error (FCI) con SQL Server en Azure Virtual Machines (VM) con un [recurso compartido de archivos Premium](../../../storage/files/storage-how-to-create-file-share.md).
 
-Los recursos compartidos de archivos Premium son recursos compartidos de archivos de baja latencia constante con respaldo de Espacios de almacenamiento directo (SSD) que son totalmente compatibles para utilizarlos con instancias del clúster de conmutación por error en SQL Server 2012 o versiones posteriores en Windows Server 2012 o versiones posteriores. Los recursos compartidos de archivos Premium ofrecen mayor flexibilidad, lo que le permite cambiar el tamaño y escalar el recurso compartido de archivos sin tiempo de inactividad.
+Los recursos compartidos de archivos Premium son recursos compartidos de archivos de baja latencia constante con respaldo de SSD que son totalmente compatibles para su uso con la instancia del clúster de conmutación por error en SQL Server 2012 y versiones posteriores en Windows Server 2012 y versiones posteriores. Los recursos compartidos de archivos Premium ofrecen mayor flexibilidad, lo que le permite cambiar el tamaño y escalar el recurso compartido de archivos sin tiempo de inactividad.
 
 Para obtener más información, consulte información general de [FCI con SQL Server en VM de Azure](failover-cluster-instance-overview.md) y [procedimientos recomendados del clúster](hadr-cluster-best-practices.md). 
 
@@ -46,6 +50,8 @@ Antes de completar las instrucciones de este artículo, ya debe tener:
 
 ## <a name="mount-premium-file-share"></a>Montaje del recurso compartido de archivos Premium
 
+Para montar el recurso compartido de archivos Premium, realice estos pasos: 
+
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). y vaya a la cuenta de almacenamiento.
 1. Vaya a **Recursos compartidos de archivos** en **Almacenamiento de datos** y, luego, seleccione el recurso compartido de archivos prémium que quiere usar para el almacenamiento SQL.
 1. Seleccione **Conectar** para mostrar la cadena de conexión del recurso compartido de archivos.
@@ -53,7 +59,7 @@ Antes de completar las instrucciones de este artículo, ya debe tener:
 
    :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/premium-file-storage-commands.png" alt-text="Copia del comando de PowerShell desde el portal de conexión del recurso compartido de archivos":::
 
-1. Aplique el protocolo de escritorio remoto (RDP) para conectarse a la VM con SQL Server con la cuenta que la FCI de SQL Server usará para la cuenta de servicio.
+1. Aplique el protocolo de escritorio remoto (RDP) para conectarse a la VM con SQL Server con la **cuenta que la FCI de SQL Server usará para la cuenta de servicio**.
 1. Abra una consola de comandos de PowerShell de administración.
 1. Ejecute el comando que copió anteriormente en el editor de texto desde el portal de recursos compartidos de archivos.
 1. Vaya al recurso compartido mediante el Explorador de archivos o el cuadro de diálogo **Ejecutar** (Windows + R en el teclado). Use la ruta de acceso a la red `\\storageaccountname.file.core.windows.net\filesharename`. Por ejemplo: `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
@@ -61,69 +67,22 @@ Antes de completar las instrucciones de este artículo, ya debe tener:
 1. Repita estos pasos en cada VM con SQL Server que participará en el clúster.
 
   > [!IMPORTANT]
-  > - Considere la posibilidad de usar un recurso compartido de archivos independiente para los archivos de copia de seguridad a fin de ahorrar la capacidad de operaciones de entrada/salida por segundo (IOPS) y espacio de este recurso compartido para usarla para el archivo de registro y de datos. Puede usar un recurso compartido de archivos Premium o Estándar para los archivos de copia de seguridad.
+  > Considere la posibilidad de usar un recurso compartido de archivos independiente para los archivos de copia de seguridad a fin de ahorrar la capacidad de operaciones de entrada/salida por segundo (IOPS) y espacio de este recurso compartido para usarla para el archivo de registro y de datos. Puede usar un recurso compartido de archivos Premium o Estándar para los archivos de copia de seguridad.
 
+## <a name="create-windows-failover-cluster"></a>Creación de un clúster de conmutación por error de Windows
 
-## <a name="add-windows-cluster-feature"></a>Adición de la característica del clúster de Windows
+Los pasos necesarios para crear un clúster de conmutación por error de Windows Server varían en función de si se han implementado las máquinas virtuales con SQL Server en una sola subred o en varias. Para crear el clúster, siga los pasos del tutorial de un [escenario de varias subredes](availability-group-manually-configure-tutorial-multi-subnet.md#add-failover-cluster-feature) o un [escenario de una sola subred](availability-group-manually-configure-tutorial-single-subnet.md#create-the-cluster). Aunque estos tutoriales son para crear un grupo de disponibilidad, los pasos para crear el clúster son los mismos. 
 
-1. Conéctese a la primera máquina virtual con RDP mediante una cuenta de dominio que sea miembro de los administradores locales y tenga permisos para crear objetos en Active Directory. Utilice esta cuenta para el resto de la configuración.
-
-1. [Agregue Clústeres de conmutación por error a todas las máquinas virtuales](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
-
-   Para instalar Clústeres de conmutación por error desde la interfaz de usuario, realice lo siguiente en las dos máquinas virtuales:
-   1. En el **Administrador del servidor**, seleccione **Administrar** y, a continuación, seleccione **Agregar roles y características**.
-   1. En el Asistente para **agregar roles y características**, seleccione **Siguiente** hasta llegar a **Seleccionar características**.
-   1. En **Seleccionar características**, seleccione **Clúster de conmutación por error**. Incluya todas las características y herramientas de administración requeridas. 
-   1. Seleccione **Agregar características**.
-   1. Seleccione **Siguiente** y, después, **Finalizar** para instalar las características.
-
-   Para instalar clústeres de conmutación por error con PowerShell, ejecute el siguiente script en una sesión de PowerShell de administrador en una de las máquinas virtuales:
-
-   ```powershell
-   $nodes = ("<node1>","<node2>")
-   Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
-   ```
-
-
-
-## <a name="create-failover-cluster"></a>Creación de un clúster de conmutación por error
-
-Para crear el clúster de conmutación por error, necesita:
-
-- Los nombres de las máquinas virtuales que se convertirán en nodos del clúster.
-- Un nombre para el clúster de conmutación por error.
-- Una dirección IP para el clúster de conmutación por error. Puede usar una dirección IP que no se utilice en la misma red virtual de Azure y subred como nodos del clúster.
-
-
-# <a name="windows-server-2012---2016"></a>[Windows Server 2012 a 2016](#tab/windows2012)
-
-El siguiente script de PowerShell crea un clúster de conmutación por error para Windows Server 2012 a través de Windows Server 2016. Actualice el script con los nombres de los nodos (los nombres de las máquinas virtuales) y una dirección IP disponible desde la red virtual de Azure.
-
-```powershell
-New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
-```   
-
-# <a name="windows-server-2019"></a>[Windows Server 2019](#tab/windows2019)
-
-El siguiente script de PowerShell crea un clúster de conmutación por error para Windows Server 2019.  Actualice el script con los nombres de los nodos (los nombres de las máquinas virtuales) y una dirección IP disponible desde la red virtual de Azure.
-
-```powershell
-New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
-```
-
-Para más información, consulte [Clúster de conmutación por error: objeto de red en clúster](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).
-
----
 
 ## <a name="configure-quorum"></a>Configuración de un cuórum
 
-Aunque el testigo de disco es la opción de cuórum más resistente, requiere un disco compartido de Azure que impone algunas limitaciones a la instancia del clúster de conmutación por error cuando se configura con recursos compartidos de archivos prémium. Por lo tanto, el testigo en la nube es la solución de cuórum recomendada para este tipo de configuración de clúster con SQL Server en máquinas virtuales de Azure. En caso contrario, configure un testigo de recurso compartido de archivos. 
+El testigo en la nube es la solución de cuórum recomendada para este tipo de configuración de clúster con SQL Server en máquinas virtuales de Azure.  
 
 Si tiene un número par de votos en el clúster, configure la [solución de cuórum](hadr-cluster-quorum-configure-how-to.md) que mejor se adapte a sus necesidades empresariales. Para más información, consulte [Cuórum con VM SQL Server](hadr-windows-server-failover-cluster-overview.md#quorum). 
 
 ## <a name="validate-cluster"></a>Validar el clúster
 
-Valide el clúster en la interfaz de usuario o con PowerShell.
+Valide el clúster en una de las máquinas virtuales mediante la interfaz de usuario del administrador de clústeres de conmutación por error o PowerShell.
 
 Para validar el clúster con la interfaz de usuario, realice los pasos siguientes en una de las máquinas virtuales:
 
@@ -138,15 +97,14 @@ Para validar el clúster con la interfaz de usuario, realice los pasos siguiente
    :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Seleccionar pruebas de validación de clústeres":::
 
 1. Seleccione **Next** (Siguiente).
-1. En **Confirmación**, seleccione **Siguiente**.
+1. En **Confirmación**, seleccione **Siguiente**. El Asistente para **validar una configuración** ejecuta las pruebas de validación.
 
-El Asistente para **validar una configuración** ejecuta las pruebas de validación.
 
 Para validar el clúster con PowerShell, ejecute el siguiente script en una sesión de PowerShell de administrador de una de las máquinas virtuales:
 
-   ```powershell
-   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
-   ```
+```powershell
+Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+```
 
 
 
@@ -173,24 +131,44 @@ Después de haber configurado el clúster de conmutación por error, puede crear
 
 1. Seleccione **Nueva instalación de clúster de conmutación por error de SQL Server** y, a continuación, siga las instrucciones del asistente para instalar la FCI de SQL Server.
 
-   Es preciso que los directorios de datos de FCI estén en el recurso compartido de archivos premium. Escriba la ruta de acceso completa del recurso compartido,con este formato: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. Aparecerá una advertencia que le notificará que ha especificado un servidor de archivos como directorio de datos. Se espera esta advertencia. Para evitar posibles errores, asegúrese de que la cuenta de usuario que usó para tener acceso a la máquina virtual mediante RDP cuando conservó el recurso compartido de archivos sea la misma que usa el servicio SQL Server.
+1. En la página **Configuración de red de clúster**, la IP que proporcione varía en función de si las máquinas virtuales con SQL Server se implementaron en una sola subred o en varias. 
+
+   1. En el caso de un **entorno de una sola subred**, especifique la dirección IP que planea agregar a [Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md)
+   1. En el caso de un **entorno de varias subredes**, especifique la dirección IP secundaria en la subred de la _primera_ máquina virtual con SQL Server que designó anteriormente como la [dirección IP del nombre de red de la instancia de clúster de conmutación por error](failover-cluster-instance-prepare-vm.md#assign-secondary-ip-addresses):
+
+   :::image type="content" source="./media/failover-cluster-instance-azure-shared-disk-manually-configure/sql-install-cluster-network-secondary-ip-vm-1.png" alt-text="especifique la dirección IP secundaria en la subred de la primera máquina virtual con SQL Server que designó anteriormente como la dirección IP del nombre de red de la instancia de clúster de conmutación por error":::
+
+1. En **Configuración del motor de base de datos**, los directorios de datos deben estar en el recurso compartido de archivos Premium. Escriba la ruta de acceso completa del recurso compartido,con este formato: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. Aparece una advertencia que le notifica que ha especificado un servidor de archivos como directorio de datos. Se espera esta advertencia. Para evitar posibles errores, asegúrese de que la cuenta de usuario que usó para tener acceso a la máquina virtual mediante RDP cuando conservó el recurso compartido de archivos sea la misma que usa el servicio SQL Server.
 
    :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Uso del recurso compartido de archivos como directorios de datos SQL":::
 
 1. Después de completar los pasos del asistente, el programa de instalación instalará una FCI de SQL Server en el primer nodo.
 
-1. Una vez que el programa de instalación instale la FCI en el primer nodo, conéctese al segundo nodo con RDP.
+1. Tras completar correctamente la instalación de instancia de clúster de conmutación por error en el primer nodo, conéctese al segundo nodo mediante RDP.
 
 1. Abra el **Centro de instalación de SQL Server** y, a continuación, seleccione **Instalación**.
 
-1. Seleccione **Agregar nodo a clúster de conmutación por error de SQL Server**. Siga las instrucciones del asistente para instalar el servidor de SQL Server y agregarlo a la FCI.
+1. Seleccione **Agregar nodo a clúster de conmutación por error de SQL Server**. Siga las instrucciones del asistente para instalar SQL Server y agregar el nodo a la instancia de clúster de conmutación por error.
 
-   >[!NOTE]
-   >Si usó una imagen de la galería de Azure Marketplace con SQL Server, las herramientas de SQL Server estaban incluidas en la imagen. Si no usó alguna de estas imágenes, instale las herramientas de SQL Server por separado. Para más información, consulte [Descargar SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
+1. En el caso de un escenario de varias subredes, en **Configuración de red en clúster**, especifique la dirección IP secundaria en la subred de la _segunda_ máquina virtual con SQL Server que designó anteriormente como la [dirección IP del nombre de red de la instancia de clúster de conmutación por error](failover-cluster-instance-prepare-vm.md#assign-secondary-ip-addresses)
+
+    :::image type="content" source="./media/failover-cluster-instance-azure-shared-disk-manually-configure/sql-install-cluster-network-secondary-ip-vm-2.png" alt-text="escriba la dirección IP secundaria en la subred de la segunda subred de máquina virtual con SQL Server que designó anteriormente como la dirección IP del nombre de red de la instancia de clúster de conmutación por error":::
+
+    Después de seleccionar **Siguiente** en **Configuración de red de clúster**, el programa de instalación muestra un cuadro de diálogo que indica que el programa de instalación de SQL Server detectó varias subredes como en la imagen de ejemplo.  Seleccione **Sí** para confirmar la acción. 
+
+    :::image type="content" source="./media/failover-cluster-instance-azure-shared-disk-manually-configure/sql-install-multi-subnet-confirmation.png" alt-text="Confirmación de varias subredes":::
+   
+
+1. Después de completar las instrucciones del asistente, el programa de instalación agrega el segundo nodo FCI de SQL Server. 
 
 1. Repita estos pasos en cualquier otro nodo que desee agregar a la instancia de clúster de conmutación por error de SQL Server. 
 
-## <a name="register-with-the-sql-vm-rp"></a>Registro con el proveedor de recursos de máquina virtual con SQL
+
+>[!NOTE]
+> Las imágenes de la galería de Azure Marketplace vienen con SQL Server Management Studio instalado. Si no ha usado una imagen de Marketplace, [descargue SQL Server Management Studio (SSMS)](/sql/ssms/ownload-sql-server-management-studio-ssms).
+
+
+## <a name="register-with-sql-iaas-extension"></a>Registro mediante la extensión de IaaS de SQL 
 
 Para administrar la VM con SQL Server desde el portal, regístrela con la extensión Agente de IaaS de SQL en [modo de administración ligera](sql-agent-extension-manually-register-single-vm.md#lightweight-mode); actualmente, es el único modo que se admite con FCI y SQL Server en las VM de Azure. 
 
@@ -205,9 +183,9 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
    -LicenseType ???? -SqlManagementType LightWeight  
 ```
 
-## <a name="configure-connectivity"></a>Configuración de la conectividad 
+## <a name="configure-connectivity"></a>Configuración de la conectividad
 
-Puede configurar un nombre de red virtual o un nombre de red distribuida para una instancia de clúster de conmutación por error. [Revise las diferencias entre los dos](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn) y, a continuación, implemente un [nombre de red distribuida](failover-cluster-instance-distributed-network-name-dnn-configure.md) o un [nombre de red virtual](failover-cluster-instance-vnn-azure-load-balancer-configure.md) para la instancia de clúster de conmutación por error.
+Si implementó las máquinas virtuales de SQL Server en varias subredes, omita este paso. Si implementó las máquinas virtuales con SQL Server en una sola subred, deberá configurar un componente adicional para enrutar el tráfico a la instancia de clúster de conmutación por error. Puede configurar un nombre de red virtual (VNN) con Azure Load Balancer o un nombre de red distribuida para una instancia de clúster de conmutación por error. [Revise las diferencias entre los dos](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn) y, luego, implemente un [nombre de red distribuida](failover-cluster-instance-distributed-network-name-dnn-configure.md) o un [nombre de red virtual y Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) para la instancia de clúster de conmutación por error.  
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -221,9 +199,6 @@ Puede configurar un nombre de red virtual o un nombre de red distribuida para un
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si aún no lo ha hecho, configure la conectividad a la FCI con un [nombre de la red virtual y una instancia de Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) o un [nombre de red distribuido (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
-
-
 Si los recursos compartidos de archivos Premium no son la solución de almacenamiento de la FCI adecuada para usted, considere la posibilidad de crear la FCI mediante [discos compartidos de Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) o [Espacios de almacenamiento directo](failover-cluster-instance-storage-spaces-direct-manually-configure.md) en su lugar. 
 
 Para obtener más información, consulte:
@@ -231,5 +206,5 @@ Para obtener más información, consulte:
 - [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
 - [Instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines](failover-cluster-instance-overview.md)
 - [Información general de las instancias de clúster de conmutación por error](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
-- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)
+- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)
 

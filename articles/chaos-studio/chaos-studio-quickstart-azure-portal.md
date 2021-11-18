@@ -4,23 +4,33 @@ description: Descripción de los pasos para crear y ejecutar un experimento de C
 services: chaos-studio
 author: prashabora
 ms.topic: article
-ms.date: 10/21/2021
+ms.date: 11/10/2021
 ms.author: prashabora
 ms.service: chaos-studio
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a5635307b3b736f535dd21f54b3c2b1ec326e5b0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ec89106c1aee40bc11e6ee2246ef2e01cb8fd466
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131092871"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132282108"
 ---
 # <a name="quickstart-create-and-run-a-chaos-experiment-using-azure-chaos-studio"></a>Inicio rápido: creación y ejecución de un experimento de caos con Azure Chaos Studio 
 Introducción a Chaos Studio mediante un experimento directo del servicio de apagado de máquina virtual (VM) para que el servicio sea más resistente a ese error en el mundo real. 
 
 ## <a name="prerequisites"></a>Prerrequisitos
-- Abra [Azure Portal](https://portal.azure.com).
-- Una máquina virtual. Si no tiene ninguna máquina virtual, puede [seguir estos pasos para crear una](../virtual-machines/linux/quick-create-portal.md).
+- Suscripción a Azure. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+- Una máquina virtual Linux. Si no tiene ninguna máquina virtual, puede [seguir estos pasos para crear una](../virtual-machines/linux/quick-create-portal.md).
+
+## <a name="register-the-chaos-studio-resource-provider"></a>Registro del proveedor de recursos de Chaos Studio
+Si es la primera vez que usa Chaos Studio, primero debe registrar el proveedor de recursos de Chaos Studio antes de incorporar recursos y crear un experimento. Esto debe hacerse para cada suscripción en la que se va a usar Chaos Studio.
+
+1. Abra [Azure Portal](https://portal.azure.com).
+2. Busque **Suscripciones** y abra la página de administración de suscripciones.
+3. Haga clic en la suscripción en la que va a usar Chaos Studio.
+4. En el panel de navegación izquierdo, haga clic en **Proveedores de recursos**.
+5. En la lista de proveedores de recursos que aparece, busque **Microsoft.Chaos**.
+6. Haga clic en el proveedor Microsoft.Chaos y haga clic en el botón **Registrar**.
 
 ## <a name="enable-chaos-studio-on-the-virtual-machine-you-created"></a>Habilitación de Chaos Studio en la máquina virtual que creó
 1. Abra [Azure Portal](https://portal.azure.com).
@@ -121,4 +131,4 @@ Introducción a Chaos Studio mediante un experimento directo del servicio de apa
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha ejecutado un experimento directo del servicio de apagado de VM, está listo para:
-- [Crear un experimento que usa errores basados en agente](chaos-studio-tutorial-agent-based.md)
+- [Crear un experimento que usa errores basados en agente](chaos-studio-tutorial-agent-based-portal.md)

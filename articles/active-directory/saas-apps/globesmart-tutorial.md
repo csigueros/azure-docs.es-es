@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: ebc1927ce41ee838e367b59be5574b2eb4af2153
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5c7e07ff931d512355060b81f2cb0666b3a690df
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124833974"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132285479"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-globesmart"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con GlobeSmart
 
@@ -59,7 +59,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con GlobeSmart utili
 Para configurar y probar el inicio de sesión único de Azure AD con GlobeSmart, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de GlobeSmart](#configure-globesmart-sso)** : para configurar el inicio de sesión único en el lado de la aplicación.
     1. **[Creación de un usuario de prueba de GlobeSmart](#create-globesmart-test-user)** : para tener un homólogo de B.Simon en GlobeSmart que esté vinculado a la representación del usuario en Azure AD.
@@ -179,4 +179,4 @@ También puede usar Aplicaciones de Microsoft para probar la aplicación en cual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado GlobeSmart, podrá aplicar el control de sesión, que protege la información confidencial de la organización en tiempo real de posibles filtraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez que haya configurado GlobeSmart, podrá aplicar el control de sesión, que protege la información confidencial de la organización en tiempo real de posibles filtraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

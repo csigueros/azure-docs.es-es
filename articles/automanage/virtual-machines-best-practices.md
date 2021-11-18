@@ -8,15 +8,14 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: c6dd93bc492c8823f5b97e51fce66196502aa36c
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: fedcb0342a9d7aaa202ff491f59a3a09f166a3a6
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769683"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132372992"
 ---
 # <a name="azure-automanage-for-virtual-machines-best-practices"></a>Procedimientos recomendados de Azure Automanage para máquinas virtuales
-
 
 Estos servicios de Azure se incorporan automáticamente cuando usa Automanage para máquinas virtuales. Son esenciales para nuestras notas del producto de procedimientos recomendados, que puede encontrar en nuestro marco [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).
 
@@ -29,7 +28,7 @@ Todos estos servicios se incorporarán y configurarán automáticamente, se supe
 |-----------|---------------|----------------------|-------------------------|
 |Supervisión de VM Insights    |Azure Monitor para VM supervisa el rendimiento y el mantenimiento de las máquinas virtuales, incluidos los procesos en ejecución y las dependencias de otros recursos. [Más información](../azure-monitor/vm/vminsights-overview.md).    |Procedimientos recomendados de Azure Virtual Machines: producción    |No    |
 |Copia de seguridad    |Azure Backup proporciona copias de seguridad independientes y aisladas para impedir la destrucción accidental de los datos en las máquinas virtuales. [Más información](../backup/backup-azure-vms-introduction.md). Los cargos se basan en el número y el tamaño de las VM que se están protegiendo. [Más información](https://azure.microsoft.com/pricing/details/backup/).    |Procedimientos recomendados de Azure Virtual Machines: producción    |Sí    |
-|Azure Security Center    |Azure Security Center es un sistema unificado de administración de la seguridad de infraestructura que fortalece el nivel de seguridad de sus centros de datos, y proporciona protección contra amenazas avanzada en las cargas de trabajo híbridas de la nube. [Más información](../security-center/security-center-introduction.md).  Automanage configurará la suscripción en la que reside la máquina virtual a la oferta de nivel Gratis de Azure Security Center. Si la suscripción ya se ha incorporado a Azure Security Center, Automanage no la volverá a configurar.    |Procedimientos recomendados de Azure Virtual Machines: producción; procedimientos recomendados de Azure Virtual Machines: desarrollo/pruebas    |No    |
+|Microsoft Defender for Cloud    |Microsoft Defender for Cloud es un sistema unificado de administración de la seguridad de la infraestructura que fortalece la posición de seguridad de los centros de datos y proporciona protección avanzada frente amenazas en las cargas de trabajo híbridas en la nube. [Más información](../defender-for-cloud/defender-for-cloud-introduction.md).  Automanage establece la suscripción en la que reside la máquina virtual en la oferta de nivel Gratis de Microsoft Defender for Cloud. Si la suscripción ya está incorporada a Microsoft Defender for Cloud, Automanage no volverá a configurarla.    |Procedimientos recomendados de Azure Virtual Machines: producción; procedimientos recomendados de Azure Virtual Machines: desarrollo/pruebas    |No    |
 |Microsoft Antimalware    |Microsoft Antimalware para Azure es una protección gratuita en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado. Genera alertas cuando software no deseado o malintencionado intenta instalarse o ejecutarse en los sistemas de Azure. [Más información](../security/fundamentals/antimalware.md). |Procedimientos recomendados de Azure Virtual Machines: producción; procedimientos recomendados de Azure Virtual Machines: desarrollo/pruebas    |Sí    |
 |Administración de actualizaciones    |Use Update Management en Azure Automation para administrar las actualizaciones del sistema operativo de las máquinas virtuales. Puede evaluar rápidamente el estado de las actualizaciones disponibles en todas las máquinas agente y administrar el proceso de instalación de las actualizaciones necesarias para los servidores. [Más información](../automation/update-management/overview.md).    |Procedimientos recomendados de Azure Virtual Machines: producción; procedimientos recomendados de Azure Virtual Machines: desarrollo/pruebas    |No    |
 |Change Tracking e Inventario    |Change Tracking e Inventario combina funciones de inventario y seguimiento de cambios que le permiten realizar un seguimiento de los cambios en la infraestructura de servidores y máquinas virtuales. El servicio admite el seguimiento de cambios en el registro, servicios, demonios, software y archivos del entorno para ayudarle a diagnosticar cambios no deseados y generar alertas. La compatibilidad con inventario le permite consultar recursos de los invitados para obtener una visualización de las aplicaciones instaladas y otros elementos de configuración.  [Más información](../automation/change-tracking/overview.md).    |Procedimientos recomendados de Azure Virtual Machines: producción; procedimientos recomendados de Azure Virtual Machines: desarrollo/pruebas    |No    |

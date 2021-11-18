@@ -200,6 +200,8 @@
               href: work-with-anomaly-rules.md
             - name: Administración de versiones de plantilla para reglas de análisis
               href: manage-analytics-rule-templates.md
+            - name: Gestionar el retraso de ingesta en las reglas de análisis
+              href: ingestion-delay.md
             - name: Obtención de recomendaciones de ajuste
               href: detection-tuning.md
         - name: Habilitación del análisis del comportamiento de usuarios y entidades (UEBA)
@@ -344,8 +346,6 @@
           items:
             - name: Administración de consultas de búsqueda con API REST
               href: hunting-with-rest-api.md
-            - name: Administración de listas de reproducción con API REST
-              href: watchlist-with-rest-api.md
             - name: Enriquecimiento de entidades con datos de geolocalización con API REST
               href: geolocation-data-api.md
         - name: "Alertas de aplicaciones de Defender for Cloud no incorporadas a Microsoft\_365 Defender"

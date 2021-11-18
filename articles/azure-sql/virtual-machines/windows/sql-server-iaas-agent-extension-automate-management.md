@@ -17,12 +17,12 @@ ms.date: 10/26/2021
 ms.author: adbadram
 ms.reviewer: mathoma
 ms.custom: seo-lt-2019, ignite-fall-2021
-ms.openlocfilehash: 2ff6432261915e7200d69bc3b80dba217e5c9285
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 35ea46e4ce2b7c4ebbb6fdfa24bbe1d60e679bb7
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131043974"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132345707"
 ---
 # <a name="automate-management-with-the-windows-sql-server-iaas-agent-extension"></a>Automatización de la administración con la extensión del Agente de IaaS de Windows SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -83,7 +83,7 @@ En la siguiente tabla se detallan estas ventajas:
 | **Visualización del uso del disco en el portal** | Permite ver una representación gráfica del uso del disco por parte de los archivos de datos de SQL en Azure Portal.  <br/> Modo de administración: Completo | 
 | **Licencias flexibles** | Ahorre en el costo mediante la [transición sin problemas](licensing-model-azure-hybrid-benefit-ahb-change.md) de la característica traiga su propia licencia (también conocida como Ventaja híbrida de Azure) al modelo de licencias de pago por uso y viceversa. <br/> Modo de administración: Ligero y completo.| 
 | **Versión o edición flexibles** | Si decide cambiar la [versión ](change-sql-server-version.md) o la [edición](change-sql-server-edition.md) de SQL Server, puede actualizar los metadatos en Azure Portal sin tener que volver a implementar toda la VM con SQL Server.  <br/> Modo de administración: Ligero y completo.| 
-| **Integración del portal de Security Center** | Si ha habilitado [Azure Defender para SQL](../../../security-center/defender-for-sql-usage.md), puede ver las recomendaciones de Security Center directamente en el recurso [Máquinas virtuales de SQL](manage-sql-vm-portal.md) de Azure Portal. Consulte los [procedimientos recomendados de seguridad](security-considerations-best-practices.md) para obtener más información.  <br/> Modo de administración: Ligero y completo.|
+| **Integración de Defender para Cloud Portal** | Si ha habilitado [Microsoft Defender para SQL](../../../security-center/defender-for-sql-usage.md), puede ver las recomendaciones de Defender para Cloud directamente en el recurso [Máquinas virtuales de SQL](manage-sql-vm-portal.md) de Azure Portal. Consulte los [procedimientos recomendados de seguridad](security-considerations-best-practices.md) para obtener más información.  <br/> Modo de administración: Ligero y completo.|
 | **SQL Assessment (versión preliminar)** | Permite evaluar el estado de las máquinas virtuales con SQL Server mediante los procedimientos recomendados de configuración. Para obtener más información, consulte la [SQL Assessment](sql-assessment-for-sql-vm.md).  <br/> Modo de administración: Completo| 
 
 

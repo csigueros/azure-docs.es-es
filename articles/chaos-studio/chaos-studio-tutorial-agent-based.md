@@ -7,12 +7,12 @@ ms.date: 11/01/2021
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 2dc71c72ebbc31af30e25834ece0e15dddcba5dc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 90abee8e5d776b1426e306fe915f5e19a9b1716c
+ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131091641"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132158424"
 ---
 # <a name="create-a-chaos-experiment-that-uses-an-agent-based-fault-to-add-cpu-pressure-to-a-linux-vm"></a>Creación de un experimento del caos que use un error basado en agente para agregar presión de CPU a una VM Linux
 
@@ -26,7 +26,7 @@ Estos mismos pasos se pueden usar para configurar y ejecutar un experimento para
 - Suscripción a Azure. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 - Una máquina virtual Linux. Si no tiene ninguna máquina virtual, puede [seguir estos pasos para crear una](../virtual-machines/linux/quick-create-portal.md).
 - Una configuración de red que le permita [acceder mediante SSH a su máquina virtual](../virtual-machines/ssh-keys-portal.md).
-- Una identidad administrada asignada por el usuario. Si no tiene ninguna identidad administrada asignada por el usuario, puede [seguir estos pasos para crear una](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
+- Una identidad administrada asignada por el usuario **que se haya asignado a la máquina virtual de destino o al conjunto de escalado de máquinas virtuales**. Si no tiene ninguna identidad administrada asignada por el usuario, puede [seguir estos pasos para crear una](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
 
 ## <a name="enable-chaos-studio-on-your-virtual-machine"></a>Habilitación de Chaos Studio en una máquina virtual
@@ -48,6 +48,9 @@ sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.
 ```
 
 ### <a name="enable-chaos-target-capabilities-and-agent"></a>Habilitación del destino, las capacidades y el agente del caos
+
+> [!IMPORTANT]
+> Antes de realizar los pasos siguientes, debe [crear una identidad administrada asignada por el usuario](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) y asignarla a la máquina virtual de destino o al conjunto de escalado de máquinas virtuales.
 
 1. Abra [Azure Portal](https://portal.azure.com).
 2. Busque **Chaos Studio (versión preliminar)** en la barra de búsqueda.

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 14ff8552b2e5244a9820f575a397ecc506f24447
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 0855516610c9712d5f8db597d1de6e53f01ac546
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689459"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301312"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Búsqueda y eliminación de discos administrados y no administrados de Azure no conectados: Azure Portal
 
@@ -27,12 +27,10 @@ Si tiene discos administrados no conectados y ya no necesita los datos en ellos,
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 1. Busque y seleccione **Discos**.
 
-    En la hoja **Discos**, se muestra una lista de todos los discos. Cualquier disco que tenga " **-** " en la columna **Propietario** es un disco no conectado.
+    En la hoja **Discos**, se muestra una lista de todos los discos.
 
-    [![Captura de pantalla de la hoja de discos administrados, si un disco tiene - en la columna Propietario, se trata de un disco no conectado.](media/disks-find-unattached-portal/managed-disk-unattached-owner.png)](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
-
-1. Seleccione el disco no conectado que desea eliminar; de este modo, se abrirá la hoja del disco.
-1. En la hoja del disco, puede confirmar que el disco tiene un estado no conectado y, después, seleccionar **Eliminar**.
+1. Seleccione el disco que quiere eliminar; de este modo, se abrirá la hoja del disco.
+1. En la hoja del disco, confirme que el estado del disco es no conectado y, después, seleccione **Eliminar**.
 
     :::image type="content" source="media/disks-find-unattached-portal/delete-managed-disk-unattached.png" alt-text="Captura de pantalla de una hoja de discos administrados individuales. Esta hoja mostrará Sin adjuntar en el estado del disco si no está conectado. Puede eliminar este disco si no necesita conservar los datos más tiempo.":::
 

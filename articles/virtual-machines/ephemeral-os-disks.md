@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 ms.author: aarthiv
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6ab8c0d7d1e547d564ddc3329858ddc49d51185b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 845bb5f4830c53b4fc4f6688851775afa908af73
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131448982"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132135309"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Discos de SO efímeros para máquinas virtuales de Azure
 
@@ -33,18 +33,21 @@ Las principales características de los discos efímeros son:
  
 Principales diferencias entre discos del sistema operativo efímeros y persistentes:
 
-|                             | Disco del sistema operativo persistente                          | Disco de sistema operativo efímero                              |
-|-----------------------------|---------------------------------------------|------------------------------------------------|
-| **Límite de tamaño del disco del sistema operativo**      | 2 TiB                                                                                        | El tamaño de caché para el tamaño de máquina virtual o 2 TiB, el que sea menor. Para el **tamaño de caché en GiB**, consulte [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md) y [GS](sizes-previous-gen.md#gs-series).              |
-| **Tamaños de máquina virtual admitidos**          | All                                                                                          | Tamaños de máquina virtual que admiten Premium Storage, como DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M Mdsv2, Bs, Dav4 y Eav4                                               |
-| **Compatibilidad con los tipos de discos**           | Disco del sistema operativo administrado y no administrado                                                                | Solo disco del sistema operativo administrado                                                               |
-| **Regiones admitidas**              | Todas las regiones                                                                                  | Todas las regiones                              |
-| **Persistencia de los datos**            | Los datos del disco del sistema operativo escritos en un disco del sistema operativo se almacenan en Azure Storage.                                  | Los datos escritos en un disco del sistema operativo se almacenan en el almacenamiento de máquina virtual local y no se conservan en Azure Storage. |
-| **Estado detenido (desasignado)**      | Las máquinas virtuales y las instancias del conjunto de escalado pueden estar detenidas (desasignadas) y reiniciarse a partir de este estado. | Las máquinas virtuales y las instancias del conjunto de escalado no pueden estar detenidas (desasignadas).                                  |
-| **Compatibilidad con discos del sistema operativo especializados** | Sí                                                                                          | No                                                                                 |
-| **Cambio de tamaño del disco del sistema operativo**              | Se admite durante la creación de la máquina virtual y después de que esta se detiene (desasigna).                                | Se admite solo durante la creación de la máquina virtual                                                  |
-| **Cambio a un nuevo tamaño de máquina virtual**   | Se conservan los datos del disco del sistema operativo                                                                    | Se eliminan los datos del disco del sistema operativo, se vuelve a aprovisionar el sistema operativo       
-| **Ubicación del archivo de paginación**   | En Windows, el archivo de paginación se almacena en el disco de recursos                                              | En Windows, el archivo de página se almacena en el disco del sistema operativo (tanto para la ubicación de caché del sistema operativo como para la ubicación del disco temporal).   |
+|   | Disco del sistema operativo persistente | Disco de sistema operativo efímero |
+|---|---|---|
+| **Límite de tamaño del disco del sistema operativo** | 2 TiB | El tamaño de caché para el tamaño de máquina virtual o 2 TiB, el que sea menor. Para el **tamaño de caché en GiB**, consulte [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md) y [GS](sizes-previous-gen.md#gs-series). |
+| **Tamaños de máquina virtual admitidos** | All | Tamaños de máquina virtual que admiten Premium Storage, como DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M Mdsv2, Bs, Dav4 y Eav4 |
+| **Compatibilidad con los tipos de discos**| Disco del sistema operativo administrado y no administrado| Solo disco del sistema operativo administrado|
+| **Regiones admitidas**| Todas las regiones| Todas las regiones|
+| **Persistencia de los datos**| Los datos del disco del sistema operativo escritos en un disco del sistema operativo se almacenan en Azure Storage.| Los datos escritos en un disco del sistema operativo se almacenan en el almacenamiento de máquina virtual local y no se conservan en Azure Storage. |
+| **Estado detenido (desasignado)**| Las máquinas virtuales y las instancias del conjunto de escalado pueden estar detenidas (desasignadas) y reiniciarse a partir de este estado. | Las máquinas virtuales y las instancias del conjunto de escalado no pueden estar detenidas (desasignadas).|
+| **Compatibilidad con discos del sistema operativo especializados** | Sí| No|
+| **Cambio de tamaño del disco del sistema operativo**| Se admite durante la creación de la máquina virtual y después de que esta se detiene (desasigna).| Se admite solo durante la creación de la máquina virtual|
+| **Cambio a un nuevo tamaño de máquina virtual**| Se conservan los datos del disco del sistema operativo| Se eliminan los datos del disco del sistema operativo, se vuelve a aprovisionar el sistema operativo |
+| **Volver a implementar**  | Se conservan los datos del disco del sistema operativo | Se eliminan los datos del disco del sistema operativo, se vuelve a aprovisionar el sistema operativo | 
+| **Detención o inicio de la máquina virtual** | Se conservan los datos del disco del sistema operativo | Se eliminan los datos del disco del sistema operativo, se vuelve a aprovisionar el sistema operativo | 
+| **Ubicación del archivo de paginación**| En Windows, el archivo de paginación se almacena en el disco de recursos| En Windows, el archivo de página se almacena en el disco del sistema operativo (tanto para la ubicación de caché del sistema operativo como para la ubicación del disco temporal).|
+
 
 ## <a name="size-requirements"></a>Requisitos de tamaño
 

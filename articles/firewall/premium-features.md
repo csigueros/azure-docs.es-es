@@ -5,26 +5,25 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 11/04/2021
+ms.date: 11/10/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: addbd908670741cd0ba8662bf73a1a6788487498
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: d00bfe9e9ed43ed1eafc65d61718de6cb4ecf04e
+ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131851465"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132179844"
 ---
 # <a name="azure-firewall-premium-features"></a>Características de Azure Firewall Prémium
 
 :::image type="content" source="media/premium-features/icsa-cert-firewall-small.png" alt-text="Logotipo de certificación ICSA" border="false"::: :::image type="content" source="media/premium-features/pci-logo.png" alt-text="Logotipo de certificación PCI" border="false":::
 
+Azure Firewall Premium proporciona una protección contra amenazas avanzada que satisface las necesidades de entornos altamente confidenciales y regulados, como los sectores de pagos y atención sanitaria. 
 
- Azure Firewall Prémium es un firewall de próxima generación con funcionalidades que son necesarias en entornos de alta confidencialidad y regulados.
+Las organizaciones pueden aprovechar las características de la referencia de almacén (SKU) Premium, como la inspección de IDPS y TLS para evitar que el malware y los virus se propaguen entre redes en las direcciones lateral y horizontal. Para satisfacer las mayores demandas de rendimiento de la inspección de IDPS y TLS, Azure Firewall Premium usa una SKU de máquina virtual más eficaz. Al igual que la SKU Estándar, la SKU Premium se puede escalar verticalmente sin problemas hasta 30 Gbps e integrarse con zonas de disponibilidad para posibilitar un contrato de nivel de servicio (SLA) del 99,99 %. La SKU Premium cumple con las necesidades del entorno Estándar de seguridad de datos (PCI DSS) del sector de tarjetas de pago.
 
 :::image type="content" source="media/premium-features/premium-overview.png" alt-text="Diagrama de información general de Azure Firewall Prémium":::
-
-Azure Firewall Premium usa la directiva de firewall, un recurso global que se puede usar para administrar de forma centralizada los firewalls mediante Azure Firewall Manager. A partir de esta versión, todas las características nuevas se podrán configurar solo mediante la directiva de firewall. Las reglas de firewall (clásicas) se siguen admitiendo y se pueden usar para configurar las características de Firewall Estándar existentes.  La directiva de firewall se puede administrar de forma independiente o con Azure Firewall Manager. Las directivas de firewall asociadas a un solo firewall no tienen ningún cargo.
 
 Azure Firewall Premium incluye las siguientes características:
 
@@ -32,7 +31,6 @@ Azure Firewall Premium incluye las siguientes características:
 - **IDPS**: sistema de detección y prevención de intrusiones en la red (IDPS) que permite supervisar la actividad malintencionada de la red, registrar información sobre esta actividad, notificarla y, opcionalmente, intentar bloquearla.
 - **Filtrado de direcciones URL**: extiende la funcionalidad de filtrado de nombres de dominio completos de Azure Firewall para tener en cuenta una dirección URL completa. Por ejemplo, `www.contoso.com/a/c` en lugar de `www.contoso.com`.
 - **Categorías web**: los administradores pueden permitir o denegar el acceso de los usuarios a categorías de sitios web como, por ejemplo, sitios web de apuestas, de redes sociales u otros.
-
 
 ## <a name="tls-inspection"></a>La inspección de TLS
 

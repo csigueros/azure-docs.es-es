@@ -4,15 +4,15 @@ description: Obtenga información acerca de los planes de las ofertas del market
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/05/2021
-ms.openlocfilehash: 71efd629463f53519d98458afaa449c7a7f46ffb
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: e91e85982bb021193224010e2bd51df301240c69
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132062346"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132277987"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>Planes y precios de las ofertas del marketplace comercial
 
@@ -126,7 +126,7 @@ Los precios establecidos en dólares estadounidenses se convierten en la moneda 
 
 ## <a name="plan-visibility"></a>Visibilidad del plan
 
-Puede crear planes para algunos tipos de ofertas que estén disponibles públicamente o disponibles solo para una audiencia específica (privada). Las ofertas con planes privados se publicarán en Azure Portal. Más información sobre los planes privados en [Ofertas privadas en el marketplace comercial de Microsoft](private-offers.md).
+Puede crear planes para algunos tipos de ofertas que estén disponibles públicamente o disponibles solo para una audiencia específica (privada). Las ofertas con planes privados se publicarán en Azure Portal. Más información sobre los planes privados en [Planes privados en el marketplace comercial de Microsoft](private-plans.md).
 
 Para definir una audiencia privada se usan identificadores de inquilino de Azure o identificadores de suscripción de Azure, en función del tipo de oferta. Puede escribir hasta 10 identificadores manualmente o importar hasta 10 000 identificadores de suscripción o 20 000 identificadores de inquilino (según corresponda) con un archivo. csv. También puede definir audiencias privadas para servicios de consultoría y ofertas de Dynamics 365 que no tengan planes.
 

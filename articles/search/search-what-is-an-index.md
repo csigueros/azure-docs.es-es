@@ -1,31 +1,37 @@
 ---
 title: Introducción a los índices
 titleSuffix: Azure Cognitive Search
-description: Incluye conceptos y herramientas de indexación en Azure Cognitive Search, entre otras las definiciones de esquema y la estructura física de los datos.
+description: Explica qué es un índice de búsqueda en Azure Cognitive Search y describe el contenido, la construcción, la expresión física y el esquema del índice.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/08/2021
-ms.openlocfilehash: ab1106ef927829589934485c2022d353339d5089
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.date: 11/12/2021
+ms.openlocfilehash: 075cfe83405d5535bdd72fbc6b280768f6d00e0a
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132062821"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132371056"
 ---
-# <a name="search-indexes-in-azure-cognitive-search"></a>Índices de búsqueda en Azure Cognitive Search
+# <a name="indexes-in-azure-cognitive-search"></a>Índices en Azure Cognitive Search
 
-Cognitive Search almacena contenido que permite búsquedas y se usa para las consultas filtradas y de texto completo en un *índice de búsqueda*. Un índice se define mediante un esquema y se guarda en el servicio y, a continuación, se realiza la importación como segundo paso. 
+En Azure Cognitive Search, un *índice de búsqueda* es el contenido que se puede buscar, disponible para el motor de búsqueda para la indexación, la búsqueda de texto completo y las consultas filtradas. Un índice se define mediante un esquema y se guarda en el servicio de búsqueda. A continuación, se realiza la importación de datos como segundo paso. Este contenido existe en el servicio de búsqueda aparte de los almacenes de datos principales, ya que es necesario que sea así para los tiempos de respuesta de milisegundos que se esperan de las operaciones de búsqueda. Excepto en escenarios de indexación específicos, el servicio de búsqueda nunca se conectará con los datos locales ni los consultará.
 
-Este artículo es una introducción a los índices de búsqueda. ¿Prefiere empezar a trabajar? Consulte [Creación de un índice de búsqueda](search-how-to-create-search-index.md).
+Si va a crear y administrar un índice de búsqueda, este artículo le ayudará a comprender lo siguiente:
 
-## <a name="whats-a-search-index"></a>¿Qué es un índice de búsqueda?
++ Contenido (documentos y esquema)
++ Representación física
++ Operaciones básicas
 
-En Cognitive Search, los índices contienen *documentos de búsqueda*. Desde un punto de vista conceptual, un documento es una sola unidad de datos habilitada para búsquedas en el índice. Por ejemplo, un minorista podría tener un documento para cada producto, una organización de noticias podría tener un documento para cada artículo, etc. Estos conceptos se pueden asignar a conceptos equivalentes de bases de datos más conocidos: un *índice de búsqueda* equivale a una *tabla* y los *documentos* son más o menos equivalentes a las *filas* de una tabla.
+¿Prefiere ponerse manos a la obra directamente? En ese caso, consulte [Creación de un índice de búsqueda](search-how-to-create-search-index.md).
 
-El esquema determina la estructura física de un índice. La recopilación de "campos" es normalmente el elemento más grande de un índice, en el que cada campo recibe un nombre y se le asigna un [tipo de datos](/rest/api/searchservice/Supported-data-types) y unos atributos con los comportamientos permitidos que determinan cómo se usa.
+## <a name="content-of-a-search-index"></a>Contenido de un índice de búsqueda
+
+En Cognitive Search, los índices contienen *documentos de búsqueda*. Desde un punto de vista conceptual, un documento es una sola unidad de datos habilitada para búsquedas en el índice. Por ejemplo, un distribuidor podría tener un documento para cada producto, una organización de noticias podría tener un documento para cada artículo, un sitio de viajes podría tener un documento para cada hotel y destino, etc. Estos conceptos se pueden asignar a conceptos equivalentes de bases de datos más conocidos: un *índice de búsqueda* equivale a una *tabla* y los *documentos* son más o menos equivalentes a las *filas* de una tabla.
+
+La estructura de un documento viene determinada por el esquema del índice, como se muestra a continuación. La colección de "campos" es, normalmente, el elemento más grande de un índice, en el que cada campo recibe un nombre y se le asigna un [tipo de datos](/rest/api/searchservice/Supported-data-types) y unos atributos con los comportamientos permitidos que determinan cómo se usa.
 
 ```json
 {
@@ -59,21 +65,23 @@ El esquema determina la estructura física de un índice. La recopilación de "c
 }
 ```
 
-Otros elementos están contraídos por motivos de brevedad, pero los siguientes vínculos pueden proporcionar [proveedores de sugerencias](index-add-suggesters.md), [perfiles de puntuación](index-add-scoring-profiles.md), [analizadores](search-analyzers.md) que se utilizan para procesar cadenas en tokens de acuerdo con las reglas lingüísticas u otras características admitidas por el analizador y los valores de [scripting remoto entre orígenes (CORS)](#corsoptions).
+Otros elementos están contraídos por motivos de brevedad, pero los vínculos siguientes pueden proporcionar los detalles: 
 
-## <a name="field-definitions"></a>Definiciones de campo
++ Los [proveedores de sugerencias](index-add-suggesters.md) admiten consultas de escritura anticipada, como la función de autocompletar.
++ Los [perfiles de puntuación](index-add-scoring-profiles.md) se usan para el ajuste por relevancia.
++ Los [analizadores](search-analyzers.md) se usan para procesar cadenas en tokens según determinadas reglas lingüísticas u otras características que admite el analizador.
++ El [scripting remoto entre orígenes (CORS)](search-how-to-create-search-index.md#corsoptions) se usa para aplicaciones que emiten solicitudes desde distintos dominios.
++ La [clave de cifrado](search-security-manage-encryption-keys.md) se usa para el doble cifrado de contenido confidencial en el índice.
 
-La colección `fields` define un documento de búsqueda. Necesitará campos para la identificación de documentos (claves), almacenar texto que permite búsquedas y campos para filtros, facetas y ordenaciones de apoyo. Es posible que también necesite campos para los datos que los usuarios no ven. Por ejemplo, puede que desee campos para los márgenes de beneficios o para las promociones de marketing que puede usar para modificar el rango de búsqueda.
+### <a name="field-definitions"></a>Definiciones de campo
 
-Un campo de tipo Edm.String se debe diseñar como la clave del documento. Se usa para identificar de forma única cada documento de búsqueda y distingue mayúsculas de minúsculas. Puede recuperar un documento por su clave para rellenar una página de detalles.
+La colección de "campos" define los documentos de búsqueda. Necesitará campos para la identificación de documentos (claves), almacenar texto que permite búsquedas y campos para filtros, facetas y ordenaciones de apoyo. Es posible que también necesite campos para los datos que los usuarios no ven. Por ejemplo, puede que desee campos para los márgenes de beneficios o para las promociones de marketing que puede usar para modificar el rango de búsqueda.
 
-Si los datos de entrada son jerárquicos por naturaleza, asigne el [tipo complejo](search-howto-complex-data-types.md) de tipo de datos para representar las estructuras anidadas. El conjunto de datos de ejemplo integrado, Hotels, muestra tipos complejos mediante una dirección (contiene varios subcampos) que tiene una relación de uno a uno con cada hotel y una colección compleja de habitaciones, en la que hay varias habitaciones asociadas con cada hotel. 
-
-Asigne cualquier analizador a los campos de cadena antes de que se cree el índice. Haga lo mismo para los proveedores de sugerencias si desea habilitar Autocomplete en campos específicos.
+Si los datos entrantes son jerárquicos por naturaleza, puede representarlos dentro de un índice como un [tipo complejo](search-howto-complex-data-types.md) que se usa para representar estructuras anidadas. El conjunto de datos de ejemplo integrado, Hotels, muestra tipos complejos mediante una dirección (contiene varios subcampos) que tiene una relación de uno a uno con cada hotel y una colección compleja de habitaciones, en la que hay varias habitaciones asociadas con cada hotel. 
 
 <a name="index-attributes"></a>
 
-### <a name="attributes"></a>Atributos
+### <a name="field-attributes"></a>Atributos de campo
 
 Los atributos de campo determinan cómo se usa un campo, por ejemplo, si se usa en la búsqueda de texto completo, la navegación por facetas, las operaciones de ordenación, etc. 
 
@@ -95,36 +103,54 @@ Aunque puede agregar nuevos campos en cualquier momento, las definiciones de cam
 
 <a name="index-size"></a>
 
-## <a name="storage-implications-of-field-attributes"></a>Implicaciones en el almacenamiento de los atributos de los campos
+## <a name="physical-representation"></a>Representación física
 
-El tamaño de un índice viene determinado por el tamaño de los documentos que se cargan, además de la configuración del índice, por ejemplo, si incluye los proveedores de sugerencias y cómo establece los atributos en los campos individuales. 
+En Azure Cognitive Search, la estructura física de un índice es, en gran medida, una implementación interna. Puede acceder a su esquema, consultar su contenido, supervisar su tamaño y administrar la capacidad, pero los propios clústeres (índices, particiones y otros archivos y carpetas) están fuera de los límites y Microsoft los administra internamente en su nombre.
 
-La siguiente captura de pantalla ilustra los patrones de almacenamiento de índices resultantes de diversas combinaciones de atributos. El índice se basa en el **índice de ejemplo de bienes inmuebles**, que puede crear fácilmente mediante el Asistente para la importación de datos. Aunque no se muestran los esquemas de índice, puede deducir los atributos según el nombre del índice. Por ejemplo, el índice *realestate-searchable* tiene seleccionado el atributo "buscable" y nada más, el índice *realestate-retrievable* tiene seleccionado el atributo "recuperable" y nada más y así sucesivamente.
+El tamaño de un índice viene determinado por la cantidad y la composición de los documentos, la configuración del índice (por ejemplo, si incluye proveedores de sugerencias) y los atributos de los campos individuales. Puede supervisar el tamaño del índice en la pestaña Índices de Azure Portal o mediante la emisión de una solicitud GET INDEX en el servicio de búsqueda.
+
+### <a name="factors-influencing-index-size"></a>Factores que influyen en el tamaño del índice
+
+La composición y la cantidad de los documentos se determinarán según lo que decida importar. Recuerde que un índice de búsqueda solo debe incluir contenido que admita búsquedas. Si los documentos de origen incluyen campos binarios, normalmente se omitirían del esquema de índice (a menos que use el enriquecimiento con IA para descifrar y analizar el contenido para crear información que admita las búsquedas de texto).
+
+La configuración del índice puede incluir otros componentes, además de documentos, como proveedores de sugerencias, analizadores de clientes, perfiles de puntuación, configuración de CORS e información de clave de cifrado. En la lista anterior, el único componente que puede afectar al tamaño del índice son los proveedores de sugerencias. Los proveedores de sugerencias son construcciones que admiten consultas de estructura anticipada o con la función de autocompletar. Por lo tanto, cuando se incluye un proveedor de sugerencias, el proceso de indexación crea las estructuras de datos necesarias para las coincidencias textuales de caracteres. Los proveedores de sugerencias se implementan en el nivel de campo, por lo que solo se incluye en estas estructuras de datos el contenido de los campos compatibles con el proveedor de sugerencias.
+
+Los atributos de campo son la tercera consideración del tamaño del índice. Los atributos determinan los comportamientos. Para admitir esos comportamientos, el proceso de indexación creará las estructuras de datos compatibles. Por ejemplo, "searchable" invoca la [búsqueda de texto completo](search-lucene-query-architecture.md), que examina los índices invertidos para el término con tokens. Por el contrario, un atributo "filtrable" u "ordenable" admite la iteración en cadenas sin modificar.
+
+La siguiente captura de pantalla ilustra los patrones de almacenamiento de índices resultantes de diversas combinaciones de atributos. El índice se basa en el **índice de ejemplo de bienes inmuebles**, que puede crear fácilmente mediante el Asistente para la importación de datos y los datos de ejemplo integrados. Aunque no se muestran los esquemas de índice, puede deducir los atributos según el nombre del índice. Por ejemplo, el índice *realestate-searchable* tiene seleccionado el atributo "buscable" y nada más, el índice *realestate-retrievable* tiene seleccionado el atributo "recuperable" y nada más y así sucesivamente.
 
 ![Tamaño del índice basado en la selección de atributos](./media/search-what-is-an-index/realestate-index-size.png "Tamaño del índice basado en la selección de atributos")
 
-Aunque estas variantes de índice son artificiales, se puede hacer referencia a ellas en comparaciones más amplias de cómo los atributos afectan al almacenamiento. ¿El valor "recuperable" aumenta el tamaño del índice? No. ¿Agregar campos a un **proveedor de sugerencias** aumenta el tamaño del índice? Sí. 
+Aunque estas variantes de índice son, de algún modo, artificiales, se puede hacer referencia a ellas para obtener comparaciones más amplias de cómo los atributos afectan al almacenamiento. ¿El valor "recuperable" aumenta el tamaño del índice? No. ¿Agregar campos a un **proveedor de sugerencias** aumenta el tamaño del índice? Sí. 
 
 Hacer que un campo se pueda filtrar u ordenar también aumenta el consumo de almacenamiento porque los campos filtrados y ordenados no se tokenizan para que las secuencias de caracteres puedan coincidir literalmente.
 
 Tampoco se refleja en la tabla anterior el impacto de los [analizadores](search-analyzers.md). Si usa el tokenizador edgeNgram para almacenar secuencias textuales de caracteres (a, AB, ABC, ABCD), el tamaño del índice será mayor que si utiliza un analizador estándar.
 
-> [!Note]
-> La arquitectura de almacenamiento se considera un detalle de implementación de Azure Cognitive Search y podría cambiar sin previo aviso. No hay ninguna garantía de que el comportamiento actual se conserve en el futuro.
+## <a name="basic-operations"></a>Operaciones básicas
 
-<a name="corsoptions"></a>
+Ahora que tiene una idea mejor de lo que es un índice, en esta sección se presentan las operaciones en tiempo de ejecución del índice, incluida la conexión a un solo índice y su protección.
 
-## <a name="about-corsoptions"></a>Acerca de `corsOptions`
+### <a name="self-contained-indexes"></a>Índices independientes 
+  
+En Cognitive Search, cada índice es independiente. No hay ningún concepto de índices relacionados ni unión de índices independientes para la indexación o la consulta. No hay compatibilidad con el portal o la API para mover o copiar un índice. En su lugar, los clientes suelen orientar su solución de implementación de aplicaciones a un servicio de búsqueda diferente (si se usa el mismo nombre de índice), o bien revisar el nombre para crear una copia en el servicio de búsqueda actual y, a continuación, compilarla.
 
-Los esquemas de índice incluyen una sección para establecer `corsOptions`. JavaScript del lado cliente no puede llamar a ninguna API de forma predeterminada debido a que el explorador impedirá todas las solicitudes entre orígenes. Para permitir consultas de origen cruzado en el índice, habilite CORS (uso compartido de recursos entre orígenes) estableciendo el atributo **corsOptions**. Por motivos de seguridad, solamente las API de consulta admiten CORS. 
+### <a name="continuously-available"></a>Disponibilidad continua
 
-Se pueden establecer las opciones siguientes para CORS:
+Un índice tiene disponibilidad continua: no se puede pausar ni desconectar. Dado que está diseñado para el funcionamiento continuo, cualquier actualización de su contenido o adiciones al propio índice se hacen en tiempo real. Como resultado, las consultas podrían devolver temporalmente resultados incompletos si una solicitud coincide con una actualización del documento.
 
-+ **allowedOrigins** (obligatorio): se trata de una lista de orígenes a los que se le concederá acceso a su índice. Esto significa que cualquier código JavaScript que se suministre desde esos orígenes podrá consultar el índice (suponiendo que proporcione la clave de API correcta). Cada origen tiene normalmente el formato `protocol://<fully-qualified-domain-name>:<port>` aunque `<port>` se omite a menudo. Para más información, consulte [Uso compartido de recursos entre orígenes (wikipedia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing).
+Tenga en cuenta que existe continuidad de consultas para las operaciones de documentos (actualización o eliminación) o para las modificaciones que no afectan a la estructura existente y a la integridad del índice actual. Si necesita realizar actualizaciones estructurales, estas se suelen administrar mediante un flujo de trabajo de colocación y recompilación en un entorno de desarrollo o mediante la creación de una nueva versión del índice en el servicio de producción.
 
-  Si desea permitir el acceso a todos los orígenes, incluya `*` como elemento único en la matriz **allowedOrigins**. *Esto no es recomendable para los servicios de búsqueda de producción* pero a menudo resulta útil para el desarrollo y la depuración.
+Para evitar la recompilación, algunos clientes que están realizando pequeños cambios eligen "versionar" un campo mediante la creación de uno nuevo que coexista junto con una versión anterior. Con el tiempo, esto conduce a contenido huérfano en forma de campos o definiciones de analizador personalizadas obsoletos, especialmente en un índice de producción, cuya replicación resulta costosa. Puede solucionar estos problemas en las actualizaciones planeadas del índice como parte de la administración del ciclo de vida de los índices.
 
-+ **maxAgeInSeconds** (opcional): los exploradores usan este valor para determinar la duración (en segundos) para almacenar en la memoria caché las respuestas preparatorias de CORS. Esto debe ser un entero no negativo. Cuanto mayor sea este valor es, mejor será el rendimiento, pero más tiempo tardarán en surtir efecto los cambios en la directiva CORS. Si no se establece, se usará una duración predeterminada de 5 minutos.
+### <a name="endpoint-connection-and-security"></a>Conexión y seguridad de puntos de conexión
+
+Todas las solicitudes de indexación y consulta tienen como destino un índice. Los puntos de conexión suelen ser uno de los siguientes:
+
+| punto de conexión | Conexión y control de acceso |
+|----------|-------------------------------|
+| `<your-service>.search.windows.net/indexes` | Tiene como destino la colección de índices. Se usa al crear, mostrar o eliminar un índice. Se requieren derechos de administrador para estas operaciones, disponibles mediante claves de API de administración o un rol de colaborador de búsqueda. |
+| `<your-service>.search.windows.net/indexes/<your-index>/docs` | Tiene como destino la colección de documentos de un mismo índice. Se usa al consultar un índice. Los derechos de lectura son suficientes y están disponibles mediante claves de API de consulta o un rol de lector de datos. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,12 +12,12 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 12/01/2020
-ms.openlocfilehash: 69bebcf872f55055117acf5cef410d1f89eafe34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6f03129076ea4c87b7cbd176681cd1323d9d453
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96446919"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132345726"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-managed-instance"></a>Configuración de Advanced Threat Protection en Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -26,18 +26,18 @@ ms.locfileid: "96446919"
 
 Puede recibir notificaciones sobre las amenazas detectadas mediante [notificaciones por correo electrónico](../database/threat-detection-overview.md#explore-detection-of-a-suspicious-event) o en [Azure Portal](../database/threat-detection-overview.md#explore-alerts-in-the-azure-portal).
 
-[Advanced Threat Protection](../database/threat-detection-overview.md) forma parte de la oferta [Azure Defender for SQL](../database/azure-defender-for-sql.md), que es un paquete unificado de funcionalidades de seguridad avanzadas de SQL. Se puede acceder a Advanced Threat Protection y administrarlo a través del portal central de Azure Defender for SQL.
+[Advanced Threat Protection](../database/threat-detection-overview.md) forma parte de la oferta[Microsoft Defender para SQL](../database/azure-defender-for-sql.md), que es un paquete unificado de funcionalidades de seguridad avanzadas de SQL. Puede acceder a Advanced Threat Protection y administrarlo a través del portal central de Microsoft Defender para SQL.
 
 ##  <a name="azure-portal"></a>Azure portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
-2. Vaya a la página de configuración de la Instancia administrada de SQL que quiera proteger. En **Seguridad**, seleccione **Security Center**.
-3. En la página de configuración de Azure Defender for SQL:
-   - **Active** Azure Defender for SQL.
+2. Vaya a la página de configuración de la Instancia administrada de SQL que quiera proteger. En **Seguridad,** seleccione **Defender para SQL**.
+3. En la página de configuración de Microsoft Defender para SQL:
+   - **ACTIVE** Microsoft Defender para SQL.
    - Configure la dirección de correo electrónico **Enviar alertas a** que recibirá alertas de seguridad cuando se detecten actividades anómalas en las bases de datos.
    - Seleccione la **cuenta de Azure Storage** donde se guardan los registros de anomalías de la auditoría de amenazas.
    - Seleccione los **tipos de Advanced Threat Protection** que quiere configurar. Más información sobre las [alertas de Advanced Threat Protection](../database/threat-detection-overview.md).
-4. Haga clic en **Guardar** para guardar la directiva de Azure Defender for SQL nueva o actualizada.
+4. Haga clic en **Guardar** para guardar la directiva de Microsoft Defender para SQL nueva o actualizada.
 
    :::image type="content" source="../database/media/azure-defender-for-sql/set-up-advanced-threat-protection-mi.png" alt-text="Configuración de la Protección contra amenazas avanzada":::
 
@@ -47,4 +47,4 @@ Puede recibir notificaciones sobre las amenazas detectadas mediante [notificacio
 - Más información sobre las instancias administradas en [¿Qué es una Instancia administrada de Azure SQL?](sql-managed-instance-paas-overview.md)
 - Más información sobre [Advanced Threat Protection para Azure SQL Database](../database/threat-detection-configure.md)
 - Más información sobre la [auditoría de Instancia administrada de SQL](./auditing-configure.md)
-- Más información sobre [Azure Security Center](../../security-center/security-center-introduction.md).
+- Obtenga más información sobre [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md).

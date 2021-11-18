@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 523f0d1907e42f2db5d17ca4bd3cd81bfd7f6ca1
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 2c8b611b9edb3e4c53b2d40231a6df6c3ccd8a1e
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131466074"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132346503"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Protección de Microsoft 365 contra ataques locales
 
@@ -213,16 +213,16 @@ Supervise los siguientes escenarios clave, además de los escenarios específico
 
 * **Actividad sospechosa** 
 
-    Supervise todos los [eventos de riesgo de Azure AD](../identity-protection/overview-identity-protection.md#risk-detection-and-remediation) en busca de actividad sospechosa. [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) se integra de forma nativa con Azure Security Center.
+    Supervise todos los [eventos de riesgo de Azure AD](../identity-protection/overview-identity-protection.md#risk-detection-and-remediation) en busca de actividad sospechosa. [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) se integra de forma nativa con Microsoft Defender for Cloud.
 
     Defina las [ubicaciones con nombre](../conditional-access/location-condition.md) de red para evitar detecciones ruidosas en las señales basadas en la ubicación. 
 *  **Alertas de análisis de comportamiento de usuarios y entidades (UEBA)** 
 
     Use UEBA para obtener conclusiones sobre la detección de anomalías.
 
-    * Microsoft Cloud App Security (MCAS) proporciona [UEBA en la nube](/cloud-app-security/tutorial-ueba).
+    * Microsoft Defender for Cloud proporciona [UEBA en la nube](/cloud-app-security/tutorial-ueba).
 
-    * Puede [integrar UEBA local desde la protección contra amenazas avanzada (ATP) de Azure](/defender-for-identity/install-step2). MCAS lee las señales de Azure AD Identity Protection. 
+    * Puede [integrar UEBA local desde la protección contra amenazas avanzada (ATP) de Azure](/defender-for-identity/install-step2). Microsoft Defender for Cloud lee señales de Azure AD Identity Protection. 
 
 * **Actividad de las cuentas de acceso de emergencia** 
 
@@ -266,7 +266,7 @@ Supervise los siguientes escenarios clave, además de los escenarios específico
 
 ### <a name="log-management"></a>Administración de registros
 
-Defina una estrategia, un diseño y una implementación de almacenamiento y retención de registros para facilitar un conjunto de herramientas coherente. Por ejemplo, puede considerar sistemas de Administración de eventos e información de seguridad (SIEM), como Azure Sentinel, las consultas comunes, y los cuadernos de estrategias de investigación y análisis forenses.
+Defina una estrategia, un diseño y una implementación de almacenamiento y retención de registros para facilitar un conjunto de herramientas coherente. Por ejemplo, podría considerar sistemas de administración de eventos e información de seguridad (SIEM), como Microsoft Sentinel, consultas comunes y cuadernos de estrategias forenses y de investigación.
 
 * **Registros de Azure AD**: Ingiera los registros y las señales generados de forma coherente siguiendo los procedimientos recomendados de configuración, como la ingesta de diagnóstico, de retención de registros y de SIEM. 
 

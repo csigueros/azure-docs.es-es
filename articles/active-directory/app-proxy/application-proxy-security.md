@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/21/2021
 ms.author: kenwith
 ms.reviewer: ashishj
-ms.openlocfilehash: 96d2fac930b65ffb9bc05330e37e52bc7af3d4dc
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 85fb56b125bf1e220fc71bdbe9c2bbb9eaec5b62
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130043536"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132301104"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-active-directory-application-proxy"></a>Consideraciones de seguridad para acceder a aplicaciones de forma remota con Azure Active Directory Application Proxy
 
@@ -44,7 +44,7 @@ Aplique controles de directiva más completos antes de que se establezcan las co
 
 Con el [acceso condicional](../conditional-access/concept-conditional-access-cloud-apps.md), es posible definir las restricciones sobre cómo los usuarios pueden acceder a sus aplicaciones. Puede crear directivas que restrinjan los inicios de sesión en función de la ubicación, el nivel de autenticación y el perfil de riesgo del usuario.
 
-También puede usar el acceso condicional para configurar directivas de Multi-Factor Authentication, agregando otro nivel de seguridad para la autenticación de los usuarios. Además, las aplicaciones también pueden enrutarse a Microsoft Cloud App Security mediante el acceso condicional de Azure AD para proporcionar supervisión y controles en tiempo real, mediante las directivas de [acceso](/cloud-app-security/access-policy-aad) y [sesión](/cloud-app-security/session-policy-aad).
+También puede usar el acceso condicional para configurar directivas de Multi-Factor Authentication, agregando otro nivel de seguridad para la autenticación de los usuarios. Además, las aplicaciones también pueden enrutarse a Microsoft Defender for Cloud Apps mediante el acceso condicional de Azure AD para proporcionar supervisión y controles en tiempo real, por medio de las directivas de [acceso](/cloud-app-security/access-policy-aad) y [sesión](/cloud-app-security/session-policy-aad).
 
 ### <a name="traffic-termination"></a>Terminación del tráfico
 
@@ -171,7 +171,6 @@ Después de recibir una respuesta, el conector establece una conexión saliente 
 #### <a name="5-the-service-streams-data-to-the-user"></a>5. El servicio transmite por secuencias los datos al usuario. 
 
 Aquí puede tener lugar cierto procesamiento de la aplicación. Si configura el proxy de aplicación para traducir los encabezados o las direcciones URL en la aplicación, ese procesamiento se produce según sea necesario durante este paso.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

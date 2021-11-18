@@ -1,26 +1,26 @@
 ---
 title: Disponibilidad de características en la nube de servicios de Azure para clientes de la Administración Pública de Estados Unidos
-description: Incluya una lista de la disponibilidad de características para los servicios de seguridad de Azure, como Azure Sentinel para los clientes de la Administración Pública de Estados Unidos
+description: Incluya una lista de la disponibilidad de características para los servicios de seguridad de Azure, como Microsoft Sentinel para los clientes de la Administración Pública de Estados Unidos
 author: TerryLanfear
 ms.author: terrylan
 ms.service: security
 ms.topic: reference
 ms.date: 09/13/2021
-ms.openlocfilehash: 46d7b4d08a7181b56859c5639ccd5a187e526474
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 971a45445f65d35a7393c25e6ac88ad2134577e4
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131564354"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132323241"
 ---
 # <a name="cloud-feature-availability-for-us-government-customers"></a>Disponibilidad de las características en la nube para clientes de la Administración Pública de Estados Unidos
 
 En este artículo se describe la disponibilidad de características en las nubes de Microsoft Azure y Azure Government para los siguientes servicios de seguridad:
 
 - [Azure Information Protection](#azure-information-protection)
-- [Azure Security Center](#azure-security-center)
-- [Azure Sentinel](#azure-sentinel)
-- [Azure Defender para IoT](#azure-defender-for-iot)
+- [Microsoft Defender for Cloud](#microsoft-defender-for-cloud)
+- [Microsoft Sentinel](#microsoft-sentinel)
+- [Microsoft Defender para IoT](#microsoft-defender-for-iot)
 - [Azure Attestation](#azure-attestation)
 
 > [!NOTE]
@@ -50,7 +50,6 @@ Para obtener más información acerca de los entornos de Office 365 para la Adm
 - [Office 365 GCC](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc)
 - [Office 365 GCC High y DoD](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)
 
-
 En las siguientes secciones se identifica cuándo un servicio tiene una integración con Microsoft 365 y la disponibilidad de características para Office 365 GCC, Office 365 GCC High y Office 365 DoD.
 
 ## <a name="azure-information-protection"></a>Azure Information Protection
@@ -66,8 +65,8 @@ Para obtener más información, consulte la [documentación del producto Azure I
 - Se requieren configuraciones adicionales para clientes de GCC High y DoD. Para obtener más información, consulte [Descripción del servicio Azure Information Protection Premium para Administración Pública](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
 
 > [!NOTE]
-> En las notas al pie de la tabla se muestran más detalles sobre el soporte técnico para los clientes de la administración pública. 
-> 
+> En las notas al pie de la tabla se muestran más detalles sobre el soporte técnico para los clientes de la administración pública.
+>
 > Se requieren pasos adicionales para configurar Azure Information Protection para clientes de GCC High y DoD. Para obtener más información, consulte la [Descripción del servicio de Azure Information Protection Premium para la Administración Pública](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
 >
 
@@ -76,26 +75,26 @@ Para obtener más información, consulte la [documentación del producto Azure I
 |**[Analizador de Azure Information Protection](/azure/information-protection/deploy-aip-scanner)** <sup>[1](#aipnote1)</sup>       |         |         |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
-| - Office 365 DoD | - | GA |
+| - Office 365 DoD | - | Disponibilidad general |
 |**Administración**     |         |         |
 |[Portal de Azure Information Protection para la administración del analizador](/azure/information-protection/deploy-aip-scanner-configure-install?tabs=azure-portal-only)     |         |         |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
-| - Office 365 DoD | - | GA |
+| - Office 365 DoD | - | Disponibilidad general |
 | **Clasificación y etiquetado** <sup>[2](#aipnote2)</sup>   |         |         |
 | [Analizador de AIP para aplicar una *etiqueta predeterminada* a todos los archivos de un repositorio o servidor de archivos local](/azure/information-protection/deploy-aip-scanner-configure-install?tabs=azure-portal-only)    |         |         |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
-| - Office 365 DoD | - | GA |
+| - Office 365 DoD | - | Disponibilidad general |
 | [Analizador de AIP para la clasificación, el etiquetado y la protección automatizados de archivos locales compatibles](/azure/information-protection/deploy-aip-scanner)    |         |         |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
-| - Office 365 DoD | - | GA |
+| - Office 365 DoD | - | Disponibilidad general |
 | |  |  |
 
-<sup><a name="aipnote1" /></a>1</sup> El analizador puede funcionar sin Office 365 para examinar archivos únicamente. El analizador no puede aplicar etiquetas a los archivos sin Office 365.
+<sup><a name="aipnote1"></a>1</sup> El analizador puede funcionar sin Office 365 para examinar archivos únicamente. El analizador no puede aplicar etiquetas a los archivos sin Office 365.
 
-<sup><a name="aipnote2" /></a>2</sup> El complemento de clasificación y etiquetado solo se admite para los clientes de la administración pública con Aplicaciones Microsoft 365 (versión 9126.1001 o posterior), incluidas las versiones Profesional Plus (ProPlus) y Hacer clic y ejecutar (C2R). No se admite Office 2010, Office 2013 ni otras versiones de Office 2016.
+<sup><a name="aipnote2"></a>2</sup> El complemento de clasificación y etiquetado solo se admite para los clientes de la administración pública con Aplicaciones Microsoft 365 (versión 9126.1001 o posterior), incluidas las versiones Profesional Plus (ProPlus) y Hacer clic y ejecutar (C2R). No se admite Office 2010, Office 2013 ni otras versiones de Office 2016.
 
 ### <a name="office-365-features"></a>Características de Office 365
 
@@ -105,110 +104,109 @@ Para obtener más información, consulte la [documentación del producto Azure I
 |- [PowerShell para la administración del servicio RMS](/powershell/module/aipservice/)      |  Disponibilidad general       |    GA     |   GA      |
 |- [PowerShell para operaciones masivas de cliente de etiquetado unificado de AIP](/powershell/module/azureinformationprotection/)      |         |         |         |
 |**SDK**     |         |         |         |
-|- [Kit de desarrollo de software (SDK) para MIP y AIP](/information-protection/develop/)     |     GA       |    GA     |   GA  |
+|- [Kit de desarrollo de software (SDK) para MIP y AIP](/information-protection/develop/)     |     Disponibilidad general       |    GA     |   GA  |
 |**Personalizaciones**     |         |         |         |
 |- [Seguimiento y revocación de documentos](/azure/information-protection/rms-client/track-and-revoke-admin)      |   Disponibilidad general      |  No disponible       |     No disponible    |
 |**Administración de claves**      |         |         |         |
-|- [Bring Your Own Key (BYOK)](/azure/information-protection/byok-price-restrictions)      |   GA       |    GA     |   GA   |
-|- [Cifrado de doble clave (DKE)](/azure/information-protection/plan-implement-tenant-key)     |    GA       |    GA     |   GA    |
+|- [Bring Your Own Key (BYOK)](/azure/information-protection/byok-price-restrictions)      |   Disponibilidad general       |    GA     |   GA   |
+|- [Cifrado de doble clave (DKE)](/azure/information-protection/plan-implement-tenant-key)     |    Disponibilidad general       |    GA     |   GA    |
 |**Archivos de Office** <sup>[3](#aipnote6)</sup>      |         |         |         |
 |- [Protección para Microsoft Exchange Online, Microsoft Office SharePoint Online y Microsoft OneDrive para la Empresa](/azure/information-protection/requirements-applications)      |     Disponibilidad general    |  GA <sup>[4](#aipnote3)</sup>       |   GA <sup>[4](#aipnote3)</sup>      |
 |- [Protección del contenido de Exchange y SharePoint local a través del conector de Rights Management](/azure/information-protection/deploy-rms-connector)     |    GA <sup>[5](#aipnote5)</sup>      |  No disponible       |     No disponible         |
-|- [Cifrado de mensajes de Office 365](/microsoft-365/compliance/set-up-new-message-encryption-capabilities)      |     GA       |    GA     |   GA        |
-|- [Establecer etiquetas para aplicar automáticamente la protección de M/MIME preconfigurado en Outlook](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)      |         GA       |    GA     |   GA        |
+|- [Cifrado de mensajes de Office 365](/microsoft-365/compliance/set-up-new-message-encryption-capabilities)      |     Disponibilidad general       |    GA     |   GA        |
+|- [Establecer etiquetas para aplicar automáticamente la protección de M/MIME preconfigurado en Outlook](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)      |         Disponibilidad general       |    GA     |   GA        |
 |- [Control del uso compartido excesivo de información al usar Outlook](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)     |      Disponibilidad general   |  GA <sup>[6](#aipnote6)</sup>        |    GA <sup>[6](#aipnote6)</sup>      |
 |**Clasificación y etiquetado** <sup>[2](#aipnote2) / [7](#aipnote7)</sup>      |         |         |         |
-|- Plantillas personalizadas, incluidas las plantillas de departamento     |     GA       |    GA     |   GA         |
-|- Clasificación manual, predeterminada y obligatoria de documentos     |       GA       |    GA     |   GA       |
-|- Configuración de condiciones para la clasificación automática y recomendada       |    GA     |   GA        |
-|- [Protección para formatos de archivo distintos de Microsoft Office, incluidos PTXT, PJPG y PFILE (protección genérica)](/azure/information-protection/rms-client/clientv2-admin-guide-file-types)     |        GA       |    GA     |   GA       |
+|- Plantillas personalizadas, incluidas las plantillas de departamento     |     Disponibilidad general       |    GA     |   GA         |
+|- Clasificación manual, predeterminada y obligatoria de documentos     |       Disponibilidad general       |    GA     |   GA       |
+|- Configuración de condiciones para la clasificación automática y recomendada       |    Disponibilidad general     |   GA        |
+|- [Protección para formatos de archivo distintos de Microsoft Office, incluidos PTXT, PJPG y PFILE (protección genérica)](/azure/information-protection/rms-client/clientv2-admin-guide-file-types)     |        Disponibilidad general       |    GA     |   GA       |
 |     |         |         |         |
 
+<sup><a name="aipnote3"></a>3</sup> La extensión de dispositivos móviles para AD RMS no está disponible actualmente para los clientes de la administración pública.
 
-<sup><a name="aipnote3" /></a>3</sup> La extensión de dispositivos móviles para AD RMS no está disponible actualmente para los clientes de la administración pública.
+<sup><a name="aipnote4"></a>4</sup> Information Rights Management con SharePoint Online (sitios y bibliotecas protegidos por IRM) no está disponible actualmente.
 
-<sup><a name="aipnote4" /></a>4</sup> Information Rights Management con SharePoint Online (sitios y bibliotecas protegidos por IRM) no está disponible actualmente.
+<sup><a name="aipnote5"></a>5</sup> Information Rights Management (IRM) solo se admite para Aplicaciones de Microsoft 365 (versión 9126.1001 o posterior), incluidas las versiones Profesional Plus (ProPlus) y Hacer clic y ejecutar (C2R). No se admite Office 2010, Office 2013 ni otras versiones de Office 2016.
 
-<sup><a name="aipnote5" /></a>5</sup> Information Rights Management (IRM) solo se admite para Aplicaciones de Microsoft 365 (versión 9126.1001 o posterior), incluidas las versiones Profesional Plus (ProPlus) y Hacer clic y ejecutar (C2R). No se admite Office 2010, Office 2013 ni otras versiones de Office 2016.
+<sup><a name="aipnote6"></a>6</sup> Actualmente no está disponible el uso compartido de documentos y correos electrónicos protegidos desde nubes gubernamentales con los usuarios de la nube comercial. Incluye usuarios de Aplicaciones de Microsoft 365 en la nube comercial, usuarios distintos de Aplicaciones de Microsoft 365 en la nube comercial y usuarios con una licencia de RMS for Individuals.
 
-<sup><a name="aipnote6" /></a>6</sup> Actualmente no está disponible el uso compartido de documentos y correos electrónicos protegidos desde nubes gubernamentales con los usuarios de la nube comercial. Incluye usuarios de Aplicaciones de Microsoft 365 en la nube comercial, usuarios distintos de Aplicaciones de Microsoft 365 en la nube comercial y usuarios con una licencia de RMS for Individuals.
+<sup><a name="aipnote7"></a>7</sup> El número de [tipos de información confidencial](/microsoft-365/compliance/sensitive-information-type-entity-definitions) del Centro de seguridad y cumplimiento de Microsoft 365 puede variar en función de la región.
 
-<sup><a name="aipnote7" /></a>7</sup> El número de [tipos de información confidencial](/microsoft-365/compliance/sensitive-information-type-entity-definitions) del Centro de seguridad y cumplimiento de Microsoft 365 puede variar en función de la región.
+## <a name="microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud
 
-## <a name="azure-security-center"></a>Azure Security Center
+Microsoft Defender for Cloud es un sistema unificado de administración de seguridad de la infraestructura que fortalece la posición de seguridad de los centros de datos y proporciona una protección contra amenazas avanzada de todas las cargas de trabajo híbridas que se encuentran en la nube, ya sea que estén en Azure o no, así como también en el entorno local.
 
-Azure Security Center es un sistema unificado de administración de seguridad de la infraestructura que fortalece la posición de seguridad de los centros de datos y proporciona una protección contra amenazas avanzada de todas las cargas de trabajo híbridas que se encuentran en la nube, ya sea que estén en Azure o no, así como también en el entorno local.
+Para obtener más información, consulte la [documentación del producto Microsoft Defender for Cloud](../../security-center/security-center-introduction.md).
 
-Para más información, consulte la [documentación del producto de Azure Security Center](../../security-center/security-center-introduction.md).
+En la tabla siguiente se muestra la disponibilidad actual de características de Microsoft Defender for Cloud en Azure y Azure Government.
 
-En la tabla siguiente se muestra la disponibilidad actual de características de Security Center en Azure y Azure Government.
+| Característica o servicio                                                                                                                                                                  | Azure          | Azure Government               |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|
+| **Características gratuitas de Microsoft Defender for Cloud**                                                                                                                                                |                |                                |
+| <li> [Exportación continua](../../security-center/continuous-export.md)                                                                                                             | Disponibilidad general             | GA                             |
+| <li> [Automatización de flujos de trabajo (versión preliminar)](../../security-center/continuous-export.md)                                                                                                           | Disponibilidad general             | GA                             |
+| <li> [Reglas de exención de recomendaciones](../../security-center/exempt-resource.md)                                                                                                  | Vista previa pública | No disponible                  |
+| <li> [Reglas de eliminación de alertas](../../security-center/alerts-suppression-rules.md)                                                                                                | Disponibilidad general             | GA                             |
+| <li> [Notificaciones de correo electrónico para alertas de seguridad](../../security-center/security-center-provide-security-contact-details.md)                                                        | Disponibilidad general             | GA                             |
+| <li> [Aprovisionamiento automático de agentes y extensiones](../../security-center/security-center-enable-data-collection.md)                                                              | Disponibilidad general             | GA                             |
+| <li> [Inventario de recursos](../../security-center/asset-inventory.md)                                                                                                                 | Disponibilidad general             | GA                             |
+| <li> [Informes de Libros de Azure Monitor en la galería de libros de Defender for Cloud](../../security-center/custom-dashboards-azure-workbooks.md)                                  | Disponibilidad general             | GA                             |
+| **Planes y extensiones de Microsoft Defender**                                                                                                                                          |                |                                |
+| <li> [Microsoft Defender para servidores](../../security-center/defender-for-servers-introduction.md)                                                                                    | Disponibilidad general             | GA                             |
+| <li> [Microsoft Defender para App Service](../../security-center/defender-for-app-service-introduction.md)                                                                            | GA             | No disponible                  |
+| <li> [Microsoft Defender para DNS](../../security-center/defender-for-dns-introduction.md)                                                                                            | Disponibilidad general             | GA                             |
+| <li> [Microsoft Defender para registros de contenedor](../../security-center/defender-for-container-registries-introduction.md) <sup>[1](#footnote1)</sup>                               | Disponibilidad general             | GA  <sup>[2](#footnote2)</sup> |
+| <li> [Microsoft Defender para registros de contenedor que examinan imágenes en flujos de trabajo de CI/CD](../../security-center/defender-for-container-registries-cicd.md) <sup>[3](#footnote3)</sup> | Vista previa pública | No disponible                  |
+| <li> [Microsoft Defender para Kubernetes](../../security-center/defender-for-kubernetes-introduction.md) <sup>[4](#footnote4)</sup>                                                   | Disponibilidad general             | GA                             |
+| <li> [Extensión de Defender para clústeres de Kubernetes habilitados para Azure Arc](../../security-center/defender-for-kubernetes-azure-arc.md) <sup>[5](#footnote5)</sup>                 | Vista previa pública | No disponible                  |
+| <li> [Microsoft Defender para servidores de Azure SQL Database](../../security-center/defender-for-sql-introduction.md)                                                                     | Disponibilidad general             | GA                             |
+| <li> [Microsoft Defender para servidores SQL Server en máquinas](../../security-center/defender-for-sql-introduction.md)                                                                        | Disponibilidad general             | GA                             |
+| <li> [Microsoft Defender para bases de datos relacionales de código abierto](../../security-center/defender-for-databases-introduction.md)                                                         | GA             | No disponible                  |
+| <li> [Microsoft Defender para Key Vault](../../security-center/defender-for-key-vault-introduction.md)                                                                                | GA             | No disponible                  |
+| <li> [Microsoft Defender para Resource Manager](../../security-center/defender-for-resource-manager-introduction.md)                                                                  | Disponibilidad general             | GA                             |
+| <li> [Microsoft Defender para Storage](../../security-center/defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | Disponibilidad general             | GA                             |
+| <li> [Protección contra amenazas para Cosmos DB](../../security-center/other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                                          | Vista previa pública | No disponible                  |
+| <li> [Protección de cargas de trabajo de Kubernetes](../../security-center/kubernetes-workload-protections.md)                                                                                  | Disponibilidad general             | GA                             |
+| <li> [Sincronización de alertas bidireccional con Sentinel](../../sentinel/connect-azure-security-center.md)                                                                       | Vista previa pública | No disponible                  |
+| **Características de Microsoft Defender para servidores** <sup>[7](#footnote7)</sup>                                                                                                               |                |                                |
+| <li> [Acceso de máquina virtual Just-In-Time](../../security-center/security-center-just-in-time.md)                                                                                             | Disponibilidad general             | GA                             |
+| <li> [Supervisión de la integridad de los archivos](../../security-center/security-center-file-integrity-monitoring.md)                                                                             | Disponibilidad general             | GA                             |
+| <li> [Controles de aplicación adaptables](../../security-center/security-center-adaptive-application.md)                                                                              | Disponibilidad general             | GA                             |
+| <li> [Protección de red adaptable](../../security-center/security-center-adaptive-network-hardening.md)                                                                           | GA             | No disponible                  |
+| <li> [Protección de hosts de Docker](../../security-center/harden-docker-hosts.md)                                                                                                       | Disponibilidad general             | GA                             |
+| <li> [Evaluación integrada de vulnerabilidades para las máquinas](../../security-center/deploy-vulnerability-assessment-vm.md)                                                             | GA             | No disponible                  |
+| <li> [Panel e informes de cumplimiento normativo](../../security-center/security-center-compliance-dashboard.md) <sup>[8](#footnote8)</sup>                                       | Disponibilidad general             | GA                             |
+| <li> [Implementación de Microsoft Defender para punto de conexión y licencia integrada](../../security-center/security-center-wdatp.md)                                                         | Disponibilidad general             | GA                             |
+| <li> [Conexión de cuentas de AWS](../../security-center/quickstart-onboard-aws.md)                                                                                                      | GA             | No disponible                  |
+| <li> [Conexión de cuentas de GCP](../../security-center/quickstart-onboard-gcp.md)                                                                                                      | GA             | No disponible                  |
+|                                                                                                                                                                                  |                |                                |
 
+<sup> <a name="footnote1"></a>  1</sup> Parcialmente en disponibilidad general: la capacidad de deshabilitar los resultados específicos de los exámenes de vulnerabilidades está en versión preliminar pública.
 
-| Característica o servicio                                                                                                                                                               | Azure          | Azure Government               |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|
-| **Características gratuitas de Security Center**                                                                                                                                             |                |                                |
-| - [Exportación continua](../../security-center/continuous-export.md)                                                                                                             | GA             | GA                             |
-| - [Automatización de flujos de trabajo](../../security-center/continuous-export.md)                                                                                                           | GA             | GA                             |
-| - [Reglas de exención de recomendaciones](../../security-center/exempt-resource.md)                                                                                                  | Vista previa pública | No disponible                  | 
-| - [Reglas de eliminación de alertas](../../security-center/alerts-suppression-rules.md)                                                                                                | GA             | GA                             | 
-| - [Notificaciones de correo electrónico para alertas de seguridad](../../security-center/security-center-provide-security-contact-details.md)                                                        | GA             | GA                             | 
-| - [Aprovisionamiento automático de agentes y extensiones](../../security-center/security-center-enable-data-collection.md)                                                              | GA             | GA                             | 
-| - [Inventario de recursos](../../security-center/asset-inventory.md)                                                                                                                 | GA             | GA                             | 
-| - [Informes de libros de Azure Monitor en la galería de libros de Azure Security Center](../../security-center/custom-dashboards-azure-workbooks.md)                                  | GA             | GA                             | 
-| **Planes y extensiones de Azure Defender**                                                                                                                                       |                |                                | 
-| - [Azure Defender para servidores](../../security-center/defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | 
-| - [Azure Defender para App Service](../../security-center/defender-for-app-service-introduction.md)                                                                            | GA             | No disponible                  | 
-| - [Azure Defender para DNS](../../security-center/defender-for-dns-introduction.md)                                                                                            | GA             | GA                             | 
-| - [Azure Defender para registros de contenedor](../../security-center/defender-for-container-registries-introduction.md) <sup>[1](#footnote1)</sup>                               | Disponibilidad general             | GA  <sup>[2](#footnote2)</sup> | 
-| - [Azure Defender para registros de contenedor que examinan imágenes en flujos de trabajo de CI/CD](../../security-center/defender-for-container-registries-cicd.md) <sup>[3](#footnote3)</sup> | Vista previa pública | No disponible                  | 
-| - [Azure Defender para Kubernetes](../../security-center/defender-for-kubernetes-introduction.md) <sup>[4](#footnote4)</sup>                                                   | GA             | GA                             | 
-| - [Extensión de Azure Defender para clústeres de Kubernetes habilitados para Azure Arc](../../security-center/defender-for-kubernetes-azure-arc.md) <sup>[5](#footnote5)</sup>                 | Vista previa pública | No disponible                  | 
-| - [Azure Defender para servidores de Azure SQL Database](../../security-center/defender-for-sql-introduction.md)                                                                     | GA             | GA                             | 
-| - [Azure Defender para servidores SQL en máquinas](../../security-center/defender-for-sql-introduction.md)                                                                        | GA             | GA                             |
-| - [Azure Defender para bases de datos relacionales de código abierto](../../security-center/defender-for-databases-introduction.md)                                                         | GA             | No disponible                  |
-| - [Azure Defender para Key Vault](../../security-center/defender-for-key-vault-introduction.md)                                                                                | GA             | No disponible                  |
-| - [Azure Defender para Resource Manager](../../security-center/defender-for-resource-manager-introduction.md)                                                                  | Disponibilidad general             | GA                             |
-| - [Azure Defender para Storage](../../security-center/defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             |
-| - [Protección contra amenazas para Cosmos DB](../../security-center/other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                                          | Vista previa pública | No disponible                  |
-| - [Protección de cargas de trabajo de Kubernetes](../../security-center/kubernetes-workload-protections.md)                                                                                  | GA             | GA                             |
-| - [Sincronización de alertas bidireccional con Sentinel](../../sentinel/connect-azure-security-center.md)                                                                       | Vista previa pública | No disponible                  | 
-| **Azure Defender para características de servidores** <sup>[7](#footnote7)</sup>                                                                                                            |                |                                |
-| - [Acceso de máquina virtual Just-In-Time](../../security-center/security-center-just-in-time.md)                                                                                             | GA             | GA                             |
-| - [Supervisión de la integridad de los archivos](../../security-center/security-center-file-integrity-monitoring.md)                                                                             | GA             | GA                             |
-| - [Controles de aplicaciones adaptables](../../security-center/security-center-adaptive-application.md)                                                                              | GA             | GA                             |
-| - [Protección de red adaptable](../../security-center/security-center-adaptive-network-hardening.md)                                                                           | GA             | No disponible                  |
-| - [Protección de hosts de Docker](../../security-center/harden-docker-hosts.md)                                                                                                       | GA             | GA                             |
-| - [Evaluación integrada de vulnerabilidades para las máquinas](../../security-center/deploy-vulnerability-assessment-vm.md)                                                             | GA             | No disponible                  |
-| - [Panel e informes de cumplimiento normativo](../../security-center/security-center-compliance-dashboard.md) <sup>[8](#footnote8)</sup>                                       | GA             | GA                             |
-| - [Implementación de Microsoft Defender para punto de conexión y licencia integrada](../../security-center/security-center-wdatp.md)                                                         | GA             | GA                             |
-| - [Conexión de cuentas de AWS](../../security-center/quickstart-onboard-aws.md)                                                                                                      | GA             | No disponible                  |
-| - [Conexión de cuentas de GCP](../../security-center/quickstart-onboard-gcp.md)                                                                                                      | GA             | No disponible                  |
-|                                                                                                                                                                               |                |                                |
+<sup><a name="footnote2"></a>2</sup> Los exámenes de vulnerabilidades de los registros de contenedor en Azure Gov solo se pueden realizar con la característica de examen en inserción.
 
-<sup> <a name="footnote1" /> </a> 1</sup> Parcialmente en disponibilidad general: la capacidad de deshabilitar los resultados específicos de los exámenes de vulnerabilidades está en versión preliminar pública.
+<sup><a name="footnote3"></a>3</sup> Requiere Microsoft Defender para registros de contenedor.
 
-<sup><a name="footnote2" /></a>2</sup> Los exámenes de vulnerabilidades de los registros de contenedor en Azure Gov solo se pueden realizar con la característica de examen en inserción.
+<sup><a name="footnote4"></a>4</sup> Parcialmente en disponibilidad general: la compatibilidad con clústeres habilitados para Azure Arc está en versión preliminar pública y no está disponible en Azure Government.
 
-<sup><a name="footnote3" /></a>3</sup> Requiere Azure Defender para registros de contenedor.
+<sup><a name="footnote5"></a>5</sup> Requiere Microsoft Defender para Kubernetes.
 
-<sup><a name="footnote4" /></a>4</sup> Parcialmente en disponibilidad general: la compatibilidad con clústeres habilitados para Azure Arc está en versión preliminar pública y no está disponible en Azure Government.
+<sup><a name="footnote6"></a> 6</sup> Parcialmente en disponibilidad general: algunas de las alertas de protección contra amenazas de Microsoft Defender para Storage están en versión preliminar pública.
 
-<sup><a name="footnote5" /></a>5</sup> Requiere Azure Defender para Kubernetes.
+<sup><a name="footnote7"></a>7</sup> Todas estas características requieren [Microsoft Defender para servidores](../../security-center/defender-for-servers-introduction.md).
 
-<sup><a name="footnote6" /></a> 6</sup> Parcialmente en disponibilidad general: algunas de las alertas de protección contra amenazas de Azure Defender para Storage están en versión preliminar pública.
+<sup><a name="footnote8"></a>8</sup> Puede haber diferencias en los estándares ofrecidos por cada tipo de nube.
 
-<sup><a name="footnote7" /></a>7</sup> Todas estas características requieren [Azure Defender para servidores](../../security-center/defender-for-servers-introduction.md).
+<a name="azure-sentinel"></a>
 
-<sup><a name="footnote8" /></a>8</sup> Puede haber diferencias en los estándares ofrecidos por cada tipo de nube.
+## <a name="microsoft-sentinel"></a>Microsoft Sentinel
 
-## <a name="azure-sentinel"></a>Azure Sentinel
+Microsoft Sentinel es una solución de administración de eventos e información de seguridad (SIEM) y respuesta automatizada de orquestación de seguridad (SOAR) que es escalable y nativa de la nube. Microsoft Sentinel ofrece análisis de seguridad inteligente e inteligencia frente a amenazas en toda la empresa, de forma que proporciona una única solución para la detección de alertas, la visibilidad de amenazas, la búsqueda proactiva y la respuesta a amenazas.
 
-Microsoft Azure Sentinel es una solución de administración de eventos de información de seguridad (SIEM) y respuesta automatizada de orquestación de seguridad (SOAR) que es escalable y nativa de la nube. Azure Sentinel ofrece análisis de seguridad inteligente e inteligencia frente a amenazas en toda la empresa, de forma que proporciona una única solución para la detección de alertas, la visibilidad de amenazas, la búsqueda proactiva y la respuesta a amenazas.
+Para obtener más información, consulte la [documentación del producto Microsoft Sentinel](../../sentinel/overview.md).
 
-Para más información, consulte la [documentación del producto de Azure Sentinel](../../sentinel/overview.md).
-
-En las siguientes tablas se muestra la disponibilidad de características de Azure Sentinel actuales en Azure y Azure Government.
-
+En las siguientes tablas se muestra la disponibilidad de características de Microsoft Sentinel actuales en Azure y Azure Government.
 
 | Característica | Azure | Azure Government  |
 | ----- | ----- | ---- |
@@ -236,8 +234,8 @@ En las siguientes tablas se muestra la disponibilidad de características de Azu
 | - [Azure Active Directory](../../sentinel/connect-azure-active-directory.md) | GA | GA |
 | - [Azure ADIP](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) | GA | GA |
 | - [Azure DDoS Protection](../../sentinel/data-connectors-reference.md#azure-ddos-protection) | GA | GA |
-| - [Azure Defender](../../sentinel/connect-azure-security-center.md) | GA | GA |
-| - [Azure Defender para IoT](../../sentinel/data-connectors-reference.md#azure-defender-for-iot) | Vista previa pública | No disponible |
+| - [Microsoft Defender for Cloud](../../sentinel/connect-azure-security-center.md) | Disponibilidad general | GA |
+| - [Microsoft Defender para IoT](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) | Vista previa pública | No disponible |
 | - [Azure Firewall ](../../sentinel/data-connectors-reference.md#azure-firewall) | GA | GA |
 | - [Azure Information Protection](../../sentinel/data-connectors-reference.md#azure-information-protection) | Vista previa pública | No disponible |
 | - [Azure Key Vault ](../../sentinel/data-connectors-reference.md#azure-key-vault) | Vista previa pública | No disponible |
@@ -322,8 +320,7 @@ En las siguientes tablas se muestra la disponibilidad de características de Azu
 | - [Zscaler](../../sentinel/data-connectors-reference.md#zscaler)                                         | GA             | GA             |
 | | | |
 
-
-<sup><a name="footnote1" /></a>1</sup> Las detecciones de SSH y RDP no son compatibles con las nubes soberanas porque la plataforma de aprendizaje automático de Databricks no está disponible.
+<sup><a name="footnote1"></a>1</sup> Las detecciones de SSH y RDP no son compatibles con las nubes soberanas porque la plataforma de aprendizaje automático de Databricks no está disponible.
 
 ### <a name="microsoft-365-data-connectors"></a>Conectores de datos de Microsoft 365
 
@@ -343,15 +340,15 @@ Office 365 GCC trabaja con Azure Active Directory (Azure AD) en Azure. Office�
 | - Office 365 GCC | Vista previa pública | - |
 | - Office 365 GCC High | - | No disponible |
 | - Office 365 DoD | - | No disponible |
-| **[Microsoft Cloud App Security (MCAS)](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas)** |  |  |
+| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors-reference.md#microsoft-defender-for-cloud-apps)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
-| - Office 365 DoD | - | GA |
-| **[Microsoft Cloud App Security (MCAS)](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas)** <br>Registros de Shadow IT |  |  |
+| - Office 365 DoD | - | Disponibilidad general |
+| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors-reference.md#microsoft-defender-for-cloud-apps)** <br>Registros de Shadow IT |  |  |
 | - Office 365 GCC | Vista previa pública | - |
 | - Office 365 GCC High | - | Vista previa pública |
 | - Office 365 DoD | - | Vista previa pública |
-| **[Microsoft Cloud App Security (MCAS)](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas)**                  <br>Alertas |  |  |
+| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors-reference.md#microsoft-defender-for-cloud-apps)**                  <br>Alertas |  |  |
 | - Office 365 GCC | Vista previa pública | - |
 | - Office 365 GCC High | - | Vista previa pública |
 | - Office 365 DoD | - | Vista previa pública |
@@ -370,14 +367,16 @@ Office 365 GCC trabaja con Azure Active Directory (Azure AD) en Azure. Office�
 | **[Office 365](../../sentinel/data-connectors-reference.md#microsoft-office-365)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
-| - Office 365 DoD | - | GA |
+| - Office 365 DoD | - | Disponibilidad general |
 |  |  |
 
-## <a name="azure-defender-for-iot"></a>Azure Defender para IoT
+<a name="azure-defender-for-iot"></a>
 
-Azure Defender para IoT le permite acelerar la innovación de IoT/OT con seguridad integral en todos los dispositivos de IoT/OT.Para las organizaciones de usuarios finales, Azure Defender para IoT ofrece una seguridad de capa de red sin agentes que se implementa rápidamente, funciona con diversos equipos industriales, e interopera con Azure Sentinel y otras herramientas de SOC. Se puede implementar de forma local o en entornos conectados a Azure.Para los fabricantes de dispositivos de IoT, los agentes de seguridad de Azure Defender para IoT permiten compilar la seguridad directamente en los nuevos dispositivos IoT y en proyectos de Azure IoT. El micro-agente tiene opciones de implementación flexibles, incluida la capacidad de implementarse como un paquete binario o de modificar código fuente. Y está disponible para los sistemas operativos de IoT estándar como Linux y Azure RTOS. Para más información, consulte la [documentación del producto de Azure Defender para IoT](../../defender-for-iot/index.yml).
+## <a name="microsoft-defender-for-iot"></a>Microsoft Defender para IoT
 
-En la tabla siguiente se muestra la disponibilidad actual de características de Azure Defender para IoT en Azure y Azure Government.
+Microsoft Defender para IoT le permite acelerar la innovación de IoT/OT con seguridad integral en todos los dispositivos de IoT/OT. Para las organizaciones de usuarios finales, Microsoft Defender para IoT ofrece una seguridad de capa de red sin agentes que se implementa rápidamente, funciona con diversos equipos industriales, e interopera con Microsoft Sentinel y otras herramientas de SOC. Se puede implementar de forma local o en entornos conectados a Azure. Para los fabricantes de dispositivos de IoT, los agentes de seguridad de Microsoft Defender para IoT permiten compilar la seguridad directamente en los nuevos dispositivos IoT y en proyectos de Azure IoT. El micro-agente tiene opciones de implementación flexibles, incluida la capacidad de implementarse como un paquete binario o de modificar código fuente. Y está disponible para los sistemas operativos de IoT estándar como Linux y Azure RTOS. Para obtener más información, consulte la [documentación del producto Microsoft Defender para IoT](../../defender-for-iot/index.yml).
+
+En la tabla siguiente se muestra la disponibilidad actual de características de Microsoft Defender para IoT en Azure y Azure Government.
 
 ### <a name="for-organizations"></a>Para organizaciones
 
@@ -429,12 +428,12 @@ Para obtener más información, consulte la [documentación pública](/azure/att
 |--|--|--|
 | [Experiencia del portal](/azure/attestation/quickstart-portal) para realizar operaciones de plano de control y plano de datos | Disponibilidad general | - |
 | [Experiencia del PowerShell](/azure/attestation/quickstart-powershell) para realizar operaciones de plano de control y plano de datos  | Disponibilidad general | GA |
-| Cumplimiento de TLS 1.2   | GA | GA |
+| Cumplimiento de TLS 1.2   | Disponibilidad general | GA |
 | Compatibilidad con BCDR   | Disponibilidad general | - |
-| [Integración de etiquetas de servicio](/azure/virtual-network/service-tags-overview) | GA | GA |
-| [Almacenamiento de registros inmutable](/azure/attestation/audit-logs) | GA | GA |
+| [Integración de etiquetas de servicio](/azure/virtual-network/service-tags-overview) | Disponibilidad general | GA |
+| [Almacenamiento de registros inmutable](/azure/attestation/audit-logs) | Disponibilidad general | GA |
 | Aislamiento de red mediante vínculo privado | Vista previa pública | - |
-| [Certificación FedRAMP High](/azure/azure-government/compliance/azure-services-in-fedramp-auditscope) | GA | - |
+| [Certificación FedRAMP High](/azure/azure-government/compliance/azure-services-in-fedramp-auditscope) | Disponibilidad general | - |
 | Caja de seguridad del cliente | Disponibilidad general | - |
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,20 +1,20 @@
 ---
 title: Solución de problemas de inicio del agente de seguridad (Linux)
-description: Solución de los problemas de funcionamiento de los agentes de seguridad de Azure Defender para IoT en Linux.
+description: Solución de los problemas de funcionamiento de los agentes de seguridad de Microsoft Defender para IoT en Linux.
 ms.topic: conceptual
-ms.date: 05/26/2021
-ms.openlocfilehash: 203a6112f2926bb714022e1fd26b282dedaa8104
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 11/09/2021
+ms.openlocfilehash: c0e85e0628599af88d86c567b559ca6c721ab732
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018754"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306004"
 ---
 # <a name="security-agent-troubleshoot-guide-linux"></a>Guía de solución de problemas de un agente de seguridad (Linux)
 
 En este artículo se explica cómo resolver posibles problemas en el proceso de inicio del agente de seguridad.
 
-El agente de Azure Defender para IoT se inicia automáticamente inmediatamente después de la instalación. El proceso de inicio del agente incluye la lectura de la configuración local, la conexión a Azure IoT Hub y la recuperación de la configuración gemela remota. Si se produce un error en cualquiera de estos pasos, es posible que se produzca un error en el agente de seguridad.
+El agente de Microsoft Defender para IoT se inicia automáticamente inmediatamente después de la instalación. El proceso de inicio del agente incluye la lectura de la configuración local, la conexión a Azure IoT Hub y la recuperación de la configuración gemela remota. Si se produce un error en cualquiera de estos pasos, es posible que se produzca un error en el agente de seguridad.
 
 En esta guía de solución de problemas, aprenderá a:
 

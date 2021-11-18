@@ -6,12 +6,12 @@ ms.service: private-multi-access-edge-compute-mec
 ms.topic: overview
 ms.date: 06/16/2021
 ms.author: kumud
-ms.openlocfilehash: 1875a2cfaa89a6eeeb45ae2efe84959ff6771268
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 6d85a42b3ff23f4bead8abd3187b9a899ebb12c3
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129707340"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132277949"
 ---
 # <a name="what-is-azure-private-multi-access-edge-compute"></a>¿Qué es el proceso perimetral multiacceso privado de Azure?
 
@@ -59,7 +59,7 @@ Fusion Core permite a ISV implementar aplicaciones en el mismo nodo de Azure Sta
 ### <a name="azure-stack-hardware-and-services"></a>Hardware y servicios de Azure Stack
 **Azure Stack Edge**: Azure Stack Edge ofrece una cartera de dispositivos que llevan el proceso, el almacenamiento y la inteligencia justo al perímetro donde se crean los datos. Se trata de dispositivos de montaje en bastidor de 1U que incluyen 1-2 GPU NVIDIA T4. Azure IoT Edge permite implementar y administrar contenedores desde IoT Hub e integrarlos con soluciones de Azure IoT en Azure Stack Edge. La SKU de Azure Stack Edge Pro está certificada para ejecutar funciones de red en el perímetro. Para más información, consulte [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/).
 
-**Azure Stack HCI**: Azure Stack HCI es un nuevo sistema operativo de infraestructura hiperconvergida (HCI) que se entrega como un servicio de Azure que proporciona las actualizaciones más recientes de características, rendimiento y seguridad. Implemente y ejecute máquinas virtuales de Windows y Linux en el centro de datos, o bien, en el perímetro mediante las herramientas y procesos existentes. Amplíe el centro de datos a la nube con Azure Backup, Azure Monitor y Azure Security Center. Para más información, consulte [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/).
+**Azure Stack HCI**: Azure Stack HCI es un nuevo sistema operativo de infraestructura hiperconvergida (HCI) que se entrega como un servicio de Azure que proporciona las actualizaciones más recientes de características, rendimiento y seguridad. Implemente y ejecute máquinas virtuales de Windows y Linux en el centro de datos, o bien, en el perímetro mediante las herramientas y procesos existentes. Amplíe el centro de datos a la nube con Azure Backup, Azure Monitor y Microsoft Defender for Cloud. Para más información, consulte [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/).
 
 ### <a name="application-services"></a>Servicios de aplicación
 

@@ -7,16 +7,16 @@ ms.service: firewall
 ms.topic: article
 ms.date: 11/04/2021
 ms.author: victorh
-ms.openlocfilehash: 90a988e302d3997156dc643f8bacbe6ed6ec786a
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 5f318eabe0b1793856de040402c82951a36e00f2
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131852662"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132278253"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering"></a>Filtrado basado en inteligencia sobre amenazas de Azure Firewall
 
-El filtrado basado en inteligencia sobre amenazas puede habilitarse para que el firewall alerte y deniegue el tráfico desde y hacia los dominios y las direcciones IP malintencionados. Las direcciones IP y los dominios proceden de la fuente de inteligencia sobre amenazas de Microsoft, que incluye varios orígenes, incluido el equipo de Microsoft Cyber Security. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) impulsa la inteligencia sobre amenazas de Microsoft y lo utilizan numerosos servicios, incluido Azure Security Center.<br>
+El filtrado basado en inteligencia sobre amenazas puede habilitarse para que el firewall alerte y deniegue el tráfico desde y hacia los dominios y las direcciones IP malintencionados. Las direcciones IP y los dominios proceden de la fuente de inteligencia sobre amenazas de Microsoft, que incluye varios orígenes, incluido el equipo de Microsoft Cyber Security. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) impulsa la Inteligencia sobre amenazas de Microsoft y lo utilizan numerosos servicios, incluido Microsoft Defender for Cloud.<br>
 <br>
 
 :::image type="content" source="media/threat-intel/firewall-threat.png" alt-text="Inteligencia sobre amenazas de Firewall" border="false":::
@@ -33,7 +33,7 @@ De forma predeterminada, el filtrado basado en inteligencia sobre amenazas está
 
 El siguiente extracto del registro muestra una regla desencadenada:
 
-```
+```json
 {
     "category": "AzureFirewallNetworkRule",
     "time": "2018-04-16T23:45:04.8295030Z",
@@ -47,7 +47,7 @@ El siguiente extracto del registro muestra una regla desencadenada:
 
 ## <a name="testing"></a>Prueba
 
-- **Pruebas de salida**: las alertas de tráfico de salida deben ser un caso poco habitual, ya que significa que se ha puesto en peligro su entorno. Para ayudar a probar que las alertas de salida funcionan, se ha creado un FQDN de prueba que desencadena una alerta. Use **testmaliciousdomain.eastus.cloudapp.azure.com** para las pruebas de salida.
+- **Pruebas de salida**: las alertas de tráfico de salida deben ser un caso poco habitual, ya que significa que se ha puesto en peligro su entorno. Para ayudar a probar que las alertas de salida funcionan, se ha creado un FQDN de prueba que desencadena una alerta. Use `testmaliciousdomain.eastus.cloudapp.azure.com` para las pruebas salientes.
 
 - **Pruebas de entrada**: puede esperar ver las alertas en el tráfico de entrada si se configuran reglas DNAT en el firewall. Esto es cierto incluso si solo se permiten orígenes específicos en la regla DNAT y se deniega el tráfico de otra manera. Azure Firewall no alerta sobre todos los escáneres de puerto conocidos, solo sobre aquellos que se sabe que también participan en actividades malintencionadas.
 

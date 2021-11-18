@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: mbaldwin
-ms.openlocfilehash: ffdec82c7009ca696b04b4ee5fff31a92bd77d50
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 3afe9135c620b808ad6853705c5886aa3628ab7a
+ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114440950"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132370316"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importación de claves protegidas con HSM en HSM administrado (BYOK)
 
@@ -78,21 +78,21 @@ Para más información sobre las opciones de inicio de sesión mediante la CLI, 
 
 |Nombre de clave|Tipo de clave|Tamaño o curva de la clave|Origen|Descripción|
 |---|---|---|---|---|
-|Clave de intercambio de claves (KEK)|RSA| 2048 bits<br />3072 bits<br />4096 bits|HSM administrado|Un par de claves RSA respaldadas por HSM generado en HSM administrado|
+|Clave de intercambio de claves (KEK)|RSA-HSM| 2048 bits<br />3072 bits<br />4096 bits|HSM administrado|Un par de claves RSA respaldadas por HSM generado en HSM administrado|
 |Clave de destino|
-||RSA|2048 bits<br />3072 bits<br />4096 bits|HSM del proveedor|La clave que se va a transferir al HSM administrado|
-||EC|P-256<br />P-384<br />P-521|HSM del proveedor|La clave que se va a transferir al HSM administrado|
-||Clave simétrica (oct-HSM)|128 bits<br />192 bits<br />256 bits|HSM del proveedor|La clave que se va a transferir al HSM administrado|
+||RSA-HSM|2048 bits<br />3072 bits<br />4096 bits|HSM del proveedor|La clave que se va a transferir al HSM administrado|
+||EC-HSM|P-256<br />P-384<br />P-521|HSM del proveedor|La clave que se va a transferir al HSM administrado|
+||Clave simétrica (oct-hsm)|128 bits<br />192 bits<br />256 bits|HSM del proveedor|La clave que se va a transferir al HSM administrado|
 ||||
 ## <a name="generate-and-transfer-your-key-to-the-managed-hsm"></a>Generación y transferencia de la clave al HSM administrado
 
 Para generar y transferir la clave a un HSM administrado:
 
-* [Paso 1: Generación de una KEK](#step-1-generate-a-kek)
-* [Paso 2: Descarga de la clave pública KEK](#step-2-download-the-kek-public-key)
-* [Paso 3: Generación y preparación de la clave para la transferencia](#step-3-generate-and-prepare-your-key-for-transfer)
-* [Paso 4: Transferencia de la clave a HSM administrado](#step-4-transfer-your-key-to-managed-hsm)
-
+  - [Paso 1: Generación de una KEK](#step-1-generate-a-kek)
+  - [Paso 2: Descarga de la clave pública KEK](#step-2-download-the-kek-public-key)
+  - [Paso 3: Generación y preparación de la clave para la transferencia](#step-3-generate-and-prepare-your-key-for-transfer)
+  - [Paso 4: Transferencia de la clave a HSM administrado](#step-4-transfer-your-key-to-managed-hsm) 
+   
 ### <a name="step-1-generate-a-kek"></a>Paso 1: Generación de una KEK
 
 Una KEK es una clave RSA que se genera en un HSM administrado. La KEK se usa para cifrar la clave que quiere importar (la clave de *destino*).

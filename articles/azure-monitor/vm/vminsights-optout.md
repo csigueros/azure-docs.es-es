@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: fbb169924498b30284ea26d172f605596e6a0379
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 8edb225316dfd12acff5c1f6a036246d68d746c8
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122446365"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132306442"
 ---
 # <a name="disable-monitoring-of-your-vms-in-vm-insights"></a>Deshabilitación de la supervisión de las VM en VM Insights
 
@@ -51,7 +51,7 @@ Si el área de trabajo de Log Analytics aún debe admitir la supervisión de otr
 >No quite el agente de Log Analytics si: 
 >
 > * Azure Automation administra la VM para orquestar los procesos o para administrar la configuración o las actualizaciones. 
-> * Azure Security Center administra la VM para la seguridad y la detección de amenazas. 
+> * Microsoft Defender for Cloud administra la máquina virtual para la seguridad y la detección de amenazas. 
 >
 > Si quita el agente de Log Analytics, impedirá que esos servicios y soluciones administren de forma proactiva la VM. 
 

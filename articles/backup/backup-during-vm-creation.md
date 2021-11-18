@@ -2,13 +2,16 @@
 title: Habilitar copia de seguridad al crear una máquina virtual de Azure
 description: Describe cómo habilitar la copia de seguridad al crear una VM de Azure con Azure Backup.
 ms.topic: conceptual
-ms.date: 06/03/2021
-ms.openlocfilehash: 48798dc276c10276e0effd458bd15e9cfbab32dd
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.date: 11/09/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: d94faf113fb3d75c1c0f5c878369c1856366b1be
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006066"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132332125"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Habilitar copia de seguridad al crear una máquina virtual de Azure
 
@@ -30,6 +33,9 @@ Si aún no ha iniciado sesión en su cuenta, hágalo en [Azure Portal](https://p
 
 2. En Azure Marketplace, seleccione **Proceso** y, después, elija una imagen de máquina virtual.
 
+   >[!Note]
+   >Para crear una máquina virtual a partir de una imagen que no es de Marketplace o intercambiar el disco del sistema operativo de una máquina virtual con una imagen que no es de Marketplace, quite la información del plan de la máquina virtual. Esto ayuda a restaurar la máquina virtual de manera fluida.
+
 3. Configure la VM de acuerdo con las instrucciones para [Windows](../virtual-machines/windows/quick-create-portal.md) o [Linux](../virtual-machines/linux/quick-create-portal.md).
 
 4. En la pestaña **Administración**, en **Habilitar copia de seguridad**, seleccione **Activado**.
@@ -49,7 +55,7 @@ Si aún no ha iniciado sesión en su cuenta, hágalo en [Azure Portal](https://p
       ![Directiva de copia de seguridad predeterminada](./media/backup-during-vm-creation/daily-policy.png)
 
 >[!NOTE]
->[SSE y PMK son los métodos de cifrado predeterminados](backup-encryption.md) para las máquinas virtuales de Azure. Azure Backup admite la copia de seguridad y la restauración de estas máquinas virtuales de Azure.
+> [SSE y PMK son los métodos de cifrado predeterminados](backup-encryption.md) para las máquinas virtuales de Azure. Azure Backup admite la copia de seguridad y la restauración de estas máquinas virtuales de Azure.
 
 ## <a name="azure-backup-resource-group-for-virtual-machines"></a>Grupo de recursos de Azure Backup para máquinas virtuales
 

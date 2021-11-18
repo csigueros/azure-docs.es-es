@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 6/8/2021
 ms.reviewer: cynthn
-ms.openlocfilehash: 921770c9cef41cedd8bf1ee01371da9a71e06e1a
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 9dd8978fe61bc8c952e4e06d8569141387caecca
+ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131437132"
+ms.lasthandoff: 11/10/2021
+ms.locfileid: "132133518"
 ---
 # <a name="store-and-share-images-in-an-azure-compute-gallery"></a>Almacenamiento y uso compartido de imágenes en Azure Compute Gallery
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 
-Azure Compute Gallery ahora incluye el servicio Shared Image Gallery existente y las nuevas características y funcionalidades de las [aplicaciones de máquina virtual])(vm-applications.md).  
+Azure Compute Gallery ahora incluye el servicio Shared Image Gallery existente y las nuevas características y funcionalidades de las [aplicaciones de máquina virtual](vm-applications.md).  
 
-Una instancia de Azure Compute Gallery le ayuda a crear estructura y organización en torno a los recursos de Azure, como imágenes y [aplicaciones])(vm-applications.md). Una instancia de Azure Compute Gallery proporciona lo siguiente:
+Una instancia de Azure Compute Gallery le ayuda a crear estructura y organización en torno a los recursos de Azure, como imágenes y [aplicaciones](vm-applications.md). Una instancia de Azure Compute Gallery proporciona lo siguiente:
 - Replicación global.
 - Control de versiones y agrupación de recursos para facilitar su administración.
 - Imágenes de alta disponibilidad con cuentas de almacenamiento con redundancia de zona (ZRS) en las regiones donde se admite Availability Zones. ZRS ofrece mejor resistencia a errores de zona.
@@ -41,7 +41,7 @@ Si tiene un gran número de imágenes que debe mantener y quiere que estén disp
 
 Cuando se usa una galería para almacenar imágenes se crean varios tipos de recursos:
 
-| Resource | Descripción|
+| Recurso | Descripción|
 |----------|------------|
 | **Origen de imagen** | Se trata de un recurso que se puede usar para crear una **versión de imagen** en una galería. Un origen de imagen puede ser una máquina virtual de Azure existente, ya sea [generalizada o especializada](#generalized-and-specialized-images), una imagen administrada, una instantánea, un disco duro virtual o una versión de imagen de otra galería. |
 | **Galería** | Al igual que Azure Marketplace, una **galería** es un repositorio para administrar y compartir imágenes y otros recursos, pero con control sobre quién tiene acceso. |
@@ -323,7 +323,7 @@ Para implementaciones de VM y conjuntos de escalado de máquinas virtuales que u
 
 Sí, puede actualizar la referencia de imagen del conjunto de escalado desde una imagen administrada a una imagen de Azure Compute Gallery, siempre que el tipo de sistema operativo, la generación de Hyper-V y el diseño del disco de datos coincidan entre las imágenes.
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solución de problemas
 Si tiene problemas para realizar operaciones en los recursos de galería, consulte la lista de errores comunes en la [guía de solución de problemas](troubleshooting-shared-images.md).
 
 Además, puede publicar y etiquetar la pregunta con `azure-virtual-machines-images` en [Preguntas y respuestas](/answers/topics/azure-virtual-machines-images.html).

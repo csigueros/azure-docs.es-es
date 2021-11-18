@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 10/12/2021
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: f52f984b1e72d685dae46002e9ae4bac543c068a
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 77e8ec3db7b66fe0c639bfd56942b171b9fc2129
+ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131447703"
+ms.lasthandoff: 11/11/2021
+ms.locfileid: "132294283"
 ---
-# <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integración de ILB App Service Environment con Azure Application Gateway #
+# <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integración de ILB App Service Environment con Azure Application Gateway
 
 [App Service Environment][AppServiceEnvironmentoverview] es una implementación de Azure App Service en la subred de una red virtual de Azure de cliente. Se puede implementar con un punto de conexión externo o interno para el acceso a la aplicación. La implementación del entorno de App Service con un punto de conexión privado se denomina App Service Environment (ASE) de equilibrador de carga interno (ILB).
 
@@ -78,7 +78,7 @@ Con un dominio público asignado a la puerta de enlace de aplicación, no es nec
 
 Para mejorar la seguridad, se recomienda enlazar el certificado TLS/SSL para el cifrado de sesión. Para enlazar el certificado TLS/SSL a la puerta de enlace de aplicación, se necesita un certificado público válido con la siguiente información. Con [App Service Certificate](../configure-ssl-certificate.md#start-certificate-order), puede comprar un certificado TLS/SSL y exportarlo en formato .pfx.
 
-| Name  | Value               | Descripción|
+| Nombre  | Value               | Descripción|
 | ----- | ------------------- |------------|
 | **Nombre común** |`<yourappname>.<yourdomainname>`, por ejemplo, `app.asabuludemo.com`  <br/> O bien `*.<yourdomainname>`, por ejemplo: `*.asabuludemo.com` | Un certificado estándar o un [certificado comodín](https://wikipedia.org/wiki/Wildcard_certificate) para la puerta de enlace de aplicación|
 | **Nombre alternativo del firmante** | `<yourappname>.scm.<yourdomainname>`, por ejemplo, `app.scm.asabuludemo.com`  <br/>O bien `*.scm.<yourdomainname>`, por ejemplo: `*.scm.asabuludemo.com` |La SAN que permite conectarse al servicio kudu de App Service. Es un valor opcional, si no quiere publicar el servicio kudu de App Service en Internet.|
@@ -103,22 +103,22 @@ En Azure Portal, seleccione **Nuevo** > **Redes** > **Application Gateway** para
     
     * Dirección IP pública: debe asociar una dirección IP pública para el acceso público de la puerta de enlace de aplicación. Guarde esta dirección IP; más adelante tendrá que agregar un registro en el servicio DNS.
     
-        :::image type="content" source="./media/integrate-with-application-gateway/frontends.png" alt-text="Captura de pantalla de la obtención de la dirección IP pública de la configuración de front-end de la puerta de enlace de aplicación.":::
+        :::image type="content" source="./media/integrate-with-application-gateway/frontends.png" alt-text="Captura de pantalla de la obtención de una dirección IP pública de la configuración de front-end de la puerta de enlace de aplicación.":::
 
 3. Valor Back-ends
 
     Escriba un nombre de grupo de back-end y seleccione **App Services** o **Dirección IP o FQDN** en **Tipo de destino**. En este caso, se establece en **App Services** y se selecciona Nombre del Servicio de aplicaciones en la lista desplegable de destino.
-    
+
     :::image type="content" source="./media/integrate-with-application-gateway/add-backend-pool.png" alt-text="Captura de pantalla de la adición de un nombre de grupo de back-end en la configuración de back-end.":::
 
 4. Opción de configuración
 
     En el valor **Configuración**, haga clic en el icono **Agregar una regla de enrutamiento** para agregar una regla de enrutamiento.
-    
+
     :::image type="content" source="./media/integrate-with-application-gateway/configuration.png" alt-text="Captura de pantalla de la adición de una regla de enrutamiento en el valor Configuración.":::
-    
+
     En una regla de enrutamiento debe configurar un **Cliente de escucha** y **Destinos de back-end**. Puede agregar un cliente de escucha HTTP para la implementación de prueba de concepto, o bien un cliente de escucha HTTPS para mejorar la seguridad.
-    
+
     * Para conectarse a la puerta de enlace de aplicación con el protocolo HTTP, puede crear un cliente de escucha con la siguiente configuración,
     
         | Parámetro      | Value                             | Descripción                                                  |
@@ -148,7 +148,7 @@ En Azure Portal, seleccione **Nuevo** > **Redes** > **Application Gateway** para
         | Tipo de host      | Múltiple/Comodín                 | Establézcalo en el nombre de sitio web múltiple o con caracteres comodín si el tipo de cliente de escucha está establecido en varios sitios. |
         | Nombre de host      | Por ejemplo: `app.asabuludemo.com` | Establézcalo en un nombre de dominio enrutable para App Service              |
         
-        :::image type="content" source="./media/integrate-with-application-gateway/https-routing-rule.png" alt-text="Cliente de escucha HTTPS de la regla de enrutamiento de la puerta de enlace de aplicación.":::
+        :::image type="content" source="./media/integrate-with-application-gateway/https-routing-rule.png" alt-text="Cliente de escucha HTTPS de la regla de enrutamiento de una puerta de enlace de aplicación.":::
     
     * Debe configurar un **Grupo de back-end** y una **Configuración de HTTP** en **Destinos de back-end**. El grupo de back-end se ha configurado en pasos anteriores. Haga clic en el vínculo **Agregar nuevo** para agregar una configuración de HTTP.
     
@@ -161,12 +161,12 @@ En Azure Portal, seleccione **Nuevo** > **Redes** > **Application Gateway** para
         | Nombre de la configuración de HTTP             | Por ejemplo: `https-setting`                                   | Nombre de la configuración de HTTP                                            |
         | Protocolo de back-end              | HTTPS                                                        | Usar cifrado TLS/SSL                                       |
         | Puerto back-end                  | 443                                                          | Puerto HTTPS predeterminado                                           |
-        | Usar certificado de entidad de certificación reconocida | Sí                                                          | El nombre de dominio predeterminado de ASE con ILB es **.appserviceenvironment.net**, el certificado de este dominio lo emite una entidad raíz de confianza pública. Puede establecer la configuración de certificado raíz de confianza para usar el **certificado raíz de confianza de la entidad de certificación conocida**. |
-        | Reemplazar por un nuevo nombre de host   | Sí                                                          | El encabezado de nombre de host se sobrescribirá al conectarse a la aplicación en ASE con ILB |
+        | Usar certificado de entidad de certificación reconocida | Yes                                                          | El nombre de dominio predeterminado de ASE con ILB es `.appserviceenvironment.net`, el certificado de este dominio lo emite una entidad raíz de confianza pública. Puede establecer la configuración de certificado raíz de confianza para usar el **certificado raíz de confianza de la entidad de certificación conocida**. |
+        | Reemplazar por un nuevo nombre de host   | Yes                                                          | El encabezado de nombre de host se sobrescribirá al conectarse a la aplicación en ASE con ILB |
         | Sustitución del nombre de host            | Seleccionar el nombre de host del destino de back-end | Al establecer el grupo de back-end en App Service, puede elegir el host del destino de back-end |
         | Crear sondeos personalizados | No | Usar sondeo de estado predeterminado|
         
-        :::image type="content" source="./media/integrate-with-application-gateway/https-setting.png" alt-text="Captura de pantalla de la adición de detalles de una configuración de HTTP.":::
+        :::image type="content" source="./media/integrate-with-application-gateway/https-setting.png" alt-text="Captura de pantalla del cuadro de diálogo **Agregar una configuración de H T T P**.":::
 
 
 ## <a name="configure-an-application-gateway-integration-with-ilb-ase"></a>Configuración de la integración de una puerta de enlace de aplicación con ASE con ILB
