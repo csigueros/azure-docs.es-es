@@ -11,7 +11,7 @@
   expanded: true
   items:
     - name: Lista de tutoriales de integración de aplicaciones
-      href: /azure/active-directory/saas-apps/
+      href: /azure/active-directory/saas-apps/tutorial-list
     - name: Incorporación de una aplicación local con Application Proxy
       href: application-proxy-add-on-premises-application.md
 - name: Ejemplos
@@ -170,7 +170,7 @@
     - name: Página de preguntas y respuestas de Microsoft
       href: /answers/topics/azure-active-directory.html
     - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/active-directory'
+      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=active-directory'
     - name: Stack Overflow

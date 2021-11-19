@@ -12,6 +12,8 @@
     - name: Instalación de herramientas de Bicep
       href: install.md
       displayName: nightly
+    - name: Solucionar problemas de la instalación
+      href: installation-troubleshoot.md
 - name: Guías de inicio rápido
   items:
     - name: "Creación de plantillas Bicep: VS\_Code"

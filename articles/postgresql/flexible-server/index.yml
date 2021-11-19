@@ -9,12 +9,12 @@ metadata:
   ms.date: 09/22/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 4ab2a940f0fdb18b60d626cb96813b708860f8ae
-  ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+  ms.openlocfilehash: bb3b8d336eb79991c3c4eb1b379e5d3b60b315cd
+  ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/24/2021
-  ms.locfileid: "122779694"
+  ms.lasthandoff: 11/18/2021
+  ms.locfileid: "132754545"
 landingContent:
 - title: Acerca de un servidor flexible (versión preliminar)
   linkLists:
@@ -22,7 +22,7 @@ landingContent:
     links:
     - text: ¿Qué es un servidor flexible?
       url: overview.md
-    - text: Prueba gratuita de un servidor flexible
+    - text: Pruebe un servidor flexible de forma gratuita.
       url: how-to-deploy-on-azure-free-account.md
   - linkListType: quickstart
     links:
@@ -58,6 +58,8 @@ landingContent:
       url: concepts-logical.md
     - text: Ajuste inteligente
       url: concepts-intelligent-tuning.md
+    - text: Recomendaciones de Azure Advisor
+      url: concepts-azure-advisor-recommendations.md
   - linkListType: how-to-guide
     links:
     - text: Administración de servidor

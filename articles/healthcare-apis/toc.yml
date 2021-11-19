@@ -23,19 +23,26 @@ items:
     items:
       - name: Implementación de las API de atención sanitaria
         href: healthcare-apis-quickstart.md
-  - name: Guías de procedimientos
+  - name: Guías paso a paso
     expanded: true
     items:
-      - name: Autenticación y autorización
-        href: authentication-authorization.md
-      - name: Acceso al servicio FHIR con Postman
+      - name: Administración del acceso y los permisos de los usuarios
+        expanded: true
+        items:
+          - name: Autenticación y autorización
+            href: authentication-authorization.md
+          - name: Registro de una aplicación cliente
+            href: register-application.md
+          - name: Configuración de Azure RBAC
+            href: configure-azure-rbac.md
+          - name: Obtener un token de acceso
+            href: get-access-token.md
+      - name: Acceso mediante Postman
         href: use-postman.md
       - name: Acceso mediante cURL
         href: using-curl.md
       - name: Acceso mediante el cliente REST
         href: using-rest-client.md
-      - name: Registrar aplicaciones
-        href: register-application.md
       - name: Registro
         href: logging.md
   - name: Conceptos

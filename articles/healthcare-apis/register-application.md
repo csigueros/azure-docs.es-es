@@ -2,17 +2,17 @@
 title: Registro de una aplicación cliente en Azure Active Directory para las API de Azure Healthcare
 description: Cómo registrar una aplicación cliente en el Azure AD y cómo agregar un secreto y permisos de API a las API de Azure Healthcare
 services: healthcare-apis
-author: ginalee-dotcom
+author: SteveWohl
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 08/25/2021
-ms.author: ginle
-ms.openlocfilehash: b1ac54f71c9c49af5bb8656bdbe05d639b8bca25
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 11/17/2021
+ms.author: zxue
+ms.openlocfilehash: dcb88484144674122f0a108b92f8986084b80b9f
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278055"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132812605"
 ---
 # <a name="register-a-client-application-in-azure-active-directory"></a>Registro de una aplicación cliente en Azure Active Directory
 
@@ -47,7 +47,7 @@ Si mantiene este valor predeterminado, el registro de la aplicación es una apli
 
 [![Captura de pantalla de la aplicación cliente confidencial. ](media/register-application-five.png) ](media/register-application-five.png#lightbox)
 
-Si cambia el valor predeterminado a "Sí",  el registro de la aplicación es una aplicación cliente pública y no se requiere un certificado o secreto. El valor "Sí" es útil cuando desea usar la aplicación cliente en la aplicación móvil o en una aplicación de JavaScript en la que no desea almacenar secretos.
+Si cambia el valor predeterminado **a** "Sí" para la opción "Permitir flujos de cliente públicos" en la configuración avanzada, el registro de la aplicación es una aplicación cliente pública y no se requiere un certificado o secreto. El valor "Sí" es útil cuando desea usar la aplicación cliente en la aplicación móvil o en una aplicación de JavaScript en la que no desea almacenar secretos.
 
 Para las herramientas que requieren una dirección URL de redireccionamiento, **seleccione Agregar una plataforma** para configurar la plataforma.
 
@@ -75,10 +75,29 @@ Opcionalmente, puede cargar un certificado (clave pública) y usar el identifica
 
 ## <a name="api-permissions"></a>Permisos de API
 
-Los permisos para las API de atención sanitaria se administran a través de RBAC. Para más información, visite [Configuración de RBAC de Azure para el servicio FHIR.](./fhir/configure-azure-rbac-for-fhir.md)
+Los pasos siguientes son necesarios para el servicio DICOM, pero opcionales para el servicio FHIR. Además, los permisos de acceso de usuario o las asignaciones de roles para las API de atención sanitaria se administran mediante RBAC. Para más información, visite [Configuración de RBAC de Azure para las API de atención sanitaria.](configure-azure-rbac.md)
+
+1. Seleccione la hoja **Permisos de API**.
+
+   [ ![Agregación de permisos de API](dicom/media/dicom-add-api-permissions.png) ](dicom/media/dicom-add-api-permissions.png#lightbox)
+
+2. Seleccione **Agregar un permiso**.
+
+   Si usa Azure Healthcare APIs, agregará un permiso al servicio DICOM buscando **Azure API for DICOM** en **API usadas en mi organización**. 
+
+   [ ![Búsqueda de permisos de API](dicom/media/dicom-search-apis-permissions.png) ](dicom/media/dicom-search-apis-permissions.png#lightbox)
+
+   La búsqueda de "Azure API for DICOM" solo devolverá resultados si ya ha implementado el servicio DICOM en el área de trabajo.
+
+   Si hace referencia a otra aplicación de recursos, seleccione el registro de la aplicación de recursos de la API de DICOM que ha creado antes en **API usadas en mi organización**.
+
+3. Seleccione los ámbitos (permisos) que la aplicación cliente confidencial solicitará en nombre del usuario. Seleccione **user_impersonation** y después **Agregar permisos**.
+
+   [ ![Selección de ámbitos de permisos](dicom/media/dicom-select-scopes.png) ](dicom/media/dicom-select-scopes.png#lightbox)
 
 >[!NOTE]
->Use grant_type de client_credentials al intentar retener un token de acceso para el servicio FHIR mediante herramientas como Postman o Rest Client. Para más información, visite [Access using Postman (Acceso mediante Postman)](use-postman.md) y Accessing the Healthcare [APIs using the REST Client Extension in Visual Studio Code](using-rest-client.md)(Acceso a las API de atención sanitaria mediante la extensión de cliente REST en Visual Studio Code ).
+>Use grant_type de client_credentials al intentar retener un token de acceso para el servicio FHIR mediante herramientas como Postman o Rest Client. Para obtener más información, visite [Acceso mediante Postman](use-postman.md) y Acceso a las API de atención sanitaria mediante la extensión de cliente [REST en Visual Studio Code](using-rest-client.md).
+>>Use grant_type de client_credentials o authentication_doe al intentar retener un token de acceso para el servicio DICOM. Para más información, visite [Using DICOM with cURL (Uso de DICOM con cURL).](dicom/dicomweb-standard-apis-curl.md)
 
 El registro de la aplicación ya está completo.
 

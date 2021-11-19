@@ -168,13 +168,13 @@
       items:
         - name: Elija un nivel
           href: search-sku-tier.md
-        - name: Planeamiento de la capacidad
-          href: search-capacity-planning.md
         - name: Crear un servicio
           href: search-create-service-portal.md
+        - name: Planeamiento de la capacidad
+          href: search-capacity-planning.md
         - name: Límites de servicio
           href: search-limits-quotas-capacity.md
-        - name: Administrar costos
+        - name: Planificación y administración de costos
           href: search-sku-manage-costs.md
         - name: Disponibilidad y recuperación
           href: search-performance-optimization.md
@@ -308,7 +308,7 @@
               href: search-howto-managed-identities-data-sources.md
             - name: Azure Storage
               href: search-howto-managed-identities-storage.md
-            - name: "Azure Cosmos\_DB"
+            - name: Azure Cosmos DB
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md

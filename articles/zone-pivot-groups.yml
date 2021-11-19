@@ -941,7 +941,7 @@ groups:
   - id: platform-azp
     title: Azure portal
   - id: platform-azcli
-    title: CLI de Azure
+    title: Azure CLI
   - id: platform-net
     title: .NET
   - id: platform-powershell
@@ -1138,14 +1138,6 @@ groups:
     title: En Azure Portal
   - id: rest-api
     title: Con las API REST
-- id: connect-aws-accounts
-  title: Conexión de la cuenta de AWS a una suscripción de Azure
-  prompt: ¿Cómo conectará su cuenta de AWS?
-  pivots:
-  - id: env-settings
-    title: Página Configuración del entorno
-  - id: classic-connector
-    title: Conector de nube clásico
 - id: client-operating-system-macos-and-linux-windows-powershell
   title: Sistema operativo/consola
   prompt: Elección de un sistema operativo y una consola
@@ -1319,9 +1311,9 @@ groups:
   prompt: Elegir una opción.
   pivots:
   - id: identity-mi-methods-azp
-    title: Azure Portal
+    title: Portal de Azure
   - id: identity-mi-methods-azcli
-    title: CLI de Azure
+    title: Azure CLI
   - id: identity-mi-methods-powershell
     title: PowerShell
   - id: identity-mi-methods-arm
@@ -1333,9 +1325,9 @@ groups:
   prompt: Elegir una opción.
   pivots:
   - id: identity-mi-methods-sub-azp
-    title: Azure Portal
+    title: Portal de Azure
   - id: identity-mi-methods-sub-azcli
-    title: CLI de Azure
+    title: Azure CLI
   - id: identity-mi-methods-sub-powershell
     title: PowerShell
 - id: programming-languages-set-twenty-eight
@@ -1405,11 +1397,19 @@ groups:
   - id: client-clitier
     title: CLI
   - id: client-portaltier
-    title: Azure Portal
+    title: Portal de Azure
+- id: iot-develop-nxp-toolset
+  title: Dispositivos IoT
+  prompt: Elección de un entorno de compilación
+  pivots:
+  - id: iot-toolset-cmake
+    title: CMake
+  - id: iot-toolset-iar-ewarm
+    title: IAR EWARM
 metadata:
-  ms.openlocfilehash: 97d7281ba21ff3821bb2ed6ff0775c9dad0e0a55
-  ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+  ms.openlocfilehash: 7eb1aefed8cbc026d49ec6dcf1969fde57029be1
+  ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/10/2021
-  ms.locfileid: "132156564"
+  ms.lasthandoff: 11/18/2021
+  ms.locfileid: "132759485"

@@ -17,7 +17,7 @@
     - name: Personalización de asignaciones de atributos
       href: customize-application-attributes.md
     - name: Tutoriales de aprovisionamiento específicos de aplicaciones
-      href: /azure/active-directory/saas-apps
+      href: /azure/active-directory/saas-apps/tutorial-list
     - name: Aprovisionamiento para aplicaciones basadas en SQL
       href: tutorial-ecma-sql-connector.md
 - name: Conceptos
@@ -129,7 +129,7 @@
     - name: Página de preguntas y respuestas de Microsoft
       href: /answers/topics/azure-active-directory.html
     - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/active-directory'
+      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=active-directory'
     - name: Stack Overflow

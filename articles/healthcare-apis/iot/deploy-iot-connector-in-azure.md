@@ -7,23 +7,23 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 11/10/2021
 ms.author: jasteppe
-ms.openlocfilehash: f4eaee6afb134513da55b7f39e2d1f6df6c547b7
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 5d55af3165991c8a6d16596ae9d4e8f9f4e8e3e9
+ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132345337"
+ms.lasthandoff: 11/19/2021
+ms.locfileid: "132812359"
 ---
 # <a name="deploy-iot-connector-in-the-azure-portal"></a>Implementación del conector de IoT en el Azure Portal
 
 > [!IMPORTANT]
 > Azure Healthcare APIs se encuentra actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
 
-En este inicio rápido, aprenderá a implementar el conector de IoT en el Azure Portal. La configuración de un conector de IoT le permitirá ingerir datos de Internet de las cosas (IoT) en el servicio Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;) mediante un centro de eventos de Azure para mensajes de dispositivo.
+En este inicio rápido, aprenderá a implementar el conector de IoT en el Azure Portal. La configuración de un conector de IoT le permitirá ingerir datos de Internet de las cosas (IoT) en el servicio Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;) mediante un centro de eventos de Azure para los mensajes del dispositivo.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Es importante que haya completado los siguientes requisitos previos antes de comenzar los pasos de creación de una instancia del conector de IoT en las API de Azure Healthcare.
+Es importante que tenga los siguientes requisitos previos completados antes de comenzar los pasos de creación de una instancia del conector de IoT en las API de Azure Healthcare.
 
 * [Cuenta de Azure](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
 * [Grupo de recursos implementado en la Azure Portal](../../azure-resource-manager/management/manage-resource-groups-portal.md)
@@ -33,7 +33,7 @@ Es importante que haya completado los siguientes requisitos previos antes de com
 
 ## <a name="deploy-iot-connector"></a>Implementación del conector de IoT 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com)y, a continuación, escriba el nombre del recurso del área de trabajo de las API de atención sanitaria en el **campo Barra** de búsqueda.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com)y, a continuación, escriba el nombre del recurso del área de trabajo de Healthcare APIs en el **campo Barra** de búsqueda.
  
    ![Captura de pantalla de la especificación del nombre del recurso del área de trabajo en el campo de la barra de búsqueda.](media/select-workspace-resource-group.png#lightbox)
 
@@ -47,7 +47,7 @@ Es importante que haya completado los siguientes requisitos previos antes de com
 
 ## <a name="configure-iot-connector-to-ingest-data"></a>Configuración del conector de IoT para ingerir datos
 
-En la **pestaña Aspectos** básicos, complete los campos obligatorios en **Detalles de instancia.**
+En la **pestaña Aspectos** básicos, complete los campos obligatorios en **Detalles de la instancia**.
 
 ![Captura de pantalla de los detalles de la instancia de configuración de IoT.](media/basics-instance-details.png#lightbox)
 
@@ -57,32 +57,32 @@ En la **pestaña Aspectos** básicos, complete los campos obligatorios en **Deta
 
 2. Escriba el nombre **del centro de eventos.**
 
-   El nombre del centro de eventos es el nombre **de la instancia Event Hubs que** ha implementado. 
+   El nombre del centro de eventos es el nombre **de la Event Hubs que** ha implementado. 
 
-   Para obtener información sobre Azure Event Hubs, consulte [Inicio rápido: Creación de un centro](../../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)de eventos mediante Azure Portal .
+   Para obtener información sobre Azure Event Hubs, consulte [Inicio rápido: Creación de un centro de](../../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)eventos mediante Azure Portal .
 
 3. Escriba el **grupo de consumidores**.
 
-   El nombre del grupo de  consumidores se encuentra mediante la barra de búsqueda para ir a la instancia de Event Hubs que ha implementado y seleccionando la hoja **Grupos de** consumidores.
+   El nombre del grupo de  consumidores se encuentra mediante la barra de búsqueda para ir Event Hubs la instancia de Event Hubs que ha implementado y seleccionando la hoja **Grupos de** consumidores.
 
    ![Captura de pantalla del nombre del grupo de consumidores.](media/consumer-group-name.png#lightbox)
 
    Para obtener información sobre los grupos de consumidores, vea [Características y terminología en Azure Event Hubs](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#event-consumers).
 
-4. Escriba el nombre del espacio **de nombres completo**.
+4. Escriba el nombre del espacio **de nombres completo.**
 
-    El **espacio de nombres completo** es el nombre de **host** que se encuentra en la Event Hubs información general del espacio de **nombres.**
+    El **espacio de nombres completo** es el nombre de **host** que se encuentra en la Event Hubs información general del espacio **de** nombres.
 
     ![Captura de pantalla del espacio de nombres completo.](media/event-hub-hostname.png#lightbox)  
 
-    Para obtener más información sobre los Event Hubs de nombres, vea [Espacio](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) de nombres en características y terminología en Azure Event Hubs documento.
+    Para obtener más información sobre los Event Hubs de nombres, vea [Espacio](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) de nombres en el documento Características y terminología de Azure Event Hubs.
 
 5. Seleccione **Siguiente: Asignación de dispositivos.** 
   
-## <a name="configure-device-mapping-properties"></a>Configuración de las propiedades de asignación de dispositivos
+## <a name="configure-device-mapping-properties"></a>Configuración de propiedades de asignación de dispositivos
 
 > [!TIP]
-> El asignador de datos del conector IoMT es una herramienta de código abierto para visualizar la configuración de asignación para normalizar los datos de entrada de un dispositivo y, a continuación, transformarlos en recursos de FHIR. Los desarrolladores pueden usar esta herramienta para editar y probar las asignaciones de destino de dispositivos y FHIR, y para exportar los datos que se cargarán en un conector de IoT en el Azure Portal. Esta herramienta también ayuda a los desarrolladores a comprender las configuraciones de asignación de destino de dispositivo y FHIR de su dispositivo.
+> El asignador de datos del conector ioMT es una herramienta de código abierto para visualizar la configuración de asignación para normalizar los datos de entrada de un dispositivo y, a continuación, transformarlos en recursos de FHIR. Los desarrolladores pueden usar esta herramienta para editar y probar las asignaciones de destino de dispositivos y FHIR, y para exportar los datos que se cargarán en un conector de IoT en el Azure Portal. Esta herramienta también ayuda a los desarrolladores a comprender las configuraciones de asignación de destino de dispositivos y FHIR de su dispositivo.
 >
 > Para más información, consulte la documentación de código abierto:
 >
@@ -106,7 +106,7 @@ En la **pestaña Destino,** escriba las propiedades de destino asociadas al cone
 
    El nombre del servidor de **FHIR** (también conocido como  servicio **FHIR)** se encuentra mediante la barra de búsqueda para ir al servicio FHIR que ha implementado y seleccionando la hoja **Propiedades.** Copie y pegue la cadena **de id. de** recurso en el **campo de texto Servidor FHIR.**
 
-    ![Captura de pantalla de Escriba el nombre del servidor de FHIR.](media/fhir-service-resource-id.png#lightbox) 
+    ![Captura de pantalla de Escriba el nombre del servidor FHIR.](media/fhir-service-resource-id.png#lightbox) 
 
 2. Escriba el **nombre de destino**.
 
@@ -115,21 +115,21 @@ En la **pestaña Destino,** escriba las propiedades de destino asociadas al cone
 3. Seleccione **Crear** o **Buscar para** el tipo de **resolución**.
 
     > [!NOTE]
-    > Para que el destino del conector de IoT cree un recurso de  observación válido en el servicio FHIR, debe existir un recurso de dispositivo y un recurso de paciente en el servidor de FHIR, de modo que la observación pueda hacer referencia correctamente al dispositivo que creó los datos y al paciente desde el que se midieron los datos. Hay dos modos que el conector de IoT puede usar para resolver los recursos del dispositivo y del paciente.
+    > Para que el destino del conector de IoT cree un recurso de  observación válido en el servicio FHIR, debe existir un recurso de dispositivo y un recurso de paciente en el servidor de FHIR, por lo que la observación puede hacer referencia correctamente al dispositivo que creó los datos y al paciente desde el que se midieron los datos. Hay dos modos que el conector de IoT puede usar para resolver los recursos del dispositivo y del paciente.
 
-   **Crear**
+   **Creación**
 
-     El destino del conector de IoT intenta recuperar un recurso de dispositivo del servidor de FHIR mediante el identificador de dispositivo incluido en el mensaje del centro de eventos. También intenta recuperar un recurso de paciente del servidor de FHIR mediante el identificador de paciente incluido en el mensaje del centro de eventos. Si no se encuentra ninguno de los recursos, se crearán nuevos recursos (dispositivo, paciente o ambos) que contengan solo el identificador contenido en el mensaje del centro de eventos. Cuando se usa la **opción Crear,** se pueden configurar un identificador de dispositivo y un identificador de paciente en la asignación de dispositivos. En otras palabras, cuando el destino  IoT Connector está en modo  Crear, puede funcionar con normalidad sin agregar recursos de dispositivos y pacientes al servidor de FHIR.
+     El destino del conector de IoT intenta recuperar un recurso de dispositivo del servidor FHIR mediante el identificador de dispositivo incluido en el mensaje del centro de eventos. También intenta recuperar un recurso de paciente del servidor de FHIR mediante el identificador de paciente incluido en el mensaje del centro de eventos. Si no se encuentra ninguno de los recursos, se crearán nuevos recursos (dispositivo, paciente o ambos) que contengan solo el identificador contenido en el mensaje del centro de eventos. Cuando se usa la **opción Crear,** se pueden configurar un identificador de dispositivo y un identificador de paciente en la asignación de dispositivos. En otras palabras, cuando el  destino IoT Connector está en  modo Crear, puede funcionar normalmente sin agregar recursos de dispositivos y pacientes al servidor de FHIR.
 
    **Lookup**
 
-     El destino del conector de IoT intenta recuperar un recurso de dispositivo del servidor de FHIR mediante el identificador de dispositivo incluido en el mensaje del centro de eventos. Si no se encuentra el recurso de dispositivo, se producirá un error y los datos no se procesarán. Para **que la** búsqueda funcione correctamente, debe existir un recurso de  dispositivo con un  identificador que coincida con el identificador de dispositivo incluido en el mensaje del centro de eventos y el recurso de dispositivo debe tener una referencia a un recurso de paciente que también exista. En otras palabras, cuando el destino del conector de  IoT está en modo de búsqueda, los recursos de dispositivo y paciente se deben agregar al servidor de FHIR antes de que se puedan procesar los datos.
+     El destino del conector de IoT intenta recuperar un recurso de dispositivo del servidor FHIR mediante el identificador de dispositivo incluido en el mensaje del centro de eventos. Si no se encuentra el recurso del dispositivo, se producirá un error y los datos no se procesarán. Para **que la** búsqueda funcione correctamente, debe existir un recurso de  dispositivo con un  identificador que coincida con el identificador de dispositivo incluido en el mensaje del centro de eventos y el recurso de dispositivo debe tener una referencia a un recurso de paciente que también exista. En otras palabras, cuando el destino del conector de  IoT está en modo de búsqueda, los recursos del dispositivo y del paciente deben agregarse al servidor de FHIR antes de que se puedan procesar los datos.
 
    Para obtener más información, consulte la documentación de código abierto [Asignación de destino de FHIR](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#fhir-mapping).
 
 4. En **Asignación de destino,** escriba el código JSON dentro del editor de código.
 
-   Para obtener información sobre la herramienta mapeador, vea Herramienta de asignador de datos del conector [ioMT.](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper)
+   Para obtener información sobre la herramienta mapeador, vea Herramienta de asignador de datos del conector de [IoMT.](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper)
 
 5. Puede seleccionar **Revisar y crear,** o bien puede seleccionar **Siguiente: Etiquetas >** si desea configurar etiquetas.  
 
@@ -145,18 +145,18 @@ En la **pestaña Etiquetas,** escriba las propiedades de etiqueta asociadas al c
 2. Escriba un **valor**.
 3. Seleccione **Revisar + crear**.
 
-   Debería observar un mensaje **de validación** correcta como el que se muestra en la imagen siguiente. 
+   Debería ver un mensaje **de validación** correcta como el que se muestra en la imagen siguiente. 
 
    ![Captura de pantalla del mensaje validación correcta.](media/iot-connector-validation-success.png#lightbox) 
 
    > [!NOTE]
-   > Si el conector de IoT no se validó, revise el mensaje de error de validación y solucione el problema. Se recomienda revisar las propiedades de cada pestaña del conector de IoT que haya configurado.
+   > Si el conector de IoT no se validó, revise el mensaje de error de validación y solucione el problema. Se recomienda revisar las propiedades en cada pestaña del conector de IoT que haya configurado.
 
 4. A continuación, seleccione **Crear**.
 
    El conector de IoT recién implementado se mostrará dentro de la página Grupos de recursos de Azure.
 
-   ![Captura de pantalla del conector de IoT implementado que aparece en la lista recursos recientes de Azure.](media/azure-resources-iot-connector-deployed.png#lightbox)  
+   ![Captura de pantalla del conector de IoT implementado que aparece en la lista Recursos recientes de Azure.](media/azure-resources-iot-connector-deployed.png#lightbox)  
 
     Ahora que se ha implementado el conector de IoT, vamos a seguir los pasos de asignación de permisos para acceder al centro de eventos y al servicio FHIR. 
 
@@ -166,7 +166,7 @@ Para asegurarse de que el conector de IoT funciona correctamente, debe haber con
 
 ### <a name="accessing-the-iot-connector-from-the-event-hub"></a>Acceso al conector de IoT desde el centro de eventos
 
-1. En la **lista Grupo de recursos de Azure,** seleccione el nombre del espacio Event Hubs de **nombres**.
+1. En la **lista Grupo de recursos de Azure,** seleccione el nombre del espacio Event Hubs espacio de **nombres**.
 
 2. Seleccione la **hoja Control de acceso (IAM)** y, a continuación, seleccione + **Agregar.**   
 
@@ -174,7 +174,7 @@ Para asegurarse de que el conector de IoT funciona correctamente, debe haber con
 
 3. Seleccione **Agregar asignación de roles**.
 
-   ![Captura de pantalla de agregar asignación de roles.](media/event-hub-add-role-assignment.png#lightbox)
+   ![Captura de pantalla de adición de asignación de roles.](media/event-hub-add-role-assignment.png#lightbox)
  
 4. Seleccione el **rol y,** a continuación, **seleccione Azure Event Hubs receptor de datos**.
 
@@ -190,15 +190,15 @@ Para asegurarse de que el conector de IoT funciona correctamente, debe haber con
 
    `<your workspace name>/iotconnectors/<your IoT connector name>`
  
-   Al implementar un conector de IoT, se crea una identidad administrada. El nombre de identificación administrada es una concatenación del nombre del área de trabajo, el tipo de recurso (es decir, el conector de IoT) y el nombre del conector de IoT.
+   Cuando se implementa un conector de IoT, se crea una identidad administrada. El nombre de identificación administrada es una concatenación del nombre del área de trabajo, el tipo de recurso (es decir, el conector de IoT) y el nombre del conector de IoT.
 
 7. Seleccione **Guardar**.
 
    Una vez que la asignación de roles se haya agregado correctamente al centro de eventos, una notificación mostrará una marca de verificación verde con el texto "Agregar asignación de roles".  Este mensaje indica que el conector de IoT ahora puede leer desde el centro de eventos.
 
-   ![Captura de pantalla del mensaje de asignación de roles agregado.](media/event-hub-added-role-assignment.png#lightbox)
+   ![Captura de pantalla del mensaje de asignación de roles agregados.](media/event-hub-added-role-assignment.png#lightbox)
 
-Para obtener más información sobre cómo crear acceso a Event Hubs recursos, consulte [Autorización del acceso con Azure Active Directory](../../event-hubs/authorize-access-azure-active-directory.md).  
+Para obtener más información sobre cómo crear acceso a Event Hubs recursos, vea [Autorización del acceso con Azure Active Directory](../../event-hubs/authorize-access-azure-active-directory.md).  
 
 ### <a name="accessing-the-iot-connector-from-the-fhir-service"></a>Acceso al conector de IoT desde el servicio FHIR
 
@@ -212,7 +212,7 @@ Para obtener más información sobre cómo crear acceso a Event Hubs recursos, c
 
 4. Seleccione el **rol y,** a continuación, **seleccione FHIR Data Writer**.
 
-   El rol FHIR Data Writer proporciona acceso de lectura y escritura que el conector de IoT usa para funcionar. Dado que el conector de IoT se implementa como un recurso independiente, el servicio FHIR recibirá solicitudes del conector de IoT. Si el servicio FHIR no sabe quién realiza la solicitud o si no tiene el rol asignado, denegará la solicitud como no autorizada.
+   El rol escritor de datos de FHIR proporciona acceso de lectura y escritura que el conector de IoT usa para funcionar. Dado que el conector de IoT se implementa como un recurso independiente, el servicio FHIR recibirá solicitudes del conector de IoT. Si el servicio FHIR no sabe quién realiza la solicitud o si no tiene el rol asignado, denegará la solicitud como no autorizada.
 
    Para obtener más información sobre los roles de aplicación, vea Autenticación & autorización para las API de atención sanitaria [(versión preliminar).](.././authentication-authorization.md)
 
@@ -224,7 +224,7 @@ Para obtener más información sobre cómo crear acceso a Event Hubs recursos, c
 
    ![Captura de pantalla del mensaje de asignación de roles agregado del servicio FHIR.](media/fhir-service-added-role-assignment.png#lightbox)
 
-   Para más información sobre la asignación de roles al servicio FHIR, consulte Configuración de RBAC de [Azure para el servicio FHIR.](../fhir/configure-azure-rbac-for-fhir.md)
+   Para más información sobre la asignación de roles al servicio FHIR, consulte [Configuración de RBAC de Azure.](.././configure-azure-rbac.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -233,4 +233,4 @@ En este artículo, ha aprendido a implementar un conector de IoT en el Azure Por
 >[!div class="nextstepaction"]
 >[Introducción al conector de IoT](iot-connector-overview.md)
 
-(FHIR&#174;) es una marca registrada [de HL7](https://hl7.org/fhir/) y se usa con el permiso HL7.
+(FHIR&#174;) es una marca comercial registrada de [HL7](https://hl7.org/fhir/) y se usa con el permiso hl7.

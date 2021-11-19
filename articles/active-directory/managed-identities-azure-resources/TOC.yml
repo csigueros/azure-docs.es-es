@@ -143,6 +143,6 @@
     - name: Servicios de Azure que admiten identidades administradas de recursos de Azure
       href: services-support-managed-identities.md
     - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-msi'
+      href: 'https://stackoverflow.com/questions/tagged/azure-managed-identity'
     - name: "Foro para desarrolladores de Azure\_AD"
       href: 'https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789?c=3abf25c9-ad25-ec11-b6e6-000d3a4f0789#'
