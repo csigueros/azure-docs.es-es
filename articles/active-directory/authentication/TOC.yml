@@ -57,7 +57,7 @@
         - name: Licencias
           href: concept-mfa-licensing.md
         - name: Multi-Factor Authentication para Office 365
-          href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication
+          href: /microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication
         - name: Preguntas más frecuentes
           href: multi-factor-authentication-faq.yml
         - name: Asistencia para operadores
@@ -268,7 +268,7 @@
     - name: Guía de usuario de MFA
       href: 'https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc'
     - name: Ejemplos de código
-      href: 'https://azure.microsoft.com/resources/samples/?service=active-directory'
+      href: /samples/browse/?products=azure
     - name: Cmdlets de Azure PowerShell
       href: /powershell/azure/
     - name: Versión beta de la API REST de Microsoft Graph

@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 11/04/2021
-ms.openlocfilehash: a139996e881d38fb9170242196b2139993f501ae
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: 94bd9d22876f264ffd438d579c48aa037ed87c3f
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132028825"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486618"
 ---
 # <a name="quickstart-purchase-commitment-tier-pricing"></a>Inicio rápido: Precios del nivel de compromiso de compra
 
@@ -97,7 +97,7 @@ Si necesita un plan de compromiso mayor que cualquiera de los ofrecidos, póngas
 
 ## <a name="end-a-commitment-plan"></a>Finalización de un plan de compromiso
 
-Si decide que no quiere seguir comprando un plan de compromiso, puede establecer la renovación automática del recurso en **No renovar automáticamente**. El plan de compromiso expirará en la fecha de finalización del compromiso mostrada. Después de esta fecha, no se le cobrará por el plan de compromiso. Podrá seguir usando el recurso de Azure para realizar llamadas API y se le cobrará según los precios de pago por uso.
+Si decide que no quiere seguir comprando un plan de compromiso, puede establecer la renovación automática del recurso en **No renovar automáticamente**. El plan de compromiso expirará en la fecha de finalización del compromiso mostrada. Después de esta fecha, no se le cobrará por el plan de compromiso. Podrá seguir usando el recurso de Azure para realizar llamadas API, según los precios de pago por uso. Tiene hasta medianoche (UTC) del último día de cada mes para finalizar un plan de compromiso y no se le cobrará el mes siguiente. 
 
 ## <a name="see-also"></a>Vea también
 

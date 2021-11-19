@@ -6,12 +6,12 @@ ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 11/01/2021
-ms.openlocfilehash: 3fb4c5dbbc8ea073962cd7e0edb3e53c4c9920d5
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: c9e0a59e5e228d500ca011ce20c20153c3a9558b
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132494033"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709052"
 ---
 # <a name="tutorial-create-a-serverless-notification-app-with-azure-functions-and-azure-web-pubsub-service"></a>Tutorial: Creación de una aplicación de notificación sin servidor con Azure Functions y el servicio Azure Web PubSub
 
@@ -70,7 +70,7 @@ En este tutorial, aprenderá a:
 2. \* Instale el paquete de extensión de la función `Microsoft.Azure.WebJobs.Extensions.WebPubSub`.
 
     > [!NOTE]
-    > El paso será opcional cuando se admitan [conjuntos de extensiones](/azure/azure-functions/functions-bindings-register#extension-bundles).
+    > El paso será opcional cuando se admitan [conjuntos de extensiones](../azure-functions/functions-bindings-register.md#extension-bundles).
 
    a. Quite la sección `extensionBundle` de `host.json` para habilitar la instalación de un paquete de extensión específico en el paso siguiente. O simplemente cree un archivo host.json tan simple como el siguiente.
     ```json

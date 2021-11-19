@@ -9,12 +9,12 @@ ms.date: 12/10/2020
 author: ThomasWeiss
 ms.author: thweiss
 ms.custom: devx-track-java
-ms.openlocfilehash: e5eab216c40245aef19a7fc9ef8fd1a5bd8bc029
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 7b390f4be49c8785c7ee8a2dca588ee3cfb7d571
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132487649"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719587"
 ---
 # <a name="how-to-use-the-azure-tables-client-library-for-java"></a>Uso de la biblioteca cliente de Azure Tables para Java
 
@@ -559,5 +559,5 @@ Para más información, visite [Azure para desarrolladores de Java](/java/azure)
 [Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Tables client library for Java]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables/azure-data-tables
 [Azure Tables client library reference documentation]: https://azure.github.io/azure-sdk-for-java/tables.html
-[Azure Tables REST API]: /azure/storage/tables/table-storage-overview
+[Azure Tables REST API]: ../../storage/tables/table-storage-overview.md
 [Azure Tables Team Blog]: https://blogs.msdn.microsoft.com/windowsazurestorage/

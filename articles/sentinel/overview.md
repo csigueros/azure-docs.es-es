@@ -7,6 +7,8 @@ author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 10cce91a-421b-4959-acdf-7177d261f6f2
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc, ignite-fall-2021
@@ -14,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 04ed46284cee047ef3ee5893e3245ff63eb46746
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 40cfdc1d23b57bbda16e79907d226134e0052134
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132712554"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523493"
 ---
 # <a name="what-is-microsoft-sentinel"></a>¿Qué es Microsoft Sentinel?
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Microsoft Sentinel es una solución de **administración de eventos e información de seguridad (SIEM)** y **respuesta automatizada de orquestación de seguridad (SOAR)** que es escalable y nativa de la nube. Microsoft Sentinel ofrece análisis de seguridad inteligente e inteligencia frente a amenazas en toda la empresa, de forma que proporciona una única solución para la detección de alertas, la visibilidad de amenazas, la búsqueda proactiva y la respuesta a amenazas.
+Microsoft Sentinel es una solución de **administración de eventos e información de seguridad (SIEM)** y **respuesta automatizada de orquestación de seguridad (SOAR)** que es escalable y nativa de la nube. Microsoft Sentinel ofrece análisis de seguridad inteligente e inteligencia frente a amenazas en toda la empresa, de forma que proporciona una única solución para la detección de alertas, la visibilidad de amenazas, la búsqueda proactiva y la respuesta a amenazas.
 
 Microsoft Azure Sentinel permite obtener una vista general de toda la empresa, lo que suaviza la tensión de ataques cada vez más sofisticados, volúmenes de alertas cada vez mayores y plazos de resolución largos.
 
