@@ -1,107 +1,120 @@
-- name: Documentación de Custom Vision Service
-  href: index.yml
-- name: Información general
-  expanded: true
-  items:
-    - name: ¿Qué es Custom Vision?
-      href: overview.md
-    - name: Precios y límites
-      href: limits-and-quotas.md
-    - name: Novedades
-      href: whats-new.md
-- name: Guías de inicio rápido
-  items:
-    - name: Compilación de un clasificador
-      items:
-        - name: Uso del portal web
-          href: getting-started-build-a-classifier.md
-        - name: Uso del SDK de Custom Vision o de la API REST
-          href: quickstarts/image-classification.md
-    - name: Creación de un detector de objetos
-      items:
-        - name: Uso del portal web
-          href: get-started-build-detector.md
-        - name: Uso del SDK de Custom Vision
-          href: quickstarts/object-detection.md
-- name: Tutoriales
-  items:
-    - name: Informe de estados visuales en un dispositivo IoT
-      href: iot-visual-alerts-tutorial.md
-    - name: Reconocimiento de logotipos en dispositivos móviles
-      href: logo-detector-mobile.md
-- name: Guías paso a paso
-  items:
-    - name: Comprobación del modelo
-      href: test-your-model.md
-    - name: Mejora del modelo
-      href: getting-started-improving-your-classifier.md
-    - name: Selección de un dominio
-      href: select-domain.md
-    - name: Uso de la API de predicción
-      href: use-prediction-api.md
-    - name: Uso de Smart Labeler
-      href: suggested-tags.md
-    - name: Control de acceso basado en roles de Azure
-      href: role-based-access-control.md
-    - name: Exportación de modelos
-      items:
-        - name: Exportación del modelo al móvil
-          href: export-your-model.md
-        - name: Exportación de un modelo mediante programación
-          href: export-programmatically.md
-        - name: Use el modelo ONNX con Windows ML
-          href: custom-vision-onnx-windows-ml.md
-        - name: Ejecución del modelo de TensorFlow en Python
-          href: export-model-python.md
-    - name: Integración de notificaciones de almacenamiento
-      href: storage-integration.md
-    - name: Copia y traslado de proyectos
-      href: copy-move-projects.md
-    - name: Visualización o eliminación de datos de cuenta
-      href: ./export-delete-data.md
-    - name: Actualización de la aplicación a la versión 3.0 de la API
-      href: ./update-application-to-3.0-sdk.md
-    - name: Adecuado para empresas
-      items:
-        - name: Configuración de redes virtuales
-          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/custom-vision-service/context/context
-        - name: Uso de claves administradas por el cliente
-          href: encrypt-data-at-rest.md
-- name: Referencia
-  items:
-    - name: Custom Vision Training API
-      href: 'https://go.microsoft.com/fwlink/?linkid=865446'
-    - name: Custom Vision Prediction API
-      href: 'https://go.microsoft.com/fwlink/?linkid=865445'
-    - name: SDK
-      items:
-        - name: .NET
-          href: /dotnet/api/overview/azure/cognitiveservices/client/customvision
-        - name: Java
-          href: /java/api/overview/azure/cognitiveservices/client/customvision
-        - name: 'Node.js: Aprendizaje'
-          href: /javascript/api/@azure/cognitiveservices-customvision-training/
-        - name: 'Node.js: Predicción'
-          href: /javascript/api/@azure/cognitiveservices-customvision-prediction/
-        - name: Python
-          href: /python/api/overview/azure/cognitiveservices/customvision
-        - name: 'Go: Aprendizaje'
-          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training'
-        - name: 'Go: Predicción'
-          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction'
-- name: Recursos
-  items:
-    - name: Adecuado para empresas
-      items:
-        - name: Regiones admitidas
-          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-        - name: Cumplimiento y certificación
-          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Opciones de ayuda y soporte técnico
-      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/custom-vision-service/context/context
-    - name: Ejemplos
-      href: /samples/browse/?products=azure&term=vision
-    - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Notas de la versión
-      href: release-notes.md
+items:
+  - name: Documentación de Custom Vision Service
+    href: index.yml
+  - name: Información general
+    expanded: true
+    items:
+      - name: ¿Qué es Custom Vision?
+        href: overview.md
+      - name: Precios y límites
+        href: limits-and-quotas.md
+      - name: Novedades
+        href: whats-new.md
+  - name: Guías de inicio rápido
+    items:
+      - name: Compilación de un clasificador
+        items:
+          - name: Uso del portal web
+            href: getting-started-build-a-classifier.md
+          - name: Uso del SDK de Custom Vision o de la API REST
+            href: quickstarts/image-classification.md
+      - name: Creación de un detector de objetos
+        items:
+          - name: Uso del portal web
+            href: get-started-build-detector.md
+          - name: Uso del SDK de Custom Vision
+            href: quickstarts/object-detection.md
+  - name: Uso responsable de la inteligencia artificial
+    items:
+      - name: Notas de transparencia
+        items:
+          - name: Casos de uso de Custom Vision
+            href: /legal/cognitive-services/custom-vision/custom-vision-cvs-transparency-note?context=/azure/cognitive-services/custom-vision-service/context/context
+          - name: Características y limitaciones
+            href: /legal/cognitive-services/custom-vision/custom-vision-cvs-characteristics-and-limitations?context=/azure/cognitive-services/custom-vision-service/context/context
+      - name: Integración y uso responsable
+        href: /legal/cognitive-services/custom-vision/custom-vision-cvs-guidance-integration-responsible-use?context=/azure/cognitive-services/custom-vision-service/context/context
+      - name: 'Datos, privacidad y seguridad'
+        href: /legal/cognitive-services/custom-vision/custom-vision-cvs-data-privacy-security?context=/azure/cognitive-services/custom-vision-service/context/context
+  - name: Tutoriales
+    items:
+      - name: Informe de estados visuales en un dispositivo IoT
+        href: iot-visual-alerts-tutorial.md
+      - name: Reconocimiento de logotipos en dispositivos móviles
+        href: logo-detector-mobile.md
+  - name: Guías paso a paso
+    items:
+      - name: Comprobación del modelo
+        href: test-your-model.md
+      - name: Mejora del modelo
+        href: getting-started-improving-your-classifier.md
+      - name: Selección de un dominio
+        href: select-domain.md
+      - name: Uso de la API de predicción
+        href: use-prediction-api.md
+      - name: Uso de Smart Labeler
+        href: suggested-tags.md
+      - name: Control de acceso basado en roles de Azure
+        href: role-based-access-control.md
+      - name: Exportación de modelos
+        items:
+          - name: Exportación del modelo al móvil
+            href: export-your-model.md
+          - name: Exportación de un modelo mediante programación
+            href: export-programmatically.md
+          - name: Use el modelo ONNX con Windows ML
+            href: custom-vision-onnx-windows-ml.md
+          - name: Ejecución del modelo de TensorFlow en Python
+            href: export-model-python.md
+      - name: Integración de notificaciones de almacenamiento
+        href: storage-integration.md
+      - name: Copia y traslado de proyectos
+        href: copy-move-projects.md
+      - name: Visualización o eliminación de datos de cuenta
+        href: ./export-delete-data.md
+      - name: Actualización de la aplicación a la versión 3.0 de la API
+        href: ./update-application-to-3.0-sdk.md
+      - name: Adecuado para empresas
+        items:
+          - name: Configuración de redes virtuales
+            href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/custom-vision-service/context/context
+          - name: Uso de claves administradas por el cliente
+            href: encrypt-data-at-rest.md
+  - name: Referencia
+    items:
+      - name: Custom Vision Training API
+        href: 'https://go.microsoft.com/fwlink/?linkid=865446'
+      - name: Custom Vision Prediction API
+        href: 'https://go.microsoft.com/fwlink/?linkid=865445'
+      - name: SDK
+        items:
+          - name: .NET
+            href: /dotnet/api/overview/azure/cognitiveservices/client/customvision
+          - name: Java
+            href: /java/api/overview/azure/cognitiveservices/client/customvision
+          - name: 'Node.js: Aprendizaje'
+            href: /javascript/api/@azure/cognitiveservices-customvision-training/
+          - name: 'Node.js: Predicción'
+            href: /javascript/api/@azure/cognitiveservices-customvision-prediction/
+          - name: Python
+            href: /python/api/overview/azure/cognitiveservices/customvision
+          - name: 'Go: Aprendizaje'
+            href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training'
+          - name: 'Go: Predicción'
+            href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction'
+  - name: Recursos
+    items:
+      - name: Adecuado para empresas
+        items:
+          - name: Regiones admitidas
+            href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+          - name: Cumplimiento y certificación
+            href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+      - name: Opciones de ayuda y soporte técnico
+        href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/custom-vision-service/context/context
+      - name: Ejemplos
+        href: /samples/browse/?products=azure&term=vision
+      - name: Azure Roadmap
+        href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+      - name: Notas de la versión
+        href: release-notes.md

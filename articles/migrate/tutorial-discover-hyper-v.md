@@ -5,14 +5,14 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/25/2021
+ms.date: 11/12/2021
 ms.custom: mvc
-ms.openlocfilehash: 8ee94cf4c02c5535a85b75eec5a60522143a16ce
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 1c9e0c5a6a0672ec36bfef1d2f8d909b0ddea984
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124748702"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132397687"
 ---
 # <a name="tutorial-discover-servers-running-on-hyper-v-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Detección de servidores que se ejecutan en Hyper-V con Azure Migrate Discovery and assessment
 
@@ -91,7 +91,7 @@ Delegación de credenciales si los discos de los servidores se encuentran en rec
 ### <a name="run-the-script"></a>Ejecución del script
 
 1. Descargue el script del [Centro de descarga de Microsoft](https://aka.ms/migrate/script/hyperv). Microsoft firma criptográficamente el script.
-2. Valide la integridad del script mediante archivos hash MD5 o SHA256. A continuación se muestran los valores de hashtag. Ejecute este comando para generar el código hash para el script:
+2. Valide la integridad del script mediante archivos hash SHA256. El valor de hashtag está debajo. Ejecute este comando para generar el código hash para el script:
 
     ```powershell
     C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
@@ -106,11 +106,10 @@ Delegación de credenciales si los discos de los servidores se encuentran en rec
     ```powershell
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
     ```
-Los valores de hash son:
+El valor del código hash es:
 
 **Hash** |  **Valor**
 --- | ---
-MD5 | 0ef418f31915d01f896ac42a80dc414e
 SHA256 | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
 
 ## <a name="set-up-a-project"></a>Configuración de un proyecto
@@ -177,13 +176,13 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
         **Escenario** | **Descargar** | **SHA256**
         --- | --- | ---
-        Hyper-V (8,91 GB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
+        Hyper-V (8,91 GB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140422) |  91A435962F0DC9C7032DE0288D578171A76CC07563AC543C5E1EB25CD31BB231
 
     - Para Azure Government:
 
         **Escenario** _ | _ *Descarga** | **SHA256**
         --- | --- | ---
-        Hyper-V (85,8 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
+        Hyper-V (85,8 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140424) |  3C00F9EB54CC6C55E127EDE47DFA28CCCF752697377EB1C9F3435E75DA5AA029
 
 ### <a name="3-create-an-appliance"></a>3. Creación de un dispositivo
 

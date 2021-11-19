@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: eb49c65d3d61e17a8e527016d32d80bcc85894d8
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 1c26ed72a804335a675a2456b2908f582848f5a7
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541232"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399093"
 ---
 # <a name="monitor-apache-spark-applications-metrics-with-prometheus-and-grafana"></a>Supervisión de métricas de aplicaciones de Apache Spark con Prometheus y Grafana
 
@@ -85,7 +85,10 @@ Anote el identificador de la aplicación, la contraseña y el identificador de i
 
 6. En Seleccionar usuario, escriba el **<nombre_de_la_entidad_de_servicio>** y haga clic en ella.
 
-7. Haga clic en **Aplicar** (espere tres minutos para que se apliquen los permisos).
+7. Haga clic en **Aplicar** (espere 3 minutos para que se apliquen los permisos).
+
+> [!NOTE]
+> Asegúrese de que la entidad de servicio tenga, como mínimo, el rol "Lector" en el área de trabajo de Synapse. Vaya a la pestaña Access Control (IAM) de Azure Portal y compruebe la configuración de los permisos.
 
 ## <a name="install-connector-prometheus-server-grafana-dashboard"></a>Instalación del conector, servidor de Prometheus, panel de Grafana
 

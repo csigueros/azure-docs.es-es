@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: a4d451233277b76106f3176a68d451bd0c5847ff
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 1781a566f84825971ac3728a360b52fcd1270e0a
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131433030"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490238"
 ---
 # <a name="whats-new-in-azure-virtual-desktop"></a>Novedades de Azure Virtual Desktop
 
@@ -42,6 +42,12 @@ El agente de Azure Virtual Desktop se actualiza al menos una vez al mes.
 
 Estos son los cambios que se han realizado en el agente Azure Virtual Desktop:
 
+- Versión 1.0.3719.1700: esta actualización se publicó en noviembre de 2021 e incorpora los siguientes cambios:
+    - Los mensajes de error del agente se han actualizado.
+    - Corrige un problema que provocaba que el agente se reiniciara cada vez que se actualizaba la pila en paralelo.
+    - Mejoras generales del agente.
+- Versión 1.0.3583.2600: esta actualización se publicó en octubre de 2021 y corrige un problema por el que la actualización de Windows 10 a Windows 11 deshabilitaba la pila en paralelo.
+- Versión 1.0.3373.2605: esta actualización se publicó en septiembre de 2021 y corrige un problema que causaba que la anulación del registro de paquetes se bloqueara al usar la asociación de aplicaciones en formato MSIX.
 - Versión 1.0.3373.2600: esta actualización se publicó en septiembre de 2021 e incorpora los siguientes cambios:
     - Mejoras generales del agente.
     - Corrige problemas con el reinicio del agente en máquinas virtuales con Windows 7.

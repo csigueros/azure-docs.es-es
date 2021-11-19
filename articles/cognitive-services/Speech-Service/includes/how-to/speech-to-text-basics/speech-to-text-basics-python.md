@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: eur
-ms.openlocfilehash: 178609e7292c02d863329c0a4da513f6cbc0b846
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 6900e9ab4356e57a48dcfd90670e43b802305b93
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131502047"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132529491"
 ---
 Una de las características principales del servicio de voz es la capacidad para reconocer y transcribir la voz humana (que a menudo se denomina "conversión de voz en texto"). En este inicio rápido, aprenderá a usar el SDK de voz en sus aplicaciones y productos para realizar una conversión de voz en texto de alta calidad.
 
@@ -120,7 +120,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 ## <a name="continuous-recognition"></a>Reconocimiento continuo
 
-En los ejemplos anteriores se usa el reconocimiento de una sola captura, que reconoce una única expresión. El final de una expresión única se determina mediante la escucha de un silencio al final o hasta que se procesa un máximo de 15 segundos de audio.
+En los ejemplos anteriores se usa el reconocimiento al inicio, que reconoce una única expresión. El final de una expresión única se determina mediante la escucha de un silencio al final o hasta que se procesa un máximo de 15 segundos de audio.
 
 En cambio, el reconocimiento continuo se usa para **establecer** cuándo cesar el reconocimiento. Requiere que se conecte a `EventSignal` para obtener los resultados del reconocimiento y, para detener el reconocimiento, debe llamar a [stop_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#stop-continuous-recognition--) o [stop_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#stop-continuous-recognition-async--). Este es un ejemplo de cómo se realiza el reconocimiento continuo en un archivo de entrada de audio.
 

@@ -6,13 +6,13 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: devx-track-java
 ms.author: ariel
-ms.date: 10/12/2021
-ms.openlocfilehash: ca2650d8c1e3d3d397272904d72cb25facb3cb73
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.date: 11/12/2021
+ms.openlocfilehash: 313967fcadf1dac7ec2451b9dc51da1fac9bc435
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130002935"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488760"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-using-terraform"></a>Inicio rápido: Aprovisionamiento de Azure Spring Cloud con Terraform
 

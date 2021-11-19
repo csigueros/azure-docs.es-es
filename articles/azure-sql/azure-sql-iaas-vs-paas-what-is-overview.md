@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: 2360b32a63ad5473f8dfa1f08a6d2df3e0e85fd4
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: b3742fbe8767e46cfdb21c2aee389fe0a2890661
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132136574"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549059"
 ---
 # <a name="what-is-azure-sql"></a>¿Qué es Azure SQL? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -32,8 +32,13 @@ Azure SQL se basa en el conocido motor de SQL Server, por lo que puede migrar 
 
 Obtenga información acerca de qué producto se ajusta a la plataforma de datos de Microsoft Azure SQL para encontrar la opción más adecuada para sus requisitos empresariales. Si asigna mayor prioridad al ahorro o bien antepone la mínima administración, este artículo puede ayudarle a decidir el enfoque correcto, en función de los requisitos empresariales que más le preocupan.
 
+> [!div class="nextstepaction"]
+> [Encuesta para mejorar Azure SQL](https://aka.ms/AzureSQLSurveyNov2021)
+
 Si no está familiarizado con Azure SQL, consulte el vídeo *¿Qué es Azure SQL?* en la detallada [serie de vídeos sobre Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/What-is-Azure-SQL-3-of-61/player]
+
+
 
 ## <a name="overview"></a>Información general
 

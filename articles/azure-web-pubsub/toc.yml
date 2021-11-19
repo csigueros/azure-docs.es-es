@@ -53,6 +53,16 @@
           href: howto-websocket-connect.md
         - name: Configuración del controlador de eventos
           href: howto-develop-eventhandler.md
+        - name: Creación de `WebPubSubServiceClient` con Azure Identity
+          items:
+            - name: Creación de `WebPubSubServiceClient` con Azure Identity y .NET
+              href: howto-create-serviceclient-with-net-and-azure-identity.md
+            - name: Creación de `WebPubSubServiceClient` con Azure Identity y Java
+              href: howto-create-serviceclient-with-java-and-azure-identity.md
+            - name: Creación de `WebPubSubServiceClient` con Azure Identity y JavaScript
+              href: howto-create-serviceclient-with-javascript-and-azure-identity.md
+            - name: Creación de `WebPubSubServiceClient` con Azure Identity y Python
+              href: howto-create-serviceclient-with-python-and-azure-identity.md
     - name: Monitor
       items:
         - name: Auditoría de cumplimiento mediante Azure Policy

@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/04/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 853509bbf2148fc4d34463b61c3dfb4a330b79ad
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 07aaa62e4e021377ccf247c0a4c058aa9c51d0a1
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132486331"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549610"
 ---
 # <a name="connect-to-and-manage-sap-ecc-in-azure-purview"></a>Conexión y administración de SAP ECC en Azure Purview
 
@@ -38,7 +38,7 @@ En este artículo se describe cómo registrar SAP ECC y cómo autenticarse e int
 * Configure la versión más reciente del [entorno de ejecución de integración autohospedado](https://www.microsoft.com/download/details.aspx?id=39717). Para obtener más información, consulte la [guía de creación y configuración de un entorno de ejecución de integración autohospedado](../data-factory/create-self-hosted-integration-runtime.md).
 
     >[!NOTE]
-    >El examen de SAP ECC es una operación que consume mucha memoria, por lo que se recomienda instalar Integration Runtime autohospedado en una máquina con memoria grande, por ejemplo, 128 GB.
+    >El examen de SAP ECC es una operación que consume mucha memoria, por lo que se recomienda instalar un entorno de ejecución de integración autohospedado en una máquina que tenga como mínimo 128 GB de RAM.
 
 * Asegúrese de que [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) esté instalado en la máquina virtual donde también lo esté el entorno de ejecución de integración autohospedado.
 

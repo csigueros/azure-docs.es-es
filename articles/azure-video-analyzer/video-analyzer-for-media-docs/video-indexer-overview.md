@@ -5,12 +5,12 @@ description: En este artículo se proporciona información general sobre el serv
 ms.topic: overview
 ms.date: 07/15/2021
 ms.author: juliako
-ms.openlocfilehash: a6fd02283bbd6304611dab1c6cfbc8a63e01139e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fddcb1cd3562fde14c38c68811b7272a7d710d2b
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128658609"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487506"
 ---
 # <a name="what-is-video-analyzer-for-media"></a>¿Qué es Video Analyzer for Media?
 
@@ -66,7 +66,8 @@ En la siguiente lista se muestra la información que se puede recuperar de los v
 * **Créditos de rodaje**: identifica el principio y el final de los créditos al final de las series de televisión y las películas.
 * **Detección de personajes animados** (versión preliminar): detección, agrupación y reconocimiento de personajes en contenido animado a través de la integración con la [visión personalizada de Cognitive Services](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). Para más información, consulte [Detección de personajes animados](animated-characters-recognition.md).
 * **Detección del tipo de toma editorial**: etiquetado de capturas basado en su tipo (como plano general, plano medio, primer plano, primerísimo primer plano, dos capturas, varias personas, exterior e interior, etc.). Para más información, consulte [Detección del tipo de toma editorial](scenes-shots-keyframes.md#editorial-shot-type-detection).
-* **Seguimiento de personas observadas**: detecta personas observadas en vídeos y proporciona información, como la ubicación de la persona en el fotograma de vídeo (mediante rectángulos delimitadores) y la marca de tiempo exacta (inicio y fin), y la confianza cuando aparece una persona. Para más información, vea [Seguimiento de las personas observadas en un vídeo](observed-people-tracing.md).
+* **Seguimiento de personas observadas** (versión preliminar): detecta personas observadas en vídeos y proporciona información, como la ubicación de la persona en el fotograma de vídeo (mediante rectángulos delimitadores) y la marca de tiempo exacta (inicio y fin), y la confianza cuando aparece una persona. Para más información, vea [Seguimiento de las personas observadas en un vídeo](observed-people-tracing.md).
+    * **Ropa detectada de la gente**: detecta los tipos de prendas de las personas que aparecen en el vídeo y proporciona información, como mangas largas o cortas, pantalones largos o cortos y falda o vestido. La ropa detectada está asociada con las personas que la llevan y se proporciona la marca de tiempo exacta (inicio y fin) junto con el nivel de confianza de la detección.
 
 ### <a name="audio-insights"></a>Información de audio
 

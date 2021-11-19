@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: peiliu
-ms.openlocfilehash: 44cf84b1a9a045d1f9ecd6c6aaf3a8224ec273a6
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 12e16f8078d90ec1faae990a2e1dc4e6e7a42971
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113112022"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132529764"
 ---
 Para empezar a usar Azure Communication Services, utilice el SDK de SMS de Communication Services para C# para enviar mensajes SMS.
 
@@ -113,7 +113,7 @@ Console.WriteLine($"Sms id: {sendResult.MessageId}");
 Debe reemplazar `<from-phone-number>` por un número de teléfono habilitado para SMS asociado al recurso de Communication Services y `<to-phone-number>` por el número de teléfono al que quiere enviar un mensaje.
 
 > [!WARNING]
-> Tenga en cuenta que los números de teléfono se deben proporcionar en formato estándar internacional E.164. (por ejemplo, +14255550123).
+> Tenga en cuenta que los números de teléfono se deben proporcionar en formato estándar internacional E.164 (por ejemplo, +14255550123). El número de teléfono de **origen** puede ser un código corto (por ejemplo, 23456).
 
 ## <a name="send-a-1n-sms-message-with-options"></a>Envío de un SMS de un remitente a varios destinatarios con opciones
 Para enviar un SMS a una lista de destinatarios, llame a la función `Send` o `SendAsync` desde SmsClient con una lista de números de teléfono de destinatarios. También puede incluir parámetros opcionales para especificar si el informe de entregas debe estar habilitado y establecer etiquetas personalizadas.
@@ -139,7 +139,7 @@ foreach (SmsSendResult result in results)
 Debe reemplazar `<from-phone-number>` por un número de teléfono habilitado para SMS asociado al recurso de Communication Services y `<to-phone-number-1>` y `<to-phone-number-2>` por los números de teléfono a los que quiere enviar un mensaje.
 
 > [!WARNING]
-> Tenga en cuenta que los números de teléfono se deben proporcionar en formato estándar internacional E.164. (por ejemplo, +14255550123).
+> Tenga en cuenta que los números de teléfono se deben proporcionar en formato estándar internacional E.164 (por ejemplo, +14255550123). El número de teléfono de **origen** puede ser un código corto (por ejemplo, 23456).
 
 El parámetro `enableDeliveryReport` es un parámetro opcional que puede usar para configurar los informes de entrega. Resulta útil para los escenarios en los que quiere emitir eventos cuando se entregan mensajes SMS. Consulte el inicio rápido [Control de eventos SMS](../handle-sms-events.md) a fin de configurar los informes de entrega para los mensajes SMS.
 

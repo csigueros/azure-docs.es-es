@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 7d6cb25d553e5215ae3d06810b7c0087dd433ef3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ded90c34a3e43f202c815dc593b3420cf5d88e41
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131019939"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518952"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Tutorial de Device Update para Azure IoT Hub con la imagen de referencia para Raspberry Pi 3 B+
 
@@ -173,13 +173,13 @@ Use ese número de versión en el paso Importación de la actualización que apa
 
 1. Vaya a la instancia de IoT Hub que conectó anteriormente a la instancia de Device Update.
 
-2. Seleccione la opción Actualizaciones del dispositivo en Administración de dispositivos automática en la barra de navegación izquierda.
+2. Seleccione la opción Updates (Actualizaciones) en Device Management (Administración de dispositivos) en la barra de navegación izquierda.
 
 3. Seleccione la pestaña Groups (Grupos) en la parte superior de la página. 
 
 4. Seleccione el botón Add (Agregar) para crear un grupo.
 
-5. Seleccione en la lista la etiqueta IoT Hub que ha creado en el paso anterior. Seleccione Create update group (Crear grupo de actualización).
+5. Seleccione en la lista la etiqueta IoT Hub que ha creado en el paso anterior. Seleccione Create group (Crear grupo).
 
    :::image type="content" source="media/create-update-group/select-tag.PNG" alt-text="Captura de pantalla que muestra la selección de etiquetas." lightbox="media/create-update-group/select-tag.PNG":::
 

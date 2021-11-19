@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e64f27480126fdf444f8dd72abc2d66c78b30407
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 1eac3238bc5f39915360db2de3b0526ed4f699d7
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868814"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491888"
 ---
 # <a name="tutorial-configure-your-rules-engine"></a>Tutorial: Configuración del motor de reglas
 
@@ -48,6 +48,14 @@ En este tutorial, aprenderá a:
     ![Configuración del motor de reglas](./media/front-door-rules-engine/rules-engine-tutorial-4.png) 
 
 1. Para determinar la prioridad de las reglas de configuración, use los botones Mover hacia arriba, Mover hacia abajo y Mover a la parte superior. La prioridad está en orden ascendente, lo que significa que la regla que aparece en primer lugar es la regla más importante.
+
+
+    > [!TIP]
+    > Si desea comprobar cuándo se propagan los cambios a Azure Front Door, puede crear un encabezado de respuesta personalizado en la regla mediante el ejemplo siguiente. Puede agregar un encabezado de respuesta `_X-<RuleName>-Version_` y cambiar el valor cada vez que se actualice la regla de tiempo.
+    >  
+    > :::image type="content" source="./media/front-door-rules-engine/rules-version.png" alt-text="Captura de pantalla de la regla de encabezado de versión personalizada." lightbox="./media/front-door-rules-engine/rules-version-expanded.png":::
+    > Una vez actualizados los cambios, puede ir a la dirección URL para confirmar la versión de la regla que se invoca: :::image type="content" source="./media/front-door-rules-engine/version-output.png" alt-text="Captura de pantalla de la salida de la versión del encabezado personalizado.":::
+
 
 1. Una vez que haya creado una o varias reglas, presione **Guardar**. Esta acción crea la configuración del motor de reglas.
 

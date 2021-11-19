@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 3a7ed9fbb30ab770cd7069ebbd97faa41b12cd34
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 0b763f9f6c83f6255a460fc4441f8cfdb74193f0
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122606842"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399378"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>Introducción a Device Update para IoT Hub (versión preliminar)
 
@@ -80,7 +80,7 @@ Cuando se recibe un comando de actualización en un dispositivo, se ejecutará l
 
 ### <a name="importing"></a>Importación
 
-La importación es el modo en que las actualizaciones se ingieren en Device Update para que se puedan implementar en los dispositivos. La actualización del dispositivo admite la implementación de una sola actualización por dispositivo, lo que hace que sea idóneo para las actualizaciones de imagen completa que actualizan toda una partición de sistema operativo a la vez, o un manifiesto APT que describe todos los paquetes que se desean actualizar en el dispositivo. Para importar actualizaciones en Device Update, lo primero que se debe hacer es crear un manifiesto de importación que describa la actualización y, después, cargar los archivos de actualización y el manifiesto de importación en una ubicación a la que se pueda acceder desde Internet. Después, puede usar Azure Portal o la [API REST de Device Update](/rest/api/deviceupdate/) para iniciar el proceso asincrónico de importación de la actualización. Device Update carga los archivos, los procesa y los pone a disposición de los dispositivos de IoT para su distribución.
+La importación es el modo en que las actualizaciones se ingieren en Device Update para que se puedan implementar en los dispositivos. La actualización del dispositivo admite la implementación de una sola actualización por dispositivo, lo que hace que sea idóneo para las actualizaciones de imagen completa que actualizan toda una partición de sistema operativo a la vez, o un [manifiesto APT](device-update-apt-manifest.md)] que describe todos los paquetes que se desean actualizar en el dispositivo desde un repositorio designado. Para importar actualizaciones en Device Update, lo primero que se debe hacer es crear un manifiesto de importación que describa la actualización y, después, cargar los archivos de actualización y el manifiesto de importación en una ubicación a la que se pueda acceder desde Internet. Después, puede usar Azure Portal o la [API REST de Device Update](/rest/api/deviceupdate/) para iniciar el proceso asincrónico de importación de la actualización. Device Update carga los archivos, los procesa y los pone a disposición de los dispositivos de IoT para su distribución.
 
 En caso de que el contenido sea confidencial, proteja la descarga mediante una firma de acceso compartido (SAS), como una SAS ad hoc para Azure Blob Storage. [Más información acerca de las SAS](../storage/common/storage-sas-overview.md).
 

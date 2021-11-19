@@ -9,18 +9,18 @@ ms.subservice: spark
 ms.date: 10/18/2021
 ms.author: nidutta
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 072d1481ea1a089db7c02c5bc9af8179dcefccd7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c37e1361a1f0864dc64af3bfb91eb6f8df293949
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131092903"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132494332"
 ---
-# <a name="apache-spark-gpu-enabled-pool-in-azure-synapse-analytics"></a>Grupo habilitado para GPU de Apache Spark en Azure Synapse Analytics
+# <a name="apache-spark-gpu-accelerated-pools-in-azure-synapse-analytics"></a>Grupos de Apache Spark acelerados por GPU en Azure Synapse Analytics
 
 Apache Spark es una plataforma de procesamiento paralelo que admite el procesamiento en memoria para mejorar el rendimiento de aplicaciones de análisis de macrodatos. Apache Spark en Azure Synapse Analytics es una de las implementaciones de Microsoft de Apache Spark en la nube. 
 
-Azure Synapse ahora ofrece la capacidad de crear grupos habilitados para GPU de Azure Synapse para ejecutar cargas de trabajo de Spark mediante [bibliotecas de RAPIDS](https://nvidia.github.io/spark-rapids/) subyacentes que aprovechan la enorme potencia de procesamiento paralelo de las GPU para acelerar el procesamiento. El acelerador RAPIDS para Apache Spark permite ejecutar las aplicaciones de Spark existentes **sin ningún cambio de código** mediante la habilitación de una opción de configuración, que viene preconfigurada para un grupo habilitado para GPU.
+Azure Synapse ahora ofrece la capacidad de crear grupos habilitados para GPU de Azure Synapse para ejecutar cargas de trabajo de Spark mediante [bibliotecas de RAPIDS](https://nvidia.github.io/spark-rapids/) subyacentes que utilizan la enorme potencia de procesamiento paralelo de las GPU para acelerar el procesamiento. El acelerador RAPIDS para Apache Spark permite ejecutar las aplicaciones de Spark existentes **sin ningún cambio de código** mediante la habilitación de una opción de configuración, que viene preconfigurada para un grupo habilitado para GPU.
 Puede optar por activar o desactivar la aceleración de GPU basada en RAPIDS para la carga de trabajo, o partes de ella, estableciendo esta configuración:
 
 ```
@@ -63,9 +63,9 @@ Por ejemplo, mediante un grupo grande con tres nodos:
 }
 ```
 
-## <a name="run-a-sample-spark-job-through-notebook-on-an-azure-synapse-gpu-enabled-pool"></a>Ejecución de un trabajo de Spark de ejemplo a través de un cuaderno en un grupo habilitado para GPU de Azure Synapse
+## <a name="run-a-sample-spark-job-through-notebook-on-an-azure-synapse-gpu-accelerated-pool"></a>Ejecución de un trabajo de Spark de ejemplo a través de un cuaderno en un grupo acelerado por GPU de Azure Synapse
 
-Sería conveniente conocer los [conceptos básicos de cómo usar los cuadernos](apache-spark-development-using-notebooks.md) en Azure Synapse Analytics antes de continuar con esta sección. Vamos a seguir los pasos necesarios para ejecutar una aplicación de Spark sencilla que utiliza la aceleración de GPU. Puede escribir una aplicación Spark en los cuatro lenguajes admitidos en Synapse: PySpark (Python), Spark (Scala), SparkSQL y .NET para Spark (C#).
+Sería conveniente conocer los [conceptos básicos de cómo usar los cuadernos](apache-spark-development-using-notebooks.md) en Azure Synapse Analytics antes de continuar con esta sección. Vamos a seguir los pasos necesarios para ejecutar una aplicación de Spark que utiliza la aceleración de GPU. Puede escribir una aplicación Spark en los cuatro lenguajes admitidos en Synapse: PySpark (Python), Spark (Scala), SparkSQL y .NET para Spark (C#).
 
 1. Cree un grupo habilitado para GPU como se describe en [este inicio rápido](../quickstart-create-apache-gpu-pool-portal.md).
 
@@ -142,7 +142,7 @@ DataFrame empDF = spark.CreateDataFrame(emp, schema);
 ```
 ---
 
-5. Ahora vamos a hacer un agregado simple obteniendo el sueldo máximo por identificador de departamento y a mostrar el resultado:
+5. Ahora vamos a hacer un agregado obteniendo el sueldo máximo por identificador de departamento y a mostrar el resultado:
 
 ### <a name="scala"></a>[Scala](#tab/scala1)
 
@@ -176,4 +176,7 @@ En la mayoría de los trabajos de Spark, el rendimiento puede mejorar si se ajus
 
 ### <a name="workspace-level"></a>Nivel de área de trabajo
 
-Cada área de trabajo de Azure Synapse incluye una cuota predeterminada de 0 núcleos virtuales de GPU. Para aumentar la cuota de núcleos de GPU, envíe un correo electrónico a AzureSynapseGPU@microsoft.com con el nombre del área de trabajo, la región y la cuota total de GPU necesaria para la carga de trabajo.
+Cada área de trabajo de Azure Synapse incluye una cuota predeterminada de 50 núcleos virtuales de GPU. Para aumentar la cuota de núcleos de GPU, envíe un correo electrónico a AzureSynapseGPU@microsoft.com con el nombre del área de trabajo, la región y la cuota total de GPU necesaria para la carga de trabajo.
+
+## <a name="next-steps"></a>Pasos siguientes
+- [Azure Synapse Analytics](../overview-what-is.md)

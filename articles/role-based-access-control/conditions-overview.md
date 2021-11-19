@@ -10,12 +10,12 @@ ms.topic: overview
 ms.workload: identity
 ms.date: 05/13/2021
 ms.author: rolyon
-ms.openlocfilehash: 6919a5b94d9122f16084933574ffc88f8c9f1249
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 84bcac43d22d1c90ccfe4f674c495d8439fe9536
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109847425"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398333"
 ---
 # <a name="what-is-azure-attribute-based-access-control-azure-abac-preview"></a>¿Qué es el control de acceso basado en atributos de Azure (Azure ABAC)? (versión preliminar)
 
@@ -37,7 +37,7 @@ Azure ABAC se basa en Azure RBAC con la adición de condiciones de asignación d
 El uso de condiciones de asignación de roles ofrece tres ventajas principales:
 
 - **Proporcionar un control de acceso más preciso**: una asignación de roles usa una definición de roles con acciones y acciones de datos para conceder permisos a una entidad de seguridad. Puede escribir condiciones para filtrar esos permisos para un control de acceso más preciso. También puede agregar condiciones a acciones específicas. Por ejemplo, puede conceder a John acceso de lectura a los blobs de la suscripción solo si los blobs tienen la etiqueta Project=Blue. 
-- **Ayudar a reducir el número de asignaciones de roles:** cada suscripción de Azure tiene actualmente un límite de asignación de roles de 2000. Hay escenarios que requieren miles de asignaciones de roles. Todas esas asignaciones de roles tendrían que administrarse. En estos escenarios, podría agregar condiciones para usar una cantidad de asignaciones de roles considerablemente menor. 
+- **Ayudar a reducir el número de asignaciones de roles**: cada suscripción de Azure tiene actualmente un límite de asignación de roles. Hay escenarios que requieren miles de asignaciones de roles. Todas esas asignaciones de roles tendrían que administrarse. En estos escenarios, podría agregar condiciones para usar una cantidad de asignaciones de roles considerablemente menor. 
 - **Usar atributos que tienen un significado empresarial específico:** las condiciones le permiten usar atributos que tienen un significado empresarial específico en el control de acceso. Algunos ejemplos de atributos son el nombre del proyecto, la fase de desarrollo de software y los niveles de clasificación. Los valores de estos atributos de recursos son dinámicos y cambian a medida que los usuarios se mueven entre equipos y proyectos.
 
 ## <a name="example-scenarios-for-conditions"></a>Escenarios de ejemplo para condiciones

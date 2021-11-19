@@ -7,12 +7,12 @@ ms.custom: references_regions
 ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: cf379d2eb5c20c8f8922631d5a467e961ea8f800
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 3b95302be3eda412f6941abe359f6da63e235d24
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130228475"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492045"
 ---
 # <a name="tutorial-create-a-host-pool"></a>Tutorial: Creación de un grupo de hosts
 
@@ -219,7 +219,12 @@ Para configurar la máquina virtual en el proceso de configuración del grupo de
 
 12. En **Virtual Machine Administrator account** (Cuenta de administrador de máquina virtual), escriba las credenciales de la cuenta de administrador local que se va a agregar al crear la máquina virtual. Puede usar esta cuenta con fines de administración tanto en máquinas virtuales de AD como unidas a Azure AD.
 
-13. Seleccione **Siguiente: Workspace >** (Siguiente: Área de trabajo).
+13. En **Configuración personalizada posterior a la actualización**, puede especificar la ubicación de una plantilla de Azure Resource Manager para realizar configuraciones personalizadas en los hosts de sesión después de su creación. Deberá escribir las direcciones URL del archivo de plantilla de Azure Resource Manager y del archivo de parámetros de plantilla de Azure Resource Manager. 
+
+      >[!NOTE]
+      >Azure Virtual Desktop no admite el aprovisionamiento de recursos de Azure en la plantilla.
+
+14. Seleccione **Siguiente: Workspace >** (Siguiente: Área de trabajo).
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 

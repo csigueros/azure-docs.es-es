@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f83c7a9ac8a910a96a49c2ee354b68a18f4a774
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: 0707969fe74714864eb3f92740c911847e21bd92
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131892160"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490201"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios administrados
 
@@ -128,6 +128,14 @@ Si algunos de los dispositivos unidos a un dominio son dispositivos Windows de n
 - Configurar los valores de la intranet local para el registro de dispositivos
 - Configurar SSO de conexión directa
 - Instalación de Microsoft Workplace Join for Windows en equipos de nivel inferior
+
+Los dispositivos de nivel inferior con Windows son los que tienen sistemas operativos anteriores. Estos son los dispositivos de nivel inferior con Windows:
+
+- Windows 7
+- Windows 8.1
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
 
 > [!NOTE]
 > La compatibilidad con Windows 7 finalizó el 14 de enero de 2020. Para más información, consulte [Compatibilidad con Windows 7 finalizada](https://support.microsoft.com/help/4057281/windows-7-support-ended-on-january-14-2020).

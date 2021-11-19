@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-summarization, ignite-fall-2021
-ms.openlocfilehash: 62144ef2181a872327db3e30c0f81192f5a07ca4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 169772593542f502673194012112d56465ae224d
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131017624"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518648"
 ---
 # <a name="what-is-text-summarization-preview-in-azure-cognitive-service-for-language"></a>¿Qué es el resumen de texto (versión preliminar) en Azure Cognitive Service for Language?
 
@@ -35,6 +35,6 @@ Los sistemas de inteligencia artificial incluyen no solo la tecnología, sino ta
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Hay dos maneras de empezar a usar la característica de vinculación de entidades:
+Hay dos formas de empezar a usar la característica de resumen de texto:
 * [Language Studio](../language-studio.md), que es una plataforma basada en web que permite probar varias características de Azure Cognitive Service for Language sin necesidad de escribir código.
 * El [artículo de inicio rápido](quickstart.md) para obtener instrucciones sobre cómo realizar solicitudes al servicio mediante la API de REST y el SDK de la biblioteca cliente.  

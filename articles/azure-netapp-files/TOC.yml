@@ -153,7 +153,7 @@
           items:
             - name: Creación de un volumen NFS
               href: azure-netapp-files-create-volumes.md
-            - name: "Configuración del dominio predeterminado de NFS, versión\_4.1"
+            - name: Configuración del dominio de NFSv4.1
               href: azure-netapp-files-configure-nfsv41-domain.md
             - name: "Configuración del cifrado Kerberos de NFS, versión\_4.1"
               href: configure-kerberos-encryption.md
@@ -308,4 +308,4 @@
     - name: Comparación entre Azure NetApp Files y Azure Files
       href: ../storage/files/storage-files-netapp-comparison.md
     - name: Azure NetApp Files en Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/25532/azure-netapp-files.html'
+      href: /answers/topics/25532/azure-netapp-files.html

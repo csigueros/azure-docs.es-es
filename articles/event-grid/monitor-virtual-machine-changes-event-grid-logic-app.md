@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: estfan, azla
 ms.topic: tutorial
 ms.date: 07/01/2021
-ms.openlocfilehash: fb315a42dc33a8ead4d3d09e0dbb15972bf8e585
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b1ad7f8af9233aeb49d38d4af93f43dcd7b04566
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128646803"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520244"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Tutorial: Supervisión de los cambios en las máquinas virtuales con Azure Event Grid y Logic Apps
 
@@ -158,7 +158,7 @@ Si desea ejecutar la aplicación lógica solo cuando se produzca un evento u ope
 
    1. En el cuadro central, mantenga el operador **es igual que**.
 
-   1. En el cuadro de la derecha, escriba este valor, que es la operación específica que se va a supervisar:
+   1. En el cuadro derecho, escriba la operación que desea supervisar, que es el valor siguiente para este ejemplo:
 
       `Microsoft.Compute/virtualMachines/write`
 

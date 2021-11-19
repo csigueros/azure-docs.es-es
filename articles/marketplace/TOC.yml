@@ -193,30 +193,32 @@
                   href: azure-container-plan-availability.md
                 - name: Planeamiento de la configuración técnica
                   href: azure-container-plan-technical-configuration.md
-    - name: Ofertas de máquina virtual de Azure
+    - name: Oferta de máquina virtual de Azure
       items:
         - name: Planeación de la oferta
           href: marketplace-virtual-machines.md
         - name: Crear la oferta
           items:
             - name: Crear la oferta
-              href: azure-vm-create.md
+              href: azure-vm-offer-setup.md
             - name: Propiedades
-              href: azure-vm-create-properties.md
+              href: azure-vm-properties.md
             - name: Descripción de la oferta
-              href: azure-vm-create-listing.md
+              href: azure-vm-offer-listing.md
             - name: Público preliminar
-              href: azure-vm-create-preview.md
+              href: azure-vm-preview-audience.md
             - name: Planes
-              href: azure-vm-create-plans.md
-        - name: Revender mediante los CSP
-          href: azure-vm-create-resell-csp.md
+              href: azure-vm-plan-overview.md
+            - name: Revender mediante los CSP
+              href: azure-vm-resell-csp.md
+            - name: Configuración de una versión de prueba
+              href: azure-vm-test-drive.md
         - name: Creación de recursos técnicos
           items:
             - name: Creación de una máquina virtual a partir de una base aprobada
-              href: azure-vm-create-using-approved-base.md
+              href: azure-vm-use-approved-base.md
             - name: Creación de una máquina virtual mediante su propia imagen
-              href: azure-vm-create-using-own-image.md
+              href: azure-vm-use-own-image.md
             - name: Prueba de una imagen de máquina virtual
               href: azure-vm-image-test.md
             - name: Obtención del identificador URI de SAS
@@ -224,9 +226,9 @@
             - name: Mensajes de error de SAS
               href: azure-vm-sas-failure-messages.md
             - name: Preguntas frecuentes sobre la creación de una máquina virtual
-              href: azure-vm-create-faq.yml
+              href: azure-vm-faq.yml
             - name: Solución de problemas de certificación de máquina virtual
-              href: azure-vm-create-certification-faq.yml
+              href: azure-vm-certification-faq.yml
     - name: Oferta de servicios de consultoría
       items:
         - name: Planeación de la oferta
@@ -239,7 +241,7 @@
           href: create-consulting-service-offer-listing.md
         - name: Precios y disponibilidad
           href: create-consulting-service-pricing-availability.md
-    - name: "Ofertas de Dynamics\_365"
+    - name: "Oferta de Dynamics\_365"
       items:
         - name: Planeación de la oferta
           href: marketplace-dynamics-365.md
@@ -321,7 +323,7 @@
                   href: iot-edge-plan-availability.md
                 - name: Planeamiento de la configuración técnica
                   href: iot-edge-plan-technical-configuration.md
-    - name: Ofertas de servicio administrado
+    - name: Oferta de servicio administrado
       items:
         - name: Planeación de la oferta
           href: plan-managed-service-offer.md
@@ -335,7 +337,7 @@
           href: create-managed-service-offer-preview.md
         - name: Creación de planes
           href: create-managed-service-offer-plans.md
-    - name: Ofertas de la aplicación Power BI
+    - name: "Oferta de aplicación de Power\_BI"
       items:
         - name: Planeación de la oferta
           href: marketplace-power-bi.md
@@ -351,7 +353,7 @@
               href: power-bi-app-technical-configuration.md
             - name: Contenido complementario
               href: power-bi-app-supplemental-content.md
-    - name: "Ofertas de objetos visuales de Power\_BI"
+    - name: "Oferta de objeto visual de Power\_BI"
       items:
         - name: Planeación de la oferta
           href: marketplace-power-bi-visual.md
@@ -371,7 +373,7 @@
               href: power-bi-visual-manage-names.md
         - name: Preguntas frecuentes sobre la migración al marketplace comercial
           href: power-bi-visual-faq.yml
-    - name: Ofertas de SaaS
+    - name: Oferta de SaaS
       items:
         - name: Planeación de la oferta
           href: plan-saas-offer.md
@@ -409,7 +411,7 @@
       href: review-publish-offer.md
     - name: Actualización de oferta existente
       href: update-existing-offer.md
-- name: Venta y comercialización de ofertas
+- name: Venta y comercialización de la oferta
   items:
     - name: Procedimientos recomendados de marketing
       href: gtm-marketing-best-practices.md

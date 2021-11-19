@@ -6,12 +6,12 @@ ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
-ms.openlocfilehash: 46efd49a809d8e13fe24045b7575b37f3aff3173
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: e246fa6c20e506952001dff59d3a2f0a9eccc8d1
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015376"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491609"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>Tutorial: Uso de una identidad administrada para invocar Azure Functions desde una aplicación de Azure Spring Cloud
 
@@ -171,6 +171,6 @@ En este ejemplo se invocará la función desencadenada por HTTP; para ello, prim
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Habilitación de la identidad administrada asignada por el sistema para una aplicación de Azure Spring Cloud](./how-to-enable-system-assigned-managed-identity.md)
+* [Habilitación de la identidad administrada asignada por el sistema para aplicaciones de Azure Spring Cloud](./how-to-enable-system-assigned-managed-identity.md)
 * [Más información sobre las identidades administradas para recursos de Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
 * [Configuración de las aplicaciones cliente para acceder a la instancia de App Service](../app-service/configure-authentication-provider-aad.md#configure-client-apps-to-access-your-app-service)

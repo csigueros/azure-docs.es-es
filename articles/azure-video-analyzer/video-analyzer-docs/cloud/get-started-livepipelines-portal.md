@@ -5,16 +5,19 @@ ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ed1c4e979d9b593cc701c294c95eda96b27db415
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 3f7c134174560d3222e0ba936378c37b931abee7
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131554419"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132489934"
 ---
 # <a name="quickstart-get-started-with-video-analyzer-live-pipelines-in-the-azure-portal"></a>Inicio rápido: Introducción a las canalizaciones en directo de Video Analyzer en Azure Portal
 
-[!INCLUDE [header](includes/cloud-env.md)]
+![icono de la nube](media/env-icon/cloud.png)  
+Como alternativa, consulte [Introducción a Video Analyzer en el perímetro mediante el portal](../edge/get-started-detect-motion-emit-events-portal.md).
+
+---
 
 Esta guía de inicio rápido le guía por los pasos necesarios para capturar y grabar vídeo desde una cámara de protocolo de streaming en tiempo real (RTSP) mediante canalizaciones en directo en el servicio Azure Video Analyzer.
 Creará una cuenta de Video Analyzer y sus recursos complementarios mediante Azure Portal. Implementará un simulador de cámara RTSP si no tiene acceso a una cámara RTSP real (que se puede hacer accesible a través de Internet). A continuación, implementará los recursos pertinentes de Video Analyzer para grabar vídeo en su cuenta de Video Analyzer.
@@ -62,7 +65,7 @@ En esta sección se muestra cómo implementar un simulador de cámara RTSP en un
 
     ```
     cd localmedia
-    wget https://lvamedia.blob.core.windows.net/public/camera-1800s.mkv
+    wget https://avamedia.blob.core.windows.net/public/camera-1800s.mkv
     ```
 1. Inicie el servidor RTSP en la máquina virtual mediante la imagen de contenedor pregenerada tal como se muestra a continuación.
 

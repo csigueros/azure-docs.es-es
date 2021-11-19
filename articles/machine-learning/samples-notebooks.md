@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: bc1be378d16388ad3814596f3e49d434af350a96
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: dd8be8174d8834ccad88cd512cefcf4d761a5e2c
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130004965"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487059"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Exploración de Azure Machine Learning con cuadernos de Jupyter Notebook
 
@@ -43,7 +43,7 @@ La forma más fácil de empezar con los ejemplos es completar el [inicio rápido
 
 ## <a name="get-samples-on-your-notebook-server"></a>Obtener ejemplos del servidor de cuadernos
 
-Si desea usar su propio servidor de Jupyter Notebook para desarrollo local, siga estos pasos:
+Si desea usar su propio servidor de Jupyter Notebook para desarrollo local, siga estos pasos en su equipo.
 
 [!INCLUDE [aml-your-server](../../includes/aml-your-server.md)]
 

@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: a9253cbb39bc58d74f6c8dd25b2251b9d2a606ef
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: c6fe1e801578a63df373d67eaa2e81c7e98169ce
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132290521"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552838"
 ---
 # <a name="what-is-azure-sql-database"></a>¿Qué es Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,11 +30,13 @@ Azure SQL Database se basa en la versión estable más reciente del [motor de b
 
 SQL Database le permite definir y escalar fácilmente el rendimiento de dos modelos de compra diferentes: un [modelo de compra basado en el núcleo virtual](service-tiers-vcore.md) y un [modelo de compra basado en DTU](service-tiers-dtu.md). SQL Database es un servicio totalmente administrado que ofrece alta disponibilidad, copias de seguridad y otras operaciones de mantenimiento comunes. Microsoft controla todas las revisiones y actualizaciones del código de sistema operativo y SQL. No hace falta administrar la infraestructura subyacente.
 
+> [!div class="nextstepaction"]
+> [Encuesta para mejorar Azure SQL.](https://aka.ms/AzureSQLSurveyNov2021)
+
 Si no está familiarizado con Azure SQL Database, consulte el vídeo de *introducción a Azure SQL Database* en la detallada [serie de vídeos sobre Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
 
-> [!TIP]
-> ¿Cómo podemos mejorar Azure SQL? [Realice la encuesta](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
+
 
 ## <a name="deployment-models"></a>Modelos de implementación
 

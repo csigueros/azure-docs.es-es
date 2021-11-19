@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: lakshmans
-ms.openlocfilehash: 9e44cc1f631a56d1948c744a1ecb912208bad11e
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: c6fcc4c63b786af08c48450791a58b4f6f13a6ad
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113659490"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132530020"
 ---
 Introducción a Azure Communication Services con SMS SDK de Communication Services para Python para enviar mensajes de texto.
 
@@ -105,7 +105,7 @@ sms_responses = sms_client.send(
 Debe reemplazar `<from-phone-number>` por un número de teléfono habilitado para SMS asociado al recurso de servicio de comunicación y `<to-phone-number>` por el número de teléfono al que desea enviar un mensaje.
 
 > [!WARNING]
-> Tenga en cuenta que los números de teléfono se deben proporcionar en formato estándar internacional E.164. (por ejemplo, +14255550123).
+> Tenga en cuenta que los números de teléfono se deben proporcionar en formato estándar internacional E.164 (por ejemplo, +14255550123). El número de teléfono de **origen** puede ser un código corto (por ejemplo, 23456).
 
 ## <a name="send-a-1n-sms-message"></a>Envío de un SMS de un remitente a varios destinatarios
 
@@ -126,7 +126,7 @@ sms_responses = sms_client.send(
 Debe reemplazar `<from-phone-number>` por un número de teléfono habilitado para SMS asociado al servicio de comunicación y `<to-phone-number-1>` `<to-phone-number-2>` con los números de teléfono a los que desea enviar mensajes.
 
 > [!WARNING]
-> Tenga en cuenta que los números de teléfono se deben proporcionar en formato estándar internacional E.164. (por ejemplo, +14255550123).
+> Tenga en cuenta que los números de teléfono se deben proporcionar en formato estándar internacional E.164 (por ejemplo, +14255550123). El número de teléfono de **origen** puede ser un código corto (por ejemplo, 23456).
 
 ## <a name="optional-parameters"></a>Parámetros opcionales
 

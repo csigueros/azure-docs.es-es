@@ -8,18 +8,18 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: tutorial
 ms.date: 11/08/2021
-ms.openlocfilehash: 746b8d0b3b24901469f46090adf25b02f786dcef
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: bc9abf7319b3dc51572670f242b5d18a1a5d270d
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132063899"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522334"
 ---
 # <a name="understanding-pipeline-failure"></a>Descripción del error de canalización
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-## <a name="error-handling"></a>Tratamiento de errores
+## <a name="error-handling"></a>Control de errores
 
 La orquestación de Azure Data Factory y la canalización de Synapse permite la lógica condicional y permite al usuario tomar diferentes rutas de acceso en función de los resultados de una actividad anterior. El uso de rutas de acceso diferentes permite a los usuarios crear canalizaciones sólidas e incorpora el control de errores en la lógica de ETL/ELT. En total, se permiten cuatro rutas de acceso condicionales,
 

@@ -2,18 +2,21 @@
 title: 'Introducción a Azure Video Analyzer mediante Azure Portal: Azure'
 description: Este inicio rápido le guiará por los pasos necesarios para empezar a usar Azure Video Analyzer mediante Azure Portal.
 ms.topic: quickstart
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1dd1a5cdf68c60d4f5da75f324c163bc78dffa8f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5c39d6ddae6ad34ad705da8ee2b6de79a8102452
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030721"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398827"
 ---
 # <a name="quickstart-get-started-with-video-analyzer-in-the-portal"></a>Inicio rápido: Uso de Video Analyzer en el portal
 
-[!INCLUDE [header](includes/edge-env.md)]
+![icono de Edge](media/env-icon/edge.png)  
+Como alternativa, consulte la [introducción a las canalizaciones en directo de Video Analyzer mediante el portal](../cloud/get-started-livepipelines-portal.md).
+
+---
 
 Este inicio rápido le guiará por los pasos necesarios para empezar a usar Azure Video Analyzer. Creará una cuenta de Azure Video Analyzer y sus recursos complementarios mediante Azure Portal. A continuación, implementará el módulo perimetral de Video Analyzer y un módulo de simulador de cámara del Protocolo de streaming en tiempo real (RTSP) en el dispositivo Azure IoT Edge.
 

@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 09/03/2020
-ms.openlocfilehash: 83d8d6498a5ec4906f7cdd7187ae88e4a2f45126
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 07168ec69046973d4e02c2dc40b3b5e256ea26b4
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108318034"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492120"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-vscode-using-a-synapse-workspace"></a>Tutorial: Creación de aplicaciones de Apache Spark con VSCode mediante un área de trabajo de Synapse
 
@@ -192,6 +192,29 @@ for (word, count) in sortedCollection:
 >2. Cambie al kernel de Synapse Pyspark. Se recomienda deshabilitar la configuración automática en Azure Portal. En caso contrario, es posible que se tarde mucho tiempo en reactivar el clúster y establecer el kernel de Synapse para el primer uso. 
 >
 >    ![configuración automática](./media/vscode-tool-synapse/auto-settings.png)
+
+## <a name="spark-session-config"></a>Configuración de la sesión de Spark
+
+Puede especificar la duración del tiempo de espera, el número y el tamaño de los ejecutores que se van a dar a la sesión actual de Spark en **Configure session** (Configurar sesión). Reinicie la sesión de Spark para que surtan efecto los cambios de configuración. Se borran todas las variables del cuaderno almacenadas en la memoria caché.
+
+```python
+%%configure -f
+{
+    // refer to https://github.com/cloudera/livy#request-body for a list of valid parameters to config the session.
+    "driverMemory":"2g",
+    "driverCores":3,
+    "executorMemory":"2g",
+    "executorCores":2,
+    "jars":[],
+    "conf":{
+        "spark.driver.maxResultSize":"10g"
+    }
+}
+```
+
+> [!NOTE]
+>
+> Es posible que la función de visualización y Spark SQL no se representen correctamente en la celda de salida. 
 
 ## <a name="submit-pyspark-batch-job-to-spark-pool"></a>Envío de un trabajo por lotes de PySpark al grupo de Spark
 

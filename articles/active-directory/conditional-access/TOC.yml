@@ -39,16 +39,14 @@
       href: service-dependencies.md
     - name: Condiciones de ubicación
       href: location-condition.md
+    - name: Identidades de cargas de trabajo
+      href: workload-identity.md
     - name: Filtro para dispositivos
       href: concept-condition-filters-for-devices.md
     - name: Herramienta What if
       href: what-if-tool.md
     - name: Evaluación continua de acceso
       href: concept-continuous-access-evaluation.md
-    - name: Controles personalizados
-      href: controls.md
-    - name: Migraciones con directiva clásica
-      href: policy-migration.md
 - name: Guías paso a paso
   expanded: true
   items:
@@ -58,40 +56,34 @@
       href: howto-conditional-access-apis.md
     - name: Directivas de acceso condicional habituales
       items:
-        - name: Bloquear la autenticación heredada
-          href: howto-conditional-access-policy-block-legacy.md
         - name: Exigir autenticación multifactor para administradores
           href: howto-conditional-access-policy-admin-mfa.md
-        - name: Exigir autenticación multifactor para la administración de Azure
-          href: howto-conditional-access-policy-azure-management.md
-        - name: Exigir autenticación multifactor para todos los usuarios
-          href: howto-conditional-access-policy-all-users-mfa.md
-        - name: Acceso condicional basado en el riesgo del inicio de sesión
-          href: howto-conditional-access-policy-risk.md
-        - name: Acceso condicional basado en el riesgo del usuario
-          href: howto-conditional-access-policy-risk-user.md
         - name: Protección del registro de información de seguridad
           href: howto-conditional-access-policy-registration.md
+        - name: Bloquear la autenticación heredada
+          href: howto-conditional-access-policy-block-legacy.md
+        - name: Exigir autenticación multifactor para todos los usuarios
+          href: howto-conditional-access-policy-all-users-mfa.md
+        - name: Exigir autenticación multifactor para la administración de Azure
+          href: howto-conditional-access-policy-azure-management.md
+        - name: Exigir autenticación multifactor para inicios de sesión de riesgo
+          href: howto-conditional-access-policy-risk.md
+        - name: Exigir cambio de contraseña para usuarios de riesgo
+          href: howto-conditional-access-policy-risk-user.md
+        - name: Exigir dispositivos compatibles o unidos híbridos
+          href: howto-conditional-access-policy-compliant-device.md
+        - name: Exigir una directiva de protección de aplicaciones o aplicaciones aprobadas
+          href: howto-policy-approved-app-or-app-protection.md
         - name: Bloqueo del acceso por ubicación
           href: howto-conditional-access-policy-location.md
-        - name: Requerir dispositivos compatibles
-          href: howto-conditional-access-policy-compliant-device.md
         - name: Bloquear acceso
           href: howto-conditional-access-policy-block-access.md
     - name: Configuración de valores predeterminados de resistencia
       href: resilience-defaults.md
-    - name: Bloquear la autenticación heredada
-      href: block-legacy-authentication.md
     - name: Configuración del modo de solo informe
       href: howto-conditional-access-insights-reporting.md
-    - name: Requerir aplicaciones cliente aprobadas
-      href: app-based-conditional-access.md
-    - name: Requerir la directiva de protección de aplicaciones
-      href: app-protection-based-conditional-access.md
-    - name: Requerir dispositivos administrados
-      href: require-managed-devices.md
-    - name: Requerir MFA para los intentos de acceso de redes que no son de confianza
-      href: untrusted-networks.md
+    - name: Bloquear la autenticación heredada
+      href: block-legacy-authentication.md
     - name: Requerir condiciones de uso
       href: terms-of-use.md
     - name: Controles de frecuencia de inicio de sesión y de persistencia del explorador
@@ -108,8 +100,14 @@
           href: howto-continuous-access-evaluation-troubleshoot.md
         - name: Preguntas más frecuentes
           href: faqs.md
-    - name: Migración de directivas clásicas
-      href: policy-migration-mfa.md
+    - name: Controles personalizados
+      href: controls.md
+    - name: Directivas clásicas
+      items:
+        - name: Migraciones con directiva clásica
+          href: policy-migration.md
+        - name: Migración de directivas clásicas
+          href: policy-migration-mfa.md
 - name: Referencia
   items:
     - name: 'Graph API, versión beta'

@@ -7,13 +7,13 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-java
 ms.author: rhudson
-ms.date: 10/12/2021
-ms.openlocfilehash: 3d381b93752edce1598f1865284c3c0e7d4c223a
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.date: 11/12/2021
+ms.openlocfilehash: c34d2d9f88f97b80892b4329def4ca84f5f7b70c
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005249"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488874"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-using-an-arm-template"></a>Inicio rápido: Aprovisionamiento de Azure Spring Cloud con una plantilla de ARM
 

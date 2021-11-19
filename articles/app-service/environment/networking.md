@@ -2,17 +2,15 @@
 title: Redes de App Service Environment
 description: Detalles de las redes de App Service Environment
 author: madsd
-ms.assetid: 6f262f63-aef5-4598-88d2-2f2c2f2bfc24
-ms.topic: article
-ms.date: 06/30/2021
+ms.topic: overview
+ms.date: 11/15/2021
 ms.author: madsd
-ms.custom: seodec18
-ms.openlocfilehash: 177a9095a6a1cfb15a7bd17e106406521d1eda14
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cdedc94e64a0646c7e4ffa8c93f082d040e440c7
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128639023"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524082"
 ---
 # <a name="app-service-environment-networking"></a>Redes de App Service Environment
 
@@ -20,22 +18,21 @@ ms.locfileid: "128639023"
 > En este artículo se aborda App Service Environment v3, que se usa con planes de App Service v2 aislados.
 > 
 
-
-App Service Environment (ASE) es una implementación de inquilino único de Azure App Service que hospeda aplicaciones web, aplicaciones de API y aplicaciones de funciones. Cuando se instala ASE, se elige la instancia de Azure Virtual Network (VNet) en la que desea que se implemente. Toda la aplicación de tráfico de entrada y salida estará dentro de la VNet que especifique. El ASE se implementa en una sola subred de la red virtual. No se puede implementar nada más en esa misma subred.
+App Service Environment (ASE) es una implementación de inquilino único de Azure App Service que hospeda contenedores de Windows y Linux, aplicaciones web, aplicaciones de API, aplicaciones lógicas y aplicaciones de funciones. Cuando se instala ASE, se elige la instancia de Azure Virtual Network en la que desea que se implemente. Todo el tráfico entrante y saliente de la aplicación estará dentro de la red virtual que especifique. El ASE se implementa en una única subred de la red virtual. No se puede implementar nada más en esa misma subred.
 
 ## <a name="subnet-requirements"></a>Requisitos de subred
 
 La subred debe delegarse en Microsoft.Web/hostingEnvironments y debe estar vacía.
 
-El tamaño de la subred puede afectar a los límites de escalado de las instancias del plan de App Service en ASE. Se recomienda usar un espacio de direcciones de /24 (256 direcciones) para la subred con el fin de garantizar que hay suficientes direcciones para admitir la escala de producción.
+El tamaño de la subred puede afectar a los límites de escalado de las instancias del plan de App Service en ASE. Se recomienda usar un espacio de direcciones `/24` (256 direcciones) para la subred con el fin de garantizar que hay suficientes direcciones para admitir la escala de producción.
 
 Para usar una subred más pequeña, debe tener en cuenta los siguientes detalles de la configuración de red y de ASE.
 
-Cualquier subred tiene cinco direcciones reservadas para fines de administración. Además de las direcciones de administración, ASE escalará dinámicamente la infraestructura subyacente y usará entre 4 y 27 direcciones en función de la configuración, la escala y la carga. Las direcciones restantes se pueden usar para las instancias del plan de App Service. El tamaño mínimo de la subred es un espacio de direcciones de /27 (32 direcciones).
+Cualquier subred tiene cinco direcciones reservadas para fines de administración. Además de las direcciones de administración, ASE escalará dinámicamente la infraestructura subyacente y usará entre 4 y 27 direcciones en función de la configuración y la carga. Las direcciones restantes se pueden usar para las instancias del plan de App Service. El tamaño mínimo de la subred es un espacio de direcciones `/27` (32 direcciones).
 
-Si se queda sin direcciones, se puede restringir el escalado horizontal de sus planes de App Service en ASE, o bien puede experimentar una mayor latencia durante cargas de tráfico intensivas si no se puede escalar la infraestructura subyacente.
+Si se queda sin direcciones en la subred, se puede restringir el escalado horizontal de sus planes de App Service en ASE, o bien puede experimentar una mayor latencia durante cargas de tráfico intensivas si no se puede escalar la infraestructura subyacente.
 
-## <a name="addresses"></a>Direcciones 
+## <a name="addresses"></a>Direcciones
 
 La implementación del ASE tiene la siguiente información de red en el momento de la creación:
 
@@ -54,19 +51,40 @@ ASEv3 tiene detalles sobre las direcciones que usa el ASE en la parte de **direc
 
 A medida que escale los planes de App Service en su ASE, usará más direcciones de la subred del ASE. El número de direcciones usadas variará en función del número de instancias del plan de App Service que tenga y del tráfico que recibe el ASE. Las aplicaciones del ASE no tienen direcciones dedicadas en la subred del ASE. Las direcciones específicas que usa una aplicación de la subred del ASE cambiarán con el tiempo.
 
-## <a name="ports"></a>Puertos
+## <a name="ports-and-network-restrictions"></a>Puertos y restricciones de red
 
-ASE recibe el tráfico de la aplicación en los puertos 80 y 443. Si esos puertos están bloqueados, no podrá acceder a las aplicaciones. 
+Para que la aplicación reciba tráfico, debe asegurarse de que las reglas de grupos de seguridad de red (NSG) entrantes permiten que la subred de ASE reciba tráfico de los puertos necesarios. Además de los puertos en los que desea recibir tráfico, debe asegurarse de que AzureLoadBalancer puede conectarse a la subred de ASE en el puerto 80. Esto se usa para las comprobaciones internas de estado de la máquina virtual. Todavía puede controlar el tráfico del puerto 80 desde la red virtual a la subred de ASE.
 
-> [!NOTE]
-> Se debe permitir el puerto 80 desde AzureLoadBalancer a la subred del ASE para mantener el tráfico activo entre el equilibrador de carga y la infraestructura de ASE. Podrá seguir controlando el tráfico del puerto 80 a la dirección IP virtual del ASE.
-> 
+La recomendación general es configurar la siguiente regla de NSG entrante:
 
-## <a name="extra-configurations"></a>Configuraciones adicionales
+|Puerto|Source|Destination|
+|-|-|-|
+|80 443|VirtualNetwork|Rango de subred de ASE|
 
-Puede establecer grupos de seguridad de red (NSG) y tablas de enrutamientos (UDR) sin restricción. Puede forzar la tunelización de todo el tráfico saliente desde el ASE a un dispositivo de firewall de salida, como Azure Firewall, y así no tener que preocuparse por nada que no sean las dependencias de la aplicación. Puede colocar dispositivos WAF, como Application Gateway, delante del tráfico entrante a su ASE para exponer aplicaciones específicas en ese ASE. Para otra dirección de salida dedicada a Internet, puede usar una puerta de enlace NAT Gateway con el ASE. Para usar una puerta de enlace NAT Gateway con el ASE, configúrela en la subred del ASE. 
+El requisito mínimo para que el ASE esté operativo es:
+
+|Puerto|Source|Destination|
+|-|-|-|
+|80|AzureLoadBalancer|Rango de subred de ASE|
+
+Si usa la regla mínima necesaria, puede que necesite una o varias reglas más para el tráfico de la aplicación y, si usa cualquiera de las opciones de implementación o depuración, también tendrá que permitir este tráfico a la subred de ASE. El origen de estas reglas puede ser VirtualNetwork o una o varias direcciones IP o intervalos IP de cliente específicos. El destino siempre será el intervalo de subredes de ASE.
+
+Los puertos de acceso de aplicación normales son:
+
+|Uso|Puertos|
+|-|-|
+|HTTP/HTTPS|80, 443|
+|FTP/FTPS|21, 990, 10001-10020|
+|Depuración remota en Visual Studio|4022, 4024, 4026|
+|Servicio Web Deploy|8172|
+
+## <a name="network-routing"></a>Enrutamiento de red
+
+Puede establecer tablas de rutas (UDR) sin restricciones. Puede forzar la tunelización de todo el tráfico de la aplicación saliente desde el ASE a un dispositivo de firewall de salida, como Azure Firewall, y así no tener que preocuparse por nada que no sean las dependencias de la aplicación. Puede colocar dispositivos WAF, como Application Gateway, delante del tráfico entrante a su ASE para exponer aplicaciones específicas en ese ASE. Si desea personalizar la dirección saliente de las aplicaciones en un ASE, puede agregar un NAT Gateway a la subred de ASE.
 
 ## <a name="dns"></a>DNS
+
+En las secciones siguientes se describen las consideraciones de DNS y la configuración entrante al ASE y saliente desde el ASE.
 
 ### <a name="dns-configuration-to-your-ase"></a>Configuración de DNS en el ASE
 
@@ -74,10 +92,10 @@ Si el ASE se crea con una dirección IP virtual externa, las aplicaciones se col
 
 Si quiere usar su propio servidor DNS, debe agregar los siguientes registros:
 
-1. Cree una zona para el &lt;nombre de ASE&gt;.appserviceenvironment.net.
+1. Cree una zona para `<ASE-name>.appserviceenvironment.net`.
 1. Cree un registro D en esa zona que apunte * a la dirección IP de entrada usada por el ASE.
 1. Cree un registro D en esa zona que apunte @ a la dirección IP de entrada usada por el ASE.
-1. Cree una zona en el &lt;nombre de ASE&gt;.appserviceenvironment.net denominada SCM.
+1. Cree una zona en `<ASE-name>.appserviceenvironment.net` llamada scm.
 1. Cree un registro D en la zona SCM que apunte * a la dirección IP usada por el punto de conexión privado del ASE.
 
 Para configurar DNS en las zonas privadas de Azure DNS:
@@ -87,15 +105,15 @@ Para configurar DNS en las zonas privadas de Azure DNS:
 1. Cree un registro D en esa zona que apunte @ a la dirección IP de entrada.
 1. Cree un registro D en esa zona que apunte *.scm a la dirección IP de entrada.
 
-La configuración de DNS para el sufijo de dominio predeterminado del ASE no restringe las aplicaciones a solo aquellas que son accesibles por esos nombres. Puede establecer un nombre de dominio personalizado sin ninguna validación en las aplicaciones de un ASE. Si quiere crear una zona denominada *contoso.net*, puede hacerlo y que apunte a la dirección IP de entrada. El nombre de dominio personalizado funciona para las solicitudes de aplicación, pero no para el sitio SCM. El sitio SCM solo está disponible en *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*. 
+Además del dominio predeterminado proporcionado cuando se crea una aplicación, también puede agregar un dominio personalizado a la aplicación. Puede establecer un nombre de dominio personalizado sin ninguna validación en las aplicaciones de un ASE con un ILB. Si usa dominios personalizados, deberá asegurarse de que tienen registros DNS configurados. Puede seguir las instrucciones anteriores para configurar zonas DNS y registros para un nombre de dominio personalizado reemplazando el nombre de dominio predeterminado por el nombre de dominio personalizado. El nombre de dominio personalizado funciona para las solicitudes de aplicación, pero no para el sitio SCM. El sitio SCM solo está disponible en *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*.
 
-#### <a name="dns-configuration-from-your-ase"></a>Configuración de DNS desde el ASE
+### <a name="dns-configuration-from-your-ase"></a>Configuración de DNS desde el ASE
 
-Las aplicaciones de ASE usarán el DNS con el que está configurada la VNet. Si desea que algunas aplicaciones usen un servidor DNS distinto al que está configurado en la VNet, puede establecerlo manualmente en cada aplicación con las configuraciones de aplicación WEBSITE_DNS_SERVER y WEBSITE_DNS_ALT_SERVER. La configuración de aplicación WEBSITE_DNS_ALT_SERVER configura el servidor DNS secundario. El servidor DNS secundario solo se usa cuando no hay ninguna respuesta del servidor DNS principal. 
+Las aplicaciones del ASE usarán el DNS con el que está configurada la red virtual. Si desea que algunas aplicaciones usen un servidor DNS distinto al que está configurado en la red virtual, puede establecerlo manualmente en cada aplicación con las configuraciones de aplicación WEBSITE_DNS_SERVER y WEBSITE_DNS_ALT_SERVER. La configuración de aplicación WEBSITE_DNS_ALT_SERVER configura el servidor DNS secundario. El servidor DNS secundario solo se usa cuando no hay ninguna respuesta del servidor DNS principal.
 
 ## <a name="limitations"></a>Limitaciones
 
-Aunque el ASE se implementa en una red virtual de cliente, hay algunas características de red que no están disponibles con ASE. 
+Aunque el ASE se implementa en una red virtual de cliente, hay algunas características de red que no están disponibles con ASE:
 
 * Envío de tráfico SMTP. Puede tener alertas que se desencadenen por correo electrónico, pero la aplicación no puede enviar tráfico saliente en el puerto 25.
 * Uso de Network Watcher o de flujo de NSG para supervisar el tráfico saliente.

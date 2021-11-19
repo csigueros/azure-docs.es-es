@@ -51,15 +51,18 @@ conceptualContent:
           text: 'ML automatizado: Entrenamiento de un modelo de clasificación'
     - title: Implementación de modelos
       links:
-        - url: how-to-deploy-and-where.md
-          itemType: how-to-guide
-          text: Implementación de un modelo
+        - url: concept-endpoints.md
+          itemType: concept
+          text: Optimización de la implementación de modelos con puntos de conexión (versión preliminar)
         - url: how-to-deploy-managed-online-endpoints.md
           itemType: how-to-guide
           text: Puntuación en tiempo real con un punto de conexión administrado (versión preliminar)
         - url: how-to-use-batch-endpoint.md
           itemType: how-to-guide
           text: Puntuación por lotes con puntos de conexión administrados (versión preliminar)
+        - url: how-to-deploy-and-where.md
+          itemType: how-to-guide
+          text: Opciones para implementar modelos sin usar puntos de conexión
     - title: Administración del ciclo de vida de ML (MLOps)
       links:
         - url: how-to-track-monitor-analyze-runs.md

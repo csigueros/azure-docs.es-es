@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: fc175bdad79bbb01bd0686dcdbf314d8d6ee47fb
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 35394fc33316518dac760363d2b69fdaa0727d6a
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "114200953"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132529894"
 ---
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -37,9 +37,9 @@ La configuración del número de teléfono se divide en dos pasos:
 1. Selección del tipo del [tipo de número](../../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services).
 2. Selección de las [funcionalidades del número](../../../concepts/telephony-sms/plan-solution.md#phone-number-capabilities-in-azure-communication-services).
 
-Puede seleccionar entre dos tipos de números de teléfono: **Geographic** (Geográfico) y **Número gratuito**. Después de seleccionar un tipo de número, puede elegir las características.
+Puede seleccionar entre dos tipos de números de teléfono: **Local** y **Gratuito**. Después de seleccionar un tipo de número, puede elegir las características.
 
-En nuestro ejemplo hemos seleccionado un tipo **Número gratuito** con las características **Llamadas salientes** y **SMS entrantes y salientes**.
+En nuestro ejemplo, hemos seleccionado un tipo de número **Gratuito** con las características **Hacer llamadas** y **Send and receive SMS** (Enviar y recibir SMS).
 
 :::image type="content" source="../../media/manage-phone-azure-portal-select-plans.png" alt-text="Captura de pantalla que muestra la vista para seleccionar características.":::
 
@@ -52,7 +52,7 @@ En la página **Numbers** (Números), personalizará los números de teléfono q
 :::image type="content" source="../../media/manage-phone-azure-portal-select-numbers-start.png" alt-text="Captura de pantalla que muestra la página para la selección de números.":::
 
 > [!NOTE]
-> En este inicio rápido se muestra el flujo de personalización del tipo **Número gratuito**. La experiencia puede ser ligeramente diferente si ha elegido el tipo de número **Geographic** (Geográfico), pero el resultado final será el mismo.
+> En este inicio rápido se muestra el flujo de personalización del tipo **Número gratuito**. La experiencia puede ser ligeramente diferente si ha elegido el tipo de número **Local**, pero el resultado final será el mismo.
 
 Elija el valor de **Código de área** de la lista de códigos de área disponibles y escriba la cantidad que desea aprovisionar y, a continuación, haga clic en **Buscar** para buscar números que cumplan los requisitos seleccionados. Los números de teléfono que satisfagan sus necesidades se mostrarán junto con el costo mensual.
 
@@ -91,11 +91,11 @@ Seleccione la hoja Números de teléfono en el menú para administrar los númer
 
 ### <a name="update-phone-number-capabilities"></a>Actualización de las funcionalidades del número de teléfono
 
-En la página **Números** puede seleccionar un número de teléfono para configurarlo.
+En la página **Números de teléfono** puede seleccionar un número de teléfono para configurarlo.
 
 :::image type="content" source="../../media/manage-phone-azure-portal-capability-update.png" alt-text="Captura de pantalla que muestra la página de actualización de características.":::
 
-Seleccione las características de las opciones disponibles y haga clic en **Confirmar** para aplicar la selección.
+Seleccione las características de las opciones disponibles y haga clic en **Guardar** para aplicar la selección.
 
 ### <a name="release-phone-number"></a>Descarte de un número de teléfono
 

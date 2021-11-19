@@ -1,45 +1,45 @@
 ---
 title: Visualización de los datos recopilados
-description: Obtenga información sobre cómo ver y supervisar rápidamente lo que sucede en su entorno mediante Azure Sentinel.
+description: Obtenga información sobre cómo ver y supervisar rápidamente lo que sucede en su entorno mediante Microsoft Sentinel.
 services: sentinel
 author: yelevin
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit, ignite-fall-2021
-ms.date: 09/16/2020
+ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: fb01d57a7801b940ba9de2e8c939743070c57eaa
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 45128b80c6404a44c475d0d329fe65ab0e760375
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131004100"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132517774"
 ---
 # <a name="visualize-collected-data"></a>Visualización de los datos recopilados
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-En este artículo, aprenderá a ver y supervisar rápidamente lo que sucede en su entorno mediante Azure Sentinel. Después de conectar los orígenes de datos a Azure Sentinel, obtendrá una visualización y un análisis instantáneos de los datos, así sabrá lo que sucede en todos los orígenes de datos conectados. Azure Sentinel ofrece libros que le proporcionan toda la potencia de las herramientas que ya están disponibles en Azure, así como tablas y gráficos que están integrados para ofrecerle análisis de sus registros y consultas. Puede usar los libros integrados o crear un libro fácilmente desde cero o a partir de un libro existente. 
+En este artículo, aprenderá a ver y supervisar rápidamente lo que sucede en su entorno mediante Microsoft Sentinel. Después de conectar los orígenes de datos a Microsoft Sentinel, obtendrá una visualización y un análisis instantáneos de los datos; así sabrá lo que sucede en todos los orígenes de datos conectados. Microsoft Sentinel ofrece libros que le proporcionan toda la potencia de las herramientas que ya están disponibles en Azure, así como tablas y gráficos que están integrados para ofrecerle análisis de sus registros y consultas. Puede usar los libros integrados o crear un libro fácilmente desde cero o a partir de un libro existente. 
 
 ## <a name="get-visualization"></a>Obtener visualización
 
-Para visualizar y obtener análisis de lo que sucede en su entorno, primero eche un vistazo al panel de información general para hacerse una idea de la posición de seguridad de su organización. Puede hacer clic en cada elemento de estos iconos para explorar en profundidad los datos sin procesar desde los que se crean. Para ayudar a reducir el ruido y minimizar el número de alertas que tiene que revisar e investigar, Azure Sentinel emplea una técnica de fusión para correlacionar alertas con incidentes. Los **incidentes** son grupos de alertas relacionadas que, juntas, crean un incidente accionable que se puede investigar y resolver.
+Para visualizar y obtener análisis de lo que sucede en su entorno, primero eche un vistazo al panel de información general para hacerse una idea de la posición de seguridad de su organización. Puede hacer clic en cada elemento de estos iconos para explorar en profundidad los datos sin procesar desde los que se crean. Para ayudar a reducir el ruido y minimizar el número de alertas que tiene que revisar e investigar, Microsoft Sentinel emplea una técnica de fusión para correlacionar alertas con incidentes. Los **incidentes** son grupos de alertas relacionadas que, juntas, crean un incidente accionable que se puede investigar y resolver.
 
-- En Azure Portal, seleccione Azure Sentinel y, luego, seleccione el área de trabajo que quiere supervisar.
+- En Azure Portal, seleccione Microsoft Sentinel y, luego, seleccione el área de trabajo que quiere supervisar.
 
-  ![Introducción a Azure Sentinel](./media/qs-get-visibility/overview.png)
+  ![Introducción a Microsoft Sentinel](./media/qs-get-visibility/overview.png)
 
-- La barra de herramientas de la parte superior le indica cuántos eventos obtuvo durante el período de tiempo seleccionado y lo compara con las 24 horas anteriores. A partir de estos eventos, la barra de herramientas le indica las alertas que se desencadenaron (el número pequeño representa los cambios en las últimas 24 horas) y, luego, le indica cuántos de esos eventos están abiertos, en curso y cerrados. Compruebe que no haya un ascenso o descenso destacables en el número de eventos. Si se produce un descenso, es posible que una de las conexiones haya dejado de informar a Azure Sentinel. Si hay un ascenso, puede que haya ocurrido algo sospechoso. Vea si tiene nuevas alertas.
+- La barra de herramientas de la parte superior le indica cuántos eventos obtuvo durante el período de tiempo seleccionado y lo compara con las 24 horas anteriores. A partir de estos eventos, la barra de herramientas le indica las alertas que se desencadenaron (el número pequeño representa los cambios en las últimas 24 horas) y, luego, le indica cuántos de esos eventos están abiertos, en curso y cerrados. Compruebe que no haya un ascenso o descenso destacables en el número de eventos. Si se produce un descenso, es posible que una de las conexiones haya dejado de informar a Microsoft Sentinel. Si hay un ascenso, puede que haya ocurrido algo sospechoso. Vea si tiene nuevas alertas.
 
-   ![Contadores de Azure Sentinel](./media/qs-get-visibility/funnel.png)
+   ![Contadores de Microsoft Sentinel](./media/qs-get-visibility/funnel.png)
 
 El cuerpo principal de la página de información general ofrece conclusiones de un vistazo sobre el estado de seguridad del área de trabajo:
 
 - **Eventos y alertas con el tiempo**: muestra el número de eventos y cuántas alertas se crearon a partir de ellos. Si observa un pico inusual, examine las alertas al respecto; si hay algo raro donde hay un pico en los eventos, pero no hay alertas, podría ser motivo de preocupación.
 
-- **Posibles eventos malintencionados**: cuando se detecta tráfico desde orígenes que se sabe que son malintencionados, Azure Sentinel le avisa en el mapa. Si la alerta es naranja, se trata del tráfico entrante: alguien está intentando acceder a su organización desde una dirección IP malintencionada conocida. Si observa actividad saliente (rojo), significa que los datos de la red se están transmitiendo fuera de la organización a una dirección IP malintencionada conocida.
+- **Posibles eventos malintencionados**: cuando se detecta tráfico desde orígenes que se sabe que son malintencionados, Microsoft Sentinel le avisa en el mapa. Si la alerta es naranja, se trata del tráfico entrante: alguien está intentando acceder a su organización desde una dirección IP malintencionada conocida. Si observa actividad saliente (rojo), significa que los datos de la red se están transmitiendo fuera de la organización a una dirección IP malintencionada conocida.
 
    ![Mapa de tráfico malintencionado](./media/qs-get-visibility/map.png)
 
@@ -55,7 +55,7 @@ Los libros integrados proporcionan datos integrados procedentes de orígenes de 
 
 1. En **Configuración**, seleccione **Libros**. En **Instalados**, puede ver todos los libros instalados. En **Todos**, puede ver toda la galería entera de libros integrados disponibles para su instalación. 
 2. Busque un libro específico ver la lista completa y una descripción de lo que ofrece cada uno. 
-3. Suponiendo que usa Azure AD, para comenzar a trabajar con Azure Sentinel, se recomienda que instale al menos los libros siguientes:
+3. Suponiendo que usa Azure AD, para comenzar a trabajar con Microsoft Sentinel, se recomienda que instale al menos los libros siguientes:
    - **Azure AD**: use uno de estos paneles o ambos:
        - **Inicios de sesión de Azure AD**: analiza los inicios de sesión con el tiempo para ver si hay anomalías. Este libro proporciona los errores de inicio de sesión de aplicaciones, dispositivos y ubicaciones de forma que pueda advertir de un vistazo si sucede algo inusual. Preste atención cuando se producen varios errores de inicio de sesión. 
        - **Registros de auditoría de Azure AD**: analiza las actividades de administración, como los cambios en los usuarios (agregar, quitar, etc.), la creación de grupos y las modificaciones.  
@@ -71,7 +71,7 @@ Para más información sobre cómo trabajar con consultas, consulte [Tutorial: V
 
 ### <a name="add-a-new-tile"></a>Agregar un nuevo icono
 
-Si desea agregar un icono, puede agregarlo a un libro existente (uno que cree o uno integrado en Azure Sentinel). 
+Si desea agregar un icono, puede agregarlo a un libro existente (uno que cree o uno integrado en Microsoft Sentinel). 
 1. En Log Analytics, cree un icono mediante las instrucciones que encontrará en [Tutorial: Visualización de datos en Log Analytics](../azure-monitor/visualize/tutorial-logs-dashboards.md). 
 2. Después de crear el icono, en **Anclar**, seleccione el libro en el que desee que aparezca.
 
@@ -113,18 +113,18 @@ Puede crear distintos libros en función del rol de la persona que examina los d
 
 ## <a name="create-new-detections"></a>Creación de nuevas detecciones
 
-Genere detecciones en los [orígenes de datos que ha conectado a Azure Sentinel](connect-data-sources.md) para investigar las amenazas de su organización.
+Genere detecciones en los [orígenes de datos que ha conectado a Microsoft Sentinel](connect-data-sources.md) para investigar las amenazas de su organización.
 
 Cuando cree una nueva detección, aproveche las detecciones integradas diseñadas por los investigadores de seguridad de Microsoft que se adapten a los orígenes de datos que ha conectado.
 
-Para ver todas las detecciones estándar, vaya a **Análisis** y, después, a **Rule templates** (Plantillas de reglas). Esta pestaña contiene todas las reglas integradas de Azure Sentinel.
+Para ver todas las detecciones estándar, vaya a **Análisis** y, después, a **Rule templates** (Plantillas de reglas). Esta pestaña contiene todas las reglas integradas de Microsoft Sentinel.
 
-   ![Usar las detecciones integradas para encontrar amenazas con Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
+   ![Uso de las detecciones integradas para encontrar amenazas con Microsoft Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 
 Para más información sobre cómo obtener detecciones listas para su uso, consulte [Obtención de análisis integrados](detect-threats-built-in.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este inicio rápido, ha aprendido cómo empezar a usar Azure Sentinel. Siga con el artículo sobre [cómo detectar amenazas](detect-threats-built-in.md).
+En este inicio rápido, ha aprendido cómo empezar a usar Microsoft Sentinel. Siga con el artículo sobre [cómo detectar amenazas](detect-threats-built-in.md).
 
 > [!div class="nextstepaction"]
 > [Cree reglas de detección de amenazas personalizadas](detect-threats-custom.md) para automatizar las respuestas a las amenazas.

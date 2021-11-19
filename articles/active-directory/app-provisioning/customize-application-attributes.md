@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/07/2021
+ms.date: 11/15/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 7f4c509b1f59db05db9bf6fca34960f7f2ab6b87
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d4e86f2dc3df62b90c45d27d9034e1b97d9b4870
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131054483"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522049"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial: Personalización de las asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
 
@@ -258,6 +258,7 @@ El formato de la solicitud es diferente entre PATCH y POST. Para asegurarse de q
   - **Cosas que hay que tener en cuenta**
     - todos los roles se aprovisionan como primary = false.
     - POST contiene el tipo de rol. La solicitud PATCH no contiene tipo. Se trabaja en el envío del tipo en las solicitudes POST y PATCH.
+    - AppRoleAssignmentsComplex no es compatible con establecer el ámbito en "Sincronizar todos los usuarios y grupos". 
     
   - **Salida del ejemplo** 
   

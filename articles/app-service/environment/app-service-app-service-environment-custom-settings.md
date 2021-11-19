@@ -7,18 +7,19 @@ ms.topic: tutorial
 ms.date: 11/03/2021
 ms.author: madsd
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 863a3fe9ae7b51f347055def7dcaaaa5445293c9
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: c90357a77d8ea95675fb17ecbde5c8dfb94b49ea
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131510051"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524994"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Opciones de configuración personalizada para Entornos de App Service
+
 ## <a name="overview"></a>Información general
 Dado que las instancias de App Service Environment (ASE) están aisladas en un solo cliente, hay ciertos valores de configuración que se pueden aplicar exclusivamente a ellas. En este artículo se documentan las distintas personalizaciones específicas disponibles para los entornos de App Service.
 
-Si no cuenta con una instancia de App Service Environment, consulte [Creación de un entorno de ASEv1 a partir de una plantilla](app-service-app-service-environment-create-ilb-ase-resourcemanager.md).
+Si no cuenta con una instancia de App Service Environment, consulte [Creación de un entorno de ASEv3](./creation.md).
 
 Puede almacenar las personalizaciones del entorno de App Service mediante el uso de una matriz en el nuevo atributo **clusterSettings** . Este atributo se encuentra en el diccionario de "Propiedades" de la entidad *hostingEnvironments* de Azure Resource Manager.
 
@@ -27,7 +28,7 @@ La siguiente plantilla abreviada de Resource Manager muestra el atributo **clust
 ```json
 "resources": [
 {
-    "apiVersion": "2015-08-01",
+    "apiVersion": "2021-03-01",
     "type": "Microsoft.Web/hostingEnvironments",
     "name": ...,
     "location": ...,
@@ -38,7 +39,7 @@ La siguiente plantilla abreviada de Resource Manager muestra el atributo **clust
                 "value": "valueOfCustomSetting"
             }
         ],
-        "workerPools": [ ...],
+        "internalLoadBalancingMode": ...,
         etc...
     }
 }
@@ -61,7 +62,7 @@ Por ejemplo, si un entorno de App Service tiene cuatro front-ends, tardará apro
 
 ## <a name="enable-internal-encryption"></a>Habilitación del cifrado interno
 
-App Service Environment funciona como sistema de caja negra en el que no se pueden ver los componentes internos ni la comunicación dentro del sistema. Para permitir mayor capacidad de proceso, no se habilita el cifrado de forma predeterminada entre los componentes internos. El sistema es seguro, ya que no se puede acceder al tráfico ni supervisarlo. Si hay alguna medida de cumplimiento normativo que requiera el cifrado completo de toda la ruta de acceso a los datos, una forma de hacerlo es con clusterSetting.  
+App Service Environment funciona como sistema de caja negra en el que no se pueden ver los componentes internos ni la comunicación dentro del sistema. Para permitir mayor capacidad de proceso, no se habilita el cifrado de forma predeterminada entre los componentes internos. El sistema es seguro, ya que no se puede acceder al tráfico ni supervisarlo. Si hay alguna medida de cumplimiento normativo que requiera el cifrado completo de toda la ruta de acceso a los datos, una forma de hacerlo es con clusterSetting.
 
 ```json
 "clusterSettings": [
@@ -107,8 +108,4 @@ El ASE permite cambiar el conjunto de cifrado predeterminado por otro. El conjun
 > Nota: Si se establecen valores incorrectos para el conjunto de aplicaciones de cifrado que SChannel no entiende, toda la comunicación TLS en el servidor podría dejar de funcionar. En tal caso, debe quitar la entrada *FrontEndSSLCipherSuiteOrder* de **clusterSettings** y enviar la plantilla de Resource Manager actualizada para volver a la configuración de conjunto de cifrado predeterminada.  Utilice esta funcionalidad con precaución.
 
 ## <a name="get-started"></a>Primeros pasos
-El sitio de inicio rápido de plantillas de Azure Resource Manager incluye una plantilla con la definición base para [crear un entorno de App Service](https://azure.microsoft.com/resources/templates/web-app-ase-create/).
-
-<!-- LINKS -->
-
-<!-- IMAGES -->
+El sitio de inicio rápido de plantillas de Azure Resource Manager incluye una plantilla con la definición base para [crear un entorno de App Service](https://azure.microsoft.com/resources/templates/web-app-asp-app-on-asev3-create/).

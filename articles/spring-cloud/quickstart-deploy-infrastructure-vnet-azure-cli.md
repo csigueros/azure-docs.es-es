@@ -7,13 +7,13 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, devx-track-java
 ms.author: vramasubbu
-ms.date: 10/12/2021
-ms.openlocfilehash: a1e4a03b5a9f2c173bb7a8a301fd20997b738005
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.date: 11/12/2021
+ms.openlocfilehash: 967303cc675ebc6537630f08e6871f5b32cf6af4
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003011"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488837"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-using-azure-cli"></a>Inicio rápido: Aprovisionamiento de Azure Spring Cloud con la CLI de Azure
 

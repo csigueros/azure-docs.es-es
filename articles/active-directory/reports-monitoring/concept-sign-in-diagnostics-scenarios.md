@@ -13,16 +13,16 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/08/2021
+ms.date: 11/12/2021
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f530f406f049876ca393610dc7b7fa02433116a
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: ab25e7150f7930f85df846ece50a3013c0e45818
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997160"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399738"
 ---
 # <a name="sign-in-diagnostics-for-azure-ad-scenarios"></a>Diagnóstico de inicio de sesión para escenarios de Azure AD
 
@@ -73,8 +73,14 @@ El diagnóstico de inicio de sesión Azure AD proporciona compatibilidad con los
     - Información de código de error  
 
     - Autenticación heredada  
+    
+    - Inicio de sesión B2B bloqueado por acceso condicional
 
     - Bloque por directiva de riesgo 
+    
+    - Autenticación transferida
+    
+    - Inicio de sesión único de conexión directa
 
 
 
@@ -285,6 +291,20 @@ Dado que la autenticación transferida es una integración de tecnologías de au
 Este escenario de diagnóstico identifica problemas de inicio de sesión específicos del usuario cuando el método de autenticación que se usa es la autenticación transferida (PTA) y hay un error específico de este tipo de autenticación. Los errores debidos a otros problemas, incluso cuando se usa la autenticación PTA, se seguirán diagnosticando correctamente. 
 
 El diagnóstico muestra información contextual sobre el error y el inicio de sesión del usuario, motivos adicionales por los que se ha producido un error en el inicio de sesión y las acciones recomendadas que el administrador puede realizar para resolver el problema. Para más información, consulte [Solución de problemas de autenticación transferida de Azure AD Connect](../hybrid/tshoot-connect-pass-through-authentication.md). 
+
+
+### <a name="seamless-single-sign-on"></a>Inicio de sesión único de conexión directa
+
+El inicio de sesión único de conexión directa integra la autenticación Kerberos con la autenticación en la nube. Dado que este escenario implica dos protocolos de autenticación, puede ser difícil determinar dónde se encuentra un punto de error cuando se producen problemas de inicio de sesión. Estas instrucciones están pensadas para facilitar el diagnóstico y la resolución de estos escenarios.
+ 
+En este escenario de diagnóstico se examina el contexto del error de inicio de sesión y la causa de error específica, la información contextual del intento de inicio de sesión y las acciones sugeridas que el administrador puede realizar de forma local o en la nube para resolver el problema. Para más información, consulte [Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory](../hybrid/tshoot-connect-sso.md). 
+ 
+
+
+
+
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

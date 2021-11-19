@@ -13,12 +13,12 @@ metadata:
   ms.reviewer: mal
   ms.custom: it-pro, seo-update-azuread-jan
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: dd15c9412cc9f7b0bed2ac4e0f622c827aaafe17
-  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.openlocfilehash: 645fc8c5b4dba874d24e353b4ceaabd7454c281d
+  ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/22/2021
-  ms.locfileid: "130227659"
+  ms.lasthandoff: 11/17/2021
+  ms.locfileid: "132719098"
 title: Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory
 summary: >
   Las preguntas más frecuentes (P+F) acerca de la colaboración negocio a negocio (B2B) de Azure Active Directory (Azure AD) se actualizan periódicamente para incluir nuevos temas.
@@ -129,4 +129,8 @@ sections:
       ¿Qué licencias se necesitan para usar B2B de Azure AD?
     answer: >
       Para información sobre las licencias que su organización necesita para usar Azure AD B2B, consulte [Precios de identidades externas](external-identities-pricing.md).
+  - question: >
+      ¿Pueden los usuarios de colaboración B2B iniciar sesión con su dirección de correo electrónico si no es UPN?
+    answer: >
+      Sí. Para más información sobre el correo electrónico como identificador de inicio de sesión alternativo para la colaboración B2B, consulte la sección sobre el [inicio de sesión de usuario invitado B2B con una dirección de correo electrónico](../authentication/howto-authentication-use-email-signin.md#b2b-guest-user-sign-in-with-an-email-address).
 additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\n[¿Qué es la colaboración B2B de Azure AD?](what-is-b2b.md)"

@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 11/01/2021
-ms.openlocfilehash: c1db7a4642d9a4fd14189a1e15e008c9b9ddd6c9
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 8a181f48bcdf7ec186aac1b05d3aaf135fa35c09
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132345648"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550520"
 ---
 # <a name="tutorial-publish-and-subscribe-messages-between-websocket-clients-using-subprotocol"></a>Tutorial: Publicación y suscripción de mensajes entre clientes de WebSocket mediante un subprotocolo
 
@@ -61,6 +61,10 @@ Copie el elemento **ConnectionString** capturado y se usará más adelante en es
 # <a name="python"></a>[Python](#tab/python)
 * [Python](https://www.python.org/)
 
+# <a name="java"></a>[Java](#tab/java)
+- [Kit de desarrollo de Java (JDK)](/java/azure/jdk/), versión 8 o posterior
+- [Apache Maven](https://maven.apache.org/download.cgi)
+
 ---
 
 ## <a name="using-a-subprotocol"></a>Uso de un subprotocolo
@@ -79,7 +83,7 @@ Ahora vamos a crear una aplicación web mediante el subprotocolo `json.webpubsub
     cd logstream
     dotnet new web
     dotnet add package Microsoft.Extensions.Azure
-    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
+    dotnet add package Azure.Messaging.WebPubSub
     ```
     
     # <a name="javascript"></a>[JavaScript](#tab/javascript)
@@ -91,7 +95,7 @@ Ahora vamos a crear una aplicación web mediante el subprotocolo `json.webpubsub
     npm install --save express
     npm install --save ws
     npm install --save node-fetch
-    npm install --save @azure/web-pubsub@1.0.0-alpha.20211102.4
+    npm install --save @azure/web-pubsub
     ```
 
     # <a name="python"></a>[Python](#tab/python)
@@ -107,6 +111,42 @@ Ahora vamos a crear una aplicación web mediante el subprotocolo `json.webpubsub
     pip install azure-messaging-webpubsubservice
     ```
     
+    # <a name="java"></a>[Java](#tab/java)
+    
+    Usaremos el marco web [Javalin](https://javalin.io/) para hospedar las páginas web.
+    
+    1. En primer lugar, vamos a usar Maven para crear una aplicación `logstream-webserver` y cambiar a la carpeta *logstream-webserver*:
+    
+        ```console
+        mvn archetype:generate --define interactiveMode=n --define groupId=com.webpubsub.tutorial --define artifactId=logstream-webserver --define archetypeArtifactId=maven-archetype-quickstart --define archetypeVersion=1.4
+        cd logstream-webserver
+        ```
+    
+    2. Agregamos el SDK de Azure Web PubSub y la dependencia del marco web `javalin` en el nodo `dependencies` de `pom.xml`:
+    
+        * `javalin`: marco web simple para Java
+        * `slf4j-simple`: registrador para Java
+        * `azure-messaging-webpubsub`: el SDK de cliente de servicio para usar Azure Web PubSub
+
+        ```xml
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-messaging-webpubsub</artifactId>
+            <version>1.0.0-beta.6</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.javalin/javalin -->
+        <dependency>
+            <groupId>io.javalin</groupId>
+            <artifactId>javalin</artifactId>
+            <version>3.13.6</version>
+        </dependency>
+    
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+        ```
     ---
     
 2.  Cree el servidor para hospedar `/negotiate` API y la página web.
@@ -166,7 +206,7 @@ Ahora vamos a crear una aplicación web mediante el subprotocolo `json.webpubsub
                         var service = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
                         var response = new
                         {
-                            url = service.GenerateClientAccessUri(roles: new string[] { "webpubsub.sendToGroup.stream", "webpubsub.joinLeaveGroup.stream" }).AbsoluteUri
+                            url = service.GetClientAccessUri(roles: new string[] { "webpubsub.sendToGroup.stream", "webpubsub.joinLeaveGroup.stream" }).AbsoluteUri
                         };
                         await context.Response.WriteAsJsonAsync(response);
                     });
@@ -241,7 +281,71 @@ Ahora vamos a crear una aplicación web mediante el subprotocolo `json.webpubsub
         server.serve_forever()
     
     ```
+    
+    # <a name="java"></a>[Java](#tab/java)
 
+    Vamos al directorio */src/main/java/com/webpubsub/tutorial*, abrimos el archivo *App.java* en el editor y usamos `Javalin.create` para servir archivos estáticos:
+
+    ```java
+    package com.webpubsub.tutorial;
+    
+    import com.azure.messaging.webpubsub.WebPubSubServiceClient;
+    import com.azure.messaging.webpubsub.WebPubSubServiceClientBuilder;
+    import com.azure.messaging.webpubsub.models.GetClientAccessTokenOptions;
+    import com.azure.messaging.webpubsub.models.WebPubSubClientAccessToken;
+    
+    import io.javalin.Javalin;
+    
+    public class App {
+        public static void main(String[] args) {
+            
+            if (args.length != 1) {
+                System.out.println("Expecting 1 arguments: <connection-string>");
+                return;
+            }
+    
+            // create the service client
+            WebPubSubServiceClient service = new WebPubSubServiceClientBuilder()
+                    .connectionString(args[0])
+                    .hub("chat")
+                    .buildClient();
+    
+            // start a server
+            Javalin app = Javalin.create(config -> {
+                config.addStaticFiles("public");
+            }).start(8080);
+    
+            
+            // Handle the negotiate request and return the token to the client
+            app.get("/negotiate", ctx -> {
+                GetClientAccessTokenOptions option = new GetClientAccessTokenOptions();
+                option.addRole("webpubsub.sendToGroup.stream");
+                option.addRole("webpubsub.joinLeaveGroup.stream");
+                WebPubSubClientAccessToken token = service.getClientAccessToken(option);
+    
+                // return JSON string
+                ctx.result("{\"url\":\"" + token.getUrl() + "\"}");
+                return;
+            });
+        }
+    }
+    ```
+
+    En función de la configuración, es posible que tenga que establecer explícitamente el nivel de lenguaje en Java 8. Esto se puede hacer en pom.xml. Agregue el siguiente fragmento:
+    ```xml
+    <build>
+        <plugins>
+            <plugin>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.8.0</version>
+              <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+              </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    ```
     ---
     
 3.  Creación de la página web
@@ -257,6 +361,9 @@ Ahora vamos a crear una aplicación web mediante el subprotocolo `json.webpubsub
 
     Cree una página HTML con el contenido siguiente y guárdela como `public/index.html`:
     
+    # <a name="java"></a>[Java](#tab/java)
+
+    <a name="create-an-html-page-with-below-content-and-save-it-to-srcmainresourcespublicindexhtml"></a>Cree una página HTML con el contenido siguiente y guárdelo en */src/main/resources/public/index.html*:
     ---
     
     ```html
@@ -313,6 +420,14 @@ Ahora vamos a crear una aplicación web mediante el subprotocolo `json.webpubsub
 
     ```bash
     python server.py "<connection-string>"
+    ```
+
+    # <a name="java"></a>[Java](#tab/java)
+
+    Ejecute el siguiente comando y reemplace `<connection-string>` por el elemento **ConnectionString** capturado en el [paso anterior](#get-the-connectionstring-for-future-use) y abra http://localhost:8080 en el explorador:
+
+    ```console
+    mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.tutorial.App" -Dexec.cleanupDaemonThreads=false -Dexec.args="'<connection_string>'"
     ```
     ---
 
@@ -485,6 +600,123 @@ lo que resultará útil si se desea transmitir en secuencias una gran cantidad d
 
     El código anterior crea una conexión de WebSocket al servicio y, después, cada vez que recibe algunos datos usa `ws.send()` para publicarlos. Para publicar en otros usuarios, solo tiene que establecer `type` en `sendToGroup` y especificar un nombre de grupo en el mensaje.
     
+    # <a name="java"></a>[Java](#tab/java)
+
+    1.  Vamos a usar otro terminal y volver a la carpeta raíz para crear una aplicación de consola de streaming `logstream-streaming` y cambiar a la carpeta *logstream-streaming*:
+        ```console
+        mvn archetype:generate --define interactiveMode=n --define groupId=com.webpubsub.quickstart --define artifactId=logstream-streaming --define archetypeArtifactId=maven-archetype-quickstart --define archetypeVersion=1.4
+        cd logstream-streaming
+        ```
+    
+    2. Vamos a agregar dependencias de HttpClient en el nodo `dependencies` de `pom.xml`:
+    
+        ```xml
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version>
+        </dependency>
+        <dependency>
+          <groupId>com.google.code.gson</groupId>
+          <artifactId>gson</artifactId>
+          <version>2.8.9</version>
+        </dependency>
+        ```
+    
+    3. Ahora vamos a usar WebSocket para conectarnos al servicio. Vamos a ir al directorio */src/main/java/com/webpubsub/quickstart*, abrir el archivo *App.java* en el editor y reemplazar el código por lo siguiente:
+    ```java
+    package com.webpubsub.quickstart;
+    
+    import java.io.BufferedReader;
+    import java.io.IOException;
+    import java.io.InputStreamReader;
+    import java.net.URI;
+    import java.net.http.HttpClient;
+    import java.net.http.HttpRequest;
+    import java.net.http.HttpResponse;
+    import java.net.http.WebSocket;
+    import java.util.concurrent.CompletionStage;
+    
+    import com.google.gson.Gson;
+    
+    public class App 
+    {
+        public static void main( String[] args ) throws IOException, InterruptedException
+        {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:8080/negotiate"))
+                .build();
+    
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            
+            Gson gson = new Gson();
+    
+            String url = gson.fromJson(response.body(), Entity.class).url;
+    
+            WebSocket ws = HttpClient.newHttpClient().newWebSocketBuilder().subprotocols("json.webpubsub.azure.v1")
+                    .buildAsync(URI.create(url), new WebSocketClient()).join();
+            int id = 0;
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            String streaming = reader.readLine();
+            App app = new App();
+            while (streaming != null && !streaming.isEmpty()){
+                String frame = gson.toJson(app.new GroupMessage(streaming + "\n", ++id));
+                System.out.println("Sending: " + frame);
+                ws.sendText(frame, true);
+                streaming = reader.readLine();
+            }
+        }
+    
+        private class GroupMessage{
+            public String data;
+            public int ackId;
+            public final String type = "sendToGroup";
+            public final String group = "stream";
+            
+            GroupMessage(String data, int ackId){
+                this.data = data;
+                this.ackId = ackId;
+            }
+        }
+    
+        private static final class WebSocketClient implements WebSocket.Listener {
+            private WebSocketClient() {
+            }
+    
+            @Override
+            public void onOpen(WebSocket webSocket) {
+                System.out.println("onOpen using subprotocol " + webSocket.getSubprotocol());
+                WebSocket.Listener.super.onOpen(webSocket);
+            }
+    
+            @Override
+            public CompletionStage<?> onText(WebSocket webSocket, CharSequence data, boolean last) {
+                System.out.println("onText received " + data);
+                return WebSocket.Listener.super.onText(webSocket, data, last);
+            }
+    
+            @Override
+            public void onError(WebSocket webSocket, Throwable error) {
+                System.out.println("Bad day! " + webSocket.toString());
+                WebSocket.Listener.super.onError(webSocket, error);
+            }
+        }
+    
+        private static final class Entity {
+            public String url;
+        }
+    }
+    
+    ```
+
+    4. Navegue hasta el directorio que contiene el archivo *pom.xml* y ejecute el proyecto mediante el siguiente comando
+    
+      ```console
+      mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.quickstart.App" -Dexec.cleanupDaemonThreads=false
+      ```
+    
     ---
     
     Puede ver que hay un nuevo concepto de "grupo" aquí. El grupo es un concepto lógico en un centro en el que puede publicar mensajes a un grupo de conexiones. En un centro, puede tener varios grupos y un cliente puede suscribirse a más de uno a la vez. Al usar un subprotocolo, solo puede publicar en un grupo, en lugar de retransmitir en todo el centro. Para más información sobre los términos, consulte los [conceptos básicos](./key-concepts.md).
@@ -550,8 +782,19 @@ lo que resultará útil si se desea transmitir en secuencias una gran cantidad d
               'webpubsub.joinLeaveGroup.stream']
     token = service.get_client_access_token(roles=roles)
     ```
-    ---
     
+    # <a name="java"></a>[Java](#tab/java)
+    
+    Tenga en cuenta que al generar el token de acceso, establecemos los roles correctos del cliente en `App.java`:
+
+    ```java
+    GetClientAccessTokenOptions option = new GetClientAccessTokenOptions();
+    option.addRole("webpubsub.sendToGroup.stream");
+    option.addRole("webpubsub.joinLeaveGroup.stream");
+    WebPubSubClientAccessToken token = service.getClientAccessToken(option);
+
+    ```
+    ---
 
 5.  Por último, aplique también algún estilo a `index.html` para que tenga una apariencia atractiva.
 
@@ -628,6 +871,16 @@ for i in $(ls -R); do echo $i; sleep 0.1; done | python stream.py
 El código de ejemplo completo de este tutorial se puede encontrar [aquí][code-python].
 
 
+# <a name="java"></a>[Java](#tab/java)
+
+Ahora puede ejecutar el código siguiente, introducir cualquier texto, y se mostrará en el explorador en tiempo real.
+
+```console
+mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.quickstart.App" -Dexec.cleanupDaemonThreads=false
+```
+
+El código de ejemplo completo de este tutorial se puede encontrar [aquí][code-java].
+
 ---
 
 
@@ -645,3 +898,5 @@ En otros tutoriales podrá profundizar más en cómo usar el servicio.
 [code-js]: https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/logstream/
 
 [code-python]: https://github.com/Azure/azure-webpubsub/tree/main/samples/python/logstream/
+
+[code-java]: https://github.com/Azure/azure-webpubsub/tree/main/samples/java/logstream/

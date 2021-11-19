@@ -7,17 +7,17 @@ ms.topic: overview
 ms.date: 07/02/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8771c79aa788627fb73745e98e924bbaa3ab1236
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
+ms.openlocfilehash: d3f3bb466156b08ae90561d5e02e5b5ddf469755
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113224686"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518515"
 ---
 # <a name="azure-files-networking-considerations"></a>Consideraciones de redes para Azure Files 
 Puede conectarse a un recurso compartido de archivos de Azure de dos maneras:
 
-- Acceder al recurso compartido directamente mediante los protocolos Bloque de mensajes del servidor (SMB), Network File System (NFS) (versión preliminar) o FileREST. Este patrón de acceso se emplea principalmente cuando se quieren eliminar tantos servidores locales como sea posible.
+- Acceder al recurso compartido directamente mediante los protocolos Bloque de mensajes del servidor (SMB), Network File System (NFS) o FileREST. Este patrón de acceso se emplea principalmente cuando se quieren eliminar tantos servidores locales como sea posible.
 - Cree una memoria caché del recurso compartido de archivos de Azure en un servidor local (o en una VM de Azure) con Azure File Sync y acceda a los datos del recurso compartido de archivos desde el servidor local con el protocolo que elija (SMB, NFS, FTPS, etc.) para su caso de uso. Este patrón de acceso es útil porque combina lo mejor de la escala en la nube y el rendimiento local junto con los servicios conectables sin servidor, como Azure Backup.
 
 Este artículo se centra en cómo configurar las funciones de red cuando el caso de uso necesita acceder al recurso compartido de archivos de Azure directamente, en lugar de usar Azure File Sync. Para obtener más información acerca de las consideraciones de red para una implementación de Azure File Sync, consulte [Consideraciones de redes para Azure File Sync](../file-sync/file-sync-networking-overview.md).

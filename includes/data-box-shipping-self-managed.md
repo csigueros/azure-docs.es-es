@@ -3,16 +3,16 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 10/21/2021
+ms.date: 11/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 4d21a73b37f9a192ce080b0c5405b280b9100ba8
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 6e18baf15b63a37f9c7746ac1273b481f1ea77cc
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130247329"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132556582"
 ---
-Si usa Data Box en la Administración Pública de EE. UU., Japón, Singapur, Corea, India, Sudáfrica, Reino Unido, Alemania, Suiza, Oeste de Europa, Australia o Brasil, y ha seleccionado el envío autoadministrado al crear el pedido, siga estas instrucciones.
+Si usa Data Box en la Administración Pública de EE. UU., Japón, Singapur, Corea, India, Sudáfrica, Reino Unido, Alemania, Suiza, Oeste de Europa, Australia o Brasil, y ha seleccionado el envío autoadministrado al crear el pedido, siga estas instrucciones. Para ver los pasos detallados, consulte [Uso del envío autoadministrado](../articles/databox/data-box-portal-customer-managed-shipping.md).
 
 1. Anote el código de autorización que se muestra en la página **Preparación para el envío** de la interfaz de usuario web local de Data Box una vez que el paso se complete correctamente.
 2. Apague el dispositivo y quite los cables. Enrolle y coloque de forma segura el cable de alimentación que se suministró junto con el dispositivo en la parte posterior del mismo.

@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 10/16/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d280e96b354f38a86545ed5f6bcaa6c9a314c46b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14d604a5e15d7ca33cb9b73a41f867016599087d
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96462039"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132401544"
 ---
 # <a name="quickstart-create-a-serverless-apache-spark-pool-using-synapse-studio"></a>Inicio rápido: Creación de un grupo de Apache Spark sin servidor mediante Synapse Studio
 
@@ -71,7 +71,8 @@ En la información general del área de trabajo, seleccione la **dirección URL 
     | **Tamaño del nodo** | Pequeño (4 vCPU/32 GB) | Establézcalo en el menor tamaño para reducir los costos de este artículo de inicio rápido |
     | **Autoscale** | Disabled | En este inicio rápido no se necesitará la escalabilidad automática |
     | **Número de nodos** | 8 | Use un tamaño pequeño para limitar los costos en este inicio rápido|
-       
+    | **Asignación dinámica de ejecutores** |  Disabled | Esta configuración se asigna a la propiedad de asignación dinámica de la configuración de Spark para la asignación de ejecutores de aplicaciones de Spark. En este inicio rápido no se necesitará la escalabilidad automática.|
+    
     ![Aspectos básicos del nuevo grupo de Apache Spark en Synapse Studio](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-24.png)
     
     > [!IMPORTANT]

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/26/2021
+ms.date: 11/15/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 16eb16d14890ae581bf71ff3998d22055965c336
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f9e296ec4c1b99f6f2a8d23103c8b04fcd16a814
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131082595"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552667"
 ---
 ::: zone target="docs"
 
@@ -140,7 +140,7 @@ Si es necesario, puede ponerse en contacto con el soporte técnico de Quantium S
 2. Para solicitar la recogida, envíe un correo electrónico al servicio de atención al cliente de SingPost mediante la siguiente plantilla con el número de seguimiento (el número de seguimiento se puede encontrar en la etiqueta de retorno que se encuentra en el paquete entregado).
 
     ```
-    To: kadcustcare@singpost.com
+    To: g-corpsgcs@singpost.com
     Subject: Microsoft Azure Pickup - XZ00001234567
     Body:
      a.    Requestor name
@@ -231,9 +231,11 @@ Siga estos pasos si va a devolver el dispositivo en Sudáfrica.
 
 5. Si surge algún problema, envíe un correo electrónico a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) con los detalles y mencione el número del pedido en el asunto. También puede llamar al +27(0)119213902.
 
+---
+
 ### <a name="self-managed-shipping"></a>Envío autoadministrado
 
-Si usa Data Box Disk en la Administración Pública de EE. UU., Japón, Singapur, Corea, Reino Unido, Oeste de Europa, Australia, Sudáfrica, India o Brasil, y ha seleccionado la opción de envío autoadministrado al crear el pedido, siga estas instrucciones.
+Si usa Data Box Disk en la Administración Pública de EE. UU., Japón, Singapur, Corea, Reino Unido, Oeste de Europa, Australia, Sudáfrica, India o Brasil, y ha seleccionado la opción de envío autoadministrado al crear el pedido, siga estas instrucciones. Para ver los pasos detallados, consulte [Uso del envío autoadministrado](data-box-disk-portal-customer-managed-shipping.md).
 
 1. Vaya a la hoja **Información general** del pedido en Azure Portal. Siga las instrucciones que se muestran al seleccionar **Programar recogida**. Debería ver un código de autorización que se utiliza en el momento de dejar el pedido.
 

@@ -8,20 +8,21 @@ metadata:
   ms.author: helohr
   ms.custom: devx-track-azurepowershell
   manager: femila
-  ms.openlocfilehash: 7024b24b27e8a33cd79c3ad199dcd9e4040588d5
-  ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+  ms.openlocfilehash: 55ed95dbba1e5ee04b1ff9b5e44bb42373846981
+  ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/19/2021
-  ms.locfileid: "130181857"
+  ms.lasthandoff: 11/12/2021
+  ms.locfileid: "132399583"
 title: Preguntas frecuentes sobre escalabilidad automática (versión preliminar) de Azure Virtual Desktop
 summary: En este artículo se responden las preguntas más frecuentes sobre cómo usar la característica de escalabilidad automática (versión preliminar) para Azure Virtual Desktop.
 sections:
 - name: Omitido
   questions:
   - question: >
-      ¿Cómo configurar la escalabilidad automática para ejecutar cero hosts de sesión después del horario laboral?
-    answer: "El modo de descenso siempre utiliza el menor número posible de hosts de sesión. Sin embargo, si existen sesiones activas, el número más bajo de hosts de sesión utilizables no será cero. Configure una directiva de límite de tiempo para cerrar la sesión de todos los usuarios desconectados a fin de evitar tener hosts de sesión utilizables después del horario laboral.\n \n"
+      ¿Cómo configurar la característica de escalabilidad automática para ejecutar cero hosts de sesión después del horario laboral?
+    answer: >
+      El modo de descenso siempre utiliza el menor número posible de hosts de sesión. Sin embargo, si existen sesiones activas, el número más bajo de hosts de sesión utilizables no será cero. Configure una directiva de límite de tiempo para cerrar la sesión de todos los usuarios desconectados a fin de evitar tener hosts de sesión utilizables después del horario laboral.
   - question: >
       ¿La escalabilidad automática crea o elimina máquinas virtuales en función de la carga del servicio?
     answer: >
@@ -29,7 +30,36 @@ sections:
   - question: >
       ¿Puedo configurar el escalado para fechas específicas, como días festivos?
     answer: >
-      No. La escalabilidad automática no admite actualmente el descenso en fechas específicas.
+      No. La característica de escalabilidad automática no admite actualmente el descenso en fechas específicas.
   - question: >
       ¿Se me cobrará más por usar la característica de escalabilidad automática?
-    answer: No. Para más información sobre las tarifas, consulte la [página de precios](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+    answer: >
+      No. Para más información sobre las tarifas, consulte la [página de precios](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+  - question: >
+      ¿Qué ocurre si la capacidad del grupo de hosts es igual al umbral de capacidad?
+    answer: >
+      Nada. La característica de escalabilidad automática solo reacciona cuando la capacidad del grupo de hosts es mayor o menor que el umbral de capacidad. La característica no hará nada cuando la capacidad del grupo de hosts sea igual que el umbral de capacidad.
+  - question: >
+      Si configuro el modo de purga en hosts de sesión, ¿cambiará la característica de escalabilidad automática mi configuración establecida?
+    answer: >
+      Sí, la característica de escalabilidad automática seguirá activando o desactivando las máquinas virtuales en modo de purga, independientemente de quién las haya puesto en modo de purga. La característica de escalabilidad automática invalida el modo de purga en todas las máquinas virtuales incluidas en el escalado, por lo que si desea excluir una máquina virtual de las acciones de escalado, debe usar etiquetas de exclusión.
+  - question: >
+      ¿Con qué frecuencia supervisa la característica de escalabilidad automática los hosts de sesión y realiza evaluaciones de escalado?
+    answer: >
+      La característica de escalabilidad automática supervisa cuándo los usuarios inician o cierran sesión en sus hosts de sesión y clasifica esta actividad como eventos de cambio de sesión. Los eventos de cambio de sesión desencadenan una evaluación de escalado que crea registros. Si no hay ningún evento de cambio de sesión o el servicio de eventos tiene una interrupción, la característica de escalabilidad automática comprueba si se ha perdido algún evento. Cuando se suceden varios eventos de cambio de sesión en un breve período de tiempo, la característica procesará por lotes las evaluaciones de escalado. Este procesamiento por lotes permite que la característica de escalabilidad automática procese un gran número de eventos rápidamente sin sobrecargar el sistema.
+  - question: >
+      ¿Se puede forzar el cierre de sesión en cualquier fase del día?
+    answer: >
+      No. Si ha habilitado la característica de escalabilidad automática, solo puede forzar a los usuarios a cerrar sesión durante la fase de descenso. Esto significa que si, durante el descenso, un host de sesión se pone en modo de purga como preparación para que se apague, pero no todos los usuarios cierran sesión antes de se cambie a la fase de menor actividad, no se forzará a las sesiones de usuario restantes a cerrar sesión. Esto se debe a que durante las horas de menor actividad, no se fuerza a los usuarios a cerrar sesión. En su lugar, la característica de escalabilidad automática esperará hasta que todos los usuarios hayan cerrado sesión antes de desasignar la máquina virtual. Por ejemplo, si la fase de descenso dura 15 minutos y el tiempo de espera antes de cerrar la sesión de los usuarios y apagar las máquinas virtuales es de 20 minutos, la programación pasará a la fase de menor actividad y las sesiones de usuario no se verán forzadas a cerrarse.
+  - question: >
+      Si configuro la característica de escalabilidad automática para forzar a los usuarios a cerrar sesión durante el descenso, ¿también se cerrará la sesión de los usuarios con sesiones activas?
+    answer: >
+      Sí. Las sesiones inactivas, desconectadas y activas se verán forzadas a cerrar sesión si los usuarios no cierran sesión durante el tiempo de espera de la fase de descenso.
+  - question: >
+      Si una sesión activa se ve forzada a cerrar sesión, pero el usuario intenta volver a conectarse, ¿hay alguna manera de impedir que inicie una nueva sesión en un host de sesión que la característica de escalabilidad automática está a punto de apagar?
+    answer: >
+      Cuando la característica de escalabilidad automática selecciona un host de sesión que se va a apagar, lo pone en modo de purga. Una vez cerradas todas las sesiones de los usuarios, la característica de escalabilidad automática desasigna la máquina virtual. Después de desasignar la máquina virtual, la característica de escalabilidad automática establece la opción AllowNewSessions en true, lo que desactiva el modo de purga. Dado que los hosts de sesión que están a punto de apagarse se ponen en modo de purga, un usuario que se vea obligado a cerrar sesión no se conectará a un host de sesión que está a punto de apagarse si intenta volver a conectarse.
+  - question: >
+      ¿La característica de escalabilidad automática puede apagar todas las máquinas virtuales de un grupo de hosts o necesita mantener activas al menos algunas de ellas para funcionar correctamente?
+    answer: >
+      La característica de escalabilidad automática puede apagar todas las máquinas virtuales de un grupo de hosts si el porcentaje mínimo de hosts está establecido en **0 %** y no hay sesiones de usuario en el host de sesión.

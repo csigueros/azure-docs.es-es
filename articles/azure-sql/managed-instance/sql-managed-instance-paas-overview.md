@@ -11,17 +11,20 @@ author: niko-neugebauer
 ms.author: nneugebauer
 ms.reviewer: mathoma, vanto
 ms.date: 01/14/2021
-ms.openlocfilehash: 3e79b90356974e8ce5d77d639d2ca866624288d3
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: a35a001a7d543426f5bb2f842b5b00c9a1139cd3
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132290511"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132554054"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>¿Qué es Instancia administrada de Azure SQL?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Azure SQL Managed Instance es un servicio de base de datos en la nube inteligente y escalable que combina la mayor compatibilidad con el motor de base de datos de SQL Server y todas las ventajas de una plataforma como servicio totalmente administrada y permanente. SQL Managed Instance tiene casi un 100 % de compatibilidad con el motor de base de datos más reciente de SQL Server (Enterprise Edition), lo que proporciona una implementación nativa de la [red virtual (VNet)](../../virtual-network/virtual-networks-overview.md) que permite solucionar problemas de seguridad habituales, y un [modelo de negocio](https://azure.microsoft.com/pricing/details/sql-database/) favorable para los clientes existentes de SQL Server. Instancia administrada de SQL permite a los clientes existentes de SQL Server migrar mediante lift-and-shift sus aplicaciones locales a la nube con cambios mínimos en la aplicación y la base de datos. Al mismo tiempo, SQL Managed Instance conserva todas las funcionalidades de PaaS (aplicación de revisiones y actualizaciones de versión automáticas, [copias de seguridad automáticas](../database/automated-backups-overview.md), [alta disponibilidad](../database/high-availability-sla.md)), que reducen enormemente la sobrecarga de administración y el costo total de propiedad.
+
+> [!div class="nextstepaction"]
+> [Encuesta para mejorar Azure SQL](https://aka.ms/AzureSQLSurveyNov2021)
 
 Si no está familiarizado con Azure SQL Managed Instance, consulte el vídeo *Azure SQL Managed Instance* en la detallada [serie de vídeos sobre Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61/player]
@@ -35,8 +38,8 @@ En el diagrama siguiente se describen las características principales de SQL Ma
 
 Azure SQL Managed Instance está diseñada para aquellos clientes que quieran migrar un gran número de aplicaciones desde un entorno local o de IaaS, compilado automáticamente o que hayan proporcionado los fabricantes de software independientes, a un entorno en la nube de PaaS totalmente administrado, con el menor esfuerzo de migración posible. Mediante el uso del [Azure Data Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance), los clientes pueden migrar mediante lift-and-shift su instancia de SQL Server existente a SQL Managed Instance, que ofrece compatibilidad con SQL Server y aislamiento completo de las instancias de cliente con compatibilidad nativa con redes virtuales. Para más información sobre las opciones y las herramientas de migración, consulte [Información general sobre la migración: SQL Server a Instancia administrada de SQL](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md).</br> Con Software Assurance, puede intercambiar sus licencias existentes para obtener descuentos en SQL Managed Instance mediante la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). SQL Managed Instance es el mejor destino de migración en la nube para instancias de SQL Server que requieren alta seguridad y una completa superficie de programación.
 
-> [!TIP]
-> ¿Cómo podemos mejorar Azure SQL? [Realice la encuesta](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
+
+
 
 ## <a name="key-features-and-capabilities"></a>Funcionalidades y características clave
 

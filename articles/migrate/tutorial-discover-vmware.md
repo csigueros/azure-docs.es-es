@@ -5,14 +5,14 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 07/28/2021
+ms.date: 11/12/2021
 ms.custom: mvc
-ms.openlocfilehash: dfeb24812c2fa735500d4a29429dece17747ebe8
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7eb6aea743176bb4cdaf313d392320378bc016d1
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131037936"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132397505"
 ---
 # <a name="tutorial-discover-servers-running-in-a-vmware-environment-with-azure-migrate"></a>Tutorial: Detección de los servidores que se ejecutan en un entorno de VMware con Azure Migrate
 
@@ -185,13 +185,13 @@ Antes de implementar el archivo OVA, compruebe que el archivo sea seguro:
     
         **Algoritmo** | **Descargar** | **SHA256**
         --- | --- | ---
-        VMware (11,9 GB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
+        VMware (11,9 GB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140333) | 08e4fa3aa827a88b68d3b56306926773f75c3a8a47ba4296871cfcb6c9830ea8
 
     - Para Azure Government:
     
         **Algoritmo** | **Descargar** | **SHA256**
         --- | --- | ---
-        VMware (85,8 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140337) | 2daaa2a59302bf911e8ef195f8add7d7c8352de77a9af0b860e2a627979085ca
+        VMware (85,8 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140337) | 3C00F9EB54CC6C55E127EDE47DFA28CCCF752697377EB1C9F3435E75DA5AA029
 
 #### <a name="create-the-appliance-server"></a>Creación del servidor del dispositivo
 

@@ -16,12 +16,12 @@ ms.date: 10/07/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44d896726c189dcb8cae377a857b20c3b72e9a14
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: d8a36c1837273fc3fa173994e2ec3b3465ed4cb6
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132296924"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520263"
 ---
 # <a name="management-capabilities-for-privileged-access-groups-preview"></a>Funcionalidades de administración de grupos de acceso con privilegios (versión preliminar)
 
@@ -29,6 +29,9 @@ En Privileged Identity Management (PIM), ya se pueden asignar la idoneidad para 
 
 >[!Important]
 > Para asignar un grupo de acceso con privilegios a un rol para el acceso administrativo a Exchange, Centro de seguridad y cumplimiento, o SharePoint, use la experiencia **Roles y administradores** del portal de Azure AD y no de la experiencia Grupos de acceso con privilegios para que el usuario o el grupo sean válidos para la activación en el grupo.
+
+> [!NOTE]
+> En el caso de los grupos de acceso con privilegios que se usan para elevar a roles de Azure AD, se recomienda requerir un proceso de aprobación para las asignaciones de miembros elegibles. Las asignaciones que se pueden activar sin aprobación pueden crear un riesgo de seguridad con los administradores que tienen un nivel inferior de permisos. Por ejemplo, el administrador del departamento de soporte técnico tiene permisos para restablecer la contraseña de un usuario que reúna las características para ello.
 
 ## <a name="require-different-policies-for-each-role-assignable-group"></a>Requisitos de directivas diferentes en cada grupo al que se puedan asignar roles
 

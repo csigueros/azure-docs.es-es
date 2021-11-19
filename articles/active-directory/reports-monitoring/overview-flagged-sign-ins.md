@@ -1,29 +1,36 @@
 ---
 title: ¿Qué son los inicios de sesión con marca en Azure Active Directory?
 description: Proporciona información general sobre los inicios de sesión con marca en Azure Active Directory.
+services: active-directory
+documentationcenter: ''
 author: MarkusVi
 manager: karenhoran
+editor: ''
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
 ms.service: active-directory
+ms.devlang: na
 ms.topic: overview
+ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/27/2021
+ms.date: 11/12/2021
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 518c13780cf7de9e31f3a22e7ecb0440aa0128bc
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 056ed3df8e9658b00917680aa2ad291f3529d1c8
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131456050"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484579"
 ---
 # <a name="what-are-flagged-sign-ins-in-azure-active-directory"></a>¿Qué son los inicios de sesión con marca en Azure Active Directory?
 
 Si un usuario no ha podido iniciar sesión, cualquier administrador de TI desea resolver el problema lo antes posible para desbloquear el usuario. Dada la cantidad de datos disponibles en el registro de inicios de sesión, encontrar la información correcta puede ser un desafío.
 
 En este artículo se proporciona información general sobre una característica que mejora considerablemente el tiempo que se tarda en resolver los problemas de inicio de sesión de los usuarios, ya que facilita la tarea de encontrar los problemas relacionados.
+
+
 
 
 ## <a name="what-it-is"></a>¿Qué es?
@@ -37,7 +44,9 @@ Inicios de sesión con marca permite al usuario poner una marca cuando se ve un 
 En resumen, inicios de sesión marcados se puede usar para:
 
 - **Permitir** a los usuarios indicar los errores de inicio de sesión en los que necesitan ayuda de los administradores de inquilinos.
+
 - **Simplificar** el proceso de búsqueda de los errores de inicio de sesión que cualquier usuario necesite que se devuelvan.
+
 - **Permitir** que el personal del departamento de soporte técnico busque de forma proactiva los problemas con los que los usuarios necesitan ayuda, es decir, sin que el usuario final tenga que hacer nada que no sea marcar el evento.
 
 ## <a name="how-it-works"></a>Funcionamiento
@@ -68,20 +77,24 @@ Después de habilitar las marcas, se deben usar la misma aplicación de explorad
 
 ### <a name="admin-or-developer-find-flagged-events-using-ms-graph"></a>Administrador o desarrollador: buscar eventos marcados mediante MS Graph
 
-Puede encontrar inicios de sesión marcados con una consulta con filtros mediante la API de informes de inicios de sesión. Una consulta de ejemplo es:
+Puede encontrar inicios de sesión marcados con una consulta con filtros mediante la API de informes de inicios de sesión.
+
+Mostrar todos los inicios de sesión marcados: `https://graph.microsoft.com/beta/auditLogs/signIns?&$filter=flaggedforReview eq true`
+
+Consulta de inicios de sesión marcados para un usuario específico por UPN (por ejemplo, user@contoso.com): `https://graph.microsoft.com/beta/auditLogs/signIns?&$filter=flaggedforReview eq true and userPrincipalname eq 'user@contoso.com'`
+
+Consulta de inicios de sesión marcados para un usuario específico y fecha posterior a: `https://graph.microsoft.com/beta/auditLogs/signIns?&$filter=flaggedforReview eq true and createdDateTime ge 2021-10-01 and userPrincipalname eq 'user@contoso.com'`
  
-`https://graph.microsoft.com/beta/auditlogs/signins?&$filter=(flaggedForReview eq true)`
-
-Para más información sobre el uso de Graph API en los inicios de sesión, consulte [Tipo de recurso signIn](/graph/api/resources/signin?view=graph-rest-1.0&preserve-view=true).
+Para más información sobre el uso de Graph API en los inicios de sesión, consulte [Tipo de recurso signIn](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-1.0&preserve-view=true).
 
 
 
  
-## <a name="who-can-create-it"></a>¿Quién puede crearlo?
+## <a name="who-can-create-flagged-sign-ins"></a>¿Quién puede crear inicios de sesión con marca?
 
 Todos los usuarios que inicie sesión en Azure AD a través de la página web pueden usar inicios de sesión con marca para la revisión. Tanto los usuarios miembros como los usuarios invitados pueden marcar los errores de inicio de sesión para que se revisen. 
 
-## <a name="who-can-review-it"></a>¿Quién puede revisarlo?
+## <a name="who-can-review-flagged-sign-ins"></a>¿Quién puede revisar los inicios de sesión marcados?
 
 La revisión de los eventos de inicio de sesión marcados requiere permisos para leer los eventos de Informe de inicio de sesión en el portal de Azure AD. Para más información, consulte la sección [¿Quién puede acceder a ellos?](concept-sign-ins.md#who-can-access-it)
 

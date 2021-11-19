@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: a4205f768e004613231961a43f7ec9fa5461f078
-ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
+ms.openlocfilehash: 46e2f60adc895b60370ed7109305bb8966057fa3
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132179629"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132402397"
 ---
 # <a name="connect-to-and-manage-an-azure-database-for-postgresql-in-azure-purview"></a>Conexión y administración de una instancia de Azure Database for PostgreSQL en Azure Purview
 
@@ -21,15 +21,16 @@ En este artículo, se describe cómo registrar una instancia de Azure Database f
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-Purview solo admite la opción de implementación de servidor único para Azure Database for PostgreSQL.
-
 |**Extracción de metadatos**|  **Examen completo**  |**Examen incremental**|**Examen con ámbito**|**Clasificación**|**Directiva de acceso**|**Lineage**|
 |---|---|---|---|---|---|---|
 | [Sí](#register) | [Sí](#scan)| [Sí](#scan) | [Sí](#scan) | [Sí](#scan) | No | No** |
 
 \** Se admite el linaje si el conjunto de datos se usa como origen o receptor en la [actividad de copia de Data Factory](how-to-link-azure-data-factory.md) 
 
-## <a name="prerequisites"></a>Prerrequisitos
+> [!Important]
+>  Purview solo admite la opción de implementación de servidor único para Azure Database for PostgreSQL. Versiones de la 8.x a la 12.x
+
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

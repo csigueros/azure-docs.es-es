@@ -3,15 +3,15 @@ title: ¿Qué es el streaming de aplicaciones remotas de Azure Virtual Desktop? 
 description: Información general del streaming de aplicaciones remotas de Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 08/06/2021
+ms.date: 11/12/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: e1ff4cba43c1e57c39b5e47e2485a262f66bbb5f
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: c13996fd5c8373ebe0897fa9caa57a2d94600c1b
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123032987"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399530"
 ---
 # <a name="what-is-azure-virtual-desktop-remote-app-streaming"></a>¿Qué es el streaming de aplicaciones remotas de Azure Virtual Desktop?
 
@@ -68,6 +68,7 @@ Una vez que haya configurado Azure Virtual Desktop, tiene muchas opciones para p
 - [Escalado de hosts de sesión con Azure Automation](../set-up-scaling-script.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Configuración de Impresión universal](/universal-print/fundamentals/universal-print-getting-started)
 - [Configuración de la característica Iniciar VM al establecer la conexión](../start-virtual-machine-connect.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [Etiquetado de recursos de Azure Virtual Desktop para administrar costos](../tag-virtual-desktop-resources.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## <a name="get-to-know-your-azure-virtual-desktop-deployment"></a>Conozca la implementación de Azure Virtual Desktop
 

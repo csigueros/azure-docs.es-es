@@ -50,22 +50,20 @@
           href: supportability/how-to-create-azure-support-request.md
         - name: Administración de una solicitud de soporte técnico de Azure
           href: supportability/how-to-manage-azure-support-request.md
-        - name: Solicitud de aumento de cuota
+    - name: Solicitud de aumento de cuota
+      items:
+        - name: Aumento de las cuotas de vCPU
           items:
-            - name: Aumento de los límites de vCPU de proceso
-              items:
-                - name: Modelo de implementación del Administrador de recursos
-                  items:
-                    - name: Aumento del límite de vCPU de la serie de máquinas virtuales
-                      href: supportability/per-vm-quota-requests.md
-                    - name: Aumento del límite de vCPU regionales totales
-                      href: supportability/regional-quota-requests.md
-                    - name: Aumento de límite de cuota de detección
-                      href: supportability/low-priority-quota.md
-                - name: Modelo de implementación clásica
-                  href: supportability/classic-deployment-model-quota-increase-requests.md
-            - name: Aumento de los límites de las redes
-              href: supportability/networking-quota-requests.md
+            - name: Aumento de las cuotas de vCPU de la familia de máquinas virtuales
+              href: supportability/per-vm-quota-requests.md
+            - name: Aumento de las cuotas de vCPU regionales
+              href: supportability/regional-quota-requests.md
+            - name: Aumento de las cuotas de vCPU de máquinas virtuales de acceso puntual
+              href: supportability/spot-quota.md
+        - name: Aumento de las cuotas de vCPU para la implementación clásica
+          href: supportability/classic-deployment-model-quota-increase-requests.md
+        - name: Aumento de las cuotas de red
+          href: supportability/networking-quota-requests.md
     - name: Solución de problemas del portal de Azure
       items:
         - name: Recuperación de un panel eliminado

@@ -162,8 +162,12 @@
           href: howto-password-ban-bad-on-premises-faq.yml
         - name: Historial de versiones del agente
           href: howto-password-ban-bad-on-premises-agent-versions.md
-    - name: Desplazamiento de la configuración de Microsoft Authenticator (versión preliminar)
-      href: how-to-nudge-authenticator-app.md
+    - name: Ejecución de una campaña de registro
+      href: how-to-mfa-registration-campaign.md
+    - name: Uso de la coincidencia de números (versión preliminar)
+      href: how-to-mfa-number-match.md
+    - name: Uso de contexto adicional (versión preliminar)
+      href: how-to-mfa-additional-context.md
     - name: Uso de configuración administrada de Microsoft
       href: how-to-mfa-microsoft-managed.md
     - name: Uso de un pase de acceso temporal (versión preliminar)

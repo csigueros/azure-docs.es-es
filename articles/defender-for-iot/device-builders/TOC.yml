@@ -19,7 +19,7 @@
     - name: Instalación del microagente de Defender para IoT (versión preliminar)
       displayName: 'package, authentication, methods, certificate, authenticate, version'
       href: quickstart-standalone-agent-binary-installation.md
-    - name: Creación de un módulo gemelo del microagente de Defender for Cloud (versión preliminar)
+    - name: Creación de un módulo gemelo del microagente de Defender para IoT (versión preliminar)
       href: quickstart-create-micro-agent-module-twin.md
     - name: Configuración de Defender-IoT-micro-agent para Azure RTOS
       href: quickstart-azure-rtos-security-module.md
@@ -155,7 +155,7 @@
           href: how-to-investigate-device.md
     - name: Solución de problemas
       items:
-        - name: Solución de problemas del microagente de IoT para Defender for Cloud (versión preliminar)
+        - name: Solución de problemas de microagente de Defender para IoT (versión preliminar)
           displayName: 'service status, review logs'
           href: troubleshoot-defender-micro-agent.md
 - name: Referencia

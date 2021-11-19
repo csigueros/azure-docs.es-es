@@ -6,13 +6,13 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: devx-track-java
 ms.author: ssarwa
-ms.date: 10/12/2021
-ms.openlocfilehash: caa5e21fc573809993e9873b40bb4301d36a3086
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.date: 11/12/2021
+ms.openlocfilehash: ac155d1937638b4be26c74214d63d35edd009322
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130002992"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488818"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-using-bicep"></a>Inicio rápido: Aprovisionamiento de Azure Spring Cloud con Bicep
 

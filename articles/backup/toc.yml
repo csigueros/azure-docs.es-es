@@ -11,7 +11,7 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: 'Copia de seguridad de una máquina virtual: Portal'
+    - name: 'Copia de seguridad de una máquina virtual: Azure Portal'
       href: quick-backup-vm-portal.md
     - name: 'Copia de seguridad de una máquina virtual: PowerShell'
       href: quick-backup-vm-powershell.md
@@ -20,6 +20,8 @@
     - name: 'Copia de seguridad de una máquina virtual: plantilla de Resource Manager'
       displayName: Resource Manager
       href: quick-backup-vm-template.md
+    - name: 'Copia de seguridad de una máquina virtual: plantilla de Bicep'
+      href: quick-backup-vm-bicep-template.md
 - name: Tutoriales
   items:
     - name: Copia de seguridad de varias máquinas virtuales de Azure
@@ -102,7 +104,7 @@
       href: guidance-best-practices.md
     - name: Glosario de términos
       href: azure-backup-glossary.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Almacenes
       items:

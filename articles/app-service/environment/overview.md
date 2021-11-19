@@ -1,20 +1,20 @@
 ---
 title: Información general sobre App Service Environment
 description: Información general sobre App Service Environment
-author: ccompy
-ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
-ms.topic: article
-ms.date: 09/07/2021
-ms.author: ccompy
+author: madsd
+ms.topic: overview
+ms.date: 11/15/2021
+ms.author: madsd
 ms.custom: references_regions
-ms.openlocfilehash: 99700ec8b58a1eb9ab1465cca915216748a74dec
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 7530925ac23d8b6a25d5d74cdf5a6531cddb0edf
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131435650"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524025"
 ---
-# <a name="app-service-environment-overview"></a>Información general sobre App Service Environment 
+# <a name="app-service-environment-overview"></a>Información general sobre App Service Environment
+
 > [!NOTE]
 > Este artículo trata sobre App Service Environment v3, que se usa con planes de App Service v2 aislados.
 > 
@@ -25,6 +25,7 @@ Azure App Service Environment es una característica de Azure App Service que pr
 - Aplicaciones web de Linux
 - Contenedores de Docker (Windows y Linux)
 - Functions
+- Logic Apps (estándar)
 
 Las instancias de App Service Environment (ASE) son adecuadas para cargas de trabajo de aplicaciones que necesitan:
 
@@ -40,28 +41,28 @@ Los ASE hospedan aplicaciones de un solo cliente y lo hacen en una de sus redes 
 App Service Environment tiene muchos casos de uso, incluidos:
 
 - Aplicaciones de línea de negocio internas
-- Aplicaciones que necesitan más de 30 instancias de ASP
+- Aplicaciones que necesitan más de 30 instancias del plan de App Service
 - Sistema de un solo inquilino para satisfacer los requisitos internos de seguridad o cumplimiento
 - Hospedaje de aplicaciones aisladas de red
 - Aplicaciones de múltiples niveles
 
-Hay numerosas características de red que permiten que las aplicaciones de App Service multiinquilino lleguen a recursos aislados de red o se aíslen de la red por sí mismas. Estas características se habilitan en el nivel de aplicación.  Con una instancia de ASE, no se requiere configuración adicional alguna en las aplicaciones para que estén en la red virtual. Las aplicaciones se implementan en un entorno con aislamiento de red que ya está en una red virtual. En la parte superior del ASE que hospeda las aplicaciones con aislamiento de red, también es un sistema de un solo inquilino. No hay otros clientes que usen el ASE. Si realmente necesita un caso de aislamiento completo, también puede implementar el ASE en hardware dedicado. 
+Hay numerosas características de red que permiten que las aplicaciones de App Service multiinquilino lleguen a recursos aislados de red o se aíslen de la red por sí mismas. Estas características se habilitan en el nivel de aplicación. Con una instancia de ASE, no se requiere configuración adicional alguna en las aplicaciones para que estén en la red virtual. Las aplicaciones se implementan en un entorno con aislamiento de red que ya está en una red virtual. En la parte superior del ASE que hospeda las aplicaciones con aislamiento de red, también es un sistema de un solo inquilino. No hay otros clientes que usen el ASE. Si realmente necesita un caso de aislamiento completo, también puede implementar el ASE en hardware dedicado.
 
 ## <a name="dedicated-environment"></a>Entorno dedicado
 
 Una instancia de ASE es una implementación de un solo inquilino de Azure App Service que se ejecuta en la red virtual. 
 
-Las aplicaciones se hospedan en planes de App Service, que se crean en una instancia de App Service Environment. Un plan de App Service es básicamente un perfil de aprovisionamiento para un host de aplicación. A medida que se escale el plan de App Service, se crearán más hosts de aplicación con todas las aplicaciones de ese plan de App Service en cada host. Un solo ASEv3 puede tener un total de hasta 200 instancias de un plan de App Service en todos los planes de App Service combinados. Un único plan de App Service v2 aislado puede tener hasta 100 instancias por sí solo. 
+Las aplicaciones se hospedan en planes de App Service, que se crean en una instancia de App Service Environment. Un plan de App Service es básicamente un perfil de aprovisionamiento para un host de aplicación. A medida que se escale el plan de App Service, se crearán más hosts de aplicación con todas las aplicaciones de ese plan de App Service en cada host. Un solo ASEv3 puede tener un total de hasta 200 instancias de un plan de App Service en todos los planes de App Service combinados. Un único plan de App Service v2 aislado puede tener hasta 100 instancias por sí solo.
 
 ## <a name="virtual-network-support"></a>Compatibilidad con redes virtuales
 
-La característica ASE es una implementación de Azure App Service en una única subred de la red virtual (VNet) de Azure Resource Manager de un cliente. Al implementar una aplicación en un ASE, esta se expone en la dirección de entrada asignada al ASE. Si el ASE se implementa con una dirección VIP interna, la dirección de entrada de todas las aplicaciones será una dirección en la subred de ASE. Si el ASE se implementa con una dirección VIP externa, la dirección de entrada será una dirección que lleva a Internet y las aplicaciones estarán en un espacio DNS público. 
+La característica ASE es una implementación de Azure App Service en una única subred de la red virtual de un cliente. Al implementar una aplicación en un ASE, esta se expone en la dirección de entrada asignada al ASE. Si el ASE se implementa con una dirección IP virtual (VIP) interna, la dirección de entrada de todas las aplicaciones será una dirección en la subred de ASE. Si el ASE se implementa con una dirección VIP externa, la dirección de entrada será una dirección que lleva a Internet y las aplicaciones estarán en un espacio DNS público.
 
-El número de direcciones que ASEv3 usa en la subred variará en función del número de instancias que tenga junto con la cantidad de tráfico. Hay roles de infraestructura que se escalan automáticamente en función del número de planes de App Service y de la carga. El tamaño recomendado para la subred de ASEv3 es un bloque CIDR /24 con 256 direcciones, ya que puede hospedar un ASEv3 escalado horizontalmente hasta su límite.
+El número de direcciones que ASEv3 usa en la subred variará en función del número de instancias que tenga junto con la cantidad de tráfico. Hay roles de infraestructura que se escalan automáticamente en función del número de planes de App Service y de la carga. El tamaño recomendado para la subred de ASEv3 es un bloque CIDR `/24` con 256 direcciones, ya que puede hospedar un ASEv3 escalado horizontalmente hasta su límite.
 
-Las aplicaciones de un ASE no requieren que se habilite ninguna característica para acceder a los recursos de la misma red virtual en la que se encuentra el ASE. Si la red virtual del ASE está conectada a otra red, las aplicaciones del ASE pueden acceder a los recursos de esas redes extendidas. La configuración del usuario puede bloquear el tráfico en la red. 
+Las aplicaciones de un ASE no requieren que se habilite ninguna característica para acceder a los recursos de la misma red virtual en la que se encuentra el ASE. Si la red virtual del ASE está conectada a otra red, las aplicaciones del ASE pueden acceder a los recursos de esas redes extendidas. La configuración del usuario puede bloquear el tráfico en la red.
 
-La versión multiinquilino de Azure App Service incluye numerosas características que permiten a las aplicaciones conectarse a las distintas redes. Esas características de red permiten que las aplicaciones actúen como si estuvieran implementadas en una red virtual. Las aplicaciones de una instancia de ASEv3 no requieren configuración alguna para estar en la red virtual. Una ventaja de usar un ASE en lugar de un servicio multiinquilino es que cualquier control de acceso de red a las aplicaciones hospedadas en el ASE es externo a la configuración de la aplicación. Con las aplicaciones del servicio multiinquilino, debe habilitar las características aplicación por aplicación y usar RBAC o una directiva para evitar cambios de configuración. 
+La versión multiinquilino de Azure App Service incluye numerosas características que permiten a las aplicaciones conectarse a las distintas redes. Esas características de red permiten que las aplicaciones actúen como si estuvieran implementadas en una red virtual. Las aplicaciones de una instancia de ASEv3 no requieren configuración alguna para estar en la red virtual. Una ventaja de usar un ASE en lugar de un servicio multiinquilino es que cualquier control de acceso de red a las aplicaciones hospedadas en el ASE es externo a la configuración de la aplicación. Con las aplicaciones del servicio multiinquilino, debe habilitar las características aplicación por aplicación y usar RBAC o una directiva para evitar cambios de configuración.
 
 ## <a name="feature-differences"></a>Diferencias de características
 
@@ -73,7 +74,7 @@ ASEv3 tiene algunas diferencias en comparación con las versiones anteriores de
 - El escalado es mucho más rápido que con ASEv2. Aunque el escalado todavía no es inmediato como en el servicio multiinquilino, es mucho más rápido.
 - Ya no se requieren ajustes de escalado de front-end. Los servidores front-end de ASEv3 se escalan automáticamente para satisfacer las necesidades y se implementan en hosts mejorados. 
 - El escalado ya no bloquea otras operaciones de escala de la instancia de ASEv3. Solo puede haber una operación de escala en vigor para una combinación de sistema operativo y tamaño. Por ejemplo, mientras se escala un plan de App Service pequeño de Windows, puede iniciar una operación de escalado para que se ejecute al mismo tiempo en uno mediano de Windows o en cualquier otro que no sea pequeño de Windows. 
-- Puede accederse a las aplicaciones de una instancia de ASEv3 VIP interna a través del emparejamiento global. Esto no era posible con ASEv2. 
+- Puede accederse a las aplicaciones de una instancia de ASEv3 VIP interna a través del emparejamiento global. Esto no era posible con las versiones anteriores.
 
 Algunas características que estaban disponibles en versiones anteriores de ASE no están disponibles en ASEv3. En ASEv3, no se puede:
 
@@ -83,52 +84,56 @@ Algunas características que estaban disponibles en versiones anteriores de ASE 
 - actualizar desde ASEv2, todavía
 - supervisar el tráfico con Network Watcher o un flujo de NSG
 - configurar un enlace TLS/SSL basado en IP con las aplicaciones
+- configurar un sufijo de dominio personalizado
 
-## <a name="pricing"></a>Precios 
+## <a name="pricing"></a>Precios
 
-ASEv3 aplica un modelo de precios distinto en función del tipo de implementación de ASE que tenga. A continuación se indican los tres modelos de precios: 
+ASEv3 aplica un modelo de precios distinto en función del tipo de implementación de ASE que tenga. A continuación se indican los tres modelos de precios:
 
-- **ASEv3**: si ASE está vacío, se aplica un cargo como si tuviera un ASP con una instancia de Windows I1v2. El cargo de única instancia no es adicional, solo se aplica si el ASE está vacío.
-- **ASEv3 de zona de disponibilidad**: hay un cargo mínimo por nueve instancias de Windows I1v2. No hay ningún cargo adicional por compatibilidad con zonas de disponibilidad si tiene nueve o más instancias de plan de App Service. Todos los planes de App Service en una instancia de AZ ASEv3 también tienen tres instancias como mínimo para asegurarse de que hay una instancia en cada zona de disponibilidad. A medida que los planes se escalan horizontalmente, se reparten entre las zonas de disponibilidad. 
+- **ASEv3**: si el ASE está vacío, se aplica un cargo como si tuviera una instancia de Windows I1v2. El cargo de única instancia no es adicional, solo se aplica si el ASE está vacío.
+- **ASEv3 con redundancia de zona**: hay un cargo mínimo de nueve instancias. No hay ningún cargo adicional por compatibilidad con zonas de disponibilidad si tiene nueve o más instancias de plan de App Service. Si tiene menos de nueve instancias (de cualquier tamaño) en los planes de App Service en la instancia de ASE con redundancia de zona, la diferencia entre nueve y el número de instancias en ejecución se cobra como instancias de Windows I1v2 adicionales.
 - **ASEv3 de host dedicado**: con una implementación de host dedicado, se le cobran dos hosts dedicados según nuestros precios al crear una instancia de ASEv3 y, a continuación, un pequeño porcentaje de la tarifa del plan Aislado V2 por núcleo a medida que escala.
 
-Los precios de instancias reservadas para Isolated v2 están disponibles y se describen en [Cómo se aplican los descuentos de reserva a Azure App Service][reservedinstances]. Los precios, junto con los precios de las instancias reservadas, están disponibles en [Precios de App Service][pricing] del **plan Aislado v2**. 
+Los precios de instancias reservadas para Isolated v2 están disponibles y se describen en [Cómo se aplican los descuentos de reserva a Azure App Service](../../cost-management-billing/reservations/reservation-discount-app-service.md). Los precios, junto con los precios de las instancias reservadas, están disponibles en [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) del **plan Aislado v2**.
 
 ## <a name="regions"></a>Regions
 
-ASEv3 está disponible en las regiones siguientes. 
+ASEv3 está disponible en las regiones siguientes.
 
-|Regiones ASEv3 de host dedicados y normales|   Regiones ASEv3 de AZ|
+|Regiones ASEv3 de host dedicados y normales|Regiones ASEv3 de AZ|
 |---------------------------------------|------------------|
-|Este de Australia|    Este de Australia|
+|Este de Australia|Este de Australia|
 |Sudeste de Australia|Sur de Brasil|
-|Sur de Brasil   |Centro de Canadá|
+|Sur de Brasil|Centro de Canadá|
 |Centro de Canadá|Centro de EE. UU.|
-|Centro de la India  |Este de EE. UU.|
-|Centro de EE. UU. |Este de EE. UU. 2|
-|Este de Asia  | Centro de Francia|
-|Este de EE. UU.    | Centro-oeste de Alemania|
-|Este de EE. UU. 2| Japón Oriental|
-|Centro de Francia | Norte de Europa|
-|Centro-oeste de Alemania   |   Centro-sur de EE. UU.|
-|Japón Oriental | Sudeste de Asia|
-|Centro de Corea del Sur  | Sur de Reino Unido|
-|Centro-Norte de EE. UU   | Oeste de Europa|
-|Norte de Europa   | Oeste de EE. UU. 2|
-|Este de Noruega    | |
-|Norte de Sudáfrica | |
-|Centro-sur de EE. UU.   | |
+|Centro de la India|Este de EE. UU.|
+|Centro de EE. UU.|Este de EE. UU. 2|
+|Este de Asia|Centro de Francia|
+|Este de EE. UU.|Centro-oeste de Alemania|
+|Este de EE. UU. 2|Japón Oriental|
+|Centro de Francia|Norte de Europa|
+|Centro-oeste de Alemania|Centro-sur de EE. UU.|
+|Japón Oriental|Sudeste de Asia|
+|Centro de Corea del Sur|Sur de Reino Unido|
+|Centro-Norte de EE. UU|Oeste de Europa|
+|Norte de Europa|Oeste de EE. UU. 2|
+|Este de Noruega| |
+|Norte de Sudáfrica| |
+|Centro-sur de EE. UU.| |
 |Sudeste de Asia| |
-|Norte de Suiza  | | 
-|Norte de Emiratos Árabes Unidos| |   
-|Sur de Reino Unido| |    
+|Norte de Suiza| |
+|Norte de Emiratos Árabes Unidos| |
+|Sur de Reino Unido| |
 |Oeste de Reino Unido| |
-|Centro-Oeste de EE. UU.    | | 
-|Oeste de Europa    | |
-|Oeste de EE. UU.    | | 
+|Centro-Oeste de EE. UU.| |
+|Oeste de Europa| |
+|Oeste de EE. UU.| |
 |Oeste de EE. UU. 2| |
 |Oeste de EE. UU. 3| |
+|US Gov Texas| |
+|US Gov: Arizona| |
+|US Gov - Virginia| |
 
-<!--Links-->
-[reservedinstances]: ../../cost-management-billing/reservations/reservation-discount-app-service.md
-[pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/
+## <a name="app-service-environment-v2"></a>App Service Environment v2
+
+App Service Environment tiene tres versiones: ASEv1, ASEv2 y ASEv3. La información anterior se basa en ASEv3. Para más información sobre ASEv2, consulte [Introducción a App Service Environment v2](./intro.md).

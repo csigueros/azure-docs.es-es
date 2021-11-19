@@ -1,0 +1,36 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes sobre Microsoft Azure IoT Hub Device Provisioning Service
+  description: Encuentre respuesta a preguntas frecuentes sobre Azure IoT Hub Device Provisioning Service.
+  author: anastasia-ms
+  ms.author: v-stharr
+  ms.date: 11/08/2021
+  ms.topic: conceptual
+  ms.service: iot-dps
+  services: iot-dps
+  ms.openlocfilehash: 56cc7ef655ee5e874770a691b8f38b1ce0519eaf
+  ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 11/12/2021
+  ms.locfileid: "132404307"
+title: Preguntas frecuentes sobre Azure IoT Hub Device Provisioning Service
+summary: >
+  En este artículo se incluyen respuestas a preguntas frecuentes sobre Azure IoT Hub Device Provisioning Service. Se tratan los temas siguientes:
+
+
+  * Administración de DPS
+
+  * Facturación de DPS
+sections:
+- name: Administración de DPS
+  questions:
+  - question: "¿Cuál es la manera recomendada de actualizar un centro vinculado cuando se vuelve a generar la clave principal de la directiva de acceso de IoT Hub? \n"
+    answer: >
+      La clave principal se inserta dentro de la cadena de conexión que DPS usa para la autenticación. Siempre que se modifique la cadena de conexión principal, también se modificará la clave principal y deberá volver a vincular el centro a DPS.
+- name: Facturación de DPS
+  questions:
+  - question: "¿Qué operaciones de API de Device Provisioning Service son facturables y cuáles son sus precios? \n"
+    answer: >
+      Para obtener información sobre qué operaciones son facturables y sus precios, consulte [Operaciones y precios de servicios facturables para Microsoft Device Provisioning Service](about-iot-dps.md#billable-service-operations-and-pricing)
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\nSi no encuentra una respuesta a su pregunta, póngase en contacto con nosotros mediante los siguientes canales (en orden incremental):\n\n* La sección Comentarios de este artículo.\n* [Página de preguntas y respuestas de MSFT para Azure DPS(/answers/topics/azure-dps.html).\n* Soporte técnico de Microsoft. Para crear una solicitud de soporte técnico, en [Azure Portal](https://portal.azure.com/), vaya a la pestaña Ayuda, seleccione el botón **Ayuda y soporte técnico** y elija **Nueva solicitud de soporte técnico**.\n\n\n> [!div class=\"nextstepaction\"]\n> [https://github.com/anastasia-ms/azure-docs-pr/pull/new/dps-faq](how-to-troubleshoot-dps.md)"
