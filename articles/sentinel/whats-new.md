@@ -1,28 +1,28 @@
 ---
-title: Novedades de Azure Sentinel
-description: En este artículo se describen las nuevas características de Azure Sentinel de los últimos meses.
+title: Novedades de Microsoft Azure Sentinel
+description: En este artículo se describen las nuevas características de Microsoft Sentinel de los últimos meses.
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: conceptual
-ms.date: 10/21/2021
+ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 95753a40c60e6b191b768fa3ac9cae3c5e9cb466
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: ffeb90d11b2bc65cc8dceb996cd3d6eecee9e03e
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131433277"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519902"
 ---
-# <a name="whats-new-in-azure-sentinel"></a>Novedades de Azure Sentinel
+# <a name="whats-new-in-microsoft-sentinel"></a>Novedades de Microsoft Azure Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-En este artículo se enumeran las características que se han agregado recientemente a Azure Sentinel y las nuevas características de servicios relacionados que proporcionan una experiencia de usuario mejorada en Azure Sentinel.
+En este artículo se enumeran las características que se han agregado recientemente a Microsoft Sentinel y las nuevas características de servicios relacionados que proporcionan una experiencia de usuario mejorada en Microsoft Sentinel.
 
-Si busca elementos de más de 6 meses, puede encontrarlos en las [Archivo de novedades de Azure Sentinel](whats-new-archive.md). Para más información sobre las características anteriores, consulte los [blogs de Tech Community](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
+Si busca elementos de más de 6 meses, puede encontrarlos en las [Archivo de novedades de Microsoft Sentinel](whats-new-archive.md). Para más información sobre las características anteriores, consulte los [blogs de Tech Community](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
 > [!IMPORTANT]
 > Actualmente, las características indicadas están en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
@@ -31,23 +31,23 @@ Si busca elementos de más de 6 meses, puede encontrarlos en las [Archivo de nov
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 > [!TIP]
-> Nuestros equipos de búsqueda de amenazas en Microsoft aportan consultas, cuadernos de estrategias, libros y cuadernos a la [comunidad de Azure Sentinel](https://github.com/Azure/Azure-Sentinel), lo que incluye [consultas de búsqueda](https://github.com/Azure/Azure-Sentinel) concretas que sus equipos pueden adaptar y usar.
+> Nuestros equipos de búsqueda de amenazas en Microsoft aportan consultas, cuadernos de estrategias, libros y cuadernos a la [comunidad de Microsoft Sentinel](https://github.com/Azure/Azure-Sentinel), lo que incluye [consultas de búsqueda](https://github.com/Azure/Azure-Sentinel) concretas que sus equipos pueden adaptar y usar.
 >
-> Usted también puede contribuir. Únase a nosotros en la [comunidad de GitHub de cazadores de amenazas de Azure Sentinel](https://github.com/Azure/Azure-Sentinel/wiki).
->
+> Usted también puede contribuir. Únase a nosotros en la [comunidad de GitHub de cazadores de amenazas de Microsoft Sentinel](https://github.com/Azure/Azure-Sentinel/wiki).
 
 ## <a name="november-2021"></a>Noviembre de 2021
 
 ### <a name="windows-forwarded-events-connector-now-available-public-preview"></a>Ya está disponible el conector de eventos reenviados de Windows (versión preliminar pública).
 
 Ahora puede transmitir registros de eventos desde los servidores Windows conectados al área de trabajo de Azure Sentinel mediante la recopilación de eventos de Windows y el reenvío de eventos de Windows (WEC/WEF), gracias a este nuevo conector de datos. El conector usa el nuevo agente de Azure Monitor (AMA), que proporciona una serie de ventajas con respecto al agente heredado de Log Analytics (también conocido como MMA):
+
 - **Escalabilidad:** si ha habilitado la recopilación de eventos de Windows (WEC), puede instalar el agente de Azure Monitor (AMA) en la máquina de WEC para recopilar registros de muchos servidores con un único punto de conexión.
 
 - **Velocidad:** AMA puede enviar datos a una velocidad mejorada de 5000 EPS, lo que permite una actualización de datos más rápida.
 
 - **Eficiencia:** AMA le permite diseñar reglas complejas de recopilación de datos (DCR) para filtrar los registros en su origen, eligiendo los eventos exactos que se transmitirán al área de trabajo. Las DCR ayudan a reducir el tráfico de red y los costos de ingesta al dejar fuera los eventos no deseados.
 
-- **Cobertura:** WEC/WEF permite la recopilación de registros de eventos de Windows desde servidores heredados (locales y físicos) y también desde máquinas de uso elevado o confidenciales, como los controladores de dominio, en los que no se desea instalar un agente. 
+- **Cobertura:** WEC/WEF permite la recopilación de registros de eventos de Windows desde servidores heredados (locales y físicos) y también desde máquinas de uso elevado o confidenciales, como los controladores de dominio, en los que no se desea instalar un agente.
 
 Se recomienda usar este conector con los analizadores del [modelo de información de Azure Sentinel (ASIM)](normalization.md) instalados para garantizar la compatibilidad total con la normalización de datos.
 
@@ -55,15 +55,15 @@ Más información sobre el [conector de eventos reenviados de Windows](data-conn
 
 ### <a name="near-real-time-nrt-threat-detection-rules-now-available-public-preview"></a>Las reglas de detección de amenazas casi en tiempo real (NRT) ya están disponibles (versión preliminar pública)
 
-Cuando se enfrenta a amenazas de seguridad, el tiempo y la velocidad son fundamentales. Debe tener en cuenta las amenazas a medida que se materializan para que pueda analizarlas y reaccionar rápidamente a fin de contenerlas. Las reglas de análisis casi en tiempo real (NRT) de Azure Sentinel ofrecen una detección de amenazas rápida, más cercana a la de un SIEM local, y la capacidad de acortar los tiempos de respuesta en escenarios específicos.
+Cuando se enfrenta a amenazas de seguridad, el tiempo y la velocidad son fundamentales. Debe tener en cuenta las amenazas a medida que se materializan para que pueda analizarlas y reaccionar rápidamente a fin de contenerlas. Las reglas de análisis casi en tiempo real (NRT) de Microsoft Sentinel ofrecen una detección de amenazas rápida, más cercana a la de un SIEM local, y la capacidad de acortar los tiempos de respuesta en escenarios específicos.
 
-Las [reglas de análisis casi en tiempo real](detect-threats-built-in.md#nrt) de Azure Sentinel ofrecen una detección de amenazas al minuto integrada. Este tipo de regla se diseñó para tener una gran capacidad de respuesta ejecutando su consulta a intervalos de un minuto de diferencia.
+Las [reglas de análisis casi en tiempo real](detect-threats-built-in.md#nrt) de Microsoft Sentinel ofrecen una detección de amenazas al minuto integrada. Este tipo de regla se diseñó para tener una gran capacidad de respuesta mediante la ejecución de su consulta a intervalos de un minuto de diferencia.
 
 Obtenga más información sobre las [reglas NRT](near-real-time-rules.md) y [cómo usarlas](create-nrt-rules.md).
 
 ### <a name="fusion-engine-now-detects-emerging-and-unknown-threats-public-preview"></a>El motor de Fusion detecta ahora amenazas emergentes y desconocidas (versión preliminar pública)
 
-Además de la detección de ataques basados en [ataques predefinidos](fusion-scenario-reference.md), el motor de Fusion con tecnología de ML de Azure Sentinel puede ayudarle a encontrar las amenazas emergentes y desconocidas del entorno mediante la aplicación de análisis extendido de ML y la correlación de un ámbito más amplio de señales anómalas al mismo tiempo que reduce la fatiga por alertas.
+Además de la detección de ataques basados en [ataques predefinidos](fusion-scenario-reference.md), el motor de Fusion con tecnología de ML de Microsoft Sentinel puede ayudarle a encontrar las amenazas emergentes y desconocidas del entorno mediante la aplicación de análisis extendido de ML y la correlación de un ámbito más amplio de señales anómalas al mismo tiempo que reduce la fatiga por alertas.
 
 Los algoritmos de ML del motor de Fusion aprenden constantemente de los ataques existentes y aplican análisis en función de cómo piensan los analistas de seguridad. Por lo tanto, puede detectar amenazas no detectadas previamente de millones de comportamientos anómalos en la cadena de eliminación en todo el entorno, lo que le ayuda a estar un paso por delante de los atacantes.
 
@@ -73,45 +73,44 @@ Además, la [regla de análisis de Fusion ahora es más configurable](configure-
 
 ### <a name="get-fine-tuning-recommendations-for-your-analytics-rules-public-preview"></a>Obtención de recomendaciones de ajuste preciso para las reglas de análisis (versión preliminar pública)
 
-El ajuste preciso de las reglas de detección de amenazas de SIEM puede ser un proceso difícil, delicado y continuo de equilibrio entre maximizar la cobertura de detección de amenazas y minimizar las tasas de falsos positivos. Azure Sentinel simplifica este proceso mediante el uso del aprendizaje automático para analizar miles de millones de señales de los orígenes de datos, y sus respuestas a incidentes a lo largo del tiempo, deduciendo patrones y proporcionando recomendaciones y conclusiones útiles que pueden reducir significativamente la sobrecarga de optimización y permitirle centrarse en detectar y responder a amenazas reales.
+El ajuste preciso de las reglas de detección de amenazas de SIEM puede ser un proceso difícil, delicado y continuo de equilibrio entre maximizar la cobertura de detección de amenazas y minimizar las tasas de falsos positivos. Microsoft Sentinel simplifica este proceso mediante el uso del aprendizaje automático para analizar miles de millones de señales de los orígenes de datos, y sus respuestas a incidentes a lo largo del tiempo, deduciendo patrones y proporcionando recomendaciones y conclusiones útiles que pueden reducir significativamente la sobrecarga de optimización y permitirle centrarse en detectar y responder a amenazas reales.
 
-Ahora, las [recomendaciones y la información de optimización](detection-tuning.md) están integradas en las reglas de análisis. 
+Ahora, las [recomendaciones y la información de optimización](detection-tuning.md) están integradas en las reglas de análisis.
 
 ### <a name="free-trial-updates"></a>Actualizaciones de la evaluación gratuita
 
-La evaluación gratuita de Azure Sentinel sigue siendo compatible con áreas de trabajo nuevas o existentes de Log Analytics sin costo adicional durante los primeros 31 días.
+La evaluación gratuita de Microsoft Sentinel sigue siendo compatible con áreas de trabajo nuevas o existentes de Log Analytics sin costo adicional durante los primeros 31 días.
 La evolución de nuestra experiencia de evaluación gratuita actual permite incluir las siguientes actualizaciones:
 
 - Las **nuevas áreas de trabajo de Log Analytics** pueden ingerir hasta 10 GB/día de datos de registro durante los primeros 31 días sin costo alguno. Las nuevas áreas de trabajo incluyen áreas de trabajo con menos de tres días de antigüedad.
 
-   Los cargos por el uso de la ingesta de datos y de Azure Sentinel se anulan durante el período de 31 días de prueba. Esta evaluación gratuita está sujeta a un límite de 20 áreas de trabajo por inquilino de Azure.
+   Los cargos por ingesta de datos de Log Analytics y Microsoft Sentinel se anulan durante el período de 31 días de evaluación. Esta evaluación gratuita está sujeta a un límite de 20 áreas de trabajo por inquilino de Azure.
 
+- Las **áreas de trabajo de Log Analytics existentes** pueden habilitar Microsoft Sentinel sin costo adicional. Las áreas de trabajo existentes incluyen todas aquellas áreas de trabajo creadas hace más de tres días.
 
-- Las **áreas de trabajo de Log Analytics existentes** pueden habilitar Azure Sentinel sin costo adicional. Las áreas de trabajo existentes incluyen todas aquellas áreas de trabajo creadas hace más de tres días.
+   Durante el período de evaluación de 31 días solo se anulan los cargos de Microsoft Sentinel.
 
-   Durante el período de prueba de 31 días, solo se anulan los cargos por uso de Azure Sentinel.
-
-El uso por encima de estos límites se cobrará según el precio que se indica en la página de [precios de Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel). Los cargos relacionados con funcionalidades adicionales para la [automatización](automation-in-azure-sentinel.md) y el [aprendizaje automático propio](bring-your-own-ml.md) siguen siendo aplicables durante la evaluación gratuita.
+El uso por encima de estos límites se cobra según el precio que se indica en la página de [precios de Microsoft Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel). Los cargos relacionados con funcionalidades adicionales para la [automatización](automation-in-azure-sentinel.md) y el [aprendizaje automático propio](bring-your-own-ml.md) siguen siendo aplicables durante la evaluación gratuita.
 
 > [!TIP]
-> Durante el período de evaluación gratuita, encuentre recursos para la administración de costos, la formación y mucha más información en la pestaña **Novedades y guías > Evaluación gratuita** de Azure Sentinel. Esta pestaña también muestra detalles sobre las fechas de la evaluación gratuita y cuántos días le quedan hasta su expiración.
+> Durante el período de evaluación gratuita, encuentre recursos para la administración de costos, el entrenamiento y más en la pestaña **Novedades y guías > Evaluación gratuita** de Microsoft Sentinel. Esta pestaña también muestra detalles sobre las fechas de la evaluación gratuita y cuántos días le quedan hasta su expiración.
 >
 
-Para más información, consulte [Planeamiento y administración de los costos de Azure Sentinel](azure-sentinel-billing.md).
+Para más información, consulte [Planeamiento y administración de los costos de Microsoft Sentinel](azure-sentinel-billing.md).
 
 ### <a name="content-hub-and-new-solutions-public-preview"></a>Centro de contenido y nuevas soluciones (versión preliminar pública)
 
-Azure Sentinel proporciona ahora un **centro de contenido**, una ubicación centralizada para buscar e implementar contenido y soluciones integrados en el área de trabajo de Azure Sentinel. Busque el contenido que necesita mediante el filtrado del tipo de contenido, los modelos de soporte técnico, las categorías, etc., o use la eficaz búsqueda de texto.
+Microsoft Sentinel proporciona ahora un **centro de contenido**, una ubicación centralizada para buscar e implementar contenido y soluciones integrados en el área de trabajo de Microsoft Sentinel. Busque el contenido que necesita mediante el filtrado del tipo de contenido, los modelos de soporte técnico, las categorías, etc., o use la eficaz búsqueda de texto.
 
 En **Administración de contenido**, seleccione **Centro de contenido**. Seleccione una solución para ver más detalles a la derecha y, después, haga clic en **Instalar** para instalarla en el área de trabajo.
 
-:::image type="content" source="media/whats-new/solutions-list.png" alt-text="Captura de pantalla del nuevo centro de contenido de Azure Sentinel" lightbox="media/whats-new/solutions-list.png":::.
+:::image type="content" source="media/whats-new/solutions-list.png" alt-text="Captura de pantalla del nuevo centro de contenido de Microsoft Sentinel" lightbox="media/whats-new/solutions-list.png":::.
 
 En la lista siguiente se incluyen los aspectos destacados de las nuevas soluciones integradas que se han agregado al centro de contenido:
 
 :::row:::
    :::column span="":::
-      - Azure Sentinel Training Lab
+      - Microsoft Sentinel Training Lab
       - Cisco ASA
       - Cisco Duo Security
       - Cisco Meraki
@@ -151,27 +150,27 @@ En la lista siguiente se incluyen los aspectos destacados de las nuevas solucion
 
 Para obtener más información, consulte:
 
-- [Acerca de las soluciones de Azure Sentinel](sentinel-solutions.md)
-- [Detección e implementación de soluciones de Azure Sentinel](sentinel-solutions-deploy.md)
-- [Catálogo de soluciones de Azure Sentinel](sentinel-solutions-catalog.md)
+- [Acerca de las soluciones de Microsoft Sentinel](sentinel-solutions.md)
+- [Detección e implementación de soluciones de Microsoft Sentinel](sentinel-solutions-deploy.md)
+- [Catálogo de soluciones de Microsoft Sentinel](sentinel-solutions-catalog.md)
 
 ### <a name="enable-continuous-deployment-from-your-content-repositories-public-preview"></a>Habilitación de la implementación continua desde los repositorios de contenido (versión preliminar pública)
 
-La nueva página **Repositorios** de Azure Sentinel proporciona la capacidad de administrar e implementar el contenido personalizado desde repositorios de GitHub o Azure DevOps como alternativa a administrarlos en Azure Portal. Esta funcionalidad presenta un enfoque más simplificado y automatizado para administrar e implementar contenido en áreas de trabajo de Azure Sentinel.
+La nueva página **Repositorios** de Microsoft Sentinel proporciona la capacidad de administrar e implementar el contenido personalizado desde repositorios de GitHub o Azure DevOps como alternativa a administrarlos en Azure Portal. Esta funcionalidad presenta un enfoque más simplificado y automatizado para administrar e implementar contenido en áreas de trabajo de Microsoft Sentinel.
 
-Si almacena el contenido personalizado en un repositorio externo para mantenerlo fuera de Azure Sentinel, ahora puede conectar ese repositorio al área de trabajo de Azure Sentinel. El contenido que agregue, cree o edite en el repositorio se implementará automáticamente en las áreas de trabajo de Azure Sentinel y será visible desde las distintas galerías de Azure Sentinel, como las de las páginas **Análisis**, **Búsqueda** o **Libros**.
+Si almacena el contenido personalizado en un repositorio externo para mantenerlo fuera de Microsoft Sentinel, ahora puede conectar ese repositorio al área de trabajo de Microsoft Sentinel. El contenido que agregue, cree o edite en el repositorio se implementará automáticamente en las áreas de trabajo de Microsoft Sentinel y será visible desde las distintas galerías de Microsoft Sentinel, como las de las páginas **Análisis**, **Búsqueda** o **Libros**.
 
 Para más información, consulte [Implementación de contenido personalizado desde el repositorio](ci-cd.md).
 
 ### <a name="enriched-threat-intelligence-with-geolocation-and-whois-data-public-preview"></a>Inteligencia sobre amenazas enriquecida con geolocalización y datos de WHOIS (versión preliminar pública)
 
-Ahora, los datos de inteligencia sobre amenazas que se incluyen en Azure Sentinel a través de conectores de datos y cuadernos de estrategias de aplicaciones lógicas, o que se crean en Azure Sentinel, se enriquecen automáticamente con información de geolocalización y de WHOIS.
+Ahora, los datos de inteligencia sobre amenazas que se incluyen en Microsoft Sentinel a través de conectores de datos y cuadernos de estrategias de aplicaciones lógicas, o que se crean en Microsoft Sentinel, se enriquecen automáticamente con información de geolocalización y de WHOIS.
 
 Los datos de geolocalización y de WHOIS pueden proporcionar más contexto para las investigaciones en las que se encuentra el indicador de riesgo (IOC) seleccionado.
 
 Por ejemplo, use datos de geolocalización para encontrar información como *Organización* o *País* para el indicador, y datos WHOIS para encontrar información como *Registrador* y *Creación de registros*.
 
-Puede ver los datos de geolocalización y WHOIS en el panel **Inteligencia sobre amenazas** para cada indicador de riesgo que haya importado en Azure Sentinel. Los detalles del indicador se muestran a la derecha, incluidos los datos de geolocalización y de WHOIS disponibles.
+Puede ver los datos de geolocalización y WHOIS en el panel **Inteligencia sobre amenazas** para cada indicador de riesgo que haya importado en Microsoft Sentinel. Los detalles del indicador se muestran a la derecha, incluidos los datos de geolocalización y de WHOIS disponibles.
 
 Por ejemplo:
 
@@ -183,16 +182,16 @@ Por ejemplo:
 
 Para obtener más información, consulte:
 
-- [Descripción de la inteligencia sobre amenazas en Azure Sentinel](understand-threat-intelligence.md).
+- [Descripción de la inteligencia sobre amenazas en Microsoft Azure Sentinel](understand-threat-intelligence.md)
 - [Integraciones de la inteligencia sobre amenazas](threat-intelligence-integration.md)
-- [Trabajo con los indicadores de amenazas en Azure Sentinel](work-with-threat-indicators.md)
+- [Trabajo con los indicadores de amenazas en Microsoft Sentinel](work-with-threat-indicators.md)
 - [Conexión de plataformas de inteligencia sobre amenazas](connect-threat-intelligence-tip.md)
 
-### <a name="use-notebooks-with-azure-synapse-analytics-in-azure-sentinel-public-preview"></a>Uso de cuadernos con Azure Synapse Analytics en Azure Sentinel (versión preliminar pública)
+### <a name="use-notebooks-with-azure-synapse-analytics-in-microsoft-sentinel-public-preview"></a>Uso de cuadernos con Azure Synapse Analytics en Microsoft Sentinel (versión preliminar pública)
 
-Azure Sentinel integra ahora cuadernos de Jupyter Notebooks con Azure Synapse en escenarios de análisis de seguridad a gran escala.
+Microsoft Sentinel integra ahora cuadernos de Jupyter Notebooks con Azure Synapse en escenarios de análisis de seguridad a gran escala.
 
-Hasta ahora, los cuadernos de Jupyter Notebooks en Azure Sentinel se han integrado con Azure Machine Learning. Esta funcionalidad admite usuarios que desean incorporar cuadernos, conocidos kits de herramientas de aprendizaje automático de código abierto y bibliotecas como TensorFlow, así como sus propios modelos personalizados, en flujos de trabajo de seguridad.
+Hasta ahora, los cuadernos de Jupyter Notebooks en Microsoft Sentinel se han integrado con Azure Machine Learning. Esta funcionalidad admite usuarios que desean incorporar cuadernos, conocidos kits de herramientas de aprendizaje automático de código abierto y bibliotecas como TensorFlow, así como sus propios modelos personalizados, en flujos de trabajo de seguridad.
 
 La nueva integración de Azure Synapse proporciona potentes funcionalidades analíticas adicionales, como:
 
@@ -204,13 +203,13 @@ La nueva integración de Azure Synapse proporciona potentes funcionalidades anal
 
 - **PySpark, una API basada en Python** para usar el marco de Spark en combinación con Python, lo que reduce la necesidad de aprender un nuevo lenguaje de programación si ya está familiarizado con Python.
 
-Para admitir esta integración, hemos agregado la capacidad de crear e iniciar un área de trabajo de Azure Synapse directamente desde Azure Sentinel. También hemos agregado nuevos cuadernos de ejemplo para guiarle en la configuración del entorno de Azure Synapse, configurar una canalización de exportación continua de datos de Log Analytics a Azure Data Lake Storage y, a continuación, realizar búsquedas en esos datos a escala.
+Para admitir esta integración, hemos agregado la capacidad de crear e iniciar un área de trabajo de Azure Synapse directamente desde Microsoft Sentinel. También hemos agregado nuevos cuadernos de ejemplo para guiarle en la configuración del entorno de Azure Synapse, configurar una canalización de exportación continua de datos de Log Analytics a Azure Data Lake Storage y, a continuación, realizar búsquedas en esos datos a escala.
 
 Para más información, consulte [Integración de cuadernos con Azure Synapse](notebooks-with-synapse.md).
 
-### <a name="enhanced-notebooks-area-in-azure-sentinel"></a>Área Cuadernos mejorados de Azure Sentinel
+### <a name="enhanced-notebooks-area-in-microsoft-sentinel"></a>Área de Notebooks mejorada en Microsoft Sentinel
 
-El área **Cuadernos** de Azure Sentinel ahora también tiene una pestaña **Información general**, donde puede encontrar información básica sobre cuadernos y una nueva columna **Tipos de cuaderno** en la pestaña **Plantillas** para indicar el tipo de cada cuaderno que se muestra. Por ejemplo, los cuadernos pueden tener los tipos **Introducción**, **Configuración**, **Búsqueda** y, ahora, **Synapse**.
+El área **Notebooks** de Microsoft Sentinel ahora también tiene una pestaña **Información general**, donde puede encontrar información básica sobre cuadernos y una nueva columna **Tipos de Notebook** en la pestaña **Plantillas** para indicar el tipo de cada cuaderno que se muestra. Por ejemplo, los cuadernos pueden tener los tipos **Introducción**, **Configuración**, **Búsqueda** y, ahora, **Synapse**.
 
 Por ejemplo:
 
@@ -218,6 +217,13 @@ Por ejemplo:
 
 Para más información, consulte [Uso de cuadernos de Jupyter Notebook para buscar amenazas de seguridad](notebooks.md).
 
+## <a name="microsoft-sentinel-renaming"></a>Cambio de nombre de Microsoft Sentinel
+
+A partir de noviembre de 2021, se cambiará el nombre de Azure Sentinel a Microsoft Sentinel y verá próximas actualizaciones en el portal, la documentación y otros recursos en paralelo.
+
+Las entradas anteriores de este artículo y el anterior [Archivo de novedades de Sentinel](whats-new-archive.md) siguen usando el nombre *Azure* Sentinel, ya que ese era el nombre del servicio cuando esas características eran nuevas.
+
+Para obtener más información, consulte el [blog reciente sobre mejoras de seguridad](https://aka.ms/secblg11).
 
 ### <a name="deploy-and-monitor-azure-key-vault-honeytokens-with-azure-sentinel"></a>Implementación y supervisión de honeytokens de Azure Key Vault con Azure Sentinel
 
@@ -230,7 +236,6 @@ Como no hay ninguna razón para usar realmente las claves y los secretos de los 
 La solución **Azure Sentinel Deception** incluye un libro para ayudarle a implementar los honeytokens, ya sea a gran escala o de uno en uno, listas de control para realizar el seguimiento de los honeytokens creados y reglas de análisis para generar incidentes según sea necesario.
 
 Para más información, consulte [Implementación y supervisión de honeytoken de Azure Key Vault con Azure Sentinel (versión preliminar pública)](monitor-key-vault-honeytokens.md).
-
 
 ## <a name="october-2021"></a>Octubre de 2021
 
@@ -247,11 +252,12 @@ La nueva versión del conector de eventos de seguridad de Windows, basada en el 
 ### <a name="defender-for-office-365-events-now-available-in-the-microsoft-365-defender-connector-public-preview"></a>Los eventos de Defender para Office 365 ya están disponibles en el conector de Microsoft 365 Defender (versión preliminar pública)
 
 Además de los de Microsoft Defender para punto de conexión, ahora puede ingerir [eventos de búsqueda avanzada](/microsoft-365/security/defender/advanced-hunting-overview) sin procesar de [Microsoft Defender para Office 365](/microsoft-365/security/office-365-security/overview) a través del [conector de Microsoft 365 Defender](connect-microsoft-365-defender.md). [Más información](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection).
+
 ### <a name="playbook-templates-and-gallery-now-available-public-preview"></a>Las plantillas y la galería del cuaderno de estrategias ya están disponibles (versión preliminar pública)
 
 Una plantilla del cuaderno de estrategias es un flujo de trabajo precompilado, probado y listo para usar que se puede personalizar para satisfacer sus necesidades. Las plantillas también pueden servir como referencia para los procedimientos recomendados al desarrollar cuadernos de estrategias desde cero o como inspiración para nuevos escenarios de automatización.
 
-La comunidad de Azure Sentinel, los proveedores de software independientes (ISV) y los propios expertos de Microsoft han desarrollado plantillas del cuaderno de estrategias, que puede encontrar en la pestaña **Plantillas del cuaderno de estrategias** (en **Automation**), como parte de una [**solución de Azure Sentinel**](sentinel-solutions.md) o en el [**repositorio de GitHub de Azure Sentinel**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). 
+La comunidad de Azure Sentinel, los proveedores de software independientes (ISV) y los propios expertos de Microsoft han desarrollado plantillas del cuaderno de estrategias, que puede encontrar en la pestaña **Plantillas del cuaderno de estrategias** (en **Automation**), como parte de una [solución de Azure Sentinel](sentinel-solutions.md) o en el [repositorio de GitHub de Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks).
 
 Para más información, consulte [Creación y personalización de cuadernos de estrategias a partir de plantillas integradas](use-playbook-templates.md).
 
@@ -269,7 +275,7 @@ Sin embargo, las reglas creadas a partir plantillas ***recuerdan*** las plantill
 
 ### <a name="dhcp-normalization-schema-public-preview"></a>Esquema de normalización de DHCP (versión preliminar pública)
 
-El modelo de información de Azure Sentinel (ASIM) ahora admite un esquema de normalización de DHCP, que se usa para describir los eventos notificados por un servidor DHCP y que Azure Sentinel usa para habilitar el análisis independiente del origen. 
+El modelo de información SIEM avanzado (ASIM) ahora admite un esquema de normalización de DHCP, que se usa para describir los eventos notificados por un servidor DHCP y que Azure Sentinel usa para habilitar el análisis independiente del origen. 
 
 Los eventos descritos en el esquema de normalización de DHCP incluyen atender solicitudes de direcciones IP de DHCP concedidas desde sistemas cliente y actualizar un servidor DNS con las concesiones otorgadas.
 
@@ -347,7 +353,7 @@ Entre los conectores de datos admitidos, se incluyen los siguientes:
 - [Azure Defender (Azure Security Center)](connect-azure-security-center.md)
 - [Microsoft Defender para punto de conexión](./data-connectors-reference.md#microsoft-defender-for-endpoint)
 - [Microsoft Defender for Identity](./data-connectors-reference.md#microsoft-defender-for-identity)
-- [Microsoft Cloud App Security](./data-connectors-reference.md#microsoft-cloud-app-security-mcas)
+- [Microsoft Cloud App Security](./data-connectors-reference.md#microsoft-defender-for-cloud-apps)
 - [Reglas de análisis programadas de Azure Sentinel](detect-threats-built-in.md#scheduled)
 
 Para obtener más información, vea [Varias alertas posiblemente relacionadas con la actividad de ransomware detectada](fusion.md#fusion-for-ransomware).
