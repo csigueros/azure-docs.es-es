@@ -84,8 +84,6 @@
           href: how-to-determine-your-update-strategy.md
         - name: Configuración de Azure IoT Hub para la implementación de actualizaciones de forma inalámbrica
           href: how-to-set-up-over-the-air-updates.md
-        - name: Selección del paquete de actualización más adecuado para Azure Percept DK
-          href: how-to-select-update-package.md
         - name: "Actualización de Azure Percept\_DK de forma inalámbrica"
           href: how-to-update-over-the-air.md
         - name: "Actualización de Azure Percept\_DK a través de una conexión USB-C"

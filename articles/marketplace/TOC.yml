@@ -223,8 +223,6 @@
               href: azure-vm-image-test.md
             - name: Obtención del identificador URI de SAS
               href: azure-vm-get-sas-uri.md
-            - name: Mensajes de error de SAS
-              href: azure-vm-sas-failure-messages.md
             - name: Preguntas frecuentes sobre la creación de una máquina virtual
               href: azure-vm-faq.yml
             - name: Solución de problemas de certificación de máquina virtual

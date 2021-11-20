@@ -92,7 +92,7 @@
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Disponibilidad regional
-      href: 'https://azure.microsoft.com/regions/services/'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-management-portal'
     - name: Vídeos de Azure

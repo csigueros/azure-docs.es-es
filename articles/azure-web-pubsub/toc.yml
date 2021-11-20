@@ -134,7 +134,7 @@
         - name: 'SDK de servidor: Python'
           href: reference-server-sdk-python.md
     - name: API DE REST
-      href: /rest/api/webpubsub
+      href: /rest/api/webpubsub/
 - name: Recursos
   items:
     - name: Ejemplos

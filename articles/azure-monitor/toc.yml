@@ -421,7 +421,7 @@
               href: insights/solution-agenthealth.md
         - name: Extensión de Diagnósticos de Azure
           items:
-            - name: Introducción
+            - name: Información general
               href: agents/diagnostics-extension-overview.md
             - name: Windows
               displayname: diagnostics extension
@@ -1179,6 +1179,8 @@
           href: insights/cosmosdb-insights-overview.md
         - name: Explorador de datos de Azure
           href: insights/data-explorer.md
+        - name: Azure Service Bus
+          href: insights/service-bus-insights.md
         - name: Área de trabajo de Log Analytics
           href: logs/log-analytics-workspace-insights-overview.md
         - name: Redes
@@ -1435,11 +1437,11 @@
     - name: Azure PowerShell
       items:
         - name: Azure Monitor
-          href: /powershell/module/az.monitor
+          href: /powershell/module/az.monitor/
         - name: Registros de Azure Monitor
-          href: /powershell/module/az.operationalinsights
+          href: /powershell/module/az.operationalinsights/
         - name: Application Insights
-          href: /powershell/module/az.applicationinsights
+          href: /powershell/module/az.applicationinsights/
     - name: Azure CLI
       items:
         - name: Azure Monitor
@@ -1456,7 +1458,7 @@
         - name: Azure Monitor
           href: /rest/api/monitor/
         - name: Registros de Azure Monitor
-          href: /rest/api/loganalytics
+          href: /rest/api/loganalytics/
         - name: Tutorial de API REST
           displayname: 'metrics, analyze'
           href: essentials/rest-api-walkthrough.md
@@ -1512,8 +1514,8 @@
     - name: Actualizaciones de Azure
       href: 'https://azure.microsoft.com/en-us/updates/?category=management-tools'
     - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/log-analytics/'
+      href: 'https://azure.microsoft.com/pricing/details/monitor/'
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Disponibilidad regional
-      href: 'https://azure.microsoft.com/regions/services/?products=monitor&regions=all'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor'

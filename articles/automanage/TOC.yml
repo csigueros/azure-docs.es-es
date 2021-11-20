@@ -44,4 +44,4 @@
     - name: Preguntas más frecuentes
       href: faq.yml
     - name: Plataforma de adopción de la nube
-      href: /azure/cloud-adoption-framework/manage/azure-server-management
+      href: /azure/cloud-adoption-framework/manage/azure-server-management/

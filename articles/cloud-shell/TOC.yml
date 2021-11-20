@@ -47,9 +47,9 @@
 - name: Referencia
   items:
     - name: Azure CLI
-      href: /cli/azure
+      href: /cli/azure/
     - name: Azure PowerShell
-      href: /powershell/azure
+      href: /powershell/azure/
 - name: Recursos
   items:
     - name: Azure Roadmap

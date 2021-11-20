@@ -114,7 +114,7 @@
     - name: Referencia de plantilla de Resource Manager
       href: /azure/templates/microsoft.compute/cloudservices
     - name: REST
-      href: /rest/api/compute/cloudservices
+      href: /rest/api/compute/cloud-services
     - name: .NET
       href: /dotnet/api/overview/azure/virtualmachines/management
     - name: SDK
@@ -126,7 +126,7 @@
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Ruta de aprendizaje
-      href: /learn/paths/azure-fundamentals/
+      href: /learn/paths/az-900-describe-cloud-concepts/
     - name: Preguntas y respuestas acerca de Microsoft
       href: /answers/topics/azure-cloud-services.html
     - name: Precios

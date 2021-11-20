@@ -100,7 +100,7 @@
     - name: Libros de cocina
       items:
         - name: Scripts de implementación
-          href: 'https://azure.microsoft.com/documentation/scripts/'
+          href: /azure/automation/automation-runbook-gallery
     - name: Solución de problemas
       items:
         - name: Solución de problemas con Visual Studio

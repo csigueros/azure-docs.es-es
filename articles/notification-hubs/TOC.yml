@@ -90,6 +90,8 @@
       href: uwp-react.md
 - name: Conceptos
   items:
+    - name: Zonas de disponibilidad
+      href: availability-zones.md
     - name: Seguridad de la capa de transporte (TLS)
       href: notification-hubs-tls12.md
     - name: Instrucciones sobre arquitectura de inserción empresarial

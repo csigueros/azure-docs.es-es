@@ -73,7 +73,7 @@
             - name: Resource group
               href: deploy-to-resource-group.md
               displayName: 'deployment commands,multiple resource groups'
-            - name: Subscription
+            - name: Suscripción
               href: deploy-to-subscription.md
               displayName: 'Azure Policy,policy,access control'
             - name: Grupo de administración
@@ -196,6 +196,6 @@
       href: bicep-cli.md
       displayName: 'build,decompile,install,list-versions,list versions,upgrade,version'
     - name: Azure PowerShell
-      href: /powershell/module/az.resources
+      href: /powershell/module/az.resources/
     - name: Azure CLI
       href: /cli/azure/resource

@@ -1,6 +1,6 @@
 - name: Documentación de Azure API Management
   href: index.yml
-- name: Introducción
+- name: Información general
   items:
     - name: Acerca de API Management
       href: api-management-key-concepts.md
@@ -366,7 +366,7 @@
     - name: Notas de la versión
       href: 'https://aka.ms/apim/releases'
     - name: Disponibilidad regional
-      href: 'https://azure.microsoft.com/regions/services/'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Vídeos
       href: 'https://azure.microsoft.com/documentation/videos/index/?service=api-management'
     - name: Página de preguntas y respuestas de Microsoft

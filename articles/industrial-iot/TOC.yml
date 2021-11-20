@@ -28,6 +28,74 @@
           href: tutorial-data-explorer-import.md
         - name: Visualizar y analizar los datos mediante Time Series Insights
           href: tutorial-visualize-data-time-series-insights.md
+- name: Guías paso a paso
+  items:
+    - name: Instalación y aprovisionamiento de IoT Edge
+      items:
+        - name: Crear un dispositivo IoT Edge
+          href: ../iot-edge/how-to-create-iot-edge-device.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: Contenedores Linux en hosts Linux
+          items:
+            - name: Aprovisionamiento de un dispositivo único
+              items:
+                - name: Atestación de certificados de cliente X.509
+                  href: ../iot-edge/how-to-provision-single-device-linux-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+                - name: Atestación de clave simétrica
+                  href: ../iot-edge/how-to-provision-single-device-linux-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+            - name: Aprovisionamiento de dispositivos a escala
+              items:
+                - name: Atestación de certificados de cliente X.509
+                  href: ../iot-edge/how-to-provision-devices-at-scale-linux-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+                - name: Atestación de TPM
+                  href: ../iot-edge/how-to-provision-devices-at-scale-linux-tpm.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+                - name: Atestación de clave simétrica
+                  href: ../iot-edge/how-to-provision-devices-at-scale-linux-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: Contenedores Linux en hosts Windows
+          items:
+            - name: Aprovisionamiento de un dispositivo único
+              items:
+                - name: Atestación de certificados de cliente X.509
+                  href: ../iot-edge/how-to-provision-single-device-linux-on-windows-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+                - name: Atestación de clave simétrica
+                  href: ../iot-edge/how-to-provision-single-device-linux-on-windows-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+            - name: Aprovisionamiento de dispositivos a escala
+              items:
+                - name: Atestación de certificados de cliente X.509
+                  href: ../iot-edge/how-to-provision-devices-at-scale-linux-on-windows-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+                - name: Atestación de TPM
+                  href: ../iot-edge/how-to-provision-devices-at-scale-linux-on-windows-tpm.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+                - name: Atestación de clave simétrica
+                  href: ../iot-edge/how-to-provision-devices-at-scale-linux-on-windows-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+            - name: Configuración de la virtualización anidada para máquinas virtuales Windows
+              href: ../iot-edge/nested-virtualization.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+            - name: Creación de un conmutador virtual
+              href: ../iot-edge/how-to-create-virtual-switch.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+            - name: Configuración de aceleración de GPU
+              href: ../iot-edge/gpu-acceleration.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: Contenedores Windows en hosts Windows
+          items:
+            - name: Aprovisionamiento de un dispositivo único
+              items:
+                - name: Atestación de clave simétrica
+                  href: ../iot-edge/how-to-provision-single-device-windows-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+                - name: Atestación de certificados de cliente X.509
+                  href: ../iot-edge/how-to-provision-single-device-windows-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+            - name: Aprovisionamiento de dispositivos a escala
+              items:
+                - name: Atestación de clave simétrica
+                  href: ../iot-edge/how-to-provision-devices-at-scale-windows-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+                - name: Atestación de certificados de cliente X.509
+                  href: ../iot-edge/how-to-provision-devices-at-scale-windows-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+                - name: Atestación de TPM
+                  href: ../iot-edge/how-to-provision-devices-at-scale-windows-tpm.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: Actualización de IoT Edge
+          href: ../iot-edge/how-to-update-iot-edge.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: Administración de certificados de dispositivo
+          href: ../iot-edge/how-to-manage-device-certificates.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: Ejecución de IoT Edge en Kubernetes
+          href: ../iot-edge/how-to-install-iot-edge-kubernetes.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
+        - name: Implementación de una máquina virtual con IoT Edge mediante una plantilla de Resource Manager
+          href: ../iot-edge/how-to-install-iot-edge-ubuntuvm.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
 - name: Referencia
   items:
     - name: Argumentos de la línea de comandos

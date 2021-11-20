@@ -142,7 +142,7 @@
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Disponibilidad regional
-      href: 'https://azure.microsoft.com/regions/services/'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Vídeos
       href: 'https://www.youtube.com/c/AzureFunctions'
     - name: Página de preguntas y respuestas de Microsoft

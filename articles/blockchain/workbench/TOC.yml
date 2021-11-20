@@ -54,7 +54,7 @@
     - name: API de mensajería
       href: messages-overview.md
     - name: API DE REST
-      href: /rest/api/azure-blockchain-workbench
+      href: /rest/api/azure-blockchain-workbench/
 - name: Recursos
   items:
     - name: Ejemplos de código

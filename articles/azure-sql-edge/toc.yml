@@ -39,7 +39,7 @@
         - name: Implementación en Kubernetes
           href: deploy-kubernetes.md
         - name: Implementación con Azure Data Studio
-          href: /sql/azure-data-studio/deploy-azure-sql-edge?toc=%2fazure%2fazure-sql-edge%2ftoc.json
+          href: /sql/azure-data-studio/deploy-azure-sql-edge?toc=/azure/azure-sql-edge/toc.json
     - name: Machine Learning
       items:
         - name: Aprendizaje automático e IA con ONNX
@@ -83,9 +83,9 @@
         - name: DATE_BUCKET (Transact-SQL)
           href: date-bucket-tsql.md
         - name: FIRST_VALUE (Transact-SQL)
-          href: /sql/t-sql/functions/first-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json
+          href: /sql/t-sql/functions/first-value-transact-sql?toc=/azure/azure-sql-edge/toc.json
         - name: LAST_VALUE (Transact-SQL)
-          href: /sql/t-sql/functions/last-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json
+          href: /sql/t-sql/functions/last-value-transact-sql?toc=/azure/azure-sql-edge/toc.json
         - name: Retención y limpieza de datos
           items:
             - name: Introducción a la retención de datos
@@ -101,11 +101,11 @@
         - name: Introducción a la seguridad
           href: security-overview.md
         - name: Características de seguridad
-          href: /sql/linux/sql-server-linux-security-get-started?toc=%2fazure%2fazure-sql-edge%2ftoc.json
+          href: /sql/linux/sql-server-linux-security-get-started?toc=/azure/azure-sql-edge/toc.json
         - name: Cifrado de conexiones
-          href: /sql/linux/sql-server-linux-encrypted-connections?toc=%2fazure%2fazure-sql-edge%2ftoc.json
+          href: /sql/linux/sql-server-linux-encrypted-connections?toc=/azure/azure-sql-edge/toc.json
         - name: Microsoft Defender para IoT
-          href: ../defender-for-iot/overview.md?bc=%2fazure%2fazure-sql-edge%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-sql-edge%2ftoc.json
+          href: ../defender-for-iot/overview.md?bc=/azure/azure-sql-edge/breadcrumb/toc.json&toc=/azure/azure-sql-edge/toc.json
 - name: Procedimientos
   items:
     - name: Configuración de SQL Edge

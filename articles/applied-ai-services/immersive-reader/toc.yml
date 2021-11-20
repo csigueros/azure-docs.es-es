@@ -3,11 +3,11 @@
 - name: Información general
   items:
     - name: ¿Qué es Lector inmersivo?
-      href: Overview.md
+      href: overview.md
     - name: Compatibilidad con idiomas
       href: language-support.md
     - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/'
+      href: 'https://azure.microsoft.com/pricing/details/immersive-reader/'
     - name: Notas de la versión
       href: release-notes.md
 - name: Guía de inicio rápido
