@@ -6,6 +6,8 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -13,12 +15,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 4bdc3272fa114d4c270d906b03226a17d52bf893
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 627660330493b2d26c003145fc41dbadaa780052
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132711522"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132517262"
 ---
 # <a name="troubleshoot-your-cef-or-syslog-data-connector"></a>Solución de problemas del conector de datos CEF o Syslog
 

@@ -4,17 +4,15 @@ description: En este artículo se describen las nuevas características de Micro
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ffeb90d11b2bc65cc8dceb996cd3d6eecee9e03e
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 5318ead9443737bb16130007419dee5f3154b4b0
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132519902"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711301"
 ---
 # <a name="whats-new-in-microsoft-sentinel"></a>Novedades de Microsoft Azure Sentinel
 
@@ -90,13 +88,13 @@ La evolución de nuestra experiencia de evaluación gratuita actual permite incl
 
    Durante el período de evaluación de 31 días solo se anulan los cargos de Microsoft Sentinel.
 
-El uso por encima de estos límites se cobra según el precio que se indica en la página de [precios de Microsoft Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel). Los cargos relacionados con funcionalidades adicionales para la [automatización](automation-in-azure-sentinel.md) y el [aprendizaje automático propio](bring-your-own-ml.md) siguen siendo aplicables durante la evaluación gratuita.
+El uso por encima de estos límites se cobra según el precio que se indica en la página de [precios de Microsoft Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel). Los cargos relacionados con funcionalidades adicionales para la [automatización](automation.md) y el [aprendizaje automático propio](bring-your-own-ml.md) siguen siendo aplicables durante la evaluación gratuita.
 
 > [!TIP]
 > Durante el período de evaluación gratuita, encuentre recursos para la administración de costos, el entrenamiento y más en la pestaña **Novedades y guías > Evaluación gratuita** de Microsoft Sentinel. Esta pestaña también muestra detalles sobre las fechas de la evaluación gratuita y cuántos días le quedan hasta su expiración.
 >
 
-Para más información, consulte [Planeamiento y administración de los costos de Microsoft Sentinel](azure-sentinel-billing.md).
+Para más información, consulte [Planeamiento y administración de los costos de Microsoft Sentinel](billing.md).
 
 ### <a name="content-hub-and-new-solutions-public-preview"></a>Centro de contenido y nuevas soluciones (versión preliminar pública)
 
@@ -350,7 +348,7 @@ Los incidentes se generan para las alertas que posiblemente están asociadas a a
 
 Entre los conectores de datos admitidos, se incluyen los siguientes:
 
-- [Azure Defender (Azure Security Center)](connect-azure-security-center.md)
+- [Azure Defender (Azure Security Center)](connect-defender-for-cloud.md)
 - [Microsoft Defender para punto de conexión](./data-connectors-reference.md#microsoft-defender-for-endpoint)
 - [Microsoft Defender for Identity](./data-connectors-reference.md#microsoft-defender-for-identity)
 - [Microsoft Cloud App Security](./data-connectors-reference.md#microsoft-defender-for-cloud-apps)
@@ -440,7 +438,7 @@ Para obtener más información, vea la [tabla IdentityInfo](ueba-enrichments.md#
 
 Azure Sentinel ahora ofrece una API para enriquecer los datos con información de geolocalización. Después, los datos de geolocalización se pueden usar para analizar e investigar incidentes de seguridad.
 
-Para obtener más información, vea [Enriquecimiento de entidades en Azure Sentinel con datos de geolocalización mediante la API REST (versión preliminar pública)](geolocation-data-api.md) y [Clasificación y análisis de datos mediante entidades en Azure Sentinel](entities-in-azure-sentinel.md).
+Para obtener más información, vea [Enriquecimiento de entidades en Azure Sentinel con datos de geolocalización mediante la API REST (versión preliminar pública)](geolocation-data-api.md) y [Clasificación y análisis de datos mediante entidades en Azure Sentinel](entities.md).
 
 
 ### <a name="support-for-adx-cross-resource-queries-public-preview"></a>Compatibilidad con consultas entre recursos de ADX (versión preliminar pública)
@@ -470,7 +468,7 @@ Consulte la [lista completa de ubicaciones geográficas admitidas](quickstart-on
 
 El conector de Azure Defender ahora admite la sincronización bidireccional del estado de las alertas entre Defender y Azure Sentinel. Al cerrar un incidente de Sentinel que contiene una alerta de Defender, esta se cerrará automáticamente también en el portal de Defender.
 
-Consulte esta [descripción completa del conector de Azure Defender actualizado](connect-azure-security-center.md).
+Consulte esta [descripción completa del conector de Azure Defender actualizado](connect-defender-for-cloud.md).
 
 ## <a name="june-2021"></a>Junio de 2021
 
