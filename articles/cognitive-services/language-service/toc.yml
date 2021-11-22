@@ -72,6 +72,16 @@ items:
                 href: 'https://aka.ms/ct-authoring-swagger'
               - name: API de predicción en tiempo de ejecución
                 href: 'https://aka.ms/ct-runtime-swagger'
+          - name: SDK (v3.2-preview.2)
+            items:
+              - name: .NET
+                href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+              - name: Python
+                href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+              - name: Java
+                href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+              - name: Node.js
+                href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
   - name: Reconocimiento de entidades con nombre (NER) personalizado (versión preliminar)
     items:
       - name: Información general
@@ -120,6 +130,16 @@ items:
                 href: 'https://aka.ms/ct-authoring-swagger'
               - name: API de predicción en tiempo de ejecución
                 href: 'https://aka.ms/ct-runtime-swagger'
+          - name: SDK (v3.2-preview.2)
+            items:
+              - name: .NET
+                href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+              - name: Python
+                href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+              - name: Java
+                href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+              - name: Node.js
+                href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
   - name: Reconocimiento del lenguaje conversacional (versión preliminar)
     items:
       - name: Información general
@@ -162,6 +182,12 @@ items:
             items:
               - name: Creación
                 href: 'https://aka.ms/clu-authoring-apis'
+          - name: SDK
+            items:
+              - name: .NET
+                href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+              - name: Python
+                href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
   - name: Vinculación de entidad
     items:
       - name: Información general

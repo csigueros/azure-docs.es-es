@@ -858,7 +858,7 @@
                 - name: Windows
                   displayName: 'Log Analytics, extension'
                   href: ./extensions/oms-windows.md
-            - name: Azure Monitor para máquinas virtuales
+            - name: VM Insights
               items:
                 - name: Dependency Agent para Linux
                   displayName: Azure Monitor
@@ -1294,6 +1294,8 @@
         - name: Windows
           displayName: Expand a disk - Windows
           href: ./windows/expand-os-disk.md
+        - name: Discos no administrados
+          href: expand-unmanaged-disks.md
     - name: Administración del almacenamiento
       items:
         - name: Implementación de discos con plantilla de Resource Manager
@@ -1387,7 +1389,7 @@
       href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
     - name: Filtrado del tráfico de red
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: ../virtual-network/tutorial-filter-network-traffic.md?context=/azure/virtual-machines/context/context
         - name: Azure PowerShell
           href: ../virtual-network/tutorial-filter-network-traffic-powershell.md?context=/azure/virtual-machines/context/context
@@ -1395,7 +1397,7 @@
           href: ../virtual-network/tutorial-filter-network-traffic-cli.md?context=/azure/virtual-machines/context/context
     - name: 'Creación de una máquina virtual: IP pública estática'
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-portal.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Azure PowerShell
           href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-ps.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
@@ -1407,7 +1409,7 @@
           href: ../virtual-network/ip-services/remove-public-ip-address-vm.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: 'Creación de una máquina virtual: IP privada estática'
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: ../virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Azure PowerShell
           href: ../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
@@ -1692,23 +1694,18 @@
               href: ./windows/tutorial-config-management.md
 - name: Supervisión
   items:
-    - name: Información general
-      displayName: 'Monitoring Overview, monitoring'
-      href: ../azure-monitor/vm/monitor-vm-azure.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Supervisión de máquinas virtuales
+      href: monitor-vm.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+    - name: Supervisión de referencia de máquina virtual
+      href: monitor-vm-reference.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+    - name: Tutoriales
       items:
-        - name: Información general
-          href: ../azure-monitor/vm/monitor-virtual-machine.md?context=/azure/virtual-machines/context/context
-        - name: Configuración de la supervisión
-          href: ../azure-monitor/vm/monitor-virtual-machine-configure.md?context=/azure/virtual-machines/context/context
-        - name: Análisis de datos
-          href: ../azure-monitor/vm/monitor-virtual-machine-analyze.md?context=/azure/virtual-machines/context/context
-        - name: Supervisión de la seguridad
-          href: ../azure-monitor/vm/monitor-virtual-machine-security.md?context=/azure/virtual-machines/context/context
-        - name: Creación de alertas
-          href: ../azure-monitor/vm/monitor-virtual-machine-alerts.md?context=/azure/virtual-machines/context/context
-        - name: Supervisión de cargas de trabajo
-          href: ../azure-monitor/vm/monitor-virtual-machine-workloads.md?context=/azure/virtual-machines/context/context
+        - name: Habilitar supervisión
+          href: ../azure-monitor/vm/tutorial-monitor-vm-enable.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        - name: Alerta por máquina fuera de servicio
+          href: ../azure-monitor/vm/tutorial-monitor-vm-alert.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        - name: Recopilación de métricas y registros de invitado
+          href: ../azure-monitor/vm/tutorial-monitor-vm-guest.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Agentes
       items:
         - name: Información general de los agentes
@@ -1716,23 +1713,23 @@
         - name: Preguntas más frecuentes
           displayName: Agents
           href: ../azure-monitor/faq.yml
-        - name: Extensión de Diagnósticos de Azure
+        - name: Agente de Azure Monitor
           items:
-            - name: Introducción
-              displayName: Azure Diagnostics extension
-              href: ../azure-monitor/agents/diagnostics-extension-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
-            - name: Extensión de Diagnósticos de Linux
-              items:
-                - name: Versión 4.0
-                  displayName: Linux diagnostics extension
-                  href: ../virtual-machines/extensions/diagnostics-linux.md?context=/azure/virtual-machines/context/context
-                - name: Versión 3.0
-                  displayName: Linux diagnostics extension
-                  href: ../virtual-machines/extensions/diagnostics-linux-v3.md?context=/azure/virtual-machines/context/context
-                - name: Recopilación de métricas con Telegraf
-                  displayName: Linux diagnostics extension
-                  href: ../azure-monitor/essentials/collect-custom-metrics-linux-telegraf.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
-                  displayname: diagnostics extension
+            - name: Información general
+              displayname: Azure Monitor agent
+              href: ../azure-monitor/agents/azure-monitor-agent-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+            - name: Instalar
+              displayname: Azure Monitor agent
+              href: ../azure-monitor/agents/azure-monitor-agent-install.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+            - name: Recopilación de datos
+              displayname: 'data collection rule,Azure Monitor agent'
+              href: ../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+            - name: Migración desde agentes heredados
+              displayname: Migrate to Azure Monitor agent
+              href: ../azure-monitor/agents/azure-monitor-agent-migration.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+            - name: Preguntas más frecuentes
+              displayname: Azure Monitor agent FAQ
+              href: ../azure-monitor/faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Agente de Log Analytics
           items:
             - name: Información general
@@ -1778,16 +1775,16 @@
               href: ../azure-monitor/visualize/vmext-troubleshoot.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: Agente Linux de Log Analytics
               href: ../azure-monitor/agents/agent-linux-troubleshoot.md?context=/azure/virtual-machines/context/context
-        - name: Azure Monitor para máquinas virtuales
+        - name: VM Insights
           items:
             - name: Información general
-              displayName: Azure monitor for VMs
+              displayName: VM insights
               href: ../azure-monitor/vm/vminsights-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: Preguntas frecuentes acerca de la disponibilidad general
-              displayName: Azure monitor for VMs
+              displayName: VM insights
               href: ../azure-monitor/vm/vminsights-ga-release-faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: Preguntas más frecuentes
-              displayName: Azure monitor for VMs
+              displayName: VM insights
               href: ../azure-monitor/faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: Habilitar supervisión
               items:

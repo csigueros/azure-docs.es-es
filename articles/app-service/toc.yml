@@ -251,7 +251,7 @@
           href: configure-authentication-file-based.md
     - name: Protección de la aplicación
       items:
-        - name: Adición de certificado TSL/SSL
+        - name: Adición de certificado TLS/SSL
           href: configure-ssl-certificate.md
         - name: Restricción del acceso
           href: app-service-ip-restrictions.md

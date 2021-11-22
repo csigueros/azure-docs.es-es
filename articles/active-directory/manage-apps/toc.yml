@@ -25,7 +25,7 @@
 - name: Tutoriales
   items:
     - name: Lista de tutoriales de integración de aplicaciones
-      href: /azure/active-directory/saas-apps/
+      href: /azure/active-directory/saas-apps/tutorial-list
 - name: Ejemplos
   items:
     - name: Introducción de los ejemplos de Administración de la aplicación
@@ -100,6 +100,8 @@
               href: manage-application-permissions.md
         - name: Administración de la asignación de usuarios
           href: assign-user-or-group-access-portal.md
+        - name: Asignación de atributos de seguridad personalizados
+          href: custom-security-attributes-apps.md
         - name: Creación de colecciones en Aplicaciones
           href: access-panel-collections.md
         - name: Habilitación del acceso de autoservicio a las aplicaciones
@@ -199,7 +201,7 @@
     - name: Página de preguntas y respuestas de Microsoft
       href: /answers/topics/azure-active-directory.html
     - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/active-directory'
+      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=active-directory'
     - name: Stack Overflow

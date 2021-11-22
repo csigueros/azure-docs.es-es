@@ -17,12 +17,12 @@ ms.date: 11/12/2021
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 056ed3df8e9658b00917680aa2ad291f3529d1c8
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: ef44ff683717bad391fcb0fa8f108000a810b8a2
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132484579"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715499"
 ---
 # <a name="what-are-flagged-sign-ins-in-azure-active-directory"></a>¿Qué son los inicios de sesión con marca en Azure Active Directory?
 
@@ -85,7 +85,7 @@ Consulta de inicios de sesión marcados para un usuario específico por UPN (por
 
 Consulta de inicios de sesión marcados para un usuario específico y fecha posterior a: `https://graph.microsoft.com/beta/auditLogs/signIns?&$filter=flaggedforReview eq true and createdDateTime ge 2021-10-01 and userPrincipalname eq 'user@contoso.com'`
  
-Para más información sobre el uso de Graph API en los inicios de sesión, consulte [Tipo de recurso signIn](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-1.0&preserve-view=true).
+Para más información sobre el uso de Graph API en los inicios de sesión, consulte [Tipo de recurso signIn](/graph/api/resources/signin?preserve-view=true&view=graph-rest-1.0).
 
 
 

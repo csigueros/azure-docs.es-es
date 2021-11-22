@@ -9,12 +9,12 @@ metadata:
   author: craigshoemaker
   ms.author: cshoe
   ms.date: 05/07/2021
-  ms.openlocfilehash: 6c2119b81b9eea8c4da0caa68f998e70fab4fae1
-  ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+  ms.openlocfilehash: b41c8a8ed84fc627528f06c8c443fbc112456074
+  ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/28/2021
-  ms.locfileid: "129154952"
+  ms.lasthandoff: 11/19/2021
+  ms.locfileid: "132814166"
 landingContent:
 - title: Acerca de Azure Static Web Apps
   linkLists:
@@ -26,13 +26,13 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Creación de la primera aplicación sin plataforma
+    - text: Implementación de una aplicación sin marco de front-end
       url: ./getting-started.md?tabs=vanilla-javascript
-    - text: Creación de la primera aplicación con Angular
+    - text: Implementación de una aplicación de Angular
       url: ./getting-started.md?tabs=angular
-    - text: Creación de la primera aplicación con React
+    - text: Implementación de una aplicación de React
       url: ./getting-started.md?tabs=react
-    - text: Creación de la primera aplicación con Vue
+    - text: Implementación de una aplicación de Vue
       url: ./getting-started.md?tabs=vue
   - linkListType: learn
     links:
@@ -44,33 +44,27 @@ landingContent:
     links:
     - text: Compilación e implementación de un aplicación web estática
       url: https://channel9.msdn.com/Shows/Docs-Azure/Building-and-Deploying-a-Static-Web-App/
-- title: Publicación de escenarios
+- title: Implementación desde un marco o biblioteca
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Publicación desde Gatsby
+    - text: Gatsby
       url: publish-gatsby.md
-    - text: Publicación desde Hugo
+    - text: Hugo
       url: publish-hugo.md
-    - text: Publicación desde VuePress
+    - text: VuePress
       url: publish-vuepress.md
-    - text: Publicación desde Jekyll
+    - text: Jekyll
       url: publish-jekyll.md
-    - text: Implementación desde Blazor
+    - text: Blazor
       url: deploy-blazor.md
-    - text: Implementación desde Next.js
+    - text: Next.js
       url: deploy-nextjs.md
-    - text: Implementación desde Nuxt.js
+    - text: Nuxt.js
       url: deploy-nuxtjs.md
-    - text: Implementación con Azure DevOps
-      url: publish-devops.md
-    - text: Implementación con una plantilla de Resource Manager
-      url: publish-azure-resource-manager.md
-  - linkListType: learn
-    links:
-    - text: Publicación de una aplicación web estática con Gatsby
+    - text: Gatsby
       url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
-    - text: Publicación de una aplicación web estática con Blazor
+    - text: Blazor
       url: /learn/modules/publish-app-service-static-web-app-api-dotnet
 - title: Conceptos clave
   linkLists:
@@ -84,3 +78,13 @@ landingContent:
       url: review-publish-pull-requests.md
     - text: Restricción del acceso
       url: authentication-authorization.md
+    - text: Compilación de la configuración con Acciones de GitHub
+      url: publish-devops.md?tabs=github-actions
+    - text: Compilación de la configuración con Azure DevOps
+      url: publish-devops.md?tabs=azure-devops
+- title: Software como servicio
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Implementación con una plantilla de Resource Manager
+      url: publish-azure-resource-manager.md

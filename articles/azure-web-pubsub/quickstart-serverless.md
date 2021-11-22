@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 11/08/2021
-ms.openlocfilehash: 7dc376bb84c52688e1f665501680f11f6bb317eb
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 3e6af1542452218a5e63182f484d9d5910407c3d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132488532"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715062"
 ---
 # <a name="tutorial-create-a-serverless-real-time-chat-app-with-azure-functions-and-azure-web-pubsub-service"></a>Tutorial: Creación de una aplicación de chat en tiempo real sin servidor con Azure Functions y el servicio Azure Web PubSub
 
@@ -74,7 +74,7 @@ En este tutorial, aprenderá a:
 2. \* Instale el paquete de extensión de la función `Microsoft.Azure.WebJobs.Extensions.WebPubSub`.
 
     > [!NOTE]
-    > El paso será opcional cuando se admitan [conjuntos de extensiones](/azure/azure-functions/functions-bindings-register#extension-bundles).
+    > El paso será opcional cuando se admitan [conjuntos de extensiones](../azure-functions/functions-bindings-register.md#extension-bundles).
 
    a. Quite la sección `extensionBundle` de `host.json` para habilitar la instalación de un paquete de extensión específico en el paso siguiente. O simplemente cree un archivo host.json tan simple como el siguiente.
     ```json
@@ -223,7 +223,7 @@ En este tutorial, aprenderá a:
    ```
 
    > [!NOTE]
-   > Esta función en realidad usa `WebPubSubTrigger`. Sin embargo, dado que el servicio todavía está en versión preliminar, `WebPubSubTrigger` no está integrado en la plantilla de la función. `HttpTrigger` se usa para inicializar la plantilla de la función y cambiar el tipo de desencadenador en el código.
+   > Esta función en realidad usa `WebPubSubTrigger`. Sin embargo, `WebPubSubTrigger` no está integrado en la plantilla de la función. `HttpTrigger` se usa para inicializar la plantilla de la función y cambiar el tipo de desencadenador en el código.
 
    # <a name="javascript"></a>[JavaScript](#tab/javascript)
    - Actualice `message/function.json` y copie los siguientes códigos de JSON.

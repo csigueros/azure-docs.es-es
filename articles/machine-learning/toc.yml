@@ -295,6 +295,8 @@
               href: how-to-manage-rest.md
             - name: Vínculo al área de trabajo de Azure Synapse Analytics
               href: how-to-link-synapse-ml-workspaces.md
+            - name: Diagnóstico de área de trabajo
+              href: how-to-workspace-diagnostic-api.md
         - name: Creación y administración de recursos de proceso
           items:
             - name: Instancia de proceso
@@ -559,7 +561,7 @@
                   href: how-to-use-managed-online-endpoint-studio.md
                 - name: Servicio de alto rendimiento con Triton
                   href: how-to-deploy-with-triton.md
-                - name: Acceso al almacenamiento con un punto de conexión en línea administrado e identidad administrada
+                - name: Acceso a recursos de Azure desde un punto de conexión en línea administrado
                   href: how-to-access-resources-from-endpoints-managed-identities.md
                 - name: Visualización de los costos de los puntos de conexión en línea administrados
                   href: how-to-view-online-endpoints-costs.md

@@ -42,6 +42,8 @@ items:
             href: migrate-v2-to-v3.md
           - name: Uso de la evaluación de la pronunciación
             href: how-to-pronunciation-assessment.md
+          - name: Control y supervisión de estado de conexión
+            href: how-to-control-connections.md
           - name: Personalización
             items:
               - name: ¿Qué es Habla personalizada?

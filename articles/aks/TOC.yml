@@ -63,18 +63,20 @@
           href: ./security-controls-policy.md
     - name: Redes
       href: concepts-network.md
-    - name: Almacenamiento
+    - name: Storage
       href: concepts-storage.md
     - name: Escala
       href: concepts-scale.md
     - name: Reparación automática de nodo
       href: node-auto-repair.md
+    - name: Mallas de servicio
+      href: servicemesh-about.md
     - name: Procedimientos recomendados
       items:
         - name: Información general
           href: best-practices.md
         - name: Arquitectura de línea de base para un clúster de AKS
-          href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+          href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks
           maintainContext: true
         - name: Para los operadores del clúster
           items:
@@ -361,9 +363,9 @@
     - name: Desarrollo y ejecución de aplicaciones
       items:
         - name: Uso de Bridge to Kubernetes con Visual Studio Code
-          href: 'https://code.visualstudio.com/docs/containers/bridge-to-kubernetes'
+          href: /visualstudio/bridge/bridge-to-kubernetes-vs-code
         - name: Uso de Bridge to Kubernetes con Visual Studio
-          href: /visualstudio/containers/bridge-to-kubernetes
+          href: /visualstudio/bridge/bridge-to-kubernetes-vs
         - name: Instalación de aplicaciones existentes con Helm
           href: kubernetes-helm.md
         - name: Uso de OpenFaaS
@@ -384,42 +386,32 @@
         - name: Uso de Dapr (versión preliminar)
           href: dapr.md
           maintainContext: true
-    - name: Implementación de una malla de servicio
+    - name: Implementación del complemento Open Service Mesh de AKS
       items:
-        - name: Acerca de las mallas de servicio
-          href: servicemesh-about.md
-        - name: Complemento Open Service Mesh de AKS
-          items:
-            - name: Introducción a OSM
-              href: open-service-mesh-about.md
-            - name: Implementación del complemento AKS de OSM
-              items:
-                - name: Uso de la CLI de Azure
-                  href: open-service-mesh-deploy-addon-az-cli.md
-                - name: Uso de plantilla de Bicep
-                  href: open-service-mesh-deploy-addon-bicep.md
-            - name: Descarga y configuración del binario de cliente de OSM
-              href: open-service-mesh-binary.md
-            - name: Tutoriales de OSM
-              items:
-                - name: Administración de una nueva implementación de aplicaciones
-                  href: open-service-mesh-deploy-new-application.md
-                - name: Incorporación de aplicaciones a la malla
-                  href: open-service-mesh-deploy-existing-application.md
-                - name: Uso de la entrada de Azure Application Gateway
-                  href: open-service-mesh-azure-application-gateway-ingress.md
-                - name: Uso del controlador de entrada de Kubernetes Nginx
-                  href: open-service-mesh-nginx-ingress.md
-                - name: 'Configuración de la observabilidad mediante Prometheus, Grafana y Jaeger'
-                  href: open-service-mesh-open-source-observability.md
-                - name: "Exclusión del intervalo de direcciones\_IP y puertos"
-                  href: open-service-mesh-ip-port-exclusion.md
-            - name: Configuración de Azure Monitor
-              href: open-service-mesh-azure-monitor.md
-            - name: Solución de problemas de OSM
-              href: open-service-mesh-troubleshoot.md
-            - name: Deshabilitación de OSM
-              href: open-service-mesh-disable-add-on.md
+        - name: Acerca de Open Service Mesh
+          href: open-service-mesh-about.md
+        - name: Uso de la CLI de Azure
+          href: open-service-mesh-deploy-addon-az-cli.md
+        - name: Uso de plantilla de Bicep
+          href: open-service-mesh-deploy-addon-bicep.md
+        - name: Instalación de la CLI de OSM
+          href: open-service-mesh-binary.md
+        - name: Administración de una aplicación nueva
+          href: open-service-mesh-deploy-new-application.md
+        - name: Incorporación de aplicaciones existentes
+          href: open-service-mesh-deploy-existing-application.md
+        - name: "Configuración de la exclusión de direcciones\_IP y del intervalo de puertos"
+          href: open-service-mesh-ip-port-exclusion.md
+        - name: Configuración de Azure Monitor
+          href: open-service-mesh-azure-monitor.md
+        - name: Integración con la entrada de Azure Application Gateway
+          href: open-service-mesh-azure-application-gateway-ingress.md
+        - name: Integración con el controlador de entrada de NGINX
+          href: open-service-mesh-nginx-ingress.md
+        - name: Solución de problemas de Open Service Mesh
+          href: open-service-mesh-troubleshoot.md
+        - name: Desinstalación del complemento Open Service Mesh de AKS
+          href: open-service-mesh-uninstall-add-on.md
     - name: Uso de extensiones de clúster (versión preliminar)
       href: cluster-extensions.md
     - name: DevOps
@@ -451,9 +443,9 @@
     - name: Azure CLI
       href: /cli/azure/aks
     - name: REST
-      href: /rest/api/aks
+      href: /rest/api/aks/
     - name: PowerShell
-      href: /powershell/module/az.aks#aks
+      href: /powershell/module/az.aks/#aks
     - name: .NET
       href: /dotnet/api/overview/azure/containerservice
     - name: Python
@@ -472,9 +464,9 @@
     - name: Creación de aptitudes con Microsoft Learn
       href: /learn/browse/?products=azure-container-instances&azure-container-registry
     - name: Disponibilidad en regiones
-      href: 'https://azure.microsoft.com/regions/services/'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+      href: 'https://azure.microsoft.com/pricing/details/kubernetes-service/'
     - name: Directivas de soporte técnico
       href: support-policies.md
     - name: Azure Roadmap

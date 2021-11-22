@@ -18,8 +18,14 @@
       href: customize-application-attributes.md
     - name: Tutoriales de aprovisionamiento específicos de aplicaciones
       href: /azure/active-directory/saas-apps/tutorial-list
-    - name: Aprovisionamiento para aplicaciones basadas en SQL
-      href: tutorial-ecma-sql-connector.md
+    - name: Tutoriales de aprovisionamiento de aplicaciones locales
+      items:
+        - name: Aprovisionamiento en aplicaciones locales habilitadas para SCIM
+          href: on-premises-scim-provisioning.md
+        - name: Aprovisionamiento para aplicaciones basadas en SQL
+          href: on-premises-sql-connector-configure.md
+        - name: Aprovisionamiento para aplicaciones basadas en LDAP
+          href: on-premises-ldap-connector-configure.md
 - name: Conceptos
   expanded: true
   items:
@@ -62,10 +68,6 @@
           href: export-import-provisioning-configuration.md
         - name: Aprovisionamiento de informes
           href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: Automatización de la configuración mediante MS Graph
-      href: application-provisioning-configuration-api.md
-    - name: Habilitación de la prevención de eliminaciones accidentales
-      href: accidental-deletions.md
     - name: Solución de problemas de aprovisionamiento de aplicaciones
       items:
         - name: Problemas conocidos
@@ -82,16 +84,6 @@
           href: on-premises-ecma-troubleshoot.md
         - name: Registros de aprovisionamiento
           href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: Aprovisionamiento de aplicaciones locales
-      items:
-        - name: Aprovisionamiento para aplicaciones basadas en SQL
-          href: on-premises-sql-connector-configure.md
-        - name: Configuración genérica del conector LDAP
-          href: on-premises-ldap-connector-configure.md
-        - name: Aprovisionamiento de aplicaciones locales para aplicaciones habilitadas para SCIM
-          href: on-premises-scim-provisioning.md
-        - name: Migración del conector desde la sincronización de MIM
-          href: on-premises-migrate-microsoft-identity-manager.md
     - name: "Solución de problemas de aprovisionamiento de RR.\_HH"
       items:
         - name: Problemas de recuperación de atributos
@@ -104,14 +96,18 @@
           href: hr-manager-update-issues.md
         - name: "Problemas de escritura diferida de RR.\_HH."
           href: hr-writeback-issues.md
+    - name: Habilitación de la prevención de eliminaciones accidentales
+      href: accidental-deletions.md
+    - name: Automatización de la configuración mediante MS Graph
+      href: application-provisioning-configuration-api.md
 - name: Referencia
   items:
+    - name: Referencia de funciones para escribir expresiones para las asignaciones de atributos
+      href: functions-for-customizing-application-data.md
     - name: "Compatibilidad del protocolo SCIM\_2.0"
       href: application-provisioning-config-problem-scim-compatibility.md
     - name: Escenarios de SCIM y de Graph
       href: scim-graph-scenarios.md
-    - name: Referencia de funciones para escribir expresiones para las asignaciones de atributos
-      href: functions-for-customizing-application-data.md
     - name: "Aprovisionamiento de RR.\_HH. en la nube"
       items:
         - name: Referencia de atributos de SuccessFactors
@@ -120,6 +116,8 @@
           href: workday-attribute-reference.md
         - name: Historial de versiones del agente de aprovisionamiento
           href: provisioning-agent-release-version-history.md
+        - name: Migración del conector desde la sincronización de MIM
+          href: on-premises-migrate-microsoft-identity-manager.md
 - name: Recursos
   items:
     - name: Opciones de ayuda y soporte técnico para desarrolladores

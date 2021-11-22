@@ -5,17 +5,15 @@ services: sentinel
 author: yelevin
 ms.author: yelevin
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: quickstart
 ms.date: 11/09/2021
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: 46ac4308035491dc2d6b75e34bc0c58a58f93535
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 3c9eab035b48b419a607f5fcdc0738502bc732e4
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132520814"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132712374"
 ---
 # <a name="quickstart-on-board-microsoft-sentinel"></a>Inicio rápido: Incorporación a Microsoft Sentinel
 
@@ -28,7 +26,7 @@ Microsoft Sentinel incluye varios conectores para soluciones de Microsoft, que e
 Después de conectar los orígenes de datos, puede elegir de una galería de libros creados de forma experta que exponen información basada en los datos. Estos libros se pueden personalizar fácilmente en función de sus necesidades.
 
 >[!IMPORTANT]
-> Para obtener información sobre los cargos en los que se incurre al usar Microsoft Sentinel, consulte los [precios de Microsoft Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) y los [costos y facturación de Microsoft Sentinel](azure-sentinel-billing.md).
+> Para obtener información sobre los cargos en los que se incurre al usar Microsoft Sentinel, consulte los [precios de Microsoft Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) y los [costos y facturación de Microsoft Sentinel](billing.md).
 
 ## <a name="global-prerequisites"></a>Requisitos previos globales
 
@@ -76,7 +74,7 @@ Para más información, consulte [Actividades previas a la implementación y req
 
 1. Inicie sesión en Azure Portal. Asegúrese de que la suscripción en la que se crea Microsoft Sentinel está seleccionada.
 
-1. Busque y seleccione **Microsoft Sentinel**.
+1. Busque y seleccione **Sentinel**.
 
    ![Búsqueda de servicios](./media/quickstart-onboard/search-product.png)
 
@@ -120,11 +118,11 @@ Para más información, consulte [Procedimientos recomendados para recopilacione
 
 Para más información, consulte:
 
-- **Opciones de implementación alternativas**:
+- **Opciones alternativas de implementación y administración**:
 
-    - [Implementación de Microsoft Sentinel mediante API](/rest/api/securityinsights/)
-    - [Implementación de Microsoft Sentinel mediante PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0)
     - [Implementación de Microsoft Sentinel mediante una plantilla de ARM](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-all-in-one-accelerator/ba-p/1807933)
+    - [Administración de Microsoft Sentinel mediante API](/rest/api/securityinsights/)
+    - [Administración de Microsoft Sentinel mediante PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0)
 
 - **Introducción**:
     - [Introducción a Microsoft Azure Sentinel](get-visibility.md)

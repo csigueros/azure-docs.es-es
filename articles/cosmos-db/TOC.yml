@@ -167,8 +167,6 @@
               href: sql/create-sql-api-nodejs.md
             - name: Aplicación Python
               href: sql/create-sql-api-python.md
-            - name: Aplicación Xamarin
-              href: sql/create-sql-api-xamarin-dotnet.md
     - name: Tutoriales
       items:
         - name: 1 - Creación y administración de datos
@@ -191,10 +189,6 @@
                   href: sql/sql-api-java-application.md
                 - name: Node.js
                   href: sql/sql-api-nodejs-application.md
-            - name: Compilación de una aplicación móvil
-              items:
-                - name: Xamarin
-                  href: sql/mobile-apps-with-xamarin.md
         - name: 2 - Migración de los datos
           items:
             - name: Uso de la herramienta de migración de datos
@@ -209,10 +203,8 @@
           href: sql/tutorial-global-distribution-sql-api.md
     - name: Ejemplos
       items:
-        - name: Ejemplos de SDK de .NET V2
-          href: sql/sql-api-dotnet-samples.md
         - name: Ejemplos de SDK de .NET V3
-          href: sql/sql-api-dotnet-v3sdk-samples.md
+          href: sql/sql-api-dotnet-samples.md
         - name: Ejemplos de SDK de Java v4
           href: sql/sql-api-java-sdk-samples.md
         - name: "Ejemplos de Spring Data\_v3"
@@ -229,6 +221,8 @@
           href: sql/templates-samples-sql.md
         - name: Bicep
           href: sql/bicep-samples.md
+        - name: "Ejemplos de SDK de .NET\_V2 (heredado)"
+          href: sql/sql-api-dotnet-v2sdk-samples.md
     - name: Conceptos
       items:
         - name: Modelado y creación de particiones
@@ -931,13 +925,13 @@
           items:
             - name: .NET SDK v3
               href: sql/sql-api-sdk-dotnet-standard.md
-            - name: "SDK de .NET, versión\_2"
+            - name: "SDK de .NET, versión\_2 (heredado)"
               href: sql/sql-api-sdk-dotnet.md
-            - name: "SDK de .NET Core, versión\_2"
+            - name: "SDK de .NET Core, versión\_2 (heredado)"
               href: sql/sql-api-sdk-dotnet-core.md
-            - name: "Biblioteca de fuente de cambios para .NET, versión\_2"
+            - name: "Biblioteca de fuente de cambios para .NET, versión\_2 (heredado)"
               href: sql/sql-api-sdk-dotnet-changefeed.md
-            - name: "Biblioteca Bulk Executor para .NET, versión\_2"
+            - name: "Biblioteca de Bulk Executor para .NET, versión\_2 (heredado)"
               href: sql/sql-api-sdk-bulk-executor-dot-net.md
         - name: SDK y conectores de Java
           items:
@@ -1506,7 +1500,11 @@
             - name: Migración a copia de seguridad continua
               href: migrate-continuous-backup.md
         - name: Administración de la copia de seguridad periódica
-          href: configure-periodic-backup-restore.md
+          items:
+            - name: Configuración de copia de seguridad periódica
+              href: configure-periodic-backup-restore.md
+            - name: Actualización de redundancia de almacenamiento de copia de seguridad
+              href: update-backup-storage-redundancy.md
     - name: Seguridad
       items:
         - name: Configuración de la dirección IP del firewall

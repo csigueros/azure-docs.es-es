@@ -81,6 +81,10 @@
           displayName: 'adls, sql, blob, event hubs, power bi, table, service bus, cosmos, functions'
         - name: "Azure Data Lake Storage Gen\_1"
           href: azure-data-lake-storage-gen1-output.md
+        - name: Explorador de bases de datos de Azure
+          href: azure-database-explorer-output.md
+        - name: Azure Database for PostgreSQL
+          href: postgresql-database-output.md
         - name: Azure SQL Database
           href: sql-database-output.md
         - name: rendimiento de SQL Database

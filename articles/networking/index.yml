@@ -84,6 +84,14 @@ additionalContent:
               url: ../route-server/quickstart-configure-route-server-portal.md
             - text: Ver más
               url: ../route-server/index.yml
+        - title: Proporcionar conectividad saliente a una red virtual
+          links:
+            - text: ¿Qué es Azure Virtual Network NAT?
+              url: ../virtual-network/nat-gateway/nat-overview.md
+            - text: Creación y configuración de recursos de puerta de enlace NAT
+              url: ../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md
+            - text: Ver más
+              url: ../virtual-network/nat-gateway/index.yml
     - title: Servicios de entrega de aplicaciones
       items:
         - title: Equilibrador de carga de red

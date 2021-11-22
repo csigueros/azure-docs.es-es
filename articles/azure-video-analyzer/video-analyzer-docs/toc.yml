@@ -85,6 +85,8 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2163454'
     - name: Repositorio de ejemplos de widgets
       href: 'https://go.microsoft.com/fwlink/?linkid=2173229'
+    - name: Repositorio de ejemplo de Postman
+      href: 'https://github.com/Azure-Samples/video-analyzer-postman'
 - name: Conceptos
   items:
     - name: Canalización

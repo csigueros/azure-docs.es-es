@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 11/09/2021
 ms.author: v-bcatherine
 ms.custom: ''
-ms.openlocfilehash: dc0550e4e32e84bbf99456a337a66c3da8f6cf57
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: e2f2bf2cafc60bca637bee3309f4b721965f30fd
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132525744"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710287"
 ---
 # <a name="quickstart-deploy-your-first-container-app-using-the-azure-portal"></a>Inicio rápido: Implementación de la primera aplicación de contenedor mediante el Azure Portal
 
@@ -32,7 +32,7 @@ Para empezar, inicie sesión en [Azure Portal](https://portal.azure.com).
 Do we need to include steps to login?  Probably not..
 -->
 
-## <a name="create-a-container-app"></a>Creación de una aplicación de contenedor
+## <a name="create-a-container-app"></a>Crear una aplicación de contenedor
 
 Para crear una aplicación contenedora, comience en la página principal de Azure Portal.
 
@@ -57,7 +57,7 @@ En la pestaña *Aspectos básicos*, realice las acciones siguientes.
 1. En el campo *Create Container App environment* (Crear entorno de aplicación de contenedor), seleccione **Create new** (Crear nuevo).
 1. En la página *Create Container App environment* (Crear entorno de aplicación de contenedor), en la pestaña *Basics* (Aspectos básicos), escriba los siguientes valores:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     |---|---|
     | Nombre del entorno | Escriba **my-environment**. | 
     | Region | Seleccione **Centro de Canadá**. |
@@ -102,7 +102,7 @@ En la pestaña *Configuración de aplicaciones*, realice las siguientes acciones
 
 1. Seleccione **Crear**.
 
-    Se muestra una página con el mensaje *Implementación en curso*.  Una vez completada correctamente la implementación, verá el mensaje "Se completó la implementación".
+    Se muestra una página con el mensaje *Implementación en curso*.  Una vez completada correctamente la implementación, verá el mensaje *Se completó la implementación*.
 
 ### <a name="view-your-deployed-application"></a>Visualización de la aplicación implementada
 

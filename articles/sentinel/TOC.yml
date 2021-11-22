@@ -128,7 +128,7 @@
         - name: Principales conectores
           expanded: true
           items:
-            - name: Amazon Web Services CloudTrail
+            - name: Registros de Amazon Web Services
               href: connect-aws.md
             - name: Azure Active Directory
               href: connect-azure-active-directory.md
