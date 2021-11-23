@@ -1,311 +1,351 @@
 ---
-title: Conexión de Azure Percept a través de LTE con el módem USB Multiconnect de MultiTech
-description: En este artículo se explica cómo conectar Azure Percept DK a través de redes 5G o LTE mediante el módem USB de MultiTech.
+title: Conexión de Azure Percept DK a través de LTE con un módem USB MultiConnect de MultiTech
+description: En este artículo se explica cómo conectar Azure Percept DK mediante redes 5G o LTE con un módem USB MultiConnect de MultiTech.
 author: juhaluoto
 ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 09/23/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 336e67de6d178dcff1b57fe75d57f2272386d2c5
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 5000c7be25a82069da0585a40252c91262a7ea12
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130007097"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252447"
 ---
-# <a name="connect-azure-percept-over-lte-with-usb-modem-multitech-multiconnect"></a>Conexión de Azure Percept a través de LTE con el módem USB Multiconnect de MultiTech 
-Estos son los pasos para conectar Azure Percept mediante el módem USB Multiconnect (MTCM-LNA3-B03) de MultiTech. 
+# <a name="connect-azure-percept-dk-over-lte-by-using-a-multitech-multiconnect-usb-modem"></a>Conexión de Azure Percept DK a través de LTE con un módem USB MultiConnect de MultiTech 
+
+En este artículo se indica cómo conectar Azure Percept DK con un módem USB MultiConnect (MTCM-LNA3-B03) de MultiTech. 
 
 > [!Note]
-> Hay varios modelos, y hemos usado LNA3 que funciona al menos con tarjetas SIM de Verizon y Vodafone. No pudimos conectarnos a una red de AT&T, pero estamos investigando el problema y modificaremos esta información si encontramos la causa principal. Puede encontrar más información sobre este hardware de módem en particular en esta página: https://www.multitech.com/brands/multiconnect-microcell.
+> El módem USB MultiConnect de MultiTech viene en una variedad de modelos. En este artículo, usamos el modelo LNA3, que funciona con tarjetas SIM de Verizon y Vodafone, entre otras. En este momento, no podemos conectarnos a una red AT&T, pero estamos investigando el problema y actualizaremos este artículo al encontrar la causa principal. Para más información sobre el módem USB MultiConnect de MultiTech, visite el sitio de [MultiTech](https://www.multitech.com/brands/multiconnect-microcell).
 
-## <a name="preparation"></a>Preparación
-Asegúrese de que ha realizado los preparativos de Azure Percept desde aquí: [Conexión mediante un módem USB](./connect-over-cellular-usb.md), y que ha anotado los comentarios sobre los cables USB que se deben usar. 
+## <a name="prepare-to-connect-azure-percept-dk"></a>Preparación para conectar Azure Percept DK
+Para información sobre cómo preparar Azure Percept DK, vaya a [Conexión de Azure Percept DK mediante redes 5G y LTE con un módem USB](./connect-over-cellular-usb.md). Asegúrese de tener en cuenta los comentarios sobre los cables USB que se deben usar. 
 
-### <a name="preparation-of-the-modem"></a>Preparación del módem
-Para empezar, necesitamos que el módem esté en modo MBIM. Para saber cómo hacerlo, puede consultar la guía de referencia de comandos de AT aquí: https://www.telit.com/wp-content/uploads/2018/01/Telit-LE910-V2-Modules-AT-Commands-Reference-Guide-r3.pdf.
+### <a name="prepare-the-modem"></a>Preparación del módem
+Antes de empezar, el módem tiene que estar en modo Mobile Broadband Interface Model (MBIM). Para aprender a preparar el módem, consulte la [guía de referencia de comandos Attention (AT) de soluciones inalámbricas de Telit](
+https://www.telit.com/wp-content/uploads/2018/01/Telit-LE910-V2-Modules-AT-Commands-Reference-Guide-r3.pdf).
 
-Usamos el comando AT `AT#USBCFG=<mode>` para configurar el modo USB correcto para habilitar la interfaz MBIM.
+Para habilitar la interfaz MBIM, en este artículo usamos el comando AT `AT#USBCFG=<mode>` para configurar el modo USB correcto.
 
-En la guía de referencia de comandos de AT se enumeran todos los modos posibles, pero nos interesa el modo `3`; el valor predeterminado es `0`.
+En la guía de referencia de comandos AT se muestra todos los modos posibles, pero nos interesa el modo `3` para los fines de este artículo. El modo predeterminado es `0`.
 
-La manera más fácil de configurar el modo es conectar el módem de MultiTech a un equipo y usar software de terminal, como TeraTerm o Putty PC. Con el Administrador de dispositivos de Windows puede ver qué puerto USB está asignado al módem; es posible que tenga que probar cuál responde a los comandos AT, si hay varios. La configuración del puerto COM debe ser: Velocidad de bits: 9600 (o 115200) Bits de parada: 1 Paridad: Ninguna Tamaño de bytes: 8 Flujo de control: Sin flujo de control
+La manera más sencilla de configurar el modo es conectar el módem de MultiTech a un equipo y utilizar software de terminal, como TeraTerm o PuTTY. Puede utilizar el administrador de dispositivos de Windows para ver qué puerto USB está asignado para el módem. Si hay varios puertos, es posible que tenga que probar para ver cuál responde a los comandos AT. La configuración del puerto COM debe ser la siguiente:
+* **Velocidad en baudios**: 9600 (o 115 200)
+* **Bits de parada**: 1
+* **Paridad**: ninguna
+* **Tamaño de bytes**: 8
+* **Control de flujo**: sin control de flujo
 
-Y estos son los comandos AT: Para comprobar qué dispositivo MultiTech en modo USB está actualmente:
+Estos son los comandos AT:
+
+Para comprobar qué dispositivo MultiTech en modo USB se ejecuta actualmente, utilice:
+
 ```
 AT#USBCFG?
 ```
-Cambie al modo 3:
+
+Para cambiar al modo 3, utilice:
+
 ```
 AT#USBCFG=3
 ```
-Y, si vuelve a comprobarlo usando primero el comando de AT, obtendría: `#USBCFG: 3`.
 
-Cuando haya establecido el modo USB correcto, debe emitir un restablecimiento con:
+Si utiliza el primer comando AT para volver a comprobarlo, obtendrá: `#USBCFG: 3`
+
+Una vez que establezca el modo USB correcto, debe emitir un restablecimiento con:
+
 ```
 AT#REBOOT
 ```
-En este momento, el módem debe desconectarse y volver a conectarse posteriormente al puerto USB mediante el modo establecido anteriormente.
 
-## <a name="using-the-modem-to-connect"></a>Uso del módem para conectarse
-Asegúrese de que ha realizado los preparativos de Azure Percept desde aquí: [Conexión mediante un módem USB](./connect-over-cellular-usb.md).   
+En este momento, se debe desconectar el módem y volver a conectarlo al puerto USB posterior mediante el modo que se estableció con anterioridad.
 
-**1. Conecte una tarjeta SIM en el módem de MultiTech**.
+## <a name="use-the-modem-to-connect"></a>Uso del módem para conectarse
 
-**2. Conecte el módem de MultiTech al puerto USB A de Azure Percept**.
+Asegúrese de haber completado las preparaciones de Azure Percept DK que se describen en el artículo [Conexión mediante un módem USB](./connect-over-cellular-usb.md).   
 
-**3. Encienda Azure Percept**.
+1. Conecte una tarjeta SIM al módem de MultiTech.
 
-**4. Inicie sesión mediante SSH a Azure Percept DK**.
+1. Conecte el módem MultiTech al puerto USB A de Azure Percept DK.
 
-**5. Asegúrese de que ModemManager se está ejecutando**.
+1. Encienda Azure Percept DK.
 
-Escriba el siguiente comando en el símbolo del sistema de SSH:
-```
-systemctl status ModemManager
-```
-Si todo está bien, recibirá algo parecido a esto:
+1. Conéctese a Azure Percept DK mediante el protocolo de red Secure Shell (SSH).
 
-*ModemManager.service - Modem Manager*
-*Loaded: loaded (/lib/systemd/system/ModemManager.service; enabled; vendor preset: enabled)* 
-*Active: active (running) since Mon 2021-08-09 20:52:03 UTC; 23 s ago*
+1. Asegúrese de que ModemManager esté en ejecución. Para ello, escriba el comando siguiente en el símbolo del sistema SSH:
 
-**6. Enumere los módems activos**.
+    ```
+    systemctl status ModemManager
+    ```
+    Si el proceso se completa correctamente, recibirá un resultado similar al siguiente:
 
-En este caso, debería ver que ModemManager ha reconocido el modelo FIH7160.
-```
-mmcli --list-modems
-```
-Y recibirá algo parecido a esto: */org/freedesktop/ModemManager1/Modem/0 [Telit] FIH7160*
+    *ModemManager.service - Modem Manager* *Loaded: loaded (/lib/systemd/system/ModemManager.service; enabled; vendor preset: enabled)* *Active: active (running) since Mon 2021-08-09 20:52:03 UTC; 23 s ago*
 
-**7. Obtenga los detalles del módem**.
+1. Enumere los módems activos.
 
-El identificador del módem es `0`, que podría ser diferente en su caso. El identificado del módem (`--modem 0`) se usa en los comandos de ModemManager como este:
-```
-mmcli --modem 0
-```
-De forma predeterminada, el módem está deshabilitado (`Status -> state: disabled`).
-```
- --------------------------------
-  General  |                 path: /org/freedesktop/ModemManager1/Modem/0
-           |            device id: f89a480d73f1a9cfef28102a0b44be2a47329c8b
-  --------------------------------
-  Hardware |         manufacturer: Telit
-           |                model: FIH7160
-           |    firmware revision: 20.00.525
-           |         h/w revision: XMM7160_V1.1_HWID437_MBIM_NAND
-           |            supported: gsm-umts, lte
-           |              current: gsm-umts, lte
-           |         equipment id: xxxx
-  --------------------------------
-  System   |               device: /sys/devices/platform/soc@0/38200000.usb/xhci-hcd.1.auto/usb3/3-1/3-1.1
-           |              drivers: cdc_acm, cdc_mbim
-           |               plugin: telit
-           |         primary port: cdc-wdm0
-           |                ports: cdc-wdm0 (mbim), ttyACM1 (at), ttyACM2 (ignored),
-           |                       ttyACM3 (ignored), ttyACM4 (at), ttyACM5 (ignored), ttyACM6 (ignored),
-           |                       wwan0 (net)
-  --------------------------------
-  Status   |       unlock retries: sim-pin2 (3)
-           |                state: disabled
-           |          power state: on
-           |       signal quality: 0% (cached)
-  --------------------------------
-  Modes    |            supported: allowed: 3g; preferred: none
-           |                       allowed: 4g; preferred: none
-           |                       allowed: 3g, 4g; preferred: none
-           |              current: allowed: 3g, 4g; preferred: none
-  --------------------------------
-  Bands    |            supported: utran-5, utran-2, eutran-2, eutran-4, eutran-5, eutran-12,
-           |                       eutran-13, eutran-17
-           |              current: utran-2, eutran-2
-  --------------------------------
-  IP       |            supported: ipv4, ipv6, ipv4v6
-  --------------------------------
-  3GPP     |                 imei: xxxxxxxxxxxxxxx
-           |        enabled locks: fixed-dialing
-  --------------------------------
-  3GPP EPS | ue mode of operation: csps-2
-  --------------------------------
-  SIM      |     primary sim path: /org/freedesktop/ModemManager1/SIM/0
-```
+    Para comprobar que ModemManager puede reconocer el módem, ejecute:
 
-**8. Habilite el módem**.
+    ```
+    mmcli --list-modems
+    ```
 
-Antes de establecer una conexión, es necesario activar las radios del módem.
-```
-mmcli --modem 0 --enable
-```
-Y debería obtener una respuesta como esta: *se habilitó correctamente el módem*.
+    Debe obtener un resultado similar al siguiente:
 
-Después de un tiempo, el módem debe registrarse en una torre de celdas y debería ver el estado del módem: `Status -> state: registered`, si vuelve a ejecutar:
-```
-mmcli --modem 0
-```
+    ```
+    /org/freedesktop/ModemManager1/Modem/0 [Telit] FIH7160
+    ```
 
-**9. Conéctese mediante la información de APN**.
+1. Obtenga los detalles del módem.
 
-El proveedor de telefonía móvil proporciona el nombre del punto de acceso APN, igual que aquí para Verizon:
-```
-mmcli --modem 0 --simple-connect="apn=vzwinternet"  
-```
-y, si todo es correcto, *habrá conectado correctamente el módem*.
+    Aquí, el id. del módem es `0`, pero el resultado puede diferir. El id. del módem (`--modem 0`) se usa en los comandos de ModemManager como se indica a continuación:
+    
+    ```
+    mmcli --modem 0
+    ```
+    
+    De manera predeterminada, el módem está deshabilitado (`Status -> state: disabled`).
 
-**10. Obtenga el estado del módem**.
+    ```
+    --------------------------------
+      General  |                 path: /org/freedesktop/ModemManager1/Modem/0
+              |            device id: f89a480d73f1a9cfef28102a0b44be2a47329c8b
+      --------------------------------
+      Hardware |         manufacturer: Telit
+              |                model: FIH7160
+              |    firmware revision: 20.00.525
+              |         h/w revision: XMM7160_V1.1_HWID437_MBIM_NAND
+              |            supported: gsm-umts, lte
+              |              current: gsm-umts, lte
+              |         equipment id: xxxx
+      --------------------------------
+      System   |               device: /sys/devices/platform/soc@0/38200000.usb/xhci-hcd.1.auto/usb3/3-1/3-1.1
+              |              drivers: cdc_acm, cdc_mbim
+              |               plugin: telit
+              |         primary port: cdc-wdm0
+              |                ports: cdc-wdm0 (mbim), ttyACM1 (at), ttyACM2 (ignored),
+              |                       ttyACM3 (ignored), ttyACM4 (at), ttyACM5 (ignored), ttyACM6 (ignored),
+              |                       wwan0 (net)
+      --------------------------------
+      Status   |       unlock retries: sim-pin2 (3)
+              |                state: disabled
+              |          power state: on
+              |       signal quality: 0% (cached)
+      --------------------------------
+      Modes    |            supported: allowed: 3g; preferred: none
+              |                       allowed: 4g; preferred: none
+              |                       allowed: 3g, 4g; preferred: none
+              |              current: allowed: 3g, 4g; preferred: none
+      --------------------------------
+      Bands    |            supported: utran-5, utran-2, eutran-2, eutran-4, eutran-5, eutran-12,
+              |                       eutran-13, eutran-17
+              |              current: utran-2, eutran-2
+      --------------------------------
+      IP       |            supported: ipv4, ipv6, ipv4v6
+      --------------------------------
+      3GPP     |                 imei: xxxxxxxxxxxxxxx
+              |        enabled locks: fixed-dialing
+      --------------------------------
+      3GPP EPS | ue mode of operation: csps-2
+      --------------------------------
+      SIM      |     primary sim path: /org/freedesktop/ModemManager1/SIM/0
+    ```
 
-Debería ver ahora `Status -> state: connected` y una nueva categoría `Bearer`val final del mensaje de estado.
-```
-mmcli --modem 0
-```
-```
- --------------------------------
-  General  |                 path: /org/freedesktop/ModemManager1/Modem/0
-           |            device id: f89a480d73f1a9cfef28102a0b44be2a47329c8b
-  --------------------------------
-  Hardware |         manufacturer: Telit
-           |                model: FIH7160
-           |    firmware revision: 20.00.525
-           |         h/w revision: XMM7160_V1.1_HWID437_MBIM_NAND
-           |            supported: gsm-umts, lte
-           |              current: gsm-umts, lte
-           |         equipment id: xxxx
-  --------------------------------
-  System   |               device: /sys/devices/platform/soc@0/38200000.usb/xhci-hcd.1.auto/usb3/3-1/3-1.1
-           |              drivers: cdc_acm, cdc_mbim
-           |               plugin: telit
-           |         primary port: cdc-wdm0
-           |                ports: cdc-wdm0 (mbim), ttyACM1 (at), ttyACM2 (ignored),
-           |                       ttyACM3 (ignored), ttyACM4 (at), ttyACM5 (ignored), ttyACM6 (ignored),
-           |                       wwan0 (net)
-  --------------------------------
-  Numbers  |                  own: +1xxxxxxxx
-  --------------------------------
-  Status   |       unlock retries: sim-pin2 (3)
-           |                state: connected
-           |          power state: on
-           |          access tech: lte
-           |       signal quality: 16% (recent)
-  --------------------------------
-  Modes    |            supported: allowed: 3g; preferred: none
-           |                       allowed: 4g; preferred: none
-           |                       allowed: 3g, 4g; preferred: none
-           |              current: allowed: 3g, 4g; preferred: none
-  --------------------------------
-  Bands    |            supported: utran-5, utran-2, eutran-2, eutran-4, eutran-5, eutran-12,
-           |                       eutran-13, eutran-17
-           |              current: utran-2, eutran-2
-  --------------------------------
-  IP       |            supported: ipv4, ipv6, ipv4v6
-  --------------------------------
-  3GPP     |                 imei: xxxxxxxxxxxxxxx
-           |        enabled locks: fixed-dialing
-           |          operator id: 311480
-           |        operator name: Verizon
-           |         registration: home
-  --------------------------------
-  3GPP EPS | ue mode of operation: csps-2
-  --------------------------------
-  SIM      |     primary sim path: /org/freedesktop/ModemManager1/SIM/0
-  --------------------------------
-  Bearer   |                paths: /org/freedesktop/ModemManager1/Bearer/0
-```
+1. Habilite el módem.
 
-**11. Obtenga los detalles del portador**.
+    Antes de establecer una conexión, habilite las radios del módem. Para ello, ejecute este código:
 
-Los detalles del portador son necesarios para conectar el sistema operativo a la conexión de datos de paquetes que el módem ha establecido ahora con la red de telefonía móvil. Por lo tanto, en este momento, el módem tiene conexión IP, pero el sistema operativo no está configurado aún para usarla.
-```
-mmcli --bearer 0
-```
-Detalles del portador enumerados:
-```
- ------------------------------------
-  General            |           path: /org/freedesktop/ModemManager1/Bearer/0
-                     |           type: default
-  ------------------------------------
-  Status             |      connected: yes
-                     |      suspended: no
-                     |      interface: wwan0
-                     |     ip timeout: 20
-  ------------------------------------
-  Properties         |            apn: vzwinternet
-                     |        roaming: allowed
-  ------------------------------------
-  IPv4 configuration |         method: static
-                     |        address: 100.112.107.46
-                     |         prefix: 24
-                     |        gateway: 100.112.107.1
-                     |            dns: 198.224.166.135, 198.224.167.135
-  ------------------------------------
-  Statistics         |       duration: 119
-                     |       attempts: 1
-                     | total-duration: 119
-```
+    ```
+    mmcli --modem 0 --enable
+    ```
 
-**12. Acceda a la interfaz de red**.
+    Debería recibir una respuesta que indique que habilitó correctamente el módem.
 
-```
-sudo ip link set dev wwan0 up
-```
+    Después de un tiempo, el módem se debería registrar en una torre de telefonía móvil, y se debería ver que el estado del módem es `Status -> state: registered` después de ejecutar este código:
 
-**13. Configure la interfaz de red**.
+    ```
+    mmcli --modem 0
+    ```
 
-Con la información proporcionada por el portador, reemplace la dirección IP (aquí 100.112.107.46/24) por la que tiene el portador:
-```
-sudo ip address add 100.112.107.46/24 dev wwan0
-```
+1. Para conectarse, use la información del nombre del punto de acceso (APN).
 
-**14. Compruebe la información de IP**.
+    El proveedor de telefonía móvil proporciona un APN, como este para Verizon:
 
-La configuración de IP de esta interfaz debe coincidir con los detalles del portador de ModemManager.
-```
-sudo ip address show dev wwan0
-```
-Vea que la dirección IP del portador se muestra a continuación:
-```
-6: wwan0: <BROADCAST,MULTICAST,NOARP,UP,LOWER_UP> mtu 1428 qdisc pfifo_fast state UNKNOWN group default qlen 1000
-    link/ether 1e:fb:08:e9:2a:25 brd ff:ff:ff:ff:ff:ff
-    inet 100.112.107.46/24 scope global wwan0
-       valid_lft forever preferred_lft forever
-    inet6 fe80::1cfb:8ff:fee9:2a25/64 scope link
-       valid_lft forever preferred_lft forever
-```
+    ```
+    mmcli --modem 0 --simple-connect="apn=vzwinternet"  
+    ```
 
-**15. Establezca la ruta predeterminada**.
+    Debería recibir una respuesta que indique que habilitó correctamente el módem.
 
-Use de nuevo la información proporcionada por el portador y emplee la puerta de enlace del módem (reemplace 100.112.107.1) como destino predeterminado para los paquetes de red:
-```
-sudo ip route add default via 100.112.107.1 dev wwan0
-```
-Ahora Azure Percept tiene una conexión que usa el módem USB.
+1. Obtenga el estado del módem.
 
-**16. Pruebe la conectividad**.
+    Ahora debería ver un estado de `Status -> state: connected` y una categoría `Bearer` nueva al final del mensaje de estado.
 
-Ejecutaremos una solicitud `ping` mediante la interfaz `wwan0`. Sin embargo, también puede usar Azure Percept Studio y comprobar si llegan mensajes de telemetría (compruebe que no tiene habilitado el cable Ethernet o la red Wi-Fi para tener la seguridad de que usa LAN).
-```
-ping -I wwan0 8.8.8.8
-```
-Y debería obtener:
-```
-PING 8.8.8.8 (8.8.8.8) from 162.177.2.0 wwan0: 56(84) bytes of data.
-64 bytes from 8.8.8.8: icmp_seq=1 ttl=114 time=111 ms
-64 bytes from 8.8.8.8: icmp_seq=2 ttl=114 time=92.0 ms
-64 bytes from 8.8.8.8: icmp_seq=3 ttl=114 time=88.8 ms
-^C
---- 8.8.8.8 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 4ms
-rtt min/avg/max/mdev = 88.779/97.254/110.964/9.787 ms
-```
+    ```
+    mmcli --modem 0
+    ```
+
+    ```
+    --------------------------------
+      General  |                 path: /org/freedesktop/ModemManager1/Modem/0
+              |            device id: f89a480d73f1a9cfef28102a0b44be2a47329c8b
+      --------------------------------
+      Hardware |         manufacturer: Telit
+              |                model: FIH7160
+              |    firmware revision: 20.00.525
+              |         h/w revision: XMM7160_V1.1_HWID437_MBIM_NAND
+              |            supported: gsm-umts, lte
+              |              current: gsm-umts, lte
+              |         equipment id: xxxx
+      --------------------------------
+      System   |               device: /sys/devices/platform/soc@0/38200000.usb/xhci-hcd.1.auto/usb3/3-1/3-1.1
+              |              drivers: cdc_acm, cdc_mbim
+              |               plugin: telit
+              |         primary port: cdc-wdm0
+              |                ports: cdc-wdm0 (mbim), ttyACM1 (at), ttyACM2 (ignored),
+              |                       ttyACM3 (ignored), ttyACM4 (at), ttyACM5 (ignored), ttyACM6 (ignored),
+              |                       wwan0 (net)
+      --------------------------------
+      Numbers  |                  own: +1xxxxxxxx
+      --------------------------------
+      Status   |       unlock retries: sim-pin2 (3)
+              |                state: connected
+              |          power state: on
+              |          access tech: lte
+              |       signal quality: 16% (recent)
+      --------------------------------
+      Modes    |            supported: allowed: 3g; preferred: none
+              |                       allowed: 4g; preferred: none
+              |                       allowed: 3g, 4g; preferred: none
+              |              current: allowed: 3g, 4g; preferred: none
+      --------------------------------
+      Bands    |            supported: utran-5, utran-2, eutran-2, eutran-4, eutran-5, eutran-12,
+              |                       eutran-13, eutran-17
+              |              current: utran-2, eutran-2
+      --------------------------------
+      IP       |            supported: ipv4, ipv6, ipv4v6
+      --------------------------------
+      3GPP     |                 imei: xxxxxxxxxxxxxxx
+              |        enabled locks: fixed-dialing
+              |          operator id: 311480
+              |        operator name: Verizon
+              |         registration: home
+      --------------------------------
+      3GPP EPS | ue mode of operation: csps-2
+      --------------------------------
+      SIM      |     primary sim path: /org/freedesktop/ModemManager1/SIM/0
+      --------------------------------
+      Bearer   |                paths: /org/freedesktop/ModemManager1/Bearer/0
+    ```
+
+1. Obtenga los detalles del portador.
+
+    Necesita estos detalles para conectar el sistema operativo a la conexión de datos de paquetes que el módem tiene establecida con la red de telefonía móvil. En este momento, el módem tiene una conexión IP, pero el sistema operativo todavía no está configurado para usarla.
+  
+    ```
+    mmcli --bearer 0
+    ```
+
+    Los detalles del portador se muestran en el código siguiente:
+
+    ```
+    ------------------------------------
+      General            |           path: /org/freedesktop/ModemManager1/Bearer/0
+                        |           type: default
+      ------------------------------------
+      Status             |      connected: yes
+                        |      suspended: no
+                        |      interface: wwan0
+                        |     ip timeout: 20
+      ------------------------------------
+      Properties         |            apn: vzwinternet
+                        |        roaming: allowed
+      ------------------------------------
+      IPv4 configuration |         method: static
+                        |        address: 100.112.107.46
+                        |         prefix: 24
+                        |        gateway: 100.112.107.1
+                        |            dns: 198.224.166.135, 198.224.167.135
+      ------------------------------------
+      Statistics         |       duration: 119
+                        |       attempts: 1
+                        | total-duration: 119
+    ```
+
+1. Acceda a la interfaz de red.
+
+    ```
+    sudo ip link set dev wwan0 up
+    ```
+
+1. Configure la interfaz de red.
+
+    Con la información proporcionada por el portador, reemplace la dirección IP (por ejemplo, aquí usamos 100.112.107.46/24) por la que tiene el portador:
+
+    ```
+    sudo ip address add 100.112.107.46/24 dev wwan0
+    ```
+
+1. Compruebe la información de la dirección IP.
+
+    La configuración de IP de esta interfaz debe coincidir con los detalles del portador de ModemManager. Ejecute:
+
+    ```
+    sudo ip address show dev wwan0
+    ```
+
+    La dirección IP del portador aparece tal como se muestra aquí:
+
+    ```
+    6: wwan0: <BROADCAST,MULTICAST,NOARP,UP,LOWER_UP> mtu 1428 qdisc pfifo_fast state UNKNOWN group default qlen 1000
+        link/ether 1e:fb:08:e9:2a:25 brd ff:ff:ff:ff:ff:ff
+        inet 100.112.107.46/24 scope global wwan0
+          valid_lft forever preferred_lft forever
+        inet6 fe80::1cfb:8ff:fee9:2a25/64 scope link
+          valid_lft forever preferred_lft forever
+    ```
+
+1. Establezca la ruta predeterminada.
+
+    Como ya indicamos, con la información que proporciona el portador y la puerta de enlace (100.112.107.1) del módem como el destino predeterminado para los paquetes de red, ejecute:
+
+    ```
+    sudo ip route add default via 100.112.107.1 dev wwan0
+    ```
+
+    Azure Percept DK ya está conectado con el módem USB.
+
+1. Pruebe la conectividad.
+
+    En este artículo, ejecutará una solicitud `ping` a través de la interfaz `wwan0`. También puede usar Azure Percept Studio y comprobar si llegan mensajes de telemetría. Asegúrese de no usar un cable Ethernet y de que Wi-Fi no esté habilitado a fin de que se utilice LTE. Ejecute:
+
+    ```
+    ping -I wwan0 8.8.8.8
+    ```
+
+    Debe obtener un resultado similar al siguiente:
+
+    ```
+    PING 8.8.8.8 (8.8.8.8) from 162.177.2.0 wwan0: 56(84) bytes of data.
+    64 bytes from 8.8.8.8: icmp_seq=1 ttl=114 time=111 ms
+    64 bytes from 8.8.8.8: icmp_seq=2 ttl=114 time=92.0 ms
+    64 bytes from 8.8.8.8: icmp_seq=3 ttl=114 time=88.8 ms
+    ^C
+    --- 8.8.8.8 ping statistics ---
+    3 packets transmitted, 3 received, 0% packet loss, time 4ms
+    rtt min/avg/max/mdev = 88.779/97.254/110.964/9.787 ms
+    ```
 
 
 ## <a name="debugging"></a>Depuración
-Para información general, consulte [Conexión mediante un módem USB](./connect-over-cellular-usb.md).
+
+Para información general sobre la depuración, consulte [Conexión mediante un módem USB](./connect-over-cellular-usb.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Conexión mediante un módem USB](./connect-over-cellular-usb.md).
 
-Vuelva al artículo principal sobre 5G o LTE:
+En función del dispositivo de telefonía móvil al que tenga acceso, puede conectarse de una de estas dos maneras:
 
-[Conexión mediante 5G o LTE](./connect-over-cellular.md).
-   
-
+* [Conexión mediante un módem USB](./connect-over-cellular-usb.md)
+* [Conexión mediante 5G o LTE](./connect-over-cellular.md)
