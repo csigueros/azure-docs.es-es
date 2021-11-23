@@ -1,0 +1,90 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes sobre la automatización de implementaciones de SAP
+  description: Cómo controlar errores comunes con el marco de automatización de implementaciones de SAP en Azure.
+  author: jhajduk
+  ms.author: kimforss
+  ms.reviewer: kimforss
+  ms.date: 11/17/2021
+  ms.topic: faq
+  ms.service: virtual-machines-sap
+  ms.openlocfilehash: 11871f0751c0608cfae68e358f44caab8ca60668
+  ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 11/17/2021
+  ms.locfileid: "132725304"
+title: Preguntas frecuentes del marco de automatización de implementaciones de SAP en Azure
+summary: "## <a name=\"frequently-asked-questions\"></a>Preguntas más frecuentes\n\nEn este artículo encontrará respuestas a las preguntas más frecuentes (P+F) sobre el [marco de automatización de implementaciones de SAP en Azure](automation-deployment-framework.md).\n  \n"
+sections:
+- name: Implementación de Terraform
+  questions:
+  - question: >
+      ¿Qué significa el error "Archivo de parámetros incorrecto"?
+    answer: >
+      Es posible que vea este error al ejecutar una implementación. Asegúrese de pasar la ruta de acceso correcta al archivo de parámetros para la fase adecuada. Por ejemplo, Control Plane, Landscape o System.
+  - question: "¿Puedo crear varios sistemas SAP con un archivo de entrada? \n"
+    answer: >
+      Actualmente no es posible crear varios sistemas SAP con un archivo de entrada, como un archivo CSV.
+  - question: "¿Cómo se personaliza la convención de nomenclatura? \n"
+    answer: >
+      La convención de nomenclatura para el marco de automatización de SAP coincide cuidadosamente con los estándares de nomenclatura de Azure. Si desea usar sus propias convenciones de nomenclatura, [siga las instrucciones del módulo de nomenclatura personalizada](automation-naming-module.md).
+  - question: >
+      ¿Qué significa el error "no tiene el permiso GET para el secreto en el almacén de claves"?
+    answer: "Es posible que reciba el error `Error: checking for existing Secret….User, group, or application…does not have secrets get permission on key vault`.\nAsegúrese de que las credenciales de implementación tengan permisos suficientes para leer los secretos del almacén de claves de implementación. Asegúrese también de que `SPN AppID` y `SPN Secret` en el almacén de claves del usuario sean correctos. \n"
+  - question: >
+      ¿Qué significa el error "El cliente no tiene autorización para realizar la acción Microsoft.Authorization/roleAssignments/write"?
+    answer: "Es posible que reciba el error `authorization.RoleAssignment.Client#Create: The client… with object ID… does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope…or scope is invalid`.\nAsegúrese de pasar el identificador de aplicación y el secreto de aplicación correctos para la implementación. Para validar los detalles de las credenciales, consulte los secretos en el almacén de claves de las credenciales de implementación. \n"
+  - question: >
+      ¿Qué significa el error "Ya existe un recurso con identificador… este recurso debe importarse en el estado"?
+    answer: >
+      Es posible que vea el error `A resource with ID…already exists - to be managed via Terraform this resource needs to be imported into the State`. Este error significa que los recursos de Azure se agregaron fuera de la implementación de Terraform. Actualice el archivo de estado [automation-advanced_state_management.md](bash/automation-advanced_state_management.md) para corregirlo.
+  - question: >
+      ¿Por qué se produce un error de espacios en blanco en los comandos de varias líneas?
+    answer: >
+      Asegúrese de que los comandos de implementación tengan un formato correcto. Use un editor para dar un formato correcto a los comandos de implementación antes de ejecutarlos.
+  - question: >
+      ¿Qué significa el error "Error al ejecutar /tmp/terraform_273760270.sh"?
+    answer: >
+      Es posible que vea el error `error executing "/tmp/terraform_273760270.sh": Process exited with status 127`.
+
+      Este error significa que hay un problema con los finales de línea en `sap-hana/deploy/terraform/terraform-units/modules/sap_deployer/templates/configure_deployer.sh.tmpl`.
+
+      Asegúrese de guardar este archivo con finales de línea LF, no CRLF. Si abre el archivo en un entorno Windows, los finales de línea pueden cambiar del LF original a CRLF.
+  - question: >
+      ¿Qué significa el error "Generando cuenta: obteniendo el identificador de objeto autenticado: error al analizar el resultado JSON de la CLI de Azure"?
+    answer: "Es posible que vea el error `Error: building account: getting authenticated object ID: Error parsing json result from the Azure CLI: Error waiting for the Azure CLI: exit status 1: ERROR: Error occurred in request., ConnectionError: HTTPSConnectionPool(host='graph.windows.net', port=443): Max retries exceeded with url: /d1ffef09-2e44-4182-ad9c-d55a72c588a8/me?api-version=1.6 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x040F73E8>: Failed to establish a new connection: [Errno 11002] getaddrinfo failed'))`.\nCierre la sesión con el comando `az logout`. Vuelva a iniciar sesión con `az login` para resolver el problema. \n"
+  - question: "¿Qué significa el error \"El secreto de KeyVault no existe\"? \n"
+    answer: "Es posible que vea el error `Error: KeyVault Secret <SECRET-NAME> …does not exist`, donde `<SECRET-NAME>` es el nombre del secreto.\nAsegúrese de que el almacén de claves del usuario contenga los siguientes secretos. Reemplace `<ENVIRONMENT>` por el nombre del entorno. \n  - `<ENVIRONMENT>-subscription-id`\n  - `<ENVIRONMENT>-tenant-id`\n  - `<ENVIRONMENT>-client-id`\n  - `<ENVIRONMENT>-client-secret`\n"
+  - question: >
+      ¿Qué significa el error "Se debe especificar una clave de acceso o un token de SAS, o se debe habilitar Autenticación de Azure AD"?
+    answer: >
+      Es posible que vea el error `Either an Access Key / SAS Token or the Resource Group for the Storage Account must be specified - or Azure AD Authentication must be enabled when deploying the workload zone`.
+
+      Asegúrese de pasar el valor correcto para el parámetro `storageaccountname`. Compruebe que el parámetro especifica la cuenta que contiene los archivos de estado de Terraform.
+  - question: >
+      ¿Qué significa el error "La ruta de acceso del repositorio es incorrecta"?
+    answer: "Es posible que reciba el error `The repository path: \\<REPO-PATH\\> is incorrect!`, donde `<REPO-PATH>` es la ruta de acceso del repositorio, al ejecutar `New-SAPAutomationRegion`.\nBusque la ruta de acceso del archivo `sap_deployment_automation.ini`. La ubicación del archivo depende del entorno de ejecución. Las ubicaciones posibles son `My Documents` en Windows o `~/sap_deployment_automation` en Linux. Escriba la ruta de acceso completa al repositorio en las variables `sap_deployment_automation.ini`` file under the `repositorio` `común. \n"
+  - question: >
+      ¿Por qué aparece el error "Error al cargar el error de estado" durante la fase de Landscape?
+    answer: >
+      Es posible que vea el error `Error loading state error` al ejecutar la fase de Landscape.
+
+      Busque la ruta de acceso del archivo `sap_deployment_automation.ini`. La ubicación del archivo depende del entorno de ejecución. Las ubicaciones posibles son `My Documents` en Windows o `~/sap_deployment_automation` en Linux. Compruebe el archivo SAP_Automated_Deployment.ini. Asegúrese de que los valores de cada clave no tengan rutas de acceso relativas antes de los nombres de archivo de estado. Los valores de los archivos de estado solo deben contener el nombre de los archivos de estado de la cuenta de almacenamiento relacionada. Esta cuenta está en el grupo de recursos de SAP Library.
+  - question: >
+      ¿Qué significa el error "blobName no puede ser una cadena vacía"?
+    answer: "Es posible que reciba el error `Error loading state: blobs.Client#Get: Invalid input: blobName' cannot be an empty string` al implementar la zona de cargas de trabajo.\nSi la zona de cargas de trabajo no se implementó correctamente, elimine la carpeta `.terraform` dentro de `WORKSPACES\\Landscape\\<ENVIRONMENT-FOLDER>`. A continuación, intente implementar de nuevo la zona de cargas de trabajo. \n"
+  - question: >
+      ¿Qué significa el error "No se pudieron establecer los secretos"?
+    answer: "Es posible que vea el error `Could not set the secrets.` al implementar la zona de cargas de trabajo.\nEste mensaje de error hace referencia al almacén de claves que se crea en la zona de cargas de trabajo. Asegúrese de pasar el nombre del almacén de claves de las credenciales de implementación para el parámetro `vault`. \n"
+  - question: "¿Qué significa el error \"netAppAccounts se ha restringido en esta región\"? \n"
+    answer: "Es posible que vea el error `'netAppAccounts' has been restricted in this region`.\nEste error significa que la suscripción no está registrada para el proveedor de recursos `netAppAccounts`. Para corregir el problema, [registre el proveedor](/azure/azure-netapp-files/azure-netapp-files-register). \n"
+- name: Configuración de Ansible
+  questions:
+  - question: >
+      ¿Qué significa el error "Recuperar detalles del secreto de clave SSH"?
+    answer: >
+      Al implementar el software de SAP HANA desde `test_menu.sh`, es posible que reciba el error irrecuperable `Retrieve SSH Key Secret Details`.
+
+      Asegúrese de que el nombre de los secretos en el almacén de claves de las credenciales de usuario coincida con el prefijo de nomenclatura del entorno. Por ejemplo, podría ser necesario cambiar `DEV-<ID>-SAP01` por `DEV-<ID>-SAP`.
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\n> [!div class=\"nextstepaction\"]\n> [Introducción al marco de automatización de implementaciones de SAP en Azure](automation-get-started.md)"

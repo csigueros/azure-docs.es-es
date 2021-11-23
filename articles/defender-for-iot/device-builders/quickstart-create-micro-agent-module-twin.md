@@ -1,16 +1,16 @@
 ---
-title: 'Guía de inicio rápido: Creación de un módulo gemelo del microagente de Defender for Cloud (versión preliminar)'
+title: 'Inicio rápido: Creación de un módulo gemelo del microagente de Defender para IoT (versión preliminar)'
 description: En este inicio rápido aprenderá a crear módulos gemelos DefenderIotMicroAgent individuales para dispositivos nuevos.
 ms.date: 11/09/2021
 ms.topic: quickstart
-ms.openlocfilehash: 35480236f6a1fc7457e5af5e8a64e2967d8eaa3e
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 3d2829b1d779ab4db711ab590c0da4760a44aefe
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132331535"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709274"
 ---
-# <a name="quickstart-create-a-defender-for-cloud-iot-micro-agent-module-twin-preview"></a>Guía de inicio rápido: Creación de un módulo gemelo del microagente de Defender for Cloud (versión preliminar)
+# <a name="quickstart-create-a-defender-for-iot-micro-agent-module-twin-preview"></a>Inicio rápido: Creación de un módulo gemelo del microagente de Defender para IoT (versión preliminar)
 
 Puede crear módulos gemelos  **DefenderIotMicroAgent** individuales para dispositivos nuevos. También puede crear módulos gemelos por lotes para todos los dispositivos de una instancia de IoT Hub. 
 

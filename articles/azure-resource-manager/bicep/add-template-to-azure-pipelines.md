@@ -1,54 +1,54 @@
 ---
 title: CI/CD con Azure Pipelines y archivos Bicep
-description: Describe cómo configurar la integración continua en Azure Pipelines mediante archivos Bicep. Muestra cómo usar una tarea de la CLI de Azure para implementar un archivo Bicep.
+description: En este artículo de inicio rápido, aprenderá a configurar la integración continua en Azure Pipelines mediante archivos Bicep. Muestra cómo usar una tarea de la CLI de Azure para implementar un archivo Bicep.
 author: mumian
-ms.topic: conceptual
+ms.topic: quickstart
 ms.author: jgao
-ms.date: 06/23/2021
-ms.openlocfilehash: 30ab8481456dd03f4ecee597c9626c07772bbe3a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/16/2021
+ms.openlocfilehash: dbca9d692c96d65fa172e9d810e224427c9f5bfc
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131059763"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717025"
 ---
-# <a name="integrate-bicep-with-azure-pipelines"></a>Integración de Bicep con Azure Pipelines
+# <a name="quickstart-integrate-bicep-with-azure-pipelines"></a>Inicio rápido: Integración de Bicep en Azure Pipelines
 
-Los archivos Bicep se pueden integrar con Azure Pipelines para la integración e implementación continuas (CI/CD). En este artículo, aprenderá a usar una tarea de canalización de la CLI de Azure para implementar un archivo Bicep.
+En este artículo de inicio rápido se muestra cómo integrar archivos Bicep en Azure Pipelines para la integración continua e implementación continua (CI/CD).
 
-## <a name="prepare-your-project"></a>Preparación del proyecto
+Se brinda una breve introducción a la tarea de canalización que necesita para implementar un archivo Bicep. Si desea pasos más detallados sobre cómo configurar la canalización y el proyecto, consulte [Implementación de recursos de Azure mediante Bicep y Azure Pipelines](/learn/paths/bicep-azure-pipelines/) en **Microsoft Learn**.
 
-En este artículo se presupone que su archivo Bicep y la organización de Azure DevOps están listos para crear la canalización. Los pasos siguientes muestran cómo asegurarse de que está listo:
+## <a name="prerequisites"></a>Requisitos previos
 
-* Tiene una organización de Azure DevOps. Si no tiene ninguna, [cree una gratis](/azure/devops/pipelines/get-started/pipelines-sign-up). Si su equipo ya tiene una organización de Azure DevOps, compruebe que es administrador del proyecto de Azure DevOps que quiere utilizar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-* Ha configurado una [conexión al servicio](/azure/devops/pipelines/library/connect-to-azure) en su suscripción de Azure. Las tareas en la canalización se ejecutan con la identidad de la entidad de servicio. Para conocer los pasos para crear la conexión, consulte [Crear un proyecto de DevOps](../templates/deployment-tutorial-pipeline.md#create-a-devops-project).
+Necesita una organización de Azure DevOps. Si no tiene ninguna, [cree una gratis](/azure/devops/pipelines/get-started/pipelines-sign-up). Si su equipo ya tiene una organización de Azure DevOps, compruebe que es administrador del proyecto de Azure DevOps que quiere utilizar.
 
-* Tiene un [archivo Bicep](./quickstart-create-bicep-use-visual-studio-code.md) que define la estructura del proyecto.
+Tiene que haber configurado una [conexión al servicio](/azure/devops/pipelines/library/connect-to-azure) en la suscripción de Azure. Las tareas en la canalización se ejecutan con la identidad de la entidad de servicio. Para conocer los pasos para crear la conexión, consulte [Crear un proyecto de DevOps](../templates/deployment-tutorial-pipeline.md#create-a-devops-project).
+
+Necesita un [archivo Bicep](./quickstart-create-bicep-use-visual-studio-code.md) que defina la infraestructura del proyecto. Este archivo está en un repositorio.
 
 ## <a name="create-pipeline"></a>Creación de una canalización
 
-1. Si no ha agregado una canalización anteriormente, tiene que crear una. En la organización de Azure DevOps, seleccione **Canalizaciones** y **Nueva canalización**.
+1. En la organización de Azure DevOps, seleccione **Canalizaciones** y **Nueva canalización**.
 
    ![Adición de una nueva canalización](./media/add-template-to-azure-pipelines/new-pipeline.png)
 
-1. Especifique dónde está almacenado el código. En la imagen siguiente se muestra la selección de **GIT de Azure Repos**.
+1. Especifique dónde está almacenado el código.
 
    ![Selección del origen del código](./media/add-template-to-azure-pipelines/select-source.png)
 
-1. Desde ese origen, seleccione el repositorio que tiene el código para el proyecto.
+1. Seleccione el repositorio que tiene el código para el proyecto.
 
    ![Selección del repositorio](./media/add-template-to-azure-pipelines/select-repo.png)
 
-1. Seleccione el tipo de canalización que quiere crear. Puede seleccionar **Canalización inicial**.
+1. Seleccione **Canalización inicial** para el tipo de canalización que quiere crear.
 
    ![Selección de la canalización](./media/add-template-to-azure-pipelines/select-pipeline.png)
 
-Está listo para agregar una tarea de Azure PowerShell o las tareas de copia de archivos y de implementación.
-
 ## <a name="azure-cli-task"></a>Tarea CLI de Azure
 
-El siguiente archivo YAML crea un grupo de recursos e implementa un archivo Bicep mediante una [tarea de la CLI de Azure](/azure/devops/pipelines/tasks/deploy/azure-cli):
+Reemplace la canalización inicial por el siguiente código YAML. Crea un grupo de recursos e implementa un archivo Bicep mediante una [tarea de la CLI de Azure](/azure/devops/pipelines/tasks/deploy/azure-cli):
 
 ```yml
 trigger:
@@ -60,9 +60,9 @@ variables:
   vmImageName: 'ubuntu-latest'
 
   azureServiceConnection: '<your-connection-name>'
-  resourceGroupName: '<your-resource-group-name>'
+  resourceGroupName: 'exampleRG'
   location: '<your-resource-group-location>'
-  templateFile: './azuredeploy.bicep'
+  templateFile: './main.bicep'
 pool:
   vmImage: $(vmImageName)
 
@@ -78,15 +78,34 @@ steps:
       az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile)
 ```
 
-Una tarea de la CLI de Azure toma las siguientes entradas:
+La tarea de la CLI de Azure toma las siguientes entradas:
 
-* `azureSubscription`: proporcione el nombre de la conexión de servicio que creó.  Consulte [Preparación del proyecto](#prepare-your-project).
+* `azureSubscription`: proporcione el nombre de la conexión de servicio que creó.  Consulte [Requisitos previos](#prerequisites).
 * `scriptType`: use **bash**.
 * `scriptLocation`: use **inlineScript** o **scriptPath**. Si especifica **scriptPath**, también deberá especificar un parámetro `scriptPath`.
-* `inlineScript`: especifique las líneas de script.  El script proporcionado en el ejemplo compila un archivo Bicep llamado *azuredeploy.bicep* que existe en la raíz del repositorio.
+* `inlineScript`: especifique las líneas de script.  El script proporcionado en el ejemplo implementa un archivo Bicep denominado *main.bicep*.
+
+Seleccione **Guardar**. La canalización de compilación se ejecuta automáticamente. Vuelva al resumen de la canalización de compilación y vea el estado.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando los recursos de Azure dejen de ser necesarios, use la CLI de Azure o Azure PowerShell para eliminar el grupo de recursos y el recurso del servidor del artículo de inicio rápido.
+
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli
+az group delete --name exampleRG
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name exampleRG
+```
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener más información sobre el uso de Bicep con Azure Pipelines y para obtener instrucciones prácticas, consulte [Implementación de recursos de Azure mediante Bicep y Azure Pipelines](/learn/paths/bicep-azure-pipelines/) en **Microsoft Learn**.
-* Para usar la operación what-if en una canalización, consulte [Prueba de plantillas de Resource Manager con What-If en una canalización](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
-* Para más información sobre el uso del archivo Bicep con Acciones de GitHub, consulte [Implementación de archivos Bicep mediante Acciones de GitHub](./deploy-github-actions.md).
+> [!div class="nextstepaction"]
+> [Implementación de archivos de Bicep mediante Acciones de GitHub](deploy-github-actions.md)

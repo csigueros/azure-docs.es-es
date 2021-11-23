@@ -7,20 +7,22 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/08/2020
+ms.date: 10/06/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afc3d1d84d7b50cdaa7031230d7085e9f611c6c6
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 143b6a0c15c094cf31798ab7fa2a5d27cf98bd81
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304977"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717627"
 ---
 # <a name="what-is-azure-ad-connect"></a>¿Qué es Azure AD Connect?
 
-Azure AD Connect es la herramienta de Microsoft diseñada para satisfacer y lograr sus objetivos de identidad híbrida.  Ofrece las siguientes características:
+Azure AD Connect es una aplicación local de Microsoft diseñada para cumplir y lograr sus objetivos de identidad híbrida. Si está evaluando cómo cumplir mejor sus objetivos, también debe considerar la solución administrada en la nube: [sincronización en la nube de Azure AD Connect](../cloud-sync/what-is-cloud-sync.md)
+
+Azure AD Connect ofrece las siguientes características:
      
 - [Sincronización de hash de contraseñas](whatis-phs.md): un método de inicio de sesión que sincroniza el hash de la contraseña de un usuario de AD local con Azure AD.
 - [Autenticación de paso a través](how-to-connect-pta.md): un método de inicio de sesión que permite a los usuarios usar la misma contraseña de forma local y en la nube, pero que no requiere la infraestructura adicional de un entorno federado.

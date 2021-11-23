@@ -5,14 +5,14 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: overview
-ms.date: 10/07/2021
+ms.date: 11/18/2021
 ms.custom: mvc, references_regions
-ms.openlocfilehash: b5f82dd6b822a1a8c138ce08dcc0f689594150f9
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 90786b09586cdf91f69b6e6c90eb4e5b971ff5a9
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131425375"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724698"
 ---
 # <a name="overview---azure-database-for-postgresql---flexible-server"></a>Introducción al servidor flexible de Azure Database for PostgreSQL.
 
@@ -88,41 +88,41 @@ El servicio de servidor flexible está equipado con características integradas 
 
 ## <a name="built-in-pgbouncer"></a>PgBouncer integrado
 
-El servidor flexible incluye PgBouncer integrado, un agrupador de conexiones. Opcionalmente, puede habilitarlo y conectar las aplicaciones al servidor de bases de datos mediante PgBouncer con el mismo nombre de host y el puerto 6432.
+El servidor flexible incluye [PgBouncer integrado](concepts-pgbouncer.md), un agrupador de conexiones. Opcionalmente, puede habilitarlo y conectar las aplicaciones al servidor de bases de datos mediante PgBouncer con el mismo nombre de host y el puerto 6432.
 
 ## <a name="azure-regions"></a>Regiones de Azure
 
 Una ventaja de ejecutar una carga de trabajo en Azure es su alcance global. El servidor flexible actualmente está disponible en las siguientes regiones de Azure:
 
-| Region (Región) | Disponibilidad de proceso V3/V4 | Alta disponibilidad con redundancia de zona | 
-| --- | --- | --- |
-| Este de Australia | :heavy_check_mark: | :heavy_check_mark: | 
-| Sudeste de Australia | :heavy_check_mark: | :x: | 
-| Sur de Brasil | :heavy_check_mark: (solo v3) | :x: |
-| Centro de Canadá | :heavy_check_mark: | :heavy_check_mark: | 
-| Centro de la India | :heavy_check_mark: | :x: |
-| Centro de EE. UU. | :heavy_check_mark: | :heavy_check_mark: | 
-| Este de Asia | :heavy_check_mark: | :x: |
-| Este de EE. UU. | :heavy_check_mark: | :heavy_check_mark: | 
-| Este de EE. UU. 2 | :heavy_check_mark: | :heavy_check_mark: |
-| Centro de Francia | :heavy_check_mark: | :heavy_check_mark: | 
-| Centro-oeste de Alemania | :heavy_check_mark: | :heavy_check_mark: |
-| Japón Oriental | :heavy_check_mark: | :heavy_check_mark: | 
-| Japón Occidental | :heavy_check_mark: | :x: |
-| Centro de Corea del Sur | :heavy_check_mark: | :x: | 
-| Corea del Sur | :heavy_check_mark: | :x: | 
-| Norte de Europa | :heavy_check_mark: | :heavy_check_mark: |
-| Este de Noruega | :heavy_check_mark: | :x: |
-| Norte de Sudáfrica | :heavy_check_mark: | :x: |
-| Centro-sur de EE. UU. | :heavy_check_mark: | :heavy_check_mark: | 
-| Sudeste de Asia | :heavy_check_mark: | :heavy_check_mark: |
-| Norte de Suiza | :heavy_check_mark: | :x: |
-| Norte de Emiratos Árabes Unidos | :heavy_check_mark: | :x: |
-| Sur de Reino Unido | :heavy_check_mark: | :heavy_check_mark: | 
-| Oeste de Reino Unido | :heavy_check_mark: | :x: | 
-| Oeste de Europa | :heavy_check_mark: | :heavy_check_mark: |
-| Oeste de EE. UU. | :heavy_check_mark: | :x: |
-| Oeste de EE. UU. 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Region (Región) | Disponibilidad de proceso V3/V4 | Alta disponibilidad con redundancia de zona | Copias de seguridad con redundancia geográfica (versión preliminar) |
+| --- | --- | --- | --- |
+| Este de Australia | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Sudeste de Australia | :heavy_check_mark: | :x: | :x: |
+| Sur de Brasil | :heavy_check_mark: (solo v3) | :x: | :x: |
+| Centro de Canadá | :heavy_check_mark: | :heavy_check_mark: | :x: | 
+| Centro de la India | :heavy_check_mark: | :x: | :x: |
+| Centro de EE. UU. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Este de Asia | :heavy_check_mark: | :x: | :x: |
+| Este de EE. UU. | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Este de EE. UU. 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Centro de Francia | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Centro-oeste de Alemania | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Japón Oriental | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Japón Occidental | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Centro de Corea del Sur | :heavy_check_mark: | :x: | :x: |
+| Corea del Sur | :heavy_check_mark: | :x: | :x: |
+| Norte de Europa | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Este de Noruega | :heavy_check_mark: | :x: | :x: |
+| Norte de Sudáfrica | :heavy_check_mark: | :x: | :x: |
+| Centro-sur de EE. UU. | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Sudeste de Asia | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Norte de Suiza | :heavy_check_mark: | :x: | :x: |
+| Norte de Emiratos Árabes Unidos | :heavy_check_mark: | :x: | :x: |
+| Sur de Reino Unido | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Oeste de Reino Unido | :heavy_check_mark: | :x: | :x: |
+| Oeste de Europa | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Oeste de EE. UU. | :heavy_check_mark: | :x: | :x: |
+| Oeste de EE. UU. 2 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 <!-- We continue to add more regions for flexible server. -->
 
@@ -140,7 +140,7 @@ Además, tenga en cuenta los siguientes puntos de contacto según corresponda:
 
 - Para ponerse en contacto con el servicio de soporte técnico de Azure, [presente una incidencia de soporte técnico en Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - Para corregir un problema con la cuenta, envíe una [solicitud de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) en Azure Portal.
-- Para proporcionar comentarios o solicitar nuevas características, cree una entrada mediante [UserVoice](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0).
+- Para proporcionar comentarios o solicitar nuevas características, cree una entrada mediante [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
   
 
 ## <a name="next-steps"></a>Pasos siguientes

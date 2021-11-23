@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/26/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 03e2ce2c2d40c5edfa35515dd746802307d05f4b
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: e74c593b29fc4a8e05a37b3b0a5f0415f120aad8
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129990660"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707060"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint-in-azure-active-directory"></a>Tutorial: Desarrollo y planeación del aprovisionamiento de un punto de conexión de SCIM en Azure Active Directory
 
@@ -212,7 +212,7 @@ Al implementar un punto de conexión de SCIM para garantizar la compatibilidad c
 
 ##### <a name="users"></a>/Users:
 * No se admite el atributo de derechos.
-* Los atributos que se tengan en cuenta por la singularidad del usuario deben usarse como parte de una consulta filtrada (p. ej., si la singularidad del usuario se evalúa tanto para userName como para emails[type eq "work"], debe permitirse una solicitud GET a /Users con un filtro tanto para una consulta _userName eq "user@contoso.com"_ como para una consulta _emails[type eq "work"] eq "user@contoso.com"_ .
+* Los atributos que se tengan en cuenta por la singularidad del usuario deben usarse como parte de una consulta filtrada (p. ej., si la singularidad del usuario se evalúa tanto para userName como para emails[type eq "work"], debe permitirse una solicitud GET a /Users con un filtro tanto para una consulta _userName eq "user@contoso.com"_ como para una consulta _emails[type eq "work"].value eq "user@contoso.com"_ .
 
 ##### <a name="groups"></a>/Groups:
 * Los grupos son opcionales, pero solo se admiten si la implementación de SCIM admite solicitudes **PATCH**.

@@ -5,23 +5,23 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 09/17/2021
+ms.date: 11/15/2021
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, seo-azure-cli
 keywords: cosmos db, muestras de la cli de Azure, muestras de código de la cli de Azure, muestras de script de la cli de Azure
-ms.openlocfilehash: 4529b51ff5109bfa6b8814b23e7e82844e7fb95c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9960aee77d909f3e944f352b7d039a82997307c9
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128567725"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710248"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-core-sql-api"></a>Ejemplos de la CLI de Azure para la API de Azure Cosmos DB Core (SQL)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 En la tabla siguiente se incluyen vínculos a scripts de ejemplo de la CLI de Azure para Azure Cosmos DB. Use los vínculos de la derecha para ir a ejemplos específicos de la API. Los ejemplos comunes son los mismos en todas las API. Hay páginas de referencia para todos los comandos de CLI de Azure Cosmos DB disponibles en la [referencia de la CLI de Azure](/cli/azure/cosmosdb). Encontrará más ejemplos de scripts de la CLI de Azure Cosmos DB en el [repositorio de la CLI de Azure Cosmos DB en GitHub](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-Estos ejemplos requieren la versión 2.12.1 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli)
+Estos ejemplos requieren la versión 2.30 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli)
 
 Para obtener ejemplos de la CLI de Azure para otras API, consulte [Ejemplos de la CLI para Cassandra](../cassandra/cli-samples.md), [Ejemplos de la CLI para MongoDB API](../mongodb/cli-samples.md), [Ejemplos de la CLI para Gremlin](../graph/cli-samples.md), [Ejemplos de la CLI para Table](../table/cli-samples.md).
 
@@ -43,6 +43,7 @@ Estos ejemplos se aplican a todas las API de Azure Cosmos DB
 |Tarea | Descripción |
 |---|---|
 | [Creación de una cuenta, una base de datos y un contenedor de Azure Cosmos](../scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una cuenta, una base de datos y un contenedor de API Core (SQL) de Azure Cosmos DB. |
+| [Creación de una cuenta, una base de datos y un contenedor de Azure Cosmos sin servidor](../scripts/cli/sql/serverless.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una cuenta, una base de datos y un contenedor de Azure Cosmos DB sin servidor para la API Core (SQL). |
 | [Creación de una cuenta, una base de datos y un contenedor de Azure Cosmos con escalabilidad automática](../scripts/cli/sql/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una cuenta, una base de datos y un contenedor con escalabilidad automática para API Core (SQL) de Azure Cosmos DB. |
 | [Operaciones de capacidad de proceso](../scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Lee, actualiza y migra entre la escalabilidad automática y la capacidad de proceso estándar en una base de datos y un contenedor.|
 | [Bloquear recursos contra la eliminación](../scripts/cli/sql/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Bloquee los recursos para impedir que se eliminen.|

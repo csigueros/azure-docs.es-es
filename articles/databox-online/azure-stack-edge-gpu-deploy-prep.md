@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/06/2021
+ms.date: 11/15/2021
 ms.author: alkohli
-ms.openlocfilehash: d87c0221bc5d6bfc8aa4eb308417234bca9f7b14
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 8d06a49431b4b2cfea80a30c05d45374cc135285
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130249958"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716777"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Tutorial: Preparación de la implementación de Azure Stack Edge Pro con GPU 
 
@@ -137,6 +137,9 @@ Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge media
    ![Captura de pantalla de la pantalla Comenzar en Azure Stack Edge. El vínculo "Realizar el pedido mediante la experiencia de pedidos clásica" está resaltado.](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-2.png)
 
 5. Seleccione la suscripción que quiere usar para el dispositivo GPU de Azure Stack Edge Pro. Seleccione el país o región al que se enviará el dispositivo físico. Después, seleccione **Mostrar dispositivos**.
+
+    >[!NOTE] 
+    > Pronto se quitará la experiencia clásica. A partir de diciembre de 2021, los pedidos solo se pueden crear mediante Azure Edge Hardware Center.
 
     ![Captura de pantalla de la pantalla "Seleccionar tipo de dispositivo" para seleccionar una suscripción y enviar a la región para un recurso Azure Stack Edge dispositivo. El botón Mostrar dispositivos está resaltado.](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 

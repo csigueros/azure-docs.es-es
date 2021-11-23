@@ -11,12 +11,12 @@ ms.date: 09/22/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management, has-adal-ref
-ms.openlocfilehash: 06b982a43c5155ce5a111bafbac41862363ec07d
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 4ef535684c8d2cefcf0db9e2044c59b02318ed97
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129355497"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717608"
 ---
 # <a name="introduction-to-azure-ad-connect-v20"></a>Introducción a Azure AD Connect v2.0 
 
@@ -101,14 +101,14 @@ La retirada de TLS 1.0/1.1 está prevista para enero de 2022. Debe asegurarse d
 En junio de 2022, ADAL dejará de tener soporte técnico. Cuando finalice el soporte técnico de ADAL, la autenticación puede dejar de funcionar de forma inesperada y esto impedirá que el servidor de Azure AD Connect funcione correctamente. Se recomienda encarecidamente actualizar a Azure AD Connect v2.0 antes de junio de 2022. No puede actualizar a una biblioteca de autenticación admitida con la versión de Azure AD Connect que tiene actualmente. 
 
 **Después de actualizar a la versión 2.0, ¿no funcionan los cmdlets ADSync de PowerShell?** </br>
-Se trata de un problema conocido.  Para resolverlo, reinicie la sesión de PowerShell después de instalar o actualizar a la versión 2.0 y, a continuación, vuelva a importar el módulo.  Siga estas instrucciones para importar el módulo:
+Se trata de un problema conocido. Para resolverlo, reinicie la sesión de PowerShell después de instalar o actualizar a la versión 2.0 y, a continuación, vuelva a importar el módulo. Siga estas instrucciones para importar el módulo:
  
  1.  Abra Windows PowerShell con privilegios de administrador.
- 2.  Escriba o copie y pegue lo siguiente: 
-    ``` powershell
-              Import-module -Name "C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync"
-    ```
+ 1.  Escriba o copie y pegue el código siguiente: 
  
+     ```powershell
+     Import-module -Name "C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync"
+     ```
 
 ## <a name="license-requirements-for-using-azure-ad-connect-v20"></a>Requisitos de licencia para usar Azure AD Connect v2.0
 

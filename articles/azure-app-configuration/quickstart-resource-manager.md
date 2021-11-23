@@ -8,12 +8,12 @@ ms.date: 06/09/2021
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
-ms.openlocfilehash: 15e0bc45bc4fea645ff0ccf7b17110ce4361a9a0
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: beb16b541f764cde806d94bcbf2fe8649fcbae88
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111983427"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719682"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Inicio rápido: Creación de un almacén de Azure App Configuration mediante una plantilla de Resource Manager
 
@@ -29,9 +29,16 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.appconfiguration%2Fapp-configuration-store-kv%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+## <a name="authorization"></a>Authorization
+
+El acceso a los datos de clave-valor dentro de una plantilla de ARM requiere un rol de Azure Resource Manager, como Colaborador o Propietario. Actualmente no se admite uno de los [roles del plano de datos](concept-enable-rbac.md) de Azure App Configuration.
+
+> [!NOTE]
+> El acceso a datos de clave-valor dentro de una plantilla de ARM está deshabilitado si la autenticación con clave de acceso está deshabilitada. Para obtener más información, consulte cómo [deshabilitar la autenticación mediante clave de acceso](./howto-disable-access-key-authentication.md#limitations).
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
@@ -66,9 +73,6 @@ En la plantilla se definen dos recursos de Azure:
 > ```azurecli-interactive
 > az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
 > ```
-
-> [!NOTE]
-> Existe una limitación por la que el acceso a datos de clave-valor dentro de una plantilla de ARM está deshabilitado si la autenticación con clave de acceso está deshabilitada. Para más información, consulte cómo [deshabilitar la autenticación de clave de acceso](./howto-disable-access-key-authentication.md#limitations).
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 

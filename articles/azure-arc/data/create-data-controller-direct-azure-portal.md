@@ -9,16 +9,16 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 11/03/2021
 ms.topic: overview
-ms.openlocfilehash: 9c3c5cd60c7eec5832d8e609e960fd42d38855cc
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 85a7ca3dc50cb95fc545be6b486a300247837450
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131557820"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714910"
 ---
 #  <a name="create-azure-arc-data-controller-from-azure-portal---direct-connectivity-mode"></a>Creación de un controlador de datos de Azure Arc desde Azure Portal: modo de conexión directa
 
-En este artículo se describe cómo implementar el controlador de datos de Azure Arc en modo de conexión directa durante la versión preliminar actual de esta característica. 
+En este artículo se describe cómo implementar el controlador de datos de Azure Arc en modo de conexión directa desde Azure Portal. 
 
 ## <a name="complete-prerequisites"></a>Realización de los requisitos previos
 

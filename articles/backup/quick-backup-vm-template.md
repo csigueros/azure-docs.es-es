@@ -3,16 +3,19 @@ title: 'Inicio rápido: Copia de seguridad de máquina virtual con una plantilla
 description: Aprenda a realizar una copia de seguridad de las máquinas virtuales con la plantilla de Azure Resource Manager.
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 04/28/2021
+ms.date: 11/15/2021
 ms.custom: mvc,subject-armqs, devx-track-azurepowershell
-ms.openlocfilehash: 8657ea43abe0808734a5223131a3105414deb385
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: de01bcb2a7617be2a5a2d3f0d16ad1a1b1dc8ce6
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113433911"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710569"
 ---
-# <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Inicio rápido: Copia de seguridad de una máquina virtual en Azure con una plantilla de Resource Manager
+#  <a name="back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Copia de seguridad de una máquina virtual en Azure con una plantilla de Resource Manager
 
 [Azure Backup](backup-overview.md) puede hacer copias de seguridad de máquinas locales, aplicaciones y máquinas virtuales de Azure. En este artículo se muestra cómo realizar una copia de seguridad de una máquina virtual de Azure con una plantilla de Azure Resource Manager y Azure PowerShell. Este inicio rápido se centra en el proceso de implementación de una plantilla de ARM para crear un almacén de Recovery Services. Para más información sobre el desarrollo de plantillas de Resource Manager, consulte la [documentación de Azure Resource Manager](../azure-resource-manager/index.yml) y la [referencia de plantilla](/azure/templates/microsoft.recoveryservices/allversions).
 
@@ -26,7 +29,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/recovery-services-create-vm-and-configure-backup/). Esta plantilla le permite implementar una máquina virtual de Windows y un almacén de Recovery Services sencillos configurados con la directiva de protección predeterminada.
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/recovery-services-create-vm-and-configure-backup/). Esta plantilla le permite implementar una VM Windows y un almacén de Recovery Services sencillos configurados con _DefaultPolicy_ para _Protection_.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.recoveryservices/recovery-services-create-vm-and-configure-backup/azuredeploy.json":::
 
@@ -65,7 +68,7 @@ En este inicio rápido, se usa Azure PowerShell para implementar la plantilla de
 
 ### <a name="start-a-backup-job"></a>Inicio de un trabajo de copia de seguridad
 
-La plantilla crea una máquina virtual y le permite crear una copia de seguridad de la máquina virtual. Después de implementar la plantilla, deberá iniciar un trabajo de copia de seguridad. Para más información, consulte [Inicio de un trabajo de copia de seguridad](./quick-backup-vm-powershell.md#start-a-backup-job).
+La plantilla crea una VM y permite crear copias de seguridad de la VM. Después de implementar la plantilla, deberá iniciar un trabajo de copia de seguridad. Para más información, consulte [Inicio de un trabajo de copia de seguridad](./quick-backup-vm-powershell.md#start-a-backup-job).
 
 ### <a name="monitor-the-backup-job"></a>Supervisión del trabajo de copia de seguridad
 

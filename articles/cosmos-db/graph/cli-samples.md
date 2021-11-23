@@ -5,22 +5,22 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
-ms.date: 10/13/2020
+ms.date: 11/15/2021
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 694f9bd30fa89effa1e8b575404e006e849afc36
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 012446923b8205fb3a06570cbb16ce748e7da98d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121788175"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709572"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-gremlin-api"></a>Ejemplos de la CLI de Azure para Gremlin API para Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
 En la tabla siguiente se incluyen vínculos a scripts de ejemplo de la CLI de Azure para Azure Cosmos DB. Use los vínculos de la derecha para ir a ejemplos específicos de la API. Los ejemplos comunes son los mismos en todas las API. Hay páginas de referencia para todos los comandos de CLI de Azure Cosmos DB disponibles en la [referencia de la CLI de Azure](/cli/azure/cosmosdb). Encontrará más ejemplos de scripts de la CLI de Azure Cosmos DB en el [repositorio de la CLI de Azure Cosmos DB en GitHub](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-Estos ejemplos requieren la versión 2.12.1 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli)
+Estos ejemplos requieren la versión 2.30 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli)
 
 ## <a name="common-samples"></a>Ejemplos comunes
 
@@ -40,6 +40,7 @@ Estos ejemplos se aplican a todas las API de Azure Cosmos DB
 |Tarea | Descripción |
 |---|---|
 | [Crear una cuenta, una base de datos y un grafo de Azure Cosmos](../scripts/cli/gremlin/create.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una cuenta de Azure Cosmos DB y una base de datos y un grafo de Gremlin API. |
+| [Creación de una cuenta, una base de datos y un grafo de Azure Cosmos sin servidor para Gremlin API](../scripts/cli/gremlin/create.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una cuenta, una base de datos y un grafo de Azure Cosmos DB sin servidor para Gremlin API. |
 | [Creación de una cuenta, una base de datos y un grafo con escalabilidad automática de Azure Cosmos](../scripts/cli/gremlin/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una cuenta de Azure Cosmos DB y una base de datos y un grafo con escalabilidad automática para Gremlin API. |
 | [Operaciones de capacidad de proceso](../scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Lee, actualiza y migra entre la escalabilidad automática y la capacidad de proceso estándar en una base de datos y un grafo.|
 | [Bloquear recursos contra la eliminación](../scripts/cli/gremlin/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Bloquee los recursos para impedir que se eliminen.|

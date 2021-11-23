@@ -6,13 +6,13 @@ ms.author: srranga
 ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
-ms.date: 09/21/2021
-ms.openlocfilehash: 24b5db0411241778ce9afd63a4a167b9d6d483eb
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/18/2021
+ms.openlocfilehash: 672fa91d0fc6785332ace1d45f8e1c080895347e
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131433424"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721867"
 ---
 # <a name="release-notes---azure-database-for-postgresql---flexible-server"></a>Notas de la versión del servidor flexible de Azure Database for PostgreSQL
 
@@ -20,6 +20,22 @@ En esta página se proporcionan las últimas noticias y actualizaciones relacion
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL: Servidor flexible en versión preliminar
+
+## <a name="release-november-2021"></a>Publicación: noviembre de 2021
+
+* Compatibilidad con las [versiones secundarias más recientes de PostgreSQL](./concepts-supported-versions.md) (13.4, 12.8 y 11.13) en la creación de servidores<sup>$</sup>.
+* Compatibilidad con la característica de [copia de seguridad y restauración con redundancia geográfica](concepts-backup-restore.md) en versión preliminar en regiones emparejadas seleccionadas: Este de EE. UU. 2, Centro de EE. UU., Norte de Europa, Oeste de Europa, Este de Japón y Oeste de Japón.
+*  Compatibilidad con el [conector de Azure Stream Analytics (ASA) en versión preliminar](https://techcommunity.microsoft.com/t5/analytics-on-azure/stream-analytics-updates-ignite-fall-2021-new-outputs-new/ba-p/2919170) para ingerir datos de streaming de alto rendimiento en la tabla existente.
+*  Varias correcciones de errores y mejoras de estabilidad y rendimiento<sup>$</sup>.
+
+<sup> **$**</sup> Los nuevos servidores obtienen estas características automáticamente. En los servidores existentes, estas características se habilitan durante la ventana de mantenimiento futuro del servidor.
+
+## <a name="release-october-2021"></a>Publicación: octubre de 2021
+
+*   Compatibilidad con las [SKU Ddsv4 y Edsv4](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/flexible-server-now-supports-v4-compute-series-in-postgresql-on/ba-p/2815092). 
+*   Capacidad de elegir el disco local para el espacio de tablas temporal mediante el parámetro de servidor `azure.enable_temp_tablespaces_on_local_ssd`.
+*   La página Parámetros del servidor de Azure Portal muestra la unidad de medida y el vínculo a la documentación de PostgreSQL para la mayoría de los parámetros.
+*   Varias correcciones de errores y mejoras en la estabilidad y el rendimiento.
 
 ## <a name="release-september-2021"></a>Versión: septiembre de 2021
 
@@ -69,6 +85,13 @@ En esta página se proporcionan las últimas noticias y actualizaciones relacion
 * [Rendimiento inteligente](concepts-query-store.md) en versión preliminar pública.
 * Varias correcciones de errores y mejoras en la estabilidad y el rendimiento.
 
+## <a name="release-october-2020---march-2021"></a>Versión: de octubre de 2020 a marzo de 2021
+
+*  Se ha mejorado la experiencia para [conectarse](connect-azure-cli.md) al servidor flexible mediante la CLI de Azure con el comando `az postgres flexible- server connect`.
+*  Se admiten [nuevas regiones](overview.md#azure-regions).
+*  Varias mejoras del portal, incluida la presentación de versiones secundarias y el resumen de las métricas en la hoja de información general.
+*  Varias correcciones de errores y mejoras en la estabilidad y el rendimiento.
+
 ## <a name="contacts"></a>Contactos
 
 Para cualquier pregunta o sugerencia que pueda tener sobre el servidor flexible de Azure Database for PostgreSQL, envíe un correo electrónico al equipo de Azure Database for PostgreSQL ([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Tenga en cuenta que esta dirección de correo electrónico no es un alias de soporte técnico.
@@ -77,7 +100,7 @@ Además, tenga en cuenta los siguientes puntos de contacto según corresponda:
 
 - Para ponerse en contacto con el servicio de soporte técnico de Azure, [presente una incidencia de soporte técnico en Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - Para corregir un problema con la cuenta, envíe una [solicitud de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) en Azure Portal.
-- Para proporcionar comentarios o solicitar nuevas características, cree una entrada mediante [UserVoice](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0).
+- Para proporcionar comentarios o solicitar nuevas características, cree una entrada mediante [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
   
 
 ## <a name="next-steps"></a>Pasos siguientes

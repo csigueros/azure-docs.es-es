@@ -8,25 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: overview
 ms.subservice: translator-text
-ms.date: 08/10/2021
+ms.date: 11/16/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, text translation, machine translation, translation service, custom translator
-ms.openlocfilehash: 4d5e60beeb69447823369a5dfe610e73354f1ddc
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 5c0d2553438f1765ff5f95d6264961728ee94675
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426965"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706578"
 ---
 # <a name="what-is-translator"></a>¿Qué es Traductor?
+
+:::image type="content" source="media/translator-icon.png" alt-text="Icono de Translator de Azure Portal.":::
 
  Translator es un servicio de traducción automática neuronal basado en la nube que forma parte de la familia de API REST de [Azure Cognitive Services](../what-are-cognitive-services.md).  Translator se puede usar con cualquier sistema operativo y potencia muchos productos y servicios de Microsoft utilizados por miles de empresas de todo el mundo para realizar la traducción de idiomas y otras operaciones relacionadas. En esta introducción, aprenderá cómo Translator puede permitirle crear soluciones inteligentes multilingües para sus aplicaciones en todos los [idiomas admitidos](./language-support.md).
 
 La documentación de Translator contiene los siguientes tipos de artículos:
 
 * [**Guías de inicio rápido**](quickstart-translator.md). Instrucciones de inicio rápido que le guían a la hora de hacer solicitudes al servicio.
-* [**Guías paso a paso**](translator-how-to-signup.md). Instrucciones de acceso y uso del servicio de una manera más específica o personalizada.
+* [**Guías paso a paso**](translator-how-to-signup.md) Instrucciones de acceso y uso del servicio de una manera más específica o personalizada.
 * [**Artículos de referencia**](reference/v3-0-reference.md). Documentación de la API REST y contenido basado en lenguajes de programación.
 
 ## <a name="translator-features-and-development-options"></a>Características y opciones de desarrollo de Translator

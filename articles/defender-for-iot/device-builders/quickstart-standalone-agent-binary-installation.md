@@ -1,22 +1,22 @@
 ---
 title: 'Inicio rápido: Instalación del microagente de Defender para IoT (versión preliminar)'
-description: En este inicio rápido, aprenderá a instalar y autenticar el microagente de Defender para la nube.
+description: En este artículo de inicio rápido, aprenderá a instalar y autenticar el microagente de Defender para IoT.
 ms.date: 11/09/2021
 ms.topic: quickstart
-ms.openlocfilehash: 5e1ef76bbaf3b4eedae31f08d6cf39efdfaec3df
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 30b8630cacdec1eebcb4b2984154a9869ce816ff
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132343750"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707355"
 ---
 # <a name="quickstart-install-defender-for-iot-micro-agent-preview"></a>Inicio rápido: Instalación del microagente de Defender para IoT (versión preliminar)
 
-En este artículo se explica cómo instalar y autenticar el microagente de Defender para la nube.
+En este artículo se explica cómo instalar y autenticar el microagente de Defender para IoT.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Antes de instalar el módulo Defender para IoT, debe crear una identidad de módulo en IoT Hub. Para obtener más información sobre cómo crear una identidad de módulo, consulte [Creación de un módulo gemelo del microagente de Defender para IoT en la nube (versión preliminar)](quickstart-create-micro-agent-module-twin.md).
+Antes de instalar el módulo Defender para IoT, debe crear una identidad de módulo en IoT Hub. Para obtener más información sobre cómo crear una identidad de módulo, consulte [Creación de un módulo gemelo del microagente de Defender para IoT (versión preliminar)](quickstart-create-micro-agent-module-twin.md).
 
 ## <a name="install-the-package"></a>Instalar el paquete
 
@@ -55,7 +55,7 @@ Antes de instalar el módulo Defender para IoT, debe crear una identidad de mód
     sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
     ```
 
-Para instalar el paquete de microagente de Defender para la nube en Debian y las distribuciones de Linux basadas en Ubuntu, use el siguiente comando:
+Para instalar el paquete de microagente de Defender para IoT en Debian y las distribuciones de Linux basadas en Ubuntu, use el siguiente comando:
 
 ```bash
 sudo apt-get install defender-iot-micro-agent 
@@ -165,7 +165,7 @@ Espere una hora como máximo para que la recomendación aparezca en el centro de
 
 ## <a name="micro-agent-versioning"></a>Control de versiones del microagente
 
-Para instalar una versión específica del microagente de Defender para IoT en la nube, ejecute el siguiente comando:
+Para instalar una versión específica del microagente de Defender para IoT, ejecute el siguiente comando:
 
 ```bash
 sudo apt-get install defender-iot-micro-agent=<version>
@@ -174,4 +174,4 @@ sudo apt-get install defender-iot-micro-agent=<version>
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Guía de inicio rápido: Creación de un módulo gemelo del microagente de Defender para la nube (versión preliminar)](quickstart-create-micro-agent-module-twin.md)
+> [Inicio rápido: Creación de un módulo gemelo del microagente de Defender para IoT (versión preliminar)](quickstart-create-micro-agent-module-twin.md)

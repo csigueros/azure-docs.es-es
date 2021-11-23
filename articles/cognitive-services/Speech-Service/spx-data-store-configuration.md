@@ -10,18 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.author: eur
-ms.openlocfilehash: 7c323c6900930cda901ffb0ec09ce96150eafce2
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 6b830d9afd3177aaa9efd0effb7fa8d3fd2e46dc
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131505562"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719929"
 ---
 # <a name="speech-cli-configuration-options"></a>Opciones de configuración de la CLI de Voz
 
 El comportamiento de la CLI de Voz utiliza los valores de los archivos de configuración, a los se puede hacer referencia mediante un símbolo `@`. La CLI de Voz guarda los valores nuevos en un subdirectorio `./spx/data` nuevo que crea en el directorio de trabajo de la CLI de Voz. Al buscar un valor de configuración, la CLI de Voz busca en el directorio de trabajo actual, luego en el almacén datos de `./spx/data` y, después, en otros almacenes de datos, incluido uno de solo lectura final que se encuentra en el binario `spx`. 
 
 En el inicio rápido de la CLI de Voz se usó el almacén de datos para guardar los valores `@key` y `@region`, por lo que no era necesario especificarlos con cada comando `spx`. Tenga en cuenta que puede usar los archivos de configuración para almacenar su propia configuración, o incluso para pasar direcciones URL o cualquier otro contenido dinámico que se haya generado en el runtime.
+
+> [!NOTE]
+> En PowerShell, el [token stop-parsing](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_special_characters?view=powershell-7.2#stop-parsing-token---) (`--%`) debe seguir a `spx`. Por ejemplo, ejecute `spx --% config @region` para ver el valor de configuración de la región actual.
 
 ## <a name="create-and-manage-configuration-files-in-the-datastore"></a>Creación y administración de archivos de configuración en el almacén de datos
 

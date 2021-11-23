@@ -4,21 +4,21 @@ description: Ventaja híbrida de Azure es una ventaja de licencia que le permite
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/30/2021
+ms.date: 11/11/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: ahb
 ms.reviewer: chrisrin
-ms.openlocfilehash: 8fb630db1d14fe7af1008979eb5b72ee62287d6a
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: fdf2bbae7ec9a7c20e79298561509d0d820103ab
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130235703"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132708360"
 ---
 # <a name="what-is-centrally-managed-azure-hybrid-benefit"></a>¿Qué es la administración centralizada de Ventaja híbrida de Azure?
 
-La Ventaja híbrida de Azure es una ventaja de licencia que ayuda a reducir considerablemente los costos que conlleva la ejecución de cargas de trabajo en la nube. Permite usar licencias locales de Windows Server y SQL Server habilitadas para Software Assurance en Azure. Para más información, consulte [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
+La Ventaja híbrida de Azure es una ventaja de licencia que ayuda a reducir considerablemente los costos que conlleva la ejecución de cargas de trabajo en la nube. Permite usar licencias locales de Windows Server y SQL Server habilitadas para Software Assurance o habilitadas por suscripción en Azure. Para más información, consulte [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Ventaja híbrida de Azure para SQL Server se puede administrar de forma centralizada en el ámbito de toda una suscripción de Azure o de una cuenta de facturación general. A alto nivel, así es cómo funciona:
 
@@ -26,13 +26,15 @@ Ventaja híbrida de Azure para SQL Server se puede administrar de forma central
 1. En **Cost Management + Billing** en Azure Portal, usted (el administrador de facturación) elige el ámbito y el número de licencias aptas que se desea asignar para cubrir los recursos del ámbito.  
     :::image type="content" source="./media/overview-azure-hybrid-benefit-scope/set-scope-assign-licenses.png" alt-text="Captura de pantalla que muestra cómo establecer un ámbito y asignar licencias." lightbox="./media/overview-azure-hybrid-benefit-scope/set-scope-assign-licenses.png" :::
 
+En el ejemplo anterior, se necesita el uso detectado de 108 licencias principales normalizadas para cubrir todos los recursos de Azure SQL válidos. El uso detectado para recursos individuales era de 56 licencias principales normalizadas. En el ejemplo, mostramos 60 licencias principales estándar más 12 licencias principales Enterprise (12 * 4 = 48). Por lo tanto, 60 + 48 = 108. Los valores de licencias principales normalizadas se tratan con más detalle en la siguiente sección [Aplicación de licencias a los recursos de Azure](#how-licenses-apply-to-azure-resources).
+
 - Cada hora, cuando se ejecutan los recursos del ámbito, Azure les asigna automáticamente las licencias y descuenta los costos correctamente. Cada hora se pueden cubrir distintos recursos.
 - Cualquier uso por encima del número de licencias asignadas se factura a los precios normales de pago por uso.
 - En el momento en que decida administrar la ventaja mediante la asignación de licencias en un nivel de ámbito, dejará de poder administrar recursos individuales en el ámbito.
 
 La manera original de habilitar Ventaja híbrida de Azure a nivel de recurso aún está disponible para SQL Server y actualmente es la única opción para Windows Server. Implica que un rol DevOps selecciona la ventaja para cada recurso individual (como una máquina virtual con SQL Database o Windows Server) al crearlo o administrarlo. Si lo hace, se descuenta el costo por hora de ese recurso. Para obtener más información, vea [Ventaja para uso híbrido de Azure para Windows Server](../../azure-sql/azure-hybrid-benefit.md).
 
-La habilitación de la administración centralizada de Ventaja híbrida de Azure para SQL Server en un nivel de ámbito de cuenta o de suscripción se encuentra actualmente en versión preliminar. Solo está disponible para clientes empresariales. Estamos trabajando en ampliar la funcionalidad no solo a Windows Server, sino a más clientes.
+La habilitación de la administración centralizada de Ventaja híbrida de Azure para SQL Server en un nivel de ámbito de cuenta o de suscripción se encuentra actualmente en versión preliminar. Está disponible para los clientes empresariales y para los clientes que compran directamente desde Azure.com con un Contrato de cliente de Microsoft. Esperamos ampliar la capacidad de Windows Server y más clientes.
 
 ## <a name="qualifying-sql-server-licenses"></a>Licencias de SQL Server aptas
 
@@ -56,10 +58,10 @@ La administración de Ventaja híbrida de Azure a nivel de recurso también pued
 
 Estas son las principales ventajas:
 
-- **Un enfoque más sencillo y con mayor control**: el administrador de facturación asigna directamente las licencias disponibles a uno o varios ámbitos de Azure. El enfoque original, a gran escala, implica coordinar el uso de Ventaja híbrida de Azure entre muchos recursos y propietarios de DevOps.
-- **Una forma fácil de usar para optimizar costos**: un administrador puede supervisar el uso de Ventaja híbrida de Azure y ajustar directamente las licencias asignadas a Azure. Por ejemplo, un administrador podría ver la oportunidad de ahorrar más dinero mediante la asignación de más licencias a Azure. Luego, habla con su departamento de adquisiciones para confirmar la disponibilidad de las licencias. Por último, pueden asignar fácilmente las licencias a Azure y empezar a ahorrar.
+- **Un enfoque más sencillo, más escalable y con mejor control**: El administrador de facturación asigna directamente las licencias disponibles a uno o varios ámbitos de Azure. El enfoque original, a gran escala, implica coordinar el uso de Ventaja híbrida de Azure entre muchos recursos y propietarios de DevOps.
+- **Una forma fácil de usar para optimizar costos**: Un administrador puede supervisar el uso de la Ventaja híbrida de Azure y ajustar directamente las licencias asignadas a Azure. Por ejemplo, un administrador podría ver la oportunidad de ahorrar más dinero mediante la asignación de más licencias a Azure. Luego, habla con su departamento de adquisiciones para confirmar la disponibilidad de las licencias. Por último, pueden asignar fácilmente las licencias a Azure y empezar a ahorrar.
 - **Un método mejor para administrar los costos durante los picos de uso**: puede escalar verticalmente fácilmente el mismo recurso o agregar más recursos durante los picos temporales. No necesita asignar más licencias de SQL Server (por ejemplo, períodos de cierre o aumento de las compras de vacaciones). En el caso de los picos de cargas de trabajo de corta duración, los cargos de pago por uso por la capacidad adicional pueden suponer un costo menos que adquirir más licencias para usar Ventaja híbrida de Azure para la capacidad. La administración de la ventaja en un nivel ámbito, en lugar de en un nivel de recurso, le ayuda a decidir en función del uso agregado.
-- **Separación clara de las obligaciones para mantener el cumplimiento**: en el modelo Ventaja híbrida de Azure de nivel de recurso, los propietarios de los recursos pueden tomar decisiones de selección de Ventaja híbrida de Azure sin reconocimiento de disponibilidad de licencias (a través de la adquisición) o el uso general de licencias de SQL (incluido el entorno local). La administración de nivel de ámbito de Ventaja híbrida de Azure elimina el riesgo de que los propietarios de recursos seleccionen Ventaja híbrida de Azure cuando no haya licencias disponibles. Los administradores de facturación que administran Ventaja híbrida de Azure centralmente se posicionan para confirmar con los departamentos de adquisiciones y administración de recursos de software el número de licencias que hay disponibles para asignar a Azure. Este punto se ilustra en el diagrama siguiente.
+- **Separación clara de las obligaciones para mantener el cumplimiento**: En el modelo de Ventaja híbrida de Azure a nivel de recursos, los propietarios de los recursos pueden seleccionar la Ventaja híbrida de Azure cuando no haya licencias disponibles. O bien, pueden *no* seleccionar la ventaja cuando *haya* licencias disponibles. La administración a nivel de ámbito de la Ventaja híbrida de Azure soluciona esta situación. Los administradores de facturación que administran la ventaja centralmente se posicionan para confirmar con los Departamentos de Adquisiciones y Administración de Recursos de Software el número de licencias que hay disponibles para asignar a Azure. Este punto se ilustra en el diagrama siguiente.
 
 :::image type="content" source="./media/overview-azure-hybrid-benefit-scope/duty-separation.svg" alt-text="Diagrama que muestra la separación de obligaciones." border="false" lightbox="./media/overview-azure-hybrid-benefit-scope/duty-separation.svg":::
 
@@ -91,18 +93,18 @@ En la tabla siguiente se resume el número de NCL necesarias para descontar por 
 
 ## <a name="ongoing-scope-level-management"></a>Administración de nivel de ámbito en curso
 
-Este es nuestro ritmo periódico recomendado de administración de Ventaja híbrida de Azure en un nivel de ámbito, que puede funcionar en su caso:
+Se recomienda establecer un ritmo proactivo al administrar centralmente la Ventaja híbrida de Azure, de forma similar a las tareas y al orden siguientes:
 
 - Interactúe con su organización para saber cuántos recursos y núcleos virtuales de Azure SQL se usarán durante el próximo mes, trimestre o año.
 - Trabaje con los departamentos de administración de recursos de software y de adquisiciones para determinar si hay suficientes licencias básicas de SQL con Software Assurance disponibles. La ventaja permite que las licencias que admiten la migración de cargas de trabajo que se van a usar tanto en el entorno local como en Azure durante un máximo de 180 días. Por tanto, esas licencias se pueden contar como disponibles.
-- Asigne las licencias disponibles para cubrir el uso actual _y_ el uso planeado durante el próximo período.
-- Supervise el uso de licencias asignadas.
-  - Si se aproxima al 100 %, consulte a otros usuarios de su organización para conocer el crecimiento de uso esperado. Si es necesario, confirme la disponibilidad de las licencias y, después, asigne más licencias al ámbito.
-  - Si el uso es del 100 %, es posible que el número de recursos que usa supere el número de licencias asignadas. Vuelva al artículo sobre [creación de asignaciones de licencias](create-sql-license-assignments.md) y examine el uso que muestra Azure. Revise también los detalles de uso de la licencia. Luego, hable con sus compañeros para confirmar u obtener licencias antes de asignarlas al ámbito para obtener más cobertura.
+- Asigne las licencias disponibles para cubrir el uso actual _y_ el uso esperado durante el próximo período.
+- Supervise el uso de las licencias asignadas.
+  - Si se aproxima al 100 %, consulte a otros usuarios de su organización para conocer el uso esperado. Confirme la disponibilidad de las licencias y, después, asigne más licencias al ámbito.
+  - Si el uso es del 100 %, es posible que el número de recursos que usa supere el número de licencias asignadas. Vuelva al artículo sobre [creación de asignaciones de licencias](create-sql-license-assignments.md) y examine el uso que muestra Azure. A continuación, asigne al ámbito más licencias disponibles para obtener más cobertura.
 - Repita el proceso proactivo periódicamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte el tutorial [Administración y optimización de la Ventaja híbrida de Azure para SQL Server](tutorial-azure-hybrid-benefits-sql.md).
 - Obtenga información sobre la [transición a la administración centralizada de la Ventaja híbrida de Azure](transition-existing.md).
-- Consulte las [preguntas frecuentes sobre la administración centralizada de Ventaja híbrida de Azure](faq-azure-hybrid-benefit-scope.yml).
+- Consulte las [Preguntas frecuentes sobre la administración centralizada de Ventaja híbrida de Azure](faq-azure-hybrid-benefit-scope.yml).

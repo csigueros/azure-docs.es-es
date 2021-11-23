@@ -7,21 +7,23 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 11/16/2021
 ms.author: lajanuar
 recommendations: false
 keywords: automated data processing, document processing, automated data entry, forms processing
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f9c22bef6236008c772c39a9fea4f4673923b070
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: af81466257839563cd09917335e8eedca107ec0b
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131843107"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132708789"
 ---
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD024 -->
 # <a name="what-is-azure-form-recognizer"></a>¿Qué es Azure Form Recognizer?
+
+:::image type="content" source="media/form-recognizer-icon.png" alt-text="Icono de Form Recognizer en Azure Portal.":::
 
 Azure Form Recognizer es un [servicio de Azure Applied AI Services](../../applied-ai-services/index.yml) basado en la nube que usa modelos de aprendizaje automático para extraer y analizar campos de formulario, texto y tablas de los documentos. Form Recognizer analiza los formularios y documentos, extrae texto y datos, asigna relaciones de campo como pares clave-valor y devuelve una salida JSON estructurada. Obtendrá rápidamente resultados precisos a la medida de su contenido específico sin necesidad de una intervención manual excesiva o una amplia experiencia en ciencia de datos. Use Form Recognizer para automatizar el procesamiento de datos en aplicaciones y flujos de trabajo, mejorar las estrategias basadas en datos y enriquecer las funcionalidades de búsqueda de documentos.
 
@@ -71,9 +73,9 @@ Esta sección le ayuda a decidir la característica de Form Recognizer que debe 
 
 | ¿Qué tipo de documento desea analizar?| ¿Qué formato tiene el documento? | Su mejor solución |
 | -----------------|-------------------| ----------|
-|<ul><li>**Factura**</li><li>**Recibo**</li><li>**Tarjeta de presentación**</li></ul>| ¿El documento de factura, recibo o tarjeta de presentación está redactado en inglés? | <ul><li>Si la respuesta es **Sí**, use el modelo [**Factura**](concept-invoice.md), [**Recibo**](concept-receipt.md) o [**Tarjeta de presentación**](concept-business-card.md).</li><li>Si la respuesta es **No**, use el modelo [**Diseño**](concept-layout.md) o [**Documento general (versión preliminar)** ](concept-general-document.md).</li></ul>|
-|<ul><li>**Documento de identificación**</li></ul>| ¿El documento de identificación es un permiso de conducir de EE. UU. o un pasaporte internacional?| <ul><li>Si la respuesta es **Sí**, use el modelo de [**Documento de identificación**](concept-id-document.md).</li><li>Si la respuesta es **No**, use el modelo [**Diseño**](concept-layout.md) o [**Documento general (versión preliminar)** ](concept-general-document.md).</li></ul>|
- |<ul><li>**Formulario** o **documento**</li></ul>| ¿Su formulario o documento tiene un formato estándar del sector que se usa habitualmente en su empresa o sector?| <ul><li>Si la respuesta es **Sí**, use [**Diseño**](concept-layout.md) o [**Documento general (versión preliminar)** ](concept-general-document.md).</li><li>Si la respuesta es **No**, puede [**Entrenar y crear un modelo personalizado**](quickstarts/try-sample-label-tool.md#train-a-custom-form-model).
+|<ul><li>**Factura**</li><li>**Recibo**</li><li>**Tarjeta de presentación**</li></ul>| ¿El documento de factura, recibo o tarjeta de presentación está redactado en inglés? | <ul><li>Si la respuesta es **Sí**, use el modelo [**Factura**](concept-invoice.md), [**Recibo**](concept-receipt.md) o [**Tarjeta de presentación**](concept-business-card.md).</li><li>Si la respuesta es **No**, use el modelo [**Diseño**](concept-layout.md) o [**Documento general (versión preliminar)**](concept-general-document.md).</li></ul>|
+|<ul><li>**Documento de identificación**</li></ul>| ¿El documento de identificación es un permiso de conducir de EE. UU. o un pasaporte internacional?| <ul><li>Si la respuesta es **Sí**, use el modelo de [**Documento de identificación**](concept-id-document.md).</li><li>Si la respuesta es **No**, use el modelo [**Diseño**](concept-layout.md) o [**Documento general (versión preliminar)**](concept-general-document.md).</li></ul>|
+ |<ul><li>**Formulario** o **documento**</li></ul>| ¿Su formulario o documento tiene un formato estándar del sector que se usa habitualmente en su empresa o sector?| <ul><li>Si la respuesta es **Sí**, use [**Diseño**](concept-layout.md) o [**Documento general (versión preliminar)**](concept-general-document.md).</li><li>Si la respuesta es **No**, puede [**Entrenar y crear un modelo personalizado**](quickstarts/try-sample-label-tool.md#train-a-custom-form-model).
 
 ## <a name="how-to-use-form-recognizer-documentation"></a>Uso de la documentación de Form Recognizer
 

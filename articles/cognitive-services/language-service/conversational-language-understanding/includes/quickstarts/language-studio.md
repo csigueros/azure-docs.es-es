@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a8af7d5c76552ade3ffd5d50b308cee6b0b1446c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8fb9e276c7f8d0e195c7d7618392e7c5e61c7c9e
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131092824"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132590531"
 ---
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services).
 
@@ -34,12 +34,14 @@ ms.locfileid: "131092824"
 
 Una vez que tenga un recurso de idioma asociado a su cuenta, cree un proyecto de reconocimiento del lenguaje conversacional. En este inicio rápido creará un proyecto que puede identificar comandos de correo electrónico, como leer correos electrónicos de determinadas personas, eliminar correos electrónicos y adjuntar un documento a un correo electrónico.
 
-1. En [Language Studio](https://aka.ms/languageStudio), busque la sección con la etiqueta **Understand conversational language** (Reconocer el lenguaje conversacional) y haga clic en **Conversational language understanding** (Reconocimiento del lenguaje conversacional). Así llegará a la página del **proyecto de conversaciones**. 
- 
+1. En [Language Studio](https://aka.ms/languageStudio), busque la sección con la etiqueta **Understand conversational language** (Reconocer el lenguaje conversacional) y haga clic en **Conversational language understanding** (Reconocimiento del lenguaje conversacional).  
+    :::image type="content" source="../../media/select-custom-clu.png" alt-text="Captura de pantalla que muestra la ubicación de Conversational Language Understanding en la página de aterrizaje de Language Studio." lightbox="../../media/select-custom-clu.png"::: 
     
+
+2. Así llegará a la página del **proyecto de conversaciones**. Haga clic en **Create new project** (Crear nuevo proyecto). Seleccione **Conversation project** (Proyecto de conversación) y, a continuación, haga clic en **Siguiente**.
+
     :::image type="content" source="../../media/projects-page.png" alt-text="Captura de pantalla que muestra la página del proyecto de conversación en Language Studio." lightbox="../../media/projects-page.png":::
 
-2. Haga clic en **Create new project** (Crear nuevo proyecto). Seleccione **Conversation project** (Proyecto de conversación) y, a continuación, haga clic en **Siguiente**.
 
 A continuación, debe proporcionar los detalles siguientes:
 

@@ -3,12 +3,12 @@ title: 'Tutorial: Copia de seguridad de bases de datos de SAP HANA en máquinas 
 description: En este tutorial, aprenderá a hacer una copia de seguridad de una base de datos de SAP HANA que se ejecuta en una máquina virtual de Azure en un almacén de Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 09/27/2021
-ms.openlocfilehash: 65691a2bb48c3dece51effef4fbc7b65d19d8449
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 475c742cae311cc1d816c7b879af61aa09fe882e
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130247804"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709850"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Copia de seguridad de bases de datos de SAP HANA en una máquina virtual de Azure
 
@@ -97,7 +97,8 @@ También puede usar los siguientes FQDN para permitir el acceso a los servicios 
 
 ### <a name="use-an-http-proxy-server-to-route-traffic"></a>Empleo de un servidor proxy HTTP para enrutar el tráfico
 
-Al hacer una copia de seguridad de una base de datos SAP HANA que se ejecuta en una máquina virtual de Azure, la extensión de copia de seguridad de la máquina virtual usa las API HTTPS para enviar comandos de administración a Azure Backup y datos a Azure Storage. La extensión de copia de seguridad también usa Azure AD para la autenticación. Enrute el tráfico de extensión de copia de seguridad de estos tres servicios a través del proxy HTTP. Use la lista de direcciones IP y FQDN mencionada anteriormente para permitir el acceso a los servicios necesarios. No se admiten servidores proxy autenticados.
+> [!NOTE]
+> Actualmente, no hay compatibilidad de proxy para SAP HANA. Tenga en cuenta otras opciones, como los puntos de conexión privados, si desea quitar los requisitos de conectividad de salida para las copias de seguridad de bases de datos a través de Azure Backup en VM de HANA.
 
 ## <a name="understanding-backup-and-restore-throughput-performance"></a>Descripción del rendimiento de las copias de seguridad y la restauración
 
@@ -185,10 +186,10 @@ A continuación se ofrece un resumen de los pasos necesarios para ejecutar el sc
 | `<sid>`adm (SO)   |  SO DE HANA    |   Ejecute el comando:<br> `hdbuserstore List`   |  Compruebe si el resultado incluye el almacén predeterminado como a continuación: <br><br> `KEY SYSTEM`  <br> `ENV : <hostname>:3<Instance#>13`    <br>  `USER : SYSTEM`   |
 | Raíz (SO)   |   SO DE HANA    |    Ejecute el [script de registro previo de HANA de Azure Backup](https://go.microsoft.com/fwlink/?linkid=2173610).     | `./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM`    |
 | `<sid>`adm (SO)   |   SO DE HANA   |    Ejecute el comando: <br> `hdbuserstore List`   |   Compruebe si el resultado incluye nuevas líneas como se indica a continuación: <br><br>  `KEY AZUREWLBACKUPHANAUSER` <br>  `ENV : localhost: 3<Instance#>13`   <br> `USER: AZUREWLBACKUPHANAUSER`    |
-| Colaborador de Azure     |    Azure Portal    |   Configure el NSG, la NVA, Azure Firewall, y así sucesivamente para permitir el tráfico saliente al servicio Azure Backup, Azure AD y Azure Storage.     |    [Configurar la conectividad de red](#set-up-network-connectivity)    |
-| Colaborador de Azure |   Azure Portal    |   Cree o abra un almacén de Recovery Services y, a continuación, seleccione Copia de seguridad de HANA.   |   Busque todas las máquinas virtuales de HANA de destino de las que se va a hacer una copia de seguridad.   |
-| Colaborador de Azure    |   Azure Portal    |   Detecte las bases de datos de HANA y configure la directiva de copia de seguridad.   |  Por ejemplo: <br><br>  Copia de seguridad semanal: todos los domingos a las 2:00 a.m., retención semanal de 12 semanas, mensual de 12 meses, anual de 3 años   <br>   Diferencial o incremental: todos los días, excepto el domingo    <br>   Registro: cada 15 minutos, retención de 35 días    |
-| Colaborador de Azure  |   Azure Portal    |    Almacén de Recovery Service: elementos de copia de seguridad: SAP HANA     |   Compruebe los trabajos de copia de seguridad (carga de trabajo de Azure).    |
+| Colaborador de Azure     |    Azure portal    |   Configure el NSG, la NVA, Azure Firewall, y así sucesivamente para permitir el tráfico saliente al servicio Azure Backup, Azure AD y Azure Storage.     |    [Configurar la conectividad de red](#set-up-network-connectivity)    |
+| Colaborador de Azure |   Azure portal    |   Cree o abra un almacén de Recovery Services y, a continuación, seleccione Copia de seguridad de HANA.   |   Busque todas las máquinas virtuales de HANA de destino de las que se va a hacer una copia de seguridad.   |
+| Colaborador de Azure    |   Azure portal    |   Detecte las bases de datos de HANA y configure la directiva de copia de seguridad.   |  Por ejemplo: <br><br>  Copia de seguridad semanal: todos los domingos a las 2:00 a.m., retención semanal de 12 semanas, mensual de 12 meses, anual de 3 años   <br>   Diferencial o incremental: todos los días, excepto el domingo    <br>   Registro: cada 15 minutos, retención de 35 días    |
+| Colaborador de Azure  |   Azure portal    |    Almacén de Recovery Service: elementos de copia de seguridad: SAP HANA     |   Compruebe los trabajos de copia de seguridad (carga de trabajo de Azure).    |
 | Administrador de HANA    | HANA Studio   | Compruebe la consola de Backup, el catálogo de Backup, backup.log, backint.log y globa.ini.   |    Tanto SYSTEMDB como la base de datos del inquilino.   |
 
 Después de ejecutar correctamente el script previo al registro y comprobarlo, puede continuar para comprobar [los requisitos de conectividad](#set-up-network-connectivity) y, a continuación, [configurar la copia de seguridad](#discover-the-databases) desde el almacén de Recovery Services.

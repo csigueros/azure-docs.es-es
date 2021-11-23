@@ -1,0 +1,50 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes sobre Virtual Network NAT
+  description: Respuestas a las preguntas comunes sobre el uso de Azure Virtual Network NAT.
+  ms.openlocfilehash: f704faf4dbd391ffaadfa7c633f88758345d66dc
+  ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 11/17/2021
+  ms.locfileid: "132731196"
+title: Preguntas frecuentes sobre Azure Virtual Network NAT
+summary: >
+  Aquí encontrará algunas respuestas a las preguntas comunes sobre el uso de Azure Virtual Network NAT.
+sections:
+- name: 'Sección única: ignorado'
+  questions:
+  - question: ¿Es estática la dirección IP pública de Virtual Network NAT?
+    answer: "Sí. Cuando Virtual Network NAT se configura en una subred, todas las conexiones salientes usan las direcciones IP públicas estáticas que se hayan especificado.  \n"
+  - question: ¿Cuál es el número máximo de direcciones IP públicas que puede usar Virtual Network NAT?
+    answer: "El recurso de puerta de enlace de Virtual Network NAT puede usar hasta 16 direcciones IP públicas. Virtual Network NAT puede usar cualquier combinación de direcciones IP públicas y prefijos de dirección IP pública que sumen 16 direcciones. El tamaño máximo de prefijo que puede usar Virtual Network NAT es /28 (16 direcciones).  \n"
+  - question: ¿Se pueden cambiar las IP existentes de Virtual Network NAT?
+    answer: >
+      No, no se puede cambiar una dirección IP existente asociada a Virtual Network NAT. Para asociar una dirección IP diferente a Virtual Network NAT, se puede crear una nueva dirección IP pública.  Asocie la nueva dirección IP pública con el recurso de puerta de enlace de NAT.  Desasocie la dirección IP anterior.
+  - question: Si hay varias direcciones IP públicas asignadas a un recurso de puerta de enlace de NAT, ¿hay una interrupción del tráfico si se quita una de las direcciones IP?
+    answer: >
+      No. Si el recurso de puerta de enlace de Virtual Network NAT tiene varias direcciones IP públicas, equilibrará la carga del tráfico entre las direcciones IP asignadas. Quitar una de las IP no provocará ningún tiempo de inactividad. Se recomienda que si decide quitar una de las direcciones IP públicas del recurso de puerta de enlace de NAT, use una ventana de mantenimiento para la eliminación.
+  - question: ¿Puede Virtual Network NAT asociarse a varias redes virtuales?
+    answer: "No. Virtual Network NAT no puede asociarse a varias redes virtuales.  \n"
+  - question: ¿Puede Virtual Network NAT asociarse a varias subredes?
+    answer: "Sí. Virtual Network NAT puede asociarse a varias subredes dentro de una red virtual. No es necesario que se asocie a todas las subredes dentro de una red virtual. Cada subred dentro de una red virtual se puede configurar con su propia instancia de Virtual Network NAT. \n"
+  - question: ¿Puede Virtual Network NAT asociarse a una subred de puerta de enlace?
+    answer: >
+      No. Virtual Network NAT no puede asociarse a una subred de [puerta de enlace](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub).
+  - question: ¿Cómo funciona Virtual Network NAT con las zonas de disponibilidad?
+    answer: "Virtual Network NAT puede ser no zonal o zonal únicamente.  \n\nUna instancia no zonal de Virtual Network NAT es aquella que no se ha asociado a una zona específica. Una instancia no zonal de Virtual Network NAT sigue estando asignada a una zona dentro de la red virtual. En este caso, Azure decide qué zona elegir para Virtual Network NAT. \n\nEl usuario asocia una instancia zonal de Virtual Network NAT a una zona específica cuando se crea la instancia de Virtual Network NAT. \n"
+  - question: ¿Cómo puedo obtener registros para mi recurso de Virtual Network NAT?
+    answer: "Los grupos de seguridad de red (NSG) se pueden configurar para el tráfico saliente enviado desde un recurso de una subred o red virtual a través de un recurso de puerta de enlace de Virtual Network NAT. \n\nLos registros de flujo del grupo de seguridad de red se pueden usar para supervisar el tráfico saliente a través de un recurso de puerta de enlace de Virtual Network NAT.  \n\nUse Azure Security Center y siga las recomendaciones de protección de redes para ayudar a proteger sus recursos de red de Azure. Habilite los registros de flujo de los grupos de seguridad de red y envíe los registros a una cuenta de Azure Storage para su auditoría. También puede enviar los registros de flujo a un área de trabajo de Log Analytics y luego usar Análisis de tráfico para proporcionar información detallada sobre los patrones de tráfico en la nube de Azure. Algunas de las ventajas del Análisis de tráfico son la capacidad de visualizar la actividad de la red, identificar las zonas activas y las amenazas de seguridad, comprender los patrones de flujo de tráfico y detectar configuraciones de red incorrectas.\n"
+  - question: ¿Cómo se elimina un recurso de puerta de enlace de Virtual Network NAT?
+    answer: >
+      Para eliminar un recurso de puerta de enlace de Virtual Network NAT, primero el recurso debe desasociarse de la subred. Una vez que el recurso de puerta de enlace de NAT se ha desasociado de todas las subredes, se puede eliminar.
+  - question: ¿Puedo usar el recurso de puerta de enlace de Virtual Network NAT con Azure App Services?
+    answer: >
+      Sí. Para obtener más información sobre la integración de Virtual Network NAT en Azure App Services, consulte [Integración de la puerta de enlace de Virtual Network NAT](https://docs.microsoft.com/azure/app-service/networking/nat-gateway-integration).
+  - question: ¿Puedo usar el recurso de puerta de enlace de Virtual Network NAT con Azure Kubernetes Service?
+    answer: >
+      Sí. Para obtener más información sobre la integración de Virtual Network NAT en Azure Kubernetes Service, consulte [NAT Gateway administrado (versión preliminar)](https://docs.microsoft.com/azure/aks/nat-gateway).
+additionalContent: >-
+  ## <a name="next-steps"></a>Pasos siguientes
+
+  Si su pregunta no aparece en la lista anterior, envíe sus comentarios sobre esta página junto con su pregunta. Esto creará un problema de GitHub para que el equipo del producto se asegure de que las preguntas de todos nuestros valiosos clientes se respondan.

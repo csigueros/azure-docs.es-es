@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con X-point Cloud | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD en X-point Cloud'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y X-point Cloud.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/23/2021
+ms.date: 11/16/2021
 ms.author: jeedes
-ms.openlocfilehash: dc73fc916a9d6a5eb4ef7ae07ed6cc00d221a821
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: aac98687ef3fcaa41bb907863423849acbd569a0
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132332580"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710605"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-x-point-cloud"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con X-point Cloud
+# <a name="tutorial-azure-a-sso-integration-with-x-point-cloud"></a>Tutorial: Integración del inicio de sesión único de Azure AD en X-point Cloud
 
 En este tutorial, aprenderá a integrar X-point Cloud con Azure Active Directory (Azure AD). Al integrar X-point Cloud con Azure AD, podrá hacer lo siguiente:
 
@@ -82,7 +82,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     c. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.atledcloud.jp/xpoint`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con el identificador y las direcciones URL de inicio de sesión y de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de X-point Cloud](mailto:x-point@atled.jp) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con el identificador y las direcciones URL de inicio de sesión y de respuesta reales. Haga coincidir la parte `<SUBDOMAIN>` de `https://<SUBDOMAIN>.atledcloud.jp` con la dirección URL de X-point que está usando. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (sin procesar)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -118,11 +118,14 @@ En esta sección va a permitir que B. Simon acceda a X-point Cloud mediante el 
 
 ## <a name="configure-x-point-cloud-sso"></a>Configuración del inicio de sesión único de X-point Cloud
 
-Para configurar el inicio de sesión único en **X-point Cloud**, es preciso enviar el **certificado (sin procesar)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de X-point Cloud](mailto:x-point@atled.jp). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en X-point Cloud, puede usar el **Certificado (sin procesar)** descargado y la **Dirección URL de inicio de sesión** que se copió de Azure Portal en **SAML service settings** (Configuración del servicio SAML) en el menú de administración de dominios de X-point Cloud. Definido como el certificado de clave pública que usa IdP para iniciar sesión y la URL del punto de conexión SSO para IdP.
 
 ### <a name="create-x-point-cloud-test-user"></a>Creación de un usuario de prueba en X-point Cloud
 
-En esta sección, creará un usuario llamado Britta Simon en X-point Cloud. Trabaje con el [equipo de soporte técnico de X-point Cloud](mailto:x-point@atled.jp) para agregar los usuarios a la plataforma de X-point Cloud. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, puede usar en X-point Cloud las **direcciones de correo electrónico** de los usuarios registrados en Azure AD.
+Cree un usuario al que se haya le quitado @ y lo que sigue.
+Por ejemplo, "username@companydomain.extension", agregue "username" a X-point Cloud. Para poder usar el inicio de sesión único, debe crear y habilitar usuarios.
+
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
@@ -136,4 +139,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que configure X-point Cloud, puede aplicar el control de sesión, que protege la filtración e infiltración de datos confidenciales en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender para aplicaciones en la nube](/cloud-app-security/proxy-deployment-aad).
+Una vez que configure X-point Cloud, puede aplicar el control de sesión, que protege la filtración e infiltración de datos confidenciales en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

@@ -5,15 +5,15 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
-ms.date: 10/13/2020
+ms.date: 11/15/2021
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9deae17e0fa5b03e033c76abd3be136881aa2d7e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c01b0a61aa8af8332780b352f0a5543754db4497
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121786589"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132708587"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-cassandra-api"></a>Ejemplos de la CLI de Azure para Cassandra API para Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -40,6 +40,7 @@ Estos ejemplos se aplican a todas las API de Azure Cosmos DB
 |Tarea | Descripción |
 |---|---|
 | [Crear una cuenta, un espacio de claves y una tabla de Azure Cosmos](../scripts/cli/cassandra/create.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una cuenta, un espacio de claves y una tabla de Cassandra API para Azure Cosmos DB. |
+| [Creación de una cuenta, un espacio de claves y una tabla de Azure Cosmos sin servidor para Cassandra API](../scripts/cli/cassandra/create.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una cuenta, un espacio de claves y una tabla de Azure Cosmos DB sin servidor para Cassandra API. |
 | [Creación de una cuenta de Azure Cosmos, un espacio de claves y una tabla con escalabilidad automática](../scripts/cli/cassandra/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una cuenta, un espacio de claves y una tabla de Cassandra API con escalabilidad automática para Azure Cosmos DB. |
 | [Operaciones de capacidad de proceso](../scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Lee, actualiza y migra entre la escalabilidad automática y la capacidad de proceso estándar en un espacio de claves y una tabla.|
 | [Bloquear recursos contra la eliminación](../scripts/cli/cassandra/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Bloquee los recursos para impedir que se eliminen.|
