@@ -5,14 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 11/22/2021
 ms.author: jasteppe
-ms.openlocfilehash: 7def9d932f36a7720d0da7e19a29cf72f2ef0b98
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 9c8ce02be3301bdfaf8d151ef84e1475edaa6b03
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132733602"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132937267"
 ---
 # <a name="how-to-use-jsonpathcontenttemplate-mappings"></a>Uso de asignaciones JsonPathContentTemplate
 
@@ -20,7 +20,7 @@ ms.locfileid: "132733602"
 > Azure Healthcare APIs se encuentra actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
 
 > [!TIP]
-> Consulte la herramienta [Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) del conector ioMT para editar, probar y solucionar problemas de asignaciones de dispositivos y destinos de FHIR del conector de IoT. Exporte asignaciones para cargar en el conector de IoT Azure Portal use con la versión [de código](https://github.com/microsoft/iomt-fhir) abierto del conector de IoT.
+> Consulte la herramienta [Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) del conector ioMT para editar, probar y solucionar problemas de asignaciones de dispositivos y destinos de FHIR del conector de IoT. Exporte asignaciones para cargar en el conector de IoT Azure Portal use con la versión [de código abierto](https://github.com/microsoft/iomt-fhir) del conector de IoT.
 
 En este artículo se describe cómo usar asignaciones JsonPathContentTemplate con plantillas de asignaciones de dispositivos del conector de IoT.
 
@@ -224,6 +224,9 @@ JsonPathContentTemplate permite hacer coincidir y extraer valores de un mensaje 
     }
 }
 ```
+
+> [!TIP]
+> Consulte la Guía de solución [de problemas del conector de](./iot-troubleshoot-guide.md) IoT para obtener ayuda para corregir errores y problemas comunes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

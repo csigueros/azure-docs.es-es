@@ -1,18 +1,18 @@
 ---
-title: 'Asignaciones de dispositivos en IoT Connector: API de Azure Healthcare'
+title: 'Asignaciones de dispositivos IoT Connector: API de Azure Healthcare'
 description: En este artículo se describe cómo configurar y usar plantillas de asignación de dispositivos con las API de Azure Healthcare IoT Connector.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 11/22/2021
 ms.author: jasteppe
-ms.openlocfilehash: 96b110b03f211d62a0ed778e40aa7a6ad8c8c3ce
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 4b86742fb3bb5cc5c642b4d97b96c6aebc7c887c
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132733609"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132936587"
 ---
 # <a name="how-to-use-device-mappings"></a>Uso de asignaciones de dispositivos
 
@@ -20,7 +20,7 @@ ms.locfileid: "132733609"
 > Azure Healthcare APIs se encuentra actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
 
 > [!TIP]
-> Consulte la herramienta [Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) del conector ioMT para editar, probar y solucionar problemas de asignaciones de dispositivos y destinos de FHIR del conector de IoT. Exporte asignaciones para cargar en el conector de IoT Azure Portal use con la versión [de código](https://github.com/microsoft/iomt-fhir) abierto del conector de IoT.
+> Consulte la herramienta [Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) del conector ioMT para editar, probar y solucionar problemas de asignaciones de dispositivos y destinos de FHIR del conector de IoT. Exporte asignaciones para cargar en el conector de IoT Azure Portal use con la versión [de código abierto](https://github.com/microsoft/iomt-fhir) del conector de IoT.
 
 En este artículo se describe cómo configurar el conector de IoT mediante asignaciones de dispositivos.
 
@@ -94,7 +94,10 @@ Existen varios tipos de plantilla y se pueden usar al compilar el archivo de asi
 |[CollectionContentTemplate](./how-to-use-collection-content-mappings.md) |Plantilla que se usa para representar una lista de plantillas que se usarán durante la normalización.                                                            |                                                           
 |[CalculatedContentTemplate](./how-to-use-calculated-functions-mappings.md)|Plantilla que admite la escritura de expresiones mediante uno de varios lenguajes de expresiones. Admite la transformación de datos mediante el uso de funciones JmesPath.|
 |[IotJsonPathContentTemplate](./how-to-use-iot-jsonpath-content-mappings.md)|Plantilla que admite los mensajes enviados desde Azure Iot Hub o la característica Exportación de datos heredada de Azure IoT Central.|
-|[IotCentralJsonPathContentTemplate](./how-to-use-iot-central-json-content-mappings.md)|Plantilla que admite los mensajes enviados a través de la característica Exportar datos de Azure Iot Central.|  
+|[IotCentralJsonPathContentTemplate](./how-to-use-iot-central-json-content-mappings.md)|Plantilla que admite los mensajes enviados a través de la característica Exportar datos de Azure Iot Central.| 
+
+> [!TIP]
+> Consulte la Guía de solución [de problemas del conector de](./iot-troubleshoot-guide.md) IoT para obtener ayuda para corregir errores y problemas comunes. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

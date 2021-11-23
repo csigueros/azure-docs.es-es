@@ -6,14 +6,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 11/22/2021
 ms.author: jasteppe
-ms.openlocfilehash: 6718270b7b996813f4503e58cf2609e7eb3add00
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 88e5310a53bfd5fed79ae0a9a6efc06d91fdb0cf
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132733596"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132933958"
 ---
 # <a name="how-to-display-iot-connector-metrics"></a>Visualización de las métricas del conector de IoT
 
@@ -77,6 +77,9 @@ En este artículo, aprenderá a mostrar las métricas del conector de IoT en el 
 
     :::image type="content" source="media\iot-metrics\iot-dashboard-with-metrics-tile-displayed.png" alt-text="Panel con el icono Métricas del conector de IoT anclado." lightbox="media\iot-metrics\iot-dashboard-with-metrics-tile-displayed.png":::
 
+> [!TIP]
+> Consulte la Guía de solución [de problemas del conector de](./iot-troubleshoot-guide.md) IoT para obtener ayuda para solucionar errores y problemas comunes.
+
 ## <a name="conclusion"></a>Conclusión 
 
 Tener acceso a las métricas es esencial para la supervisión y la solución de problemas.  El conector de IoT le ayuda a realizar estas acciones a través de métricas. 
@@ -88,4 +91,4 @@ Consulte las preguntas más frecuentes sobre el conector de IoT.
 >[!div class="nextstepaction"]
 >[Preguntas más frecuentes sobre el conector de IoT](iot-connector-faqs.md)
 
-(FHIR&#174;) es una marca comercial registrada de HL7 y se usa con el permiso HL7.
+(FHIR&#174;) es una marca registrada de HL7 y se usa con el permiso HL7.

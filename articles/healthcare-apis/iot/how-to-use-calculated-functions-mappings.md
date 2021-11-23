@@ -5,14 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 11/22/2021
 ms.author: jasteppe
-ms.openlocfilehash: 3e1ccf989bcd67e5e45d381ae681287730cad1d2
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 6e92acd7cc537b9723b1b114b11d8408cf941443
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132733610"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132940992"
 ---
 # <a name="how-to-use-calculatedcontenttemplate-mappings"></a>Uso de asignaciones CalculatedContentTemplate
 
@@ -547,6 +547,9 @@ En el ejemplo siguiente, los datos de altura llegan en pulgadas o metros. Querem
       }
     }
 ```
+
+> [!TIP]
+> Consulte la Guía de solución [de problemas del conector de](./iot-troubleshoot-guide.md) IoT para obtener ayuda para corregir errores y problemas comunes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

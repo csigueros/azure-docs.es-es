@@ -5,14 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 11/22/2021
 ms.author: jasteppe
-ms.openlocfilehash: c2c7043cd7dc5f234886144a97228db21a218621
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 9f6374ad6ba021e6f67f1ea9780aa90d49a7f5a2
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132733634"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132940303"
 ---
 # <a name="how-to-use-the-fhir-destination-mappings"></a>Uso de las asignaciones de destino de FHIR
 
@@ -22,7 +22,7 @@ ms.locfileid: "132733634"
 En este artículo se describe cómo configurar el conector de IoT mediante las asignaciones de destino Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;).
 
 > [!TIP]
-> Consulte la herramienta [Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) del conector ioMT para editar, probar y solucionar problemas de asignaciones de dispositivos y destinos de FHIR del conector de IoT. Exporte asignaciones para cargar en el conector de IoT Azure Portal use con la versión [de código](https://github.com/microsoft/iomt-fhir) abierto del conector de IoT.
+> Consulte la herramienta [Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) del conector ioMT para editar, probar y solucionar problemas de asignaciones de dispositivos y destinos de FHIR del conector de IoT. Exporte asignaciones para cargar en el conector de IoT Azure Portal use con la versión [de código abierto](https://github.com/microsoft/iomt-fhir) del conector de IoT.
 
 A continuación se muestra un ejemplo conceptual de lo que sucede durante el proceso de normalización y transformación en el conector de IoT:
 
@@ -270,6 +270,9 @@ Representa el tipo de datos [CodeableConcept](http://hl7.org/fhir/datatypes.html
     }
 }
 ```
+
+> [!TIP]
+> Consulte la Guía de solución [de problemas del conector de](./iot-troubleshoot-guide.md) IoT para obtener ayuda para corregir errores y problemas comunes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

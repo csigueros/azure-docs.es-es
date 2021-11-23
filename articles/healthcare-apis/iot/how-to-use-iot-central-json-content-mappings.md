@@ -5,14 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 11/22/2021
 ms.author: jasteppe
-ms.openlocfilehash: 50c4d8bad51998f8077e2d5915748d0a19bd0a00
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 9fb3331e70d6a9e132f2d7cd96768249f0de83fb
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132733657"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132938861"
 ---
 # <a name="how-to-use-iotcentraljsonpathcontenttemplate-mappings"></a>Uso de asignaciones IotCentralJsonPathContentTemplate
 
@@ -28,7 +28,7 @@ En este artículo se describe cómo usar asignaciones IoTCentralJsonPathContentT
 
 IotCentralJsonPathContentTemplate no requiere DeviceIdExpression ni TimestampExpression. Se usa cuando los mensajes que se evalúan se envían a través de la característica [Exportar datos](../../iot-central/core/howto-export-data.md) de [Azure IoT Central](../../iot-central/core/overview-iot-central.md). 
 
-Si usa la característica Exportación de datos de Azure IoT Central y propiedades personalizadas en el cuerpo del mensaje para la identidad del dispositivo o la marca de tiempo de medición, todavía puede usar JsonPathContentTemplate.
+Si usa la característica De exportación de datos de Azure IoT Central y propiedades personalizadas en el cuerpo del mensaje para la identidad del dispositivo o la marca de tiempo de medición, todavía puede usar JsonPathContentTemplate.
 
 > [!NOTE]
 > Cuando se `IotCentralJsonPathContentTemplate` usa , `TypeMatchExpression` debe resolverse en el mensaje completo como JToken. Para obtener más información, vea los ejemplos siguientes:
@@ -142,6 +142,9 @@ Si usa la característica Exportación de datos de Azure IoT Central y propiedad
 }
 ```
 
+> [!TIP]
+> Consulte la Guía de solución [de problemas del conector de](./iot-troubleshoot-guide.md) IoT para obtener ayuda para solucionar errores y problemas comunes.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, ha aprendido a usar asignaciones de dispositivos. Para obtener información sobre cómo usar las asignaciones de destino de FHIR, consulte
@@ -149,4 +152,4 @@ En este artículo, ha aprendido a usar asignaciones de dispositivos. Para obtene
 >[!div class="nextstepaction"]
 >[Uso de asignaciones de destino de FHIR](how-to-use-fhir-mappings.md)
 
-(FHIR&#174;) es una marca comercial registrada [de HL7](https://hl7.org/fhir/) y se usa con el permiso HL7.
+(FHIR&#174;) es una marca registrada [de HL7](https://hl7.org/fhir/) y se usa con el permiso HL7.

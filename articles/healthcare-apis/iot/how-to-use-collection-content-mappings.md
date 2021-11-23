@@ -5,14 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 11/22/2021
 ms.author: jasteppe
-ms.openlocfilehash: 5fc15f07e2263598b758fe18945ae1b6f1323292
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 824f26181389cdd22ad3508c29fbb8d7ec4fcb17
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132733641"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132937249"
 ---
 # <a name="how-to-use-collectioncontenttemplate-mappings"></a>Uso de asignaciones CollectionContentTemplate
 
@@ -69,6 +69,8 @@ CollectionContentTemplate se puede usar para representar una lista de plantillas
   ]
 }
 ```
+> [!TIP]
+> Consulte la Guía de solución [de problemas del conector de](./iot-troubleshoot-guide.md) IoT para obtener ayuda para solucionar errores y problemas comunes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
