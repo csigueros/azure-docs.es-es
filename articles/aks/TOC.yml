@@ -4,6 +4,10 @@
   items:
     - name: Acerca de AKS
       href: intro-kubernetes.md
+    - name: Cuotas y límites regionales
+      href: quotas-skus-regions.md
+    - name: Versión compatible de Kubernetes
+      href: supported-kubernetes-versions.md
     - name: Arquitecturas de las soluciones
       href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json?WT.mc_id=AKSDOCSTOC
 - name: Guías de inicio rápido
@@ -48,10 +52,8 @@
       href: tutorial-kubernetes-upgrade-cluster.md
 - name: Conceptos
   items:
-    - name: Clústeres y cargas de trabajo
+    - name: Conceptos principales
       href: concepts-clusters-workloads.md
-    - name: Acceso e identidad
-      href: concepts-identity.md
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
@@ -61,6 +63,10 @@
         - name: Controles de seguridad de Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
+        - name: Protección de la seguridad en el sistema operativo del host
+          href: security-hardened-vm-host-image.md
+    - name: Acceso e identidad
+      href: concepts-identity.md
     - name: Redes
       href: concepts-network.md
     - name: Storage
@@ -71,6 +77,8 @@
       href: node-auto-repair.md
     - name: Mallas de servicio
       href: servicemesh-about.md
+    - name: Ingeniería de software sostenible
+      href: concepts-sustainable-software-engineering.md
     - name: Procedimientos recomendados
       items:
         - name: Información general
@@ -104,8 +112,6 @@
               href: developer-best-practices-resource-management.md
             - name: Seguridad de pod
               href: developer-best-practices-pod-security.md
-    - name: Cuotas y límites regionales
-      href: quotas-skus-regions.md
     - name: Migración a AKS
       items:
         - name: Planeamiento y ejecución de una migración
@@ -134,16 +140,6 @@
         - name: Contenedorización y migración de aplicaciones de ASP.NET
           href: ../migrate/tutorial-app-containerization-aspnet-kubernetes.md
           maintainContext: false
-    - name: Versión compatible de Kubernetes
-      href: supported-kubernetes-versions.md
-    - name: Cloud Controller Manager (versión preliminar)
-      href: out-of-tree.md
-    - name: Protección de la seguridad en el sistema operativo del host
-      href: security-hardened-vm-host-image.md
-    - name: Introducción a los diagnósticos de Azure Kubernetes Service
-      href: concepts-diagnostics.md
-    - name: Ingeniería de software sostenible
-      href: concepts-sustainable-software-engineering.md
 - name: Guías paso a paso
   items:
     - name: Operaciones del clúster
@@ -156,6 +152,8 @@
           href: start-stop-cluster.md
         - name: Uso del mantenimiento planeado (versión preliminar)
           href: planned-maintenance.md
+        - name: Cloud Controller Manager (versión preliminar)
+          href: out-of-tree.md
         - name: Actualización de un clúster de AKS
           href: upgrade-cluster.md
         - name: Uso del Acuerdo de Nivel de Servicio de tiempo de actividad
@@ -207,79 +205,6 @@
           href: kubernetes-portal.md
         - name: Uso del panel de Kubernetes
           href: kubernetes-dashboard.md
-    - name: Configuración de volúmenes de datos
-      items:
-        - name: 'Azure Disk: Dinámico'
-          href: azure-disks-dynamic-pv.md
-        - name: 'Azure Disk: Estático'
-          href: azure-disk-volume.md
-        - name: 'Azure Files: Dinámico'
-          href: azure-files-dynamic-pv.md
-        - name: 'Azure Files: Estático'
-          href: azure-files-volume.md
-        - name: Azure HPC Cache
-          href: azure-hpc-cache.md
-        - name: 'Servidor NFS: estático'
-          href: azure-nfs-volume.md
-        - name: Azure NetApp Files
-          href: azure-netapp-files.md
-        - name: Uso de Azure Ultra Disks
-          href: use-ultra-disks.md
-        - name: Controladores de almacenamiento CSI
-          items:
-            - name: Habilitación de controladores de almacenamiento CSI
-              href: csi-storage-drivers.md
-            - name: Controladores CSI para discos de Azure
-              href: azure-disk-csi.md
-            - name: Controladores CSI de Azure Files
-              href: azure-files-csi.md
-    - name: Configuración de las redes
-      items:
-        - name: Creación o uso de una red virtual existente
-          items:
-            - name: Uso de kubenet
-              href: configure-kubenet.md
-            - name: Uso de Azure-CNI
-              href: configure-azure-cni.md
-        - name: Creación de un conjunto de equilibrador de carga interno
-          href: internal-lb.md
-        - name: Uso de una instancia de Standard Load Balancer
-          href: load-balancer-standard.md
-        - name: Uso de una dirección IP estática y etiqueta DNS
-          href: static-ip.md
-        - name: Uso de un proxy HTTP (versión preliminar)
-          href: http-proxy.md
-        - name: Entrada
-          items:
-            - name: Creación de un controlador básico
-              href: ingress-basic.md
-            - name: Uso del enrutamiento de aplicación HTTP
-              href: http-application-routing.md
-            - name: Uso de la red interna
-              href: ingress-internal-ip.md
-            - name: Habilitación del complemento AGIC para un clúster de AKS existente
-              href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
-              maintainContext: true
-            - name: Uso de TLS con sus propios certificados
-              href: ingress-own-tls.md
-            - name: Uso de TLS con Let's Encrypt
-              items:
-                - name: Uso de una dirección IP pública dinámica
-                  href: ingress-tls.md
-                - name: Uso de una dirección IP pública estática
-                  href: ingress-static-ip.md
-        - name: Salida
-          items:
-            - name: Restricción y control del tráfico de salida del clúster
-              href: limit-egress-traffic.md
-            - name: Uso de una ruta definida por el usuario para la salida
-              href: egress-outboundtype.md
-            - name: "Uso de un equilibrador de carga básico y una dirección\_IP estática"
-              href: egress.md
-            - name: NAT Gateway administrado (versión preliminar)
-              href: nat-gateway.md
-        - name: Personalización de CoreDNS
-          href: coredns-custom.md
     - name: Seguridad y autenticación
       items:
         - name: Creación de una entidad de servicio
@@ -333,6 +258,79 @@
               href: csi-secrets-store-nginx-tls.md
             - name: Solución de problemas
               href: csi-secrets-store-troubleshooting.md
+    - name: Configuración de las redes
+      items:
+        - name: Creación o uso de una red virtual existente
+          items:
+            - name: Uso de kubenet
+              href: configure-kubenet.md
+            - name: Uso de Azure-CNI
+              href: configure-azure-cni.md
+        - name: Creación de un conjunto de equilibrador de carga interno
+          href: internal-lb.md
+        - name: Uso de una instancia de Standard Load Balancer
+          href: load-balancer-standard.md
+        - name: Uso de una dirección IP estática y etiqueta DNS
+          href: static-ip.md
+        - name: Uso de un proxy HTTP (versión preliminar)
+          href: http-proxy.md
+        - name: Entrada
+          items:
+            - name: Creación de un controlador básico
+              href: ingress-basic.md
+            - name: Uso del enrutamiento de aplicación HTTP
+              href: http-application-routing.md
+            - name: Uso de la red interna
+              href: ingress-internal-ip.md
+            - name: Habilitación del complemento AGIC para un clúster de AKS existente
+              href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
+              maintainContext: true
+            - name: Uso de TLS con sus propios certificados
+              href: ingress-own-tls.md
+            - name: Uso de TLS con Let's Encrypt
+              items:
+                - name: Uso de una dirección IP pública dinámica
+                  href: ingress-tls.md
+                - name: Uso de una dirección IP pública estática
+                  href: ingress-static-ip.md
+        - name: Salida
+          items:
+            - name: Restricción y control del tráfico de salida del clúster
+              href: limit-egress-traffic.md
+            - name: Uso de una ruta definida por el usuario para la salida
+              href: egress-outboundtype.md
+            - name: "Uso de un equilibrador de carga básico y una dirección\_IP estática"
+              href: egress.md
+            - name: NAT Gateway administrado (versión preliminar)
+              href: nat-gateway.md
+        - name: Personalización de CoreDNS
+          href: coredns-custom.md
+    - name: Configuración de volúmenes de datos
+      items:
+        - name: 'Azure Disk: Dinámico'
+          href: azure-disks-dynamic-pv.md
+        - name: 'Azure Disk: Estático'
+          href: azure-disk-volume.md
+        - name: 'Azure Files: Dinámico'
+          href: azure-files-dynamic-pv.md
+        - name: 'Azure Files: Estático'
+          href: azure-files-volume.md
+        - name: Azure HPC Cache
+          href: azure-hpc-cache.md
+        - name: 'Servidor NFS: estático'
+          href: azure-nfs-volume.md
+        - name: Azure NetApp Files
+          href: azure-netapp-files.md
+        - name: Uso de Azure Ultra Disks
+          href: use-ultra-disks.md
+        - name: Controladores de almacenamiento CSI
+          items:
+            - name: Habilitación de controladores de almacenamiento CSI
+              href: csi-storage-drivers.md
+            - name: Controladores CSI para discos de Azure
+              href: azure-disk-csi.md
+            - name: Controladores CSI de Azure Files
+              href: azure-files-csi.md
     - name: Supervisión y registro
       items:
         - name: Supervisión de AKS
@@ -438,6 +436,8 @@
           href: troubleshoot-linux.md
         - name: Compruebe los eventos de Resource Health (versión preliminar)
           href: aks-resource-health.md
+        - name: Diagnósticos de Azure Kubernetes Service (versión preliminar)
+          href: concepts-diagnostics.md
 - name: Referencia
   items:
     - name: Azure CLI

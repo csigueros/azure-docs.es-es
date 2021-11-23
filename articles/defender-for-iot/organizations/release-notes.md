@@ -1,16 +1,16 @@
 ---
-title: Novedades de Azure Defender para IoT
+title: Novedades de Microsoft Defender para IoT
 description: Este artículo le permite conocer las novedades de la versión más reciente de Defender para IoT.
 ms.topic: overview
-ms.date: 11/07/2021
-ms.openlocfilehash: ca588aed8a461e48cf85a01e97d5f8ddd4a42e24
-ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
+ms.date: 11/17/2021
+ms.openlocfilehash: cc35a18f831b0ef59565965f19700d310380ec71
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131988282"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704827"
 ---
-# <a name="whats-new-in-azure-defender-for-iot"></a>Novedades de Azure Defender para IoT  
+# <a name="whats-new-in-microsoft-defender-for-iot"></a>Novedades de Microsoft Defender para IoT
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
@@ -18,13 +18,13 @@ En este artículo se enumeran las nuevas características y mejoras de caracter�
 
 Las características mencionadas se encuentran en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen otros términos legales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
 
-## <a name="versioning-and-support-for-azure-defender-for-iot"></a>Control de versiones y compatibilidad con Azure Defender para IoT
+## <a name="versioning-and-support-for-defender-for-iot"></a>Control de versiones y compatibilidad con Defender para IoT
 
 A continuación se enumeran la compatibilidad, las directivas de cambios importantes de Defender para IoT y las versiones de Azure Defender para IoT que están disponibles actualmente.
 
 ### <a name="servicing-information-and-timelines"></a>Información y escalas de tiempo de mantenimiento
 
-Microsoft planea publicar actualizaciones de Azure Defender para IoT al menos una vez por trimestre. Cada versión de disponibilidad general del sensor de Azure Defender para IoT y la consola de administración local tienen nueve meses de soporte técnico después de su publicación. Las correcciones y las nuevas funcionalidades se aplicarán a la versión de disponibilidad general actual que se encuentre actualmente con soporte técnico y no se aplicarán a las versiones anteriores de disponibilidad general.
+Microsoft planea publicar actualizaciones de Defender para IoT al menos una vez por trimestre. Cada versión de disponibilidad general del sensor de Defender para IoT y la consola de administración local tienen nueve meses de soporte técnico después de su publicación. Las correcciones y las nuevas funcionalidades se aplicarán a la versión de disponibilidad general actual que se encuentre actualmente con soporte técnico y no se aplicarán a las versiones anteriores de disponibilidad general.
 
 ### <a name="versions-and-support-dates"></a>Versiones y fechas de soporte técnico
 
@@ -32,7 +32,20 @@ Microsoft planea publicar actualizaciones de Azure Defender para IoT al menos un
 |--|--|--|
 | 10.0 | Enero de 2021 | Octubre de 2021 |
 | 10,3 | 04/2021 | 01/2022 |
-| 10.5.2 | 11/2021 | 07/2022 |
+| 10.5.2 | Octubre de 2021 | 07/2022 |
+| 10.5.3 | 11/2021 | 08/2022 |
+
+## <a name="november-2021"></a>Noviembre de 2021
+
+Las siguientes mejoras de características están disponibles con la versión 10.5.3 de Microsoft Defender para IoT.
+
+- Ahora, los sensores eliminarán automáticamente las alertas archivadas que tengan más de 90 días de antigüedad.
+
+- Se han realizado mejoras en las exportaciones de alertas a partir de los comentarios de los clientes.
+
+- Se han realizado mejoras en el rendimiento y en el análisis del tráfico de red.
+
+- Se ha agregado una nueva [API de integración de ServiceNow](references-work-with-defender-for-iot-apis.md#service-now-integration-api---externalv3integration) a la consola de administración local.
 
 ## <a name="october-2021"></a>Octubre de 2021
 
@@ -46,11 +59,12 @@ Las siguientes mejoras de características están disponibles con la versión 10
 
 - [Webhook extendido](#webhook-extended)
 
-- [Compatibilidad con Unicode en las frases de contraseña de certificado](#unicode-support-for-certificate-passphrases) 
+- [Compatibilidad con Unicode en las frases de contraseña de certificado](#unicode-support-for-certificate-passphrases)
 
 ### <a name="plc-operating-mode-detections-public-preview"></a>Detecciones de modo operativo de PLC (versión preliminar pública)
 
 Los usuarios ahora pueden ver los estados, los cambios y los riesgos del modo operativo de PLC. El modo de funcionamiento de PLC consta del estado de ejecución lógico de PLC y el estado de la clave física, si existe un conmutador de clave física en el PLC.
+
 Esta nueva funcionalidad ayuda a mejorar la seguridad mediante la detección de PLC *no seguros* y, como resultado, evita ataques malintencionados como las descargas de programas de PLC. El ataque de Triton en 2017 a una planta petroquímica ilustra el efecto de estos riesgos.
 Esta información también proporciona a los ingenieros operativos visibilidad crítica sobre el modo operativo de los PLC empresariales.
 

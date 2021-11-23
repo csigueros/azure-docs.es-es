@@ -8,13 +8,13 @@ metadata:
   ms.service: static-web-apps
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 05/07/2021
-  ms.openlocfilehash: b41c8a8ed84fc627528f06c8c443fbc112456074
-  ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
+  ms.date: 11/19/2021
+  ms.openlocfilehash: 60ccc61d3783681365de58979263c5ad7e05888f
+  ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/19/2021
-  ms.locfileid: "132814166"
+  ms.lasthandoff: 11/20/2021
+  ms.locfileid: "132871687"
 landingContent:
 - title: Acerca de Azure Static Web Apps
   linkLists:
@@ -40,11 +40,15 @@ landingContent:
       url: /learn/modules/publish-app-service-static-web-app-api
     - text: Publicación de una API
       url: /learn/modules/publish-static-web-app-api-preview-url
+    - text: Creación e implementación de una aplicación Gatsby
+      url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+    - text: Publicación de una aplicación WebAssembly en Blazor y una API .NET
+      url: /learn/modules/publish-app-service-static-web-app-api-dotnet
   - linkListType: video
     links:
     - text: Compilación e implementación de un aplicación web estática
       url: https://channel9.msdn.com/Shows/Docs-Azure/Building-and-Deploying-a-Static-Web-App/
-- title: Implementación desde un marco o biblioteca
+- title: Compilación e implementación
   linkLists:
   - linkListType: tutorial
     links:
@@ -62,29 +66,25 @@ landingContent:
       url: deploy-nextjs.md
     - text: Nuxt.js
       url: deploy-nuxtjs.md
-    - text: Gatsby
-      url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
-    - text: Blazor
-      url: /learn/modules/publish-app-service-static-web-app-api-dotnet
+- title: Infraestructura como código
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Creación de una instancia de Azure Static Web Apps mediante una plantilla de Resource Manager
+      url: publish-azure-resource-manager.md
 - title: Conceptos clave
   linkLists:
   - linkListType: concept
     links:
     - text: Configuración
       url: configuration-overview.md
-    - text: API públicas
+    - text: Puntos de conexión de API sin servidor
       url: apis.md
     - text: Entornos de ensayo
       url: review-publish-pull-requests.md
-    - text: Restricción del acceso
+    - text: Autenticación y autorización
       url: authentication-authorization.md
     - text: Compilación de la configuración con Acciones de GitHub
       url: publish-devops.md?tabs=github-actions
     - text: Compilación de la configuración con Azure DevOps
       url: publish-devops.md?tabs=azure-devops
-- title: Software como servicio
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Implementación con una plantilla de Resource Manager
-      url: publish-azure-resource-manager.md
