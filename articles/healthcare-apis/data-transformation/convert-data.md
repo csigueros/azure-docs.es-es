@@ -1,30 +1,30 @@
 ---
 title: Conversión de datos para las API de Azure Healthcare
-description: Use el punto $convert de conexión de datos personalizados y las plantillas de convertidor de personalización para convertir datos en las API de atención sanitaria.
+description: Use el punto $convert de conexión de datos y las plantillas de personalización-convertidor para convertir datos en las API de atención sanitaria.
 services: healthcare-apis
 author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 05/11/2021
+ms.date: 11/16/2021
 ms.author: ranku
-ms.openlocfilehash: df201cf281fd24ebf288849d5192aa9355f3416d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a40a8f44ebb8e4297544ccd49c75acedfeabf1d1
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121787815"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132902116"
 ---
 # <a name="converting-your-data-to-fhir"></a>Conversión de los datos a FHIR
 
 > [!IMPORTANT]
 > Esta funcionalidad está en versión preliminar pública y se proporciona sin un contrato de nivel de servicio. No se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-El $convert personalizado de datos de datos en el servicio FHIR está diseñado para la conversión de datos de diferentes tipos de datos a FHIR. Usa el motor de la plantilla Liquid y las plantillas del proyecto [FHIR Converter](https://github.com/microsoft/FHIR-Converter) como plantillas predeterminadas. Estas plantillas de conversión se pueden personalizar según sea necesario. Actualmente admite dos tipos de conversión, **C-CDA a FHIR** y **hl7v2 a conversión de FHIR.**
+El $convert personalizado de datos del servicio FHIR está pensado para la conversión de datos de diferentes tipos de datos a FHIR. Usa el motor de la plantilla Liquid y las plantillas del proyecto [FHIR Converter](https://github.com/microsoft/FHIR-Converter) como plantillas predeterminadas. Estas plantillas de conversión se pueden personalizar según sea necesario. Actualmente admite dos tipos de conversión, **C-CDA a FHIR** y **HL7v2 a conversión de FHIR.**
 
 ## <a name="use-the-convert-data-endpoint"></a>Uso del punto de conexión $convert-data
 
-La `$convert-data` operación se integra en el servicio FHIR para ejecutarse como parte del servicio. Después de habilitar en el servidor, puede realizar llamadas API al servidor `$convert-data` para convertir los datos en FHIR:
+La `$convert-data` operación se integra en el servicio FHIR para ejecutarse como parte del servicio. Después de habilitar en el servidor, puede realizar llamadas API al servidor para `$convert-data` convertir los datos en FHIR:
 
 `https://<<FHIR service base URL>>/$convert-data`
 
@@ -36,13 +36,13 @@ $convert-data toma un [recurso Parameter](http://hl7.org/fhir/parameters.html) e
 | ----------- | ----------- | ----------- |
 | inputData      | Datos que se van a convertir. | Para `Hl7v2` : cadena <br> Para `Ccda` : XML|
 | inputDataType   | Tipo de datos de entrada. | ```HL7v2```, ``Ccda`` |
-| templateCollectionReference | Referencia a una colección de plantillas de imágenes de [OCI](https://github.com/opencontainers/image-spec) [Azure Container Registry (ACR).](https://azure.microsoft.com/services/container-registry/) Es la imagen que contiene las plantillas de Liquid que se usarán para la conversión. Puede ser una referencia a las plantillas predeterminadas o a una imagen de plantilla personalizada registrada en el servicio FHIR. Consulte a continuación para obtener información sobre cómo personalizar las plantillas, hospedar las de ACR y registrarse en el servicio FHIR. | Para plantillas predeterminadas: <br> Para **las plantillas predeterminadas de HL7v2:** <br>```microsofthealth/fhirconverter:default``` <br>``microsofthealth/hl7v2templates:default``<br>Para **las plantillas predeterminadas de C-CDA:**``microsofthealth/ccdatemplates:default`` <br><br>Para plantillas personalizadas: <br> \<RegistryServer\>/\<imageName\>@\<imageDigest\>, \<RegistryServer\>/\<imageName\>:\<imageTag\> |
+| templateCollectionReference | Referencia a una [colección de plantillas de imagen de OCI](https://github.com/opencontainers/image-spec) en Azure Container Registry [(ACR).](https://azure.microsoft.com/services/container-registry/) Es la imagen que contiene las plantillas de Liquid que se usarán para la conversión. Puede ser una referencia a las plantillas predeterminadas o a una imagen de plantilla personalizada registrada en el servicio FHIR. Consulte a continuación para obtener información sobre cómo personalizar las plantillas, hospedar las de ACR y registrarse en el servicio FHIR. | Para plantillas predeterminadas: <br> Para **las plantillas predeterminadas hl7v2:** <br>```microsofthealth/fhirconverter:default``` <br>``microsofthealth/hl7v2templates:default``<br>Para **las plantillas predeterminadas de C-CDA:**``microsofthealth/ccdatemplates:default`` <br><br>Para plantillas personalizadas: <br> \<RegistryServer\>/\<imageName\>@\<imageDigest\>, \<RegistryServer\>/\<imageName\>:\<imageTag\> |
 | rootTemplate | La plantilla raíz que se usa al transformar los datos. | Para **HL7v2:**<br>```ADT_A01```, ```OML_O21```, ```ORU_R01```, ```VXU_V04```<br><br> Para **C-CDA:**<br>```CCD```, `ConsultationNote`, `DischargeSummary`, `HistoryandPhysical`, `OperativeNote`, `ProcedureNote`, `ProgressNote`, `ReferralNote`, `TransferSummary` |
 
 > [!WARNING]
-> Las plantillas predeterminadas se lanzan bajo licencia MIT y no **son** compatibles con Soporte técnico de Microsoft.
+> Las plantillas predeterminadas se lanzan bajo licencia MIT y **no son** compatibles con Soporte técnico de Microsoft.
 >
-> Las plantillas predeterminadas solo se proporcionan para ayudarle a empezar a trabajar rápidamente. Pueden actualizarse al actualizar las versiones del Azure API for FHIR. Por lo tanto, debe  comprobar el comportamiento de conversión y hospedar su propia copia de plantillas en un Azure Container Registry, registrarlos en el Azure API for FHIR y usar en las llamadas API para tener un comportamiento coherente de conversión de datos en las distintas versiones de Azure API for FHIR.
+> Las plantillas predeterminadas solo se proporcionan para ayudarle a empezar a trabajar rápidamente. Pueden actualizarse cuando actualizamos las versiones del Azure API for FHIR. Por lo tanto, debe  comprobar el comportamiento de conversión y hospedar su propia copia de plantillas en un Azure Container Registry, registrarlos en el Azure API for FHIR y usar en las llamadas API para tener un comportamiento coherente de conversión de datos en las distintas versiones de Azure API for FHIR.
 
 #### <a name="sample-request"></a>Solicitud de ejemplo
 
@@ -99,10 +99,10 @@ Puede usar la extensión [FHIR Converter](https://marketplace.visualstudio.com/i
 
 ## <a name="host-and-use-templates"></a>Hospedaje y uso de plantillas
 
-Se recomienda encarecidamente hospedar su propia copia de plantillas en ACR. Hay cuatro pasos implicados en el hospedaje de su propia copia de plantillas y su uso en la operación $convert datos:
+Se recomienda encarecidamente hospedar su propia copia de plantillas en ACR. Hay cuatro pasos implicados en hospedar su propia copia de plantillas y usar las de la operación $convert datos:
 
 1. Inserte la imagen en un una instancia de Azure Container Registry.
-1. Habilite la identidad administrada en la instancia del servicio FHIR.
+1. Habilite Managed Identity en la instancia del servicio FHIR.
 1. Proporcione acceso de ACR a la identidad administrada del servicio FHIR.
 1. Registre los servidores de ACR en el servicio FHIR.
 1. Opcionalmente, configure el firewall de ACR para el acceso seguro.
@@ -135,12 +135,12 @@ Para más información sobre la asignación de roles en Azure Portal, consulte [
 Puede registrar el servidor de ACR mediante el Azure Portal o mediante la CLI.
 
 #### <a name="registering-the-acr-server-using-azure-portal"></a>Registro del servidor de ACR mediante Azure Portal
-Vaya a la hoja **Artifacts** en **Transformación de datos** en la instancia del servicio FHIR. Verá la lista de servidores de ACR registrados actualmente. Seleccione **Agregar** y, a continuación, seleccione el servidor del Registro en el menú desplegable. Tendrá que seleccionar Guardar **para** que el registro suba efecto. La aplicación del cambio y el reinicio de la instancia pueden tardar unos minutos.
+Vaya a la **hoja Artifacts** en Transformación **de datos** en la instancia del servicio FHIR. Verá la lista de servidores de ACR registrados actualmente. Seleccione **Agregar** y, a continuación, seleccione el servidor del Registro en el menú desplegable. Tendrá que seleccionar Guardar **para** que el registro suba efecto. La aplicación del cambio y el reinicio de la instancia pueden tardar unos minutos.
 
 #### <a name="registering-the-acr-server-using-cli"></a>Registro del servidor de ACR mediante la CLI
 Puede registrar hasta 20 servidores de ACR en el servicio FHIR.
 
-Instale la CLI de Healthcare API desde Azure PowerShell si es necesario:
+Instale la CLI de healthcare API desde Azure PowerShell si es necesario:
 
 ```powershell
 az extension add -n healthcareapis
@@ -163,8 +163,7 @@ az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.az
 
 Seleccione **Redes** de la cuenta de almacenamiento de Azure en el portal.
 
-   :::image type="content" source="media/convert-data/networking-container-registry.png" alt-text="Registro de contenedor.":::
-
+![configuración del firewall de ACR](media/convert-data/networking-container-registry.png)
 
 Seleccione **Redes seleccionadas**. 
 
@@ -199,6 +198,13 @@ En la tabla siguiente, encontrará la dirección IP de la región de Azure donde
 
 > [!NOTE]
 > Los pasos anteriores son similares a los pasos de configuración descritos en el documento Cómo exportar datos de FHIR. Para obtener más información, [vea Exportación segura a Azure Storage](./export-data.md#secure-export-to-azure-storage)
+
+Para un acceso de red privada (es decir, un vínculo privado), también puede deshabilitar el acceso a la red pública de ACR.
+* Seleccione la hoja Redes de la cuenta de Almacenamiento de Azure en el portal.
+* Seleccione `Disabled`.
+* Seleccione Firewall exception (Excepción de firewall): permita que los servicios Microsoft de confianza accedan a este registro de contenedor.
+
+![private link para ACR](media/convert-data/configure-private-network-container-registry.png)
 
 ### <a name="verify"></a>Comprobación
 

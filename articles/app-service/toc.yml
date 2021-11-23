@@ -385,7 +385,7 @@
         - name: Arquitecturas de referencia
           href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
         - name: Scripts de implementación
-          href: 'https://azure.microsoft.com/documentation/scripts/'
+          href: /azure/automation/automation-runbook-gallery
     - name: Solución de problemas
       items:
         - name: Solución de errores intermitentes en la conexión de salida
