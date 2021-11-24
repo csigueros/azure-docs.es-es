@@ -1,28 +1,28 @@
 ---
-title: Asignación de campos de datos a entidades de Azure Sentinel | Microsoft Docs
-description: Asigne campos de datos de tablas a entidades de Azure Sentinel en reglas de análisis para obtener una mejor información sobre los incidentes.
+title: Asignación de campos de datos a entidades de Microsoft Sentinel | Microsoft Docs
+description: Asigne campos de datos de tablas a entidades de Microsoft Sentinel en reglas de análisis para obtener una mejor información sobre los incidentes.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0e380676a99a74b9a9849322e8a1e611c14db2c1
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 48c08771fef5b18445d0a1b5268ea5ea2c535abf
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023070"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523436"
 ---
-# <a name="map-data-fields-to-entities-in-azure-sentinel"></a>Asignación de campos de datos a entidades en Azure Sentinel 
+# <a name="map-data-fields-to-entities-in-microsoft-sentinel"></a>Asignación de campos de datos a entidades en Microsoft Sentinel 
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -42,7 +42,7 @@ El procedimiento que se detalla a continuación forma parte del asistente para c
 
 ## <a name="how-to-map-entities"></a>Asignación de entidades
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Análisis**.
+1. En el menú de navegación de Microsoft Sentinel, seleccione **Análisis**.
 
 1. Seleccione una regla de consulta programada y haga clic en **Editar**. O bien, para crear una nueva regla, haga clic en **Crear > Regla de consulta programada** en la parte superior de la pantalla.
 
@@ -83,6 +83,6 @@ El procedimiento que se detalla a continuación forma parte del asistente para c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, ha aprendido cómo asignar campos de datos a entidades en las reglas de análisis de Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+En este documento, ha aprendido cómo asignar campos de datos a entidades en las reglas de análisis de Microsoft Sentinel. Para obtener más información sobre Microsoft Sentinel, consulte los siguientes artículos:
 - Obtenga una visión completa de las [reglas de análisis de consultas programadas](detect-threats-custom.md).
-- Obtenga más información sobre las [entidades en Azure Sentinel](entities-in-azure-sentinel.md).
+- Obtenga más información sobre las [entidades en Microsoft Sentinel](entities-in-azure-sentinel.md).

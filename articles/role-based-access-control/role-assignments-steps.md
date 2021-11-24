@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/14/2021
+ms.date: 11/12/2021
 ms.author: rolyon
-ms.openlocfilehash: 1f1b8f627a60a6e9f9b866ffb48324ecd146ffbe
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 19f7459debe48bfd689e0ccff93b7957bacd7d52
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129362080"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398371"
 ---
 # <a name="steps-to-assign-an-azure-role"></a>Pasos para asignar un rol de Azure
 
@@ -83,7 +83,9 @@ Si usa una entidad de servicio para asignar roles, puede obtener el error "No ti
 
 ## <a name="step-5-assign-role"></a>Paso 5. Asignación de un rol
 
-Una vez que conozca la entidad de seguridad, el rol y el ámbito, podrá asignar el rol. Puede asignar roles mediante Azure Portal, Azure PowerShell, la CLI de Azure, los SDK de Azure o las API REST. Puede tener hasta **2000** asignaciones de roles en cada suscripción. Este límite incluye las asignaciones de roles en los ámbitos de suscripción, grupo de recursos y recurso. Puede tener un máximo de **500** asignaciones de roles en cada grupo de administración.
+Una vez que conozca la entidad de seguridad, el rol y el ámbito, podrá asignar el rol. Puede asignar roles mediante Azure Portal, Azure PowerShell, la CLI de Azure, los SDK de Azure o las API REST.
+
+Puede tener hasta **2000** asignaciones de roles en cada suscripción. Este límite incluye las asignaciones de roles en los ámbitos de suscripción, grupo de recursos y recurso. Puede tener un máximo de **500** asignaciones de roles en cada grupo de administración. El límite de asignaciones de roles de una suscripción se está incrementando actualmente. Para más información, consulte [Solución de problemas de RBAC de Azure](troubleshooting.md#azure-role-assignments-limit).
 
 Consulte los artículos siguientes para conocer los pasos detallados sobre cómo asignar roles.
 

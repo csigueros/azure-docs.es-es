@@ -55,6 +55,8 @@ items:
             href: quickstarts/voice-video-calling/call-automation-api-sample.md
           - name: Registro de llamadas
             href: quickstarts/voice-video-calling/call-recording-sample.md
+          - name: Acceso a medios sin procesar
+            href: quickstarts/voice-video-calling/get-started-raw-media-access.md
       - name: Biblioteca de interfaz de usuario
         items:
           - name: Introducción a composición
@@ -99,7 +101,7 @@ items:
             href: concepts/analytics/insights.md
       - name: Eventos de servicio (EventGrid)
         items:
-          - name: Información general
+          - name: Introducción
             href: ../event-grid/event-schema-communication-services.md
             maintainContext: true
           - name: Eventos de chat

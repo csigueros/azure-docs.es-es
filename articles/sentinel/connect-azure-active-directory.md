@@ -1,29 +1,27 @@
 ---
-title: Conexión de datos de Azure Active Directory a Azure Sentinel | Microsoft Docs
-description: Aprenda a recopilar datos de Azure Active Directory, y a transmitir registros de inicio de sesión, auditoría y aprovisionamiento de Azure AD a Azure Sentinel.
+title: Conexión de datos de Azure Active Directory a Microsoft Sentinel | Microsoft Docs
+description: Obtenga información sobre cómo recopilar datos de Azure Active Directory y transmitir registros de inicio de sesión, auditoría y aprovisionamiento a Microsoft Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 0a8f4a58-e96a-4883-adf3-6b8b49208e6a
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/21/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 3d0c19fe728f42940502f2cab3496d999ecbb349
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 029fcc5d9df8ee16aa7727353763f0e4d12e2796
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131060732"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716132"
 ---
-# <a name="connect-azure-active-directory-azure-ad-data-to-azure-sentinel"></a>Conexión de datos de Azure Active Directory (Azure AD) a Azure Sentinel
+# <a name="connect-azure-active-directory-azure-ad-data-to-microsoft-sentinel"></a>Conexión de datos de Azure Active Directory (Azure AD) a Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -32,7 +30,7 @@ ms.locfileid: "131060732"
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-Puede usar el conector integrado de Azure Sentinel para recopilar datos de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) y transmitirlos a Azure Sentinel. El conector permite transmitir los siguientes tipos de registro:
+Puede usar el conector integrado de Microsoft Sentinel para recopilar datos de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) y transmitirlos a la solución. El conector permite transmitir los siguientes tipos de registro:
 
 - [**Registros de inicio de sesión**](../active-directory/reports-monitoring/concept-all-sign-ins.md), que contienen información sobre inicios de sesión de usuario interactivos, donde un usuario proporciona un factor de autenticación.
 
@@ -51,9 +49,9 @@ Puede usar el conector integrado de Azure Sentinel para recopilar datos de [Azu
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Se necesita una licencia de Azure Active Directory P1 o P2 para ingerir registros de inicio de sesión en Azure Sentinel. Cualquier licencia de Azure AD (gratuita/O365/P1/P2) es suficiente para ingerir los otros tipos de registro. Se pueden aplicar cargos adicionales por gigabyte para Azure Monitor (Log Analytics) y Azure Sentinel.
+- Se necesita una licencia de Azure Active Directory P1 o P2 para ingerir registros de inicio de sesión en Microsoft Sentinel. Cualquier licencia de Azure AD (gratuita/O365/P1/P2) es suficiente para ingerir los otros tipos de registro. Se pueden aplicar cargos adicionales por gigabyte en el caso de Azure Monitor (Log Analytics) y Microsoft Sentinel.
 
-- El usuario debe tener asignado el rol Colaborador de Azure Sentinel en el área de trabajo.
+- Su usuario debe tener asignado el rol "Colaborador de Microsoft Sentinel" en el área de trabajo.
 
 - El usuario debe tener asignados los roles Administrador global o Administrador de seguridad en el inquilino desde el que quiere transmitir los registros.
 
@@ -61,11 +59,11 @@ Puede usar el conector integrado de Azure Sentinel para recopilar datos de [Azu
 
 ## <a name="connect-to-azure-active-directory"></a>Conectarse a Azure Active Directory
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Conectores de datos**.
+1. En Microsoft Sentinel, seleccione **Conectores de datos** en el menú de navegación.
 
 1. En la galería de conectores de datos, seleccione **Azure Active Directory** y luego **Open connector page** (Abrir página del conector).
 
-1. Active las casillas que se encuentran junto a los tipos de registros que quiere transmitir a Azure Sentinel (ver anteriormente) y seleccione **Conectar**.
+1. Active las casillas situadas junto a los tipos de registros que quiera transmitir a Microsoft Sentinel (véase anteriormente) y seleccione **Conectar**.
 
 ## <a name="find-your-data"></a>Búsqueda de sus datos
 
@@ -81,6 +79,6 @@ Una vez establecida una conexión correcta, los datos aparecen en **Registros**,
 Para consultar los registros de Azure AD, escriba el nombre de tabla correspondiente en la parte superior de la ventana de consulta.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, aprendió a conectar Azure Active Directory a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+En este documento ha aprendido a conectar Azure Active Directory a Microsoft Sentinel. Para obtener más información sobre Microsoft Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- Empiece a [detectar amenazas con Microsoft Sentinel](detect-threats-built-in.md).

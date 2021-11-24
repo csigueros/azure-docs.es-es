@@ -1,21 +1,23 @@
 ---
-title: Capacidades de búsqueda en Azure Sentinel| Microsoft Docs
-description: Use las consultas de búsqueda integradas de Azure Sentinel a modo de guía para formular las preguntas adecuadas que lleven a detectar problemas en los datos.
+title: Capacidades de búsqueda en Microsoft Sentinel| Microsoft Docs
+description: Use las consultas de búsqueda integradas de Microsoft Sentinel a modo de guía para formular las preguntas adecuadas que lleven a detectar problemas en los datos.
+services: sentinel
+documentationcenter: na
 author: yelevin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
-ms.date: 11/02/2021
+ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 88c0b2919b680feb7776e9de63566ad70d885dee
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 6e1308b039cc86bbe10fc062138ab76c486ad29a
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131475332"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518629"
 ---
-# <a name="hunt-for-threats-with-azure-sentinel"></a>Búsqueda de amenazas con Azure Sentinel
+# <a name="hunt-for-threats-with-microsoft-sentinel"></a>Búsqueda de amenazas con Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -26,7 +28,7 @@ ms.locfileid: "131475332"
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-Tanto los analistas como los investigadores de seguridad, quieren buscar amenazas de seguridad de forma proactiva, pero los distintos sistemas y dispositivos de seguridad generan gran cantidad de datos que pueden ser difíciles de analizar y filtrar para convertirlos en eventos significativos. Azure Sentinel tiene eficaces herramientas de búsqueda y consulta que permiten buscar amenazas de seguridad en los orígenes de datos de cualquier organización. Para ayudar a los analistas de seguridad a buscar proactivamente nuevas anomalías que ni las aplicaciones de seguridad ni las reglas de análisis programadas han sido capaces de identificar, las consultas de búsqueda integradas de Azure Sentinel servirán de guía para formular las preguntas adecuadas para detectar problemas en los datos que ya hay en la red. 
+Tanto los analistas como los investigadores de seguridad, quieren buscar amenazas de seguridad de forma proactiva, pero los distintos sistemas y dispositivos de seguridad generan gran cantidad de datos que pueden ser difíciles de analizar y filtrar para convertirlos en eventos significativos. Microsoft Sentinel tiene eficaces herramientas de búsqueda y consulta que permiten buscar amenazas de seguridad en los orígenes de datos de cualquier organización. Para ayudar a los analistas de seguridad a buscar proactivamente nuevas anomalías que ni las aplicaciones de seguridad ni las reglas de análisis programadas han sido capaces de identificar, las consultas de búsqueda integradas de Microsoft Sentinel servirán de guía para formular las preguntas adecuadas para detectar problemas en los datos que ya hay en la red.
 
 Por ejemplo, una consulta integrada proporciona datos sobre los procesos menos habituales que se ejecutan en la infraestructura. No desea recibir una alerta cada vez que se ejecuten (pueden ser totalmente inofensivos), pero puede echar un vistazo a la consulta de vez en cuando para ver si hay algo inusual.
 
@@ -46,26 +48,25 @@ Use consultas antes, durante y después de un ataque para realizar las acciones 
 
 - **Después de un ataque**: después de que se haya producido un ataque o un incidente, asegúrese de mejorar la cobertura y la información para evitar incidentes similares en el futuro.
 
-    - Modifique las consultas existentes o cree otras para ayudar con la detección temprana, en función de las conclusiones que haya obtenido del ataque o incidente.
+  - Modifique las consultas existentes o cree otras para ayudar con la detección temprana, en función de las conclusiones que haya obtenido del ataque o incidente.
 
-    - Si ha detectado o creado una consulta de búsqueda que proporciona conclusiones muy valiosas sobre posibles ataques, cree reglas de detección personalizadas en función de esa consulta y exponga esas conclusiones como alertas para los elementos de respuesta a los incidentes de seguridad.
+  - Si ha detectado o creado una consulta de búsqueda que proporciona conclusiones muy valiosas sobre posibles ataques, cree reglas de detección personalizadas en función de esa consulta y exponga esas conclusiones como alertas para los elementos de respuesta a los incidentes de seguridad.
 
-        Vea los resultados de la consulta y seleccione **Nueva regla de alertas** > **Crear una alerta de Azure Sentinel**. Use el **asistente para reglas de análisis** para crear una regla en función de la consulta. Para obtener más información, vea [Creación de reglas de análisis personalizadas para detectar amenazas](detect-threats-custom.md).
-
+    Vea los resultados de la consulta y seleccione **Nueva regla de alertas** > **Crear una alerta de Microsoft Sentinel**. Use el **asistente para reglas de análisis** para crear una regla en función de la consulta. Para obtener más información, vea [Creación de reglas de análisis personalizadas para detectar amenazas](detect-threats-custom.md).
 
 > [!TIP]
+>
 > - Ahora en versión preliminar pública, también puede crear consultas de búsqueda y Live Stream sobre los datos almacenados en Azure Data Explorer. Para obtener más información, vea los detalles de la [creación de consultas entre recursos](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md) en la documentación de Azure Monitor.
 >
-> - Use recursos de la comunidad, como el [repositorio de Azure Sentinel en GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries) para buscar consultas y orígenes de datos adicionales.
->
+> - Use recursos de la comunidad, como el [repositorio de Microsoft Sentinel en GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries) para buscar consultas y orígenes de datos adicionales.
 
 ## <a name="use-the-hunting-dashboard"></a>Uso del panel de búsqueda
 
-El panel de búsqueda le permite ejecutar todas las consultas, o un subconjunto concreto, en una sola selección. En el portal de Azure Sentinel, seleccione **Hunting** (Búsqueda).
+El panel de búsqueda le permite ejecutar todas las consultas, o un subconjunto concreto, en una sola selección. En el portal de Microsoft Sentinel, seleccione **Hunting** (Búsqueda).
 
 En la tabla se muestran todas las consultas escritas por el equipo de analistas de seguridad de Microsoft, y otras consultas adicionales que haya creado o modificado. En cada consulta se proporciona una descripción de lo que se busca y en qué tipo de datos se ejecuta. Estas consultas se agrupan por sus **tácticas** de tipo MITRE ATT&CK. Los iconos de la derecha clasifican el tipo de amenaza, como el acceso inicial, la persistencia y la filtración. Las **técnicas** MITRE ATT&CK se muestran en la columna **Técnicas** y describen el comportamiento específico identificado por la consulta de búsqueda.
 
-:::image type="content" source="media/hunting/hunting-start.png" alt-text="Azure Sentinel empieza a buscar" lightbox="media/hunting/hunting-start.png":::
+:::image type="content" source="media/hunting/hunting-start.png" alt-text="Microsoft Sentinel empieza a buscar" lightbox="media/hunting/hunting-start.png":::
 
 Use el panel de búsqueda para identificar dónde empezar la búsqueda. Para ello, examine el recuento de resultados, los picos o el cambio en el recuento de resultados en un período de 24 horas. Puede ordenar y filtrar por favoritos, origen de datos, táctica o técnica MITRE ATT&CK, resultados, delta de resultados o porcentaje delta de resultados. Vea las consultas que todavía necesitan orígenes de datos conectados** y obtenga recomendaciones sobre cómo habilitarlas.
 
@@ -83,7 +84,6 @@ En la tabla siguiente se describen las acciones detalladas disponibles en el pan
 | **Revisión de una consulta subyacente**                     | Realice una revisión rápida de la consulta subyacente en el panel de detalles de la consulta. Para ver los resultados, haga clic en el vínculo **View query results** (Ver resultados de la consulta) (debajo de la ventana de consulta) o en el botón **View Results** (Ver resultados) (en la parte inferior del panel). La consulta se abrirá en la hoja **Logs** (Registros) (Log Analytics) y, debajo de la consulta, puede revisar las coincidencias de la consulta.         |
 |     |         |
 
-
 ## <a name="create-a-custom-hunting-query"></a>Creación de una consulta de búsqueda personalizada
 
 Cree o modifique una consulta, y guárdela como consulta propia o compártala con los usuarios que están en el mismo inquilino.
@@ -97,7 +97,7 @@ Cree o modifique una consulta, y guárdela como consulta propia o compártala co
 1. Rellene todos los campos en blanco y seleccione **Create** (Crear).
 
     1. **(Versión preliminar)** Cree asignaciones de entidades seleccionando tipos de entidad, identificadores y columnas.
-    
+
         :::image type="content" source="media/hunting/map-entity-types-hunting.png" alt-text="Captura de pantalla para asignar tipos de entidades en las consultas de búsqueda.":::
 
     1. **(Versión preliminar)** Asigne las técnicas MITRE ATT&CK a las consultas de búsqueda seleccionando la táctica, la técnica y la subtécnica (si procede).
@@ -136,15 +136,14 @@ Durante el proceso de búsqueda e investigación, es posible que encuentre resul
 
 - En los resultados, marque las casillas de las filas que quiera conservar y seleccione **Add bookmark** (Agregar marcador). Esto crea un registro para cada fila marcada (un marcador) que contiene los resultados de la fila, así como la consulta que creó los resultados. Puede agregar etiquetas y notas propias a cada marcador.
 
-    - **(Versión preliminar)** Igual que sucede con las consultas personalizadas, puede enriquecer los marcadores con asignaciones de entidades para extraer varios tipos de entidades e identificadores, y asignaciones de MITRE ATT&CK para asociar tácticas y técnicas concretas.
-    - **(Versión preliminar)** Los marcadores usarán de forma predeterminada la misma entidad y las asignaciones de técnicas MITRE ATT&CK que la consulta de búsqueda que produjo los resultados marcados. 
+  - **(Versión preliminar)** Igual que sucede con las consultas personalizadas, puede enriquecer los marcadores con asignaciones de entidades para extraer varios tipos de entidades e identificadores, y asignaciones de MITRE ATT&CK para asociar tácticas y técnicas concretas.
+  - **(Versión preliminar)** Los marcadores usarán de forma predeterminada la misma entidad y las asignaciones de técnicas MITRE ATT&CK que la consulta de búsqueda que produjo los resultados marcados. 
 
 - Para ver todos los resultados añadidos como marcadores, haga clic en la pestaña **Bookmarks** (Marcadores) de la página principal de **Hunting** (Búsqueda). Agregue etiquetas a los marcadores a fin de clasificarlos para el filtrado. Por ejemplo, si va a investigar una campaña de ataques, puede crear una etiqueta para la campaña, aplicar la etiqueta a todos los marcadores pertinentes y, después, filtrar todos los marcadores por esa campaña.
 
 - Para investigar un único resultado incluido en los marcadores, seleccione el marcador y, después, haga clic en **Investigate** (Investigar) en el panel de detalles para abrir la experiencia de investigación. También puede seleccionar directamente una entidad de la lista para ver la página de entidad correspondiente a esa entidad.
 
     También puede crear un incidente a partir de uno o varios marcadores, o bien agregar uno o varios marcadores a un incidente existente. Active una casilla situada a la izquierda de los marcadores que quiera usar y, después, seleccione **Incident actions** > **Create new incident** (Acciones de incidente > Crear incidente), o bien **Add to existing incident** (Agregar a incidente existente). Realice una evaluación de prioridades del incidente e investíguelo como cualquier otro.
-
 
 > [!TIP]
 > Los marcadores representan eventos clave que son importantes y deben escalarse a incidentes si son lo suficientemente graves como para justificar una investigación. Los eventos como las posibles causas principales, los indicadores de riesgo u otros eventos importantes se deben generar como marcadores.
@@ -154,11 +153,11 @@ Para obtener más información, vea [Uso de marcadores de búsqueda](bookmarks.m
 
 ## <a name="use-notebooks-to-power-investigations"></a>Uso de cuadernos como tecnología de las investigaciones
 
-Cuando la búsqueda y las investigaciones se vuelvan más complejas, use cuadernos de Azure Sentinel para mejorar su actividad con aprendizaje automático, visualizaciones y análisis de datos.
+Cuando la búsqueda y las investigaciones se vuelvan más complejas, use cuadernos de Microsoft Sentinel para mejorar su actividad con aprendizaje automático, visualizaciones y análisis de datos.
 
 Los cuadernos se asemejan a un espacio aislado virtual, con su propio kernel, donde puede llevar a cabo una investigación completa. El cuaderno puede incluir los datos sin procesar, el código que se ejecuta en dichos datos, los resultados y sus visualizaciones. Guarde los cuadernos para que pueda compartirlos con otros usuarios con el fin de reutilizarlos en su organización.
 
-Los cuadernos pueden ser útiles cuando la búsqueda o la investigación adquieran un volumen demasiado grande como para recordarlas fácilmente, para ver detalles, o bien si necesita guardar consultas y resultados. Para ayudarle a crear y compartir cuadernos, Azure Sentinel proporciona [Jupyter Notebook](https://jupyter.org), un entorno de desarrollo interactivo y manipulación de datos de código abierto, integrado directamente en la página **Notebooks** de Azure Sentinel.
+Los cuadernos pueden ser útiles cuando la búsqueda o la investigación adquieran un volumen demasiado grande como para recordarlas fácilmente, para ver detalles, o bien si necesita guardar consultas y resultados. Para ayudarle a crear y compartir cuadernos, Microsoft Sentinel proporciona [Jupyter Notebook](https://jupyter.org), un entorno de desarrollo interactivo y manipulación de datos de código abierto, integrado directamente en la página **Notebooks** de Microsoft Sentinel.
 
 Para más información, consulte:
 
@@ -168,13 +167,13 @@ Para más información, consulte:
 - [Infosec Jupyter Book](https://infosecjupyterbook.com)
 - [Tutoriales de Real Python](https://realpython.com)
 
-En la siguiente tabla se describen varios métodos de uso de cuadernos de Jupyter Notebook para ayudarle con sus procesos en Azure Sentinel:
+En la siguiente tabla se describen varios métodos de uso de cuadernos de Jupyter Notebook para ayudarle con sus procesos en Microsoft Sentinel:
 
 |Método  |Descripción  |
 |---------|---------|
 |**Persistencia de datos, repetibilidad y vuelta atrás (backtracking)**     |  Si trabaja con muchas consultas y conjuntos de resultados, es probable que tenga puntos muertos. Tendrá que decidir qué consultas y resultados conservar y cómo acumular los resultados útiles en un único informe. <br><br> Use cuadernos de Jupyter Notebook para guardar consultas y datos sobre la marcha, use variables para volver a ejecutar consultas con diferentes valores o fechas, o guarde las consultas para volver a ejecutarlas en futuras investigaciones.       |
 |**Scripting y programación**     |    Use cuadernos de Jupyter Notebook para agregar programación a sus consultas, lo que incluye: <br><br>- Lenguajes *declarativos*, como el [lenguaje de consulta Kusto (KQL)](/azure/kusto/query/) o SQL, para codificar su lógica en una sola instrucción, posiblemente compleja.<br>- Lenguajes de programación de *procedimientos*, para ejecutar una lógica en una serie de pasos. <br><br>Dividir la lógica en pasos puede ayudarle a ver y depurar resultados intermedios, agregar una funcionalidad que podría no estar disponible en el lenguaje de consulta y reutilizar resultados parciales en pasos de procesamiento posteriores.     |
-|**Vínculos a datos externos**     | Aunque las tablas de Azure Sentinel son las que tienen más datos de eventos y telemetría, los cuadernos de Jupyter Notebook pueden vincularse a datos que estén accesibles a través de su red o desde un archivo. Usando cuadernos de Jupyter Notebook, puede incluir datos como los siguientes: <br><br>- Datos de servicios externos que no posee, como datos de geolocalización u orígenes de inteligencia sobre amenazas<br>- Datos confidenciales que solo se almacenen en el seno de su organización, como bases de datos de recursos humanos o listas de recursos de gran valor<br>- Datos que aún no haya migrado a la nube        |
+|**Vínculos a datos externos**     | Aunque las tablas de Microsoft Sentinel son las que tienen más datos de eventos y telemetría, los cuadernos de Jupyter Notebook pueden vincularse a datos que estén accesibles a través de su red o desde un archivo. Usando cuadernos de Jupyter Notebook, puede incluir datos como los siguientes: <br><br>- Datos de servicios externos que no posee, como datos de geolocalización u orígenes de inteligencia sobre amenazas<br>- Datos confidenciales que solo se almacenen en el seno de su organización, como bases de datos de recursos humanos o listas de recursos de gran valor<br>- Datos que aún no haya migrado a la nube        |
 |**Herramientas especializadas de procesamiento de datos, aprendizaje automático y visualización**     | Los cuadernos de Jupyter Notebook proporcionan visualizaciones adicionales, bibliotecas de aprendizaje automático y características de procesamiento y transformación de datos. <br><br>Por ejemplo, use cuadernos de Jupyter Notebook con las siguientes funcionalidades de [Python](https://python.org):<br>- [Pandas](https://pandas.pydata.org/) para procesamiento de datos, limpieza e ingeniería<br>- [Matplotlib](https://matplotlib.org), [HoloViews](https://holoviews.org) y [Plotly](https://plot.ly) para visualización<br>- [NumPy](https://www.numpy.org) y [SciPy](https://www.scipy.org) para procesamiento numérico y científico avanzado<br>- [scikit-learn](https://scikit-learn.org/stable/index.html) para aprendizaje automático<br>- [TensorFlow](https://www.tensorflow.org/), [PyTorch](https://pytorch.org) y [Keras](https://keras.io/) para aprendizaje profundo<br><br>**Sugerencia:** Los cuadernos de Jupyter Notebook admiten varios kernels de lenguaje. Use *magics* para mezclar lenguajes dentro del mismo cuaderno, permitiendo la ejecución de celdas individuales mediante otro lenguaje. Por ejemplo, puede recuperar datos mediante una celda de script de PowerShell, procesar los datos en Python y usar JavaScript para representar una visualización.        |
 |     |         |
 
@@ -182,7 +181,7 @@ En la siguiente tabla se describen varios métodos de uso de cuadernos de Jupyte
 
 [Microsoft Threat Intelligence Center (MSTIC)](https://msrc-blog.microsoft.com/tag/mstic/) es un equipo de ingenieros y analistas de seguridad de Microsoft que realizan detecciones de seguridad para varias plataformas de Microsoft y trabajan en la identificación e investigación de amenazas.
 
-MSTIC ha creado [MSTICPy](https://github.com/Microsoft/msticpy), una biblioteca para investigaciones de seguridad de la información y búsqueda en cuadernos de Jupyter Notebook. MSTICPy proporciona una funcionalidad reutilizable que pretende agilizar la creación de cuadernos y que facilita la lectura de cuadernos en Azure Sentinel por parte de los usuarios.
+MSTIC ha creado [MSTICPy](https://github.com/Microsoft/msticpy), una biblioteca para investigaciones de seguridad de la información y búsqueda en cuadernos de Jupyter Notebook. MSTICPy proporciona una funcionalidad reutilizable que pretende agilizar la creación de cuadernos y que facilita la lectura de cuadernos en Microsoft Sentinel por parte de los usuarios.
 
 Por ejemplo, MSTICPy puede hacer lo siguiente:
 
@@ -197,17 +196,16 @@ MSTICPy también incluye varias herramientas de cuadernos que ahorran tiempo, co
 Para más información, consulte:
 
 - [Documentación de MSTICPy](https://msticpy.readthedocs.io/en/latest/)
-- [Tutorial: Introducción a los cuadernos de Jupyter Notebook y MSTICPy en Azure Sentinel](notebook-get-started.md)
-- [Configuraciones avanzadas para cuadernos de Jupyter Notebook y MSTICPy en Azure Sentinel](notebooks-msticpy-advanced.md)
-
+- [Tutorial: Introducción a Jupyter Notebook y MSTICPy en Microsoft Sentinel](notebook-get-started.md)
+- [Configuraciones avanzadas para cuadernos de Jupyter Notebook y MSTICPy en Microsoft Sentinel](notebooks-msticpy-advanced.md)
 
 ## <a name="useful-operators-and-functions"></a>Operadores y funciones útiles
 
 Las consultas de búsqueda se crean en el [lenguaje de consulta Kusto (KQL)](/azure/data-explorer/kusto/query/), un lenguaje de consulta eficaz con IntelliSense que proporciona la eficacia y flexibilidad necesarias para llevar la búsqueda a un nuevo nivel.
 
-Es el mismo lenguaje que usan las consultas en las reglas de análisis y en otros lugares de Azure Sentinel. Para obtener más información, vea [Referencia de lenguaje de consulta](../azure-monitor/logs/get-started-queries.md).
+Es el mismo lenguaje que usan las consultas en las reglas de análisis y en otros lugares de Microsoft Sentinel. Para obtener más información, vea [Referencia de lenguaje de consulta](../azure-monitor/logs/get-started-queries.md).
 
-Los operadores siguientes son especialmente útiles en las consultas de búsqueda de Azure Sentinel:
+Los operadores siguientes son especialmente útiles en las consultas de búsqueda de Microsoft Sentinel:
 
 - **where**: filtra una tabla por el subconjunto de filas que cumplen un predicado.
 
@@ -229,11 +227,11 @@ Los operadores siguientes son especialmente útiles en las consultas de búsqued
 
 - **find**: busca filas que coinciden con un predicado a través de un conjunto de tablas.
 
-- **adx() (versión preliminar)** : esta función ejecuta consultas entre recursos de orígenes de datos de Azure Data Explorer desde la experiencia de búsqueda de Azure Sentinel y Log Analytics. Para obtener más información, consulte [Consulta entre recursos en Azure Data Explorer mediante Azure Monitor](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md).
+- **adx() (versión preliminar)** : esta función ejecuta consultas entre recursos de orígenes de datos de Azure Data Explorer desde la experiencia de búsqueda de Microsoft Sentinel y Log Analytics. Para obtener más información, consulte [Consulta entre recursos en Azure Data Explorer mediante Azure Monitor](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a realizar una investigación de búsqueda en Azure Sentinel. 
+En este artículo, ha aprendido a realizar una investigación de búsqueda en Microsoft Sentinel.
 
 Para más información, consulte:
 

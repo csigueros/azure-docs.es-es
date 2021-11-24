@@ -1,33 +1,31 @@
 ---
-title: Protección de la propiedad intelectual del proveedor de servicios de seguridad administrada (MSSP) en Azure Sentinel | Microsoft Docs
-description: Obtenga información sobre cómo pueden proteger los proveedores de servicios de seguridad administrada (MSSP) la propiedad intelectual que han creado en Azure Sentinel.
+title: Protección de la propiedad intelectual del proveedor de servicios de seguridad administrada (MSSP) en Microsoft Sentinel | Microsoft Docs
+description: Obtenga información sobre cómo pueden proteger los proveedores de servicios de seguridad administrada (MSSP) la propiedad intelectual que han creado en Microsoft Sentinel.
 services: sentinel
 documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
 ms.assetid: 10cce91a-421b-4959-acdf-7177d261f6f2
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2021
+ms.date: 11/09/2021
 ms.author: bagol
-ms.openlocfilehash: b21bb010755e8f618cba2ae40db14d12aa3b28df
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a0e2874782432c707aabc571ed77370b512e2dbf
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023032"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132713124"
 ---
-# <a name="protecting-mssp-intellectual-property-in-azure-sentinel"></a>Protección de la propiedad intelectual del MSSP en Azure Sentinel
+# <a name="protecting-mssp-intellectual-property-in-microsoft-sentinel"></a>Protección de la propiedad intelectual del MSSP en Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-En este artículo se describen los métodos que pueden usar los proveedores de servicios de seguridad administrada (MSSP) para proteger la propiedad intelectual que han desarrollado en Azure Sentinel, como reglas de análisis de Azure Sentinel, consultas de búsqueda, cuadernos de estrategias y libros.
+En este artículo se describen los métodos que pueden usar los proveedores de servicios de seguridad administrada (MSSP) para proteger la propiedad intelectual que han desarrollado en Microsoft Sentinel, como reglas de análisis de Microsoft Sentinel, consultas de búsqueda, cuadernos de estrategias y libros.
 
 El método que elija dependerá de cómo compre los servicios de Azure cada uno de sus clientes; tanto si actúa como proveedor de soluciones en la nube [(CSP)](#cloud-solutions-providers-csp) como si el cliente tiene una cuenta de [Contrato Enterprise (EA) o Pago por uso (PAYG)](#enterprise-agreements-ea--pay-as-you-go-payg). En las secciones siguientes se describe cada uno de estos métodos por separado.
 
@@ -41,21 +39,21 @@ Si necesita proporcionar a los usuarios del cliente acceso al entorno de Azure, 
 
 Por ejemplo:
 
-- Puede conceder al cliente acceso a varios grupos de recursos donde se encuentran sus aplicaciones, pero mantener el área de trabajo de Azure Sentinel en un grupo de recursos independiente al que el cliente no tenga acceso.
+- Puede conceder al cliente acceso a varios grupos de recursos donde se encuentran sus aplicaciones y, al mismo tiempo, mantener el área de trabajo de Microsoft Sentinel en un grupo de recursos independiente al que el cliente no tenga acceso.
 
 - Use este método para permitir que los clientes puedan ver libros y cuadernos de estrategias seleccionados, que son recursos independientes que pueden residir en su propio grupo de recursos.
 
-Incluso con la concesión de acceso en el nivel de grupo de recursos, los clientes seguirán teniendo acceso a los datos de registro de los recursos a los que pueden acceder, como los registros de una máquina virtual, incluso sin acceso a Azure Sentinel. Para más información, consulte [Administración del acceso a los datos de Azure Sentinel por recurso](resource-context-rbac.md).
+Incluso con la concesión de acceso en el nivel de grupo de recursos, los clientes seguirán teniendo acceso a los datos de registro de los recursos a los que pueden acceder, como los registros de una máquina virtual, incluso sin acceso a Microsoft Sentinel. Para más información, consulte [Administración del acceso a los datos de Microsoft Sentinel por recurso](resource-context-rbac.md).
 
 > [!TIP]
 > Si necesita proporcionar a los clientes acceso a toda la suscripción, es posible que quiera ver las instrucciones que se describen en [Contrato Enterprise (EA) y Pago por uso (PAYG)](#enterprise-agreements-ea--pay-as-you-go-payg).
 >
 
-### <a name="sample-azure-sentinel-csp-architecture"></a>Arquitectura de ejemplo del CSP para Azure Sentinel
+### <a name="sample-microsoft-sentinel-csp-architecture"></a>Arquitectura de ejemplo de CSP de Microsoft Sentinel
 
 En la imagen siguiente se describe cómo podrían funcionar los permisos descritos en la [sección anterior](#cloud-solutions-providers-csp) al proporcionar acceso a los clientes del CSP:
 
-:::image type="content" source="media/mssp-protect-intellectual-property/csp-customers.png" alt-text="Protección de la propiedad intelectual de Azure Sentinel con los clientes del CSP.":::
+:::image type="content" source="media/mssp-protect-intellectual-property/csp-customers.png" alt-text="Protección de la propiedad intelectual de Microsoft Sentinel con los clientes del CSP.":::
 
 En esta imagen:
 
@@ -63,7 +61,7 @@ En esta imagen:
 - Otros grupos del MSSP obtienen acceso al entorno del cliente mediante Azure Lighthouse.
 - RBAC de Azure administra el acceso de los clientes a los recursos de Azure en el nivel de grupo de recursos.
 
-    Esto permite a los MSSP ocultar componentes de Azure Sentinel según sea necesario, como las reglas de análisis y las consultas de búsqueda.
+    Esto permite a los MSSP ocultar componentes de Microsoft Sentinel según sea necesario, como las reglas de análisis y las consultas de búsqueda.
 
 Para más información, consulte también [Azure Lighthouse y el programa Proveedor de soluciones en la nube](../lighthouse/concepts/cloud-solution-provider.md).
 
@@ -71,15 +69,15 @@ Para más información, consulte también [Azure Lighthouse y el programa Provee
 
 Si el cliente compra directamente a Microsoft, el cliente ya tiene acceso total al entorno de Azure y no puede ocultar nada que esté en la suscripción de Azure del cliente.
 
-En su lugar, proteja la propiedad intelectual que ha desarrollado en Azure Sentinel como se muestra a continuación, en función del tipo de recurso que necesite proteger:
+En su lugar, proteja la propiedad intelectual que ha desarrollado en Microsoft Sentinel como se muestra a continuación, en función del tipo de recurso que necesite proteger:
 
 ### <a name="analytics-rules-and-hunting-queries"></a>Reglas de análisis y consultas de búsqueda
 
-Las reglas de análisis y las consultas de búsqueda están contenidas en Azure Sentinel y, por tanto, no se pueden separar del área de trabajo de Azure Sentinel.
+Las reglas de análisis y las consultas de búsqueda están contenidas en Microsoft Sentinel y, por tanto, no se pueden separar del área de trabajo de Microsoft Sentinel.
 
-Incluso si un usuario solo tiene permisos de lector de Azure Sentinel, todavía podrá ver la consulta. En este caso, se recomienda hospedar las reglas de análisis y las consultas de búsqueda en el propio inquilino del MSSP, en lugar del inquilino del cliente.
+Incluso si un usuario solo tiene permisos de lector de Microsoft Sentinel, todavía podrá ver la consulta. En este caso, se recomienda hospedar las reglas de análisis y las consultas de búsqueda en el propio inquilino del MSSP, en lugar del inquilino del cliente.
 
-Para ello, necesitará un área de trabajo en su propio inquilino con Azure Sentinel habilitado y también necesitará ver el área de trabajo del cliente mediante [Azure Lighthouse](multiple-tenants-service-providers.md).
+Para ello, necesitará un área de trabajo en su propio inquilino con Microsoft Sentinel habilitado y también necesitará ver el área de trabajo del cliente mediante [Azure Lighthouse](multiple-tenants-service-providers.md).
 
 Para crear una regla de análisis o una consulta de búsqueda en el inquilino del MSSP que haga referencia a los datos del inquilino del cliente, debe usar la instrucción `workspace` de la siguiente manera:
 
@@ -94,7 +92,7 @@ Al agregar una instrucción `workspace` a las reglas de análisis, tenga en cuen
 
 - **Cree alertas independientes para cada cliente.** Al usar este método, también se recomienda usar reglas de alertas independientes para cada cliente y detección, ya que la instrucción workspace será diferente en cada caso.
 
-    Puede agregar el nombre del cliente al nombre de la regla de alertas para identificar fácilmente el cliente en el que se desencadena la alerta. Las alertas independientes pueden dar lugar a un gran número de reglas, que es posible que desee administrar mediante scripting o mediante [Azure Sentinel como código](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928).
+    Puede agregar el nombre del cliente al nombre de la regla de alertas para identificar fácilmente el cliente en el que se desencadena la alerta. Las alertas independientes pueden dar lugar a un gran número de reglas, que es posible que desee administrar mediante scripting o mediante [Microsoft Sentinel como código](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928).
 
     Por ejemplo:
 
@@ -114,7 +112,7 @@ Al agregar una instrucción `workspace` a las reglas de análisis, tenga en cuen
 
 ### <a name="workbooks"></a>Libros
 
-Si ha desarrollado un libro de Azure Sentinel que no desea que el cliente copie, hospede el libro en el inquilino del MSSP. Asegúrese de que tiene acceso a las áreas de trabajo del cliente mediante Azure Lighthouse y, a continuación, asegúrese de modificar el libro para usar esas áreas de trabajo del cliente.
+Si ha desarrollado un libro de Microsoft Sentinel que no desea que el cliente copie, hospede el libro en el inquilino del MSSP. Asegúrese de que tiene acceso a las áreas de trabajo del cliente mediante Azure Lighthouse y, a continuación, asegúrese de modificar el libro para usar esas áreas de trabajo del cliente.
 
 Por ejemplo:
 
@@ -160,8 +158,8 @@ Sin embargo, si el cuaderno de estrategias necesita acceder a recursos que no so
 
 Para más información, consulte:
 
-- [Cuaderno de estrategias técnico de Azure Sentinel para los MSSP](https://cloudpartners.transform.microsoft.com/download?assetname=assets/Azure-Sentinel-Technical-Playbook-for-MSSPs.pdf&download=1)
-- [Administración de varios inquilinos en Azure Sentinel como un MSSP](multiple-tenants-service-providers.md)
-- [Extender Azure Sentinel por áreas de trabajo e inquilinos](extend-sentinel-across-workspaces-tenants.md)
+- [Cuaderno de estrategias técnico de Microsoft Sentinel para los MSSP](https://cloudpartners.transform.microsoft.com/download?assetname=assets/Azure-Sentinel-Technical-Playbook-for-MSSPs.pdf&download=1)
+- [Administración de varios inquilinos en Microsoft Sentinel como un MSSP](multiple-tenants-service-providers.md)
+- [Extensión de Microsoft Azure Sentinel entre áreas de trabajo e inquilinos](extend-sentinel-across-workspaces-tenants.md)
 - [Visualizar y supervisar los datos](monitor-your-data.md)
-- [Tutorial: Configuración de respuestas automatizadas frente a amenazas en Azure Sentinel](tutorial-respond-threats-playbook.md)
+- [Tutorial: Configuración de respuestas automatizadas frente a amenazas en Microsoft Sentinel](tutorial-respond-threats-playbook.md)

@@ -1,28 +1,26 @@
 ---
-title: Uso de anomalías de SOC-ML para detectar amenazas en Azure Sentinel | Microsoft Docs
-description: En este artículo se explica cómo usar las nuevas funcionalidades de detección de anomalías de SOC-ML en Azure Sentinel.
+title: Uso de anomalías de SOC-ML para detectar amenazas en Microsoft Sentinel | Microsoft Docs
+description: En este artículo se explica cómo usar las nuevas funcionalidades de detección de anomalías de SOC-ML en Microsoft Sentinel.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/28/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: daa21e4c0caf27f87f3143dacc1d22ac0a5c0f57
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: de25a8a32a2b2b1182acd4ef2a68834cb4b4c190
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131064057"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711446"
 ---
-# <a name="use-soc-ml-anomalies-to-detect-threats-in-azure-sentinel"></a>Uso de anomalías de SOC-ML para detectar amenazas en Azure Sentinel
+# <a name="use-soc-ml-anomalies-to-detect-threats-in-microsoft-sentinel"></a>Uso de anomalías de SOC-ML para detectar amenazas en Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -32,7 +30,7 @@ ms.locfileid: "131064057"
 
 ## <a name="what-are-soc-ml-anomalies"></a>¿Qué son las anomalías de SOC-ML?
 
-En el campo de juego de la ciberseguridad se libra una batalla permanente entre atacantes y defensores por tomar ventaja, donde los atacantes siempre encuentran maneras de evadir la detección. Sin embargo, es inevitable que los ataques provoquen un comportamiento inusual en los sistemas atacados. Las anomalías basadas en el aprendizaje automático de SOC-ML de Azure Sentinel pueden identificar este comportamiento con plantillas de reglas analíticas que pueden ponerse a funcionar directamente, sin necesidad de configuraciones adicionales. Aunque las anomalías no indican necesariamente un comportamiento malintencionado o incluso sospechoso por sí mismas, se pueden usar para mejorar las detecciones, las investigaciones y la búsqueda de amenazas.
+En el campo de juego de la ciberseguridad se libra una batalla permanente entre atacantes y defensores por tomar ventaja, donde los atacantes siempre encuentran maneras de evadir la detección. Sin embargo, es inevitable que los ataques provoquen un comportamiento inusual en los sistemas atacados. Las anomalías basadas en el aprendizaje automático de SOC-ML de Microsoft Sentinel pueden identificar este comportamiento con plantillas de reglas analíticas que pueden ponerse a funcionar directamente, sin necesidad de configuraciones adicionales. Aunque las anomalías no indican necesariamente un comportamiento malintencionado o incluso sospechoso por sí mismas, se pueden usar para mejorar las detecciones, las investigaciones y la búsqueda de amenazas.
 
 - **Señales adicionales para mejorar la detección**: los analistas de seguridad pueden usar las anomalías para detectar nuevas amenazas y hacer más eficaces las detecciones existentes. Una sola anomalía no es una señal sólida de comportamiento malintencionado, pero cuando se combina con varias anomalías que ocurren en distintos puntos de la cadena de eliminación, su efecto acumulativo es mucho más fuerte. Los analistas de seguridad también pueden mejorar las detecciones existentes haciendo que el comportamiento inusual identificado por las anomalías sea una condición para que se desencadenen las alertas.
 
@@ -40,11 +38,11 @@ En el campo de juego de la ciberseguridad se libra una batalla permanente entre 
 
 - **El inicio de las búsquedas proactivas de amenazas**: los buscadores de amenazas pueden usar anomalías como contexto para ayudar a determinar si sus consultas han detectado un comportamiento sospechoso. Cuando el comportamiento es sospechoso, las anomalías también apuntan a posibles rutas para profundizar en ello. Estas pistas proporcionadas por las anomalías reducen tanto el tiempo para detectar una amenaza como su posibilidad de causar daños.
 
-Las anomalías pueden ser herramientas eficaces, pero son sin duda muy ruidosas. Normalmente requieren una gran cantidad de tediosos ajustes para entornos específicos o un complejo procesamiento posterior. Las plantillas de anomalías de SOC-ML de Azure Sentinel están ajustadas por nuestro equipo de ciencia de datos para proporcionar un valor inmediato, pero si necesita ajustarlas más, el proceso es sencillo y no requiere conocimientos de aprendizaje automático. Los umbrales y parámetros de muchas de las anomalías se pueden configurar y ajustar a través de la ya conocida interfaz de usuario de las reglas de análisis. El rendimiento del umbral y de los parámetros originales puede compararse con los nuevos dentro de la interfaz y ajustarse aún más si es necesario durante una fase de prueba o piloto. Una vez que la anomalía cumple los objetivos de rendimiento, la anomalía con el nuevo umbral o los nuevos parámetros se puede promover a producción con solo hacer clic en un botón. Las anomalías de SOC-ML de Azure Sentinel le permiten obtener el beneficio de las anomalías dejando de lado el trabajo tedioso.
+Las anomalías pueden ser herramientas eficaces, pero son sin duda muy ruidosas. Normalmente requieren una gran cantidad de tediosos ajustes para entornos específicos o un complejo procesamiento posterior. Las plantillas de anomalías de SOC-ML de Microsoft Sentinel están ajustadas por nuestro equipo de ciencia de datos para proporcionar un valor inmediato, pero si necesita ajustarlas más, el proceso es sencillo y no requiere conocimientos de aprendizaje automático. Los umbrales y parámetros de muchas de las anomalías se pueden configurar y ajustar a través de la ya conocida interfaz de usuario de las reglas de análisis. El rendimiento del umbral y de los parámetros originales puede compararse con los nuevos dentro de la interfaz y ajustarse aún más si es necesario durante una fase de prueba o piloto. Una vez que la anomalía cumple los objetivos de rendimiento, la anomalía con el nuevo umbral o los nuevos parámetros se puede promover a producción con solo hacer clic en un botón. Las anomalías de SOC-ML de Microsoft Sentinel le permiten obtener el beneficio de las anomalías dejando de lado el trabajo tedioso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, ha aprendido cómo SOC-ML le ayuda a detectar anomalías en Azure Sentinel.
+En este documento, ha aprendido cómo SOC-ML le ayuda a detectar anomalías en Microsoft Sentinel.
 
 - Obtenga información sobre cómo [ver, crear, administrar y ajustar reglas de anomalías](work-with-anomaly-rules.md).
 - Obtenga información [sobre otros tipos de reglas de análisis.](detect-threats-built-in.md)

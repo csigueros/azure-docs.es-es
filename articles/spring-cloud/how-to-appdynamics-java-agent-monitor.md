@@ -1,23 +1,23 @@
 ---
 title: Supervisión de aplicaciones Spring Boot con el agente de Java de AppDynamics (versión preliminar)
 titleSuffix: Azure Spring Cloud
-description: Aquí se explica cómo usar el agente de Java de AppDynamics para supervisar aplicaciones Spring Boot que se ejecutan en Azure Spring Cloud.
+description: Aquí se explica cómo usar el agente de Java de AppDynamics para supervisar aplicaciones Spring Boot en Azure Spring Cloud.
 author: KarlErickson
 ms.author: jiec
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/19/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 308869704426d8b62a92da3b739ce3b9218f860e
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: b549ce3e8e79b7315144f52484fe63f7553982c4
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131500856"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492651"
 ---
 # <a name="how-to-monitor-spring-boot-apps-with-the-appdynamics-java-agent-preview"></a>Supervisión de aplicaciones Spring Boot con el agente de Java de AppDynamics (versión preliminar)
 
-En este artículo se explica cómo usar el agente de Java de AppDynamics para supervisar aplicaciones Spring Boot que se ejecutan en Azure Spring Cloud.
+En este artículo se explica cómo usar el agente de Java de AppDynamics para supervisar aplicaciones Spring Boot en Azure Spring Cloud.
 
 Con el agente de Java de AppDynamics puede:
 
@@ -106,7 +106,7 @@ Para activar una aplicación mediante Azure Portal, siga estos pasos.
 
 ## <a name="automate-provisioning"></a>Aprovisionamiento automatizado
 
-También puede ejecutar una canalización de automatización de aprovisionamiento mediante Terraform o una plantilla de Azure Resource Manager (plantilla de ARM). Esta canalización puede proporcionar una experiencia práctica completa para instrumentar y supervisar las nuevas aplicaciones que cree e implemente.
+También puede ejecutar una canalización de automatización de aprovisionamiento mediante Terraform o una plantilla de Azure Resource Manager (plantilla de ARM). Esta canalización puede proporcionar una experiencia práctica completa para instrumentar y supervisar las nuevas aplicaciones que cree e implemente.
 
 ### <a name="automate-provisioning-using-terraform"></a>Aprovisionamiento automatizado mediante Terraform
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/10/2020
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: e17f5e53a2ab58ec7fe8edbe1d2b7e64953cf689
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 39dda46d1634996246f6c1d78b57e2747f27223c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729811"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723520"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Creación, ejecución y eliminación de recursos de Azure Machine Learning mediante REST
 
@@ -30,8 +30,8 @@ En este artículo aprenderá a:
 > * Crear una solicitud de REST con formato correcto mediante la autenticación de entidad de servicio
 > * Usar solicitudes GET para recuperar información acerca de los recursos jerárquicos de Azure Machine Learning
 > * Usar solicitudes PUT y POST para crear y modificar recursos
+> * Uso de solicitudes PUT para crear áreas de trabajo ML de Azure
 > * Usar solicitudes DELETE para limpiar recursos 
-> * Usar una autorización basada en claves para puntuar los modelos implementados
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -270,28 +270,9 @@ curl -X PUT \
 
 Una solicitud correcta obtendrá una respuesta `201 Created`, pero tenga en cuenta que esta respuesta simplemente significa que se ha iniciado el proceso de aprovisionamiento. Deberá sondear (o usar el portal) para confirmar su finalización correcta.
 
-### <a name="train-a-model"></a>Entrenamiento de un modelo
-
-Para entrenar un modelo mediante REST, vea [Entrenamiento de modelos con REST (versión preliminar)](how-to-train-with-rest.md). 
-
-### <a name="delete-resources-you-no-longer-need"></a>Eliminación de los recursos que ya no necesita
-
-Algunos de los recursos, no todos, admiten el verbo DELETE. Consulte la [referencia de la API](/rest/api/azureml/) antes de confirmar la eliminación de los casos de uso de la API REST. Para eliminar un modelo, por ejemplo, puede usar:
-
-```bash
-curl
-  -X DELETE \
-'https://<REGIONAL-API-SERVER>/modelmanagement/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/models/<YOUR-MODEL-ID>?api-version=2021-03-01-preview' \
-  -H 'Authorization:Bearer <YOUR-ACCESS-TOKEN>' 
-```
-
-## <a name="use-rest-to-score-a-deployed-model"></a>Uso de REST para puntuar un modelo implementado
-
-Para puntuar un modelo implementado mediante REST, vea [Consumo de un modelo de Azure Machine Learning que está implementado como un servicio web](how-to-consume-web-service.md).
-
 ## <a name="create-a-workspace-using-rest"></a>Creación de un área de trabajo mediante REST 
 
-Cada área de trabajo de Azure Machine Learning tiene una dependencia en otros cuatro recursos de Azure: un registro de contenedor con administración habilitada, un almacén de claves, un recurso de Application Insights y una cuenta de almacenamiento. No se puede crear un área de trabajo hasta que no existan estos recursos. Consulte la referencia de la API REST para más información sobre la creación de cada uno de estos recursos.
+Cada área de trabajo ML de Azure depende de otros cuatro recursos de Azure: un recurso de Azure Container Registry, Azure Key Vault, Azure Application Insights y una cuenta de Azure Storage. No se puede crear un área de trabajo hasta que no existan estos recursos. Consulte la referencia de la API REST para más información sobre la creación de cada uno de estos recursos.
 
 Para crear un área de trabajo, realice una llamada similar a la siguiente a `management.azure.com`. Aunque esta llamada requiere que establezca un gran número de variables, es estructuralmente idéntica a otras llamadas que se han analizado en este artículo. 
 
@@ -303,6 +284,9 @@ curl -X PUT \
   -H 'Content-Type: application/json' \
   -d '{
     "location": "AZURE-LOCATION>",
+    "identity" : {
+        "type" : "systemAssigned"
+    },
     "properties": {
         "friendlyName" : "<YOUR-WORKSPACE-FRIENDLY-NAME>",
         "description" : "<YOUR-WORKSPACE-DESCRIPTION>",
@@ -314,14 +298,109 @@ providers/Microsoft.ContainerRegistry/registries/<YOUR-REGISTRY-NAME>",
 providers/Microsoft.insights/components/<YOUR-APPLICATION-INSIGHTS-NAME>",
         "storageAccount" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
 providers/Microsoft.Storage/storageAccounts/<YOUR-STORAGE-ACCOUNT-NAME>"
-    },
-    "identity" : {
-        "type" : "systemAssigned"
     }
 }'
 ```
 
 Debe recibir una respuesta `202 Accepted` y, en los encabezados devueltos, un URI de `Location`. Puede obtener este URI para conseguir información sobre la implementación, incluida información útil de depuración si hay un problema con alguno de los recursos dependientes (por ejemplo, si ha olvidado habilitar el acceso de administrador en el registro de contenedor). 
+
+## <a name="create-a-workspace-using-a-user-assigned-managed-identity"></a>Creación de un área de trabajo mediante una identidad administrada asignada por el usuario 
+
+Al crear el área de trabajo, puede especificar una identidad administrada asignada por el usuario para acceder a los recursos asociados: ACR, KeyVault, Storage y App Insights. Para crear un área de trabajo con una identidad administrada asignada por el usuario, use el cuerpo de la solicitud siguiente. 
+
+```bash
+curl -X PUT \
+  'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
+/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-NEW-WORKSPACE-NAME>?api-version=2021-03-01-preview' \
+  -H 'Authorization: Bearer <YOUR-ACCESS-TOKEN>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "location": "AZURE-LOCATION>",
+    "identity": {
+      "type": "SystemAssigned,UserAssigned",
+      "userAssignedIdentities": {
+        "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.ManagedIdentity/userAssignedIdentities/<YOUR-MANAGED-IDENTITY>": {}
+      }
+    },
+    "properties": {
+        "friendlyName" : "<YOUR-WORKSPACE-FRIENDLY-NAME>",
+        "description" : "<YOUR-WORKSPACE-DESCRIPTION>",
+        "containerRegistry" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.ContainerRegistry/registries/<YOUR-REGISTRY-NAME>",
+        keyVault" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
+/providers/Microsoft.Keyvault/vaults/<YOUR-KEYVAULT-NAME>",
+        "applicationInsights" : "subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.insights/components/<YOUR-APPLICATION-INSIGHTS-NAME>",
+        "storageAccount" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.Storage/storageAccounts/<YOUR-STORAGE-ACCOUNT-NAME>"
+    }
+}'
+```
+
+## <a name="create-a-workspace-using-customer-managed-encryption-keys"></a>Creación de un área de trabajo mediante claves de cifrado administradas por el cliente
+
+De manera predeterminada, los metadatos del área de trabajo se almacenan en una instancia de Azure Cosmos DB que Microsoft mantiene. Estos datos se cifran con claves administradas por Microsoft. En lugar de usar la clave administrada por Microsoft, puede proporcionar su propia clave. Al hacerlo, se crea un [conjunto adicional de recursos](./concept-data-encryption.md#azure-cosmos-db) en la suscripción de Azure para almacenar los datos.
+
+Para crear un área de trabajo que use las claves para el cifrado, debe cumplir los siguientes requisitos:
+
+* La entidad de servicio de Azure Machine Learning debe tener acceso de colaborador a su suscripción de Azure.
+* Debe tener un almacén Azure Key Vault existente que contenga una clave de cifrado.
+* El Azure Key Vault debe estar en la misma región de Azure en la que va a crear el área de trabajo de Azure Machine Learning.
+* El Azure Key Vault debe tener habilitada la eliminación temporal y la protección contra purga para protegerse frente a la pérdida de datos en caso de eliminación accidental.
+* Debe tener una directiva de acceso en el Azure Key Vault que conceda acceso para obtener, ajustar y desajustar a la aplicación Azure Cosmos DB.
+
+Para crear áreas de trabajo que usen una identidad administrada asignada por el usuario y claves administradas por el cliente para el cifrado, use el cuerpo de la solicitud siguiente. Al usar una identidad administrada asignada por el usuario para el área de trabajo, establezca también la propiedad `userAssignedIdentity` en el id. de recursos de la identidad administrada.
+
+```bash
+curl -X PUT \
+  'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
+/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-NEW-WORKSPACE-NAME>?api-version=2021-03-01-preview' \
+  -H 'Authorization: Bearer <YOUR-ACCESS-TOKEN>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "location": "eastus2euap",
+    "identity": {
+      "type": "SystemAssigned"
+    },
+    "properties": {
+      "friendlyName": "<YOUR-WORKSPACE-FRIENDLY-NAME>",
+      "description": "<YOUR-WORKSPACE-DESCRIPTION>",
+      "containerRegistry" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.ContainerRegistry/registries/<YOUR-REGISTRY-NAME>",
+      "keyVault" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
+/providers/Microsoft.Keyvault/vaults/<YOUR-KEYVAULT-NAME>",
+      "applicationInsights" : "subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.insights/components/<YOUR-APPLICATION-INSIGHTS-NAME>",
+      "storageAccount" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.Storage/storageAccounts/<YOUR-STORAGE-ACCOUNT-NAME>",
+      "encryption": {
+        "status": "Enabled",
+        "identity": {
+          "userAssignedIdentity": null
+        },      
+        "keyVaultProperties": {
+           "keyVaultArmId": "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.KeyVault/vaults/<YOUR-VAULT>",
+           "keyIdentifier": "https://<YOUR-VAULT>.vault.azure.net/keys/<YOUR-KEY>/<YOUR-KEY-VERSION>",
+           "identityClientId": ""
+        }
+      },
+      "hbiWorkspace": false
+    }
+}'
+```
+
+### <a name="delete-resources-you-no-longer-need"></a>Eliminación de los recursos que ya no necesita
+
+Algunos de los recursos, no todos, admiten el verbo DELETE. Consulte la [referencia de la API](/rest/api/azureml/) antes de confirmar la eliminación de los casos de uso de la API REST. Para eliminar un modelo, por ejemplo, puede usar:
+
+```bash
+curl
+  -X DELETE \
+'https://<REGIONAL-API-SERVER>/modelmanagement/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/models/<YOUR-MODEL-ID>?api-version=2021-03-01-preview' \
+  -H 'Authorization:Bearer <YOUR-ACCESS-TOKEN>' 
+```
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

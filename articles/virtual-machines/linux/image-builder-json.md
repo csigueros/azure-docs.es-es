@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 47de9f252e70b7281b8499612718cbd4b23365a1
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: d4e8832222cb1fc0a4ec431f1eeedcdcda0c5a11
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131444599"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400972"
 ---
 # <a name="create-an-azure-image-builder-template"></a>Creación de una plantilla de Azure Image Builder 
 
@@ -34,7 +34,6 @@ Este es el formato de plantilla básico:
       "<name>": "<value>"
     },
     "identity": {},          
-    "dependsOn": [], 
     "properties": { 
       "buildTimeoutInMinutes": <minutes>, 
       "vmProfile": {
@@ -93,7 +92,7 @@ La distribución admite redundancia de zona, los discos duros virtuales se distr
  
 ## <a name="vmprofile"></a>vmProfile
 ## <a name="buildvm"></a>buildVM
-De manera predeterminada, Image Builder usará una máquina virtual de compilación "Standard_D1_v2", que se compila a partir de la imagen especificada en `source`. Podría querer invalidar esto por los siguientes motivos:
+De forma predeterminada Image Builder usará una máquina virtual de compilación "Standard_D1_v2" para imágenes de Gen1 y una máquina virtual de compilación "Standard_D2ds_v4" para imágenes de Gen2, que se compila a partir de la imagen que especifique en `source`. Podría querer invalidar esto por los siguientes motivos:
 1. Realizar personalizaciones que requieran mayor memoria, CPU y control de archivos grandes (GB).
 2. Al ejecutar compilaciones de Windows, debe usar "Standard_D2_v2" o un tamaño de máquina virtual equivalente.
 3. Requerir [aislamiento de máquina virtual](../isolation.md).
@@ -124,16 +123,6 @@ Si no especifica ninguna propiedad de la red virtual, Image Builder creará su p
 ## <a name="tags"></a>Etiquetas
 
 Estos son los pares clave-valor que puede especificar para la imagen que se genera.
-
-## <a name="depends-on-optional"></a>Dependencia (opcional)
-
-Esta sección opcional se puede usar para asegurarse de que las dependencias se completan antes de continuar. 
-
-```json
-    "dependsOn": [],
-```
-
-Para obtener más información, consulte [Definir dependencias de recursos](../../azure-resource-manager/templates/resource-dependency.md#dependson).
 
 ## <a name="identity"></a>Identidad
 
@@ -180,7 +169,7 @@ El generador de imágenes de Azure admite Windows Server y el cliente, así com
             "offer": "UbuntuServer",
             "sku": "18.04-LTS",
             "version": "latest"
-        },
+        },  
 ```
 
 
@@ -651,7 +640,7 @@ Puede generar un disco duro virtual. A continuación, puede copiar el disco duro
 { 
     "type": "VHD",
     "runOutputName": "<VHD name>",
-    "tags": {
+    "artifactTags": {
         "<name>": "<value>",
         "<name>": "<value>"
     }

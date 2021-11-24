@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/07/2021
+ms.date: 11/12/2021
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75624f84aa55c00bcdeab26505fa4f803d8a4f1f
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 5dc783125641ef71d1df974bc7d8cb01c488329a
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129668511"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484729"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configuración de roles de Azure AD en Privileged Identity Management
 
@@ -87,7 +87,7 @@ Para más información, consulte [Autenticación multifactor y Privileged Identi
 
 ## <a name="activation-maximum-duration"></a>Duración máxima de la activación
 
-Use control deslizante **Duración máxima de la activación (horas)** para establecer el tiempo máximo, en horas, que un rol permanece activo antes de expirar. Este valor puede oscilar entre una y 24 horas.
+Use el control deslizante **Duración máxima de la activación** para establecer el tiempo máximo, en horas, que una solicitud de activación de una asignación de roles permanece activa antes de expirar. Este valor puede oscilar entre una y 24 horas.
 
 ## <a name="require-justification"></a>Requerir justificación
 

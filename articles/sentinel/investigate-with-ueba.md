@@ -6,21 +6,21 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2021
+ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 3dbeae805c28b9cfbfe7871b49f021a1d3ad19c2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5cf711abf0373c2c7681d71426c0590b9561708e
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023165"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522885"
 ---
 # <a name="tutorial-investigate-incidents-with-ueba-data"></a>Tutorial: Investigación de incidentes con datos de UEBA
 
@@ -34,11 +34,11 @@ En este artículo se describen métodos comunes y procedimientos de ejemplo para
 >
 
 > [!NOTE]
-> En este tutorial se proporcionan procedimientos basados en escenarios para una tarea de cliente importante: investigación con datos de UEBA. Para más información, consulte el [Investigación de incidentes con Azure Sentinel](investigate-cases.md).
+> En este tutorial se proporcionan procedimientos basados en escenarios para una tarea de cliente importante: investigación con datos de UEBA. Para más información, consulte el documento [Investigación de incidentes con Microsoft Sentinel](investigate-cases.md).
 >
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para poder usar datos de UEBA en las investigaciones, es preciso habilitar [Análisis de comportamiento de usuarios y entidades (UEBA) en Azure Sentinel](enable-entity-behavior-analytics.md).
+Para poder usar datos de UEBA en las investigaciones, debe [habilitar Análisis de comportamiento de usuarios y entidades (UEBA) en Microsoft Sentinel](enable-entity-behavior-analytics.md).
 
 Empiece a buscar información con tecnología de la máquina aproximadamente una semana después de habilitar UEBA.
 
@@ -46,7 +46,7 @@ Empiece a buscar información con tecnología de la máquina aproximadamente una
 
 Se recomienda ejecutar búsquedas proactivas regulares a través de la actividad del usuario para crear clientes potenciales para realizar una investigación más exhaustiva.
 
-Puede usar el libro [User and Entity Behavior Analytics](identify-threats-with-entity-behavior-analytics.md#hunting-queries-and-exploration-queries) (Análisis de comportamiento de usuarios y entidades) de Azure Sentinel para consultar los datos, por ejemplo:
+Puede usar el libro [Análisis de comportamiento de usuarios y entidades](identify-threats-with-entity-behavior-analytics.md#hunting-queries-and-exploration-queries) de Microsoft Sentinel para consultar los datos, por ejemplo:
 
 - **Usuarios de mayor riesgo**, con anomalías o incidentes asociados.
 - **Datos de usuarios específicos**, para determinar si el sujeto realmente ha estado en peligro o si hay una amenaza interna debido a una acción que se desvía del perfil del usuario.
@@ -76,7 +76,7 @@ Use los datos que se encuentran en el libro **User and Entity Behavior Analytics
 
 A veces, un incidente capturado en una investigación es un falso positivo.
 
-Un ejemplo común de falso positivo es cuando se detecta una actividad de viaje imposible, como un usuario que ha iniciado sesión en una aplicación o portal desde Nueva York y Londres con menos de 60 minutos de diferencia. Aunque Azure Sentinel anota el viaje imposible como una anomalía, una investigación con el usuario podría aclarar que se usó una VPN con una ubicación alternativa a donde estaba realmente el usuario.
+Un ejemplo común de falso positivo es cuando se detecta una actividad de viaje imposible, como un usuario que ha iniciado sesión en una aplicación o portal desde Nueva York y Londres con menos de 60 minutos de diferencia. Aunque Microsoft Sentinel anota el viaje imposible como una anomalía, una investigación con el usuario podría aclarar que se usó una VPN con una ubicación alternativa a donde estaba realmente el usuario.
 
 ### <a name="analyze-a-false-positive"></a>Análisis de un falso positivo
 
@@ -89,9 +89,9 @@ Por ejemplo:
 Esta página también tiene un vínculo en la propia [página del incidente](investigate-cases.md#how-to-investigate-incidents) y el [gráfico de investigación](investigate-cases.md#use-the-investigation-graph-to-deep-dive).
 
 > [!TIP]
-> Después de confirmar los datos del usuario específico asociado al incidente que se encuentran en la página de entidad de usuario, vaya al área de **búsqueda** de Azure Sentinel para saber si los pares del usuario normalmente se conectan desde las mismas ubicaciones. Si es así, este conocimiento sería un caso aún más seguro para un falso positivo.
+> Después de confirmar los datos del usuario específico asociado al incidente que se encuentran en la página de entidad de usuario, vaya al área de **Búsqueda** de Microsoft Sentinel para saber si los pares del usuario normalmente se conectan desde las mismas ubicaciones. Si es así, este conocimiento sería un caso aún más seguro para un falso positivo.
 >
-> En el área de **búsqueda**, ejecute la consulta **Anomalous Geo Location Logon** (Inicio de sesión de ubicación geográfica anómala). Para más información, consulte [Búsqueda de amenazas con Azure Sentinel](hunting.md).
+> En el área de **búsqueda**, ejecute la consulta **Anomalous Geo Location Logon** (Inicio de sesión de ubicación geográfica anómala). Para obtener más información, consulte [Búsqueda de amenazas con Microsoft Sentinel](hunting.md).
 >
 
 ### <a name="embed-identityinfo-data-in-your-analytics-rules-public-preview"></a>Inserción de datos de IdentityInfo en las reglas de análisis (versión preliminar pública)
@@ -151,7 +151,7 @@ Por ejemplo, para investigar un incidente de difusión de contraseña con inform
 
 ## <a name="url-detonation-public-preview"></a>Detonación de direcciones URL (versión preliminar pública)
 
-Cuando hay direcciones URL en los registros ingeridos en Azure Sentinel, esas direcciones URL se detonan automáticamente para ayudar a acelerar el proceso de evaluación de prioridades. 
+Cuando hay direcciones URL en los registros ingeridos en Microsoft Sentinel, esas direcciones URL se detonan automáticamente para ayudar a acelerar el proceso de evaluación de prioridades. 
 
 El gráfico Investigación incluye un nodo para la dirección URL detonada, así como los detalles siguientes:
 
@@ -166,14 +166,14 @@ Por ejemplo:
 > [!TIP]
 > Si no ve direcciones URL en los registros, compruebe que el registro de direcciones URL, también conocido como registro de amenazas, está habilitado para sus puertas de enlace web seguras, servidores proxy web, firewalls o IDS/IPS heredados.
 >
-> También puede crear registros personalizados para canalizar direcciones URL específicas de interés en Azure Sentinel para una investigación más detallada.
+> También puede crear registros personalizados para canalizar direcciones URL específicas de interés en Microsoft Sentinel para una investigación más detallada.
 >
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre UEBA, investigaciones y búsqueda:
 
-- [Identificación de amenazas avanzadas con el Análisis de comportamiento de usuarios y entidades (UEBA) en Azure Sentinel](identify-threats-with-entity-behavior-analytics.md)
-- [Referencia de características enriquecidas de UEBA de Azure Sentinel](ueba-enrichments.md)
-- [Tutorial: Investigación de incidentes con Azure Sentinel](investigate-cases.md)
-- [Búsqueda de amenazas con Azure Sentinel](hunting.md)
+- [Identificación de amenazas avanzadas con el Análisis de comportamiento de usuarios y entidades (UEBA) en Microsoft Sentinel](identify-threats-with-entity-behavior-analytics.md)
+- [Referencia de enriquecimientos de UEBA de Microsoft Sentinel](ueba-enrichments.md)
+- [Tutorial: Investigación de incidentes con Microsoft Sentinel](investigate-cases.md)
+- [Búsqueda de amenazas con Microsoft Sentinel](hunting.md)

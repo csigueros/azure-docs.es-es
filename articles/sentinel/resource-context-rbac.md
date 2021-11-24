@@ -1,38 +1,38 @@
 ---
-title: Administración del acceso a los datos de Azure Sentinel por recurso | Microsoft Docs
-description: En este artículo se explica cómo administrar el acceso a los datos de Azure Sentinel por los recursos a los que puede acceder un usuario. La administración del acceso por recurso permite proporcionar acceso solo a datos específicos, sin la experiencia completa de Azure Sentinel. Este método también se conoce como RBAC de contexto de recursos.
+title: Administración del acceso a los datos de Microsoft Sentinel por recurso | Microsoft Docs
+description: En este artículo se explica cómo administrar el acceso a los datos de Microsoft Sentinel por los recursos a los que puede acceder un usuario. La administración del acceso por recurso permite proporcionar acceso solo a datos específicos, sin la experiencia completa de Microsoft Sentinel. Este método también se conoce como RBAC de contexto de recursos.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: cd0b10f4dccf9d989aaf93e472306f3283afb7a6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 38fd7f30dc412872ccdb6817ae1f502b78a77641
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131055167"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522505"
 ---
-# <a name="manage-access-to-azure-sentinel-data-by-resource"></a>Administración del acceso a los datos de Azure Sentinel por recurso
+# <a name="manage-access-to-microsoft-sentinel-data-by-resource"></a>Administración del acceso a los datos de Microsoft Sentinel por recurso
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Normalmente, los usuarios que tienen acceso a un área de trabajo de Azure Sentinel también tienen acceso a todos los datos del área de trabajo, incluido el contenido de seguridad. Los administradores pueden usar los [roles de Azure](roles.md) para configurar el acceso a características específicas de Azure Sentinel, en función de los requisitos de acceso de su equipo.
+Normalmente, los usuarios que tienen acceso a un área de trabajo de Microsoft Sentinel también tienen acceso a todos los datos del área de trabajo, incluido el contenido de seguridad. Los administradores pueden usar los [roles de Azure](roles.md) para configurar el acceso a características específicas de Microsoft Sentinel, en función de los requisitos de acceso de su equipo.
 
-Sin embargo, es posible que algunos usuarios necesiten acceder solo a datos específicos del área de trabajo de Azure Sentinel, pero no deban tener acceso a todo el entorno de Azure Sentinel. Por ejemplo, puede que quiera proporcionar a un equipo de operaciones que no son de seguridad (no SOC) el acceso a los datos de eventos de Windows de los servidores que son de su propiedad.
+Sin embargo, es posible que algunos usuarios necesiten acceder solo a datos específicos del área de trabajo de Microsoft Sentinel, pero no deban tener acceso a todo el entorno de Microsoft Sentinel. Por ejemplo, puede que quiera proporcionar a un equipo de operaciones que no son de seguridad (no SOC) el acceso a los datos de eventos de Windows de los servidores que son de su propiedad.
 
-En tales casos, se recomienda configurar el control de acceso basado en rol (RBAC) en función de los recursos que se permiten a los usuarios, en lugar de proporcionarles acceso al área de trabajo de Azure Sentinel o a características específicas de Azure Sentinel. Este método también se conoce como configuración de **RBAC de contexto de recursos**.
+En tales casos, se recomienda configurar el control de acceso basado en rol (RBAC) en función de los recursos que se permiten a los usuarios, en lugar de proporcionarles acceso al área de trabajo de Microsoft Sentinel o a características específicas de Microsoft Sentinel. Este método también se conoce como configuración de **RBAC de contexto de recursos**.
 
-Cuando los usuarios tienen acceso a los datos de Azure Sentinel a través de los recursos a los que pueden acceder en lugar del área de trabajo de Azure Sentinel, pueden ver los registros y los libros mediante los siguientes métodos:
+Cuando los usuarios tienen acceso a los datos de Microsoft Sentinel a través de los recursos a los que pueden acceder en lugar del área de trabajo de Microsoft Sentinel, pueden ver los registros y los libros mediante los siguientes métodos:
 
 - **A través del propio recurso**, como una máquina virtual de Azure. Utilice este método para ver los registros y libros solo para un recurso específico.
 
@@ -43,7 +43,7 @@ Habilite RBAC de contexto de recursos en Azure Monitor. Para más información, 
 > [!NOTE]
 > Si los datos no son un recurso de Azure, como los datos de Syslog, CEF o AAD, o los datos recopilados por un recopilador personalizado, deberá configurar manualmente el id. de recurso que se usa para identificar los datos y habilitar el acceso. Para más información, consulte [Configuración explícita de RBAC de contexto de recursos](#explicitly-configure-resource-context-rbac).
 >
-> Además, las [funciones y](../azure-monitor/logs/functions.md) las búsquedas guardadas no se admiten en contextos centrados en recursos. Por lo tanto, las características de Azure Sentinel como el análisis y la [normalización](normalization.md) no se admiten para RBAC del contexto de recursos en Azure Sentinel.
+> Además, las [funciones y](../azure-monitor/logs/functions.md) las búsquedas guardadas no se admiten en contextos centrados en recursos. Por lo tanto, las características de Microsoft Sentinel como el análisis y la [normalización](normalization.md) no se admiten para el control de acceso basado en roles en el contexto de recursos de Microsoft Sentinel.
 > 
 
 ## <a name="scenarios-for-resource-context-rbac"></a>Escenarios de RBAC de contexto de recursos
@@ -54,7 +54,7 @@ En la tabla siguiente se resaltan los escenarios en los que el RBAC de contexto 
 |---------|---------|---------|
 |**Permisos**     | Toda la área de trabajo        |   Solo recursos específicos      |
 |**Acceso a datos**     |  Todos los datos del área de trabajo       | Solo los datos de los recursos a los que el equipo está autorizado a acceder        |
-|**Experiencia**     |  La experiencia completa de Azure Sentinel, posiblemente limitada por los [permisos funcionales](roles.md) asignados al usuario.       |  Solo consultas de registro y libros       |
+|**Experiencia**     |  La experiencia completa de Microsoft Sentinel, posiblemente limitada por los [permisos funcionales](roles.md) asignados al usuario.       |  Solo consultas de registro y libros       |
 |     |         |         |
 
 Si el equipo tiene requisitos de acceso similares al equipo que no es de SOC descrito en la tabla anterior, el RBAC de contexto de recursos puede ser una buena solución para su organización.
@@ -67,7 +67,7 @@ En la lista siguiente se describen los escenarios en los que otras soluciones pa
 
 |Escenario  |Solución  |
 |---------|---------|
-|**Una subsidiaria tiene un equipo de SOC que requiere una experiencia completa de Azure Sentinel**.     |  En este caso, use una arquitectura de varias áreas de trabajo para separar los permisos de los datos. <br><br>Para más información, consulte: <br>- [Extensión de Azure Sentinel entre áreas de trabajo e inquilinos](extend-sentinel-across-workspaces-tenants.md)<br>    - [Procesamiento de incidentes en varias áreas de trabajo a la vez](multiple-workspace-view.md)          |
+|**Una subsidiaria tiene un equipo de SOC que requiere una experiencia completa de Microsoft Sentinel**.     |  En este caso, use una arquitectura de varias áreas de trabajo para separar los permisos de los datos. <br><br>Para más información, consulte: <br>- [Extensión de Microsoft Azure Sentinel entre áreas de trabajo e inquilinos](extend-sentinel-across-workspaces-tenants.md)<br>    - [Procesamiento de incidentes en varias áreas de trabajo a la vez](multiple-workspace-view.md)          |
 |**Quiere proporcionar acceso a un tipo de evento específico**.     |  Por ejemplo, proporcione a un administrador de Windows el acceso a los eventos de seguridad de Windows en todos los sistemas. <br><br>En tales casos, use [RBAC de nivel de tabla](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) para definir los permisos de cada tabla.       |
 | **Limitación del acceso a un nivel más granular, ya sea no basado en el recurso o a solo un subconjunto de los campos de un evento.**   |   Por ejemplo, puede que quiera limitar el acceso a los registros de Office 365 en función de la subsidiaria de un usuario. <br><br>En este caso, proporcione acceso a los datos mediante la integración incorporada con [Paneles e informes de Power BI](../azure-monitor/logs/log-powerbi.md).      |
 | | |
@@ -76,19 +76,19 @@ En la lista siguiente se describen los escenarios en los que otras soluciones pa
 
 Siga estos pasos si desea configurar RBAC de contexto de recursos, pero los datos no son un recurso de Azure.
 
-Por ejemplo, los datos de su área de trabajo de Azure Sentinel que no son recursos de Azure son los datos de Syslog, CEF o AAD, o los datos recopilados por un recopilador personalizado.
+Por ejemplo, los datos de su área de trabajo de Microsoft Sentinel que no son recursos de Azure son los datos de Syslog, CEF o AAD, o los datos recopilados por un recopilador personalizado.
 
 **Para configurar explícitamente RBAC de contexto de recursos**:
 
 1. Asegúrese de que ha [habilitado RBAC de contexto de recursos](../azure-monitor/logs/manage-access.md) en Azure Monitor. 
 
-1. [Cree un grupo de recursos](../azure-resource-manager/management/manage-resource-groups-portal.md) para cada equipo de usuarios que necesite acceder a los recursos sin todo el entorno de Azure Sentinel.
+1. [Cree un grupo de recursos](../azure-resource-manager/management/manage-resource-groups-portal.md) para cada equipo de usuarios que necesite acceder a los recursos sin todo el entorno de Microsoft Sentinel.
 
     Asigne [permisos de lector de registro](../azure-monitor/logs/manage-access.md#resource-permissions) para cada uno de los miembros del equipo.
 
 1. Asigne recursos a los grupos de equipos de recursos creados y etiquete los eventos con los id. de recursos correspondientes.
 
-    Cuando los recursos de Azure envían datos a Azure Sentinel, las entradas de registro se etiquetan automáticamente con el id. de recurso del origen de datos.
+    Cuando los recursos de Azure envían datos a Microsoft Sentinel, las entradas de registro se etiquetan automáticamente con el id. de recurso del origen de datos.
 
     > [!TIP]
     > Se recomienda agrupar los recursos a los que va a conceder acceso en un grupo de recursos específico creado para dicho fin.
@@ -106,7 +106,7 @@ Por ejemplo, los datos de su área de trabajo de Azure Sentinel que no son recur
 
 Cuando los eventos se recopilan con el [formato de evento común (CEF)](connect-common-event-format.md) o [Syslog](connect-syslog.md), el reenvío de registros se usa para recopilar eventos de varios sistemas de origen.
 
-Por ejemplo, cuando una máquina virtual de reenvío de CEF o Syslog escucha los orígenes que envían eventos de Syslog y los reenvía a Azure Sentinel, el id. de recurso de la máquina virtual de reenvío de registros se asigna a todos los eventos que reenvían.
+Por ejemplo, cuando una máquina virtual de reenvío de CEF o Syslog escucha los orígenes que envían eventos de Syslog y los reenvía a Microsoft Sentinel, el id. de recurso de la máquina virtual de reenvío de registros se asigna a todos los eventos que reenvían.
 
 Si tiene varios equipos, asegúrese de que hay máquinas virtuales de reenvío de registros independientes que procesan los eventos para cada equipo.
 
@@ -119,7 +119,7 @@ Por ejemplo, la separación de las máquinas virtuales garantiza que los eventos
 
 ### <a name="resource-ids-with-logstash-collection"></a>Id. de recursos con recopilación Logstash
 
-Si va a recopilar los datos mediante el [complemento de salida Logstash](connect-logstash.md) de Azure Sentinel, use el campo **azure_resource_id** para configurar el recopilador personalizado a fin de incluir el id. de recurso en la salida.
+Si va a recopilar los datos mediante el [complemento de salida Logstash](connect-logstash.md) de Microsoft Sentinel, use el campo **azure_resource_id** para configurar el recopilador personalizado a fin de incluir el id. de recurso en la salida.
 
 Si usa RBAC de contexto de recursos y quiere que los eventos recopilados por la API estén disponibles para usuarios específicos, use el id. de recurso del grupo de recursos que [creó para los usuarios](#explicitly-configure-resource-context-rbac).
 
@@ -156,4 +156,4 @@ Si usa RBAC de contexto de recursos y quiere que los eventos recopilados por la 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información, vea [Permisos de Azure Sentinel](roles.md).
+Para más información, consulte [Permisos de Microsoft Sentinel](roles.md).

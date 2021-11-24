@@ -1,28 +1,28 @@
 ---
-title: Exposición de detalles personalizados en las alertas de Azure Sentinel | Microsoft Docs
-description: Extraiga y exponga detalles de eventos personalizados de alertas en las reglas análisis de Azure Sentinel para obtener información de incidentes mejor y más completa.
+title: Exposición de detalles personalizados en las alertas de Microsoft Sentinel | Microsoft Docs
+description: Extraiga y exponga detalles de eventos personalizados de alertas en las reglas análisis de Microsoft Sentinel para obtener información de incidentes mejor y más completa
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ffde66c8b64968d7b3aa5cc179177d34e8068e50
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 022c58b2d51405043620174030f1f1b85e3238a6
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131019616"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523854"
 ---
-# <a name="surface-custom-event-details-in-alerts-in-azure-sentinel"></a>Exposición de detalles de eventos personalizados de alertas en Azure Sentinel 
+# <a name="surface-custom-event-details-in-alerts-in-microsoft-sentinel"></a>Exposición de detalles de eventos personalizados de alertas en Microsoft Sentinel 
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -32,7 +32,7 @@ ms.locfileid: "131019616"
 
 ## <a name="introduction"></a>Introducción
 
-Las [reglas programadas de análisis de consultas](detect-threats-custom.md) analizan los **eventos** de los orígenes de datos conectados a Azure Sentinel y generan **alertas** cuando el contenido de estos eventos es significativo desde una perspectiva de seguridad. Estas alertas se analizan, agrupan y filtran a través de los distintos motores de Azure Sentinel y se sintetizan en **incidentes** que garantizan la atención del analista de SOC. Sin embargo, cuando el analista ve el incidente, solo las propiedades de las alertas de componentes son inmediatamente visibles. Para obtener el contenido real (información contenida en los eventos) es necesario investigar un poco.
+Las [reglas programadas de análisis de consultas](detect-threats-custom.md) analizan los **eventos** de los orígenes de datos conectados a Microsoft Sentinel y generan **alertas** cuando el contenido de estos eventos es significativo desde una perspectiva de seguridad. Estas alertas se analizan, agrupan y filtran a través de los distintos motores de Microsoft Sentinel y se sintetizan en **incidentes** que garantizan la atención del analista de SOC. Sin embargo, cuando el analista ve el incidente, solo las propiedades de las alertas de componentes son inmediatamente visibles. Para obtener el contenido real (información contenida en los eventos) es necesario investigar un poco.
 
 Con la característica **Detalles personalizados** del **Asistente para reglas de análisis**, puede exponer los datos de eventos en las alertas que se crean a partir de esos eventos, lo que hace que los datos de evento formen parte de las propiedades de la alerta. De hecho, le ofrece visibilidad inmediata del contenido del evento en sus incidentes, lo que le permite evaluar, investigar, extraer conclusiones y responder con mucha mayor velocidad y eficacia.
 
@@ -40,7 +40,7 @@ El procedimiento que se detalla a continuación forma parte del Asistente para c
 
 ## <a name="how-to-surface-custom-event-details"></a>Cómo exponer detalles de eventos personalizados
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Análisis**.
+1. En el menú de navegación de Microsoft Sentinel, seleccione **Análisis**.
 
 1. Seleccione una regla de consulta programada y haga clic en **Editar**. O bien, para crear una nueva regla, haga clic en **Crear > Regla de consulta programada** en la parte superior de la pantalla.
 
@@ -72,6 +72,6 @@ El procedimiento que se detalla a continuación forma parte del Asistente para c
     > - El límite de tamaño de todos los detalles personalizados, colectivamente, es de **2 KB**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, ha aprendido a exponer detalles personalizados en alertas mediante reglas de análisis de Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+En este documento, ha aprendido a exponer detalles personalizados en alertas mediante reglas de análisis de Azure Sentinel. Para obtener más información sobre Microsoft Sentinel, consulte los siguientes artículos:
 - Obtenga una visión completa de las [reglas de análisis de consultas programadas](detect-threats-custom.md).
-- Obtenga más información sobre las [entidades en Azure Sentinel](entities-in-azure-sentinel.md).
+- Obtenga más información sobre las [entidades en Microsoft Sentinel](entities-in-azure-sentinel.md).

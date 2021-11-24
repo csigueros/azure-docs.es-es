@@ -6,23 +6,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/11/2021
+ms.date: 11/13/2021
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bd1df757c03552024490b0de13988b4dc63115a7
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 3de8e679cb6c99db4057ec5e5b0ae48b2b4c3500
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129859595"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490295"
 ---
 # <a name="use-the-azure-identity-library-to-get-an-access-token-for-authorization"></a>Uso de la biblioteca cliente de Azure Identity para obtener un token de acceso para la autorización
 
-La biblioteca cliente de Azure Identity simplifica el proceso de obtención de un token de acceso de OAuth 2.0 para la autorización con Azure Active Directory (Azure AD) mediante [Azure SDK](https://github.com/Azure/azure-sdk). Las versiones más recientes de las bibliotecas cliente de Azure Storage para .NET, Java, Python y JavaScript se integran con las bibliotecas de Azure Identity para dichos lenguajes para proporcionar un medio sencillo y seguro de obtener un token de acceso para la autorización de las solicitudes de Azure Storage.
+La biblioteca cliente de Azure Identity simplifica el proceso de obtención de un token de acceso de OAuth 2.0 para la autorización con Azure Active Directory (Azure AD) mediante [Azure SDK](https://github.com/Azure/azure-sdk). Las versiones más recientes de las bibliotecas cliente de Azure Storage para .NET, Java, Python, JavaScript y Go se integran con las bibliotecas de Azure Identity para dichos lenguajes para proporcionar un medio sencillo y seguro de obtener un token de acceso para la autorización de las solicitudes de Azure Storage.
 
-Una ventaja de la biblioteca cliente de Azure Identity es que permite usar el mismo código para adquirir el token de acceso tanto si la aplicación se ejecuta en el entorno de desarrollo como en Azure. La biblioteca cliente de Azure Identity para .NET devuelve un token de acceso para una entidad de seguridad. Cuando el código se ejecuta en Azure, la entidad de seguridad puede ser una identidad administrada para recursos de Azure, una entidad de servicio, un usuario o un grupo. En el entorno de desarrollo, la biblioteca cliente proporciona un token de acceso para un usuario o una entidad de servicio con fines de prueba.
+Una ventaja de la biblioteca cliente de Azure Identity es que permite usar el mismo código para adquirir el token de acceso tanto si la aplicación se ejecuta en el entorno de desarrollo como en Azure. La biblioteca cliente de Azure Identity devuelve un token de acceso para una entidad de seguridad. Cuando el código se ejecuta en Azure, la entidad de seguridad puede ser una identidad administrada para recursos de Azure, una entidad de servicio, un usuario o un grupo. En el entorno de desarrollo, la biblioteca cliente proporciona un token de acceso para un usuario o una entidad de servicio con fines de prueba.
 
 El token de acceso devuelto por la biblioteca cliente de Azure Identity se encapsula en una credencial de token. A continuación, puede usar la credencial de token para obtener un objeto de cliente de servicio que se usará para realizar operaciones autorizadas en Azure Storage. Una manera sencilla de obtener el token de acceso y la credencial de token es usar la clase **DefaultAzureCredential** proporcionada por la biblioteca cliente de Azure Identity. Una instancia de esta clase intenta obtener la credencial de token de varias maneras comunes y funciona tanto en el entorno de desarrollo como en Azure.
 
@@ -32,6 +32,7 @@ Para más información sobre la biblioteca cliente de Azure Identity para su len
 - [Biblioteca cliente de Azure Identity para Java](/java/api/overview/azure/identity-readme)
 - [Biblioteca cliente de Azure Identity para Python](/python/api/overview/azure/identity-readme)
 - [Biblioteca cliente de Azure Identity para JavaScript](/javascript/api/overview/azure/identity-readme)
+- [Biblioteca de cliente de Azure Identity para Go](/javascript/api/overview/azure/identity-readme)
 
 ## <a name="assign-azure-roles-for-access-to-data"></a>Asignación de roles de Azure para el acceso a los datos
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f66c1528058fd2d03098c00a54928fb0fbbd4057
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 244261c8b0ba1c5b99ea5add4124c92d1b5c3ae4
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130225161"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486222"
 ---
 # <a name="share-an-azure-managed-disk"></a>Uso compartido de un disco administrado de Azure
 
@@ -50,8 +50,8 @@ Entre las aplicaciones populares que se ejecutan en WSFC se incluyen:
 
 - [Creación de una FCI con discos compartidos de Azure (SQL Server en VM de Azure)](../azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
     - [Migración de la instancia del clúster de conmutación por error a SQL Server en máquinas virtuales de Azure con discos compartidos](../azure-sql/migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md)
-- Servidor de archivos de escalabilidad horizontal (SoFS) [plantilla] (https://aka.ms/azure-shared-disk-sofs-template)
-- ASCS/SCS de SAP [plantilla] (https://aka.ms/azure-shared-disk-sapacs-template)
+- [Plantilla](https://aka.ms/azure-shared-disk-sofs-template) del servidor de archivos de escalabilidad horizontal (SoFS)
+- [Plantilla](https://aka.ms/azure-shared-disk-sapacs-template) de ASCS/SCS de SAP
 - Servidor de archivos para uso general (carga de trabajo IW)
 - Disco de perfil de usuario del servidor de Escritorio remoto (RDS UPD)
 
@@ -152,44 +152,6 @@ A continuación, se proporciona un ejemplo de un clúster Linux de cuatro nodos 
 #### <a name="ultra-pricing"></a>Precios de Ultra
 
 Los discos compartidos Ultra tienen un precio basado en la capacidad aprovisionada, IOPS aprovisionadas totales (diskIOPSReadWrite + diskIOPSReadOnly) y el rendimiento (MBps) aprovisionado total (diskMBpsReadWrite + diskMBpsReadOnly). No hay ningún cargo adicional por cada montaje de máquina virtual adicional. Por ejemplo, un disco compartido Ultra con la siguiente configuración (diskSizeGB: 1024, DiskIOPSReadWrite: 10 000, DiskMBpsReadWrite: 600, DiskIOPSReadOnly: 100, DiskMBpsReadOnly: 1) se cobra con 1024 GiB, 10 100 IOPS y 601 MBps independientemente de si se monta en dos o cinco máquinas virtuales.
-
-## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
-
-**P: ¿Se admite la característica de discos compartidos para discos no administrados o blobs en páginas?**
-
-**R:** No. La característica solo se admite en el caso de discos Ultra y discos SSD administrados prémium.
-
-**P: ¿En qué regiones se admiten los discos compartidos?**
-
-**R:** Para información regional, consulte nuestro [artículo conceptual]().
-
-**P: ¿Se pueden usar discos compartidos como disco del sistema operativo?**
-
-**R:** No. Los discos compartidos solo se admiten como discos de datos.
-
-**P: ¿Qué tamaños de disco admiten los discos compartidos?**
-
-**R:** Para conocer los tamaños admitidos, consulte nuestro [artículo conceptual]().
-
-**P: Si tengo un disco, ¿puedo habilitar discos compartidos en él?**
-
-**R:** Todos los discos administrados que se crean mediante la versión de API 2019-07-01 o una versión posterior pueden habilitar los discos compartidos. Para ello, debe desmontar el disco de todas las máquinas virtuales a las que esté conectado. Después, edite la propiedad maxShares en el disco.
-
-**P: Si ya no quiero usar un disco en modo compartido, ¿cómo puedo deshabilitarlo?**
-
-**R:** Desmonte el disco de todas las máquinas virtuales a las que esté conectado. Luego, cambie la propiedad maxShare del disco por **1**.
-
-**P: ¿Se puede cambiar el tamaño de un disco compartido?**
-
-**R:** Sí.
-
-**P: ¿Se puede habilitar el acelerador de escritura en un disco que también tenga habilitados los discos compartidos?**
-
-**R:** No. No se puede habilitar el acelerador de escritura en un disco que también tenga habilitados discos compartidos.
-
-**P ¿Puedo habilitar el almacenamiento en caché de host en un disco que tenga habilitados los discos compartidos?**
-
-**R:** La única opción de almacenamiento en caché de host admitida es **Ninguno**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

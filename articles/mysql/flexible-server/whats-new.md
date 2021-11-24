@@ -7,12 +7,12 @@ ms.author: jtoland
 ms.custom: mvc, references_regions
 ms.topic: conceptual
 ms.date: 10/12/2021
-ms.openlocfilehash: 8711727d007eca452c67f7bb79913f3ab29efa77
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 8333f0086a7d2778fcda1efec64ebca6de94a002
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131500153"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398010"
 ---
 # <a name="whats-new-in-azure-database-for-mysql---flexible-server-"></a>Novedades de la opción de servidor flexible de Azure Database for MySQL
 
@@ -22,7 +22,36 @@ ms.locfileid: "131500153"
 
 En este artículo se resumen las nuevas versiones y características de Azure Database for MySQL: servidor flexible a partir de enero de 2021. Las listas aparecen en orden cronológico inverso, con las actualizaciones más recientes en primer lugar.
 
+## <a name="november-2021"></a>Noviembre de 2021
+- **Disponibilidad general del servidor flexible de Azure Database for MySQL**
+    
+  El servidor flexible de Azure Database for MySQL ya tiene **disponibilidad general** en más de [30 regiones de Azure](overview.md) de todo el mundo.
+
+- **Visualización de copias de seguridad completas disponibles en Azure Portal** Ya hay disponible una hoja Copia de seguridad y restauración dedicada en Azure Portal. En esta hoja se enumeran las copias de seguridad disponibles dentro del período de retención del servidor, lo que proporciona una vista de panel único para administrar las copias de seguridad de un servidor y las restauraciones consiguientes. Puede usar esta hoja para: 
+   1) Ver las marcas de tiempo de finalización de todas las copias de seguridad completas disponibles dentro del período de retención del servidor 
+   2) Realizar operaciones de restauración mediante estas copias de seguridad completas
+  
+- **Puntos de restauración más rápidos**
+  
+  Con la opción de punto de restauración más rápido, puede restaurar una instancia de servidor flexible en el tiempo más rápido posible un día determinado dentro del período de retención del servidor. Esta operación de restauración simplemente restaura la copia de seguridad de instantánea completa sin necesidad de restaurar ni recuperar registros. Con el punto de restauración más rápido, los clientes ven tres opciones mientras realizan restauraciones a un momento dado desde Azure Portal: punto de restauración más reciente, un punto de restauración personalizado y punto de restauración más rápido. [Más información](concepts-backup-restore.md#point-in-time-restore)
+  
+- **Hoja Preguntas frecuentes de Azure Portal**
+
+  La hoja Copia de seguridad y restauración también incluye una sección dedicada a enumerar las preguntas frecuentes, junto con sus respuestas. Esto debería proporcionar respuesta a la mayoría de las preguntas sobre la copia de seguridad directamente en Azure Portal. Además, al seleccionar el icono de signo de interrogación de Preguntas frecuentes en el menú superior, se proporciona acceso a más detalles relacionados.
+
+- **Restauración de un servidor flexible eliminado**
+    
+  El servicio ahora permite recuperar un recurso de servidor flexible de MySQL eliminado en un plazo de 5 días a partir del momento de la eliminación del servidor. Para obtener instrucciones detalladas sobre cómo restaurar un servidor eliminado, [vea los pasos documentados](../flexible-server/how-to-restore-dropped-server.md). Para proteger recursos de servidor después de la implementación frente a eliminaciones accidentales o cambios inesperados, se recomienda a los administradores aprovechar los [bloqueos de administración](../../azure-resource-manager/management/lock-resources.md).
+
+- **Problemas conocidos**
+
+En los servidores en los que está habilitada la opción de copia de seguridad con redundancia geográfica y alta disponibilidad se ha detectado un problema poco frecuente provocado por una condición de carrera que bloquea el reinicio del servidor en espera para finalizar. Como resultado de este problema, al conmutar por error la instancia de servidor flexible de Azure Database for MySQL habilitada para alta disponibilidad, esta puede quedarse bloqueada en estado de reinicio durante mucho tiempo. La corrección se va a implementar en producción en el siguiente ciclo de implementación.
+
 ## <a name="october-2021"></a>Octubre de 2021
+
+- **Los grupos de subprocesos ya están disponibles para el servidor flexible de Azure Database for MySQL**
+ 
+    Los grupos de subprocesos mejoran la escalabilidad del servidor flexible de Azure Database for MySQL. Con un grupo de subprocesos los usuarios ya pueden optimizar el rendimiento, así como lograr un mejor rendimiento y una menor latencia de las cargas de trabajo simultáneas elevadas. [Más información](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/achieve-up-to-a-50-performance-boost-in-azure-database-for-mysql/ba-p/2909691).
 
 - **Restauración de copias de seguridad con redundancia geográfica en una región emparejada geográficamente para escenarios de recuperación ante desastres**
 

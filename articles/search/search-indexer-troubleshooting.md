@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2021
-ms.openlocfilehash: 4453660cb58a1b976488d1cc9e240768637a85b6
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: d54aec5bae8fb86b9c0ed0356cd6af713500527f
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129857101"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492064"
 ---
 # <a name="indexer-troubleshooting-guidance-for-azure-cognitive-search"></a>Solución de problemas comunes con el indizador en Azure Cognitive Search
 
@@ -105,7 +105,7 @@ Para actualizar la directiva para permitir que el indexador acceda a la bibliote
 
     Se usan direcciones IP adicionales para las solicitudes que se originan en el [entorno de ejecución multiinquilino](search-indexer-securing-resources.md#indexer-execution-environment) del indexador. Puede obtener este intervalo de direcciones IP de la etiqueta de servicio.
 
-    Los intervalos de direcciones IP de la etiqueta de servicio `AzureCognitiveSearch` pueden obtenerse a través de [Discovery API ](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) o el [archivo JSON descargable](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+    Los intervalos de direcciones IP de la etiqueta de servicio `AzureCognitiveSearch` pueden obtenerse a través de la [API de detección](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) o el [archivo JSON descargable](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
     En este tutorial, suponiendo que el servicio de búsqueda sea la nube pública de Azure, se debe descargar el [archivo JSON público de Azure](https://www.microsoft.com/download/details.aspx?id=56519).
 
@@ -199,6 +199,43 @@ api-key: [admin key]
 ## <a name="missing-content-from-cosmos-db"></a>Falta de contenido de Cosmos DB
 
 Azure Cognitive Search tiene una dependencia implícita del indexado de Cosmos DB. Si desactiva el indexado automático en Cosmos DB, Azure Cognitive Search devuelve un estado correcto, pero no puede indexar el contenido del contenedor. Para instrucciones sobre cómo establecer y activar el indexado, consulte [Administración automática en Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
+
+## <a name="documents-processed-multiple-times"></a>Documentos procesados varias veces
+
+Los indexadores usan una estrategia de almacenamiento en búfer conservadora para asegurarse de que todos los documentos nuevos y modificados del origen de datos se recogen durante la indexación. En determinadas situaciones, estos búferes se pueden superponer, lo que hace que un indexador indexe un documento dos o más veces, lo que hace que el número de documentos procesados sea mayor que el número real de documentos del origen de datos. Este comportamiento **no** afecta a los datos almacenados en el índice, como la duplicación de documentos, pero este puede tardar más tiempo en alcanzar la coherencia final. Esto puede llegar a ser frecuente si se cumple alguna de las condiciones siguientes:
+
+- Las solicitudes del indexador a petición se emiten en una sucesión rápida
+- La topología del origen de datos incluye varias réplicas y particiones (un ejemplo de este tipo se describe [aquí](https://docs.microsoft.com/azure/cosmos-db/consistency-levels))
+
+Los indexadores no están diseñados para que se invoquen varias veces en una sucesión rápida. Si necesita actualizaciones rápidamente, el enfoque admitido es insertar actualizaciones en el índice mientras actualiza simultáneamente el origen de datos. Para el procesamiento a petición, se recomienda seguir el ritmo de las solicitudes en intervalos de cinco minutos o más y ejecutar el indexador según una programación.
+
+### <a name="example-of-duplicate-document-processing-with-30-second-buffer"></a>Ejemplo de procesamiento de documentos duplicados con búfer de 30 segundos
+Las condiciones en las que un documento se procesa dos veces se explican a continuación en una escala de tiempo que anota cada acción y acción del contador. En la escala de tiempo siguiente se muestra el problema:
+
+| Escala de tiempo (hh:mm:ss) | Evento | Límite superior del indexador | Comentario |
+|---------------------|-------|-------------------------|---------|
+| 00:01:00 | Escriba `doc1` en el origen de datos con coherencia final | `null` | La marca de tiempo del documento es 00:01:00. |
+| 00:01:05 | Escriba `doc2` en el origen de datos con coherencia final | `null` | Document timestamp is 00:01:05. |
+| 00:01:10 | Se inicia el indexador | `null` | |
+| 00:01:11 | El indexador consulta todos los cambios antes de las 00:01:10. La réplica que consulta el indexador solo detecta `doc2` y solo se recupera `doc2`. | `null` | El indexador solicita todos los cambios antes de iniciar la marca de tiempo, pero recibe realmente un subconjunto. Este comportamiento necesita el período de búfer de retroceso. |
+| 00:01:12 | El indexador procesa `doc2` por primera vez | `null` | |
+| 00:01:13 | Finaliza el indexador | 00:01:10 | El límite superior se actualiza a la marca de tiempo inicial de la ejecución actual del indexador. |
+| 00:01:20 | Se inicia el indexador | 00:01:10 | |
+| 00:01:21 | El indexador consulta todos los cambios entre las 00:00:40 y las 00:01:20. La réplica que consulta el indexador detecta `doc1` y `doc2`, y recupera `doc1` y `doc2`. | 00:01:10 | El indexador solicita todos los cambios entre la marca del límite superior actual menos el búfer de 30 segundos y la marca de tiempo inicial de la ejecución actual del indexador. |
+| 00:01:22 | El indexador procesa `doc1` por primera vez | 00:01:10 | |
+| 00:01:23 | El indexador procesa `doc2` por segunda vez | 00:01:10 | |
+| 00:01:24 | Finaliza el indexador | 00:01:20 | El límite superior se actualiza a la marca de tiempo inicial de la ejecución actual del indexador. |
+| 00:01:32 | Se inicia el indexador | 00:01:20 | |
+| 00:01:33 | El indexador consulta todos los cambios entre las 00:00:50 y las 00:01:32, y recupera `doc1` y `doc2`. | 00:01:20 | El indexador solicita todos los cambios entre la marca del límite superior actual menos el búfer de 30 segundos y la marca de tiempo inicial de la ejecución actual del indexador. |
+| 00:01:34 | El indexador procesa `doc1` por segunda vez | 00:01:20 | |
+| 00:01:35 | El indexador procesa `doc2` por tercera vez | 00:01:20 | |
+| 00:01:36 | Finaliza el indexador | 00:01:32 | El límite superior se actualiza a la marca de tiempo inicial de la ejecución actual del indexador. |
+| 00:01:40 | Se inicia el indexador | 00:01:32 | |
+| 00:01:41 | El indexador consulta todos los cambios entre las 00:01:02 y las 00:01:40, y recupera `doc2`. | 00:01:32 | El indexador solicita todos los cambios entre la marca del límite superior actual menos el búfer de 30 segundos y la marca de tiempo inicial de la ejecución actual del indexador. |
+| 00:01:42 | El indexador procesa `doc2` por cuarta vez | 00:01:32 | |
+| 00:01:43 | Finaliza el indexador | 00:01:40 | Observe que esta ejecución del indexador se inició más de 30 segundos después de la última escritura en el origen de datos y también procesó `doc2`. Este es el comportamiento esperado porque si se eliminan todas las ejecuciones del indexador anteriores a las 00:01:35, se convertirá en la primera y única ejecución para procesar `doc1` y `doc2`. |
+
+En la práctica, este escenario solo se produce cuando los indexadores a petición se invocan manualmente en cuestión de minutos entre sí, para determinados orígenes de datos. Puede dar lugar a números no coincidentes (como que el indexador procesó un total de 345 documentos según las estadísticas de ejecución del indexador, pero solo hay 340 documentos en el origen de datos y el índice) o una facturación potencialmente mayor si ejecuta las mismas aptitudes para el mismo documento varias veces. La recomendación preferida es ejecutar un indexador mediante una programación.
 
 ## <a name="see-also"></a>Vea también
 

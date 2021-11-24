@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: KarenH444
-ms.date: 09/01/2021
+ms.date: 10/26/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -13,20 +13,20 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea46c1f419835948c27e72e1d1b77d2fd6a3592d
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 0d27f1182f7e7308a58b97705ef20d5f2a726eb7
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129986746"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400155"
 ---
 # <a name="bulk-download-members-of-a-group-in-azure-active-directory"></a>Descarga masiva de miembros de un grupo en Azure Active Directory
 
-Mediante el portal de Azure Active Directory (Azure AD), puede descargar de forma masiva los miembros de un grupo de su organización en un archivo de valores separados por comas (CSV).
+Mediante el portal de Azure Active Directory (Azure AD), puede descargar de forma masiva los miembros de un grupo de su organización en un archivo de valores separados por comas (CSV). Todos los administradores y usuarios que no son administradores pueden descargar listas de pertenencia a grupos.
 
 ## <a name="to-bulk-download-group-membership"></a>Descarga masiva de pertenencias al grupo
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador de usuarios en la organización. Los propietarios de grupos también pueden descargar de forma masiva miembros de los grupos que posean.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de la organización.
 1. En Azure AD, seleccione **Grupos** > **Todos los grupos**.
 1. Abra el grupo cuya pertenencia quiere descargar y, a continuación, seleccione los **miembros**.
 1. En la página de **miembros**, seleccione **Descargar miembros** para descargar un archivo CSV que enumera los miembros del grupo.

@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: 102b6e24c0d945cfd8e9bef8b7ae3a9c1992087e
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 7ca093294cb1782da5adeb02888696b38f57de4c
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132335373"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400117"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Escalabilidad automática de grupos de Apache Spark de Azure Synapse Analytics
 
@@ -60,6 +60,26 @@ Para habilitar la característica de escalabilidad automática, complete estos p
     * Número **máximo** de nodos.
 
 El número inicial de nodos será el mínimo. Este valor define el tamaño inicial de la instancia durante su creación. El número mínimo de nodos no puede ser inferior a tres.
+
+También puede habilitar la asignación dinámica de ejecutores en escenarios donde los requisitos del ejecutor sean muy diferentes en las fases de un trabajo de Spark o el volumen de datos procesados fluctúe con el tiempo. Habilitando la asignación dinámica de ejecutores, podemos usar la capacidad según sea necesario.
+
+Si se habilita durante la creación de un grupo de Spark, es posible establecer el número mínimo y máximo de nodos, sujeto a los límites de los nodos disponibles. Estos valores se restablecen a los predeterminados con cada sesión que se crea dentro del grupo.
+
+Apache Spark permite configurar la asignación dinámica de ejecutores mediante el código que se muestra a continuación:
+
+```
+    %%configure -f
+    {
+        "conf" : {
+            "spark.dynamicAllocation.maxExecutors" : "6",
+            "spark.dynamicAllocation.enable": "true",
+            "spark.dynamicAllocation.minExecutors": "2"
+     }
+    }
+```
+Los valores predeterminados que se especifican a través del código invalidan los valores establecidos a través de la interfaz de usuario.
+
+Al habilitar la asignación dinámica, los ejecutores se escalan o reducen verticalmente en función del uso que se hace de ellos. De este modo, se garantiza que se aprovisionen de acuerdo con las necesidades del trabajo que se está ejecutando.
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 

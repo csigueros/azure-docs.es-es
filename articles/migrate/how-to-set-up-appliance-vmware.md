@@ -5,13 +5,13 @@ author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 07/27/2021
-ms.openlocfilehash: b2bdd5ee189d4fe350171d37e51d0f88b3e3ac20
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 11/12/2021
+ms.openlocfilehash: 1082b63bc6f12531d502e75c1c096639b0eab00b
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747192"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719281"
 ---
 # <a name="set-up-an-appliance-for-servers-in-a-vmware-environment"></a>Configuración de un dispositivo para servidores en un entorno de VMware
 
@@ -64,11 +64,7 @@ Antes de implementar el archivo OVA, compruebe que el archivo sea seguro:
    
     Ejemplo: `C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256`
 
-1. Compruebe las versiones más recientes del dispositivo y los valores hash de la nube pública de Azure:
-    
-    **Algoritmo** | **Descargar** | **SHA256**
-    --- | --- | ---
-    VMware (11,9 GB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
+1. Compruebe el valor hash más reciente mediante la comparación del resultado del comando anterior con el valor documentado [aquí](./tutorial-discover-vmware.md#verify-security).
 
 #### <a name="create-the-appliance-server"></a>Creación del servidor del dispositivo
 

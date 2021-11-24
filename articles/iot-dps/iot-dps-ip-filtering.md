@@ -5,14 +5,14 @@ author: anastasia-ms
 ms.author: v-stharr
 ms.service: iot-dps
 services: iot-dps
-ms.topic: conceptual
-ms.date: 11/05/2021
-ms.openlocfilehash: 01a3449526166ceb54565e73683a6d3c7dc41603
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.topic: how-to
+ms.date: 11/12/2021
+ms.openlocfilehash: 9354b1e3bfc57951cff919b0c14e3bc950939d8f
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132133261"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132485311"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Uso de filtros de conexión IP de Azure IoT DPS
 
@@ -35,51 +35,96 @@ Las reglas de filtro IP se aplican en el nivel de instancia de DPS. Por lo tanto
 
 Cualquier intento de conexión desde una dirección IP que coincida con una regla IP de rechazo en su instancia de DSP recibe un código de estado 401 no autorizado y la descripción. El mensaje de respuesta no menciona la regla IP.
 
+> [!IMPORTANT]
+> El rechazo de las direcciones IP puede evitar que otros servicios de Azure interactúen con la instancia de DPS.
+
 ## <a name="default-setting"></a>Valor predeterminado
 
-De forma predeterminada, la cuadrícula de **filtro IP** del portal para DPS está vacía. Este ajuste predeterminado indica que la instancia de DPS acepta conexiones de cualquier dirección IP. Esta configuración predeterminada es equivalente a una regla que acepta el intervalo de direcciones IP 0.0.0.0/0.
+De forma predeterminada, el filtrado de IP está deshabilitado y **Acceso a la red pública** se establece en *Todas las redes*. Esta configuración predeterminada significa que DPS acepta conexiones desde cualquier dirección IP o se ajusta a una regla que acepta el intervalo de direcciones IP 0.0.0.0/0.
 
-![Configuración predeterminada de filtro IP de IoT DPS](./media/iot-dps-ip-filtering/ip-filter-default.png)
+:::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-default.png" alt-text="Configuración predeterminada de filtro IP de IoT DPS.":::
 
-## <a name="add-or-edit-an-ip-filter-rule"></a>Incorporación o edición de una regla de filtro IP
+## <a name="add-an-ip-filter-rule"></a>Adición de una regla de filtro IP
 
-Para agregar una regla de filtro IP, seleccione **+ Agregar regla de filtro IP**.
+Para agregar una regla de filtro IP:
 
-![Adición de una regla de filtro IP a una instancia de IoT DPS](./media/iot-dps-ip-filtering/ip-filter-add-rule.png)
+1. Vaya a [Azure Portal](https://portal.azure.com).
 
-Después de seleccionar **Agregar regla de filtro IP**, rellene los campos.
+2. En el menú de la izquierda o en la página del portal, seleccione **Todos los recursos**.
 
-![Después de seleccionar Agregar regla de filtro IP](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
+3. Seleccione la instancia de Device Provisioning Service.
 
-* Escriba un **nombre** para la regla de filtro IP. Debe ser una cadena única de hasta 128 caracteres alfanuméricos que no distinga mayúsculas de minúsculas. Solo se aceptan los caracteres alfanuméricos de 7 bits ASCII más `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
+4. En el menú **Configuración** de la izquierda, seleccione *Redes*.
 
-* Proporcione una única dirección IPv4 o un bloque de direcciones IP en la notación CIDR. Por ejemplo, en notación CIDR, 192.168.100.0/22 representa las direcciones IPv4 de 1024 de 192.168.100.0 a 192.168.103.255.
+5. En *Acceso a la red pública*, seleccione **Selected IP ranges** (Intervalos IP seleccionados).
 
-* Seleccione un **Permitir** o **Bloquear** como **acción** para la regla de filtro IP.
+6. Seleccione **+ Agregar regla de filtro IP**.
 
-Después de rellenar los campos, seleccione **Guardar** para guardar la regla. Se mostrará una alerta que le informará de que la actualización está en curso.
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-add-rule.png" alt-text="Adición de una regla de filtro IP a una instancia de IoT DPS.":::
 
-![Notificación acerca de cómo guardar una regla de filtro IP](./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png)
+7. Rellene los campos siguientes:
 
-La opción **Agregar** está deshabilitada cuando se alcanza el máximo de 100 reglas de filtro IP.
+    | Campo | Descripción|
+    |-------|------------|
+    | **Nombre** |Cadena única de hasta 128 caracteres alfanuméricos que no distingue mayúsculas de minúsculas. Solo se aceptan los caracteres alfanuméricos de 7 bits ASCII más `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.|
+    | **Intervalo de direcciones** |Una única dirección IPv4 o un bloque de direcciones IP en la notación CIDR. Por ejemplo, en notación CIDR, 192.168.100.0/22 representa las direcciones IPv4 de 1024 de 192.168.100.0 a 192.168.103.255.|
+    | **Acción** |Seleccione **Permitir** o **Bloquear**.|
 
-Para editar una regla existente, seleccione los datos que quiere cambiar, realice el cambio y, a continuación, seleccione **Guardar** para guardar la edición.
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png" alt-text="Después de seleccionar Agregar regla de filtro IP.":::
 
-> [!NOTE]
-> El rechazo de las direcciones IP puede evitar que otros servicios de Azure interactúen con la instancia de DPS.
+8. Seleccione **Guardar**. Debería ver una alerta que le informa de que la actualización está en curso.
+
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png" alt-text="Notificación acerca de guardar una regla de filtro IP.":::
+
+    >[!Note]
+    > La opción **+ Agregar regla de filtro IP** se deshabilita cuando se alcanza el máximo de 100 reglas de filtro IP.
+
+## <a name="edit-an-ip-filter-rule"></a>Edición de una regla de filtro IP
+
+Para editar una regla existente:
+
+1. Seleccione los datos de la regla de filtro IP que desea cambiar.
+
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-rule-edit.png" alt-text="Edición de una regla de filtro IP.":::
+
+2. Realice el cambio.
+
+3. Seleccione **Guardar**.
 
 ## <a name="delete-an-ip-filter-rule"></a>Eliminación de una regla de filtro IP
 
-Para eliminar una regla de filtro IP, seleccione el icono de la papelera de esa fila y, a continuación, seleccione **Guardar**. Se quita la regla y se guarda el cambio.
+Para eliminar una regla de filtro IP:
 
-![Eliminación de una regla de filtro IP de IoT DPS](./media/iot-dps-ip-filtering/ip-filter-delete-rule.png)
+1. Seleccione el icono de eliminación en la fila de la regla de IP que desea eliminar.
 
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-delete-rule.png" alt-text="Eliminación de una regla de filtro IP de IoT DPS.":::
 
-## <a name="update-ip-filter-rules-in-code"></a>Actualización de reglas de filtro IP en el código
+2. Seleccione **Guardar**.
 
-También puede recuperar y modificar el filtro IP de DPS mediante el punto de conexión REST del proveedor de recursos de Azure. Consulte `properties.ipFilterRules` en [método createorupdate](/rest/api/iot-dps/iotdpsresource/createorupdate).
+## <a name="ip-filter-rule-evaluation"></a>Evaluación de las reglas de filtro IP
 
-Actualmente no se admite la actualización de las reglas de filtro IP de DPS con la CLI de Azure o Azure PowerShell, pero se puede realizar con plantillas de Azure Resource Manager. Consulte [Información general sobre plantillas de Azure Resource Manager](../azure-resource-manager/templates/overview.md) para obtener instrucciones sobre el uso de las plantillas de Resource Manager. Los ejemplos de plantillas siguientes muestran cómo crear, editar y eliminar reglas de filtro de IP de DPS.
+Las reglas de filtro IP se aplican por orden. La primera regla que coincide con la dirección IP determina la acción de aceptación o rechazo.
+
+Por ejemplo, si desea aceptar las direcciones del intervalo 192.168.100.0/22 y rechazar todas las demás, la primera regla de la cuadrícula debe aceptar el intervalo de direcciones 192.168.100.0/22. La siguiente regla debe rechazar todas las direcciones mediante el intervalo 0.0.0.0/0.
+
+Para cambiar el orden de las reglas de filtro IP:
+
+1. Seleccione la regla que desea mover.
+
+2. Arrastre y coloque la regla en la ubicación deseada.
+
+3. Seleccione **Guardar**.
+
+## <a name="update-ip-filter-rules-using-azure-resource-manager-templates"></a>Actualización de reglas de filtro IP mediante plantillas de Azure Resource Manager
+
+Hay dos maneras de actualizar el filtro IP de DPS:
+
+1. Llamar al método de la API REST de recursos de IoT Hub. Para obtener información sobre cómo actualizar las reglas de filtro IP mediante REST, consulte `IpFilterRule` en la [sección Definiciones](/api/iothub/iot-hub-resource/update#definitions) del método [Update de Recurso de IoT Hub](/api/iothub/iot-hub-resource/update).
+
+2. Usar las plantillas de Azure Resource Manager. Para obtener instrucciones sobre su uso, consulte la información sobre [plantillas de Azure Resource Manager](../azure-resource-manager/templates/overview.md). Los ejemplos siguientes muestran cómo crear, editar y eliminar reglas de filtro IP de DPS con plantillas de Azure Resource Manager.
+
+    >[!NOTE]
+    >Actualmente, la CLI de Azure y Azure PowerShell no admiten actualizaciones de reglas de filtro IP de DPS.
 
 ### <a name="add-an-ip-filter-rule"></a>Adición de una regla de filtro IP
 
@@ -241,20 +286,6 @@ En el ejemplo de plantilla siguiente se eliminan todas las reglas de filtro IP p
     ] 
 }
 ```
-
-
-
-## <a name="ip-filter-rule-evaluation"></a>Evaluación de las reglas de filtro IP
-
-Las reglas de filtro IP se aplican en orden y la primera regla que coincida con la dirección IP determina la acción de aceptar o rechazar.
-
-Por ejemplo, si desea aceptar las direcciones del intervalo 192.168.100.0/22 y rechazar todas las demás, la primera regla de la cuadrícula debe aceptar el intervalo de direcciones 192.168.100.0/22. La siguiente regla debe rechazar todas las direcciones mediante el intervalo 0.0.0.0/0.
-
-Puede cambiar el orden de las reglas de filtro IP en la cuadrícula al hacer clic en los tres puntos verticales situados al principio de las filas y mediante el método arrastrar y colocar.
-
-Para guardar el nuevo orden de reglas de filtro IP, haga clic en **Guardar**.
-
-![Cambio del orden de las reglas de filtro IP de DPS](./media/iot-dps-ip-filtering/ip-filter-rule-order.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

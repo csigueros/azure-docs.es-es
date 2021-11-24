@@ -1,18 +1,16 @@
 ---
 title: Uso de una instancia de App Service Environment
 description: Aprenda a usar su instancia de App Service Environment para hospedar aplicaciones aisladas.
-author: ccompy
-ms.assetid: 377fce0b-7dea-474a-b64b-7fbe78380554
+author: madsd
 ms.topic: article
 ms.date: 07/06/2021
-ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 01d554c5b34796b54fc67877149a116500c41823
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.author: madsd
+ms.openlocfilehash: 6a01e1c746579ea7d51a0b30fd554d2e2e6bb66b
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130216758"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519653"
 ---
 # <a name="using-an-app-service-environment"></a>Uso de App Service Environment
 
@@ -35,13 +33,13 @@ Para crear una aplicación en un entorno ASE:
 1. Seleccione **Crear un recurso** > **Web y móvil** > **Aplicación web**.
 1. Seleccione una suscripción.
 1. Especifique un nombre para un grupo de recursos nuevo o seleccione **Usar existente** y seleccione uno en la lista desplegable.
-1. Escriba un nombre para la aplicación. Si ya seleccionó un plan de App Service en un ASE, el nombre de dominio de la aplicación refleja el nombre de dominio del ASE: ![creación de una aplicación en un ASE][1]
+1. Escriba un nombre para la aplicación. Si ya seleccionó un plan de App Service en ASE, el nombre de dominio de la aplicación refleja el nombre de dominio del entorno ASE
 1. Seleccione el tipo de publicación, la pila y el sistema operativo.
-1. Seleccione la región. Aquí debe seleccionar una instancia ya existente de App Service Environment v3.  No se puede crear una instancia de ASEv3 durante la creación de la aplicación. 
-1. Seleccione un plan de App Service ya existente en el ASE o cree uno. Si va a crear una aplicación, seleccione el tamaño que quiere para el plan de App Service. La única SKU que puede seleccionar para la aplicación es una SKU con el precio de v2 aislada. La creación de un plan de App Service normalmente llevará menos de 20 minutos. 
+1. Seleccione la región. Aquí debe seleccionar una instancia ya existente de App Service Environment v3. No se puede crear una instancia de ASEv3 durante la creación de la aplicación: ![creación de una aplicación en ASE][1]
+1. Seleccione un plan de App Service ya existente en el ASE o cree uno. Si va a crear una aplicación, seleccione el tamaño que quiere para el plan de App Service. La única SKU que puede seleccionar para la aplicación es una SKU con el precio de v2 aislada. La creación de un plan de App Service normalmente llevará menos de 20 minutos.
 ![Planes de tarifa de v2 aislada][2]
-1. Seleccione **Siguiente: Supervisión**. Si quiere habilitar App Insights con la aplicación, puede hacerlo aquí durante el flujo de creación. 
-1.  Seleccione **Siguiente: Etiquetas**: agregue las etiquetas que desee a la aplicación.  
+1. Seleccione **Siguiente: Supervisión**. Si quiere habilitar App Insights con la aplicación, puede hacerlo aquí durante el flujo de creación.
+1.  Seleccione **Siguiente: Etiquetas**: agregue las etiquetas que desee a la aplicación.
 1. Seleccione **Revisar y crear**, asegúrese de que la información es correcta y luego seleccione **Crear**.
 
 Las aplicaciones de Windows y Linux pueden estar en el mismo ASE, pero no pueden estar en el mismo plan de App Service.
@@ -50,9 +48,9 @@ Las aplicaciones de Windows y Linux pueden estar en el mismo ASE, pero no pueden
 
 Cada aplicación de App Service se ejecuta en un plan de App Service. Las instancias de App Service Environment contienen planes de App Service, y estos incluyen aplicaciones. Cuando escala una aplicación, también escala el plan de App Service y todas las aplicaciones de ese mismo plan.
 
-Cuando se escala horizontalmente un plan de App Service, se agrega la infraestructura necesaria de forma automática. Hay un retraso para escalar las operaciones mientras se agrega la infraestructura. Al escalar un plan de App Service, las demás operaciones de escalado que soliciten el mismo sistema operativo y tamaño esperarán hasta que se complete la primera. Una vez que finaliza la operación que impide el escalado, todas las solicitudes en cola se procesan al mismo tiempo. Una operación de escalado con un tamaño y un sistema operativo no impedirá el escalado de las otras combinaciones de tamaño y sistema operativo. Por ejemplo, si escaló un plan de App Service de Windows I2v2, todas las demás solicitudes de escalado de Windows I2v2 en ese ASE se pondrán en cola hasta que se complete. El escalado normalmente llevará menos de 20 minutos. 
+Cuando se escala horizontalmente un plan de App Service, se agrega la infraestructura necesaria de forma automática. Hay un retraso para escalar las operaciones mientras se agrega la infraestructura. Al escalar un plan de App Service, si en ese momento se está ejecutando otra operación de escalado del mismo sistema operativo y tamaño, puede haber un ligero retraso de unos minutos hasta que se inicie la escala solicitada. Una operación de escalado con un tamaño y un sistema operativo no afectará el escalado de las otras combinaciones de tamaño y sistema operativo. Por ejemplo, si está escalando un plan de App Service de Windows I2v2, entonces cualquier otra solicitud para escalar Windows I2v2 podría retrasarse ligeramente, pero una operación de escalado a un plan de App Service de Windows I3v2 se iniciará inmediatamente. El escalado normalmente llevará menos de 20 minutos.
 
-En las instancias multiinquilino de App Service, el escalado es inmediato, ya que hay un grupo de destino disponible al instante para realizarlo. En un entorno ASE, no hay ningún búfer de este tipo y los recursos se asignan según sea necesario.
+En las instancias multiinquilino de App Service, el escalado es inmediato, ya que hay un grupo de recursos *compartidos* disponible para admitirlo. ASE es un servicio de un solo inquilino, por lo que no hay ningún búfer compartido y los recursos se asignan en función de las necesidades.
 
 ## <a name="app-access"></a>Acceso a las aplicaciones
 
@@ -184,16 +182,6 @@ Para eliminar un entorno ASE:
 ![Eliminación de ASE][3]
 1. Seleccione **Aceptar**.
 
-## <a name="pricing"></a>Precios 
-
-ASEv3 aplica un modelo de precios distinto en función del tipo de implementación de ASE que tenga. A continuación se indican los tres modelos de precios: 
-
-- **ASEv3**: si ASE está vacío, se aplica un cargo como si tuviera un ASP con una instancia de Windows I1v2. El cargo de única instancia no es adicional, solo se aplica si el ASE está vacío.
-- **ASEv3 de zona de disponibilidad**: hay un cargo mínimo por nueve instancias de Windows I1v2. No hay ningún cargo adicional por compatibilidad con zonas de disponibilidad si tiene nueve o más instancias de plan de App Service. Todos los planes de App Service en una instancia de AZ ASEv3 también tienen tres instancias como mínimo para asegurarse de que hay una instancia en cada zona de disponibilidad. A medida que los planes se escalan horizontalmente, se reparten entre las zonas de disponibilidad. 
-- **ASEv3 de host dedicado**: con una implementación de host dedicado, se le cobran dos hosts dedicados según nuestros precios al crear una instancia de ASEv3 y, a continuación, un pequeño porcentaje de la tarifa del plan Aislado V2 por núcleo a medida que escala.
-
-Los precios de instancias reservadas para Isolated v2 están disponibles y se describen en [Cómo se aplican los descuentos de reserva a Azure App Service][reservedinstances]. Los precios, junto con los precios de las instancias reservadas, están disponibles en [Precios de App Service][pricing] del **plan Aislado v2**. 
-
 <!--Image references-->
 
 [1]: ./media/using/using-appcreate.png
@@ -220,5 +208,3 @@ Los precios de instancias reservadas para Isolated v2 están disponibles y se de
 [ASEWAF]: ./integrate-with-application-gateway.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [logalerts]: ../../azure-monitor/alerts/alerts-log.md
-[reservedinstances]: ../../cost-management-billing/reservations/reservation-discount-app-service.md#how-reservation-discounts-apply-to-isolated-v2-instances
-[pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/

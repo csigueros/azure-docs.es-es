@@ -1,22 +1,22 @@
 ---
-title: Diseños de ejemplo de áreas de trabajo de Azure Sentinel | Microsoft Docs
-description: Aprenda de los ejemplos de diseños de arquitecturas de Azure Sentinel con varios inquilinos, nubes o regiones.
+title: Diseños de ejemplo de áreas de trabajo de Microsoft Sentinel | Microsoft Docs
+description: Aprenda de los ejemplos de diseños de arquitecturas de Microsoft Sentinel con varios inquilinos, nubes o regiones.
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: conceptual
-ms.date: 07/18/2021
+ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9cd48e8537f46ce9580b1b2e573e12bb5e12e455
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cb2332a4c9854aafe1ef8193da9ca76e9aaaed95
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131013999"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520073"
 ---
-# <a name="azure-sentinel-sample-workspace-designs"></a>Diseños de ejemplo de áreas de trabajo de Azure Sentinel
+# <a name="microsoft-sentinel-sample-workspace-designs"></a>Diseños de ejemplo de áreas de trabajo de Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -26,7 +26,7 @@ En este artículo se describen los diseños de áreas de trabajo sugeridos para 
 - Inquilino único con varias nubes
 - Varios inquilinos, con varias regiones y seguridad centralizada
 
-En los ejemplos de este artículo se usa el [árbol de decisión sobre el diseño de áreas de trabajo de Azure Sentinel](design-your-workspace-architecture.md) para determinar el mejor diseño posible para cada organización. Para más información, consulte [Procedimientos recomendados de arquitectura de áreas de trabajo de Azure Sentinel](best-practices-workspace-architecture.md).
+En los ejemplos de este artículo se usa el [árbol de decisión de diseño de áreas de trabajo de Microsoft Sentinel](design-your-workspace-architecture.md) para determinar el mejor diseño posible para cada organización. Para obtener más información, vea [Procedimientos recomendados de arquitectura de áreas de trabajo de Microsoft Sentinel](best-practices-workspace-architecture.md).
 
 ## <a name="sample-1-multiple-tenants-and-regions"></a>Ejemplo 1: Varios inquilinos y regiones
 
@@ -57,7 +57,7 @@ Contoso tiene que recopilar eventos de los siguientes orígenes de datos:
 -   Varios recursos de PaaS de Azure, como Azure Firewall, AKS, Key Vault, Azure Storage y Azure SQL
 -   Cisco Umbrella
 
-Las máquinas virtuales de Azure se encuentran principalmente en la región Norte de Europa, con solo algunas en las regiones Este de EE. UU. y Oeste de Japón. Contoso usa Azure Defender para servidores en todas sus máquinas virtuales de Azure.
+Las máquinas virtuales de Azure se encuentran principalmente en la región Norte de Europa, con solo algunas en las regiones Este de EE. UU. y Oeste de Japón. Contoso usa Microsoft Defender para servidores en todas sus máquinas virtuales de Azure.
 
 Contoso espera ingerir aproximadamente 300 GB/día de todos sus orígenes de datos.
 
@@ -65,17 +65,17 @@ Contoso espera ingerir aproximadamente 300 GB/día de todos sus orígenes de da
 
 El entorno de Azure de Contoso ya tiene un área de trabajo de Log Analytics existente que usa el equipo de operaciones para supervisar la infraestructura. Esta área de trabajo se encuentra en el inquilino de Contoso AAD, en la región Norte de Europa, y se usa para recopilar registros de máquinas virtuales de Azure de todas las regiones. Actualmente ingiere aproximadamente 50 GB/día.
 
-El equipo de operaciones de Contoso debe tener acceso a todos los registros que tienen actualmente en el área de trabajo, entre los cuales se incluyen varios tipos de datos que no necesita el centro de operaciones de seguridad (SOC) como **Perf**, **InsightsMetrics**, **ContainerLog**, etc. El equipo de operaciones *no* debe tener acceso a los nuevos registros que se recopilarán en Azure Sentinel.
+El equipo de operaciones de Contoso debe tener acceso a todos los registros que tienen actualmente en el área de trabajo, entre los cuales se incluyen varios tipos de datos que no necesita el centro de operaciones de seguridad (SOC) como **Perf**, **InsightsMetrics**, **ContainerLog**, etc. El equipo de operaciones *no* debe tener acceso a los nuevos registros que se van a recopilar en Microsoft Sentinel.
 
 ### <a name="contosos-solution"></a>Solución de Contoso
 
-En los pasos siguientes se aplica el [árbol de decisión sobre el diseño de áreas de trabajo de Azure Sentinel](design-your-workspace-architecture.md) para determinar el mejor diseño posible para Contoso:
+En los pasos siguientes se aplica el [árbol de decisión de diseño de áreas de trabajo de Microsoft Sentinel](design-your-workspace-architecture.md) para determinar el mejor diseño posible para Contoso:
 
-1. Contoso ya tiene un área de trabajo existente, por lo que podemos explorar la habilitación de Azure Sentinel en ella.
+1. Contoso ya tiene un área de trabajo existente, por lo que se puede explorar la habilitación de Microsoft Sentinel en ella.
 
     La ingesta de datos que no son del SOC es inferior a 100 GB/día, por lo que podemos continuar con el [paso 2](design-your-workspace-architecture.md#step-2-keeping-data-in-different-azure-geographies) y asegurarnos de seleccionar la opción pertinente en el [paso 5](design-your-workspace-architecture.md#step-5-collecting-any-non-soc-data).
 
-1.  Contoso tiene requisitos normativos, por lo que necesitaremos al menos un área de trabajo de Azure Sentinel en Europa.
+1.  Contoso tiene requisitos normativos, por lo que se necesita al menos un área de trabajo de Microsoft Sentinel en Europa.
 
 1.  Contoso tiene dos inquilinos de Azure AD diferentes y recopila datos de orígenes de datos en el nivel de inquilino como, por ejemplo, registros de inicio de sesión y auditoría de Office 365 y Azure AD, por lo que se necesitan al menos un área de trabajo por inquilino.
 
@@ -85,11 +85,11 @@ En los pasos siguientes se aplica el [árbol de decisión sobre el diseño de á
 
 1.  La mayoría de las máquinas virtuales de Contoso se encuentran en la región Norte de Europa, donde ya tienen un área de trabajo. Por lo tanto, en este caso, los costos de ancho de banda no son un problema.
 
-1.  Contoso tiene un único equipo de SOC que va a usar Azure Sentinel, por lo que no es necesaria ninguna separación adicional.
+1.  Contoso tiene un único equipo de SOC que va a usar Microsoft Sentinel, por lo que no es necesaria ninguna separación adicional.
 
 1.  Todos los miembros del equipo de SOC de Contoso tendrán acceso a todos los datos, por lo que no se necesita ninguna separación adicional.
 
-El diseño del área de trabajo de Azure Sentinel resultante para Contoso se muestra en la siguiente imagen:
+El diseño del área de trabajo de Microsoft Sentinel resultante para Contoso se muestra en la siguiente imagen:
 
 :::image type="content" source="media/best-practices/contoso-solution.png" alt-text="Diagrama de la solución de Contoso, con un área de trabajo independiente para el equipo de operaciones." border="false":::
 
@@ -97,14 +97,14 @@ La solución sugerida incluye:
 
 - Un área de trabajo de Log Analytics independiente para el equipo de operaciones de Contoso. Esta área de trabajo solo contendrá datos que no necesite el equipo de SOC de Contoso, como las tablas **Perf**, **InsightsMetrics** o **ContainerLog**.
 
-- Dos áreas de trabajo de Azure Sentinel, una en cada inquilino de Azure AD, para ingerir datos de Office 365, actividades de Azure, Azure AD y todos los servicios PaaS de Azure.
+- Dos áreas de trabajo de Microsoft Sentinel, una en cada inquilino de Azure AD, para ingerir datos de Office 365, Azure Activity, Azure AD y todos los servicios PaaS de Azure.
 
-- Todos los demás datos, procedentes de orígenes de datos locales, se pueden enrutar a una de las dos áreas de trabajo de Azure Sentinel.
+- Todos los demás datos, procedentes de orígenes de datos locales, se pueden enrutar a una de las dos áreas de trabajo de Microsoft Sentinel.
 
 
 ## <a name="sample-2-single-tenant-with-multiple-clouds"></a>Ejemplo 2: Inquilino único con varias nubes
 
-Fabrikam es una organización con sede principal en la ciudad de Nueva York y oficinas distribuidas por todo Estados Unidos. Fabrikam está al comienzo de su recorrido en la nube y todavía necesita implementar su primera zona de aterrizaje de Azure y migrar sus primeras cargas de trabajo. Fabrikam ya tiene algunas cargas de trabajo en AWS, las cuales pretenden supervisar mediante Azure Sentinel.
+Fabrikam es una organización con sede principal en la ciudad de Nueva York y oficinas distribuidas por todo Estados Unidos. Fabrikam está al comienzo de su recorrido en la nube y todavía necesita implementar su primera zona de aterrizaje de Azure y migrar sus primeras cargas de trabajo. Fabrikam ya tiene algunas cargas de trabajo en AWS que pretende supervisar mediante Microsoft Sentinel.
 
 ### <a name="fabrikam-tenancy-requirements"></a>Requisitos de inquilinos de Fabrikam
 
@@ -141,11 +141,11 @@ El equipo de SOC de Fabrikam debe tener acceso a:
 -   Eventos de seguridad, de orígenes locales y de máquinas virtuales de Azure
 -   Registros de AWS CloudTrail
 -   Registros de auditoría de AKS
--   El portal de Azure Sentinel completo
+-   El portal completo de Microsoft Sentinel
 
 ### <a name="fabrikams-solution"></a>Solución de Fabrikam
 
-En los pasos siguientes se aplica el [árbol de decisión sobre el diseño de áreas de trabajo de Azure Sentinel](design-your-workspace-architecture.md) para determinar el mejor diseño posible para Fabrikam:
+En los pasos siguientes se aplica el [árbol de decisión de diseño de áreas de trabajo de Microsoft Sentinel](design-your-workspace-architecture.md) para determinar el mejor diseño posible para Fabrikam:
 
 1.  Fabrikam no tiene ningún área de trabajo existente, por lo que puede continuar en el [paso 2](design-your-workspace-architecture.md#step-2-keeping-data-in-different-azure-geographies).
 
@@ -157,11 +157,11 @@ En los pasos siguientes se aplica el [árbol de decisión sobre el diseño de á
 
 1.  Fabrikam necesitará áreas de trabajo independientes para sus equipos de SOC y de operaciones:
 
-    El equipo de operaciones de Fabrikam necesita recopilar datos de rendimiento, tanto de máquinas virtuales como de AKS. Dado que AKS se basa en la configuración de diagnóstico, se pueden seleccionar registros específicos para enviarlos a áreas de trabajo específicas. Fabrikam puede optar por enviar registros de auditoría de AKS al área de trabajo de Azure Sentinel y todos los registros de AKS a un área de trabajo independiente en la que Azure Sentinel está habilitado. En el área de trabajo en la que Azure Sentinel no está habilitado, Fabrikam habilitará la solución Container Insights.
+    El equipo de operaciones de Fabrikam necesita recopilar datos de rendimiento, tanto de máquinas virtuales como de AKS. Dado que AKS se basa en la configuración de diagnóstico, se pueden seleccionar registros específicos para enviarlos a áreas de trabajo específicas. Fabrikam puede optar por enviar registros de auditoría de AKS al área de trabajo de Microsoft Sentinel, y todos los registros de AKS a un área de trabajo independiente donde Microsoft Sentinel no está habilitado. En el área de trabajo en la que Microsoft Sentinel no está habilitado, Fabrikam habilita la solución Container Insights.
 
-    En el caso de las máquinas virtuales de Windows, Fabrikam puede usar el [agente de Azure Monitoring](connect-windows-security-events.md#connector-options) para dividir los registros, enviar eventos de seguridad al área de trabajo de Azure Sentinel y eventos de rendimiento y de Windows al área de trabajo sin Azure Sentinel.
+    En el caso de las máquinas virtuales Windows, Fabrikam puede usar el [agente de Azure Monitor](connect-windows-security-events.md#connector-options) para dividir los registros, con lo que se envían los eventos de seguridad al área de trabajo de Microsoft Sentinel y los eventos de rendimiento y de Windows al área de trabajo sin Microsoft Sentinel.
 
-    Fabrikam decide considerar sus datos superpuestos como, por ejemplo, eventos de seguridad y eventos de actividad de Azure, como datos de SOC únicamente, y envía estos datos al área de trabajo con Azure Sentinel.
+    Fabrikam decide considerar sus datos superpuestos, por ejemplo, eventos de seguridad y eventos de actividad de Azure, solo como datos SOC, y envía estos datos al área de trabajo con Microsoft Sentinel.
 
 1.  Los costos de ancho de banda no son un problema importante para Fabrikam, por lo que puede continuar en el [paso 7](design-your-workspace-architecture.md#step-7-segregating-data-or-defining-boundaries-by-ownership).
 
@@ -171,19 +171,19 @@ En los pasos siguientes se aplica el [árbol de decisión sobre el diseño de á
 
     Ni los eventos de seguridad ni los eventos de actividad de Azure son registros personalizados, por lo que Fabrikam puede usar RBAC en el nivel de tabla para conceder acceso a estas dos tablas al equipo de operaciones.
 
-El diseño resultante del área de trabajo de Azure Sentinel para Fabrikam se muestra en la imagen siguiente, la cual incluye solo los principales orígenes de registros para simplificar el diseño:
+El diseño resultante de área de trabajo de Microsoft Sentinel para Fabrikam se muestra en la imagen siguiente, la cual incluye solo los principales orígenes de registros para simplificar el diseño:
 
 :::image type="content" source="media/best-practices/fabrikam-solution.png" alt-text="Diagrama de la solución de Fabrikam, con un área de trabajo independiente para el equipo de operaciones." border="false" :::
 
 La solución sugerida incluye:
 
-- Dos áreas de trabajo independientes en la región de EE. UU.: una para el equipo de SOC con Azure Sentinel habilitado y otra para el equipo de operaciones, sin Azure Sentinel.
+- Dos áreas de trabajo independientes en la región de EE. UU.: una para el equipo de SOC, con Microsoft Sentinel habilitado, y otra para el equipo de operaciones, sin Microsoft Sentinel.
 
 - El [agente de Azure Monitor](connect-windows-security-events.md#connector-options) que se usa para determinar qué registros se envían a cada área de trabajo desde Azure y las máquinas virtuales locales.
 
 - Configuración de diagnóstico, que se usa para determinar qué registros se envían a cada área de trabajo desde recursos de Azure como AKS.
 
-- Datos superpuestos que se envían al área de trabajo de Azure Sentinel, con RBAC en el nivel de tabla para conceder acceso al equipo de operaciones según sea necesario.
+- Datos superpuestos que se envían al área de trabajo de Microsoft Sentinel, con RBAC de nivel de tabla para conceder acceso al equipo de operaciones según sea necesario.
 
 ## <a name="sample-3-multiple-tenants-and-regions-and-centralized-security"></a>Ejemplo 3: varios inquilinos, con varias regiones y seguridad centralizada
 
@@ -207,7 +207,7 @@ Adventure Works debe recopilar los siguientes orígenes de datos para cada suben
 -   Registros de Office 365
 -   Microsoft 365 Defender para registros sin procesar de puntos de conexión
 -   Actividad de Azure
--   Azure Defender
+-   Microsoft Defender for Cloud
 -   Recursos de PaaS de Azure, como Azure Firewall, Azure Storage, Azure SQL y el firewall de aplicaciones web de Azure
 -   Eventos de seguridad y Windows desde máquinas virtuales de Azure
 -   Registros en CEF desde dispositivos de red locales
@@ -220,19 +220,19 @@ Adventure Works tiene un único equipo de SOC centralizado que supervisa las ope
 
 Adventure Works también tiene tres equipos de SOC independientes, uno para cada uno de los continentes. El equipo de SOC de cada continente debe poder acceder solo a los datos que se generan en su región, sin ver datos de otros continentes. Por ejemplo, el equipo de SOC de Asia solo debe acceder a los datos de los recursos de Azure implementados en Asia, los inicios de sesión de AAD del inquilino de Asia y los registros de Defender para registros del punto de conexión del inquilino de Asia.
 
-El equipo de SOC de cada continente tiene que acceder a toda la experiencia del portal de Azure Sentinel.
+El equipo de SOC de cada continente tiene que acceder a toda la experiencia del portal de Microsoft Sentinel.
 
-El equipo de operaciones de Adventure Works funciona de forma independiente y tiene sus propias áreas de trabajo sin Azure Sentinel.
+El equipo de operaciones de Adventure Works funciona de forma independiente y tiene sus propias áreas de trabajo sin Microsoft Sentinel.
 
 ### <a name="adventure-works-solution"></a>Solución de Adventure Works
 
-En los pasos siguientes se aplica el [árbol de decisión sobre el diseño de áreas de trabajo de Azure Sentinel](design-your-workspace-architecture.md) para determinar el mejor diseño posible para Adventure Works:
+En los pasos siguientes se aplica el [árbol de decisión de diseño de áreas de trabajo de Microsoft Sentinel](design-your-workspace-architecture.md) para determinar el mejor diseño posible para Adventure Works:
 
 1.  El equipo de operaciones de Adventure Works tiene sus propias áreas de trabajo, por lo que puede continuar en el [paso 2](design-your-workspace-architecture.md#step-2-keeping-data-in-different-azure-geographies).
 
 1.  Adventure Works no tiene requisitos normativos, por lo que puede continuar con el [paso 3](design-your-workspace-architecture.md#step-3-do-you-have-multiple-azure-tenants).
 
-1.  Adventure Works tiene tres inquilinos de Azure AD y necesita recopilar orígenes de datos en el nivel de inquilino como, por ejemplo, registros de Office 365. Por lo tanto, Adventure Works debe crear varias áreas de trabajo de Azure Sentinel, al menos una para cada inquilino.
+1.  Adventure Works tiene tres inquilinos de Azure AD y necesita recopilar orígenes de datos en el nivel de inquilino como, por ejemplo, registros de Office 365. Por lo tanto, Adventure Works debe crear varias áreas de trabajo de Microsoft Sentinel, al menos una para cada inquilino.
 
 1.  Adventure Works no tiene necesidad de dividir los cargos, por lo que puede continuar en el [paso 5](design-your-workspace-architecture.md#step-5-collecting-any-non-soc-data).
 
@@ -240,21 +240,21 @@ En los pasos siguientes se aplica el [árbol de decisión sobre el diseño de á
 
 1.  Los costos de ancho de banda no son un problema importante para Adventure Works, por lo que puede continuar en el [paso 7](design-your-workspace-architecture.md#step-7-segregating-data-or-defining-boundaries-by-ownership).
 
-1.  Adventure Works necesita separar los datos por propiedad, ya que el equipo de SOC de cada contenido solo necesita acceder a los datos pertinentes para ese contenido. No obstante, el equipo de SOC de cada continente también necesita acceso a todo el portal de Azure Sentinel.
+1.  Adventure Works necesita separar los datos por propiedad, ya que el equipo de SOC de cada contenido solo necesita acceder a los datos pertinentes para ese contenido. Pero el equipo de SOC de cada continente también necesita acceso a todo el portal de Microsoft Sentinel.
 
 1.  Adventure Works no necesita controlar el acceso a los datos por tabla.
 
-El diseño resultante del área de trabajo de Azure Sentinel para Adventure Works se muestra en la imagen siguiente, la cual incluye solo los principales orígenes de registros para simplificar el diseño:
+El diseño resultante del área de trabajo de Microsoft Sentinel para Adventure Works se muestra en la imagen siguiente, la cual incluye solo los principales orígenes de registros para simplificar el diseño:
 
 :::image type="content" source="media/best-practices/adventure-works-solution.png" alt-text="Diagrama de la solución de Adventure Works, con áreas de trabajo independientes para cada inquilino de Azure AD." border="false":::
 
 La solución sugerida incluye:
 
-- Un área de trabajo de Azure Sentinel independiente para cada inquilino de Azure AD. Cada área de trabajo recopila datos relacionados con su inquilino para todos los orígenes de datos.
+- Un área de trabajo de Microsoft Sentinel independiente para cada inquilino de Azure AD. Cada área de trabajo recopila datos relacionados con su inquilino para todos los orígenes de datos.
 
 - El equipo de SOC de cada continente solo tiene acceso al área de trabajo de su propio inquilino, lo que garantiza que cada equipo de SOC solo pueda acceder a los registros que se generan dentro del límite del inquilino.
 
-- El equipo central de SOC puede seguir funcionando desde un inquilino de Azure AD independiente, mediante Azure Lighthouse para acceder a cada uno de los diferentes entornos de Azure Sentinel. Si no hay ningún inquilino adicional, el equipo central de SOC puede seguir usando Azure Lighthouse para acceder a las áreas de trabajo remotas.
+- El equipo de SOC central puede seguir funcionando desde un inquilino de Azure AD independiente, con Azure Lighthouse para acceder a cada uno de los diferentes entornos de Microsoft Sentinel. Si no hay ningún inquilino adicional, el equipo central de SOC puede seguir usando Azure Lighthouse para acceder a las áreas de trabajo remotas.
 
 - El equipo central de SOC también puede crear un área de trabajo adicional si necesita almacenar artefactos que permanecen ocultos en los equipos de SOC del continente o si quiere ingerir otros datos que no sean pertinentes para los equipos de SOC del continente.
 
@@ -263,7 +263,7 @@ La solución sugerida incluye:
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
->[Incorporación de Azure Sentinel](quickstart-onboard.md)
+>[Incorporación a Microsoft Sentinel](quickstart-onboard.md)
 
 > [!div class="nextstepaction"]
 >[Obtención de visibilidad sobre las alertas](get-visibility.md)

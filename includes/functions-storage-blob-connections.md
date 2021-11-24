@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/08/2021
 ms.author: mahender
-ms.openlocfilehash: 04c7d43cfe81cbbf8dcafa11182f27f37158a19c
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 5fc17f7a4a5220ebcfb05b179c3ee75ba077e5a4
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129996452"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132529753"
 ---
 ## <a name="connections"></a>Conexiones
 
@@ -36,14 +36,14 @@ En este modo, la extensión requiere las siguientes propiedades:
 
 | Propiedad                  | Plantilla de variable de entorno                       | Descripción                                | Valor de ejemplo |
 |---------------------------|-----------------------------------------------------|--------------------------------------------|---------|
-| URI de Blob service | `<CONNECTION_NAME_PREFIX>__blobServiceUri`<sup>1</sup>  | URI del plano de datos del Blob service al que se está conectando. | <storage_account_name>.blob.core.windows.net |
+| URI de Blob service | `<CONNECTION_NAME_PREFIX>__blobServiceUri`<sup>1</sup>  | URI del plano de datos del servicio de blobs al que se conecta, mediante el esquema HTTPS. | https://<nombre_de_la_cuenta_de_almacenamiento>.blob.core.windows.net |
 
 <sup>1</sup> `<CONNECTION_NAME_PREFIX>__serviceUri` se puede usar como alias. Si se proporcionan ambos formularios, se usará el formulario `blobServiceUri`. El formulario `serviceUri` no se puede usar cuando la configuración de conexión general se va a usar en blobs, colas o tablas.
 
 > [!NOTE]
 > De manera predeterminada, el desencadenador de blobs usa Azure Queues internamente. `<CONNECTION_NAME_PREFIX>__queueServiceUri` también se puede especificar, pero el comportamiento predeterminado sin él es usar la conexión definida por "AzureWebJobsStorage". El desencadenador necesitaría el [Colaborador de datos de la cola de Storage](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-contributor) en la conexión que se va a usar para estas colas.
 
-Se pueden establecer propiedades adicionales para personalizar la conexión. Vea [Propiedades comunes para conexiones basadas en identidades](../articles/azure-functions/functions-reference.md#common-properties-for-identity-based-connections).
+Se pueden establecer propiedades adicionales para personalizar la conexión. Consulte [Propiedades comunes para conexiones basadas en identidades](../articles/azure-functions/functions-reference.md#common-properties-for-identity-based-connections).
 
 [!INCLUDE [functions-identity-based-connections-configuration](./functions-identity-based-connections-configuration.md)]
 

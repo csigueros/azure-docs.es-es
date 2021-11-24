@@ -1,23 +1,23 @@
 ---
-title: 'Montaje de un recurso compartido de archivos NFS de Azure (versión preliminar): Azure Files'
+title: 'Montaje de un recurso compartido de archivos de NFS de Azure: Azure Files'
 description: Obtenga información acerca de cómo montar un recurso compartido de Network File System.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 11/16/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 04d3174900ce5aa788f3793b39fa4d6c06222001
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: de0a4ef2530971ae2261f6a3e5ab2f1ef8acdc31
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036796"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523778"
 ---
-# <a name="how-to-mount-an-nfs-file-share-preview"></a>Montaje de un recurso compartido de archivos NFS (versión preliminar)
+# <a name="how-to-mount-an-nfs-file-share"></a>Montaje de un recurso compartido de archivos de NFS
 
-[Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en distribuciones de Linux mediante el protocolo Bloque de mensajes del servidor (SMB) o el protocolo Network File System (NFS) (versión preliminar). Este artículo se centra en el montaje con NFS. Para obtener más información sobre el montaje con SMB, consulte [Uso de Azure Files con Linux](storage-how-to-use-files-linux.md). Para obtener más información sobre los protocolos disponibles, consulte [Protocolos de recurso compartido de archivos de Azure](storage-files-planning.md#available-protocols).
+[Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en distribuciones de Linux mediante el protocolo Bloque de mensajes del servidor (SMB) o el protocolo Network File System (NFS). Este artículo se centra en el montaje con NFS. Para obtener más información sobre el montaje con SMB, consulte [Uso de Azure Files con Linux](storage-how-to-use-files-linux.md). Para obtener más información sobre los protocolos disponibles, consulte [Protocolos de recurso compartido de archivos de Azure](storage-files-planning.md#available-protocols).
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -30,10 +30,10 @@ ms.locfileid: "131036796"
 ## <a name="prerequisites"></a>Requisitos previos
 
 - [Creación de un recurso compartido de NFS](storage-files-how-to-create-nfs-shares.md)
+- Abra el puerto 2049 en cualquier cliente en el que quiera montar el recurso compartido NFS.
 
     > [!IMPORTANT]
     > Solo se puede tener acceso a los recursos compartidos de NFS desde redes de confianza. Las conexiones a su recurso compartido de NFS deben originarse en uno de los orígenes siguientes:
-
 - Use una de las siguientes soluciones de redes:
     - [Cree un punto de conexión privado](storage-files-networking-endpoints.md#create-a-private-endpoint) (recomendado) o [restrinja el acceso al punto de conexión público](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
     - [Configure una VPN de punto a sitio (P2S) en Linux para su uso con Azure Files](storage-files-configure-p2s-vpn-linux.md).

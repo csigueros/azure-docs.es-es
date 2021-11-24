@@ -1,32 +1,30 @@
 ---
-title: Enriquecimiento de entidades con datos de geolocalización en Azure Sentinel mediante la API REST | Microsoft Docs
-description: En este artículo se describe cómo puede enriquecer entidades en Azure Sentinel con datos de geolocalización mediante la API REST.
+title: Enriquecimiento de entidades con datos de geolocalización en Microsoft Sentinel mediante la API de REST | Microsoft Docs
+description: En este artículo se describe cómo puede enriquecer entidades en Microsoft Sentinel con datos de geolocalización mediante la API de REST.
 services: sentinel
 documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2021
+ms.date: 11/09/2021
 ms.author: bagol
-ms.openlocfilehash: 223fa4bf0e62790e31ae8d872ef47c72a15b4634
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b7a42d6a80e602170264e6cbe94e410e46246f79
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131083885"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721012"
 ---
-# <a name="enrich-entities-in-azure-sentinel-with-geolocation-data-via-rest-api-public-preview"></a>Enriquecimiento de entidades en Azure Sentinel con datos de geolocalización mediante la API REST (versión preliminar pública)
+# <a name="enrich-entities-in-microsoft-sentinel-with-geolocation-data-via-rest-api-public-preview"></a>Enriquecimiento de entidades en Microsoft Sentinel con datos de geolocalización mediante la API de REST (versión preliminar pública)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-En este artículo se muestra cómo puede enriquecer entidades en Azure Sentinel con datos de geolocalización mediante la API REST.
+En este artículo se muestra cómo puede enriquecer entidades en Microsoft Sentinel con datos de geolocalización mediante la API de REST.
 
 > [!IMPORTANT]
 > Esta característica actualmente está en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
@@ -123,12 +121,12 @@ Esta API tiene un límite de 100 llamadas por usuario y hora.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+Para obtener más información sobre Microsoft Sentinel, consulte los siguientes artículos:
 
 - Más información sobre las entidades:
 
-    - [Referencia de los tipos de entidad de Azure Sentinel](entities-reference.md)
-    - [Clasificación y análisis de datos mediante entidades en Azure Sentinel](entities-in-azure-sentinel.md)
-    - [Asignación de campos de datos a entidades en Azure Sentinel](map-data-fields-to-entities.md)
+    - [Referencia de los tipos de entidad de Microsoft Sentinel](entities-reference.md)
+    - [Clasificación y análisis de datos mediante entidades en Microsoft Sentinel](entities.md)
+    - [Asignación de campos de datos a entidades en Microsoft Sentinel](map-data-fields-to-entities.md)
 
-- Explore otros usos de la [API de Azure Sentinel](/rest/api/securityinsights/).
+- Explore otros usos de la [API de Microsoft Sentinel](/rest/api/securityinsights/)

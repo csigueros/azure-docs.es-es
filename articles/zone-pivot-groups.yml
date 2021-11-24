@@ -1130,6 +1130,14 @@ groups:
     title: Azure Arc
   - id: azure-portal
     title: Páginas del portal de Defender for Cloud
+- id: connect-aws-accounts
+  title: Adición de una cuenta de AWS
+  prompt: ¿Cómo se va a conectar la cuenta de AWS?
+  pivots:
+  - id: env-settings
+    title: Configuración del entorno
+  - id: classic-connector
+    title: Conector clásico
 - id: manage-asc-initiatives
   title: Administración de iniciativas de Defender for Cloud
   prompt: ¿Cómo administrará las iniciativas de Defender for Cloud?
@@ -1311,7 +1319,7 @@ groups:
   prompt: Elegir una opción.
   pivots:
   - id: identity-mi-methods-azp
-    title: Portal de Azure
+    title: Azure Portal
   - id: identity-mi-methods-azcli
     title: Azure CLI
   - id: identity-mi-methods-powershell
@@ -1325,7 +1333,7 @@ groups:
   prompt: Elegir una opción.
   pivots:
   - id: identity-mi-methods-sub-azp
-    title: Portal de Azure
+    title: Azure Portal
   - id: identity-mi-methods-sub-azcli
     title: Azure CLI
   - id: identity-mi-methods-sub-powershell
@@ -1397,7 +1405,7 @@ groups:
   - id: client-clitier
     title: CLI
   - id: client-portaltier
-    title: Portal de Azure
+    title: Azure Portal
 - id: iot-develop-nxp-toolset
   title: Dispositivos IoT
   prompt: Elección de un entorno de compilación
@@ -1406,10 +1414,12 @@ groups:
     title: CMake
   - id: iot-toolset-iar-ewarm
     title: IAR EWARM
+  - id: iot-toolset-mcuxpresso
+    title: MCUXpresso
 metadata:
-  ms.openlocfilehash: 7eb1aefed8cbc026d49ec6dcf1969fde57029be1
-  ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+  ms.openlocfilehash: 51f29806ed58662a6d2c8a037013d772ee4991dd
+  ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/18/2021
-  ms.locfileid: "132759485"
+  ms.lasthandoff: 11/22/2021
+  ms.locfileid: "132902635"

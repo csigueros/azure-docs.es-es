@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2021
-ms.openlocfilehash: 5318ee205c66757409b9e0ffd8de864bcb69689a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b26334c655332810ad1f67ae6799c3919fda4bb4
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131064988"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132517829"
 ---
 # <a name="use-role-based-authorization-in-azure-cognitive-search"></a>Uso de la autorización basada en roles en Azure Cognitive Search
 
@@ -64,16 +64,16 @@ Los nuevos roles en versión preliminar integrados proporcionan un conjunto gran
 
 Para agregar la suscripción a la versión preliminar, haga lo siguiente:
 
-1. Vaya a la página **Suscripciones** de [Azure Portal](https://portal.azure.com/).
-1. Seleccione la suscripción que quiere usar.
-1. En el lado izquierdo de la página de suscripción, seleccione **Características en vista previa**.
-1. Use la barra de búsqueda o los filtros para buscar y seleccionar el **Control de acceso basado en roles (versión preliminar)**
-1. Seleccione **Registrar** para agregar la característica a la suscripción.
+1. Vaya al servicio de búsqueda en [Azure Portal](https://portal.azure.com/).
+1. En el lado izquierdo de la página, seleccione **Claves**.
+1. En el banner azul que menciona la versión preliminar, seleccione **Registrar** para agregar la característica a la suscripción.
 
-![registro para el rbac en afec](media/search-howto-aad/rbac-signup-afec.png)
+![Captura de pantalla de cómo registrarse en la versión preliminar de RBAC en el portal](media/search-howto-aad/rbac-signup-portal.png)
 
-Para más información sobre cómo agregar características en vista previa, consulte [Configuración de las características en vista previa en la suscripción de Azure](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
+También puede registrarse en la versión preliminar mediante el control de exposición de características de Azure (AFEC) y buscar *Control de acceso basado en roles para servicio de búsqueda (versión preliminar)* . Para más información sobre cómo agregar características en vista previa, consulte [Configuración de las características en vista previa en la suscripción de Azure](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
 
+> [!NOTE]
+> Una vez que se agrega la versión preliminar a la suscripción, todos los servicios de esta se inscriben permanentemente en la versión preliminar. Si no quiere RBAC en un servicio determinado, puede deshabilitarlo para las operaciones del plano de datos como se muestra en el paso siguiente.
 
 ## <a name="step-2-preview-configuration"></a>Paso 2: Configuración de la versión preliminar
 
@@ -85,7 +85,7 @@ En este paso, configure su servicio de búsqueda para que reconozca un encabezad
 
 ### <a name="azure-portal"></a>[**Azure Portal**](#tab/config-svc-portal)
 
-1. Abra el portal con esta sintaxis: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true).
+1. Abra [Azure Portal](https://ms.portal.azure.com).
 
 1. Vaya al servicio de búsqueda.
 
@@ -134,7 +134,7 @@ Si usa Postman u otra herramienta de pruebas web, consulte la sugerencia de la p
 1. [Asigne roles](#assign-roles) en el servicio y compruebe que funcionen correctamente en el plano de datos.
 
 > [!TIP]
-> Las llamadas a la API de REST de administración se autentican mediante Azure Active Directory. Para obtener instrucciones sobre cómo configurar una solicitud y un principio de seguridad, consulte la entrada de blog [API de REST de Azure con Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/) (en inglés). El ejemplo anterior se probó con las instrucciones y la colección de Postman que se proporcionan en la entrada de blog.
+> Las llamadas a la API REST de administración se autentican mediante Azure Active Directory. Para obtener instrucciones sobre cómo configurar una solicitud y un principio de seguridad, consulte la entrada de blog [API de REST de Azure con Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/) (en inglés). El ejemplo anterior se probó con las instrucciones y la colección de Postman proporcionadas en esa entrada de blog.
 
 ---
 
@@ -148,10 +148,7 @@ Debe ser **Propietario** o tener permisos [Microsoft.Authorization/roleAssignmen
 
 ### <a name="azure-portal"></a>[**Azure Portal**](#tab/roles-portal)
 
-1. En el caso de roles en versión preliminar, abra el portal con esta sintaxis: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true). Debería ver `feature.enableRbac=true` en la dirección URL.
-
-   > [!NOTE]
-   > En el caso de los usuarios y grupos asignados a un rol en versión preliminar, el contenido del portal, como índices e indexadores, solo estará visible si se abre con la marca de característica. 
+1. Abra [Azure Portal](https://ms.portal.azure.com).
 
 1. Vaya al servicio de búsqueda.
 
@@ -204,10 +201,7 @@ Recuerde que solo puede establecer el ámbito del acceso a recursos de nivel sup
 
 ### <a name="azure-portal"></a>[**Azure Portal**](#tab/test-portal)
 
-1. En el caso de roles en versión preliminar, abra el portal con esta sintaxis: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true). 
-
-   > [!NOTE]
-   > En el caso de los usuarios y grupos asignados a un rol en versión preliminar, el contenido del portal, como índices e indexadores, solo estará visible si se abre con la marca de característica. 
+1. Abra [Azure Portal](https://ms.portal.azure.com).
 
 1. Vaya al servicio de búsqueda.
 
@@ -298,7 +292,7 @@ No se pueden combinar los pasos uno y dos. En el paso uno, "disableLocalAuth" de
 Para volver a habilitar la autenticación de clave, ejecute de nuevo la última solicitud, estableciendo "disableLocalAuth" en "false". El servicio de búsqueda reanudará la aceptación de las claves de API en la solicitud automáticamente (suponiendo que se especifiquen).
 
 > [!TIP]
-> Las llamadas a la API de REST de administración se autentican mediante Azure Active Directory. Para obtener instrucciones sobre cómo configurar una solicitud y un principio de seguridad, consulte la entrada de blog [API de REST de Azure con Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/) (en inglés). El ejemplo anterior se probó con las instrucciones y la colección de Postman que se proporcionan en la entrada de blog.
+> Las llamadas a la API REST de administración se autentican mediante Azure Active Directory. Para obtener instrucciones sobre cómo configurar una solicitud y un principio de seguridad, consulte la entrada de blog [API de REST de Azure con Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/) (en inglés). El ejemplo anterior se probó con las instrucciones y la colección de Postman que se proporcionan en la entrada de blog.
 
 ## <a name="conditional-access"></a>Acceso condicional
 

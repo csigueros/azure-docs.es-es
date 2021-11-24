@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9e3bfc88442f495d49116e01cc06e876be95787
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: e191603d9508ab921c28e60ae13096e7283dc332
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131051598"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132401970"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Instrucciones: Configuración y habilitación de directivas de riesgo
 
@@ -81,8 +81,12 @@ Antes de habilitar directivas de corrección, es posible que las organizaciones 
    1. En **Excluir**, seleccione **Usuarios y grupos** y, luego, elija las cuentas de acceso de emergencia de la organización. 
    1. Seleccione **Listo**.
 1. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Todas las aplicaciones en la nube**.
-1. En **Condiciones** > **Riesgo de usuario**, establezca **Configurar** en **Sí**. En **Configurar los niveles de riesgo de usuario necesarios para que se aplique la directiva**, seleccione **Alto** y después, **Listo**.
-1. En **Controles de acceso** > **Conceder**, seleccione **Conceder acceso**, **Requerir cambio de contraseña** y **Seleccionar**.
+1. En **Condiciones** > **Riesgo de usuario**, establezca **Configurar** en **Sí**. 
+   1. En **Configure los niveles de riesgo de usuario necesarios para aplicar la directiva**, seleccione **Alto**.
+   1. Seleccione **Listo**.
+1. En **Controles de acceso** > **Conceder**.
+   1. Seleccione **Conceder acceso**, **Requerir cambio de contraseña**.
+   1. Elija **Seleccionar**.
 1. Confirme la configuración y establezca **Habilitar directivas** en **Activado**.
 1. Seleccione **Crear** para crear la directiva.
 
@@ -100,7 +104,9 @@ Antes de habilitar directivas de corrección, es posible que las organizaciones 
 1. En **Condiciones** > **Riesgo de inicio de sesión**, establezca **Configurar** en **Sí**. En **Seleccionar el nivel de riesgo de inicio de sesión, esta directiva se aplicará a** 
    1. Seleccione **Alto** y **Medio**.
    1. Seleccione **Listo**.
-1. En **Controles de acceso** > **Conceder**, seleccione **Conceder acceso**, **Requerir autenticación multifactor** y **Seleccionar**.
+1. En **Controles de acceso** > **Conceder**.
+   1. Seleccione **Conceder acceso**, **Requerir autenticación multifactor**.
+   1. Elija **Seleccionar**.
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 1. Seleccione **Crear** para crear la directiva.
 

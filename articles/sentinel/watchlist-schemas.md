@@ -1,28 +1,28 @@
 ---
-title: Esquemas de plantillas de listas de reproducción de Azure Sentinel | Microsoft Docs
-description: Obtenga información sobre los esquemas que se usan en cada plantilla de lista de reproducción integrada en Azure Sentinel.
+title: Esquemas de plantillas de listas de reproducción de Microsoft Sentinel | Microsoft Docs
+description: Obtenga información sobre los esquemas que se usan en cada plantilla de lista de reproducción integrada en Microsoft Sentinel.
 author: batamig
 ms.author: bagold
-ms.service: azure-sentinel
+ms.service: microsoft-sentinel
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
-ms.date: 08/04/2021
-ms.subservice: azure-sentinel
-ms.openlocfilehash: f531b18dfe94027948f1411372ff72e68b01c933
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/09/2021
+ms.subservice: microsoft-sentinel
+ms.openlocfilehash: 0d322f7412e32de0c668c3dd82341da81eb12738
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131054977"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132516900"
 ---
-# <a name="azure-sentinel-built-in-watchlist-template-schemas-public-preview"></a>Esquemas de plantillas de listas de reproducción integradas en Azure Sentinel (versión preliminar pública)
+# <a name="microsoft-sentinel-built-in-watchlist-template-schemas-public-preview"></a>Esquemas de plantillas de listas de reproducción integradas en Microsoft Sentinel (versión preliminar pública)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-En este artículo se especifican los esquemas que se usan en cada plantilla de lista de reproducción integrada proporcionada por Azure Sentinel. Para más información, consulte [Creación de una lista de reproducción mediante una plantilla (versión preliminar pública)](watchlists.md#create-a-new-watchlist-using-a-template-public-preview).
+En este artículo se especifican los esquemas que se usan en cada plantilla de lista de reproducción integrada proporcionada por Microsoft Sentinel. Para más información, consulte [Creación de una lista de reproducción mediante una plantilla (versión preliminar pública)](watchlists.md#create-a-new-watchlist-using-a-template-public-preview).
 
 > [!IMPORTANT]
-> Las plantillas de listas de reproducción de Azure Sentinel están actualmente en versión preliminar. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
+> Las plantillas de listas de reproducción de Microsoft Sentinel están actualmente en versión preliminar. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
 >
 
 
@@ -117,4 +117,4 @@ La lista de reproducción Cuentas de servicio enumera las cuentas de servicio y 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información, consulte [Uso de las listas de reproducción de Azure Sentinel](watchlists.md).
+Para más información, consulte [Uso de las listas de seguimiento de Microsoft Sentinel](watchlists.md).

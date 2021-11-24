@@ -1,28 +1,28 @@
 ---
-title: Investigación de incidentes con Azure Sentinel | Microsoft Docs
-description: En este artículo, aprenderá a usar Azure Sentinel para crear reglas de alerta avanzadas que generan incidentes que puede asignar e investigar.
+title: Investigación de incidentes con Microsoft Sentinel | Microsoft Docs
+description: En este artículo, aprenderá a usar Microsoft Sentinel para crear reglas de alerta avanzadas que generan incidentes que puede asignar e investigar.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: dec517fae51463f5589b8dfbf39c4ac3e662395c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 77cf1b6dd4038613af9d079fc6226ab8c784577a
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131037081"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520149"
 ---
-# <a name="investigate-incidents-with-azure-sentinel"></a>Investigación de incidentes con Azure Sentinel
+# <a name="investigate-incidents-with-microsoft-sentinel"></a>Investigación de incidentes con Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "131037081"
 > Actualmente, las características indicadas están en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
 >
 
-Este artículo le ayuda a investigar incidentes con Azure Sentinel. Después de conectar los orígenes de datos a Azure Sentinel, querrá recibir una notificación cuando suceda algo sospechoso. Para ello, Azure Sentinel le permite crear reglas de alerta avanzadas, que generan incidentes que se pueden asignar e investigar.
+Este artículo le ayuda a investigar incidentes con Microsoft Sentinel. Después de conectar los orígenes de datos a Microsoft Sentinel, querrá recibir una notificación cuando suceda algo sospechoso. Para ello, Microsoft Sentinel le permite crear reglas de alerta avanzadas, que generan incidentes que se pueden asignar e investigar.
 
 En este artículo se describe:
 > [!div class="checklist"]
@@ -38,7 +38,7 @@ En este artículo se describe:
 > * Uso del gráfico de investigación
 > * Respuesta a amenazas
 
-Un incidente puede incluir varias alertas, a modo de agregado de todas las pruebas relevantes en una investigación en concreto. Los incidentes se crearán en función de las reglas de análisis que haya creado en la página **Análisis**. Las propiedades relacionadas con alertas, como la gravedad y el estado, se establecen en el nivel de incidente. Después de indicar a Azure Sentinel qué tipos de amenazas está buscando y cómo detectarlas, puede supervisar las amenazas que se detecten investigando cada incidente.
+Un incidente puede incluir varias alertas, a modo de agregado de todas las pruebas relevantes en una investigación en concreto. Los incidentes se crearán en función de las reglas de análisis que haya creado en la página **Análisis**. Las propiedades relacionadas con alertas, como la gravedad y el estado, se establecen en el nivel de incidente. Después de indicar a Microsoft Sentinel qué tipos de amenazas está buscando y cómo detectarlas, puede supervisar las amenazas que se detecten investigando cada incidente.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -98,7 +98,7 @@ Para usar el gráfico de investigación:
    > [!IMPORTANT] 
    > - Solo podrá investigar el incidente si ha usado los campos de asignación de entidades al configurar la regla de análisis. El gráfico de investigación requiere que el incidente original incluya entidades.
    >
-   > - Actualmente, Azure Sentinel admite la investigación de **incidentes cuya antigüedad no supere los 30 días**.
+   > - Actualmente, Microsoft Sentinel admite la investigación de **incidentes cuya antigüedad no supere los 30 días**.
 
 
 1. Seleccione una entidad para abrir el panel **Entidades** para que pueda revisar la información de esa entidad.
@@ -136,7 +136,7 @@ Una vez que haya resuelto un incidente en particular (por ejemplo, cuando la inv
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Captura de pantalla que destaca las clasificaciones disponibles en la lista Seleccionar clasificación.":::
 
-Para más información sobre los falsos positivos y los positivos inofensivos, consulte [Control de falsos positivos en Azure Sentinel](false-positives.md).
+Para más información sobre los falsos positivos y los positivos inofensivos, consulte [Control de falsos positivos en Microsoft Sentinel](false-positives.md).
 
 Después de elegir la clasificación adecuada, agregue texto descriptivo en el campo **Comentario**. Esto será útil en el caso de que tenga que volver a consultar este incidente. Haga clic en **Aplicar** cuando haya terminado, y el incidente se cerrará.
 
@@ -181,7 +181,7 @@ El uso de opciones de búsqueda avanzada cambia el comportamiento de búsqueda c
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo ha aprendido cómo empezar a investigar incidentes mediante Azure Sentinel. Para más información, consulte:
+En este artículo ha aprendido cómo empezar a investigar incidentes mediante Microsoft Sentinel. Para más información, consulte:
 
-- [Tutorial: Uso de cuadernos de estrategias con reglas de automatización en Azure Sentinel](tutorial-respond-threats-playbook.md)
+- [Tutorial: Uso de cuadernos de estrategias con reglas de automatización en Microsoft Sentinel](tutorial-respond-threats-playbook.md)
 - [Investigación de incidentes con datos de UEBA](investigate-with-ueba.md)

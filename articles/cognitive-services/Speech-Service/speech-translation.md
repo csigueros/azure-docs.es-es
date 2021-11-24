@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: eur
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: traducción de voz
-ms.openlocfilehash: 13d82c334504b2d396f10b1c80b99c0c264c9ea0
-ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
+ms.openlocfilehash: 3c71682028f1fb54b55e9faddde5928883f44916
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131988888"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132485573"
 ---
 # <a name="what-is-speech-translation"></a>¿Qué es la traducción de voz?
 
@@ -43,7 +43,7 @@ Consulte la [guía de inicio rápido](get-started-speech-translation.md) para em
 
 ## <a name="sample-code"></a>Código de ejemplo
 
-Hay un ejemplo de código para el SDK de voz disponible en GitHub. En estos ejemplos se tratan escenarios comunes como la lectura de audio de un archivo o secuencia, el reconocimiento o traducción continuos y de una sola emisión, y el trabajo con modelos personalizados.
+Hay un ejemplo de código para el SDK de voz disponible en GitHub. En estos ejemplos se tratan escenarios comunes como la lectura de audio de un archivo o flujo, el reconocimiento o la traducción continuos y al inicio, y el trabajo con modelos personalizados.
 
 * [Ejemplos de conversión de voz a texto y de traducción (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 

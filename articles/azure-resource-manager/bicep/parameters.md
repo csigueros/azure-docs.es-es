@@ -4,13 +4,13 @@ description: Se describe cómo definir parámetros en un archivo Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/01/2021
-ms.openlocfilehash: b90fb108df58c41578bf9472390574b4bc174111
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 11/12/2021
+ms.openlocfilehash: 4345269d9c1191545a28998a38aeedb14b37e0bc
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129363509"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486600"
 ---
 # <a name="parameters-in-bicep"></a>Parámetros en Bicep
 
@@ -26,7 +26,15 @@ Para más información sobre los parámetros y para obtener instrucciones práct
 
 ## <a name="declaration"></a>Declaración
 
-Cada parámetro necesita un nombre y un tipo. Un parámetro no puede tener el mismo nombre que una variable, recurso, salida u otro parámetro en el mismo ámbito.
+Cada parámetro tiene un nombre y un [tipo de datos](data-types.md). Opcionalmente, puede proporcionar un valor predeterminado para el parámetro.
+
+```bicep
+param <parameter-name> <parameter-data-type> = <default-value>
+```
+
+Un parámetro no puede tener el mismo nombre que una variable, recurso, salida u otro parámetro en el mismo ámbito.
+
+En el ejemplo siguiente se muestran declaraciones básicas de parámetros.
 
 ```bicep
 param demoString string
@@ -67,6 +75,19 @@ param demoPassword string
 @description('Must be at least Standard_A3 to support 2 NICs.')
 param virtualMachineSize string = 'Standard_DS1_v2'
 ```
+
+En la tabla siguiente se describen los decoradores disponibles y cómo usarlos.
+
+| Decorador | Aplicar a | Argumento | Descripción |
+| --------- | ---- | ----------- | ------- |
+| [permitidas](#allowed-values) | all | array | Valores permitidos para el parámetro. Use este decorador para asegurarse de que el usuario proporciona los valores correctos. |
+| [description](#description) | all | string | Texto que explica cómo usar el parámetro. La descripción se muestra a los usuarios a través del portal. |
+| [maxLength](#length-constraints) | array, string | int | Longitud máxima de los parámetros de cadena y matriz. El valor es inclusivo. |
+| [maxValue](#integer-constraints) | int | int | Valor máximo del parámetro entero. Este valor es inclusivo. |
+| metadata | all | object | Propiedades personalizadas que se van a aplicar al parámetro. Pueden incluir una propiedad de descripción equivalente al decorador de la descripción. |
+| [minLength](#length-constraints) | array, string | int | Longitud mínima de los parámetros de cadena y matriz. El valor es inclusivo. |
+| [minValue](#integer-constraints) | int | int | Valor mínimo del parámetro entero. Este valor es inclusivo. |
+| [secure](#secure-parameters) | string, object | ninguno | Marca el parámetro como seguro. El valor de un parámetro seguro no se guarda en el historial de implementaciones y no se registra. Para más información, consulte [Protección de cadenas y objetos](data-types.md#secure-strings-and-objects). |
 
 Los decoradores están en el [espacio de nombres sys](bicep-functions.md#namespaces-for-functions). Si tiene que diferenciar un decorador de otro elemento con el mismo nombre, anteceda el decorador con `sys`. Por ejemplo, si el archivo de Bicep incluye un parámetro llamado `description`, debe agregar el espacio de nombres sys al usar el decorador **description**.
 

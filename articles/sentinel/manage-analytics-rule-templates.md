@@ -1,28 +1,28 @@
 ---
-title: Administración de versiones de plantilla para las reglas de análisis programados en Azure Sentinel
+title: Administración de versiones de plantilla para las reglas de análisis programados en Microsoft Sentinel
 description: Aprenda a administrar la relación entre las plantillas de reglas de análisis programados y las reglas creadas a partir de esas plantillas. Combine las actualizaciones de las plantillas con las reglas y revierta los cambios de las reglas a la plantilla original.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 27e6a78ec66b3427aa911abba5d7f4cdda20d876
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5845dfd88e3377eacff5b1d27ab927df422e4556
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023089"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522961"
 ---
-# <a name="manage-template-versions-for-your-scheduled-analytics-rules-in-azure-sentinel"></a>Administración de versiones de plantilla para las reglas de análisis programados en Azure Sentinel
+# <a name="manage-template-versions-for-your-scheduled-analytics-rules-in-microsoft-sentinel"></a>Administración de versiones de plantilla para las reglas de análisis programados en Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -32,7 +32,7 @@ ms.locfileid: "131023089"
 
 ## <a name="introduction"></a>Introducción
 
-Azure Sentinel incluye [plantillas de reglas de análisis](detect-threats-built-in.md) que se convierten en reglas activas mediante la creación eficaz de una copia de ellas, que es lo que sucede cuando se crea una regla a partir de una plantilla. En ese momento, sin embargo, la regla activa ya no está conectada a la plantilla. Si los ingenieros de Microsoft o cualquier otra persona realizan cambios en una plantilla de regla, las reglas creadas a partir de esa plantilla de antemano ***no*** se actualizan dinámicamente para que coincidan con la nueva plantilla.
+Microsoft Sentinel incluye [plantillas de reglas de análisis](detect-threats-built-in.md) que se convierten en reglas activas mediante la creación real de una copia de ellas, que es lo que sucede cuando se crea una regla a partir de una plantilla. En ese momento, sin embargo, la regla activa ya no está conectada a la plantilla. Si los ingenieros de Microsoft o cualquier otra persona realizan cambios en una plantilla de regla, las reglas creadas a partir de esa plantilla de antemano ***no*** se actualizan dinámicamente para que coincidan con la nueva plantilla.
 
 Sin embargo, las reglas creadas a partir plantillas ***recuerdan*** las plantillas de las que proceden, lo que le ofrece dos ventajas:
 
@@ -71,7 +71,7 @@ Con la implementación del control de versiones de plantilla, puede ver y realiz
 
     > [!NOTE]
     > Las imágenes 2 y 3 anteriores muestran dos ejemplos de reglas creadas a partir de plantillas, donde la plantilla no se ha actualizado.
-    > - La imagen 2 muestra una regla que tiene un número de versión para su plantilla actual. Esto indica que la regla se creó después de la implementación inicial del control de versiones de plantilla por parte de Azure Sentinel en octubre de 2021.
+    > - La imagen 2 muestra una regla que tiene un número de versión para su plantilla actual. Esto indica que la regla se ha creado después de la implementación inicial del control de versiones de plantilla por parte de Microsoft Sentinel en octubre de 2021.
     > - En la imagen 3 se muestra una regla que no tiene una versión de plantilla actual. Esto indica que la regla se había creado antes de octubre de 2021. Si hay una versión de plantilla más reciente disponible, es probable que sea una versión más reciente de la plantilla que la que se usó para crear la regla.
 
 ## <a name="compare-your-active-rule-with-its-template"></a>Comparación de la regla activa con su plantilla
@@ -88,6 +88,7 @@ En esta pestaña verá una comparación en paralelo entre las representaciones d
 
 > [!NOTE]
 > La actualización de esta regla sobrescribirá la regla existente con la versión más reciente de la plantilla.
+
 Se debe comprobar cualquier paso de automatización o lógica que haga referencia a la regla existente, en caso de que los nombres a los que se hacen referencia cambien. Además, las personalizaciones realizadas al crear la regla original (cambios en la consulta, la programación, la agrupación u otra configuración) se pueden sobrescribir.
 
 ### <a name="update-your-rule-with-the-new-template-version"></a>Actualización de la regla con la nueva versión de plantilla
@@ -121,7 +122,7 @@ Se debe comprobar cualquier paso de automatización o lógica que haga referenci
 ---
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, ha aprendido a realizar un seguimiento de las versiones de las plantillas de reglas de análisis de Azure Sentinel y a revertir las reglas activas a las versiones de plantilla existentes, o bien a actualizarlas a otras nuevas. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+En este documento ha aprendido a realizar un seguimiento de las plantillas de reglas de análisis de Microsoft Sentinel y a revertir las reglas activas a las versiones de plantilla existentes, o bien a actualizarlas a otras nuevas. Para obtener más información sobre Microsoft Sentinel, vea los siguientes artículos:
 
 - Obtenga más información sobre las [reglas de análisis](detect-threats-built-in.md).
 - Consulte más detalles sobre el [Asistente para reglas de análisis](detect-threats-custom.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: magoedte
-ms.openlocfilehash: 6d22e93fe8bd36e24520108bc310d5b08c25120c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 388afa5936b0cc84dcbee57302d48798d957a2bc
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560028"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492026"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensión Desired State Configuration con plantillas de Azure Resource Manager
 
@@ -27,6 +27,8 @@ En este artículo se describe la plantilla de Azure Resource Manager para el [co
 
 > [!NOTE]
 > Podría encontrar ejemplos de esquema levemente distintos. El cambio en el esquema ocurrió en la versión de octubre de 2016. Para obtener detalles, vea [Actualización desde un formato anterior](#update-from-a-previous-format).
+>
+> Antes de habilitar la extensión DSC, debe saber que ahora hay una versión más reciente de DSC en versión preliminar, administrada mediante una característica de Azure Policy de nombre [configuración de invitado](../../governance/policy/concepts/guest-configuration.md). La característica de configuración de invitado combina características de la extensión Desired State Configuration (DSC), Azure Automation State Configuration y las características que más solicitan los clientes en sus comentarios. La configuración de invitado también incluye la compatibilidad con máquinas híbridas a través de [servidores habilitados para Arc](../../azure-arc/servers/overview.md).
 
 ## <a name="template-example-for-a-windows-vm"></a>Ejemplo de plantilla para una máquina virtual de Windows
 

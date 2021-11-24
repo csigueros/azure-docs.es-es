@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8e1348040bb496448d85c8d1bec3b9621025bf22
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.openlocfilehash: b6b07624265f4ec33079780f477ebd1b36d9ffab
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114653599"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132525068"
 ---
 # <a name="azure-app-service-plan-overview"></a>Introducción a los planes de Azure App Service
 
@@ -23,13 +23,13 @@ Cuando se crea un plan de App Service en una región determinada (por ejemplo, O
 - Región (oeste de EE. UU., este de EE. UU., etc.)
 - Número de instancias de VM
 - Tamaño de las instancias de VM (pequeño, mediano, grande)
-- Plan de tarifa (Gratis, Compartido, Básico, Estándar, Premium, PremiumV2, PremiumV3 y Aislado)
+- Plan de tarifa (Gratis, Compartido, Básico, Estándar, Premium, PremiumV2, PremiumV3, Aislado y AisladoV2)
 
 El _plan de tarifa_ de un plan de App Service determina qué características de App Service obtendrá y cuánto paga por el plan. Los planes de tarifa disponibles para el plan de App Service dependen del sistema operativo seleccionado en el momento de la creación. Existen algunas categorías de planes de tarifa:
 
 - **Proceso de compartido**: **Gratis** y **Compartido**, los dos planes básicos, ejecutan una aplicación en la misma VM de Azure que otras aplicaciones de App Service, incluidas las aplicaciones de otros clientes. Estos planes asignan cuotas de CPU a cada aplicación que se ejecuta en los recursos compartidos, y los recursos no pueden escalarse horizontalmente.
 - **Dedicated compute** (Proceso dedicado): Los planes **Básico**, **Estándar,** **Premium**, **PremiumV2** y **PremiumV3** ejecutan aplicaciones en VM de Azure dedicadas. Solo las aplicaciones del mismo plan de App Service comparten los mismos recursos de proceso. Cuanto mayor sea el plan, más instancias de VM estarán disponibles para la escalabilidad horizontal.
-- **Aislado**: Este nivel ejecuta máquinas virtuales de Azure dedicadas en instancias de Microsoft Azure Virtual Network. Proporciona aislamiento de red, además de aislamiento de proceso a sus aplicaciones. Proporciona las máximas posibilidades de escalabilidad horizontal.
+- **Aislado**: Los niveles **Aislado** y **AisladoV2** ejecutan máquinas virtuales de Azure dedicadas en redes virtuales de Azure dedicadas. Proporciona aislamiento de red, además de aislamiento de proceso a sus aplicaciones. Proporciona las máximas posibilidades de escalabilidad horizontal.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -70,7 +70,7 @@ Salvo en el caso del nivel **Gratis**, un plan de App Service conlleva un cargo 
 
 - En el nivel **Compartido**, cada aplicación recibe una cuota de minutos de CPU, por lo que _cada aplicación_ tiene un cargo asociado a la cuota de CPU.
 - En los niveles de proceso dedicados (**Básico**, **Estándar**, **Premium**, **PremiumV2**, **PremiumV3**), el plan de App Service define el número de instancias de máquina virtual al que se escalan las aplicaciones, de manera que se apliquen cargos a _cada instancia de máquina virtual_ del plan de App Service. Estas instancias de VM se cobran igual, independientemente de cuántas aplicaciones se ejecuten en ellas. Para evitar cargos inesperados, consulte [Clean up an App Service plan](app-service-plan-manage.md#delete) (Eliminar un plan de App Service).
-- En el nivel **Aislado**, el entorno de App Service define el número de trabajos aislados que ejecutan las aplicaciones, y se aplican cargos a _cada trabajo_. Además, hay una tarifa plana para el stamp por la ejecución de App Service Environment.
+- En los niveles **Aislado** y **AisladoV2**, App Service Environment define el número de trabajos aislados que ejecutan las aplicaciones, y se aplican cargos a _cada trabajo_. Además, en el nivel **Aislado** hay una tarifa plana para el stamp porque ejecuta App Service Environment él mismo.
 
 No se le cobra por usar las características de App Service que tiene a su disposición (configurar dominios personalizados, certificados TLS/SSL, ranuras de implementación, copias de seguridad, etc.). Las excepciones son estas:
 

@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: KarenH444
-ms.date: 09/01/2021
+ms.date: 10/26/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -13,20 +13,20 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5422cc8af391a6ee861b6969d881055490b41b4c
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 298e961eff1736f32d2fa703dfb0079ea758e343
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129986689"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132401390"
 ---
 # <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Descarga masiva de una lista de grupos en Azure Active Directory
 
-Mediante el portal de Azure Active Directory (Azure AD), puede descargar de forma masiva la lista de todos los grupos de su organización en un archivo de valores separados por comas (CSV).
+Mediante el portal de Azure Active Directory (Azure AD), puede descargar de forma masiva la lista de todos los grupos de su organización en un archivo de valores separados por comas (CSV). Todos los administradores y usuarios que no son administradores pueden descargar listas de grupos.
 
 ## <a name="to-download-a-list-of-groups"></a>Descargar una lista de grupos
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador en la organización.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de la organización.
 1. En Azure AD, seleccione **Grupos** > **Descargar grupos**.
 1. En la página de **descarga de grupos**, seleccione **Iniciar** para recibir un archivo CSV que enumere los grupos.
 

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: eric-urban
 ms.custom: devx-track-js
-ms.openlocfilehash: 42e0db662c9eaae08351c12a03e1954372b628d6
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 7e129d8d7a38b2ba143f89ab4407453f62c75b93
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131506906"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132529723"
 ---
 Una de las características principales del servicio de voz es la capacidad para reconocer la voz humana y traducirla a otros idiomas. En este inicio rápido, aprenderá a usar Speech SDK en sus aplicaciones y productos para realizar la traducción de voz de alta calidad. En este inicio rápido se tratan temas que incluyen:
 
@@ -114,7 +114,7 @@ const recognizer = new TranslationRecognizer(speechTranslationConfig, audioConfi
 
 La [clase TranslationRecognizer](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer) de Speech SDK para JavaScript expone algunos métodos que puede usar para la traducción de voz.
 
-* Traducción de una sola captura (asincrónico): realiza la traducción en modo sin bloqueo (asincrónico). Esto traducirá una expresión única. El final de una expresión única se determina mediante la escucha de un silencio al final o hasta que se procesa un máximo de 15 segundos de audio.
+* Traducción al inicio (asincrónico): realiza la traducción en modo sin bloqueo (asincrónico). Esto traducirá una expresión única. El final de una expresión única se determina mediante la escucha de un silencio al final o hasta que se procesa un máximo de 15 segundos de audio.
 * Traducción continua (asincrónica): inicia de forma asincrónica la operación de traducción continua. El usuario se registra a eventos y controla los distintos estados de la aplicación. Para detener la traducción continua asincrónica, llame a [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#stopcontinuousrecognitionasync).
 
 > [!NOTE]
@@ -129,9 +129,9 @@ speechTranslationConfig.speechRecognitionLanguage = "en-US";
 speechTranslationConfig.addTargetLanguage("de");
 ```
 
-### <a name="single-shot-recognition"></a>Reconocimiento de una sola captura
+### <a name="at-start-recognition"></a>Reconocimiento al inicio
 
-Este es un ejemplo de traducción asincrónica de una sola captura mediante [`recognizeOnceAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#recognizeonceasync):
+Este es un ejemplo de traducción asincrónica al inicio mediante [`recognizeOnceAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#recognizeonceasync):
 
 ```javascript
 recognizer.recognizeOnceAsync(result => {
@@ -178,7 +178,7 @@ recognizer.recognized = function (s, e) {
 
 ### <a name="continuous-translation"></a>Traducción continua
 
-La traducción continua es un poco más complicada que el reconocimiento de una sola captura. Requiere que se suscriba a los eventos `recognizing`, `recognized` y `canceled` para obtener los resultados del reconocimiento. Para detener la traducción, debe llamar a [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#stopcontinuousrecognitionasync). Este es un ejemplo de cómo se realiza la traducción continua en un archivo de entrada de audio.
+La traducción continua es un poco más complicado que el reconocimiento al inicio. Requiere que se suscriba a los eventos `recognizing`, `recognized` y `canceled` para obtener los resultados del reconocimiento. Para detener la traducción, debe llamar a [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#stopcontinuousrecognitionasync). Este es un ejemplo de cómo se realiza la traducción continua en un archivo de entrada de audio.
 
 Comencemos por definir la entrada e inicializar un elemento [`TranslationRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer):
 

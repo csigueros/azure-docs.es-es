@@ -8,14 +8,11 @@ ms.topic: include
 ms.date: 06/30/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 112daf900c3a7447dc5279ea9704ea94eb8ec9ea
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
+ms.openlocfilehash: 3bc611aae09bc94bd00f76c0d526f5b6b7d52a0e
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113225263"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519443"
 ---
-Mientras se encuentra en versión preliminar, los recursos compartidos de archivos de Azure de NFS tienen las siguientes limitaciones:
-
-- Solo están disponibles para el nivel prémium.
-- Si se creó una cuenta de almacenamiento antes de registrarse para la característica NFS, no se pueden crear recursos compartidos de archivos NFS en esa cuenta de almacenamiento. Los recursos compartidos de archivos NFS solo se pueden crear en cuentas de almacenamiento que se crearon después de registrarse para la característica NFS.
+Los recursos compartidos de archivos de Azure NFS solo están disponibles para el nivel Premium.

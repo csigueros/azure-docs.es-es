@@ -1,32 +1,32 @@
 ---
-title: Administración de consultas de búsqueda y Live Stream en Azure Sentinel mediante la API de REST | Microsoft Docs
-description: En este artículo se describe cómo las características de búsqueda de Azure Sentinel le permiten aprovechar las ventajas de la API REST de Log Analytics para administrar consultas de búsqueda y Live Stream.
+title: Administración de consultas de búsqueda y Live Stream en Microsoft Sentinel mediante la API de REST | Microsoft Docs
+description: En este artículo se describe cómo las características de búsqueda de Microsoft Sentinel le permiten aprovechar las ventajas de la API de REST de Log Analytics para administrar consultas de búsqueda y Live Stream.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/06/2020
+ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 264e99b15676807c54f400cb4431f53c06cae8bd
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0c12c96e5a9cb8fb532cdd8ad462ff3d6a5f0bfc
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131037119"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520510"
 ---
-# <a name="manage-hunting-and-livestream-queries-in-azure-sentinel-using-rest-api"></a>Administración de consultas de búsqueda y Live Stream en Azure Sentinel mediante la API de REST
+# <a name="manage-hunting-and-livestream-queries-in-microsoft-sentinel-using-rest-api"></a>Administración de consultas de búsqueda y Live Stream en Microsoft Sentinel mediante la API de REST
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Azure Sentinel, que se integra en parte en Log Analytics de Azure Monitor, le permite usar la API REST de Log Analytics para administrar consultas de búsqueda y Live Stream. En este documento se muestra cómo crear y administrar consultas de búsqueda mediante la API REST.  Las consultas creadas de este modo se mostrarán en la interfaz de usuario de Azure Sentinel.
+Microsoft Sentinel, que se integra en parte en Log Analytics de Azure Monitor, le permite usar la API de REST de Log Analytics para administrar consultas de búsqueda y Live Stream. En este documento se muestra cómo crear y administrar consultas de búsqueda mediante la API REST.  Las consultas creadas de este modo se mostrarán en la interfaz de usuario de Microsoft Sentinel.
 
 Consulte la referencia de la API REST definitiva para más detalles sobre la [API de búsquedas guardadas](/rest/api/loganalytics/savedsearches).
 
@@ -48,7 +48,7 @@ En los ejemplos siguientes, reemplace estos marcadores de posición por el reemp
 
 ### <a name="example-1"></a>Ejemplo 1
 
-En este ejemplo se muestra cómo crear o actualizar una consulta de búsqueda para un área de trabajo de Azure Sentinel determinada.  En el caso de una consulta de Live Stream, reemplace *“Category”: “Hunting Queries”* por *“Category”: “Livestream Queries”* en el **cuerpo de la consulta**: 
+En este ejemplo se muestra cómo crear o actualizar una consulta de búsqueda para un área de trabajo de Microsoft Sentinel determinada.  En el caso de una consulta de Live Stream, reemplace *“Category”: “Hunting Queries”* por *“Category”: “Livestream Queries”* en el **cuerpo de la consulta**: 
 
 #### <a name="request-header"></a>Encabezado de solicitud
 
@@ -83,7 +83,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId} _
 
 ### <a name="example-2"></a>Ejemplo 2
 
-En este ejemplo se muestra cómo eliminar una consulta de búsqueda o Live Stream para un área de trabajo de Azure Sentinel determinada:
+En este ejemplo se muestra cómo eliminar una consulta de búsqueda o Live Stream para un área de trabajo de Microsoft Sentinel determinada:
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId} _
@@ -105,7 +105,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId} _
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, aprendió a administrar consultas de búsqueda y Live Stream en Azure Sentinel mediante la API de Log Analytics. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+En este artículo, aprendió a administrar consultas de búsqueda y Live Stream en Microsoft Sentinel mediante la API de Log Analytics. Para obtener más información sobre Microsoft Sentinel, consulte los siguientes artículos:
 
 - [Búsqueda de amenazas con Azure Sentinel, versión preliminar](hunting.md)
 - [Uso de cuadernos de Jupyter Notebook para buscar amenazas de seguridad](notebooks.md)

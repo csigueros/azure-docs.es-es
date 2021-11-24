@@ -335,7 +335,7 @@
     - name: Elementos integrados de Azure Policy
       displayName: 'samples, policy'
       href: policy-reference.md
-    - name: Blog de Azure Roadmap
+    - name: Blog de actualizaciones de Azure
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Valoración y recomendaciones sobre la protección de puntos de conexión
       href: endpoint-protection-recommendations-technical.md
@@ -350,21 +350,19 @@
     - name: Administración de datos del usuario
       href: privacy.md
     - name: Documentación de Microsoft Defender para IoT
-      href: /azure/asc-for-iot/
+      href: /azure/defender-for-iot/
     - name: Documentación de Azure Security Center
       href: ../security/index.yml
-    - name: Actualizaciones de Azure
-      href: 'https://azure.microsoft.com/updates/?category=security-identity'
     - name: Mapa de ruta de preparación
       href: security-center-readiness-roadmap.md
     - name: Blogs de la comunidad tecnológica de Microsoft Defender for Cloud
-      href: 'https://techcommunity.microsoft.com/t5/azure-security-center/bg-p/AzureSecurityCenterBlog'
+      href: 'https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog'
     - name: Microsoft Defender for Cloud en Stack Overflow
-      href: 'https://stackoverflow.com/search?q=azure-security-center'
-    - name: Vídeos de ASCinTheField en YouTube
-      href: 'https://www.youtube.com/results?search_query=%23ASCInTheField'
+      href: 'https://stackoverflow.com/search?q=microsoft+defender+for+cloud'
+    - name: Vídeos de MDfCinTheField en YouTube
+      href: 'https://www.youtube.com/hashtag/mdfcinthefield'
     - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/security-center/'
+      href: 'https://azure.microsoft.com/pricing/details/azure-defender/'
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Guía de solución de problemas

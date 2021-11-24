@@ -2,18 +2,21 @@
 title: 'Solución de problemas de Azure Video Analyzer: Azure'
 description: En este artículo se tratan los pasos de solución de problemas del módulo perimetral de Azure Video Analyzer.
 ms.topic: troubleshooting
-ms.date: 10/22/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 89c14c4a8199f811359d76550b5e281c857a1469
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 38451ae2fe8d42e335a887d093bbab9322d13d81
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093296"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398162"
 ---
 # <a name="troubleshoot-azure-video-analyzer"></a>Solución de problemas de Azure Video Analyzer
 
-[!INCLUDE [header](includes/edge-env.md)]
+![icono de Edge](media/env-icon/edge.png)  
+También puede consultar la [solución de problemas en el servicio](../cloud/troubleshoot.md).
+
+---
 
 En este artículo se tratan los pasos de solución de problemas del módulo perimetral de Azure Video Analyzer.
 

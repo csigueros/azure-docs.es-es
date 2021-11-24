@@ -5,22 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 11/12/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb, dawoo
+ms.reviewer: calebb, dawoo, jebeckha, grtaylor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3952dca4cbe7dfd3ea255b4ad1d6483057ff5cb6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 707e5b1e2c9adbe3b30a73a75e89ae7cf7a1beab
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128568403"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520776"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedimientos: Bloqueo de la autenticación heredada en Azure AD con acceso condicional   
 
-Para brindar a los usuarios un acceso sencillo a las aplicaciones en la nube, Azure Active Directory (Azure AD) admite una amplia variedad de protocolos de autenticación, incluida la autenticación heredada. Sin embargo, los protocolos heredados no admiten la autenticación multifactor (MFA). En muchos entornos, MFA es un requisito común para enfrentar el robo de identidad. 
+Para brindar a los usuarios un acceso sencillo a las aplicaciones en la nube, Azure Active Directory (Azure AD) admite una amplia variedad de protocolos de autenticación, incluida la autenticación heredada. No obstante, la autenticación heredada no admite la autenticación multifactor (MFA). En muchos entornos, MFA es un requisito común para enfrentar el robo de identidad. 
+
+> [!NOTE]
+> A partir del 1 de octubre de 2022, comenzaremos a deshabilitar permanentemente la autenticación básica para Exchange Online en todos los inquilinos de Microsoft 365 independientemente del uso, excepto para la autenticación SMTP.
 
 En su entrada de blog del 12 de marzo de 2020, [New tools to block legacy authentication in your organization](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#), Alex Weinert, Director de seguridad de identidades en Microsoft, destaca los motivos por los que las organizaciones deben bloquear la autenticación heredada, y señala otras herramientas que Microsoft proporciona para realizar esta tarea:
 
@@ -33,7 +36,11 @@ En su entrada de blog del 12 de marzo de 2020, [New tools to block legacy authen
 > - Las cuentas de Azure AD de las organizaciones que han deshabilitado la autenticación heredada experimentaron un 67 % menos de riesgos que aquellas en las que la autenticación heredada está habilitada.
 >
 
-Si el entorno está listo para bloquear la autenticación heredada con el fin de mejorar la protección del inquilino, puede lograr este objetivo con el acceso condicional. En este artículo se explica cómo configurar las directivas de acceso condicional que bloquean la autenticación heredada para el inquilino. Los clientes sin licencias que incluyen el acceso condicional pueden usar los [valores predeterminados de seguridad](../fundamentals/concept-fundamentals-security-defaults.md)) para bloquear la autenticación heredada.
+Si el entorno está listo para bloquear la autenticación heredada con el fin de mejorar la protección del inquilino, puede lograr este objetivo con el acceso condicional. En este artículo se explica cómo configurar las directivas de acceso condicional que bloquean la autenticación heredada para todas las cargas de trabajo en el inquilino. 
+
+Al implementar la protección de bloqueo de autenticación heredada, se recomienda un enfoque por fases, en lugar de deshabilitarlo para todos los usuarios a la vez. Los clientes pueden optar por empezar primero a deshabilitar la autenticación básica por protocolo, aprovechando las directivas de autenticación de Exchange Online y, opcionalmente, bloqueando también la autenticación heredada a través de directivas de acceso condicional cuando estén listas.
+
+Los clientes sin licencias que incluyen el acceso condicional pueden usar los[valores predeterminados de seguridad](../fundamentals/concept-fundamentals-security-defaults.md) para bloquear la autenticación heredada.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -44,10 +51,12 @@ En este artículo se supone que está familiarizado con los [conceptos básicos]
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-Azure AD admite varios de los protocolos de autenticación y autorización usados más comúnmente, incluida la autenticación heredada. La autenticación heredada hace referencia a los protocolos que usan la autenticación básica. Por lo general, estos protocolos no pueden aplicar ningún tipo de autenticación de segundo factor. Estos son algunos de los ejemplos de las aplicaciones basadas en la autenticación heredada:
+Azure AD admite varios de los protocolos de autenticación y autorización usados más comúnmente, incluida la autenticación heredada. La autenticación heredada se refiere a la autenticación básica, un método estándar del sector ampliamente usado para recopilar información de nombre de usuario y contraseña. Normalmente, los clientes de autenticación heredados no pueden aplicar ningún tipo de autenticación de segundo factor. Algunos ejemplos de aplicaciones que usan normalmente o solo usan la autenticación heredada son:
 
-- Aplicaciones anteriores de Microsoft Office
-- Aplicaciones que usan protocolos de correo como POP, IMAP y SMTP
+- Microsoft Office 2013 o versiones posteriores.
+- Aplicaciones que usan protocolos de correo como POP, IMAP y SMTP AUTH.
+
+Para más información sobre la compatibilidad con la autenticación moderna en Office, consulte [Cómo funciona la autenticación moderna para las aplicaciones de cliente de Office](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016?view=o365-worldwide).
 
 La autenticación de un solo factor (por ejemplo, nombre de usuario y contraseña) ya no es suficiente. No se recomiendan las contraseñas, porque son fáciles de adivinar y porque los usuarios humanos no suelen elegir contraseñas seguras. Las contraseñas también son vulnerables ante una variedad de ataques, como suplantación de identidad (phishing) y difusión de contraseña. Una de las medidas más sencillas que puede tomar para protegerse contra las amenazas para las contraseñas es implementar la autenticación multifactor (MFA). Con MFA, incluso si el atacante cuenta con la contraseña del usuario, la contraseña por sí sola no es suficiente para autenticarse de manera correcta y acceder a los datos.
 
@@ -59,22 +68,22 @@ Las directivas de acceso condicional se aplican una vez que se completa la auten
 
 En esta sección se explica cómo configurar una directiva de acceso condicional para bloquear la autenticación heredada. 
 
-### <a name="legacy-authentication-protocols"></a>Protocolos de autenticación heredados
+### <a name="messaging-protocols-that-support-legacy-authentication"></a>Protocolos de mensajería que admiten la autenticación heredada
 
-Las siguientes opciones se consideran protocolos de autenticación heredados.
+Los siguientes protocolos de mensajería admiten autenticación heredada:
 
-- SMTP autenticado: usado por clientes POP e IMAP para enviar mensajes de correo electrónico.
+- SMTP autenticado: se usa para enviar mensajes de correo electrónico autenticados.
 - Detección automática: usada por clientes Outlook y EAS para buscar y conectarse a buzones en Exchange Online.
 - Exchange ActiveSync (EAS): se usa para conectarse a los buzones en Exchange Online.
 - Exchange Online PowerShell: se usa para conectarse a Exchange Online con PowerShell remoto. Si bloquea la autenticación básica para Exchange Online PowerShell, debe usar el módulo de Exchange Online PowerShell para conectarse. Para obtener instrucciones, consulte [Conexión a Exchange Online PowerShell con autenticación multifactor](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
 - Servicios web Exchange (EWS): una interfaz de programación que se usa en Outlook, Outlook para Mac y aplicaciones de terceros.
 - IMAP4: usado por clientes de correo electrónico IMAP.
-- MAPI sobre HTTP (MAPI/HTTP): usado por Outlook 2010 y versiones posteriores.
+- SMTP sobre HTTP (MAPI/HTTP): protocolo de acceso al buzón de correo principal utilizado por Outlook 2010 SP2 y versiones posteriores.
 - Libreta de direcciones sin conexión (OAB): una copia de las colecciones de listas de direcciones que Outlook descarga y usa.
-- Outlook en cualquier lugar (RPC a través de HTTP): usado por Outlook 2016 y versiones anteriores.
-- Servicio Outlook: usado por la aplicación de correo electrónico y calendario de Windows 10.
+- Outlook Anywhere (RPC a través de HTTP): protocolo de acceso a buzones de correo heredado admitido por todas las versiones Outlook actuales.
 - POP3: usado por clientes de correo electrónico POP.
 - Servicios web de creación de informes: se usan para recuperar datos de informes en Exchange Online.
+- Servicio Outlook: usado por la aplicación de correo electrónico y calendario de Windows 10.
 - Otros clientes: otros protocolos que usen autenticación heredada.
 
 Para más información sobre estos protocolos y servicios de autenticación, vea [Informes de actividad de inicio de sesión en el portal de Azure Active Directory](../reports-monitoring/concept-sign-ins.md#filter-sign-in-activities).
@@ -101,7 +110,7 @@ Hay dos maneras de usar las directivas de acceso condicional para bloquear la au
  
 ### <a name="directly-blocking-legacy-authentication"></a>Bloqueo directo de la autenticación heredada
 
-La forma más sencilla de bloquear la autenticación heredada en toda la organización es mediante la configuración de una directiva de acceso condicional que se aplica específicamente a los clientes de autenticación heredados y bloquea el acceso. Al asignar usuarios y aplicaciones a la directiva, asegúrese de excluir los usuarios y las cuentas de servicio que todavía deben iniciar sesión con la autenticación heredada. Configure la condición de aplicaciones cliente; para ello, seleccione **Clientes de Exchange ActiveSync** y **Otros clientes**. Para bloquear el acceso a estas aplicaciones cliente, configure los controles de acceso para bloquear el acceso.
+La forma más sencilla de bloquear la autenticación heredada en toda la organización es mediante la configuración de una directiva de acceso condicional que se aplica específicamente a los clientes de autenticación heredados y bloquea el acceso. Al asignar usuarios y aplicaciones a la directiva, asegúrese de excluir los usuarios y las cuentas de servicio que todavía deben iniciar sesión con la autenticación heredada. Al elegir las aplicaciones en la nube en las que se va a aplicar esta directiva, seleccione Todas las aplicaciones en la nube, aplicaciones de destino como Office 365 (recomendado) o, como mínimo, Office 365 Exchange Online. Configure la condición de aplicaciones cliente; para ello, seleccione **Clientes de Exchange ActiveSync** y **Otros clientes**. Para bloquear el acceso a estas aplicaciones cliente, configure los controles de acceso para bloquear el acceso.
 
 ![Condición de aplicaciones cliente configurada para bloquear la autenticación heredada](./media/block-legacy-authentication/client-apps-condition-configured-yes.png)
 
@@ -113,21 +122,21 @@ Incluso si la organización no está lista para bloquear la autenticación hered
 
 ## <a name="what-you-should-know"></a>Qué debería saber
 
+La directiva de acceso condicional puede tardar hasta 24 horas en entrar en vigor.
+
 Al bloquear el acceso mediante **Otros clientes** también se impide que PowerShell de Exchange Online y Dynamics 365 usen la autenticación básica.
 
 La configuración de una directiva para **otros clientes** bloquea toda la organización ante determinados clientes como SPConnect. Este bloqueo se produce porque clientes más antiguos se autentican de formas inesperadas. Este problema no aplica a las aplicaciones principales de Office, como los clientes de Office anteriores.
 
-La directiva puede tardar hasta 24 horas en surtir efecto.
-
 Puede seleccionar todos los controles de concesión disponibles para la condición **Otros clientes**, pero la experiencia del usuario final siempre es la misma: el acceso bloqueado.
 
-### <a name="sharepoint-online-and-b2b-guest-users"></a>Usuarios invitados de SharePoint Online y B2B
+### <a name="sharepoint-online"></a>SharePoint Online
 
-Para bloquear el acceso de usuarios B2B a través de la autenticación heredada a SharePoint Online, las organizaciones deben deshabilitar la autenticación heredada en SharePoint con el comando `Set-SPOTenant` de PowerShell y establecer el parámetro `-LegacyAuthProtocolsEnabled` en `$false`. Puede encontrar más información sobre la configuración de este parámetro en el documento de referencia de PowerShell para SharePoint con respecto a [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant).
+Para bloquear el acceso de usuarios a través de la autenticación heredada a SharePoint Online, las organizaciones deben deshabilitar la autenticación heredada en SharePoint con el comando `Set-SPOTenant` de PowerShell y establecer el parámetro `-LegacyAuthProtocolsEnabled` en `$false`. Puede encontrar más información sobre la configuración de este parámetro en el documento de referencia de PowerShell para SharePoint con respecto a [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Determinación del impacto mediante el modo de solo informe de acceso condicional](howto-conditional-access-insights-reporting.md)
 - Si todavía no sabe cómo configurar las directivas de acceso condicional, consulte [Exigir MFA para aplicaciones específicas con acceso condicional de Azure Active Directory](../authentication/tutorial-enable-azure-mfa.md) para ver un ejemplo.
-- Para más información sobre la compatibilidad con la autenticación moderna, consulte [Cómo funciona la autenticación moderna para las aplicaciones de cliente de Office 2013 y Office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016). 
-- [Cómo configurar una aplicación o dispositivo multifunción para enviar correos electrónicos mediante Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
+- Para más información sobre la compatibilidad con la autenticación moderna, consulte [Cómo funciona la autenticación moderna para las aplicaciones de cliente de Office](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
+- [Configuración de una aplicación o un dispositivo multifunción para enviar correos electrónicos mediante Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)

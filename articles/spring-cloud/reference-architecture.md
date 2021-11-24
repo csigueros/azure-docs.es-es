@@ -6,12 +6,12 @@ title: Arquitectura de referencia de Azure Spring Cloud
 ms.author: akaleshian
 ms.service: spring-cloud
 description: Esta arquitectura de referencia es una base que usa un diseño empresarial típico de concentrador y radio (hub-and-spoke) para el uso de Azure Spring Cloud.
-ms.openlocfilehash: 5d8886453a3047d9ce48b875ce4841d640d0f2b1
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: a3e8cbb94500c92ba4d32e1fef4f02f1acf9c1c9
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132323072"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486847"
 ---
 # <a name="azure-spring-cloud-reference-architecture"></a>Arquitectura de referencia de Azure Spring Cloud
 
@@ -146,7 +146,7 @@ En el siguiente diagrama se representa un diseño tipo hub-and-spoke bien estruc
 
 ## <a name="azure-spring-cloud-on-premises-connectivity"></a>Conectividad local de Azure Spring Cloud
 
-Las aplicaciones que se ejecutan en Azure Spring Cloud pueden comunicarse con varios recursos locales, externos y de Azure. Mediante el diseño de concentrador y radio, las aplicaciones pueden enrutar el tráfico externamente o a la red local mediante ExpressRoute o una red privada virtual (VPN) de sitio a sitio.
+Las aplicaciones de Azure Spring Cloud pueden comunicarse con varios recursos locales, externos y de Azure. Mediante el diseño de concentrador y radio, las aplicaciones pueden enrutar el tráfico externamente o a la red local mediante ExpressRoute o una red privada virtual (VPN) de sitio a sitio.
 
 ## <a name="azure-well-architected-framework-considerations"></a>Consideraciones sobre el Marco de buena arquitectura de Azure
 

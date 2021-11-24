@@ -1,18 +1,18 @@
 ---
 title: Creación o modificación de laboratorios mediante plantillas de Azure Resource Manager
-description: Obtenga información sobre cómo usar plantillas de Azure Resource Manager con PowerShell para crear o modificar laboratorios automáticamente en un laboratorio de DevTest
+description: Obtenga información sobre cómo usar plantillas de Azure Resource Manager con PowerShell para crear o modificar laboratorios automáticamente.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: dac336902588655bc78bc593c408a10cfdf0b8af
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 61f605e5b6c65c57caf37bdc5178143e0304f02d
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591565"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398542"
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Creación o modificación de laboratorios automáticamente con plantillas de Azure Resource Manager y PowerShell
 
-DevTest Labs proporciona muchas plantillas de Azure Resource Manager y los scripts de PowerShell que pueden ayudarle a crear rápida y automáticamente nuevos laboratorios o modificar laboratorios existentes y, a continuación, implementar estos recursos.
+Azure DevTest Labs proporciona muchas plantillas de Azure Resource Manager y scripts de PowerShell. Estas plantillas y scripts pueden ayudarle a crear, modificar e implementar laboratorios y recursos de laboratorio de forma rápida y automática.
 
 Este artículo le guía a través del proceso de uso de estas plantillas y scripts para automatizar la creación, la modificación y la implementación de los laboratorios. En este artículo también se muestra dónde puede encontrar más información sobre cómo usar PowerShell para realizar algunas tareas comunes en DevTest Labs.
 
@@ -22,7 +22,7 @@ Puede encontrar [plantillas de Azure Resource Manager](https://github.com/Azure/
 ## <a name="step-2-modify-your-azure-resource-manager-template"></a>Paso 2: Edición de la plantilla de Azure Resource Manager
 Si nunca ha creado una plantilla antes, puede seguir los pasos que se indican en [Creación de la primera plantilla de Azure Resource Manager](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
-Además, en los [procedimientos recomendados para crear plantillas de Azure Resource Manager](../azure-resource-manager/templates/best-practices.md) se ofrecen muchas directrices y sugerencias para ayudarle a crear plantillas de Azure Resource Manager confiables y fáciles de usar. Normalmente, se usará una variación de uno de los enfoques o ejemplos proporcionados y se modificará la plantilla según las necesidades de cada persona.
+En [Procedimientos recomendados para crear plantillas de Azure Resource Manager](../azure-resource-manager/templates/best-practices.md) se ofrecen muchas directrices y sugerencias para ayudarle a crear plantillas de Azure Resource Manager confiables y fáciles de usar. Puede usar una variación de uno de los enfoques o ejemplos proporcionados y se modificará la plantilla según las necesidades de cada persona.
 
 ## <a name="step-3-deploy-resources-with-powershell"></a>Paso 3: Implementación de los recursos con PowerShell
 Una vez que haya personalizado las plantillas y los scripts, siga los pasos necesarios para [implementar los recursos con plantillas de Resource Manager y Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). El artículo proporciona información general sobre el uso de Azure PowerShell con plantillas de Azure Resource Manager para implementar los recursos en Azure.

@@ -1,26 +1,26 @@
 ---
-title: Importación y exportación de reglas de análisis de Azure Sentinel | Microsoft Docs
+title: Importación y exportación de reglas de análisis de Microsoft Sentinel | Microsoft Docs
 description: Exportación de reglas de análisis a plantillas de ARM y su importación desde ellas para facilitar la implementación
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 905455a371bd479d83418eaf68fbc5bf327ce4e4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 97eb1145e8eebaed91019fbd68330c1399522002
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131009403"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518553"
 ---
 # <a name="export-and-import-analytics-rules-to-and-from-arm-templates"></a>Exportación de reglas de análisis a plantillas de ARM y su importación desde
 
@@ -32,7 +32,7 @@ ms.locfileid: "131009403"
 
 ## <a name="introduction"></a>Introducción
 
-Ahora puede exportar reglas de análisis a archivos de plantilla de Azure Resource Manager (ARM) e importar reglas de estos archivos, como parte de la administración y el control de las implementaciones de Azure Sentinel como código. La acción de exportación creará un archivo JSON (denominado *Azure_Sentinel_analytic_rule.json*) en la ubicación de descargas del explorador, que luego puede cambiar el nombre, mover y controlar de otra manera, como cualquier otro archivo.
+Ahora puede exportar las reglas de análisis a archivos de plantilla de Azure Resource Manager (ARM) e importar reglas de estos archivos como parte de la administración y el control de las implementaciones de Microsoft Sentinel como código. La acción de exportación creará un archivo JSON (denominado *Azure_Sentinel_analytic_rule.json*) en la ubicación de descargas del explorador, que luego puede cambiar el nombre, mover y controlar de otra manera, como cualquier otro archivo.
 
 El archivo JSON exportado es independiente del área de trabajo, por lo que se puede importar a otras áreas de trabajo e incluso a otros inquilinos. Como código, también se puede controlar, actualizar e implementar en un marco de CI/CD administrado.
 
@@ -40,7 +40,7 @@ El archivo incluye todos los parámetros definidos en la regla de análisis, por
 
 ## <a name="export-rules"></a>Exportación de reglas
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Análisis**.
+1. En el menú de navegación de Microsoft Sentinel seleccione **Análisis**.
 
 1. Seleccione la regla que desea exportar y haga clic en **Exportar** en la barra de la parte superior de la pantalla.
 
@@ -57,7 +57,7 @@ El archivo incluye todos los parámetros definidos en la regla de análisis, por
 
 1. Tenga listo un archivo JSON de plantilla de ARM de reglas de análisis.
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Análisis**.
+1. En el menú de navegación de Microsoft Sentinel seleccione **Análisis**.
 
 1. Haga clic en **Importar** en la barra de la parte superior de la pantalla. En el cuadro de diálogo resultante, vaya al archivo JSON que representa la regla que quiere importar y selecciónelo; a continuación, seleccione **Abrir**.
 

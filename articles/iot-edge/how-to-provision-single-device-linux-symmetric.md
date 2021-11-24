@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 11/01/2021
 ms.author: kgremban
-ms.openlocfilehash: adb252ec5c9168b1184b841d91c8813c9c64507f
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 8d0db2b4aa516be4da48a6d80904cfd485e8462e
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131851957"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490579"
 ---
 # <a name="create-and-provision-an-iot-edge-device-on-linux-using-symmetric-keys"></a>Creación y aprovisionamiento de un dispositivo IoT Edge en Linux con claves simétricas
 
@@ -49,7 +49,7 @@ En este artículo se explica cómo registrar un dispositivo IoT Edge e instalar
 <!-- Device registration prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-register-device.md](../../includes/iot-edge-prerequisites-register-device.md)]
 
-### <a name="iot-edge-installation"></a>Instalación de IoT Edge
+### <a name="iot-edge-installation"></a>Instalación de IoT Edge
 
 Dispositivo Linux X64, ARM32 o ARM64.
 
@@ -114,18 +114,18 @@ Puede configurar rápidamente el dispositivo IoT Edge con autenticación de clav
    sudo iotedge config mp --connection-string 'PASTE_DEVICE_CONNECTION_STRING_HERE'
    ```
 
-El comando `iotedge config mp` crea un archivo de configuración en el dispositivo, proporciona la cadena de conexión y aplica los cambios de configuración.
+   El comando `iotedge config mp` crea un archivo de configuración en el dispositivo y escribe la cadena de conexión en el archivo.
+
+Aplique los cambios en la configuración.
+
+   ```bash
+   sudo iotedge config apply
+   ```
 
 Si desea ver el archivo de configuración, puede abrirlo:
 
    ```bash
    sudo nano /etc/aziot/config.toml
-   ```
-
-Si realiza algún cambio en el archivo de configuración, use el comando `iotedge config apply` para aplicar los cambios:
-
-   ```bash
-   sudo iotedge config apply
    ```
 
 <!-- end 1.2 -->

@@ -1,28 +1,28 @@
 ---
-title: Conexión de datos de Microsoft 365 Defender con Azure Sentinel | Microsoft Docs
-description: Obtenga información sobre cómo ingerir incidentes, alertas y datos de eventos sin procesar desde Microsoft 365 Defender en Azure Sentinel.
+title: Conexión de datos de Microsoft 365 Defender con Microsoft Sentinel | Microsoft Docs
+description: Obtenga información sobre cómo ingerir incidentes, alertas y datos de eventos sin procesar desde Microsoft 365 Defender en Microsoft Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2019
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1f55f38e126ae9aa64752b45ff449bcde321aaaf
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: edef094a6d4db97208124a97732f1ec354f2106c
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131083942"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522068"
 ---
-# <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Conexión de datos de Microsoft 365 Defender con Azure Sentinel
+# <a name="connect-data-from-microsoft-365-defender-to-microsoft-sentinel"></a>Conexión de datos de Microsoft 365 Defender con Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -40,11 +40,11 @@ ms.locfileid: "131083942"
 
 ## <a name="background"></a>Fondo
 
-El conector [Microsoft 365 Defender (M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) de Azure Sentinel con la integración de incidentes le permite transmitir todos los incidentes y alertas de M365D a Azure Sentinel y mantiene los incidentes sincronizados entre ambos portales. Los incidentes de M365D incluyen todas sus alertas, entidades y otra información relevante, y se completan y agrupan las alertas de los servicios de componentes de M365D **Microsoft Defender para punto de conexión**, **Microsoft Defender for Identity**, **Microsoft Defender para Office 365** y **Microsoft Cloud App Security**.
+El conector [Microsoft 365 Defender (M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) de Microsoft Sentinel con la integración de incidentes le permite transmitir todos los incidentes y alertas de M365D a Microsoft Sentinel y mantiene los incidentes sincronizados entre ambos portales. Los incidentes de M365D incluyen todas sus alertas, entidades y otra información relevante, y se enriquecen y agrupan las alertas de los servicios de componentes de M365D **Microsoft Defender para punto de conexión**, **Microsoft Defender for Identity**, **Microsoft Defender para Office 365** y **Microsoft Defender for Cloud Apps**.
 
-El conector también permite transmitir eventos de **búsqueda avanzada** desde Microsoft Defender para punto de conexión y Microsoft Defender para Office 365 a Azure Sentinel, lo que permite copiar dichas consultas de búsqueda avanzada de los componentes de Defender en Azure Sentinel, enriquecer las alertas de Sentinel con datos de eventos sin formato de los componentes de Defender para proporcionar información adicional y almacenar los registros con una mayor retención en Log Analytics.
+El conector también permite transmitir eventos de **búsqueda avanzada** desde Microsoft Defender para punto de conexión y Microsoft Defender para Office 365 a Microsoft Sentinel, lo que permite copiar dichas consultas de búsqueda avanzada de los componentes de Defender en Microsoft Sentinel, enriquecer las alertas de Sentinel con datos de eventos sin formato de los componentes de Defender para proporcionar información adicional y almacenar los registros con una mayor retención en Log Analytics.
 
-Para obtener más información sobre la integración de incidentes y la recopilación de eventos de búsqueda avanzada, vea [Integración de Microsoft 365 Defender con Azure Sentinel](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection).
+Para obtener más información sobre la integración de incidentes y la recopilación de eventos de búsqueda avanzada, consulte [Integración de Microsoft 365 Defender en Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection).
 
 > [!IMPORTANT]
 >
@@ -58,7 +58,7 @@ Para obtener más información sobre la integración de incidentes y la recopila
 
 ## <a name="connect-to-microsoft-365-defender"></a>Conexión a Microsoft 365 Defender
 
-1. En Azure Sentinel, seleccione **Data connectors** (Conectores de datos), elija **Microsoft 365 Defender (Preview)** (Microsoft 365 Defender [versión preliminar]) en la galería y seleccione **Open connector page** (Abrir página del conector).
+1. En Microsoft Sentinel, seleccione **Conectores de datos**, elija **Microsoft 365 Defender (versión preliminar)** en la galería y seleccione **Abrir página del conector**.
 
 1. En la sección **Conectar incidentes y alertas** de **Configuración**, seleccione el botón **Conectar incidentes y alertas**.
 
@@ -150,7 +150,7 @@ En la pestaña **Pasos siguientes** encontrará algunos libros útiles, consulta
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, ha obtenido información sobre cómo integrar incidentes de Microsoft 365 Defender y datos de eventos de búsqueda avanzada de Microsoft Defender para punto de conexión y Microsoft Defender para Office 365 en Azure Sentinel mediante el conector de Microsoft 365 Defender. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+En este documento, ha obtenido información sobre cómo integrar incidentes de Microsoft 365 Defender y datos de eventos de búsqueda avanzada de Microsoft Defender para punto de conexión y Microsoft Defender para Office 365 en Microsoft Sentinel mediante el conector de Microsoft 365 Defender. Para obtener más información sobre Microsoft Sentinel, consulte los siguientes artículos:
 
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](./detect-threats-built-in.md).
+- Empiece a [detectar amenazas con Microsoft Sentinel](./detect-threats-built-in.md).

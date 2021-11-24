@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 94b4aa840e268bee19c99235b64ddefe986ca4a7
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 33ff5a9e2dcf0d4e8f62d38bc36811548f9d3b3c
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130245879"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484837"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Recuperación ante desastres de Azure Spring Cloud
 
 **Este artículo se aplica a:** ✔️ Java ✔️ C#
 
-En este artículo se explican algunas estrategias que puede usar para proteger las aplicaciones de Azure Spring Cloud contra tiempos de inactividad.  Cualquier centro de datos o región puede experimentar tiempos de inactividad causados por desastres regionales, pero una planeación cuidadosa puede mitigar el impacto en los clientes.
+En este artículo se explican algunas estrategias que puede usar para proteger las aplicaciones de Azure Spring Cloud frente a tiempos de inactividad.  Cualquier centro de datos o región puede experimentar tiempos de inactividad causados por desastres regionales, pero una planeación cuidadosa puede mitigar el impacto en los clientes.
 
 ## <a name="plan-your-application-deployment"></a>Planeamiento de la implementación de la aplicación
 
@@ -67,4 +67,4 @@ Este es el perfil de Traffic Manager:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Inicio rápido: Implementación de la primera aplicación de Spring Boot en Azure Spring Cloud](./quickstart.md)
+* [Inicio rápido: Implementación de la primera aplicación Spring Boot en Azure Spring Cloud](./quickstart.md)

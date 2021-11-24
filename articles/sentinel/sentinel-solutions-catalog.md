@@ -1,40 +1,40 @@
 ---
-title: Catálogo del centro de contenido de Azure Sentinel | Microsoft Docs
-description: En este artículo se muestran los paquetes del centro de contenido de Azure Sentinel disponibles actualmente y se explican todos sus detalles.
+title: Catálogo del centro de contenido de Microsoft Sentinel | Microsoft Docs
+description: En este artículo se muestran los paquetes del centro de contenido de Microsoft Sentinel disponibles actualmente y se explican todos sus detalles.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/12/2021
+ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b02ce290d0910e2dccc19643c94ee338f80b6989
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 375f6150c9d08f06c09f51ab18276a5ec97f576c
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131467461"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132516937"
 ---
-# <a name="azure-sentinel-content-hub-catalog"></a>Catálogo del centro de contenido de Azure Sentinel
+# <a name="microsoft-sentinel-content-hub-catalog"></a>Catálogo del centro de contenido de Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
-> La experiencia del centro de contenido de Azure Sentinel está actualmente en **VERSIÓN PRELIMINAR**, al igual que todos los paquetes de soluciones individuales. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+> La experiencia del centro de contenido de Microsoft Sentinel está actualmente en **VERSIÓN PRELIMINAR**, al igual que todos los paquetes de soluciones individuales. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
-Las [soluciones de Azure Sentinel](sentinel-solutions.md) proporcionan una forma consolidada de adquirir contenido de Azure Sentinel (como conectores de datos, libros, análisis y automatización) en el área de trabajo con un solo paso de implementación.
+Las [soluciones de Microsoft Sentinel](sentinel-solutions.md) proporcionan una forma consolidada de adquirir contenido de Microsoft Sentinel (como conectores de datos, libros, análisis y automatización) en el área de trabajo con un solo paso de implementación.
 
-En este artículo se muestran las soluciones y conectores de datos de Azure Sentinel integrados y disponibles a petición que se pueden implementar en el área de trabajo. Cuando se implementa una solución, todo el contenido de seguridad incluido (como conectores de datos, cuadernos de estrategias, libros o reglas) se integra en el área pertinente de Azure Sentinel. 
+En este artículo se muestran las soluciones y conectores de datos de Microsoft Sentinel integrados y disponibles a petición que se pueden implementar en el área de trabajo. Cuando se implementa una solución, todo el contenido de seguridad incluido (como conectores de datos, cuadernos de estrategias, libros o reglas) se integra en el área pertinente de Microsoft Sentinel. 
 
-Para obtener más información, consulte [Detección e implementación central de soluciones y contenido integrados de Azure Sentinel](sentinel-solutions-deploy.md).
+Para obtener más información, consulte [Detección e implementación central de soluciones y contenido integrados de Microsoft Sentinel](sentinel-solutions-deploy.md).
 
 ## <a name="domain-solutions"></a>Soluciones de dominio
 
@@ -42,10 +42,9 @@ Para obtener más información, consulte [Detección e implementación central d
 |---------|---------|---------|---------|
 |**Administración de riesgos internos de Microsoft** |[Conector de datos](data-connectors-reference.md#microsoft-365-insider-risk-management-irm-preview), libro, reglas de análisis, consultas de búsqueda |Seguridad: amenaza de Insider | Microsoft|
 | **Solución Microsoft MITRE ATT&CK para la nube**| Libros, reglas de análisis, consultas de búsqueda|Seguridad: protección contra amenazas, seguridad: otros |Microsoft |
-| **Azure Sentinel Deception** | [Libros, reglas de análisis, listas de reproducción](monitor-key-vault-honeytokens.md)  | Seguridad: protección contra amenazas  |Microsoft |
+| **Microsoft Sentinel Deception** | [Libros, reglas de análisis, listas de reproducción](monitor-key-vault-honeytokens.md)  | Seguridad: protección contra amenazas  |Microsoft |
 |**Confianza cero** (TIC3.0) |Workbooks |Identidad, seguridad: otros |Microsoft |
 | | | | |
-
 
 ## <a name="arista-networks"></a>Arista Networks
 
@@ -70,8 +69,8 @@ Para obtener más información, consulte [Detección e implementación central d
 |Nombre    |Includes  |Categorías |Compatible con  |
 |---------|---------|---------|---------|
 |**Solución Azure Firewall para Sentinel**| [Conector de datos](data-connectors-reference.md#azure-firewall), libro, reglas de análisis, cuadernos de estrategias, consultas de búsqueda, conector personalizado de aplicaciones lógicas |Seguridad: seguridad de red, redes | Comunidad|
-|**Azure Sentinel para PaaS de SQL**     |  [Conector de datos](data-connectors-reference.md#azure-sql-databases), libro, reglas de análisis, cuadernos de estrategias, consultas de búsqueda     | Application        |      Comunidad   |
-|**Azure Sentinel Training Lab** |Libro, reglas de análisis, cuadernos de estrategias, consultas de búsqueda | Entrenamiento y tutoriales |Microsoft |
+|**Microsoft Azure Sentinel para PaaS de SQL**     |  [Conector de datos](data-connectors-reference.md#azure-sql-databases), libro, reglas de análisis, cuadernos de estrategias, consultas de búsqueda     | Application        |      Comunidad   |
+|**Laboratorio de entrenamiento de Microsoft Sentinel** |Libro, reglas de análisis, cuadernos de estrategias, consultas de búsqueda | Entrenamiento y tutoriales |Microsoft |
 |**SQL de Azure** | [Conector de datos](data-connectors-reference.md#azure-sql-databases), libro, análisis, cuadernos de estrategias, consultas de búsqueda  | Application |Microsoft  |
 | | | | |
 
@@ -88,7 +87,7 @@ Para obtener más información, consulte [Detección e implementación central d
 
 |Nombre   |Includes  |Categorías |Compatible con  |
 |------------------|---------|---------|---------|
-|**Soluciones de Azure Sentinel para Check Point**   |[Conector de datos](data-connectors-reference.md#check-point), cuadernos de estrategias, conector personalizado de aplicaciones lógicas  | Seguridad: Automatización (SOAR) | [Punto de control](https://www.checkpoint.com/support-services/contact-support/)|
+|**Soluciones de punto de comprobación de Microsoft Sentinel**   |[Conector de datos](data-connectors-reference.md#check-point), cuadernos de estrategias, conector personalizado de aplicaciones lógicas  | Seguridad: Automatización (SOAR) | [Punto de control](https://www.checkpoint.com/support-services/contact-support/)|
 | | | | |
 
 
@@ -123,7 +122,7 @@ Para obtener más información, consulte [Detección e implementación central d
 
 |Nombre    |Includes  |Categorías |Compatible con  |
 |---------|---------|---------|---------|
-|**Solución Contrast Protect Azure Sentinel**|Conector de datos, libros, reglas de análisis |Seguridad: protección contra amenazas |Microsoft  |
+|**Solución Contrast Protect de Microsoft Sentinel**|Conector de datos, libros, reglas de análisis |Seguridad: protección contra amenazas |Microsoft  |
 | | | | |
 
 ## <a name="crowdstrike"></a>Crowdstrike
@@ -192,7 +191,7 @@ Para obtener más información, consulte [Detección e implementación central d
 
 |Nombre    |Includes  |Categorías |Compatible con  |
 |---------|---------|---------|---------|
-|**HYAS Insight para la Galería de soluciones de Azure Sentinel**| Playbooks| Seguridad: inteligencia sobre amenazas, seguridad: automatización (SOAR) |Microsoft |
+|**HYAS Insight para la Galería de soluciones de Microsoft Sentinel**| Playbooks| Seguridad: inteligencia sobre amenazas, seguridad: automatización (SOAR) |Microsoft |
 | | | | |
 
 ## <a name="imperva"></a>Imperva
@@ -214,7 +213,7 @@ Para obtener más información, consulte [Detección e implementación central d
 
 |Nombre    |Includes  |Categorías |Compatible con  |
 |---------|---------|---------|---------|
-|**IronNet CyberSecurity Iron Defense: Azure Sentinel** | |Seguridad: red |Microsoft |
+|**IronNet CyberSecurity Iron Defense: Microsoft Sentinel** | |Seguridad: red |Microsoft |
 | | | |
 
 
@@ -239,7 +238,7 @@ Para obtener más información, consulte [Detección e implementación central d
 
 |Nombre    |Includes  |Categorías |Compatible con  |
 |---------|---------|---------|---------|
-|**Lookout Mobile Threat Defense para Azure Sentinel**| [Conector de datos](data-connectors-reference.md#lookout-mobile-threat-defense-preview)|Seguridad: red |[Lookout](https://www.lookout.com/support) |
+|**Lookout Mobile Threat Defense para Microsoft Sentinel**| [Conector de datos](data-connectors-reference.md#lookout-mobile-threat-defense-preview)|Seguridad: red |[Lookout](https://www.lookout.com/support) |
 | | | |
 
 ## <a name="mcafee"></a>McAfee
@@ -254,8 +253,8 @@ Para obtener más información, consulte [Detección e implementación central d
 
 |Nombre    |Includes  |Categorías |Compatible con  |
 |---------|---------|---------|---------|
-|**Azure Sentinel para Microsoft Dynamics 365**     |   [Conector de datos](data-connectors-reference.md#dynamics-365), libros, reglas de análisis, consultas de búsqueda |      Application   |Microsoft         |
-|**Azure Sentinel para Teams**     | Conector de datos, reglas de análisis, cuadernos de estrategias, consultas de búsqueda      |   Application      |    Comunidad     |
+|**Microsoft Sentinel para Microsoft Dynamics 365**     |   [Conector de datos](data-connectors-reference.md#dynamics-365), libros, reglas de análisis, consultas de búsqueda |      Application   |Microsoft         |
+|**Microsoft Azure Sentinel para Teams**     | Conector de datos, reglas de análisis, cuadernos de estrategias, consultas de búsqueda      |   Application      |    Comunidad     |
 | | | | |
 
 
@@ -346,7 +345,7 @@ Para obtener más información, consulte [Detección e implementación central d
 
 |Nombre    |Includes  |Categorías |Compatible con  |
 |---------|---------|---------|---------|
-|**Oferta de Senserva para Azure Sentinel** |Conector de datos, libros, reglas de análisis, consultas de búsqueda |Cumplimiento normativo |[Senserva](https://www.senserva.com/contact/) |
+|**Oferta de Senserva para Microsoft Sentinel** |Conector de datos, libros, reglas de análisis, consultas de búsqueda |Cumplimiento normativo |[Senserva](https://www.senserva.com/contact/) |
 | | | | |
 
 
@@ -354,7 +353,7 @@ Para obtener más información, consulte [Detección e implementación central d
 
 |Nombre    |Includes  |Categorías |Compatible con  |
 |---------|---------|---------|---------|
-|**Sonrai Security: Azure Sentinel** |Conector de datos, libros, reglas de análisis   | Cumplimiento normativo|Sonrai Security |
+|**Seguridad de Sonrai: Microsoft Sentinel** |Conector de datos, libros, reglas de análisis   | Cumplimiento normativo|Sonrai Security |
 | | | | |
 
 ## <a name="slack"></a>Slack
@@ -412,7 +411,7 @@ Para obtener más información, consulte [Detección e implementación central d
 
 |Nombre    |Includes  |Categorías |Compatible con  |
 |---------|---------|---------|---------|
-|**Solución vArmour Application Controller y Azure Sentinel**|Conector de datos, libro, reglas de análisis |Operaciones de TI |[vArmour](https://www.varmour.com/contact-us/) |
+|**Solución vArmour Application Controller y Microsoft Sentinel**|Conector de datos, libro, reglas de análisis |Operaciones de TI |[vArmour](https://www.varmour.com/contact-us/) |
 | | | | |
 
 ## <a name="vectra"></a>Vectra
@@ -434,13 +433,13 @@ Para obtener más información, consulte [Detección e implementación central d
 
 |Nombre    |Includes  |Categorías |Compatible con  |
 |---------|---------|---------|---------|
-|**Corelight para Azure Sentinel**|Conector de datos, libros, reglas de análisis, consultas de búsqueda, analizador | Operaciones de TI, seguridad: red | [Red Zeek](https://support.corelight.com/)|
+|**Corelight para Microsoft Sentinel**|Conector de datos, libros, reglas de análisis, consultas de búsqueda, analizador | Operaciones de TI, seguridad: red | [Red Zeek](https://support.corelight.com/)|
 | | | | |
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, no solo ha obtenido información sobre las soluciones de Azure Sentinel, sino que también ha aprendido a buscarlas e implementarlas.
+En este documento, no solo ha obtenido información sobre las soluciones de Microsoft Sentinel, sino que también ha aprendido a buscarlas e implementarlas.
 
-- Más información sobre las [soluciones de Azure Sentinel](sentinel-solutions.md).
-- [Búsqueda e implementación de soluciones de Azure Sentinel](sentinel-solutions-deploy.md).
+- Más información sobre [Soluciones de Microsoft Sentinel](sentinel-solutions.md).
+- [Detección e implementación de Soluciones de Microsoft Sentinel](sentinel-solutions-deploy.md).

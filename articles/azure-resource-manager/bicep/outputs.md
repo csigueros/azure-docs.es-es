@@ -2,13 +2,13 @@
 title: Salidas en Bicep
 description: Se describe cómo definir variables de salida en Bicep.
 ms.topic: conceptual
-ms.date: 10/19/2021
-ms.openlocfilehash: c9b8e0bb4bfb4533b66170c60c8da7b1073a0853
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/12/2021
+ms.openlocfilehash: 4ed640cd639b7a1b69cd07ae8ac50a4ddff436fb
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130236083"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491324"
 ---
 # <a name="outputs-in-bicep"></a>Salidas en Bicep
 
@@ -22,7 +22,7 @@ La sintaxis para definir un valor de salida es:
 output <name> <data-type> = <value>
 ```
 
-Cada valor de salida debe resolverse en uno de los [tipos de datos](data-types.md).
+Una salida puede tener el mismo nombre que un parámetro, una variable, un módulo o un recurso. Cada valor de salida debe resolverse en uno de los [tipos de datos](data-types.md).
 
 En el ejemplo siguiente se muestra cómo devolver una propiedad desde un recurso implementado. En el ejemplo, `publicIP` es el nombre simbólico de una dirección IP pública implementada en el archivo de Bicep. El valor de salida obtiene el nombre de dominio completo de la dirección IP pública.
 
@@ -44,23 +44,15 @@ var user = {
 output stringOutput string = user['user-name']
 ```
 
-Cuando el valor que se va a devolver dependa de una condición de la implementación, use el operador `?`. Para más información, consulte [Salida condicional](#conditional-output).
+## <a name="conditional-output"></a>Salida condicional
+
+Cuando el valor que se va a devolver dependa de una condición de la implementación, use el operador `?`.
 
 ```bicep
 output <name> <data-type> = <condition> ? <true-value> : <false-value>
 ```
 
-Para devolver más de una instancia de un valor de salida, use la expresión `for`. Para más información, consulte [Número dinámico de salidas](#dynamic-number-of-outputs).
-
-```bicep
-output <name> <data-type> = [for <item> in <collection>: {
-  ...
-}]
-```
-
-## <a name="conditional-output"></a>Salida condicional
-
-Puede devolver un valor de forma condicional. Por norma general, se usa una salida condicional cuando se [implementa condicionalmente](conditional-resource-deployment.md) un recurso. En el ejemplo siguiente, se muestra cómo se devuelve condicionalmente el identificador de recurso de una dirección IP pública en función de si se ha implementado una nueva:
+Por norma general, se usa una salida condicional cuando se [implementa condicionalmente](conditional-resource-deployment.md) un recurso. En el ejemplo siguiente, se muestra cómo se devuelve condicionalmente el identificador de recurso de una dirección IP pública en función de si se ha implementado una nueva.
 
 Para especificar una salida condicional en Bicep, use el operador `?`. En el ejemplo siguiente se devuelve una dirección URL de punto de conexión o una cadena vacía en función de una condición.
 
@@ -87,9 +79,15 @@ output endpoint string = deployStorage ? myStorageAccount.properties.primaryEndp
 
 ## <a name="dynamic-number-of-outputs"></a>Número dinámico de salidas
 
-En algunos escenarios, no se conoce el número de instancias de un valor que se debe devolver al crear la plantilla. Puede devolver un número variable de valores mediante la salida iterativa.
+En algunos escenarios, no se conoce el número de instancias de un valor que se debe devolver al crear la plantilla. Puede devolver un número variable de valores mediante la expresión `for`.
 
-En Bicep, agregue una expresión `for` que defina las condiciones de la salida dinámica. En el ejemplo siguiente se recorre en iteración una matriz.
+```bicep
+output <name> <data-type> = [for <item> in <collection>: {
+  ...
+}]
+```
+
+En el ejemplo siguiente se recorre en iteración una matriz.
 
 ```bicep
 param nsgLocation string = resourceGroup().location

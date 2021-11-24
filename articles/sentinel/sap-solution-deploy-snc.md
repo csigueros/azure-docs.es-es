@@ -1,36 +1,33 @@
 ---
-title: Implementación del conector de datos de SAP de Azure Sentinel con Secure Network Communications (SNC) | Microsoft Docs
-description: Información sobre cómo implementar el conector de datos de Azure Sentinel para entornos SAP a través de SNC para registros basados en interfaces de NetWeaver/ABAP
+title: Implementación del conector de datos de SAP de Microsoft Sentinel con Secure Network Communications (SNC) | Microsoft Docs
+description: Información sobre cómo implementar el conector de datos de Microsoft Sentinel para entornos de SAP con una conexión segura a través de SNC, para registros basados en interfaces de NetWeaver/ABAP.
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.date: 08/01/2021
-ms.subservice: azure-sentinel
-ms.openlocfilehash: fcc46884c470b2baa282bf00b8b9e735d8a0db41
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/09/2021
+ms.openlocfilehash: 2437859c3ee236e1dc3c641f22de5e1d3ce07fff
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131019692"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711894"
 ---
-# <a name="deploy-the-azure-sentinel-sap-data-connector-with-snc"></a>Implementación del conector de datos de SAP de Azure Sentinel con SNC
+# <a name="deploy-the-microsoft-sentinel-sap-data-connector-with-snc"></a>Implementación del conector de datos de SAP de Microsoft Sentinel con SNC
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-En este artículo se describe cómo implementar el conector de datos de SAP de Azure Sentinel cuando hay una conexión segura a SAP a través de Secure Network Communications (SNC) para registros basados en interfaces de NetWeaver/ABAP.
+En este artículo se describe cómo implementar el conector de datos de SAP de Microsoft Sentinel, cuando hay una conexión segura a SAP a través de Secure Network Communications (SNC), para registros basados en interfaces de NetWeaver/ABAP.
 
 > [!NOTE]
-> El proceso predeterminado y más recomendado para implementar el conector de datos Azure Sentinel SAP es [mediante una máquina virtual de Azure](sap-deploy-solution.md). Este artículo está destinado a usuarios avanzados.
+> El proceso predeterminado y más recomendado para implementar el conector de datos de SAP de Microsoft Sentinel es [mediante una máquina virtual de Azure](sap-deploy-solution.md). Este artículo está destinado a usuarios avanzados.
 
 > [!IMPORTANT]
-> La solución Azure Sentinel SAP está actualmente en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
->
+> La solución Microsoft Sentinel SAP está actualmente en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Los requisitos previos básicos para implementar el conector Azure Sentinel SAP son los mismos, independientemente del método de implementación.
+Los requisitos previos básicos para implementar el conector de datos de Microsoft Sentinel SAP son los mismos, independientemente del método de implementación.
 
 Antes de empezar, asegúrese de que el sistema cumple los requisitos previos que se documentan en el [procedimiento principal de implementación del conector de datos de SAP](sap-deploy-solution.md#prerequisites).
 
@@ -40,11 +37,11 @@ Estos son otros requisitos previos para trabajar con SNC:
 
 - **Descargar la utilidad SAPCAR** desde SAP Service Marketplace. Para obtener más información, consulte la [Guía de instalación de SAP](https://help.sap.com/viewer/d1d04c0d65964a9b91589ae7afc1bd45/5.0.4/en-US/467291d0dc104d19bba073a0380dc6b4.html).
 
-Para más información, consulte [Requisitos de SAP detallados de la solución Azure Sentinel SAP (versión preliminar pública)](sap-solution-detailed-requirements.md).
+Para más información, consulte [Requisitos de SAP detallados para la solución de SAP de Microsoft Sentinel (versión preliminar pública)](sap-solution-detailed-requirements.md).
 
 ## <a name="create-your-azure-key-vault"></a>Creación del almacén de claves de Azure
 
-Cree un almacén de claves de Azure que pueda dedicar a su conector de datos Azure Sentinel SAP.
+Cree un almacén de claves de Azure que pueda dedicar a su conector de datos de Microsoft Sentinel SAP.
 
 Ejecute el siguiente comando para crear el almacén de claves de Azure y conceder acceso a una entidad de servicio de Azure:
 
@@ -110,7 +107,7 @@ Se recomienda realizar este procedimiento una vez que se tenga un [almacén de c
 
 1. Cree una carpeta con un nombre descriptivo y copie en ella el archivo ZIP del SDK.
 
-1. Clone el repositorio de GitHub de la solución de Azure Sentinel en la máquina virtual del conector de datos y copie en esa nueva carpeta el archivo **systemconfig.ini** de la solución de SAP de Azure Sentinel.
+1. Clone el repositorio de GitHub de la solución de Microsoft Sentinel en la máquina virtual del conector de datos y copie en esa nueva carpeta el archivo **systemconfig.ini** de la solución de SAP de Microsoft Sentinel.
 
     Por ejemplo:
 
@@ -125,9 +122,9 @@ Se recomienda realizar este procedimiento una vez que se tenga un [almacén de c
 
     Deberá editar todas las configuraciones, excepto los secretos del almacén de claves. Para más información, consulte [Configuración manual del conector de datos de SAP](sap-solution-deploy-alternate.md#manually-configure-the-sap-data-connector).
 
-1. Defina los registros que quiere ingerir en Azure Sentinel mediante las instrucciones del archivo **systemconfig.ini**. 
+1. Defina los registros que quiere ingerir en Microsoft Sentinel mediante las instrucciones del archivo **systemconfig.ini**.
 
-    Por ejemplo, consulte [Definición de los registros de SAP que se envían a Azure Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-azure-sentinel).
+    Por ejemplo, consulte [Definición de los registros de SAP que se envían a Microsoft Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
     > [!NOTE]
     > Los registros relativos a las comunicaciones de SNC son únicamente aquellos que se recuperan a través de las interfaces de NetWeaver/ABAP. Los registros de SAP Control y HANA están fuera del ámbito de SNC.
@@ -144,13 +141,12 @@ Se recomienda realizar este procedimiento una vez que se tenga un [almacén de c
 
 1. Guarde el archivo **systemconfig.ini** actualizado en el directorio **sapcon** de la máquina virtual.
 
-1. Descargue y ejecute la imagen de Docker predefinida con el conector de datos de SAP instalado.  Ejecute:
+1. Descargue y ejecute la imagen de Docker predefinida con el conector de datos de SAP instalado. Ejecute:
 
     ```bash
     docker pull docker pull mcr.microsoft.com/azure-sentinel/solutions/sapcon:latest-preview
     docker create -v $(pwd):/sapcon-app/sapcon/config/system -v /home/azureuser /sap/sec:/sapcon-app/sec --env SCUDIR=/sapcon-app/sec --name sapcon-snc mcr.microsoft.com/azure-sentinel/solutions/sapcon:latest-preview
     ```
-
 
 ## <a name="post-deployment-sap-system-procedures"></a>Procedimientos del sistema SAP posteriores a la implementación
 
@@ -201,7 +197,6 @@ Después de implementar el conector de datos de SAP, realice los siguientes proc
     ```
 
     Para obtener más información, consulte [Intercambio de certificados de clave pública](https://help.sap.com/viewer/4773a9ae1296411a9d5c24873a8d418c/8.0/en-US/7bbf90b29c694e6080e968559170fbcd.html) en la documentación de SAP.
-
 
 ## <a name="edit-the-sap-data-connector-configuration"></a>Edición de la configuración del conector de datos de SAP
 
@@ -285,16 +280,16 @@ En este procedimiento se describe cómo activar el conector de datos de SAP medi
 
 Por ejemplo, pueden surgir problemas debido a una configuración incorrecta en el archivo **systemconfig.ini** o en el almacén de claves de Azure, o bien es posible que algunos de los pasos para crear una conexión segura a través de SNC no se hayan ejecutado como es debido.
 
-Pruebe a realizar de nuevo los pasos anteriores para configurar una conexión segura a través de SNC. Para obtener más información, consulte [Solución de problemas de implementación de la solución SAP de Azure Sentinel](sap-deploy-troubleshoot.md).
+Pruebe a realizar de nuevo los pasos anteriores para configurar una conexión segura a través de SNC. Para más información, consulte [Solución de problemas de implementación de la solución de SAP de Microsoft Sentinel](sap-deploy-troubleshoot.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez activado el conector de datos de SAP, pase a implementar la solución **Azure Sentinel - Continuous Threat Monitoring para SAP**. Para más información, consulte [Implementación de contenido de seguridad de SAP](sap-deploy-solution.md#deploy-sap-security-content).
+Una vez activado el conector de datos de SAP, pase a implementar la solución **Microsoft Sentinel - Continuous Threat Monitoring para SAP**. Para más información, consulte [Implementación de contenido de seguridad de SAP](sap-deploy-solution.md#deploy-sap-security-content).
 
-Al implementar la solución, el conector de datos de SAP se muestra en Azure Sentinel y se implementan el libro y las reglas de análisis de SAP. Cuando haya terminado, agregue y personalice manualmente las listas de reproducción de SAP.
+Al implementar la solución, el conector de datos de SAP se muestra en Microsoft Sentinel y se implementan el libro y las reglas de análisis de SAP. Cuando haya terminado, agregue y personalice manualmente las listas de reproducción de SAP.
 
 Para más información, consulte:
 
-- [Requisitos detallados de SAP para la solución Azure Sentinel SAP](sap-solution-detailed-requirements.md)
-- [Referencia sobre los registros de la solución Azure Sentinel SAP](sap-solution-log-reference.md)
-- [Solución Azure Sentinel SAP: referencia al contenido de seguridad](sap-solution-security-content.md)
+- [Requisitos de SAP detallados para la solución de SAP de Microsoft Sentinel](sap-solution-detailed-requirements.md)
+- [Referencia a los registros de la solución Microsoft Sentinel SAP](sap-solution-log-reference.md)
+- [Solución de SAP de Microsoft Sentinel: referencia al contenido de seguridad](sap-solution-security-content.md)

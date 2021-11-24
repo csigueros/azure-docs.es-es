@@ -98,6 +98,8 @@
               href: continuous-backup-restore-frequently-asked-questions.yml
             - name: 'Copia de seguridad continua: modelo de recursos'
               href: continuous-backup-restore-resource-model.md
+            - name: Marca de tiempo de restauración más reciente
+              href: latest-restore-timestamp-continuous-backup.md
     - name: Optimización del costo de Azure Cosmos DB
       items:
         - name: Planificación y administración de costos
@@ -148,7 +150,7 @@
       items:
         - name: Recursos de Cosmos DB
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: sql/create-cosmosdb-resources-portal.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -1495,6 +1497,8 @@
               href: continuous-backup-restore-permissions.md
             - name: 'Aprovisionamiento de una cuenta: copia de seguridad continua'
               href: provision-account-continuous-backup.md
+            - name: Obtención de la marca de tiempo de restauración más reciente
+              href: get-latest-restore-timestamp.md
             - name: 'Restauración de una cuenta: copia de seguridad continua'
               href: restore-account-continuous-backup.md
             - name: Migración a copia de seguridad continua

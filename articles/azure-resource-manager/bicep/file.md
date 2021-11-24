@@ -2,23 +2,25 @@
 title: Estructura y sintaxis de un archivo Bicep
 description: Describe la estructura y las propiedades de un archivo Bicep mediante la sintaxis declarativa.
 ms.topic: conceptual
-ms.date: 10/07/2021
-ms.openlocfilehash: f890f625abc4a6839cd090a49aa7e641ecef9145
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.date: 11/12/2021
+ms.openlocfilehash: 352ff708b9b36eff06be8f3a3dda10b28b02e37b
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131892028"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493990"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Nociones sobre la estructura y la sintaxis de los archivos Bicep
 
-En este artículo se describe la estructura de un archivo Bicep. Presenta las distintas secciones del archivo y las propiedades que están disponibles en esas secciones.
+En este artículo se describen la estructura y la sintaxis de un archivo Bicep. Presenta las distintas secciones del archivo y las propiedades que están disponibles en esas secciones.
 
-Este artículo está dirigido a usuarios que ya están familiarizados con los archivos Bicep. Proporciona información detallada sobre la estructura del archivo de Bicep. Para obtener un tutorial paso a paso que le guía por el proceso de creación de un archivo de Bicep, consulte [Inicio rápido: Creación de plantillas de archivos de Bicep con Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
+Para obtener un tutorial paso a paso que le guía por el proceso de creación de un archivo de Bicep, consulte [Inicio rápido: Creación de plantillas de archivos de Bicep con Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
 
 ## <a name="bicep-format"></a>Formato de Bicep
 
-Un archivo Bicep contiene los elementos siguientes. Bicep es un lenguaje declarativo, lo que significa que los elementos pueden aparecer en cualquier orden.  A diferencia de los lenguajes imperativos, el orden de los elementos no afecta a cómo se procesa la implementación.
+Bicep es un lenguaje declarativo, lo que significa que los elementos pueden aparecer en cualquier orden. A diferencia de los lenguajes imperativos, el orden de los elementos no afecta a cómo se procesa la implementación.
+
+Un archivo Bicep contiene los elementos siguientes.
 
 ```bicep
 targetScope = '<scope>'
@@ -32,55 +34,14 @@ resource <resource-symbolic-name> '<resource-type>@<api-version>' = {
   <resource-properties>
 }
 
-// conditional deployment
-resource <resource-symbolic-name> '<resource-type>@<api-version>' = if (<condition-to-deploy>) {
-  <resource-properties>
-}
-
-// iterative deployment
-@<decorator>(<argument>)
-resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
-  <resource-properties>
-}]
-
 module <module-symbolic-name> '<path-to-file>' = {
   name: '<linked-deployment-name>'
-  params: {
-    <parameter-names-and-values>
-  }
-}
-
-// conditional deployment
-module <module-symbolic-name> '<path-to-file>' = if (<condition-to-deploy>) {
-  name: '<linked-deployment-name>'
-  params: {
-    <parameter-names-and-values>
-  }
-}
-
-// iterative deployment
-module <module-symbolic-name> '<path-to-file>' = [for <item> in <collection>: {
-  name: '<linked-deployment-name>'
-  params: {
-    <parameter-names-and-values>
-  }
-}]
-
-// deploy to different scope
-module <module-symbolic-name> '<path-to-file>' = {
-  name: '<linked-deployment-name>'
-  scope: <scope-object>
   params: {
     <parameter-names-and-values>
   }
 }
 
 output <output-name> <output-data-type> = <output-value>
-
-// iterative output
-output <output-name> array = [for <item> in <collection>: {
-  <output-properties>
-}]
 ```
 
 En el ejemplo siguiente se muestra una implementación de estos elementos.
@@ -135,22 +96,25 @@ En un módulo, puede especificar un ámbito que sea diferente del ámbito para e
 
 Use los parámetros para los valores que deben variar en las distintas implementaciones. Puede definir un valor predeterminado para el parámetro que se usa si no se proporciona ningún valor durante la implementación.
 
-Por ejemplo, puede agregar un parámetro de SKU para especificar tamaños diferentes para un recurso. Puede usar las funciones de Bicep para crear el valor predeterminado, como obtener la ubicación del grupo de recursos.
+Por ejemplo, puede agregar un parámetro de SKU para especificar diferentes tamaños para un recurso. Puede pasar valores diferentes en función de si va a realizar la implementación en prueba o en producción.
 
 ```bicep
 param storageSKU string = 'Standard_LRS'
-param location string = resourceGroup().location
 ```
 
-Para información sobre los tipos de datos disponibles, consulte [Tipos de datos en Bicep](data-types.md).
+El parámetro está disponible para su uso en el archivo Bicep.
 
-Un parámetro no puede tener el mismo nombre que una variable, un módulo o un recurso.
+```bicep
+sku: {
+  name: storageSKU
+}
+```
 
 Para más información, consulte [Parámetros en Bicep](./parameters.md).
 
 ## <a name="parameter-decorators"></a>Decoradores de parámetro
 
-Puede agregar uno o varios decoradores para cada parámetro. Estos decoradores definen los valores permitidos para el parámetro. En el ejemplo siguiente se especifican las SKU que se pueden implementar a través del archivo Bicep.
+Puede agregar uno o varios decoradores para cada parámetro. Estos decoradores describen el parámetro y definen restricciones para los valores que se pasan. En el ejemplo siguiente se muestra un decorador, pero hay muchos otros disponibles.
 
 ```bicep
 @allowed([
@@ -162,49 +126,30 @@ Puede agregar uno o varios decoradores para cada parámetro. Estos decoradores d
 param storageSKU string = 'Standard_LRS'
 ```
 
-En la tabla siguiente se describen los decoradores disponibles y cómo usarlos.
+Para más información, incluidas las descripciones de todos los decoradores disponibles, consulte [Elementos Decorator](parameters.md#decorators).
 
-| Decorador | Aplicar a | Argumento | Descripción |
-| --------- | ---- | ----------- | ------- |
-| permitidas | all | array | Valores permitidos para el parámetro. Use este decorador para asegurarse de que el usuario proporciona los valores correctos. |
-| description | all | string | Texto que explica cómo usar el parámetro. La descripción se muestra a los usuarios a través del portal. |
-| maxLength | array, string | int | Longitud máxima de los parámetros de cadena y matriz. El valor es inclusivo. |
-| maxValue | int | int | Valor máximo del parámetro entero. Este valor es inclusivo. |
-| metadata | all | object | Propiedades personalizadas que se van a aplicar al parámetro. Pueden incluir una propiedad de descripción equivalente al decorador de la descripción. |
-| minLength | array, string | int | Longitud mínima de los parámetros de cadena y matriz. El valor es inclusivo. |
-| minValue | int | int | Valor mínimo del parámetro entero. Este valor es inclusivo. |
-| secure | string, object | ninguno | Marca el parámetro como seguro. El valor de un parámetro seguro no se guarda en el historial de implementaciones y no se registra. Para más información, consulte [Protección de cadenas y objetos](data-types.md#secure-strings-and-objects). |
+## <a name="variables"></a>Variables
 
-Los decoradores están en el [espacio de nombres sys](bicep-functions.md#namespaces-for-functions). Si tiene que diferenciar un decorador de otro elemento con el mismo nombre, anteceda el decorador con `sys`. Por ejemplo, si el archivo de Bicep incluye un parámetro llamado `description`, debe agregar el espacio de nombres sys al usar el decorador **description**.
-
-```bicep
-@sys.description('The name of the instance.')
-param name string
-@sys.description('The description of the instance to display.')
-param description string
-```
-
-Para obtener más información, vea [Decoradores](parameters.md#decorators).
-
-## <a name="variables"></a>variables
-
-Utilice variables para expresiones complejas que se repiten en un archivo Bicep. Por ejemplo, puede agregar una variable para un nombre de recurso que se construye mediante la concatenación de varios valores.
+Puede hacer que el archivo Bicep sea más legible encapsulando expresiones complejas en una variable. Por ejemplo, puede agregar una variable para un nombre de recurso que se construye mediante la concatenación de varios valores.
 
 ```bicep
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 ```
 
-No se especifica un [tipo de datos](data-types.md) para una variable. En lugar de eso, el tipo de datos se infiere a partir del valor.
+Aplique esta variable siempre que necesite la expresión compleja.
 
-Una variable no puede tener el mismo nombre que un parámetro, módulo o recurso.
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2019-04-01' = {
+  name: uniqueStorageName
+```
 
 Para más información, consulte [Variables en Bicep](./variables.md).
 
 ## <a name="resource"></a>Recurso
 
-Use la palabra clave `resource` para definir un recurso que se va a implementar. La declaración de recursos incluye un nombre simbólico para el recurso. Usará este nombre simbólico en otras partes del archivo Bicep si necesita obtener un valor del recurso. Los nombres simbólicos distinguen mayúsculas de minúsculas. Pueden contener letras, números y _; pero no pueden empezar con un número.
+Use la palabra clave `resource` para definir un recurso que se va a implementar. La declaración de recursos incluye un nombre simbólico para el recurso. Va a utilizar este nombre simbólico en otras partes del archivo Bicep para obtener un valor del recurso.
 
-La declaración de recursos también incluye el tipo de recurso y la versión de la API.
+La declaración de recursos incluye el tipo de recurso y la versión de la API. Dentro del cuerpo de la declaración de recurso, incluya propiedades específicas del tipo de recurso.
 
 ```bicep
 resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
@@ -220,47 +165,11 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 ```
 
-En la declaración de recursos, se incluyen las propiedades para el tipo de recurso. Estas propiedades son exclusivas de cada tipo de recurso.
-
 Para más información, consulte [Declaración de recursos en Bicep](resource-declaration.md).
-
-Para [implementar un recurso de manera condicional](conditional-resource-deployment.md), agregue una expresión `if`.
-
-```bicep
-resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
-  name: uniqueStorageName
-  location: location
-  sku: {
-    name: storageSKU
-  }
-  kind: 'StorageV2'
-  properties: {
-    supportsHttpsTrafficOnly: true
-  }
-}
-```
-
-Para [implementar más de una instancia](loops.md) de un tipo de recurso, agregue una expresión `for`. La expresión puede recorrer en iteración los miembros de una matriz.
-
-```bicep
-resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = [for storageName in storageAccounts: {
-  name: storageName
-  location: location
-  sku: {
-    name: storageSKU
-  }
-  kind: 'StorageV2'
-  properties: {
-    supportsHttpsTrafficOnly: true
-  }
-}]
-```
-
-Un recurso no puede tener el mismo nombre que un parámetro, una variable o un módulo.
 
 ## <a name="modules"></a>Módulos
 
-Use los módulos para crea un vínculo con los otros archivos Bicep que contienen el código que desea reutilizar. El módulo contiene uno o varios recursos que se van a implementar. Estos recursos se implementan junto con cualquier otro recurso en el archivo Bicep.
+Los módulos permiten reutilizar el código de un archivo Bicep en otros archivos Bicep. En la declaración del módulo, se vincula al archivo que va a reutilizar. Al implementar el archivo Bicep, también se implementan los recursos del módulo.
 
 ```bicep
 module webModule './webApp.bicep' = {
@@ -272,11 +181,7 @@ module webModule './webApp.bicep' = {
 }
 ```
 
-El nombre simbólico le permite hacer referencia al módulo desde otro lugar del archivo. Por ejemplo, puede obtener un valor de salida de un módulo mediante el uso del nombre simbólico y el nombre del valor de salida. El nombre simbólico puede contener a-z, A-Z, 0-9 y "_"; no puede comenzar por un número.
-
-Un módulo no puede tener el mismo nombre que un parámetro, una variable o un recurso.
-
-Al igual que ocurre con los recursos, puede implementar un módulo de manera condicional o mediante iteración. La sintaxis para los módulos es la misma que para los recursos.
+El nombre simbólico le permite hacer referencia al módulo desde otro lugar del archivo. Por ejemplo, puede obtener un valor de salida de un módulo mediante el uso del nombre simbólico y el nombre del valor de salida.
 
 Para más información, consulte [Uso de módulos de Bicep](./modules.md).
 
@@ -284,7 +189,7 @@ Para más información, consulte [Uso de módulos de Bicep](./modules.md).
 
 Puede agregar un decorador a una definición de recurso o de módulo. El único decorador compatible es `batchSize(int)`. Solo puede aplicarlo a una definición de recurso o de módulo que usa una expresión `for`.
 
-De manera predeterminada, los recursos se implementan en paralelo. No se sabe el orden en que finalizan. Cuando agrega el decorador `batchSize`, implementa las instancias en serie. Use el argumento entero para especificar el número de instancias que se van a implementar en paralelo.
+De manera predeterminada, los recursos se implementan en paralelo. Cuando agrega el decorador `batchSize`, implementa las instancias en serie.
 
 ```bicep
 @batchSize(3)
@@ -293,27 +198,81 @@ resource storageAccountResources 'Microsoft.Storage/storageAccounts@2019-06-01' 
 }]
 ```
 
-El decorador `batchSize` está en el [espacio de nombres sys](bicep-functions.md#namespaces-for-functions). Si necesita diferenciar este decorador de otro elemento con el mismo nombre, ponga **sys** delante: `@sys.batchSize(2)`.
-
 Para más información, consulte [Implementación en lotes.](loops.md#deploy-in-batches)
 
 ## <a name="outputs"></a>Salidas
 
-Use las salidas para devolver un valor a partir de la implementación. Por lo general, se devuelve un valor desde un recurso implementado cuando es necesario volver a utilizar ese valor para otra operación.
+Use las salidas para devolver unos valores a partir de la implementación. Por lo general, se devuelve un valor desde un recurso implementado cuando es necesario volver a utilizar ese valor para otra operación.
 
 ```bicep
 output storageEndpoint object = stg.properties.primaryEndpoints
 ```
 
-Especifique un [tipo de datos](data-types.md) para el valor de salida.
-
-Una salida puede tener el mismo nombre que un parámetro, una variable, un módulo o un recurso.
-
 Para más información, consulte [Salidas en Bicep](./outputs.md).
+
+## <a name="loops"></a>Bucles
+
+Puede agregar bucles iterativos al archivo Bicep para definir varias copias de lo siguiente:
+
+* resource
+* module
+* variable
+* propiedad
+* output
+
+Utilice la expresión `for` para definir un bucle.
+
+```bicep
+param moduleCount int = 2
+
+module stgModule './example.bicep' = [for i in range(0, moduleCount): {
+  name: '${i}deployModule'
+  params: {
+  }
+}]
+```
+
+Puede recorrer en iteración una matriz, un objeto o un índice de enteros.
+
+Para más información, consulte [Bucles iterativos en Bicep](loops.md).
+
+## <a name="conditional-deployment"></a>Implementación condicional
+
+Puede agregar un recurso o módulo al archivo Bicep, que se implementa condicionalmente. Durante la implementación, se evalúa la condición, y el resultado determina si se implementa el recurso o el módulo. Utilice la expresión `if` para definir una implementación condicional.
+
+```bicep
+param deployZone bool
+
+resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
+  name: 'myZone'
+  location: 'global'
+}
+```
+
+Para obtener más información, consulte [Implementación condicional en Bicep](conditional-resource-deployment.md).
 
 ## <a name="whitespace"></a>Espacio en blanco
 
-Los espacios y las pestañas se omiten al crear archivos de Bicep. Sin embargo, las nuevas líneas tienen significado semántico, por ejemplo, en declaraciones de [objeto](./data-types.md#objects) y [matriz](./data-types.md#arrays).
+Los espacios y las pestañas se omiten al crear archivos de Bicep.
+
+Bicep diferencia las nuevas líneas. Por ejemplo:
+
+```bicep
+resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
+  ...
+}
+```
+
+No se puede escribir como:
+
+```bicep
+resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' =
+    if (newOrExisting == 'new') {
+      ...
+    }
+```
+
+Defina [objetos](./data-types.md#objects) y [matrices](./data-types.md#arrays) en varias líneas.
 
 ## <a name="comments"></a>Comentarios
 
@@ -363,6 +322,11 @@ El ejemplo anterior es equivalente al JSON siguiente.
   "stringVar": "this is multi-line\r\n  string with formatting\r\n  preserved.\r\n"
 }
 ```
+
+## <a name="known-limitations"></a>Restricciones conocidas
+
+- No se admite el concepto de apiProfile, que se usa para asignar un único apiProfile a un valor de apiVersion establecido para cada tipo de recurso.
+- No se admiten las funciones definidas por el usuario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

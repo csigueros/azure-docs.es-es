@@ -7,12 +7,12 @@ ms.date: 10/19/2021
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: 88de9f363851d47fbefcdcf69060111d8fd64bbf
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: a88c9ecef36786f67c930a22ecdd67d5890da92f
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131842385"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399074"
 ---
 # <a name="autoscale-preview-for-azure-virtual-desktop-host-pools"></a>Escalabilidad automática (versión preliminar) para grupos de hosts de Azure Virtual Desktop
 
@@ -212,9 +212,9 @@ Para crear o cambiar una programación:
         >[!NOTE]
         >La preferencia de equilibrio de carga que seleccione aquí invalidará la que seleccionó para la configuración original del grupo de hosts.
 
-    - En **Minimum percentage of session host VMs** (Porcentaje mínimo de máquinas virtuales de host de sesión), escriba la cantidad de recursos de host de sesión que desea usar durante las horas de ascenso y las horas punta. Por ejemplo, si elige el **10 %** y el grupo de hosts tiene 10 hosts de sesión, la escalabilidad automática mantendrá un host de sesión disponible para las conexiones de usuario en todo momento durante las horas de ascenso y las horas punta.
+    - En **Porcentaje mínimo de hosts**, escriba el porcentaje de hosts de sesión en los que desea permanecer siempre en esta fase. Si el porcentaje especificado no es un número entero, se redondea al número entero más cercano. Por ejemplo, en un grupo de hosts de 7 hosts de sesión, si el porcentaje mínimo de hosts es del **10 %** para las horas de aumento, una máquina virtual siempre permanecerá activa durante las horas de aumento y la característica de escalado automático no desactivará esta máquina virtual. 
     
-    - En **Capacity threshold** (Umbral de capacidad), escriba el porcentaje de uso del grupo de hosts que desencadenará el inicio de las fases de ascenso y de horas punta. Por ejemplo, si elige el **60 %** para un grupo de hosts que puede controlar 100 sesiones, la escalabilidad automática solo activará hosts adicionales una vez que el grupo de hosts supere las 60 sesiones.
+    - En **Umbral de capacidad**, escriba el porcentaje de capacidad disponible del grupo de host que desencadenará una acción de escalado para que se lleve a cabo. Por ejemplo, si dos hosts de sesión del grupo host con un límite máximo de sesión de 20 están activados, la capacidad del grupo de hosts disponible es 40. Si establece el umbral de capacidad en el **75 %** y los hosts de sesión tienen más de 30 sesiones de usuario, la característica de escalado automático activará un tercer host de sesión. Esto cambiará la capacidad del grupo de host disponible de 40 a 60.
 
 5. En la pestaña **Peak hours** (Horas punta), rellene los campos siguientes:
 
@@ -232,6 +232,9 @@ Para crear o cambiar una programación:
       - Porcentaje mínimo de hosts (%)
       - Umbral de capacidad (%)
       - Forzar el cierre de sesión de los usuarios
+
+    >[!IMPORTANT]
+    >Si ha habilitado la característica de escalado automático para obligar a los usuarios a cerrar sesión durante la aceleración, la característica elegirá el host de sesión con el menor número de sesiones de usuario para cerrar. La característica de escalado automático pondrá el host de sesión en modo de purga, enviará a todas las sesiones de usuario activas una notificación que les indica que se cerrará la sesión y, después, cerrará la sesión de todos los usuarios una vez que haya transcurrido el tiempo de espera especificado. Después de que la característica de escalado automático cierre todas las sesiones de usuario, desasigne la máquina virtual. Si no ha habilitado el inicio de sesión forzado durante la aceleración, se desasignarán los hosts de sesión sin sesiones activas o desconectadas.
 
     - Del mismo modo, el campo **Off-peak hours** (Horas de poca actividad) funciona de la misma manera que el campo **Peak hours** (Horas punta):
 

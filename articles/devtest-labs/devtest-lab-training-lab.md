@@ -3,28 +3,28 @@ title: Uso de Azure DevTest Labs para entrenamiento
 description: En este artículo se proporcionan pasos detallados que puede seguir para configurar un laboratorio para entrenamiento en Azure DevTest Labs.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: b7de17f89e5e7a23290e00402e13c7035df03578
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 6809ee2a9d08e059184ccbcb98c20ac5ea2160fa
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130229003"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398124"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Uso de Azure DevTest Labs para entrenamiento
-Azure DevTest Labs se puede utilizar para implementar muchos escenarios claves además de los de desarrollo y pruebas. Uno de estos escenarios es la configuración de un laboratorio para entrenamiento. Azure DevTest Labs le permite crear un laboratorio en el que puede proporcionar plantillas personalizadas que cada aprendiz puede usar para crear entornos idénticos y aislados con fines de entrenamiento. Puede aplicar directivas para garantizar que los entornos de entrenamiento estarán disponibles para cada aprendiz solo cuando sea necesario y cuando contengan los suficientes recursos necesarios como, por ejemplo, máquinas virtuales, para el entrenamiento. Por último, puede compartir fácilmente el laboratorio con los aprendices y estos podrán acceder fácilmente a él con un solo clic.
+Azure DevTest Labs se puede utilizar para implementar muchos escenarios claves además de los de desarrollo y pruebas. Un escenario es configurar un laboratorio para el entrenamiento. Azure DevTest Labs permite crear un laboratorio que proporciona plantillas personalizadas para que cada aprendiz cree entornos de entrenamiento idénticos y aislados. Puede aplicar directivas para garantizar que los entornos de entrenamiento estarán disponibles para cada aprendiz solo cuando sea necesario y cuando contengan los suficientes recursos necesarios como, por ejemplo, máquinas virtuales, para el entrenamiento. Por último, puede compartir fácilmente el laboratorio para que los aprendiz accedan con un solo clic.
 
 ![Uso de DevTest Labs para entrenamiento](./media/devtest-lab-training-lab/devtest-lab-training.png)
 
 Azure DevTest Labs cumple los siguientes requisitos necesarios para llevar a cabo el entrenamiento en cualquier entorno virtual: 
 
-* Los aprendices no pueden ver las máquinas virtuales creadas por otros aprendices
-* Cada máquina de entrenamiento debe ser idéntica
-* Los aprendices pueden aprovisionar rápidamente sus entornos de entrenamiento
-* Se pueden controlar los costos garantizando que los aprendices no obtengan más máquinas virtuales de las necesarias para el entrenamiento y también apagando estas cuando no estén en uso
-* Se puede compartir fácilmente el laboratorio de entrenamiento con cada aprendiz
-* El laboratorio de entrenamiento se puede volver a usar una y otra vez
+* Los aprendices no pueden ver las máquinas virtuales creadas por otros aprendices.
+* Cada máquina de entrenamiento debe ser idéntica.
+* Los aprendices pueden aprovisionar rápidamente sus entornos de entrenamiento.
+* Controle el coste asegurándose de que los aprendiz no puedan obtener más máquinas virtuales de las que necesitan y apague las máquinas virtuales cuando no las usen.
+* Se puede compartir fácilmente el laboratorio de entrenamiento con cada aprendiz.
+* El laboratorio de entrenamiento se puede volver a usar una y otra vez.
 
-En este artículo, aprenderá acerca de las diversas características de Azure DevTest Labs que se pueden utilizar para cumplir los requisitos de entrenamiento descritos anteriormente y los pasos detallados que puede seguir para configurar un laboratorio para el entrenamiento.  
+En este artículo, aprenderá sobre varias características Azure DevTest Labs que puede usar para cumplir los requisitos de entrenamiento. Puede seguir los pasos detallados para configurar un laboratorio para el entrenamiento.  
 
 ## <a name="implementing-training-with-azure-devtest-labs"></a>Implementación de un entrenamiento con Azure DevTest Labs
 1. **Creación del laboratorio** 
@@ -38,7 +38,7 @@ En este artículo, aprenderá acerca de las diversas características de Azure D
    | [Creación de un laboratorio con Laboratorios de desarrollo y pruebas de Azure](devtest-lab-create-lab.md) |Aprenderá a crear un laboratorio en Azure DevTest Labs en Azure Portal. |
 2. **Creación de máquinas virtuales de entrenamiento en cuestión de minutos mediante imágenes listas para usar de Marketplace e imágenes personalizadas** 
    
-    Puede elegir imágenes listas para usar a partir de una gran variedad de imágenes de Azure Marketplace y hacer que estas estén disponibles para los aprendices del laboratorio. Si estas imágenes no satisfacen sus necesidades, puede crear una imagen personalizada mediante la creación de una máquina virtual de laboratorio con una imagen lista para usar de Azure Marketplace. Para ello, instale todo el software que necesita para el entrenamiento y guarde la máquina virtual como imagen personalizada en el laboratorio. 
+    Puede elegir imágenes listas para usar a partir de una gran variedad de imágenes de Azure Marketplace y hacer que estas estén disponibles para los aprendices del laboratorio. Si las imágenes listas para usar no cumplen sus requisitos, puede crear una imagen personalizada. Puede crear una máquina virtual de laboratorio mediante una imagen preparada de Azure Marketplace, instalar el software que necesita para el entrenamiento y guardar la máquina virtual como una imagen personalizada en el laboratorio. 
    
     Para más información, haga clic en los vínculos de la tabla siguiente:
    
@@ -59,7 +59,7 @@ En este artículo, aprenderá acerca de las diversas características de Azure D
    
     Azure DevTest Labs le permite establecer una directiva en el laboratorio para especificar el número máximo de máquinas virtuales que un aprendiz puede crear en el laboratorio. 
    
-    Si está realizando un entrenamiento de varios días y desea detener todas las máquinas virtuales en un momento determinado del día y, posteriormente, reiniciarlas automáticamente al día siguiente, lo puede hacer fácilmente mediante el establecimiento de directivas de apagado e inicio automático en el laboratorio. 
+    Si va a realizar un entrenamiento de varios días, puede detener todas las máquinas virtuales a una hora determinada del día y, a continuación, reiniciarlas automáticamente al día siguiente. Si quiere hacerlo, establezca directivas de apagado automático e inicio automático en el laboratorio. 
    
     Por último, al finalizar el entrenamiento puede eliminar todas las máquinas virtuales a la vez mediante la ejecución de un sencillo script de PowerShell. 
    

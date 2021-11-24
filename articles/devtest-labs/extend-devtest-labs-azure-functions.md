@@ -3,15 +3,15 @@ title: Extensión de Azure DevTest Labs mediante Azure Functions
 description: Obtenga información sobre cómo extender Azure DevTest Labs mediante Azure Functions.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 8a6200dbfce99ee7904dc1a65965e95d81e98471
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a3160335bc233d0873c6e9cae5d32aef4f494ab9
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128623653"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132401124"
 ---
 # <a name="use-azure-functions-to-extend-devtest-labs"></a>Uso de Azure Functions para ampliar DevTest Labs
-Puede usar Azure Functions para admitir escenarios adicionales más allá de los que DevTest Labs ya admite. Azure Functions se puede usar para ampliar la funcionalidad integrada del servicio para satisfacer las necesidades específicas de su empresa. En la lista siguiente se proporcionan algunos de los escenarios posibles. En este artículo se muestra cómo implementar uno de estos escenarios de ejemplo.
+Puede usar Azure Functions para admitir más escenarios aparte de los que DevTest Labs ya admite. Azure Functions se puede usar para ampliar la funcionalidad integrada del servicio para satisfacer las necesidades específicas de su empresa. En la lista siguiente se proporcionan algunos de los escenarios posibles. En este artículo se muestra cómo implementar uno de estos escenarios de ejemplo.
 
 - Aprovisionamiento de un resumen de nivel superior de máquinas virtuales (VM) en el laboratorio
 - [Configuración de un laboratorio para usar una puerta de enlace de Escritorio remoto](configure-lab-remote-desktop-gateway.md)
@@ -22,9 +22,9 @@ Puede usar Azure Functions para admitir escenarios adicionales más allá de los
 ## <a name="overview"></a>Información general
 [Azure Functions](../azure-functions/functions-overview.md) es una plataforma informática sin servidor en Azure. El uso de Azure Functions en una solución con DevTest Labs nos permite aumentar las características existentes con nuestro propio código personalizado. Para más información sobre Azure Functions, consulte la [documentación de Azure functions](../azure-functions/functions-overview.md). Para ilustrar cómo Azure Functions puede ayudar a cumplir sus requisitos o escenarios completos en DevTest Labs, en este artículo se ofrece un ejemplo de cómo proporcionar un resumen de nivel superior de las máquinas virtuales en el laboratorio como se indica a continuación:
 
-**Escenario o requisito de ejemplo**: los usuarios pueden ver los detalles de todas las máquinas virtuales en un laboratorio, incluidos el sistema operativo, el propietario y cualquier artefacto aplicado.  Además, si el artefacto **Aplicar actualizaciones de Windows** no se ha aplicado recientemente, hay una manera sencilla de aplicarlo.
+**Escenario o requisito de ejemplo**: los usuarios pueden ver los detalles de todas las máquinas virtuales en un laboratorio, incluidos el sistema operativo, el propietario y cualquier artefacto aplicado.  Además, si el artefacto **Aplicar Windows Update** no se ha aplicado recientemente, hay una manera sencilla de aplicarlo.
 
-Para completar el escenario, usará dos funciones, como se describe en el diagrama siguiente:  
+Para completar el escenario, se usan dos funciones, como se describe en el diagrama siguiente:  
 
 ![Flujo general](./media/extend-devtest-labs-azure-functions/flow.png)
 
@@ -38,7 +38,7 @@ Cuando los usuarios seleccionan la página **Soporte interno** en DevTest Labs, 
 
 Al elegir el botón **Select here to refresh** (Seleccionar aquí para actualizar), la página llama a la primera función de Azure: **UpdateInternalSupportPage**. La función consulta DevTest Labs para obtener información y luego vuelve a escribir la página **Soporte interno** con la nueva información.
 
-Hay una acción adicional que se puede llevar a cabo. Para todas las máquinas virtuales en las que los artefactos de Windows Update no se hayan aplicado recientemente, habrá un botón para aplicar actualizaciones de Windows a la máquina virtual. Al seleccionar el botón ***Ejecutar Windows Update** para una máquina virtual, la página llama a la segunda función de Azure: **ApplyWindowsUpdateArtifact**. Esta función comprueba si la máquina virtual se está ejecutando y, en caso afirmativo, aplica el artefacto [Windows Update](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-install-windows-updates) directamente.
+Hay otra acción que puede realizar. Para aquellas máquinas virtuales a las que no se les haya aplicado artefactos de Windows Update recientemente, existe un botón para aplicarles actualizaciones de Windows. Al seleccionar el botón ***Ejecutar Windows Update** para una máquina virtual, la página llama a la segunda función de Azure: **ApplyWindowsUpdateArtifact**. Esta función comprueba si la máquina virtual se está ejecutando y, en caso afirmativo, aplica el artefacto [Windows Update](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-install-windows-updates) directamente.
 
 ## <a name="step-by-step-walkthrough"></a>Tutorial paso a paso
 En esta sección se proporcionan instrucciones paso a paso para configurar los recursos de Azure necesarios para actualizar la página **Soporte interno**. En este tutorial se proporciona un ejemplo de extensión de DevTest Labs. Puede usar este patrón para otros escenarios.
@@ -74,7 +74,7 @@ Una vez publicadas las funciones, debe obtener las direcciones URL de estas func
     ![Direcciones URL de las funciones de Azure](./media/extend-devtest-labs-azure-functions/function-url.png)
 4. Copie y guarde la URL. Repita estos pasos con la otra función de Azure. 
 
-También necesitará información adicional sobre la entidad de servicio, como el identificador de la aplicación, la clave y el identificador del inquilino.
+También necesitará información sobre la entidad de servicio, como el identificador de la aplicación, la clave y el identificador del inquilino.
 
 
 ### <a name="step-5--update-application-settings"></a>Paso 5: Actualización de la configuración de la aplicación

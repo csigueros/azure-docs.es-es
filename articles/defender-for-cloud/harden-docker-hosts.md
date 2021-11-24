@@ -5,14 +5,14 @@ author: memildin
 ms.author: memildin
 ms.date: 11/09/2021
 ms.topic: how-to
-ms.service: security-center
+ms.service: defender-for-cloud
 manager: rkarlin
-ms.openlocfilehash: 9081da3e2db3a902c541b079e32eea1b60ad8d43
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: d977fadcb4d7975924afddc5c26770e568daafcb
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132373440"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524954"
 ---
 # <a name="harden-your-docker-hosts"></a>Protección de los hosts de Docker
 
@@ -34,7 +34,7 @@ Cuando se detectan vulnerabilidades, se agrupan en una sola recomendación.
 |Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|Requiere [Microsoft Defender para servidores](defender-for-servers-introduction.md)|
 |Roles y permisos necesarios:|**Lector** en el área de trabajo a la que se conecta el host.|
-|Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)|
+|Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Nacionales (Azure Government, Azure China 21Vianet)|
 |||
 
 ## <a name="identify-and-remediate-security-vulnerabilities-in-your-docker-configuration"></a>Identificación y corrección de vulnerabilidades de seguridad en la configuración de Docker

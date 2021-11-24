@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/23/2021
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2fa0bef35d6bbc76f30ca1f0dde3199780743a14
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 30d1da573bec205212658fa6aff5ac3b71ad2e50
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131044938"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399017"
 ---
 # <a name="scale-snat-ports-with-azure-nat-gateway"></a>Escalado de puertos SNAT con Azure NAT Gateway
 
@@ -28,7 +28,7 @@ Cuando un recurso de puerta de enlace NAT está asociado a una subred de Azure F
 No hay ninguna NAT doble con esta arquitectura. Las instancias de Azure Firewall envían el tráfico a la puerta de enlace NAT mediante su dirección IP privada en lugar de la dirección IP pública de Azure Firewall.
 
 > [!NOTE]
-> El uso de Azure NAT Gateway es actualmente incompatible con Azure Firewall si ha implementado [Azure Firewall en varias zonas de disponibilidad](deploy-availability-zone-powershell.md). Más información sobre [Azure NAT Gateway y las zonas de disponibilidad](../virtual-network/nat-gateway/nat-gateway-resource.md#cross-zone-outbound-scenarios-not-supported)
+> El uso de Azure NAT Gateway es actualmente incompatible con Azure Firewall si ha implementado [Azure Firewall en varias zonas de disponibilidad](deploy-availability-zone-powershell.md).
 
 ## <a name="associate-nat-gateway-with-azure-firewall-subnet---azure-powershell"></a>Asociación de la puerta de enlace NAT con la subred de Azure Firewall: Azure PowerShell
 

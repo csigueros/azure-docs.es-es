@@ -1,42 +1,42 @@
 ---
-title: Autenticación de cuadernos de estrategias en Azure Sentinel | Microsoft Docs
-description: Obtenga información sobre cómo proporcionar a los cuadernos de estrategias acceso a Azure Sentinel y autorización para realizar acciones correctivas.
+title: Autenticación de cuadernos de estrategias en Microsoft Sentinel | Microsoft Docs
+description: Obtenga información sobre cómo proporcionar a los cuadernos de estrategias acceso a Microsoft Sentinel y autorización para realizar acciones correctivas.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8ac52d1c861ec41600ae882a4e12becb56619595
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6cb45659ab0e31ed4d1259fc19c10b6f6bdfa015
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131075493"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522182"
 ---
-# <a name="authenticate-playbooks-to-azure-sentinel"></a>Autenticación de cuadernos de estrategias en Azure Sentinel
+# <a name="authenticate-playbooks-to-microsoft-sentinel"></a>Autenticación de cuadernos de estrategias en Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-De la manera en que funciona Logic Apps, tiene que conectarse por separado y autenticarse de forma independiente en cada recurso de cada tipo con el que interactúa, incluido el propio Azure Sentinel. Logic Apps usa [conectores especializados](/connectors/connector-reference/) con este fin, teniendo cada tipo de recurso su propio conector. En este documento se explican los tipos de conexión y autenticación en el [conector de Logic Apps de Azure Sentinel](/connectors/azuresentinel/), que los cuadernos de estrategias pueden usar para interactuar con Azure Sentinel para tener acceso a la información en las tablas del área de trabajo.
+De la manera en que funciona Logic Apps, tiene que conectarse por separado y autenticarse de forma independiente en cada recurso de cada tipo con el que interactúa, incluido el propio Microsoft Sentinel. Logic Apps usa [conectores especializados](/connectors/connector-reference/) con este fin, teniendo cada tipo de recurso su propio conector. En este documento se explican los tipos de conexión y autenticación en el [conector de Logic Apps de Microsoft Sentinel](/connectors/azuresentinel/), que los cuadernos de estrategias pueden usar para interactuar con Microsoft Sentinel para tener acceso a la información en las tablas del área de trabajo.
 
-Este documento, junto con nuestra guía para [usar desencadenadores y acciones en cuadernos de estrategias](playbook-triggers-actions.md), es un complemento de nuestra otra documentación del cuaderno de estrategias: [Tutorial: Uso de cuadernos de estrategias con reglas de automatización en Azure Sentinel](tutorial-respond-threats-playbook.md).
+Este documento, junto con nuestra guía para [usar desencadenadores y acciones en cuadernos de estrategias](playbook-triggers-actions.md), es un complemento de nuestra otra documentación del cuaderno de estrategias: [Tutorial: Uso de cuadernos de estrategias con reglas de automatización en Microsoft Sentinel](tutorial-respond-threats-playbook.md).
 
-Para ver una presentación de los cuadernos de estrategias, consulte [Automatización de la respuesta a amenazas con cuadernos de estrategias en Azure Sentinel](automate-responses-with-playbooks.md).
+Para ver una presentación de los cuadernos de estrategias, consulte [Automatización de la respuesta a amenazas con cuadernos de estrategias en Microsoft Sentinel](automate-responses-with-playbooks.md).
 
-Para obtener la especificación completa del conector de Azure Sentinel, consulte la [documentación del conector de Logic Apps](/connectors/azuresentinel/).
+Para la especificación completa del conector de Microsoft Sentinel, consulte la [documentación del conector de Logic Apps](/connectors/azuresentinel/).
 
 ## <a name="authentication"></a>Authentication
 
-El conector de Azure Sentinel en Logic Apps y sus acciones y desencadenadores de componentes pueden funcionar en nombre de cualquier identidad que tenga los permisos necesarios (lectura y/o escritura) o el área de trabajo pertinente. El conector admite varios tipos de identidad:
+El conector de Microsoft Sentinel en Logic Apps y sus acciones y desencadenadores de componentes pueden funcionar en nombre de cualquier identidad que tenga los permisos necesarios (lectura y/o escritura) o el área de trabajo pertinente. El conector admite varios tipos de identidad:
 
 - [Identidad administrada (versión preliminar)](#authenticate-with-managed-identity)
 - [Usuario de Azure AD](#authenticate-as-an-azure-ad-user)
@@ -48,21 +48,20 @@ El conector de Azure Sentinel en Logic Apps y sus acciones y desencadenadores de
 
 | Componentes del conector o roles | Desencadenadores | Acciones "Get" | Actualizar incidente,<br>agregar un comentario |
 | ------------- | :-----------: | :------------: | :-----------: |
-| **[Lector de Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
-| **Azure Sentinel [Respondedor](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)/[Colaborador](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
+| **[Lector de Microsoft Sentinel](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
+| **Microsoft Sentinel [Respondedor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder)/[Colaborador](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
 | 
 
-[Obtenga más información sobre permisos en Azure Sentinel](./roles.md).
+[Más información sobre permisos en Microsoft Sentinel](./roles.md).
 
 ### <a name="authenticate-with-managed-identity"></a>Autenticación con una identidad administrada
 
-Este método de autenticación permite conceder permisos directamente al cuaderno de estrategias (un recurso de flujo de trabajo de Logic Apps), de modo que las acciones del conector de Azure Sentinel realizadas por el cuaderno de estrategias funcionen en nombre del cuaderno de estrategias, como si fuera un objeto independiente con sus propios permisos en Azure Sentinel. El uso de este método reduce el número de identidades que tiene que administrar. 
+Este método de autenticación permite conceder permisos directamente al cuaderno de estrategias (un recurso de flujo de trabajo de Logic Apps), de modo que las acciones del conector de Microsoft Sentinel realizadas por el cuaderno de estrategias funcionen en nombre del cuaderno de estrategias, como si fuera un objeto independiente con sus propios permisos en Microsoft Sentinel. El uso de este método reduce el número de identidades que tiene que administrar. 
 
 > [!NOTE]
-> Para conceder a una identidad administrada acceso a otros recursos (como el área de trabajo de Azure Sentinel), el usuario que ha iniciado sesión debe tener un rol con permisos para escribir asignaciones de roles, como Propietario o Administrador de acceso de usuario del área de trabajo de Azure Sentinel.
+> Para conceder a una identidad administrada acceso a otros recursos (como el área de trabajo de Microsoft Sentinel), el usuario que ha iniciado sesión debe tener un rol con permisos para escribir asignaciones de roles, como Propietario o Administrador de acceso de usuario del área de trabajo de Microsoft Sentinel.
 
 Para autenticar con una identidad administrada:
-
 
 1. [Habilite la identidad administrada](../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal) en el recurso de flujo de trabajo de Logic Apps. En resumen:
 
@@ -70,27 +69,26 @@ Para autenticar con una identidad administrada:
 
     - Ahora, la aplicación lógica puede usar la identidad asignada por el sistema, que se registra con Azure AD y se representa mediante un identificador de objeto.
 
-1. [Dé acceso a esa identidad](../logic-apps/create-managed-service-identity.md#give-identity-access-to-resources) al área de trabajo de Azure Sentinel: 
-    1. En el menú de navegación de Azure Sentinel, seleccione **Configuración**.
+1. [Dé acceso a esa identidad](../logic-apps/create-managed-service-identity.md#give-identity-access-to-resources) al área de trabajo de Microsoft Sentinel:
+    1. En el menú de navegación de Microsoft Sentinel, seleccione **Configuración**.
     1. Seleccione la pestaña **Configuración del área de trabajo**. En el menú del área de trabajo, seleccione **Control de acceso (IAM)** .
-   1. En la parte superior, seleccione **Agregar** y elija **Agregar asignación de roles**. Si la opción **Agregar asignación de roles** está deshabilitada, no tiene permisos para asignar roles.
+    1. En la parte superior, seleccione **Agregar** y elija **Agregar asignación de roles**. Si la opción **Agregar asignación de roles** está deshabilitada, no tiene permisos para asignar roles.
     1. En el nuevo panel que aparece, asigne el rol adecuado:
-    
+
         | Role | Situación |
         | --- | --- |
-        | [**Respondedor de Azure Sentinel**](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) | El cuaderno de estrategias tiene pasos que actualizan incidentes o listas de reproducción. |
-        | [**Lector de Azure Sentinel**](../role-based-access-control/built-in-roles.md#azure-sentinel-reader) | El cuaderno de estrategias solo recibe incidentes. |
+        | [**Respondedor de Microsoft Sentinel**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) | El cuaderno de estrategias tiene pasos que actualizan incidentes o listas de reproducción. |
+        | [**Lector de Microsoft Sentinel**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader) | El cuaderno de estrategias solo recibe incidentes. |
         |
-        
-        Obtenga más información sobre los [roles disponibles en Azure Sentinel](./roles.md).
+
+        Obtenga más información sobre los [roles disponibles en Microsoft Sentinel](./roles.md).
     1. En **Asignar acceso a**, elija **Aplicación lógica**.
     1. Elija la suscripción a la que pertenece el cuaderno de estrategias y seleccione el nombre del cuaderno de estrategias.
     1. Seleccione **Guardar**.
-    
-    
-1. Habilite el método de autenticación de identidad administrada en el conector de Logic Apps de Azure Sentinel:
 
-    1. En el diseñador de Logic Apps, agregue un paso del conector de Logic Apps de Azure Sentinel. Si el conector ya está habilitado para una conexión existente, haga clic en el vínculo **Cambiar conexión**.
+1. Habilite el método de autenticación de identidad administrada en el conector de Logic Apps de Microsoft Sentinel:
+
+    1. En el diseñador de Logic Apps, agregue un paso del conector de Logic Apps de Microsoft Sentinel. Si el conector ya está habilitado para una conexión existente, haga clic en el vínculo **Cambiar conexión**.
 
         ![Cambiar conexión](media/authenticate-playbooks-to-sentinel/change-connection.png)
 
@@ -112,7 +110,7 @@ Para realizar una conexión, seleccione **Iniciar sesión**. Se le pedirá que p
 
 Las entidades de servicio se pueden crear mediante el registro de una aplicación de Azure AD. Es **preferible** usar una aplicación registrada como identidad del conector, en lugar de usar una cuenta de usuario, ya que podrá controlar mejor los permisos, administrar las credenciales y habilitar ciertas limitaciones en el uso del conector.
 
-Para usar su propia aplicación con el conector de Azure Sentinel, realice los pasos siguientes:
+Para usar su propia aplicación con el conector de Microsoft Sentinel, realice los pasos siguientes:
 
 1. Registre la aplicación con Azure AD y cree una entidad de servicio. [Más información](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 
@@ -123,15 +121,15 @@ Para usar su propia aplicación con el conector de Azure Sentinel, realice los p
     - **Id. de cliente**: en **Información general**
     - **Secreto de cliente**: en **Certificados y secretos**.
 
-1. Conceda permisos al área de trabajo de Azure Sentinel.
+1. Conceda permisos al área de trabajo de Microsoft Sentinel.
 
-    En este paso, la aplicación tendrá permiso para trabajar con el área de trabajo de Azure Sentinel.
+    En este paso, la aplicación tendrá permiso para trabajar con el área de trabajo de Microsoft Sentinel.
 
-    1. En el área de trabajo de Azure Sentinel, vaya a **Configuración** -> **Configuración del área de trabajo** -> **Control de acceso (IAM)**
+    1. En el área de trabajo de Microsoft Sentinel, vaya a **Configuración** -> **Configuración del área de trabajo** -> **Control de acceso (IAM)**
 
     1. Seleccione **Agregar asignación de roles**.
 
-    1. Seleccione el rol que quiere asignar a la aplicación. Por ejemplo, para permitir que la aplicación realice acciones que supongan cambios en el área de trabajo de Sentinel, como actualizar un incidente, seleccione el rol **Colaborador de Azure Sentinel**. Para acciones que solo leen datos, el rol **Lector de Azure Sentinel** es suficiente. [Obtenga más información sobre los roles disponibles en Azure Sentinel](./roles.md).
+    1. Seleccione el rol que quiere asignar a la aplicación. Por ejemplo, para permitir que la aplicación realice acciones que supongan cambios en el área de trabajo de Sentinel, como actualizar un incidente, seleccione el rol **Colaborador de Microsoft Sentinel**. Para acciones que solo leen datos, el rol **Lector de Microsoft Sentinel** es suficiente. [Obtenga más información sobre los roles disponibles en Microsoft Sentinel](./roles.md).
 
     1. Busque la aplicación necesaria y guárdela. De manera predeterminada, las aplicaciones de Azure AD no se muestran en las opciones disponibles. Para encontrar la aplicación, busque el nombre y selecciónelo.
 
@@ -152,7 +150,7 @@ Para usar su propia aplicación con el conector de Azure Sentinel, realice los p
 
 ### <a name="manage-your-api-connections"></a>Administración de las conexiones de API
 
-Cada vez que se crea una autenticación por primera vez, se crea un nuevo recurso de Azure de tipo Conexión de API. Se puede usar la misma conexión de API en todos los desencadenadores y las acciones de Azure Sentinel del mismo grupo de recursos.
+Cada vez que se crea una autenticación por primera vez, se crea un nuevo recurso de Azure de tipo Conexión de API. Se puede usar la misma conexión de API en todos los desencadenadores y las acciones de Microsoft Sentinel del mismo grupo de recursos.
 
 Encontrará todas las conexiones de API en la hoja **Conexiones de API** (busque *Conexiones de API* en Azure Portal).
 
@@ -162,5 +160,6 @@ Para cambiar la autorización de una conexión existente, escriba el recurso de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido sobre los distintos métodos de autenticación de un cuaderno de estrategias basado en Logic Apps en Azure Sentinel.
+En este artículo, ha aprendido sobre los distintos métodos de autenticación de un cuaderno de estrategias basado en Logic Apps en Microsoft Sentinel.
+
 - Obtenga más información sobre cómo [usar los desencadenadores y las acciones en los cuadernos de estrategias](playbook-triggers-actions.md).

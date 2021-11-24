@@ -3,16 +3,17 @@ title: Enlace de salida de Azure SQL para Functions
 description: Aprenda a usar el enlace de salida de Azure SQL en Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.date: 11/9/2021
+ms.date: 11/12/2021
 ms.author: drskwier
-ms.openlocfilehash: f2909917f7cdab501fd3667a452c835c9cb8f915
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.reviewer: cachai
+ms.openlocfilehash: 37a9601f30c64108b079ec8573553a05088c8629
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132350064"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493274"
 ---
-# <a name="azure-sql-output-binding-for-azure-functions"></a>Enlace de salida de Azure SQL para Azure Functions
+# <a name="azure-sql-output-binding-for-azure-functions-preview"></a>Enlace de salida de Azure SQL para Azure Functions (versión preliminar)
 
 El enlace de salida de Azure SQL le permite escribir en una base de datos.
 

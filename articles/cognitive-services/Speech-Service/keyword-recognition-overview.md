@@ -11,16 +11,18 @@ ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: hasshah
 ms.custom: devx-track-csharp, ignite-fall-2021
-ms.openlocfilehash: d1fd3bd30b0778065101fb1d223c63421b5e8d67
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a91f3e6e59647d6817f05137e284fbee4400dbd8
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131043687"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491817"
 ---
 # <a name="keyword-recognition"></a>Reconocimiento de palabras clave
 
-El reconocimiento de palabras clave hace referencia a la tecnología de voz que reconoce la existencia de una palabra o frase corta dentro de una secuencia de audio determinada. A menudo a esto se le llama "detección de palabras clave". El caso de uso más común del reconocimiento de palabras clave es la activación por voz de los asistentes virtuales. Por ejemplo, "Hola Cortana" es la palabra clave para el asistente Cortana. Tras el reconocimiento de la palabra clave, se lleva a cabo una acción específica de cada escenario. En escenarios de asistentes virtuales, una acción resultante común es el reconocimiento de voz de audio que sigue a la palabra clave.
+El reconocimiento de palabras clave detecta una palabra o frase corta dentro de una secuencia de audio. También se conoce como descubrimiento de palabra clave. 
+
+El caso de uso más común del reconocimiento de palabras clave es la activación por voz de los asistentes virtuales. Por ejemplo, "Hola Cortana" es la palabra clave para el asistente Cortana. Tras el reconocimiento de la palabra clave, se lleva a cabo una acción específica de cada escenario. En escenarios de asistentes virtuales, una acción resultante común es el reconocimiento de voz de audio que sigue a la palabra clave.
 
 Por lo general, los asistentes virtuales siempre están a la escucha. El reconocimiento de palabras clave actúa como límite de privacidad para el usuario. Un requisito de palabra clave actúa como una barrera que impide que el audio no relacionado del usuario pase del dispositivo local a la nube.
 
@@ -28,7 +30,7 @@ Para equilibrar la precisión, la latencia y la complejidad computacional, el re
 
 El sistema actual está diseñado con varias fases que abarcan el perímetro y la nube:
 
-![Varias fases del reconocimiento de palabras clave en el perímetro y la nube.](media/custom-keyword/keyword-recognition-multi-stage.png)
+![Varias fases del reconocimiento de palabras clave en el perímetro y la nube.](media/custom-keyword/kw-recognition-multi-stage.png)
 
 La precisión del reconocimiento de palabras clave se mide mediante las métricas siguientes:
 * **Tasa de aceptación correcta:** mide la capacidad del sistema para reconocer la palabra clave cuando la pronuncia un usuario final. Esto también se conoce como tasa de verdaderos positivos. 
@@ -46,12 +48,15 @@ No hay ningún costo por usar Palabra clave personalizada para generar modelos, 
 
 ### <a name="types-of-models"></a>Tipos de modelos
 
-Palabra clave personalizada permite generar dos tipos de modelos en el dispositivo para cualquier palabra clave:
+Palabra clave personalizada permite generar dos tipos de modelos en el dispositivo para cualquier palabra clave.
 
 | Tipo de modelo | Descripción |
 | ---------- | ----------- |
 | Básico | Adecuado para fines de demostración o de creación rápida de prototipos. Los modelos se generan con un modelo base común y pueden tardar hasta 15 minutos en estar listos. Es posible que los modelos no tengan características de precisión óptimas. |
 | Avanzado | Adecuado para fines de integración de productos. Los modelos se generan mediante la adaptación de un modelo base común con datos de entrenamiento simulados para mejorar las características de precisión. Los modelos pueden tardar hasta 48 horas en estar listos. |
+
+> [!NOTE]
+> Puede ver una lista de regiones que admiten el tipo de modelo **Avanzado** en la documentación [Compatibilidad con la región de reconocimiento de palabras clave](keyword-recognition-region-support.md). 
 
 Ningún tipo de modelo requiere que cargue datos de entrenamiento. Palabra clave personalizada controla completamente la generación de datos y el entrenamiento del modelo.
 
@@ -77,7 +82,7 @@ La comprobación de palabras clave siempre se usa en combinación con la convers
 
 Cuando se usa la comprobación de palabras clave, siempre se combina con la conversión de voz en texto. Ambos servicios se ejecutan en paralelo. Esto significa que el audio se envía a ambos servicios para su procesamiento simultáneo.
 
-![Procesamiento paralelo de la comprobación de palabras clave y la conversión de voz en texto.](media/custom-keyword/keyword-verification-parallel-processing.png)
+![Procesamiento paralelo de la comprobación de palabras clave y la conversión de voz en texto.](media/custom-keyword/kw-verification-parallel-processing.png)
 
 La ejecución de la comprobación de palabras clave y la conversión de voz en texto en paralelo ofrece las siguientes ventajas:
 * **Sin latencia adicional en los resultados de conversión de voz en texto**: la ejecución en paralelo implica que la comprobación de palabras clave no agrega latencia y el cliente recibe los resultados de conversión de voz en texto igual de rápidamente. Si la comprobación de palabras clave determina que la palabra clave no estaba presente en el audio, se finaliza el procesamiento de conversión de voz en texto, lo que evita un procesamiento innecesario. Sin embargo, el procesamiento de modelos de red y nube aumenta la latencia de activación de voz que percibe el usuario. Para más información, consulte [Recomendaciones e instrucciones](keyword-recognition-guidelines.md).

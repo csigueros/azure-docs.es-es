@@ -1,25 +1,23 @@
 ---
-title: Requisitos detallados de SAP para la solución Azure Sentinel para SAP | Microsoft Docs
-description: Obtenga información sobre los requisitos detallados del sistema SAP de la solución Azure Sentinel para SAP.
+title: Requisitos detallados de SAP para la solución Microsoft Sentinel para SAP | Microsoft Docs
+description: Obtenga información sobre los requisitos detallados del sistema SAP de la solución Microsoft Sentinel para SAP.
 author: batamig
 ms.author: bagold
-ms.service: azure-sentinel
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
-ms.date: 06/09/2021
-ms.subservice: azure-sentinel
-ms.openlocfilehash: bf14e52e38a1fae06ef607a4c8c066249055acb8
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.date: 11/09/2021
+ms.openlocfilehash: 2c1383f2917b7f26aaf623b7ddd9666ff2909fc6
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132155945"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711856"
 ---
-# <a name="azure-sentinel-sap-solution-detailed-sap-requirements-public-preview"></a>Requisitos detallados de SAP para la solución Azure Sentinel para SAP (versión preliminar pública)
+# <a name="microsoft-sentinel-sap-solution-detailed-sap-requirements-public-preview"></a>Requisitos detallados de SAP para la solución Microsoft Sentinel para SAP (versión preliminar pública)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-El [procedimiento predeterminado para implementar la solución Azure Sentinel para SAP](sap-deploy-solution.md) incluye las solicitudes de cambios de SAP y las notas de SAP necesarias, y proporciona un rol integrado con todos los permisos necesarios.
+El [procedimiento predeterminado para implementar la solución Microsoft Sentinel para SAP](sap-deploy-solution.md) incluye las solicitudes de cambios de SAP y las notas de SAP necesarias, y proporciona un rol integrado con todos los permisos necesarios.
 
 En este artículo se enumeran detalladamente las solicitudes de cambios, las notas y los permisos de SAP necesarios.
 
@@ -27,11 +25,11 @@ Use este artículo como referencia si es administrador o si va a [implementar la
 
 
 > [!IMPORTANT]
-> La solución Azure Sentinel para SAP está actualmente en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
+> La solución de SAP de Microsoft Sentinel está actualmente en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
 >
 
 > [!NOTE]
-> Se enumeran requisitos adicionales en caso de implementar el conector de datos de SAP mediante una conexión SNC segura. Para más información, consulte [Implementación del conector de datos SAP de Azure Sentinel con SNC](sap-solution-deploy-snc.md).
+> Se enumeran requisitos adicionales en caso de implementar el conector de datos de SAP mediante una conexión SNC segura. Para obtener información adicional, consulte [Implementación del conector de datos SAP de Microsoft Sentinel con SNC](sap-solution-deploy-snc.md).
 >
 ## <a name="recommended-virtual-machine-sizing"></a>Tamaño recomendado de máquina virtual
 
@@ -50,7 +48,7 @@ Las siguientes solicitudes de cambios de registro de SAP son obligatorias para l
 
 - **SAP Basis, versiones 7.50 y posteriores**: instale NPLK900144.
 - **Para versiones anteriores**: instale NPLK900146.
-- **Para crear un rol de SAP con las autorizaciones necesarias**, para cualquier versión de SAP Basis compatible, instale NPLK900140. Para más información, consulte [Configuración del sistema SAP](sap-deploy-solution.md#configure-your-sap-system) y [Autorizaciones de ABAP necesarias](#required-abap-authorizations).
+- **Para crear un rol de SAP con las autorizaciones necesarias**, para cualquier versión de SAP Basis compatible, instale NPLK900163. Para más información, consulte [Configuración del sistema SAP](sap-deploy-solution.md#configure-your-sap-system) y [Autorizaciones de ABAP necesarias](#required-abap-authorizations).
 
 > [!NOTE]
 > Las solicitudes de cambios de registro de SAP obligatorias exponen las FM de RFC personalizadas necesarias para el conector y no cambian ningún objeto estándar o personalizado.
@@ -73,12 +71,12 @@ El host del entorno de SAP, a través de los siguientes puertos TCP: 32xx, 5xx13
 
 ## <a name="required-abap-authorizations"></a>Autorizaciones de ABAP necesarias
 
-En la tabla siguiente se indican las autorizaciones de ABAP necesarias para que el usuario de SAP de back-end se conecte a Azure Sentinel para los registros de SAP. Para más información, consulte [Configuración del sistema SAP](sap-deploy-solution.md#configure-your-sap-system).
+En la tabla siguiente se indican las autorizaciones de ABAP necesarias para que el usuario de SAP de back-end se conecte a Microsoft Sentinel para los registros de SAP. Para más información, consulte [Configuración del sistema SAP](sap-deploy-solution.md#configure-your-sap-system).
 
-Las autorizaciones necesarias se enumeran por tipo de registro. Solo necesita las autorizaciones indicadas para los tipos de registros que planea ingerir en Azure Sentinel.
+Las autorizaciones necesarias se enumeran por tipo de registro. Solo necesita las autorizaciones indicadas para los tipos de registros que planea ingerir en Microsoft Sentinel.
 
 > [!TIP]
-> Para crear el rol con todas las autorizaciones necesarias, implemente la solicitud de cambio de SAP [NPLK900114](#required-sap-log-change-requests) en el sistema SAP. Esta solicitud de cambio crea el rol **/MSFTSEN/SENTINEL_CONNECTOR** y asigna el rol al usuario de ABAP que se conecta a Azure Sentinel.
+> Para crear el rol con todas las autorizaciones necesarias, implemente la solicitud de cambio de SAP NPLK900163 en el sistema SAP. Esta solicitud de cambio crea el rol **/MSFTSEN/SENTINEL_CONNECTOR** y usted, por lo general un propietario de rol o base de SAP, debe asignar el rol al usuario de ABAP que se conecta a Azure Sentinel.
 >
 
 | Objeto de autorización | Campo | Valor |
@@ -130,7 +128,7 @@ Las autorizaciones necesarias se enumeran por tipo de registro. Solo necesita la
 | **Registro de auditoría de seguridad de ABAP: XAL, registro de trabajos de ABAP, registro de aplicaciones de ABAP** | | |
 | S_RFC | FUGR | SXMI |
 | S_XMI_PRD | EXTCOMPANY | Microsoft |
-| S_XMI_PRD | EXTPRODUCT | Azure Sentinel |
+| S_XMI_PRD | EXTPRODUCT | Microsoft Sentinel |
 | **Registro de auditoría de seguridad de ABAP: SAL** | | |
 | S_RFC | FUGR | RSAU_LOG |
 | S_RFC | FUGR | /MSFTSEN/_AUDITLOG |
@@ -139,15 +137,17 @@ Las autorizaciones necesarias se enumeran por tipo de registro. Solo necesita la
 | **Registro de flujo de trabajo de ABAP** | | |
 | S_RFC | FUGR | SWRR |
 | S_RFC | FUGR | /MSFTSEN/_WF |
+| **Datos del usuario** | | |
+| S_RFC | FUNC | RFC_READ_TABLE |
 | | |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, consulte:
 
-- [Implementación de la solución Azure Sentinel para SAP](sap-deploy-solution.md)
-- [Implementación del conector de datos de SAP de Azure Sentinel con SNC](sap-solution-deploy-snc.md)
+- [Implementación de la solución Microsoft Azure Sentinel para SAP](sap-deploy-solution.md)
+- [Implementación del conector de datos de SAP de Microsoft Sentinel con SNC](sap-solution-deploy-snc.md)
 - [Opciones de configuración de expertos, implementación local y orígenes de registro de SAPControl](sap-solution-deploy-alternate.md)
-- [Referencia sobre los registros de la solución Azure Sentinel para SAP](sap-solution-log-reference.md)
-- [Azure Sentinel para SAP: contenido de seguridad disponible](sap-solution-security-content.md)
-- [Solución de problemas de implementación de la solución SAP de Azure Sentinel](sap-deploy-troubleshoot.md)
+- [Referencia a los registros de la solución de SAP de Microsoft Sentinel](sap-solution-log-reference.md)
+- [Microsoft Sentinel para SAP: contenido de seguridad disponible](sap-solution-security-content.md)
+- [Solución de problemas de implementación de la solución SAP de Microsoft Sentinel](sap-deploy-troubleshoot.md)

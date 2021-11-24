@@ -1,32 +1,32 @@
 ---
-title: Automatización del control de incidentes en Azure Sentinel | Microsoft Docs
+title: Automatización del control de incidentes en Microsoft Sentinel | Microsoft Docs
 description: En este artículo se explica cómo usar las reglas de automatización para automatizar el control de incidentes a fin de maximizar la eficiencia y eficacia de su centro de operaciones de seguridad en respuesta a las amenazas de seguridad.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 2d618dacc14c188c188f92be41de3fba20eabe38
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 52f716bf8a5a4457f1f61545e079c17f16c708c3
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131014227"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522163"
 ---
-# <a name="automate-incident-handling-in-azure-sentinel-with-automation-rules"></a>Automatización del control de incidentes en Azure Sentinel con las reglas de automatización
+# <a name="automate-incident-handling-in-microsoft-sentinel-with-automation-rules"></a>Automatización del control de incidentes en Microsoft Sentinel mediante reglas de automatización
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-En este artículo se explica qué son las reglas de automatización de Azure Sentinel y cómo usarlas para implementar las operaciones de orquestación de seguridad, automatización y respuesta (SOAR), lo que aumenta la eficacia de su centro de operaciones de seguridad y ahorra tiempo y recursos.
+En este artículo se explica qué son las reglas de automatización de Microsoft Sentinel y cómo usarlas para implementar las operaciones de orquestación de seguridad, automatización y respuesta (SOAR), con el fin de aumentar la eficacia de su centro de operaciones de seguridad y ahorrar tiempo y recursos.
 
 > [!IMPORTANT]
 >
@@ -34,7 +34,7 @@ En este artículo se explica qué son las reglas de automatización de Azure Sen
 
 ## <a name="what-are-automation-rules"></a>¿Qué son las reglas de automatización?
 
-Las reglas de automatización son un nuevo concepto en Azure Sentinel. Esta característica permite a los usuarios administrar de forma centralizada la automatización del control de incidentes. Además de permitirle asignar cuadernos de estrategias a incidentes (no solo a las alertas, como hasta ahora), las reglas de automatización también permiten automatizar las respuestas de varias reglas de análisis a la vez, etiquetar, asignar o cerrar incidentes automáticamente sin necesidad de cuadernos de estrategias y controlar el orden de las acciones que se ejecutan. Las reglas de automatización agilizarán el uso de la automatización en Azure Sentinel y le permitirán simplificar flujos de trabajo complejos de los procesos de orquestación de incidentes.
+Las reglas de automatización son un nuevo concepto de Microsoft Sentinel. Esta característica permite a los usuarios administrar de forma centralizada la automatización del control de incidentes. Además de permitirle asignar cuadernos de estrategias a incidentes (no solo a las alertas, como hasta ahora), las reglas de automatización también permiten automatizar las respuestas de varias reglas de análisis a la vez, etiquetar, asignar o cerrar incidentes automáticamente sin necesidad de cuadernos de estrategias y controlar el orden de las acciones que se ejecutan. Las reglas de automatización agilizarán el uso de la automatización en Microsoft Sentinel y le permitirán simplificar flujos de trabajo complejos de los procesos de orquestación de incidentes.
 
 ## <a name="components"></a>Componentes
 
@@ -44,7 +44,7 @@ Las reglas de automatización están conformadas por varios componentes:
 
 La creación de un incidente desencadena reglas de automatización. 
 
-Tema de revisión: las reglas de análisis crean los incidentes a partir de las alertas. Hay varios tipos de reglas de análisis, como se explica en el tutorial [Detección de amenazas con reglas de análisis integradas en Azure Sentinel](detect-threats-built-in.md).
+Tema de revisión: las reglas de análisis crean los incidentes a partir de las alertas. Hay varios tipos de reglas de análisis, como se explica en el tutorial [Detección de amenazas con reglas de análisis integradas en Microsoft Sentinel](detect-threats-built-in.md).
 
 ### <a name="conditions"></a>Condiciones
 
@@ -84,14 +84,14 @@ Hasta ahora, solo las alertas podían desencadenar una respuesta automatizada me
 
 ### <a name="trigger-playbooks-for-microsoft-providers"></a>Desencadenamiento de cuadernos de estrategias para proveedores de Microsoft
 
-Las reglas de automatización proporcionan una forma de automatizar el control de las alertas de seguridad de Microsoft mediante la aplicación de estas reglas a los incidentes creados a partir de alertas. Las reglas de automatización pueden llamar a los cuadernos de estrategias ([se requieren permisos especiales](#permissions-for-automation-rules-to-run-playbooks)) y pasarles los incidentes junto con todos sus detalles, incluidas las alertas y entidades. En general, los procedimientos recomendados de Azure Sentinel dictan el uso de la cola de incidentes como punto crucial de las operaciones de seguridad.
+Las reglas de automatización proporcionan una forma de automatizar el control de las alertas de seguridad de Microsoft mediante la aplicación de estas reglas a los incidentes creados a partir de alertas. Las reglas de automatización pueden llamar a los cuadernos de estrategias ([se requieren permisos especiales](#permissions-for-automation-rules-to-run-playbooks)) y pasarles los incidentes junto con todos sus detalles, incluidas las alertas y entidades. En general, los procedimientos recomendados de Microsoft Sentinel dictan el uso de la cola de incidentes como punto crucial de las operaciones de seguridad.
 
 Las siguientes son algunas alertas de seguridad de Microsoft:
 
-- Microsoft Cloud App Security (MCAS)
+- Microsoft Defender para aplicaciones en la nube
 - Azure AD Identity Protection
-- Azure Defender (ASC)
-- Defender para IoT (anteriormente ASC para IoT)
+- Microsoft Defender for Cloud
+- Defender para IoT (anteriormente conocido como Azure Security Center para IoT)
 - Microsoft Defender para Office 365 (anteriormente Office 365 ATP)
 - Microsoft Defender para punto de conexión (anteriormente MDATP)
 - Microsoft Defender para identidad (anteriormente Azure ATP)
@@ -135,27 +135,27 @@ En una regla de automatización, las acciones del cuaderno de estrategias se pue
 
 ### <a name="permissions-for-automation-rules-to-run-playbooks"></a>Permisos para que las reglas de automatización ejecuten cuadernos de estrategias
 
-Cuando una regla de automatización de Azure Sentinel ejecuta un cuaderno de estrategias, usa una cuenta de servicio de Azure Sentinel especial autorizada específicamente para hacerlo. El uso de esta cuenta (en lugar de su cuenta de usuario) aumenta el nivel de seguridad del servicio.
+Cuando una regla de automatización ejecuta un cuaderno de estrategias, usa una cuenta de servicio especial de Microsoft Sentinel que está autorizada específicamente para ello. El uso de esta cuenta (en lugar de su cuenta de usuario) aumenta el nivel de seguridad del servicio.
 
 Para que una regla de automatización ejecute un cuaderno de estrategias, se deben conceder a esta cuenta permisos explícitos para acceder al grupo de recursos en el que se encuentra el cuaderno. En ese momento, cualquier regla de automatización podrá ejecutar cualquier cuaderno de estrategias de ese grupo de recursos.
 
-Al configurar una regla de automatización y agregar una acción para **ejecutar un cuaderno de estrategias**, aparecerá una lista desplegable de cuadernos. Los cuadernos de estrategias en los que Azure Sentinel no tiene permisos se mostrarán como no disponibles ("atenuados"). Puede conceder permiso a Azure Sentinel para acceder a los grupos de recursos de los cuadernos de estrategias en ese momento si selecciona el vínculo **Manage playbook permissions** (administrar permisos del cuaderno de estrategias).
+Al configurar una regla de automatización y agregar una acción para **ejecutar un cuaderno de estrategias**, aparecerá una lista desplegable de cuadernos. Los cuadernos de estrategias en los que Microsoft Sentinel no tiene permisos se mostrarán como no disponibles ("atenuados"). Para conceder permiso de Microsoft Sentinel con el fin de acceder a los grupos de recursos de los cuadernos de estrategias en ese momento, seleccione el vínculo **Administrar permisos del cuaderno de estrategias**.
 
 #### <a name="permissions-in-a-multi-tenant-architecture"></a>Permisos en una arquitectura de varios inquilinos
 
 Las reglas de automatización son totalmente compatibles con las [implementaciones multiinquilino](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse) (mediante [Azure Lighthouse](../lighthouse/index.yml)) y en varias áreas de trabajo.
 
-Por tanto, si la implementación de Azure Sentinel usa una arquitectura multiinquilino, puede hacer que una regla de automatización en un inquilino ejecute un cuaderno de estrategias que se encuentre en otro inquilino, pero los permisos de Sentinel para ejecutar el cuaderno de estrategias deben definirse en el inquilino donde se encuentre el cuaderno, no en el inquilino donde se definan las reglas.
+Por tanto, si la implementación de Microsoft Sentinel usa una arquitectura multiinquilino, puede hacer que una regla de automatización en un solo inquilino ejecute un cuaderno de estrategias que se encuentre en otro inquilino. Sin embargo, los permisos de Sentinel para ejecutar el cuaderno de estrategias deben definirse en el inquilino donde se encuentre el cuaderno, no en el que se definan las reglas.
 
-En el caso específico de un proveedor de servicios de seguridad administrada (MSSP), cuando un inquilino del proveedor de servicios administra un área de trabajo de Azure Sentinel en un inquilino de un cliente, hay dos escenarios concretos que requieren atención:
+En el caso específico de un proveedor de servicios de seguridad administrada (MSSP), cuando un inquilino del proveedor de servicios administra un área de trabajo de Microsoft Sentinel en un inquilino de un cliente, hay dos escenarios concretos que requieren atención:
 
 - **Una regla de automatización creada en el inquilino del cliente se configura para ejecutar un cuaderno de estrategias que se encuentra en el inquilino del proveedor de servicios.** 
 
-    Este enfoque se usa, normalmente, para proteger la propiedad intelectual del cuaderno de estrategias. No se requiere nada especial para que este escenario funcione. Cuando define una acción de un cuaderno de estrategias en una regla de automatización y llega a la fase en la que concede permisos de Azure Sentinel en el grupo de recursos correspondiente donde se encuentra el cuaderno de estrategias (mediante el panel **Administrar permisos**), ve los grupos de recursos que pertenecen al inquilino del proveedor de servicios entre los que puede elegir. [Aquí puede ver una breve explicación de todo el proceso](tutorial-respond-threats-playbook.md#respond-to-incidents).
+    Este enfoque se usa, normalmente, para proteger la propiedad intelectual del cuaderno de estrategias. No se requiere nada especial para que este escenario funcione. Cuando defina una acción de un cuaderno de estrategias en una regla de automatización y llegue a la fase en la que concede permisos de Microsoft Sentinel al grupo de recursos correspondiente donde se encuentra el cuaderno (mediante el panel **Administrar permisos del cuaderno de estrategias**), verá los grupos de recursos que pertenecen al inquilino del proveedor de servicios entre los que puede elegir. [Aquí puede ver una breve explicación de todo el proceso](tutorial-respond-threats-playbook.md#respond-to-incidents).
 
 - **Una regla de automatización creada en el área de trabajo del cliente (mientras está conectado al inquilino del proveedor de servicios) se configura para ejecutar un cuaderno de estrategias que se encuentra en el inquilino del cliente**.
 
-    Esta configuración se usa cuando no es necesario proteger la propiedad intelectual. Para que este escenario funcione, es necesario conceder permisos para ejecutar el cuaderno de estrategias a Azure Sentinel en ***ambos inquilinos** _. En el inquilino del cliente, se conceden en el panel _ *Administrar permisos**, como en el escenario anterior. Para conceder los permisos pertinentes en el inquilino del proveedor de servicios, debe agregar una delegación de Azure Lighthouse adicional que conceda derechos de acceso a la aplicación **Azure Security Insights**, con el rol **Colaborador de automatización de Azure Sentinel**, en el grupo de recursos donde reside el cuaderno de estrategias.
+    Esta configuración se usa cuando no es necesario proteger la propiedad intelectual. Para que este escenario funcione, es necesario conceder permisos para ejecutar el cuaderno de estrategias a Microsoft Sentinel en ***ambos inquilinos** _. En el inquilino del cliente, se conceden en el panel _ *Administrar permisos**, como en el escenario anterior. Para conceder los permisos pertinentes en el inquilino del proveedor de servicios, debe agregar una delegación de Azure Lighthouse adicional que conceda derechos de acceso a la aplicación **Azure Security Insights**, con el rol **Colaborador de automatización de Microsoft Sentinel**, en el grupo de recursos donde reside el cuaderno de estrategias.
 
     El escenario se parecería a este:
 
@@ -165,7 +165,7 @@ En el caso específico de un proveedor de servicios de seguridad administrada (M
 
 ## <a name="creating-and-managing-automation-rules"></a>Creación y administración de reglas de automatización
 
-Puede crear y administrar reglas de automatización desde distintas partes en la experiencia de Azure Sentinel, en función de su caso de uso y requisitos específicos.
+Puede crear y administrar reglas de automatización desde distintas partes de la experiencia de Microsoft Sentinel, en función de su caso de uso y sus requisitos específicos.
 
 - **Hoja Automatización**
 
@@ -200,7 +200,7 @@ SecurityIncident
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, aprendió a usar las reglas de automatización para administrar la cola de incidentes de Azure Sentinel e implementar una automatización básica para el control de incidentes.
+En este documento, ha aprendido a usar las reglas de automatización para administrar la cola de incidentes de Microsoft Sentinel e implementar una automatización básica para el control de incidentes.
 
-- Para más información sobre las opciones avanzadas de automatización, consulte [Automatización de la respuesta a amenazas con los cuadernos de estrategias de Azure Sentinel](automate-responses-with-playbooks.md).
-- Para obtener ayuda sobre la implementación de reglas de automatización y cuadernos de estrategias, consulte [Tutorial: Uso de cuadernos de estrategias para automatizar las respuestas a amenazas en Azure Sentinel](tutorial-respond-threats-playbook.md).
+- Para obtener más información sobre las opciones avanzadas de automatización, consulte [Automatización de la respuesta a amenazas con cuadernos de estrategias de Microsoft Sentinel](automate-responses-with-playbooks.md).
+- Para obtener ayuda con la implementación de reglas de automatización y cuadernos de estrategias, consulte [Tutorial: Uso de cuadernos de estrategias para automatizar las respuestas a amenazas en Microsoft Sentinel](tutorial-respond-threats-playbook.md).

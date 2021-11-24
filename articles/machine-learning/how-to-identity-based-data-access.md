@@ -11,12 +11,12 @@ author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: bf9e144cb078d3bb9f85e42521e63829f24e378c
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: e82ba7fbab8d82d266fb3a4d86d97598bc9b6703
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131553292"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722969"
 ---
 # <a name="connect-to-storage-by-using-identity-based-data-access"></a>Conexión al almacenamiento mediante el acceso a datos basado en identidades
 
@@ -140,6 +140,20 @@ adls2_dstore = Datastore.register_azure_data_lake_gen2(workspace=ws,
                                                        datastore_name='credentialless_adls2', 
                                                        filesystem='tabular', 
                                                        account_name='myadls2')
+```
+### <a name="azure-sql-database"></a>Azure SQL Database
+Para una base de datos de Azure SQL, use [register_azure_sql_database()](/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-sql-database-workspace--datastore-name--server-name--database-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--endpoint-none--overwrite-false--username-none--password-none--subscription-id-none--resource-group-none--grant-workspace-access-false----kwargs-) para registrar un almacén de datos que se conecte a un almacenamiento de base de datos SQL Azure.
+
+El código siguiente crea y registra el almacén de datos `credentialless_sqldb` en el área de trabajo `ws` y lo asigna a la variable `sqldb_dstore`. Este almacén de datos accede a la base de datos `mydb` en el servidor de base de datos de SQL `myserver`.  
+
+```python
+# createn sqldatabase datastore without credentials
+                                                       
+sqldb_dstore = Datastore.register_azure_sql_database(workspace=ws,
+                                                       datastore_name='credentialless_sqldb',
+                                                       server_name='myserver',
+                                                       database_name='mydb')                                                       
+                                                   
 ```
 
 ## <a name="use-data-in-storage"></a>Uso de los datos del almacenamiento

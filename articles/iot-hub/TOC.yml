@@ -203,19 +203,23 @@
       items:
         - name: Uso de los SDK de dispositivos y servicios
           items:
-            - name: Uso del SDK de dispositivo IoT para C
-              href: iot-hub-device-sdk-c-intro.md
+            - name: "SDK de Azure IoT insertado para\_C"
+              href: iot-hub-device-embedded-c-sdk.md
+            - name: "SDK de Azure IoT para\_C"
               items:
-                - name: Uso de IoTHubClient
-                  href: iot-hub-device-sdk-c-iothubclient.md
-            - name: Información de recursos del SDK de C para Azure IoT
-              href: 'https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md'
-            - name: Desarrollo para dispositivos restringidos
-              href: iot-hub-devguide-develop-for-constrained-devices.md
-            - name: Desarrollo para dispositivos móviles
-              href: iot-hub-how-to-develop-for-mobile-devices.md
-            - name: Desarrollo para la plataforma Android Things
-              href: iot-hub-how-to-android-things.md
+                - name: "Uso del SDK de Azure IoT para\_C"
+                  href: iot-hub-device-sdk-c-intro.md
+                  items:
+                    - name: Uso de IoTHubClient
+                      href: iot-hub-device-sdk-c-iothubclient.md
+                - name: Información de recursos del SDK de C para Azure IoT
+                  href: 'https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md'
+                - name: Desarrollo para dispositivos restringidos
+                  href: iot-hub-devguide-develop-for-constrained-devices.md
+                - name: Desarrollo para dispositivos móviles
+                  href: iot-hub-how-to-develop-for-mobile-devices.md
+                - name: Desarrollo para la plataforma Android Things
+                  href: iot-hub-how-to-android-things.md
         - name: Control de un dispositivo en Android
           href: quickstart-control-device-android.md
         - name: Consulta de datos de Avro desde una ruta de concentrador

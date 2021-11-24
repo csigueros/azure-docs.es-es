@@ -4,12 +4,12 @@ description: Obtenga información sobre los conceptos y las técnicas de Azure F
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 9/02/2021
-ms.openlocfilehash: db0fc469d7f4429d8a99c5869940dfc50b63e845
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 7aef7301207772711bcce7fbec4bde8937c94cf1
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131477067"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523455"
 ---
 # <a name="azure-functions-developer-guide"></a>Guía para desarrolladores de Azure Functions
 En Azure Functions, determinadas funciones comparten algunos componentes y conceptos técnicos básicos, independientemente del idioma o el enlace que use. Antes de ir a detalles de aprendizaje específicos de un idioma o un enlace determinados, asegúrese de leer al completo esta información general que se aplica a todos ellos.
@@ -218,12 +218,16 @@ Para usar una conexión basada en identidades para "AzureWebJobsStorage", config
 
 | Configuración                       | Descripción                                | Valor de ejemplo                                        |
 |-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
-| `AzureWebJobsStorage__blobServiceUri`| El identificador URI del plano de datos del servicio de blobs de la cuenta de almacenamiento. | <storage_account_name>.blob.core.windows.net |
-| `AzureWebJobsStorage__queueServiceUri` | El identificador URI del plano de datos del servicio de colas de la cuenta de almacenamiento. | <storage_account_name>.queue.core.windows.net |
+| `AzureWebJobsStorage__blobServiceUri`| El identificador URI del plano de datos del servicio de blobs de la cuenta de almacenamiento, con el esquema HTTPS. | https://<nombre_de_la_cuenta_de_almacenamiento>.blob.core.windows.net |
+| `AzureWebJobsStorage__queueServiceUri` | El identificador URI del plano de datos del servicio de cola de la cuenta de almacenamiento, con el esquema HTTPS. | https://<nombre_de_la_cuenta_de_almacenamiento>.queue.core.windows.net |
 
 También se pueden establecer [Propiedades comunes para conexiones basadas en identidades](#common-properties-for-identity-based-connections).
 
 Si se usa una cuenta de almacenamiento que utiliza el nombre del servicio y el sufijo DNS predeterminado para Azure global, con el formato `https://<accountName>.blob/queue/file/table.core.windows.net`, puede, en cambio, establecer `AzureWebJobsStorage__accountName` en el nombre de la cuenta de almacenamiento. Los puntos de conexión de blobs y colas se deducirán para esta cuenta. Esto no funcionará si la cuenta de almacenamiento está en una nube soberana o tiene un DNS personalizado.
+
+| Configuración                       | Descripción                                | Valor de ejemplo                                        |
+|-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
+| `AzureWebJobsStorage__accountName` | Nombre de una cuenta de almacenamiento, válido solo si la cuenta no está en una nube soberana y no tiene un DNS personalizado. | <nombre_de_la_cuenta_de_almacenamiento> |
 
 [!INCLUDE [functions-azurewebjobsstorage-permissions](../../includes/functions-azurewebjobsstorage-permissions.md)]
 

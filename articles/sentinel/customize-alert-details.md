@@ -1,28 +1,28 @@
 ---
-title: Personalización de los detalles personalizados de las alertas de Azure Sentinel | Microsoft Docs
+title: Personalización de los detalles de las alertas de Azure Sentinel | Microsoft Docs
 description: Personalice cómo se denominan y describen las alertas, junto con su gravedad y tácticas asignadas, en función del contenido de las alertas.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b6cdd8bcc9bf3a472cda990a2b4013bdb7a709f4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6ce94549c4e58e0a19fff40e944ece22f948f953
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131060751"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521730"
 ---
-# <a name="customize-alert-details-in-azure-sentinel"></a>Personalización de los detalles de las alertas de Azure Sentinel | Microsoft Docs 
+# <a name="customize-alert-details-in-microsoft-sentinel"></a>Personalización de los detalles de la alerta de Azure Sentinel 
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -40,7 +40,7 @@ El procedimiento que se detalla a continuación forma parte del Asistente para c
 
 ## <a name="how-to-customize-alert-details"></a>Personalización de los detalles de la alerta
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Análisis**.
+1. En el menú de navegación de Microsoft Sentinel, seleccione **Análisis**.
 
 1. Seleccione una regla de consulta programada y haga clic en **Editar**. O bien, para crear una nueva regla, haga clic en **Crear > Regla de consulta programada** en la parte superior de la pantalla.
 
@@ -65,6 +65,6 @@ El procedimiento que se detalla a continuación forma parte del Asistente para c
 1. Cuando haya terminado de personalizar los detalles de la alerta, continúe con la pestaña siguiente del asistente. Si está editando una regla existente, haga clic en la pestaña **Revisar y crear**. Una vez que la validación de la regla se haya realizado correctamente, haga clic en **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, ha aprendido a personalizar los detalles de la alertas en las reglas de análisis de Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+En este documento, ha aprendido a personalizar los detalles de las alertas en las reglas de análisis de Microsoft Sentinel. Para obtener más información sobre Microsoft Sentinel, consulte los siguientes artículos:
 - Obtenga una visión completa de las [reglas de análisis de consultas programadas](detect-threats-custom.md).
-- Obtenga más información sobre las [entidades en Azure Sentinel](entities-in-azure-sentinel.md).
+- Obtenga más información sobre las [entidades en Microsoft Sentinel](entities-in-azure-sentinel.md).

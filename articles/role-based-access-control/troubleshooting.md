@@ -10,15 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 11/12/2021
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 3273285aeee7497c43fc4002b2bdabe0b6ef13de
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: e0ce4f4b0408b63c12c023ad56d473cc50a44027
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129390071"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398314"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solución de problemas de Azure RBAC
 
@@ -29,7 +29,7 @@ En este artículo se responden algunas preguntas comunes acerca del control de a
 Azure admite hasta **2000** asignaciones de roles por suscripción. Este límite incluye las asignaciones de roles en los ámbitos de suscripción, grupo de recursos y recurso, pero no en el ámbito de grupo de administración. Si aparece el mensaje de error "No se pueden crear más asignaciones de roles (código: RoleAssignmentLimitExceeded)" al intentar asignar un rol, pruebe a reducir el número de asignaciones de roles de la suscripción.
 
 > [!NOTE]
-> El límite de **2000** asignaciones de roles por suscripción es fijo y no se puede aumentar.
+> A partir de noviembre de 2021, el límite de asignaciones de roles para una suscripción se incrementa de **2000** a **4000** durante los próximos meses. Las suscripciones que están cerca del límite tendrán prioridad. El límite de las suscripciones restantes se incrementará con el tiempo.
 
 Si está cerca de este límite, estas son algunas maneras de reducir el número de asignaciones de roles:
 

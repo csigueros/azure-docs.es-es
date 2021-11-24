@@ -2,13 +2,13 @@
 title: Módulos de Bicep
 description: Describe cómo definir un módulo en un archivo de Bicep y cómo utilizar los ámbitos de módulo.
 ms.topic: conceptual
-ms.date: 10/15/2021
-ms.openlocfilehash: a8a0b9c1eeeb56c12926774a78d45bb58e7d8437
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/12/2021
+ms.openlocfilehash: a8aedd784875fccbad81957550380cc4fa236616
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131087388"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551281"
 ---
 # <a name="bicep-modules"></a>Módulos de Bicep
 
@@ -39,7 +39,7 @@ Por lo tanto, un ejemplo sencillo del mundo real tendría un aspecto similar a e
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/local-file-definition.bicep" :::
 
-Use el nombre simbólico para hacer referencia al módulo en otra parte del archivo de Bicep. Por ejemplo, puede usar el nombre simbólico para obtener la salida de un módulo. El nombre simbólico puede tener estos caracteres: a-z, A-Z, 0-9 y '_'. No puede empezar con un número. Un módulo no puede tener el mismo nombre que un parámetro, una variable o un recurso.
+Use el nombre simbólico para hacer referencia al módulo en otra parte del archivo de Bicep. Por ejemplo, puede usar el nombre simbólico para obtener la salida de un módulo. El nombre simbólico puede tener estos caracteres: a-z, A-Z, 0-9 y subrayado (`_`). No puede empezar con un número. Un módulo no puede tener el mismo nombre que un parámetro, una variable o un recurso.
 
 La ruta de acceso puede ser un archivo local o un archivo en un registro. Para más información, consulte [Ruta de acceso al módulo](#path-to-module).
 
@@ -53,7 +53,7 @@ A fin de **implementar un módulo de manera condicional**, agregue una expresió
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/conditional-definition.bicep" highlight="2" :::
 
-Para implementar **más de una instancia** de un módulo, agregue la expresión `for`. Para más información, consulte [Bucles iterativos en Bicep](loops.md).
+Para implementar **más de una instancia** de un módulo, agregue la expresión `for`. Puede usar el decorador `batchSize` para especificar si las instancias se implementan en serie o en paralelo. Para más información, consulte [Bucles iterativos en Bicep](loops.md).
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/iterative-definition.bicep" highlight="3" :::
 
@@ -91,7 +91,7 @@ Por ejemplo:
 
 Cuando se hace referencia a un módulo en un registro, la extensión de Bicep en Visual Studio Code automáticamente llama a [bicep restore](bicep-cli.md#restore) para copiar el módulo externo en la caché local. El módulo externo tarda unos minutos en restaurarse. Si IntelliSense para el módulo no funciona de inmediato, espere a que se complete la restauración.
 
-La ruta de acceso completa de un módulo en un registro puede ser larga. En lugar de proporcionar la ruta de acceso completa cada vez que desea usar el módulo, puede [configurar alias en el archivo bicepconfig.json](bicep-config.md#aliases-for-modules). Los alias facilitan la referencia al módulo. Por ejemplo, con un alias, puede acortar la ruta de acceso a:
+La ruta de acceso completa de un módulo en un registro puede ser larga. En lugar de proporcionar la ruta de acceso completa cada vez que desea usar el módulo, puede [configurar alias en el archivo bicepconfig.json](bicep-config-modules.md#aliases-for-modules). Los alias facilitan la referencia al módulo. Por ejemplo, con un alias, puede acortar la ruta de acceso a:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/alias-definition.bicep" highlight="1" :::
 

@@ -1,7 +1,7 @@
 ---
 title: Divisiones de datos y validación cruzada en el aprendizaje automático automatizado
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo configurar la validación cruzada y las divisiones de datos en experimentos de aprendizaje automático automatizados.
+description: Aprenda a configurar datos de entrenamiento, validación, validación cruzada y prueba para experimentos de aprendizaje automático automatizado.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
@@ -10,15 +10,15 @@ ms.custom: automl
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
-ms.date: 10/21/2021
-ms.openlocfilehash: be945319a81165137b890277372ba625ad200cd2
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.date: 11/15/2021
+ms.openlocfilehash: 69f5913b03db51561cde17117ef97ec3c9e50868
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131559682"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520624"
 ---
-# <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configuración de las divisiones de datos y la validación cruzada en aprendizaje automático automatizado
+# <a name="configure-training-validation-cross-validation-and-test-data-in-automated-machine-learning"></a>Configuración de datos de entrenamiento, validación, validación cruzada y prueba en el aprendizaje automático automatizado
 
 En este artículo, obtendrá información sobre las distintas opciones para configurar los datos de entrenamiento y las divisiones de datos de validación junto con la configuración de validación cruzada para el aprendizaje automático automatizado y los experimentos automatizados.
 
@@ -27,9 +27,6 @@ En Azure Machine Learning, cuando se usa el aprendizaje automático automatizado
 Los experimentos de aprendizaje automático automatizado realizan la validación de modelos de forma automática. En las secciones siguientes se describe cómo puede personalizar aún más la configuración de validación con el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/). 
 
 Para obtener una experiencia sin código o con poco código, consulte [Creación de experimentos de aprendizaje automático automatizados en Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment). 
-
-> [!NOTE]
-> En la actualidad, Studio admite las opciones de división de datos de entrenamiento y validación y de validación cruzada, pero no permite especificar archivos de datos individuales para el conjunto de validación. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -64,12 +61,13 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                             )
 ```
 
-Si no especifica explícitamente un parámetro `validation_data` o `n_cross_validations`, el aprendizaje automático automatizado aplicará las técnicas predeterminadas en función del número de filas proporcionadas en el conjunto de datos `training_data` único:
+Si no especifica explícitamente un parámetro `validation_data` o `n_cross_validations`, el aprendizaje automático automatizado aplica las técnicas predeterminadas en función del número de filas proporcionadas en el conjunto de datos único `training_data`.
 
 |Tamaño&nbsp;de datos de&nbsp;entrenamiento| Técnica de validación |
 |---|-----|
 |**Mayor&nbsp;que&nbsp;20 000&nbsp;filas**| Se aplica la división de datos de entrenamiento o validación. El valor predeterminado consiste en usar el 10 % del conjunto de datos de entrenamiento inicial como conjunto de validación. A su vez, ese conjunto de validación se usa para calcular las métricas.
 |**Menor&nbsp;que&nbsp;20 000&nbsp;filas**| Se aplica el enfoque de validación cruzada. El número predeterminado de iteraciones depende del número de filas. <br> **Si el conjunto de datos tiene menos de 1000 filas**, se usan diez iteraciones. <br> **Si hay entre 1000 y 20 000 filas**, se usan tres iteraciones.
+
 
 ## <a name="provide-validation-data"></a>Especificación de datos de validación
 
@@ -200,6 +198,42 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 Cuando se usa la validación cruzada de k iteraciones o de tipo Monte Carlo, las métricas se calculan en cada plegamiento de validación y, a continuación, se agregan. La operación de agregación es un promedio de las métricas escalares y la suma de los gráficos. Las métricas calculadas durante la validación cruzada se basan en todos los plegamientos y, por tanto, en todos los ejemplos del conjunto de entrenamiento. [Obtenga más información sobre las métricas del aprendizaje automático automatizado](how-to-understand-automated-ml.md).
 
 Cuando se usa un conjunto de validación personalizado o un conjunto de validación seleccionado automáticamente, las métricas de evaluación del modelo solo se calculan a partir del conjunto de validación y no de los datos de entrenamiento.
+
+## <a name="provide-test-data-preview"></a>Incorporación de datos de prueba (versión preliminar)
+
+También puede proporcionar datos de prueba para evaluar el modelo recomendado que el aprendizaje automático automatizado genera automáticamente tras la finalización del experimento. Cuando se proporcionan datos de prueba, se considera algo independiente del entrenamiento y la validación, para no sesgar los resultados de la serie de pruebas del modelo recomendado. [Obtenga más información sobre los datos de entrenamiento, validación y prueba en el aprendizaje automático automatizado.](concept-automated-ml.md#training-validation-and-test-data) 
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+Los conjuntos de datos de prueba deben tener el formato de un objeto [TabularDataset de Azure Machine Learning](how-to-create-register-datasets.md#tabulardataset). Puede especificar un conjunto de datos de prueba con los parámetros `test_data` y `test_size` en el objeto `AutoMLConfig`.  Estos parámetros son mutuamente excluyentes y no se pueden especificar al mismo tiempo. 
+
+Con el parámetro `test_data`, especifique un conjunto de datos existente para pasarlo al objeto `AutoMLConfig`. 
+
+```python
+automl_config = AutoMLConfig(task='forecasting',
+                             ...
+                             # Provide an existing test dataset
+                             test_data=test_dataset,
+                             ...
+                             forecasting_parameters=forecasting_parameters)
+```
+
+Para usar una división de entrenamiento o prueba en lugar de proporcionar datos de prueba directamente, use el parámetro `test_size` al crear `AutoMLConfig`. Este parámetro debe ser un valor de punto flotante entre 0,0 y 1,0 exclusivo, y especifica el porcentaje del conjunto de datos de entrenamiento que se debe usar para el conjunto de datos de prueba.
+
+```python
+automl_config = AutoMLConfig(task = 'regression',
+                             ...
+                             # Specify train/test split
+                             training_data=training_data,
+                             test_size=0.2)
+```
+
+> [!Note]
+> En las tareas de regresión se usa el muestreo aleatorio.<br>
+> En las tareas de clasificación se usa el muestreo estratificado, aunque el muestreo aleatorio se usa como reversión cuando el muestreo estratificado no es factible. <br>
+> La previsión no admite actualmente la especificación de un conjunto de datos de prueba mediante una división de entrenamiento o prueba.
+
+Al pasar los parámetros `test_data` o `test_size` a `AutoMLConfig`, se desencadena automáticamente una serie de pruebas remota tras la finalización del experimento. Esta serie de pruebas usa los datos de prueba proporcionados para evaluar el mejor modelo que el aprendizaje automático automatizado recomienda. Obtenga más información sobre [cómo obtener las predicciones de la serie de pruebas](how-to-configure-auto-train.md#test-models-preview).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

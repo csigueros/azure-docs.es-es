@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo actualizar un clúster de Azure Ku
 services: container-service
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: 0f4e364cd3de9093b84e3ae02c4337361985959a
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 8c5a395833cb19e4f5ce78f08ee37c2eb022169b
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129350972"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132397345"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Actualización de un clúster de Azure Kubernetes Service (AKS)
 
@@ -133,34 +133,6 @@ Además de actualizar manualmente un clúster, puede establecer un canal de actu
 
 La actualización automática de un clúster sigue el mismo proceso que la manual. Para obtener más detalles, consulte [Actualización de un clúster de AKS][upgrade-cluster].
 
-La actualización automática del clúster para los clústeres de AKS es una característica en vista previa (GB).
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-Agregue la siguiente extensión, en `az cli`.
-
-```azurecli-interactive
-az extension add --name aks-preview
-```
-
-Registre la marca de la característica `AutoUpgradePreview` con el comando [az feature register][az-feature-register], como se muestra en el siguiente ejemplo:
-
-```azurecli-interactive
-az feature register --namespace Microsoft.ContainerService -n AutoUpgradePreview
-```
-
-Pueden pasar unos minutos hasta que el estado aparezca como *Registrado*. Espere a que se complete el registro. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AutoUpgradePreview')].{Name:name,State:properties.state}"
-```
-
-Cuando haya terminado, actualice el registro del proveedor de recursos *Microsoft.ContainerService* con el comando [az provider register][az-provider-register]:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
 Para establecer el canal de actualización automática al crear un clúster, use el parámetro *auto-upgrade-channel*, similar al ejemplo siguiente.
 
 ```azurecli-interactive
@@ -179,7 +151,7 @@ Si usa el mantenimiento planeado, así como la actualización automática, la ac
 
 ## <a name="special-considerations-for-node-pools-that-span-multiple-availability-zones"></a>Consideraciones especiales para los grupos de nodos que abarcan varias zonas de disponibilidad
 
-AKS usa el equilibrio de zona de mejor esfuerzo en grupos de nodos. Durante una sobrecarga de actualización, las zonas de los nodos de sobrecarga en VMSS se desconocen con antelación. Esto puede provocar temporalmente una configuración de zona desequilibrada durante una actualización. Sin embargo, AKS elimina los nodos de sobrecarga una vez completada la actualización y conserva el equilibrio de zona original. Si desea mantener las zonas equilibradas durante la actualización, aumente la sobrecarga a un múltiplo de tres nodos. Después, VMSS equilibrará los nodos entre las zonas de disponibilidad con el equilibrio de zona de mejor esfuerzo.
+AKS usa el equilibrio de zona de mejor esfuerzo en grupos de nodos. Durante una sobrecarga de actualización, las zonas de los nodos de sobrecarga en conjuntos de escalado de máquinas virtuales se desconocen con antelación. Esto puede provocar temporalmente una configuración de zona desequilibrada durante una actualización. Sin embargo, AKS elimina los nodos de sobrecarga una vez completada la actualización y conserva el equilibrio de zona original. Si desea mantener las zonas equilibradas durante la actualización, aumente la sobrecarga a un múltiplo de tres nodos. Después, los conjuntos de escalado de máquinas virtuales equilibrarán los nodos entre las zonas de disponibilidad con la mejor opción de equilibrio de zona.
 
 Si tiene PVC con el respaldo de discos LRS de Azure, se enlazarán a una zona determinada y es posible que no se recuperen inmediatamente si el nodo de sobrecarga no coincide con la zona de PVC. Esto podría provocar un tiempo de inactividad en la aplicación cuando la operación de actualización continúa purgando nodos, pero los PC están enlazados a una zona. Para controlar este caso y mantener la alta disponibilidad, configure un [presupuesto de interrupciones de pods](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) en la aplicación. Esto permite a Kubernetes respetar los requisitos de disponibilidad durante la operación de purga de la actualización. 
 

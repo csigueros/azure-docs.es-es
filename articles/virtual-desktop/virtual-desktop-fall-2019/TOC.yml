@@ -74,6 +74,8 @@
       href: publish-apps-2019.md
     - name: Configuración de Azure AD Multi-Factor Authentication
       href: ../set-up-mfa.md
+    - name: Eliminación de Azure Virtual Desktop clásico
+      href: manual-delete.md
 - name: Conceptos
   items:
     - name: Entorno de Azure Virtual Desktop

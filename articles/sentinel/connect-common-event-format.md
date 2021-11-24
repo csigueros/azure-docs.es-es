@@ -1,46 +1,45 @@
 ---
-title: Obtención de registros con formato CEF del dispositivo en Azure Sentinel | Microsoft Docs
-description: Use el agente de Log Analytics, instalado en un reenviador de registros basado en Linux, para ingerir los registros enviados en formato de evento común (CEF) mediante Syslog en el área de trabajo de Azure Sentinel.
+title: Obtención de registros con formato CEF del dispositivo en Microsoft Sentinel | Microsoft Docs
+description: Use el agente de Log Analytics, instalado en un reenviador de registros basado en Linux, para ingerir los registros enviados en formato de evento común (CEF) mediante Syslog en el área de trabajo de Microsoft Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1b51f68127a571165d7e427aae0950daeab51146
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 734ed8aaa1ad3557981c76f380227e7574861086
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023488"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521897"
 ---
-# <a name="get-cef-formatted-logs-from-your-device-or-appliance-into-azure-sentinel"></a>Obtención de registros con formato CEF del dispositivo en Azure Sentinel
+# <a name="get-cef-formatted-logs-from-your-device-or-appliance-into-microsoft-sentinel"></a>Obtención de registros con formato CEF del dispositivo en Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-Muchos dispositivos de seguridad y redes envían sus registros del sistema mediante el protocolo Syslog en un formato especializado conocido como formato de evento común (CEF). Este formato incluye más información que el formato de Syslog estándar y presenta la información en una disposición clave-valor analizada. El agente de Log Analytics acepta los registros de CEF y los formatea especialmente para su uso con Azure Sentinel antes de reenviarlos al área de trabajo de Azure Sentinel.
+Muchos dispositivos de seguridad y redes envían sus registros del sistema mediante el protocolo Syslog en un formato especializado conocido como formato de evento común (CEF). Este formato incluye más información que el formato de Syslog estándar y presenta la información en una disposición clave-valor analizada. El agente de Log Analytics acepta los registros de CEF y los formatea especialmente para su uso con Microsoft Sentinel antes de reenviarlos al área de trabajo de Microsoft Sentinel.
 
-En este artículo se describe el proceso de uso de registros con formato CEF para conectar los orígenes de datos. Para obtener información sobre los conectores de datos compatibles que usan este método, consulte [Referencia de conectores de datos de Azure Sentinel](data-connectors-reference.md).
+En este artículo se describe el proceso de uso de registros con formato CEF para conectar los orígenes de datos. Para obtener información sobre los conectores de datos compatibles que usan este método, consulte [Referencia de conectores de datos de Microsoft Sentinel](data-connectors-reference.md).
 
 Para hacer esta conexión, hay dos pasos principales que se explicarán a continuación en detalle:
 
-- Designación de una máquina o VM Linux como reenviador de registros dedicado, instalación del agente de Log Analytics en ella y configuración del agente para reenviar los registros al área de trabajo de Azure Sentinel.
-La instalación y configuración del agente se controlan mediante un script de implementación.
+- Designación de una máquina o VM Linux como reenviador de registros dedicado, instalación del agente de Log Analytics en ella y configuración del agente para reenviar los registros al área de trabajo de Microsoft Sentinel. La instalación y configuración del agente se controlan mediante un script de implementación.
 
 - Configuración del dispositivo para enviar sus registros en formato CEF a un servidor de Syslog.
 
 > [!NOTE]
-> Los datos se almacenan en la ubicación geográfica del área de trabajo en la que se ejecute Azure Sentinel.
+> Los datos se almacenan en la ubicación geográfica del área de trabajo en la que se ejecute Microsoft Sentinel.
 
 ## <a name="supported-architectures"></a>Arquitecturas compatibles
 
@@ -54,7 +53,7 @@ También podrá usar la siguiente configuración si usa una VM en otra nube o en
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Se requiere un área de trabajo de Azure Sentinel para ingerir datos CEF en Log Analytics.
+Se requiere un área de trabajo de Microsoft Sentinel para ingerir datos CEF en Log Analytics.
 
 - Debe tener permisos de lectura y escritura en el área de trabajo.
 
@@ -62,7 +61,7 @@ Se requiere un área de trabajo de Azure Sentinel para ingerir datos CEF en Log
 
 ## <a name="designate-a-log-forwarder-and-install-the-log-analytics-agent"></a>Designe un reenviador de registros e instale el agente de Log Analytics.
 
-En esta sección se describe cómo designar y configurar la máquina Linux que reenviará los registros desde el dispositivo al área de trabajo de Azure Sentinel.
+En esta sección se describe cómo designar y configurar la máquina Linux que reenviará los registros desde el dispositivo al área de trabajo de Microsoft Sentinel.
 
 La máquina Linux puede ser una máquina física o virtual del entorno local, una VM de Azure o una VM en otra nube.
 
@@ -70,13 +69,13 @@ Use el vínculo proporcionado en la **página del conector de datos de formato d
 
 - **Instala el agente de Log Analytics para Linux** (también denominado agente de OMS) y lo configura para los siguientes fines:
     - escucha de mensajes CEF desde el demonio de Syslog de Linux integrado en el puerto TCP 25226
-    - envío de mensajes de forma segura a través de TLS a su área de trabajo de Azure Sentinel, donde se analizan y enriquecen
+    - envío de mensajes de forma segura a través de TLS a su área de trabajo de Microsoft Sentinel, donde se analizan y enriquecen
 
 - **Configura el demonio de Syslog de Linux integrado** (rsyslog.d/syslog-ng) para los siguientes fines:
     - escucha de mensajes de Syslog desde las soluciones de seguridad en el puerto TCP 514
     - reenvío de solo los mensajes que identifica como CEF al agente de Log Analytics en localhost mediante el puerto TCP 25226
 
-Para obtener más información, consulte [Implementación de un reenviador de registros para la ingesta de registros de Syslog y CEF en Azure Sentinel](connect-log-forwarder.md).
+Para más información, consulte [Implementación de un reenviador de registros para la ingesta de registros de Syslog y CEF en Microsoft Sentinel](connect-log-forwarder.md).
 
 ### <a name="security-considerations"></a>Consideraciones sobre la seguridad
 
@@ -95,7 +94,7 @@ Para más información, consulte:
 
 Busque y siga las instrucciones de configuración del proveedor de dispositivos para enviar registros en formato CEF a un servidor SIEM o de registro. 
 
-Si el producto aparece en la galería de conectores de datos, puede consultar la [referencia de conectores de datos de Azure Sentinel](data-connectors-reference.md) para obtener ayuda. Las instrucciones de configuración deben incluir los valores de la lista siguiente.
+Si el producto aparece en la galería de conectores de datos, puede consultar la [referencia de conectores de datos de Microsoft Sentinel](data-connectors-reference.md) para obtener ayuda. Las instrucciones de configuración deben incluir los valores de la lista siguiente.
 
    - Protocolo = TCP
    - Puerto = 514
@@ -114,17 +113,17 @@ Los datos pueden tardar hasta 20 minutos en aparecer en Log Analytics después d
 
 Para buscar eventos CEF en Log Analytics, consulte la tabla `CommonSecurityLog` en la ventana de consulta.
 
-Algunos productos enumerados en la galería de conectores de datos requieren el uso de analizadores adicionales para obtener mejores resultados. Estos analizadores se implementan mediante el uso de funciones de Kusto. Para obtener más información, consulte la sección del producto en la página de [referencia de conectores de datos de Azure Sentinel](data-connectors-reference.md).
+Algunos productos enumerados en la galería de conectores de datos requieren el uso de analizadores adicionales para obtener mejores resultados. Estos analizadores se implementan mediante el uso de funciones de Kusto. Para más información, consulte la sección del producto en la página de [referencia de conectores de datos de Microsoft Sentinel](data-connectors-reference.md).
 
 Para buscar eventos CEF de estos productos, escriba el nombre de la función de Kusto como asunto de consulta, en lugar de "CommonSecurityLog".
 
-Puede encontrar consultas de ejemplo útiles, libros y plantillas de reglas de análisis hechas especialmente para el producto en la pestaña **Pasos siguientes** de la página de conectores de datos del producto en el portal de Azure Sentinel.
+Puede encontrar consultas de ejemplo útiles, libros y plantillas de reglas de análisis hechas especialmente para el producto en la pestaña **Pasos siguientes** de la página de conectores de datos del producto en el portal de Microsoft Sentinel.
 
 Si no ve ningún dato, consulte la página [Solución de problemas de CEF](./troubleshooting-cef-syslog.md) para obtener instrucciones.
 
 ### <a name="changing-the-source-of-the-timegenerated-field"></a>Cambio del origen del campo TimeGenerated
 
-De forma predeterminada, el agente de Log Analytics rellena el campo *TimeGenerated* en el esquema con la hora en la que el agente recibió el evento del demonio de Syslog. Como resultado, la hora a la que se generó el evento en el sistema de origen no se registra en Azure Sentinel.
+De forma predeterminada, el agente de Log Analytics rellena el campo *TimeGenerated* en el esquema con la hora en la que el agente recibió el evento del demonio de Syslog. Como resultado, la hora a la que se generó el evento en el sistema de origen no se registra en Microsoft Sentinel.
 
 Sin embargo, puede ejecutar el siguiente comando que descargará y ejecutará el script `TimeGenerated.py`. Este script configura el agente de Log Analytics para rellenar el campo *TimeGenerated* con la hora original del evento en su sistema de origen, en lugar de usar la hora a la que lo recibió el agente.
 
@@ -134,14 +133,14 @@ wget -O TimeGenerated.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento ha aprendido cómo recopila Azure Sentinel los registros de CEF de los dispositivos. Para obtener más información sobre cómo conectar el producto a Azure Sentinel, consulte los siguientes artículos:
+En este documento ha aprendido cómo recopila Microsoft Sentinel los registros de CEF de los dispositivos. Para más información sobre cómo conectar el producto a Microsoft Sentinel, consulte los siguientes artículos:
 
 - [Implementación de un reenviador Syslog o CEF](connect-log-forwarder.md)
-- [Referencia de conectores de datos de Azure Sentinel](data-connectors-reference.md)
+- [Referencia de conectores de datos de Microsoft Sentinel](data-connectors-reference.md)
 - [Solución de problemas de conectividad del reenviador de registros](troubleshooting-cef-syslog.md#validate-cef-connectivity)
 
-Para obtener más información sobre qué hacer con los datos recopilados en Azure Sentinel, vea los siguientes artículos:
+Para obtener más información sobre qué hacer con los datos recopilados en Microsoft Sentinel, consulte los siguientes artículos:
 
 - Obtenga información sobre la [asignación de campos de CEF y CommonSecurityLog](cef-name-mapping.md).
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](./detect-threats-built-in.md).
+- Empiece a [detectar amenazas con Microsoft Sentinel](./detect-threats-built-in.md).

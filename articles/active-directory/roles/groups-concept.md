@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f85ab5960aea247a8b47b20d2552cec6e2e534f
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: e3826c7a2cc50e90b42ff1a4f0047dc5a6ca1cf6
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129235333"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520738"
 ---
 # <a name="use-azure-ad-groups-to-manage-role-assignments"></a>Uso de grupos de Azure AD para administrar asignaciones de roles
 
@@ -61,6 +61,9 @@ Los grupos a los que se pueden asignar roles están diseñados para ayudar a evi
 ## <a name="use-pim-to-make-a-group-eligible-for-a-role-assignment"></a>Uso de PIM para que un grupo sea apto para una asignación de roles
 
 Si no desea que los miembros del grupo tengan acceso permanente al rol, puede usar [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) para que un grupo sea apto para una asignación de roles. Cada miembro del grupo es apto para activar la asignación de roles durante un tiempo fijo.
+
+> [!NOTE]
+> En el caso de los grupos de acceso con privilegios que se usan para elevar a roles de Azure AD, se recomienda requerir un proceso de aprobación para las asignaciones de miembros elegibles. Las asignaciones que se pueden activar sin aprobación pueden crear un riesgo de seguridad con los administradores que tienen un nivel inferior de permisos. Por ejemplo, el administrador del departamento de soporte técnico tiene permisos para restablecer la contraseña de un usuario que reúna las características para ello.
 
 ## <a name="scenarios-not-supported"></a>Escenarios no admitidos
 

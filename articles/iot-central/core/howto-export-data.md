@@ -8,12 +8,12 @@ ms.date: 10/20/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 0a084e6bad7530c4d506728b17227de13f1f86a1
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: a4a941d114d233e723d853d12386cb42834d3e19
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131579308"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493800"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportación de datos de IoT a destinos en la nube mediante la característica de exportación de datos
 
@@ -49,7 +49,13 @@ El destino de exportación debe existir antes de configurar la exportación de d
 
 ### <a name="connection-options"></a>Opciones de conexión
 
-Para los destinos de servicio de Azure, puede configurar la conexión con una *cadena de conexión* o una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md). El uso de una identidad administrada es más seguro porque no es necesario almacenar las credenciales del destino en la aplicación de IoT Central. Actualmente, IoT Central usa [identidades administradas asignadas por el sistema](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
+Para los destinos de servicio de Azure, puede configurar la conexión con una *cadena de conexión* o una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md). Las identidades administradas son más seguras porque:
+
+- No se almacenan las credenciales del recurso en una cadena de conexión en la aplicación IoT Central.
+- Las credenciales se vinculan automáticamente a la vigencia de la aplicación IoT Central.
+- Las identidades administradas rotan automáticamente sus claves de seguridad periódicamente.
+
+Actualmente, IoT Central usa [identidades administradas asignadas por el sistema](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
 Al configurar una identidad administrada, la configuración incluye un *ámbito* y un *rol*:
 

@@ -1,35 +1,35 @@
 ---
-title: Analizadores del modelo de información de Azure Sentinel (ASIM) | Microsoft Docs
-description: En este artículo se explica cómo usar las funciones de KQL como analizadores en tiempo de consulta para implementar el modelo de información de Azure Sentinel (ASIM).
+title: Analizadores del modelo de información SIEM avanzado (ASIM) | Microsoft Docs
+description: En este artículo se explica cómo usar las funciones de KQL como analizadores en tiempo de consulta para implementar el modelo de información SIEM avanzado (ASIM).
 services: sentinel
 cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/11/2021
+ms.date: 11/09/2021
 ms.author: ofshezaf
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 12f26ca7567387cd6a9edfcde0ef1229e9635f69
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 43ec5162b0dc1bfd9def8afea6a36c7899483a55
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131064475"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520301"
 ---
-# <a name="azure-sentinel-information-model-asim-parsers-public-preview"></a>Analizadores del modelo de información de Azure Sentinel (ASIM) (versión preliminar pública)
+# <a name="advanced-siem-information-model-asim-parsers-public-preview"></a>Analizadores del modelo de información SIEM avanzado (ASIM, versión preliminar pública)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-En Azure Sentinel, el análisis y la [normalización](normalization.md) tienen lugar en el tiempo de consulta. Los analizadores se crean como [funciones definidas por el usuario de KQL](/azure/data-explorer/kusto/query/functions/user-defined-functions) que transforman los datos de tablas existentes, como **CommonSecurityLog**, tablas de registros personalizados o Syslog, al esquema normalizado. Una vez que el analizador se guarda como una función de área de trabajo, se puede usar como cualquier tabla de Azure Sentinel.
+En Microsoft Sentinel, el análisis y la [normalización](normalization.md) tienen lugar en el tiempo de consulta. Los analizadores se crean como [funciones definidas por el usuario de KQL](/azure/data-explorer/kusto/query/functions/user-defined-functions) que transforman los datos de tablas existentes, como **CommonSecurityLog**, tablas de registros personalizados o Syslog, al esquema normalizado. Una vez que el analizador se guarda como una función de área de trabajo, se puede usar como cualquier tabla de Microsoft Sentinel.
 
 > [!TIP]
-> Vea también el [seminario web de profundización sobre los analizadores de normalización de Azure Sentinel y el contenido normalizado](https://www.youtube.com/watch?v=zaqblyjQW6k) o revise las [diapositivas](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM). Para más información, consulte la sección [Pasos siguientes](#next-steps).
+> Vea también el [seminario web de profundización sobre los analizadores de normalización de Microsoft Sentinel y el contenido normalizado](https://www.youtube.com/watch?v=zaqblyjQW6k) o revise las [diapositivas](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM). Para más información, consulte la sección [Pasos siguientes](#next-steps).
 >
 
 > [!IMPORTANT]
@@ -285,11 +285,11 @@ Para obtener más información, consulte la [plantilla de ARM de analizador gen�
 
 ## <a name="next-steps"></a><a name="next-steps"></a>Pasos siguientes
 
-En este artículo se describen los analizadores del modelo de información de Azure Sentinel (ASIM).
+En este artículo se aborda el contenido del modelo información SIEM avanzado (ASIM).
 
 Para más información, consulte:
 
-- Vea el [seminario web de profundización sobre los analizadores de normalización de Azure Sentinel y el contenido normalizado](https://www.youtube.com/watch?v=zaqblyjQW6k) o revise las [diapositivas](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM).
-- [Información general del modelo de información de Azure Sentinel](normalization.md)
-- [Esquemas del modelo de información de Azure Sentinel](normalization-about-schemas.md)
-- [Contenido del modelo de información de Azure Sentinel](normalization-content.md)
+- Vea el [seminario web de profundización sobre los analizadores de normalización de Microsoft Sentinel y el contenido normalizado](https://www.youtube.com/watch?v=zaqblyjQW6k) o revise las [diapositivas](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
+- [Introducción al modelo de información SIEM avanzado](normalization.md)
+- [Esquemas del modelo de información SIEM avanzado](normalization-about-schemas.md)
+- [Contenido del modelo de información SIEM avanzado](normalization-content.md)

@@ -1,28 +1,28 @@
 ---
-title: Uso de Livestream de búsqueda de Azure Sentinel para detectar amenazas | Microsoft Docs
-description: En este artículo se describe cómo usar el streaming en vivo de búsqueda de Azure Sentinel para llevar un seguimiento de los datos.
+title: Uso de Livestream de búsqueda de Microsoft Sentinel para detectar amenazas | Microsoft Docs
+description: En este artículo se describe cómo usar el streaming en vivo de búsqueda de Microsoft Sentinel para llevar un seguimiento de los datos.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2021
+ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 70a8898b99ffaca2ed6aaa4dd978068bcd9d6c9a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 22e3eafbbae9259ddea56e9927055da08236eedb
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023222"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520092"
 ---
-# <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Uso del streaming en vivo de búsqueda de Azure Sentinel para detectar amenazas
+# <a name="use-hunting-livestream-in-microsoft-sentinel-to-detect-threats"></a>Uso del streaming en vivo de búsqueda de Microsoft Sentinel para detectar amenazas
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -58,7 +58,7 @@ Puede crear una sesión de streaming en vivo a partir de una consulta de búsque
     1. Haga clic con el botón secundario en la consulta y seleccione **Agregar a streaming en vivo**. Por ejemplo:
     
     > [!div class="mx-imgBorder"]
-    > ![creación de una sesión de streaming en vivo desde una consulta de búsqueda de Azure Sentinel](./media/livestream/livestream-from-query.png)
+    > ![creación de una sesión de streaming en vivo desde una consulta de búsqueda de Microsoft Sentinel](./media/livestream/livestream-from-query.png)
 
 1. Para crear una sesión de streaming en vivo desde cero: 
     
@@ -78,7 +78,7 @@ Puede crear una sesión de streaming en vivo a partir de una consulta de búsque
     La barra de estado de la barra de comandos indica si la sesión de streaming en vivo está en ejecución o en pausa. En el ejemplo siguiente, la sesión se está ejecutando:
     
     > [!div class="mx-imgBorder"]
-    > ![creación de una sesión de streaming en vivo desde una búsqueda de Azure Sentinel](./media/livestream/livestream-session.png)
+    > ![creación de una sesión de streaming en vivo desde una búsqueda de Microsoft Sentinel](./media/livestream/livestream-session.png)
 
 1. En la barra de comandos, seleccione **Guardar**.
     
@@ -91,7 +91,7 @@ Puede crear una sesión de streaming en vivo a partir de una consulta de búsque
 1. Seleccione la sesión de streaming en vivo que desea ver o editar. Por ejemplo:
     
     > [!div class="mx-imgBorder"]
-    > ![creación de una sesión de streaming en vivo desde una consulta de búsqueda de Azure Sentinel](./media/livestream/livestream-tab.png)
+    > ![creación de una sesión de streaming en vivo desde una consulta de búsqueda de Microsoft Sentinel](./media/livestream/livestream-tab.png)
     
     Se abre la sesión de streaming en vivo seleccionada para que pueda reproducirla, pausarla, editarla, etc.
 
@@ -114,7 +114,7 @@ Esta acción abre el asistente para crear reglas, que se rellena previamente con
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, aprendió cómo ejecutar un streaming en vivo de búsqueda en Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+En este artículo, aprendió cómo ejecutar un streaming en vivo de búsqueda en Microsoft Sentinel. Para obtener más información sobre Microsoft Sentinel, consulte los siguientes artículos:
 
 - [Búsqueda de amenazas con Azure Sentinel, versión preliminar](hunting.md)
 - [Uso de cuadernos de Jupyter Notebook para buscar amenazas de seguridad](notebooks.md)

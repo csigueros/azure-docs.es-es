@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.service: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
-ms.openlocfilehash: e71f6b6dde1ae12a68f425dcb372cca73456de73
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 7edd651e5c6a52f707cfebd87310e0a104fef0d4
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129858143"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132401215"
 ---
 # <a name="startstop-vms-v2-preview-overview"></a>Información general sobre Start/Stop VMs v2 (versión preliminar)
 
@@ -49,9 +49,9 @@ Las funciones de desencadenador basadas en cola son necesarias para admitir esta
 
 - **Secuenciado**: las acciones de inicio y detención se basan en una programación dirigida a las máquinas virtuales con etiquetas de secuenciación predefinidas. Solo se admiten dos etiquetas con nombre: **sequencestart** y **sequencestop**. **ststv2_vms_Sequenced_start** y **ststv2_vms_Sequenced_stop** configuran el inicio y la detención secuenciados. 
 
-    La manera adecuada de usar la funcionalidad de secuencia es crear una etiqueta llamada **sequencestart** en cada máquina virtual que quiera iniciar en una secuencia. El valor de etiqueta debe ser un entero comprendido entre 1 y N para cada máquina virtual del ámbito correspondiente. La etiqueta es opcional y, si no existe, la máquina virtual no participará en la secuenciación. Los mismos criterios se aplican a la detención de máquinas virtuales, con la única diferencia de que el nombre de la etiqueta es diferente y que se usa **sequencestop** en este caso. Debe configurar las dos etiquetas de cada máquina virtual para obtener la acción de inicio y detención.
+    La manera adecuada de usar la funcionalidad de secuencia es crear una etiqueta llamada **sequencestart** en cada máquina virtual que quiera iniciar en una secuencia. El valor de etiqueta debe ser un entero comprendido entre 1 y N para cada máquina virtual del ámbito correspondiente. La etiqueta es opcional y, si no existe, la máquina virtual no participará en la secuenciación. Los mismos criterios se aplican a la detención de máquinas virtuales, con la única diferencia de que el nombre de la etiqueta es diferente y que se usa **sequencestop** en este caso. Debe configurar las dos etiquetas de cada máquina virtual para obtener la acción de inicio y detención. Si dos o más máquinas virtuales comparten el mismo valor de etiqueta, todas se iniciarán o detendrán al mismo tiempo.
 
-    Por ejemplo, en la tabla siguiente se muestra cómo dos máquinas virtuales con secuencias opuestas terminan ejecutándose en el mismo orden:
+    Por ejemplo, en la tabla siguiente se muestra que las acciones de inicio y detención se procesan en orden ascendente por el valor de la etiqueta.
 
     :::image type="content" source="media/overview/sequence-settings-table.png" alt-text="Tabla que muestra ejemplos de etiquetas de configuración de secuencias":::
 

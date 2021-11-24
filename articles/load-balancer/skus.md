@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/21/2021
 ms.author: allensu
-ms.openlocfilehash: 204de2d0b3ed6e75d8b599e094a58e0b2e1826b0
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 472816907aeb16dfbab1fb7b793186e165246947
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131576118"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722950"
 ---
 # <a name="azure-load-balancer-skus"></a>SKU de Azure Load Balancer
 
@@ -35,6 +35,8 @@ Las máquinas virtuales independientes, los conjuntos de disponibilidad y los co
 | --- | --- | --- |
 | **Escenario** |  Equipado para el tráfico de la capa de red de equilibrio de carga cuando se necesitan un alto rendimiento y una latencia muy baja. Enruta el tráfico dentro y entre regiones, y a zonas de disponibilidad para lograr una alta resistencia. | Equipado para aplicaciones a pequeña escala que no necesitan alta disponibilidad ni redundancia. No es compatible con las zonas de disponibilidad. |
 | **Tipo de back-end** | Basado en IP, basado en NIC | Basado en NIC |
+| **Protocolo** | TCP, UDP | TCP, UDP |
+| **[Configuraciones de direcciones IP de front-end](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | Admite hasta 600 configuraciones. | Admite hasta 200 configuraciones. |
 | **[Tamaño de grupo de back-end](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | Admite hasta 1000 instancias. | Admite hasta 300 instancias. |
 | **Puntos de conexión del grupo de back-end** | Todas las máquinas virtuales o conjuntos de escalado de máquinas virtuales de una red virtual individual. | Máquinas virtuales en un único conjunto de disponibilidad o conjunto de escalado de máquinas virtuales. |
 | **[Sondeos de estado](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
@@ -49,6 +51,9 @@ Las máquinas virtuales independientes, los conjuntos de disponibilidad y los co
 | **Operaciones de administración** | La mayoría de las operaciones en menos de 30 segundos | Normalmente, entre 60 y 90 segundos |
 | **Acuerdo de Nivel de Servicio** | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | No disponible | 
 | **Compatibilidad con Emparejamiento de VNET global** | Se admite ILB estándar a través del Emparejamiento de VNET global | No compatible | 
+| **[Compatibilidad con NAT Gateway](../virtual-network/nat-gateway/nat-overview.md)** | Tanto el ILB estándar como el LB público estándar son compatibles con Nat Gateway. | No compatible | 
+| **[Compatibilidad con Private Link](../private-link/private-link-overview.md)** | El ILB estándar es compatible con Private Link. | No compatible | 
+| **[Equilibrio de carga entre regiones (versión preliminar)](./cross-region-overview.md)** | Los LB públicos estándar es compatible con LB entre regiones. | No compatible | 
 
 Para más información, consulte [Límites del equilibrador de carga](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer). Para más información de Load Balancer Estándar, consulte los artículos de [introducción](./load-balancer-overview.md), [precios](https://aka.ms/lbpricing) y [Acuerdo de Nivel de Servicio](https://aka.ms/lbsla).
 

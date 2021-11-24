@@ -244,6 +244,8 @@
           href: playbook-triggers-actions.md
         - name: Personalización de cuadernos de estrategias a partir de plantillas
           href: use-playbook-templates.md
+        - name: Automatización de la actividad con listas de reproducción y cuadernos de estrategias
+          href: automate-playbook-watchlist.md
     - name: Administración de Microsoft Azure Sentinel
       items:
         - name: Microsoft Azure Sentinel para MSSP

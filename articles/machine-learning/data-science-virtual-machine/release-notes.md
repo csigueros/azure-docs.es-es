@@ -7,12 +7,12 @@ ms.service: data-science-vm
 ms.author: mimarusa
 ms.date: 10/11/2021
 ms.topic: reference
-ms.openlocfilehash: c20d7e93bdf507db7c6ac43634c06c20c79b1786
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 97b95b37367d1cede3326307602a19ffdc5df8d5
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811185"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132517147"
 ---
 # <a name="azure-data-science-virtual-machine-release-notes"></a>Notas de la versión de Azure Data Science Virtual Machine
 
@@ -20,25 +20,62 @@ En este artículo, obtendrá información sobre las versiones de Azure Data Scie
 
 Para obtener información acerca de errores conocidos y soluciones alternativas, consulte la [lista de problemas conocidos](reference-known-issues.md).
 
-## <a name="2021-10-07"></a>07-10-2021
+## <a name="november-4-2021"></a>4 de noviembre de 2021
+
+Nueva imagen para [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
+
+Versión: 21.11.04
+
+Cambios principales:
+* Se ha cambiando .NET Framework a la versión 3.1.414
+* Se ha cambiado Azcopy a la versión 10.13.0
+* Se ha cambiado la CLI de Azure a la versión 2.30.0
+* Se ha cambiado CUDA a la versión 11.5
+* Se ha cambiado Docker a la versión 20.10.10
+* Se ha cambiado Intellijidea a la versión 2021.2.3
+* Se han cambiado los controladores NVIDIA a la versión 495.29.05.
+* Se ha cambiado SMI de NVIDIA a la versión 495.29.05.
+* Se ha cambiado Nodejs a la versión v16.13.0
+* Se ha cambiado Pycharm a la versión 2021.2.3
+* Se ha cambiado VS Code a la versión 1.61.2
+* Conda
+  * *azureml_py36_automl*
+    * Se ha cambiado azureml-core a la versión 1.35.0
+  * *py38_default*
+    * Se ha cambiado Jupyter Lab o jupyterlab a la versión 3.2.1
+    * Se ha cambiado Jupyter Notebook o notebook a la versión 6.4.5
+    * Se ha cambiado Jupyter Server o jupyter_server a la versión 1.11.2
+    * Se ha cambiado el complemento PyTorch Profiler TensorBoard o torch-tb-profiler a la versión 0.3.1.
+    * Se ha cambiado azure-core a la versión 1.19.1
+    * Se ha cambiado matplotlib a la versión 3.4.3.
+    * Se ha cambiado mkl a la versión 2021.4.0
+    * Se ha cambiado onnx a la versión 1.10.2.
+    * Se ha cambiado opencv-python a la versión 4.5.4.58
+    * Se ha cambiado pandas a la versión 1.3.4.
+    * Se ha cambiado pytorch a la versión 1.10.0
+    * Se ha cambiado scikit-learn a la versión 1.0.1
+    * Se ha cambiado tensorflow-gpu a la versión 2.6.2.
+
+
+## <a name="october-7-2021"></a>7 de octubre de 2021
 
 Nueva imagen para [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
 
 Versión: 21.10.07
 
 Cambios principales:
- - se ha cambiado pytorch a la versión 1.9.1
- - se ha cambiado Docker a la versión 20.10.9
- - se ha cambiado Intellijidea a la versión 2021.2.2
- - se ha cambiado Nodejs a la versión v14.18.0
- - se ha cambiado Pycharm a la versión 2021.2.2
- - se ha cambiado VS Code a la versión 1.60.2
- - se ha corregido el entorno de AutoML (azureml_py36_automl)
- - se ha corregido la estabilidad del Explorador de Azure Storage
+ - Se ha cambiado pytorch a la versión 1.9.1
+ - Se ha cambiado Docker a la versión 20.10.9
+ - Se ha cambiado Intellijidea a la versión 2021.2.2
+ - Se ha cambiado Nodejs a la versión v14.18.0
+ - Se ha cambiado Pycharm a la versión 2021.2.2
+ - Se ha cambiado VS Code a la versión 1.60.2
+ - Se ha corregido el entorno de AutoML (azureml_py36_automl)
+ - Se ha corregido la estabilidad del Explorador de Azure Storage
  - Mejora de la estabilidad y correcciones de errores menores 
 
 
-## <a name="2021-08-11"></a>11-08-2021
+## <a name="august-11-2021"></a>11 de agosto de 2021
 
 Nueva imagen para [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
 
@@ -54,7 +91,7 @@ Cambios principales:
 
 
 
-## <a name="2021-07-12"></a>12/07/2021
+## <a name="july-12-2021"></a>12 de julio de 2021
 
 Nueva imagen para [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
 
@@ -67,7 +104,7 @@ Cambios principales:
 - Mejora de la estabilidad y correcciones de errores menores 
 
 
-## <a name="2021-06-22"></a>22/06/2021
+## <a name="june-22-2021"></a>22 de junio de 2021
 
 Nueva imagen para [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
 
@@ -79,7 +116,7 @@ Cambios principales:
 - Se corrigió un error por el que Git no estaba disponible
 
 
-## <a name="2021-06-01"></a>01-06-2021
+## <a name="june-1-2021"></a>1 de junio de 2021
 
 Nueva imagen para [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
 
@@ -97,7 +134,7 @@ Los cambios principales son:
 <br/>
 Se quitaron varios iconos del escritorio.
 
-## <a name="2021-05-22"></a>22/05/2021
+## <a name="may-22-2021"></a>22 de mayo de 2021
 
 Nueva imagen para [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
 
@@ -131,7 +168,7 @@ Se han quitado Firefox, Apache Drill y Microsoft Integration Runtime.
 <br/>
 Modo oscuro, iconos cambiados en el escritorio, cambio de fondo de pantalla.
 
-## <a name="2021-05-12"></a>12/05/2021
+## <a name="may-12-2021"></a>12 de mayo de 2021
 
 Nueva imagen para [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
 
@@ -170,11 +207,11 @@ sudo systemctl start docker
 >
 
 
-## <a name="2020-02-24"></a>2020-02-24
+## <a name="february-24-2020"></a>24 de febrero de 2020
 
 Ya están disponibles las imágenes de Data Science Virtual Machine para [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview) y las imágenes de [Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
 
-## <a name="2019-10-08"></a>2019-10-08
+## <a name="october-8-2019"></a>8 de octubre de 2019
 
 ### <a name="updates-to-software-on-the-windows-dsvm"></a>Actualizaciones del software en Windows DSVM
 

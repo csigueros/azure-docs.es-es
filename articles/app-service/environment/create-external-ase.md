@@ -1,18 +1,16 @@
 ---
 title: Creación de un ASE externo
 description: Aprenda a crear un entorno de App Service con una aplicación en él o a crear una instancia de App Service Environment independiente (vacía).
-author: ccompy
-ms.assetid: 94dd0222-b960-469c-85da-7fcb98654241
+author: madsd
 ms.topic: article
 ms.date: 06/13/2017
-ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 118c91ec204a2e207b28343fe0535c67b89b03b7
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.author: madsd
+ms.openlocfilehash: 771bfd60fb3124a3cc827bd6b35ac0de1dceef04
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113433353"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519693"
 ---
 # <a name="create-an-external-app-service-environment"></a>Creación de una instancia externa de App Service Environment
 
@@ -32,7 +30,7 @@ En este artículo se muestra cómo crear un ASE externo. Para información gener
 Después de crear la instancia de ASE, no puede cambiar los siguientes parámetros:
 
 - Location
-- Suscripción
+- Subscription
 - Resource group
 - Red virtual usada
 - La subred usada

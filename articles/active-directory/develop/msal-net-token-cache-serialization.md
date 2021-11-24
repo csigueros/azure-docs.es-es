@@ -13,12 +13,12 @@ ms.date: 11/09/2021
 ms.author: jmprieur
 ms.reviewer: mmacy
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: aa56b8a7ab45e5623882a09a02b01c41dcb8c613
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 22e6dbfbda88035f74e19fabfe296974b362e286
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132281339"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132517299"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serialización de la caché de tokens en MSAL.NET
 
@@ -268,7 +268,7 @@ También puede especificar opciones para limitar el tamaño de la caché de toke
       // Configure the memory cache options
       services.Configure<MemoryCacheOptions>(options =>
       {
-          options.SizeLimit = 5000000; // in bytes (5 Mb)
+          options.SizeLimit = 500 * 1024 * 1024; // in bytes (500 Mb)
       });
   }
   );
@@ -739,8 +739,8 @@ MSAL expone métricas importantes como parte del objeto [AuthenticationResult.Au
 |  `DurationTotalInMs` | Tiempo total invertido en MSAL, incluidas las llamadas de red y la caché   | Alarma sobre la latencia alta general (> 1 s). El valor depende del origen del token. Desde la caché: un acceso a la caché. Desde AAD: dos accesos a la caché y una llamada HTTP. La primera llamada (por proceso) llevará más tiempo debido a una llamada HTTP adicional. |
 |  `DurationInCacheInMs` | Tiempo invertido en cargar o guardar la caché de tokens, que el desarrollador de la aplicación personaliza (por ejemplo, se guarda en Redis).| Alarma sobre aumentos. |
 |  `DurationInHttpInMs`| Tiempo dedicado a realizar llamadas HTTP a AAD.  | Alarma sobre aumentos.|
-|  `TokenSource` | Indica el origen del token. Los tokens se recuperan de la caché mucho más rápido (por ejemplo, ~100 ms frente a ~700 ms). Se puede usar para supervisar y enviar una alarma sobre la proporción de aciertos de caché. | Uso con `DurationTotalInMs` |
-
+|  `TokenSource` | Indica el origen del token. Los tokens se recuperan de la caché mucho más rápido (por ejemplo, ~100 ms frente a ~700 ms). Se puede usar para supervisar y enviar una alarma sobre la proporción de aciertos de caché. | Se usa con `DurationTotalInMs`. |
+|  `CacheRefreshReason` | Especifica el motivo para capturar el token de acceso del proveedor de identidades. | Se usa con `TokenSource`. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

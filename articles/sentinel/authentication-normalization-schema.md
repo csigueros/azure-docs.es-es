@@ -1,38 +1,36 @@
 ---
-title: Referencia del esquema de normalización de la autenticación de Azure Sentinel | Microsoft Docs
-description: En este artículo, se describe el esquema de normalización de autenticación de Azure Sentinel.
+title: Referencia del esquema de normalización de autenticación de Microsoft Sentinel | Microsoft Docs
+description: En este artículo se describe el esquema de normalización de autenticación de Microsoft Sentinel.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 06/22/2021
+ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9b692046f0e812b903570ecd6e788ba83db6b96b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 471c76128d0df5aef41e4d50f6ddcdf7f97f34ff
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131075426"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722912"
 ---
-# <a name="azure-sentinel-authentication-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de la autenticación de Azure Sentinel (versión preliminar pública)
+# <a name="microsoft-sentinel-authentication-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de autenticación de Microsoft Sentinel (versión preliminar pública)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 El modelo de información de autenticación se usa para describir eventos relacionados con la autenticación de usuario, el inicio de sesión y el cierre de sesión. Muchos dispositivos de informes envían eventos de autenticación, normalmente como parte del flujo de eventos junto con otros eventos.
 
-Por ejemplo, Windows envía varios eventos de autenticación junto con otros eventos de actividad del sistema operativo. Como resultado, en la mayoría de los casos, los eventos de autenticación se almacenan en tablas de Azure Sentinel diferentes y se normalizan mediante una función KQL, que también filtra solo los eventos de autenticación pertinentes.
+Por ejemplo, Windows envía varios eventos de autenticación junto con otros eventos de actividad del sistema operativo. Como resultado, en la mayoría de los casos los eventos de autenticación se almacenan en diferentes tablas de Microsoft Sentinel y se normalizan mediante una función KQL, que además solo filtra los eventos de autenticación relevantes.
 
 Los eventos de autenticación incluyen eventos de sistemas que se centran en la autenticación, como puertas de enlace de VPN o controladores de dominio, y autenticación directa a un sistema final, como un equipo o firewall.
 
-Para obtener más información sobre la normalización en Azure Sentinel, consulte [Normalización en Azure Sentinel](normalization.md).
+Para obtener más información sobre la normalización en Microsoft Sentinel, vea [Normalización y modelo de información SIEM avanzado (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > El esquema de normalización de autenticación está actualmente en VERSIÓN PRELIMINAR. Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción.
@@ -42,7 +40,7 @@ Para obtener más información sobre la normalización en Azure Sentinel, consul
 
 ## <a name="parsers"></a>Analizadores
 
-Azure Sentinel proporciona los siguientes analizadores de eventos de autenticación integrados específicos del producto: 
+Microsoft Sentinel proporciona los siguientes analizadores de eventos de autenticación integrados específicos del producto: 
 
 - **Inicios de sesión de Windows** notificados como eventos de seguridad (4624, 4625, 4634 y 4647), recopilados mediante el agente de Log Analytics o el agente de Azure Monitor.
 - **Inicios de sesión de Windows** notificados por Microsoft 365 Defender para punto de conexión, recopilados mediante el conector de Microsoft 365 Defender.
@@ -52,13 +50,13 @@ Azure Sentinel proporciona los siguientes analizadores de eventos de autenticaci
 
 Para usar el analizador independiente del origen, que unifica todos los analizadores enumerados asegurándose de que analiza los datos en todos los orígenes configurados, use **imAuthentication** como nombre de tabla en la consulta.
 
-Implemente los [analizadores independientes del origen y específicos del origen](normalization-about-parsers.md) desde el [repositorio de GitHub de Azure Sentinel](https://aka.ms/AzSentinelAuth).
+Implemente los [analizadores independientes del origen y específicos del origen](normalization-about-parsers.md) desde el [repositorio de GitHub de Microsoft Sentinel](https://aka.ms/AzSentinelAuth).
 
 
 
 ## <a name="normalized-content"></a>Contenido normalizado
 
-La compatibilidad con el esquema de ASIM de autenticación también incluye compatibilidad con las siguientes reglas de análisis integradas con analizadores de autenticación normalizados. Aunque a continuación se proporcionan vínculos al repositorio de GitHub de Azure Sentinel como referencia, también puede encontrar estas reglas en la [galería de reglas de Azure Sentinel Analytics](detect-threats-built-in.md). Use las páginas de GitHub vinculadas para copiar las consultas de búsqueda pertinentes para las reglas indicadas.
+La compatibilidad con el esquema de ASIM de autenticación también incluye compatibilidad con las siguientes reglas de análisis integradas con analizadores de autenticación normalizados. Aunque a continuación se proporcionan vínculos al repositorio de GitHub de Microsoft Sentinel como referencia, también puede encontrar estas reglas en la [galería de reglas de Microsoft Sentinel Analytics](detect-threats-built-in.md). Use las páginas de GitHub vinculadas para copiar las consultas de búsqueda pertinentes para las reglas indicadas.
 
 - [Posible ataque de difusión de contraseña (usa la normalización de autenticación)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imAuthPasswordSpray.yaml)
  - [Ataque por fuerza bruta contra las credenciales de usuario (usa la normalización de autenticación)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imAuthBruteForce.yaml)
@@ -66,7 +64,7 @@ La compatibilidad con el esquema de ASIM de autenticación también incluye comp
  - [Inicios de sesión desde direcciones IP que intentan iniciar sesión en cuentas deshabilitadas (usa la normalización de autenticación)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imSigninAttemptsByIPviaDisabledAccounts.yaml)
 
 
-Las reglas de analítica de autenticación normalizadas son únicas, ya que detectan ataques entre orígenes. Por ejemplo, si un usuario ha iniciado sesión en sistemas diferentes y no relacionados, de distintos países, Azure Sentinel detectará esta amenaza.
+Las reglas de analítica de autenticación normalizadas son únicas, ya que detectan ataques entre orígenes. Así, por ejemplo, si un usuario ha iniciado sesión en sistemas diferentes y no relacionados de distintos países, Microsoft Sentinel detecta esta amenaza.
 
 ## <a name="schema-details"></a>Detalles del esquema
 
@@ -166,7 +164,7 @@ Un **actor**, que ejecuta una *aplicación que actúa* (**ActingApp**) en un *di
 | **SrcDvcOs**|Opcional |String |Sistema operativo del dispositivo de origen. <br><br>Ejemplo: `Windows 10` |
 |**SrcIsp** | Opcional|String |Proveedor de servicios de Internet (ISP) usado por el dispositivo de origen para conectarse a Internet. <br><br>Ejemplo: `corpconnect` |
 | **SrcGeoCountry**|Opcionales |País |Ejemplo: `Canada` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types). |
-| **SrcGeoCity**|Opcionales |City |Ejemplo: `Montreal` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types). |
+| **SrcGeoCity**|Opcionales |City (Ciudad) |Ejemplo: `Montreal` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types). |
 |**SrcGeoRegion** | Opcionales|Region | Ejemplo: `Quebec` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types).|
 | **SrcGeoLongtitude**|Opcionales |Longitud  | Ejemplo: `-73.614830` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types).|
 | **SrcGeoLatitude**|Opcionales |Latitud |Ejemplo: `45.505918` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types). |
@@ -192,8 +190,8 @@ Un **actor**, que ejecuta una *aplicación que actúa* (**ActingApp**) en un *di
 
 Para más información, consulte:
 
-- [Normalización en Azure Sentinel](normalization.md)
-- [Referencia del esquema de normalización de DNS de Azure Sentinel](dns-normalization-schema.md)
-- [Referencia del esquema de normalización de eventos de archivo de Azure Sentinel (versión preliminar pública)](file-event-normalization-schema.md)
-- [Referencia del esquema de normalización de redes de Azure Sentinel](./network-normalization-schema.md)
-- [Referencia del esquema de normalización de eventos de proceso de Azure Sentinel (Versión preliminar pública)](process-events-normalization-schema.md)
+- [Normalización en Microsoft Sentinel](normalization.md)
+- [Referencia del esquema de normalización de DNS de Microsoft Sentinel](dns-normalization-schema.md)
+- [Referencia del esquema de normalización de eventos de archivo de Microsoft Sentinel (versión preliminar pública)](file-event-normalization-schema.md)
+- [Referencia del esquema de normalización de sesiones de red de Microsoft Sentinel](./network-normalization-schema.md)
+- [Referencia del esquema de normalización de eventos de proceso de Microsoft Sentinel (versión preliminar pública)](process-events-normalization-schema.md)

@@ -2,20 +2,19 @@
 title: Información general del microagente de Defender para IoT para Azure RTOS
 description: Obtenga más información sobre la compatibilidad y la implementación del microagente de Defender para IoT para Azure RTOS como parte de Microsoft Defender para IoT.
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.openlocfilehash: 5bb2ed36d40b5ae92aa41303eb53d995c410e67d
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.date: 11/14/2021
+ms.openlocfilehash: 138c08e510bbfe66cb52460c96ba70764cd3ce20
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132278918"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487138"
 ---
 # <a name="overview-defender-for-iot-defender-iot-micro-agent-for-azure-rtos"></a>Información general: microagente de Defender para IoT de Defender para IoT para Azure RTOS
 
 El micromódulo de Microsoft Defender para IoT proporciona una solución de seguridad completa para dispositivos que usan Azure RTOS. Proporciona cobertura para amenazas comunes y posibles actividades malintencionadas en dispositivos del sistema operativo en tiempo real (RTOS). Azure RTOS ahora se incluye con el microagente de Defender para IoT de Azure IoT integrado.
 
 :::image type="content" source="./media/architecture/azure-rtos-security-monitoring.png" alt-text="Visualización de Defender para IoT para Azure RTOS.":::
-
 
 El micromódulo para Azure RTOS ofrece las siguientes características:
 
@@ -33,11 +32,11 @@ La línea de base permite la agrupación en clústeres de dispositivos en grupos
 
 ## <a name="improve-your-device-security-hygiene"></a>Mejora de la higiene de seguridad de los dispositivos
 
-Al usar la infraestructura recomendada que proporciona Defender para IoT, puede adquirir conocimientos e información sobre los problemas de su entorno que afectan y dañan la postura de seguridad de los dispositivos. Una débil postura de seguridad de los dispositivos IoT puede permitir que los posibles ataques surtan efecto si se deja sin cambios. La seguridad siempre se mide por el eslabón más débil dentro de cualquier organización.
+Con la infraestructura recomendada que proporciona Defender para IoT puede obtener conocimientos e información sobre los problemas del entorno que afectan a la posición de seguridad de los dispositivos y que la dañan. Una débil postura de seguridad de los dispositivos IoT puede permitir que los posibles ataques surtan efecto si se deja sin cambios. La seguridad siempre se mide por el eslabón más débil dentro de cualquier organización.
 
 ## <a name="get-started-protecting-azure-rtos-devices"></a>Introducción a la protección de dispositivos Azure RTOS
 
-El microagente de Defender para IoT para Azure RTOS se proporciona como descarga gratuita para los dispositivos. El servicio en la nube Defender para IoT está disponible con una versión de prueba de 30 días por suscripción de Azure. Para empezar, descargue el [microagente de Defender para IoT para Azure RTOS](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/defender-for-iot/device-builders/iot-security-azure-rtos.md). 
+El microagente de Defender para IoT para Azure RTOS se proporciona como descarga gratuita para los dispositivos. El servicio en la nube Defender para IoT está disponible con una versión de prueba de 30 días por suscripción de Azure. Para empezar, descargue el [microagente de Defender para IoT para Azure RTOS](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/defender-for-iot/device-builders/iot-security-azure-rtos.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,13 +7,13 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 8aac6f90880775c5a1d7002048c79257b4e5ab85
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.date: 11/12/2021
+ms.openlocfilehash: a541eb900648fe33beb76207da956c1489f89cb5
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129855904"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132485111"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features"></a>Acceso del indizador a orígenes de datos mediante las características de seguridad de red de Azure
 
@@ -63,20 +63,25 @@ Al elegir un mecanismo de acceso seguro, tenga en cuenta las restricciones sigui
 
 ## <a name="indexer-execution-environment"></a>Entorno de ejecución de los indexadores
 
-Los indexadores de Azure Cognitive Search son capaces de extraer contenido de orígenes de datos de forma eficaz, agregar enriquecimientos al contenido extraído y, opcionalmente, generar proyecciones antes de escribir los resultados en el índice de búsqueda. En función del número de responsabilidades asignadas a un indexador, puede ejecutarse en dos entornos:
+Los indexadores de Azure Cognitive Search son capaces de extraer contenido de orígenes de datos de forma eficaz, agregar enriquecimientos al contenido extraído y, opcionalmente, generar proyecciones antes de escribir los resultados en el índice de búsqueda.
+
+Para un procesamiento óptimo, un servicio de búsqueda determina un entorno de ejecución interno para configurar la operación. No puede controlar ni configurar el entorno, pero es importante saber que existe para poder tenerlo en cuenta al configurar reglas de firewall de IP.
+
+Según el número y los tipos de tareas asignadas, el indizador se ejecuta en uno de dos entornos:
 
 - Un entorno privado para un servicio de búsqueda específico. Los indexadores que se ejecutan en estos entornos comparten recursos con otras cargas de trabajo (por ejemplo, las de indexación o consulta iniciada por el cliente). Normalmente, solo los indexadores que realizan la indexación basada en texto (por ejemplo, no usan un conjunto de aptitudes) se ejecutan en este entorno.
 
 - Un entorno de varios inquilinos que hospeda indexadores que consumen muchos recursos, como los que tienen conjuntos de aptitudes. Este entorno se usa para descargar el procesamiento intensivo a nivel computacional, lo que permite que los recursos específicos del servicio estén disponibles para las operaciones rutinarias. Microsoft administra y protege el entorno de varios inquilinos, sin costo adicional para el cliente.
 
-Con cada ejecución de un indexador dado, Azure Cognitive Search determina el mejor entorno en el que ejecutarlo. Si usa un firewall IP para controlar el acceso a los recursos de Azure, conocer los entornos de ejecución le ayudará a configurar un intervalo de direcciones IP que sea inclusivo en ambos.
+Con cada ejecución de un indexador dado, Azure Cognitive Search determina el mejor entorno en el que ejecutarlo. Si usa un firewall IP para controlar el acceso a los recursos de Azure, el ser consciente de los entornos de ejecución le va a ayudar a configurar un intervalo IP que incluya ambos, como se explica en la siguiente sección.
 
 ## <a name="granting-access-to-indexer-ip-ranges"></a>Concesión de acceso a los intervalos IP del indexador
 
-Si el recurso al que intenta acceder el indexador está restringido a solo un determinado conjunto de intervalos IP, deberá expandir el conjunto para incluir los posibles intervalos IP desde los que se puede originar una solicitud del indexador. Como se indicó anteriormente, existen dos entornos posibles en los que se ejecutan los indexadores y de los que pueden originarse solicitudes de acceso. Tendrá que agregar las direcciones IP de **ambos** entornos para que el acceso del indexador funcione.
+Si el recurso del que el indizador extrae datos está detrás de un firewall, asegúrese de que los intervalos IP de las reglas de entrada incluyan todas las direcciones IP desde las que se puede originar una solicitud del indizador. Como se indicó anteriormente, existen dos entornos posibles en los que se ejecutan los indexadores y de los que pueden originarse solicitudes de acceso. Tendrá que agregar las direcciones IP de **ambos** entornos para que el acceso del indexador funcione.
 
 - Para obtener la dirección IP del entorno privado específico del servicio de búsqueda, use `nslookup` (o `ping`) con el nombre de dominio completo (FQDN) del servicio de búsqueda. Por ejemplo, el nombre de dominio completo de un servicio de búsqueda en la nube pública sería `<service-name>.search.windows.net`. Esta información está disponible en Azure Portal.
-- Las direcciones IP de los entornos multiinquilino están disponibles a través de la etiqueta de servicio `AzureCognitiveSearch`. Las [etiquetas de servicio de Azure](../virtual-network/service-tags-overview.md) tienen un intervalo de direcciones IP publicado para cada servicio, que está disponible a través de una [API de detección](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) o un [archivo JSON descargable](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). En cualquier caso, los intervalos IP se desglosan por región: solo puede elegir aquellos asignados para la región en la que se aprovisiona su servicio de búsqueda.
+
+- Para obtener las direcciones IP de los entornos multiinquilino en los que se puede ejecutar un indizador, use la etiqueta de servicio `AzureCognitiveSearch`. Las [etiquetas de servicio de Azure](../virtual-network/service-tags-overview.md) tienen un intervalo publicado de direcciones IP para cada servicio. Puede encontrar estas direcciones IP mediante la [API de detección](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) o un [archivo JSON descargable](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). En cualquier caso, los intervalos IP se desglosan por región. Debe especificar solo los intervalos IP asignados a la región en la que se aprovisiona el servicio de búsqueda.
 
 En el caso de determinados orígenes de datos, la propia etiqueta de servicio se puede usar directamente en lugar de enumerar la lista de intervalos IP (la dirección IP del servicio de búsqueda se debe seguir usando explícitamente). Estos orígenes de datos restringen el acceso por medio de la configuración de una [regla de grupo de seguridad de red](../virtual-network/network-security-groups-overview.md) que admite de forma nativa la adición de una etiqueta de servicio, a diferencia de las reglas IP, como las que ofrecen Azure Storage, Cosmos DB, Azure SQL, etc. Los orígenes de datos que admiten la posibilidad de utilizar la etiqueta de servicio `AzureCognitiveSearch` directamente, además de la dirección IP del servicio de búsqueda, son:
 
@@ -88,9 +93,9 @@ Para más información sobre esta opción de conectividad, consulte [Conexiones 
 
 ## <a name="granting-access-via-private-endpoints"></a>Concesión de acceso a través de puntos de conexión privados
 
-Los indexadores pueden utilizar [puntos de conexión privados](../private-link/private-endpoint-overview.md) para acceder a los recursos que están bloqueados para la selección de redes virtuales o que no tienen habilitado el acceso público.
+Los indizadores pueden usar [puntos de conexión privados](../private-link/private-endpoint-overview.md) en conexiones a recursos bloqueados (que se ejecutan en una red virtual protegida o que simplemente no están disponibles a través de una conexión pública).
 
-Esta funcionalidad solo está disponible en los servicios de búsqueda facturables, con límites en el número de puntos de conexión privados que se crean. Para más información, consulte [Límites de servicio](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
+Esta funcionalidad solo está disponible en los servicios de búsqueda facturables (Básico y superior), sujeta a límites de nivel en cuanto al número de puntos de conexión privados que se pueden crear para la indexación basada en texto y basada en aptitudes. Para obtener más información, vea la sección ["Límites de recursos compartidos de Private Link"](search-limits-quotas-capacity.md#shared-private-link-resource-limits) de la documentación de límites de servicio.
 
 ### <a name="step-1-create-a-private-endpoint-to-the-secure-resource"></a>Paso 1: Creación de un punto de conexión privado al recurso seguro
 
@@ -129,16 +134,6 @@ Para permitir que los indexadores accedan a los recursos a través de conexiones
 
 Estos pasos se describen con más detalle en [Conexiones del indexador mediante un punto de conexión privado](search-indexer-howto-access-private.md).
 Una vez que tenga un punto de conexión privado aprobado a un recurso, los indexadores establecidos como *privados* intentarán acceder a través de la conexión de punto de conexión privado.
-
-### <a name="limits"></a>Límites
-
-Para garantizar un rendimiento y una estabilidad óptimos del servicio de búsqueda, se imponen restricciones (por nivel de servicio de búsqueda) sobre las dimensiones siguientes:
-
-- Los tipos de indexadores que se pueden establecer como *privados*.
-- El número de recursos de vínculo privado compartidos que se pueden crear.
-- El número de tipos de recursos distintos para los que se pueden crear recursos de vínculo privado compartidos.
-
-Estos límites se documentan en los [límites de servicio](search-limits-quotas-capacity.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

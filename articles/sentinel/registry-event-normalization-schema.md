@@ -1,28 +1,26 @@
 ---
-title: Referencia del esquema de normalización de eventos del Registro de Azure Sentinel | Microsoft Docs
-description: En este artículo, se describe el esquema de normalización de eventos del Registro de Azure Sentinel.
+title: Referencia del esquema de normalización de eventos del Registro de Microsoft Sentinel | Microsoft Docs
+description: En este artículo se describe el esquema de normalización de eventos del Registro de Microsoft Sentinel.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 07/01/2021
+ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: dd1a6b99c65d92b1a6a96a25790a8b780d73565f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 99892cb92bd2a7ac4ba854b96928707801ccd1aa
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131055205"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132712250"
 ---
-# <a name="azure-sentinel-registry-event-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de eventos del Registro de Azure Sentinel (versión preliminar pública)
+# <a name="microsoft-sentinel-registry-event-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de eventos del Registro de Microsoft Sentinel (versión preliminar pública)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -30,7 +28,7 @@ El esquema de eventos del Registro se usa para describir las actividades de crea
 
 Los eventos del Registro son específicos de los sistemas Windows, pero se notifican mediante distintos sistemas que supervisan Windows, como sistemas EDR (detección y respuesta de punto de conexión), Sysmon o el propio Windows.
 
-Para más información sobre la normalización en Azure Sentinel, consulte [Normalización en Azure Sentinel](normalization.md).
+Para obtener más información sobre la normalización en Microsoft Sentinel, vea [Normalización y modelo de información SIEM avanzado (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > El esquema de normalización de eventos del Registro está actualmente en versión preliminar. Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción.
@@ -40,7 +38,7 @@ Para más información sobre la normalización en Azure Sentinel, consulte [Norm
 
 ## <a name="parsers"></a>Analizadores
 
-Azure Sentinel proporciona los siguientes analizadores de eventos del Registro integrados específicos del producto:
+Microsoft Sentinel proporciona los siguientes analizadores de eventos del Registro integrados específicos del producto:
 
 - **Actualización del Registro de eventos de seguridad (evento 4657)** , recopilada mediante el agente de Log Analytics o el agente de Azure Monitor
 - **Eventos de supervisión del Registro de Sysmon (eventos 12, 13 y 14)** , recopilados mediante el agente de Log Analytics o el agente de Azure Monitor
@@ -48,7 +46,7 @@ Azure Sentinel proporciona los siguientes analizadores de eventos del Registro 
 
 Para usar el analizador independiente del origen que unifica todos los analizadores integrados y asegurarse de que el análisis se ejecuta en todos los orígenes configurados, use **imRegistry** como nombre de tabla en la consulta.
 
-Implemente los [analizadores independientes del origen y específicos del origen](normalization-about-parsers.md) desde el [repositorio de GitHub de Azure Sentinel](https://aka.ms/AzSentinelRegistry).
+Implemente los [analizadores independientes del origen y específicos del origen](normalization-about-parsers.md) desde el [repositorio de GitHub de Microsoft Sentinel](https://aka.ms/AzSentinelRegistry).
 
 ### <a name="add-your-own-normalized-parsers"></a>Adición de sus propios analizadores normalizados
 
@@ -58,9 +56,9 @@ Agregue las funciones KQL a los analizadores independientes del origen `imRegist
 
 ## <a name="normalized-content"></a>Contenido normalizado
 
-Azure Sentinel proporciona la consulta de búsqueda [Persisting Via IFEO Registry Key](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/PersistViaIFEORegistryKey.yaml) (Conservar a través de la clave del Registro IFEO). Esta consulta funciona en cualquier dato de actividad del Registro normalizado mediante el modelo de información de Azure Sentinel.
+Microsoft Sentinel proporciona la consulta de búsqueda [Persisting Via IFEO Registry Key](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/PersistViaIFEORegistryKey.yaml). Esta consulta funciona en cualquier dato de actividad del Registro normalizado mediante el modelo de información SIEM avanzado.
 
-Para más información, consulte [Búsqueda de amenazas con Azure Sentinel](hunting.md).
+Para obtener más información, vea [Búsqueda de amenazas con Microsoft Sentinel](hunting.md).
 
 ## <a name="schema-details"></a>Detalles del esquema
 
@@ -174,8 +172,8 @@ Los distintos orígenes representan tipos de valor del Registro mediante represe
 
 Para más información, consulte:
 
-- [Normalización en Azure Sentinel](normalization.md)
-- [Referencia del esquema de normalización de la autenticación de Azure Sentinel (versión preliminar pública)](authentication-normalization-schema.md)
-- [Referencia del esquema de normalización de DNS de Azure Sentinel](dns-normalization-schema.md)
-- [Referencia del esquema de normalización de eventos de archivo de Azure Sentinel (versión preliminar pública)](file-event-normalization-schema.md)
-- [Referencia del esquema de normalización de red de Azure Sentinel](./network-normalization-schema.md)
+- [Normalización en Microsoft Sentinel](normalization.md)
+- [Referencia del esquema de normalización de la autenticación de Microsoft Sentinel (versión preliminar pública)](authentication-normalization-schema.md)
+- [Referencia del esquema de normalización de DNS de Microsoft Sentinel](dns-normalization-schema.md)
+- [Referencia del esquema de normalización de eventos de archivo de Microsoft Sentinel (versión preliminar pública)](file-event-normalization-schema.md)
+- [Referencia del esquema de normalización de sesiones de red de Microsoft Sentinel](./network-normalization-schema.md)

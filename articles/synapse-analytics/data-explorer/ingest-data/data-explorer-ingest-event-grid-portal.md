@@ -9,12 +9,12 @@ ms.reviewer: tzgitlin
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.openlocfilehash: f6fc9858589e1a5ee940a8fc44e3eb462a30ce7c
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 2c472ae5950bc035612987c35e76291dc5c23f49
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478176"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132485666"
 ---
 # <a name="ingest-blobs-into-azure-synapse-data-explorer-by-subscribing-to-event-grid-notifications-preview"></a>Ingesta de blobs en el Explorador de datos de Azure Synapse mediante la suscripción a las notificaciones de Event Grid (versión preliminar)
 
@@ -103,7 +103,7 @@ Ahora, conecte la cuenta de almacenamiento al Explorador de datos para que los d
 1. Seleccione **Siguiente: Propiedades de ingesta**.
 
 > [!NOTE]
-> Se recomienda actualizar la cuenta de almacenamiento para que use identidades administradas en cuanto la opción esté disponible.
+> Se recomienda actualizar la conexión de datos para utilizar identidades administradas para acceder a la cuenta de almacenamiento en cuanto la opción esté disponible para el clúster.
 
 #### <a name="data-connection---ingest-properties-tab"></a>Conexión de datos: pestaña Propiedades de la ingesta
 
@@ -262,5 +262,5 @@ Si no planea usar volver a usar Event Grid, elimine la suscripción de Event Gri
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Análisis con el Explorador de datos](../../get-started-analyze-data-explorer.md)
-- [Supervisión de grupos del Explorador de datos](../data-explorer-monitor-pools.md)
+- [Análisis con Data Explorer](../../get-started-analyze-data-explorer.md)
+- [Supervisión de grupos de Data Explorer](../data-explorer-monitor-pools.md)

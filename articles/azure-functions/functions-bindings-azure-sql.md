@@ -3,18 +3,19 @@ title: Enlaces de Azure SQL para Functions
 description: Descubra cómo utilizar los enlaces de Azure SQL en Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.date: 11/9/2021
+ms.date: 11/12/2021
 ms.author: drskwier
-ms.openlocfilehash: 9cb9d7a404f7191a4683009657df515dce07f18b
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.reviewer: cachai
+ms.openlocfilehash: b5054da620e67c38b427c12956d73727bf23d519
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132350183"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715385"
 ---
-# <a name="azure-sql-bindings-for-azure-functions-overview"></a>Introducción a los enlaces de Azure SQL para Azure Functions
+# <a name="azure-sql-bindings-for-azure-functions-overview-preview"></a>Introducción a los enlaces de Azure SQL para Azure Functions (versión preliminar)
 
-En este conjunto de artículos se explica cómo trabajar con enlaces de [Azure SQL](/azure/azure-sql/) en Azure Functions. Azure Functions admite enlaces de entrada y salida para los productos Azure SQL y SQL Server.
+En este conjunto de artículos se explica cómo trabajar con enlaces de [Azure SQL](../azure-sql/index.yml) en Azure Functions. Azure Functions admite enlaces de entrada y salida para los productos Azure SQL y SQL Server.
 
 | Acción | Tipo |
 |---------|---------|
@@ -46,8 +47,8 @@ Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia
 
 ## <a name="known-issues"></a>Problemas conocidos
 
-- No se admiten enlaces de salida en tablas con columnas de tipos de datos `NTEXT`, `TEXT` o `IMAGE` y se producirá un error en las operaciones upsert de datos. Estos tipos [se quitarán](https://docs.microsoft.com/sql/t-sql/data-types/ntext-text-and-image-transact-sql) en una versión futura de SQL Server y no son compatibles con la función `OPENJSON` utilizada por este enlace de Azure Functions.
-- Actualmente no se admiten las [intercalaciones](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#Collation_Defn) que distinguen mayúsculas de minúsculas. EL [elemento de GitHub n.º 133](https://github.com/Azure/azure-functions-sql-extension/issues/133) realiza un seguimiento del progreso de este problema.
+- No se admiten enlaces de salida en tablas con columnas de tipos de datos `NTEXT`, `TEXT` o `IMAGE` y se producirá un error en las operaciones upsert de datos. Estos tipos [se quitarán](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) en una versión futura de SQL Server y no son compatibles con la función `OPENJSON` utilizada por este enlace de Azure Functions.
+- Actualmente no se admiten las [intercalaciones](/sql/relational-databases/collations/collation-and-unicode-support#Collation_Defn) que distinguen mayúsculas de minúsculas. EL [elemento de GitHub n.º 133](https://github.com/Azure/azure-functions-sql-extension/issues/133) realiza un seguimiento del progreso de este problema.
 
 
 ## <a name="open-source"></a>Código Abierto

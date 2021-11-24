@@ -1,51 +1,51 @@
 ---
-title: Conexión del origen de datos a Data Collector API de Azure Sentinel para ingerir datos | Microsoft Docs
-description: Obtenga información sobre cómo conectar sistemas externos a Data Collector API de Azure Sentinel para ingerir sus datos de registro en registros personalizados del área de trabajo.
+title: Conexión del origen de datos a Data Collector API de Microsoft Sentinel para ingerir datos | Microsoft Docs
+description: Obtenga información sobre cómo conectar sistemas externos a Data Collector API de Microsoft Sentinel para ingerir sus datos de registro en registros personalizados del área de trabajo.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ed50304d02026a9cb0eafc818116fcd32035488d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 439bdac80e5fef514a7de7e9617be42738c6c420
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131046971"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524538"
 ---
-# <a name="connect-your-data-source-to-the-azure-sentinel-data-collector-api-to-ingest-data"></a>Conexión del origen de datos a Data Collector API de Azure Sentinel para ingerir datos
+# <a name="connect-your-data-source-to-the-microsoft-sentinel-data-collector-api-to-ingest-data"></a>Conexión del origen de datos a Data Collector API de Microsoft Sentinel para ingerir datos
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-Las integraciones de API creadas por proveedores externos extraen datos de los orígenes de datos de sus productos y se conectan a [Data Collector API de Azure Monitor](../azure-monitor/logs/data-collector-api.md) para insertar los datos en tablas de registro personalizadas del área de trabajo de Azure Sentinel.
+Las integraciones de API creadas por proveedores externos extraen datos de los orígenes de datos de sus productos y se conectan a [Data Collector API de Azure Monitor](../azure-monitor/logs/data-collector-api.md) para insertar los datos en tablas de registro personalizadas del área de trabajo de Microsoft Sentinel.
 
-En su mayor parte, puede encontrar toda la información que necesita para configurar estos orígenes de datos para conectarse a Azure Sentinel en la documentación de cada proveedor.
+En su mayor parte, puede encontrar toda la información que necesita para configurar estos orígenes de datos para conectarse a Microsoft Sentinel en la documentación de cada proveedor.
 
 Compruebe la sección del producto en la página [Referencia de conectores de datos](data-connectors-reference.md) para obtener instrucciones adicionales que puedan aparecer allí y para ver los vínculos a las instrucciones del proveedor.
 
 > [!NOTE]
-> Los datos se almacenarán en la ubicación geográfica del área de trabajo en la que Azure Sentinel se ejecute.
+> Los datos se almacenan en la ubicación geográfica del área de trabajo en la que se ejecute Microsoft Sentinel.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Debe tener permisos de lectura y escritura en el área de trabajo de Azure Sentinel.
+- Debe tener permisos de lectura y escritura en el área de trabajo de Microsoft Sentinel.
 
 - Debe tener permisos de lectura para las claves compartidas del área de trabajo. [Obtenga más información sobre las claves del área de trabajo](../azure-monitor/agents/agent-windows.md).
 
 ## <a name="configure-and-connect-your-data-source"></a>Configuración y conexión del origen de datos
 
-1. En el portal de Azure Sentinel, seleccione **Conectores de datos** en el menú de navegación.
+1. En el portal de Microsoft Sentinel, seleccione **Conectores de datos** en el menú de navegación.
 
 1. Seleccione la entrada del producto en la galería de conectores de datos y, luego, seleccione el botón **Abrir página del conector**.
 
@@ -65,10 +65,10 @@ Los registros pueden tardar hasta 20 minutos en empezar a aparecer en Log Analy
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, ha aprendido a conectar orígenes de datos externos a Data Collector API de Azure Sentinel. Para sacar el máximo partido de las capacidades integradas en estos conectores de datos, seleccione la pestaña **Pasos siguientes** de la página del conector de datos. Allí encontrará algunas consultas de ejemplo, libros y plantillas de reglas de análisis predefinidos para que pueda empezar a buscar información útil.
+En este documento, ha aprendido a conectar orígenes de datos externos a Data Collector API de Microsoft Sentinel. Para sacar el máximo partido de las capacidades integradas en estos conectores de datos, seleccione la pestaña **Pasos siguientes** de la página del conector de datos. Allí encontrará algunas consultas de ejemplo, libros y plantillas de reglas de análisis predefinidos para que pueda empezar a buscar información útil.
 
-Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+Para obtener más información sobre Microsoft Sentinel, consulte los siguientes artículos:
 
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- Empiece a [detectar amenazas con Microsoft Sentinel](detect-threats-built-in.md).
 - [Use libros](monitor-your-data.md) para supervisar los datos.

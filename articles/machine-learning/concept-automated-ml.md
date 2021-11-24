@@ -10,18 +10,20 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 10/21/2021
 ms.custom: automl
-ms.openlocfilehash: a6aebd1f3ca403a787d2d6e6f2d1f4aa76882143
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 16d96eb508725e22bc1956a8b78d003f1512487b
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132312445"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518667"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>¿Qué es el aprendizaje automático automatizado (AutoML)?
 
 El aprendizaje automático automatizado, también denominado ML automatizado o AutoML, es el proceso de automatizar las tareas lentas e iterativas del desarrollo de modelos de Machine Learning. Permite que los desarrolladores, analistas y científicos de datos creen modelos de aprendizaje automático con un escalado, eficiencia y productividad altos, al mismo tiempo que mantiene la calidad del modelo. El aprendizaje automático de Azure Machine Learning se basa en una innovación de la [división Microsoft Research](https://www.microsoft.com/research/project/automl/).
 
 El desarrollo de modelos de Machine Learning tradicional consume muchos recursos, que requieren un conocimiento del dominio y tiempo significativos para generar y comparar docenas de modelos. Gracias al aprendizaje automático automatizado, reducirá el tiempo necesario para obtener modelos de aprendizaje automático listos para producción con gran eficiencia y facilidad.
+
+<a name="parity"></a>
 
 ## <a name="ways-to-use-automl-in-azure-machine-learning"></a>Formas de usar AutoML en Azure Machine Learning
 
@@ -32,10 +34,6 @@ Azure Machine Learning ofrece las dos experiencias siguientes para trabajar con 
 * Para clientes con poca experiencia en código o ninguna, Estudio de Azure Machine Learning en [https://ml.azure.com](https://ml.azure.com/).  Comience por estos tutoriales:
     * [Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
     *  [Tutorial: Previsión de la demanda con aprendizaje automático automatizado](tutorial-automated-ml-forecast.md)
-
-<a name="parity"></a>
-
-## <a name="automl-settings-and-configuration"></a>Valores y configuración de AutoML
 
 ### <a name="experiment-settings"></a>Configuración del experimento 
 
@@ -70,7 +68,7 @@ Estos valores se pueden aplicar al mejor modelo como resultado del experimento d
 |**Habilita los modelos del conjunto de votación y el conjunto de pila**| ✓|✓|
 |**Muestra el mejor modelo en función de una métrica que no es la principal**|✓||
 |**Habilita o deshabilita la compatibilidad con el modelo de ONNX**|✓||
-|**Prueba del modelo** | ✓| |
+|**Prueba del modelo** | ✓| ✓ (vista previa)|
 
 ### <a name="run-control-settings"></a>Ejecuta la configuración de un control
 
@@ -186,9 +184,65 @@ También puede inspeccionar la información de ejecución registrada, que [conti
 
 Aunque se automatiza la creación del modelo, también puede [conocer las características importantes o pertinentes](how-to-configure-auto-train.md#explain) de los modelos generados.
 
-
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
+<a name="local-remote"></a>
+
+## <a name="guidance-on-local-vs-remote-managed-ml-compute-targets"></a>Guía sobre los destinos de proceso de ML administrados de forma local o remota
+
+La interfaz web siempre usa para el aprendizaje automático automatizado un [destino de proceso](concept-compute-target.md) remoto.  Pero cuando use el SDK de Python, elegirá un destino de proceso o bien local o remoto para el entrenamiento de ML automatizado.
+
+* **Proceso local**: el entrenamiento se produce en el proceso del equipo portátil o máquina virtual local. 
+* **Proceso remoto**: el entrenamiento se produce en los clústeres de proceso de Machine Learning.  
+
+### <a name="choose-compute-target"></a>Selección del destino de proceso
+Tenga en cuenta estos factores al elegir el destino de proceso:
+
+ * **Elija un proceso local**: si su escenario es de exploraciones iniciales o demostraciones con datos reducidos y entrenamientos cortos (es decir, segundos o un par de minutos por cada ejecución secundaria), el entrenamiento en el equipo local puede ser la mejor opción.  No hay tiempo de instalación y los recursos de infraestructura (su equipo o máquina virtual) están disponibles directamente.
+ * **Elija un clúster de proceso de ML remoto**: si va a realizar un entrenamiento con conjuntos de datos de mayor tamaño, como en los entrenamientos de producción con la creación de modelos que necesiten entrenamientos más largos, el proceso remoto proporciona un rendimiento de tiempo de extremo a extremo mucho mejor, ya que `AutoML` pondrá en paralelo los entrenamientos en los nodos del clúster. En un proceso remoto, el tiempo de inicio para la infraestructura interna agregará alrededor de 1,5 minutos por ejecución secundaria, además de minutos adicionales para la infraestructura de clústeres si las máquinas virtuales todavía no están en funcionamiento.
+
+### <a name="pros-and-cons"></a>Ventajas y desventajas
+Cuando elija entre local y remoto tenga en cuenta estas ventajas y desventajas.
+
+|  | Ventajas (a favor)  |Desventajas (en contra)  |
+|---------|---------|---------|---------|
+|**Destino de proceso local** |  <li> No hay tiempo de inicio del entorno   | <li>  Subconjunto de características<li>  No se pueden realizar ejecuciones en paralelo <li> Peor para datos de gran tamaño <li>Sin streaming de datos durante el entrenamiento <li>  No hay características basadas en DNN <li> Solo SDK de Python |
+|**Clústeres de proceso de ML remotos**|  <li> Conjunto completo de características <li> Realización de ejecuciones secundarias en paralelo <li>   Compatibilidad con datos de gran tamaño<li>  Características basadas en DNN <li>  Escalabilidad dinámica del clúster de proceso a petición <li> Sin experiencia de código (interfaz de usuario web) también disponible  |  <li> Tiempo de inicio de los nodos de clúster <li> Tiempo de inicio para cada ejecución secundaria    |
+
+### <a name="feature-availability"></a>Disponibilidad de características 
+
+Hay más características disponibles cuando se usa el proceso remoto, tal como se muestra en la tabla siguiente. 
+
+| Característica                                                    | Remote | Local | 
+|------------------------------------------------------------|--------|-------|
+| Streaming de datos (compatibilidad con datos de gran tamaño, hasta 100 GB)          | ✓      |       | 
+| Características de texto y entrenamiento basados en DNN-BERT             | ✓      |       |
+| Compatibilidad de GPU integrada (entrenamiento e inferencia)        | ✓      |       |
+| Compatibilidad con la clasificación y etiquetado de imágenes                  | ✓      |       |
+| Modelos Auto-ARIMA, Prophet y ForecastTCN para la previsión | ✓      |       | 
+| Varias ejecuciones/iteraciones en paralelo                       | ✓      |       |
+| Creación de modelos con la funcionalidad de interpretación en la interfaz de usuario de la experiencia web de AutoML Studio      | ✓      |       |
+| Personalización de ingeniería de características en la interfaz de usuario de la experiencia web de Studio| ✓      |       |
+| Ajuste de hiperparámetros de Azure ML                             | ✓      |       |
+| Compatibilidad con el flujo de trabajo de canalización de Azure ML                         | ✓      |       |
+| Continuación de una ejecución                                             | ✓      |       |
+| Previsión                                                | ✓      | ✓     |
+| Creación y ejecución de experimentos en cuadernos                    | ✓      | ✓     |
+| Registro y visualización de la información y las métricas del experimento en la interfaz de usuario | ✓      | ✓     |
+| Límites de protección de datos                                            | ✓      | ✓     |
+
+## <a name="training-validation-and-test-data"></a>Datos de entrenamiento, validación y prueba 
+
+Con la ML proporciona los **datos de entrenamiento** para entrenar ML modelos y puede especificar qué tipo de validación de modelos se va a realizar. El ML automatizado realiza la validación del modelo como parte del entrenamiento. Es decir, el ML automatizado utiliza **datos de validación** para optimizar los hiperparámetros del modelo en función del algoritmo aplicado para encontrar la mejor combinación que mejor se adapte a los datos de entrenamiento. Sin embargo, se usan los mismos datos de validación para cada iteración de optimización, lo que introduce el sesgo de evaluación del modelo, ya que el modelo sigue mejorando y ajustando los datos de validación. 
+
+Para ayudar a confirmar que este sesgo no se aplica al modelo recomendado final, el ML automatizado admite el uso de **datos de prueba** para evaluar el modelo final que el ML automatizado recomienda al final del experimento. Cuando se proporcionan datos de prueba como parte de la configuración del experimento de AutoML, este modelo recomendado se prueba de forma predeterminada al final del experimento (versión preliminar). 
+
+>[!IMPORTANT]
+> La característica para probar modelos con un conjunto de datos de prueba con el fin de evaluar los modelos generados es una característica en vista previa. Esta funcionalidad es una característica [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) en versión preliminar y puede cambiar en cualquier momento.
+
+Aprenda a [configurar experimentos de AutoML para usar datos de prueba (versión preliminar) con el SDK](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview) o con [Estudio de Azure Machine Learning](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
+
+También puede [probar cualquier modelo de ML automatizado existente (versión preliminar)](how-to-configure-auto-train.md#test-existing-automated-ml-model), incluidos los modelos de ejecuciones secundarias, proporcionando sus propios datos de prueba o reservando una parte de los datos de entrenamiento. 
 
 ## <a name="feature-engineering"></a>Ingeniería de características
 
@@ -233,51 +287,6 @@ El aprendizaje automático automatizado admite modelos de conjunto, que están h
 El [algoritmo de selección de conjunto de Caruana](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) con inicialización de conjunto ordenado se utiliza para decidir qué modelos se van a utilizar en el conjunto. En un nivel alto, este algoritmo inicializa el conjunto con hasta cinco modelos con las mejores puntuaciones individuales y comprueba que estos modelos se encuentran en un umbral del 5 % de la mejor puntuación para evitar un conjunto inicial deficiente. A continuación, para cada iteración de conjunto, se agrega un nuevo modelo al conjunto existente y se calcula la puntuación resultante. Si un nuevo modelo ha mejorado la puntuación de conjunto existente, el conjunto se actualiza para incluir el nuevo modelo.
 
 Consulte el [procedimiento](how-to-configure-auto-train.md#ensemble) para cambiar la configuración del conjunto predeterminado en el aprendizaje automático automatizado.
-
-## <a name="guidance-on-local-vs-remote-managed-ml-compute-targets"></a><a name="local-remote"></a>Guía sobre los destinos de proceso de ML administrados de forma local o remota
-
-La interfaz web siempre usa para el aprendizaje automático automatizado un [destino de proceso](concept-compute-target.md) remoto.  Pero cuando use el SDK de Python, elegirá un destino de proceso o bien local o remoto para el entrenamiento de ML automatizado.
-
-* **Proceso local**: el entrenamiento se produce en el proceso del equipo portátil o máquina virtual local. 
-* **Proceso remoto**: el entrenamiento se produce en los clústeres de proceso de Machine Learning.  
-
-### <a name="choose-compute-target"></a>Selección del destino de proceso
-Tenga en cuenta estos factores al elegir el destino de proceso:
-
- * **Elija un proceso local**: si su escenario es de exploraciones iniciales o demostraciones con datos reducidos y entrenamientos cortos (es decir, segundos o un par de minutos por cada ejecución secundaria), el entrenamiento en el equipo local puede ser la mejor opción.  No hay tiempo de instalación y los recursos de infraestructura (su equipo o máquina virtual) están disponibles directamente.
- * **Elija un clúster de proceso de ML remoto**: si va a realizar un entrenamiento con conjuntos de datos de mayor tamaño, como en los entrenamientos de producción con la creación de modelos que necesiten entrenamientos más largos, el proceso remoto proporciona un rendimiento de tiempo de extremo a extremo mucho mejor, ya que `AutoML` pondrá en paralelo los entrenamientos en los nodos del clúster. En un proceso remoto, el tiempo de inicio para la infraestructura interna agregará alrededor de 1,5 minutos por ejecución secundaria, además de minutos adicionales para la infraestructura de clústeres si las máquinas virtuales todavía no están en funcionamiento.
-
-### <a name="pros-and-cons"></a>Ventajas y desventajas
-Cuando elija entre local y remoto tenga en cuenta estas ventajas y desventajas.
-
-|  | Ventajas (a favor)  |Desventajas (en contra)  |
-|---------|---------|---------|
-|**Destino de proceso local** |  <li> No hay tiempo de inicio del entorno   | <li>  Subconjunto de características<li>  No se pueden realizar ejecuciones en paralelo <li> Peor para datos de gran tamaño <li>Sin streaming de datos durante el entrenamiento <li>  No hay características basadas en DNN <li> Solo SDK de Python |
-|**Clústeres de proceso de ML remotos**|  <li> Conjunto completo de características <li> Realización de ejecuciones secundarias en paralelo <li>   Compatibilidad con datos de gran tamaño<li>  Características basadas en DNN <li>  Escalabilidad dinámica del clúster de proceso a petición <li> Sin experiencia de código (interfaz de usuario web) también disponible  |  <li> Tiempo de inicio de los nodos de clúster <li> Tiempo de inicio para cada ejecución secundaria    |
-
-### <a name="feature-availability"></a>Disponibilidad de características 
-
-Hay más características disponibles cuando se usa el proceso remoto, tal como se muestra en la tabla siguiente. 
-
-| Característica                                                    | Remote | Local | 
-|------------------------------------------------------------|--------|-------|
-| Streaming de datos (compatibilidad con datos de gran tamaño, hasta 100 GB)          | ✓      |       | 
-| Características de texto y entrenamiento basados en DNN-BERT             | ✓      |       |
-| Compatibilidad de GPU integrada (entrenamiento e inferencia)        | ✓      |       |
-| Compatibilidad con el etiquetado y la clasificación de imágenes (versión preliminar)        | ✓      |       |
-| Modelos Auto-ARIMA, Prophet y ForecastTCN para la previsión | ✓      |       | 
-| Varias ejecuciones/iteraciones en paralelo                       | ✓      |       |
-| Creación de modelos con la funcionalidad de interpretación en la interfaz de usuario de la experiencia web de AutoML Studio      | ✓      |       |
-| Personalización de ingeniería de características en la interfaz de usuario de la experiencia web de Studio| ✓      |       |
-| Ajuste de hiperparámetros de Azure ML                             | ✓      |       |
-| Compatibilidad con el flujo de trabajo de canalización de Azure ML                         | ✓      |       |
-| Continuación de una ejecución                                             | ✓      |       |
-| Previsión                                                | ✓      | ✓     |
-| Computer Vision (versión preliminar)                                  | ✓      |       |
-| Creación y ejecución de experimentos en cuadernos                    | ✓      | ✓     |
-| Registro y visualización de la información y las métricas del experimento en la interfaz de usuario | ✓      | ✓     |
-| Límites de protección de datos                                            | ✓      | ✓     |
-
 
 <a name="use-with-onnx"></a>
 

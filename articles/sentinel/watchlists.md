@@ -1,27 +1,27 @@
 ---
-title: Uso de listas de seguimiento de Azure Sentinel
-description: En este artículo se describe cómo usar listas de seguimiento de Azure Sentinel para crear listas de permitidos o de bloqueados, enriquecer datos de eventos y ayudar a investigar amenazas.
+title: Uso de listas de seguimiento de Microsoft Sentinel
+description: En este artículo se describe cómo usar listas de seguimiento de Microsoft Sentinel para crear listas de permitidos o de bloqueados, enriquecer datos de eventos y ayudar a investigar amenazas.
 services: sentinel
 author: yelevin
 ms.author: yelevin
 ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.date: 07/11/2021
-ms.openlocfilehash: ef2afe833af9d5beb1351c6306493e5aed55f907
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/09/2021
+ms.openlocfilehash: 54fd6bb3b1d2c937364db4f1883f0919342e116d
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131083828"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522087"
 ---
-# <a name="use-azure-sentinel-watchlists"></a>Uso de listas de seguimiento de Azure Sentinel
+# <a name="use-microsoft-sentinel-watchlists"></a>Uso de listas de seguimiento de Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Las listas de seguimiento de Azure Sentinel permiten la recopilación de datos de orígenes de datos externos para la correlación con los eventos en el entorno de Azure Sentinel. Una vez que crea las listas de seguimiento, puede usarlas búsquedas, reglas de detección, búsqueda de amenazas y cuaderno de estrategias de respuesta. Las listas de seguimiento se almacenan en el área de trabajo de Azure Sentinel como pares de nombre-valor, y se almacenan en caché para obtener un rendimiento óptimo de las consultas y una baja latencia.
+Las listas de seguimiento de Microsoft Sentinel permiten la recopilación de datos de orígenes de datos externos para la correlación con los eventos en el entorno de Microsoft Sentinel. Una vez que crea las listas de seguimiento, puede usarlas búsquedas, reglas de detección, búsqueda de amenazas y cuaderno de estrategias de respuesta. Las listas de seguimiento se almacenan en el área de trabajo de Microsoft Sentinel como pares de nombre-valor y se almacenan en caché para obtener un rendimiento óptimo de las consultas y una baja latencia.
 
 > [!IMPORTANT]
 > Actualmente, las características indicadas están en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
@@ -46,7 +46,7 @@ Algunos escenarios habituales para usar listas de seguimiento son:
 
 ## <a name="create-a-new-watchlist"></a>Creación de una nueva lista de seguimiento
 
-1. En Azure Portal, vaya a **Azure Sentinel** > **Configuración** > **Lista de reproducción** y, a continuación, seleccione **+Agregar nuevo**.
+1. En Azure Portal, vaya a **Microsoft Sentinel** > **Configuración** > **Lista de reproducción** y seleccione **+ Agregar nuevo**.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-new.png" alt-text="nueva lista de seguimiento" lightbox="./media/watchlists/sentinel-watchlist-new.png":::
 
@@ -81,7 +81,7 @@ Algunos escenarios habituales para usar listas de seguimiento son:
 
 ## <a name="create-a-new-watchlist-using-a-template-public-preview"></a>Creación de una lista de seguimiento usando una plantilla (versión preliminar pública)
 
-1. En Azure Portal, vaya a **Azure Sentinel** > **Configuración** > **Lista de seguimiento** > **Plantillas (versión preliminar)** .
+1. En Azure Portal, vaya a **Microsoft Sentinel** > **Configuración** > **Lista de reproducción** > **Plantillas (versión preliminar)** .
 
 1. Seleccione una plantilla de la lista para ver los detalles a la derecha. A continuación, seleccione **Crear a partir de la plantilla** para crear la lista de seguimiento.
 
@@ -89,7 +89,7 @@ Algunos escenarios habituales para usar listas de seguimiento son:
 
 1. Continúe en el **Asistente para lista de seguimiento**:
 
-    - Cuando use una plantilla de lista de seguimiento, los campos **Nombre**, **Descripción** y **Alias de lista de seguimiento** de la lista son de solo lectura.
+    - Cuando use una plantilla de la lista de reproducción, los campos **Nombre**, **Descripción** y **Alias de la lista de control** de la lista son de solo lectura.
 
     - Seleccione **Descargar esquema** para descargar un archivo CSV que contenga el esquema pertinente esperado para la plantilla de lista de seguimiento seleccionada.
 
@@ -104,7 +104,7 @@ Algunos escenarios habituales para usar listas de seguimiento son:
 > [!TIP]
 > Para obtener un rendimiento óptimo de las consultas, use **SearchKey** (que representa el campo que definió al crear la lista de reproducción) como clave para las combinaciones en las consultas. Observe el ejemplo siguiente.
 
-1. En Azure Portal, vaya a **Azure Sentinel** > **Configuration** > **Watchlist** (Lista de seguimiento), seleccione la lista de seguimiento que quiere usar y, a continuación, seleccione **Ver en Log Analytics**.
+1. En Azure Portal, vaya a **Microsoft Sentinel** > **Configuración** > **Lista de reproducción**, seleccione la lista de reproducción que quiera utilizar y, después, **Ver en Log Analytics**.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-list.png" alt-text="uso de listas de seguimiento en consultas" lightbox="./media/watchlists/sentinel-watchlist-queries-list.png" :::
 
@@ -129,7 +129,7 @@ Algunos escenarios habituales para usar listas de seguimiento son:
 > [!TIP]
 > Para obtener un rendimiento óptimo de las consultas, use **SearchKey** (que representa el campo que definió al crear la lista de seguimiento) como clave para las combinaciones en las consultas. Observe el ejemplo siguiente.
 
-Para usar listas de seguimiento en reglas de análisis, desde el Azure Portal, vaya a **Azure Sentinel** > **Configuración** > **Análisis** y cree una regla con la función `_GetWatchlist('<watchlist>')` en la consulta.
+Para usar las listas de reproducción en reglas de análisis, desde Azure Portal, vaya a **Microsoft Sentinel** > **Configuración** > **Análisis** y cree una regla con la función `_GetWatchlist('<watchlist>')` en la consulta.
 
 1. En este ejemplo, cree una lista de reproducción denominada "ipwatchlist" con los valores siguientes:
 
@@ -159,15 +159,15 @@ Para usar listas de seguimiento en reglas de análisis, desde el Azure Portal, v
 
 ## <a name="view-list-of-watchlists-aliases"></a>Visualización de la lista de alias de listas de seguimiento
 
-Para obtener una lista de los alias de las listas de seguimiento, en Azure Portal, vaya a **Azure Sentinel** > **General** > **Registros** y ejecute la consulta siguiente: `_GetWatchlistAlias`. Puede ver la lista de alias en la pestaña **Resultados**.
+Para obtener una lista de los alias de las listas de reproducción, en Azure Portal, vaya a **Microsoft Sentinel** > **General** > **Registros** y ejecute la consulta siguiente: `_GetWatchlistAlias`. Puede ver la lista de alias en la pestaña **Resultados**.
 
    :::image type="content" source="./media/watchlists/sentinel-watchlist-alias.png" alt-text="enumeración de listas de seguimiento" lightbox="./media/watchlists/sentinel-watchlist-alias.png":::
 
-## <a name="manage-your-watchlist-in-the-azure-sentinel-portal"></a>Administración de una lista de seguimiento en el portal de Azure Sentinel
+## <a name="manage-your-watchlist-in-the-microsoft-sentinel-portal"></a>Administración de una lista de reproducción en el portal de Microsoft Sentinel
 
-También puede ver, editar y crear elementos de listas de seguimiento directamente desde la hoja "Lista de seguimiento" del portal de Azure Sentinel.
+También puede ver, editar y crear elementos de las listas de reproducción directamente desde la hoja Lista de reproducción del portal de Microsoft Sentinel.
 
-1. Para editar su lista de seguimiento, vaya a **Azure Sentinel > Configuración > Lista de seguimiento** y seleccione la lista que quiera editar. A continuación, seleccione **Editar elementos de la lista de seguimiento** en el panel de detalles.
+1. Para editar su lista de reproducción, vaya a **Microsoft Sentinel > Configuración > Lista de reproducción** y seleccione la lista que quiera editar. A continuación, seleccione **Editar elementos de la lista de reproducción** en el panel de detalles.
 
    :::image type="content" source="./media/watchlists/sentinel-watchlist-edit.png" alt-text="Captura de pantalla en la que se muestra cómo editar una lista de seguimiento" lightbox="./media/watchlists/sentinel-watchlist-edit.png":::
 
@@ -182,7 +182,7 @@ También puede ver, editar y crear elementos de listas de seguimiento directamen
    :::image type="content" source="./media/watchlists/sentinel-watchlist-edit-add.png" alt-text="Captura de pantalla en la que se muestra cómo agregar un nuevo elemento a la lista de seguimiento":::
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, aprendió a usar las listas de seguimiento en Azure Sentinel para enriquecer los datos y mejorar las investigaciones. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+En este documento, ha aprendido a utilizar las listas de reproducción en Microsoft Sentinel para enriquecer los datos y mejorar las investigaciones. Para más información sobre Microsoft Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](./detect-threats-built-in.md).
+- Empiece a [detectar amenazas con Microsoft Sentinel](./detect-threats-built-in.md).
 - [Use libros](monitor-your-data.md) para supervisar los datos.

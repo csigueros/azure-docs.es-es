@@ -1,31 +1,29 @@
 ---
 title: Asignación de campos de clave y de campo CommonSecurityLog de Common Event Format (CEF)
-description: En este artículo se asignan las claves de CEF a los nombres de campo correspondientes en CommonSecurityLog en Azure Sentinel.
+description: En este artículo se asignan las claves de CEF a los nombres de campo correspondientes en CommonSecurityLog en Microsoft Sentinel.
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: reference
-ms.date: 07/26/2021
+ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ee4aec218ba3969b54531f6f025b84b4909f6b85
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2da00d947a76872ee940a7fb9e700647b456acf6
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131064551"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716095"
 ---
 # <a name="cef-and-commonsecuritylog-field-mapping"></a>Asignación de campos de CEF y CommonSecurityLog
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-En las tablas siguientes se asignan nombres de campo de Common Event Format (CEF) a los nombres que usan en el CommonSecurityLog de Azure Sentinel y pueden resultar útiles cuando se trabaja con un origen de datos de CEF en Azure Sentinel.
+En las tablas siguientes se asignan nombres de campo de Common Event Format (CEF) a los nombres que usan en el CommonSecurityLog de Microsoft Sentinel y pueden resultar útiles cuando se trabaja con un origen de datos de CEF en Microsoft Sentinel.
 
 Para obtener más información, consulte [Conexión de la solución externa con el formato de evento común](connect-common-event-format.md).
 
 > [!NOTE]
-> Se requiere un área de trabajo de Azure Sentinel para [ingerir datos CEF](connect-common-event-format.md#prerequisites) en Log Analytics.
+> Se requiere un área de trabajo de Microsoft Sentinel para [ingerir datos CEF](connect-common-event-format.md#prerequisites) en Log Analytics.
 >
 
 ## <a name="a---c"></a>A - C
@@ -239,7 +237,7 @@ En la tabla siguiente se asigna la clave CEF y los nombres de CommonSecurityLog 
 
 ## <a name="enrichment-fields"></a>Campos de enriquecimiento
 
-Los siguientes campos **commonSecurityLog** se agregan mediante Azure Sentinel para enriquecer los eventos originales recibidos de los dispositivos de origen, y no tienen asignaciones en las claves CEF:
+Los siguientes campos **commonSecurityLog** se agregan mediante Microsoft Sentinel para enriquecer los eventos originales recibidos de los dispositivos de origen, y no tienen asignaciones en las claves CEF:
 
 ### <a name="threat-intelligence-fields"></a>Campos de inteligencia sobre amenazas
 

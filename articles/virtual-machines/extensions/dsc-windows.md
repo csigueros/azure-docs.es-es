@@ -8,18 +8,21 @@ author: bobbytreed
 ms.author: robreed
 ms.collection: windows
 ms.date: 03/26/2018
-ms.openlocfilehash: a782d94b40be7fb07009f46cc69883cc529d91c6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 9bd77230e742f4874fde81fa0ab1e4c1a83ba6d5
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110081521"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488798"
 ---
 # <a name="powershell-dsc-extension"></a>Extensión DSC de PowerShell
 
 ## <a name="overview"></a>Información general
 
 Microsoft, como editor de la extensión DSC de PowerShell, es quien presta los servicios de soporte técnico para esta solución. La extensión carga y aplica una configuración de DSC de PowerShell en una máquina virtual de Azure. La extensión DSC llama a DSC de PowerShell para aplicar la configuración de DSC recibida en la máquina virtual. En este documento se especifican las plataformas compatibles, configuraciones y opciones de implementación de la extensión de máquina virtual de DSC para Windows.
+
+> [!NOTE]
+> Antes de habilitar la extensión DSC, debe saber que ahora hay una versión más reciente de DSC en versión preliminar, administrada mediante una característica de Azure Policy de nombre [configuración de invitado](../../governance/policy/concepts/guest-configuration.md). La característica de configuración de invitado combina características de la extensión Desired State Configuration (DSC), Azure Automation State Configuration y las características que más solicitan los clientes en sus comentarios. La configuración de invitado también incluye la compatibilidad con máquinas híbridas a través de [servidores habilitados para Arc](../../azure-arc/servers/overview.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

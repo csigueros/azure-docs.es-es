@@ -8,15 +8,15 @@ ms.subservice: automl
 ms.author: nibaccam
 author: cartacioS
 ms.reviewer: nibaccam
-ms.date: 10/21/2021
+ms.date: 11/15/2021
 ms.topic: how-to
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: d7bf32faabd6b0a9d2037ad5599a5b2cceb70053
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: d4c4188a04db444a153577ead82d79f32c9b137d
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131556262"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518260"
 ---
 # <a name="set-up-no-code-automl-training-with-the-studio-ui"></a>Configuración del entrenamiento de AutoML sin código con la interfaz de usuario de Estudio 
 
@@ -28,7 +28,7 @@ Para obtener un ejemplo completo, pruebe el [Tutorial: Aprendizaje automático a
 
 Si prefiere una experiencia basada en código de Python, [configure sus experimentos de aprendizaje automático automatizado](how-to-configure-auto-train.md) con el SDK de Azure Machine Learning.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 
@@ -122,7 +122,6 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
     
         Si el aprendizaje profundo está habilitado, la validación se limita a _train_validation split_. [Obtenga más información sobre las opciones de validación](how-to-configure-cross-validation-data-splits.md).
 
-
     1. Para la **previsión**, puede: 
     
         1. Habilitar el aprendizaje profundo.
@@ -139,13 +138,32 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
     Explicación del mejor modelo | Seleccione esta opción para habilitar o deshabilitar la visualización de explicaciones del mejor modelo recomendado. <br> Esta funcionalidad no está disponible actualmente para [algunos algoritmos de previsión](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
     Blocked algorithms (Algoritmos bloqueados)| Seleccione los algoritmos que desea excluir del trabajo de entrenamiento. <br><br> La opción para permitir los algoritmos solo está disponible para los [experimentos de SDK](how-to-configure-auto-train.md#supported-models). <br> Vea los [modelos admitidos para cada tipo de tarea](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
     Criterios de exclusión| Cuando se cumple alguno de estos criterios, se detiene el trabajo de entrenamiento. <br> *Tiempo de trabajo de entrenamiento (horas)* : cantidad de tiempo para permitir que el trabajo de entrenamiento se ejecute. <br> *Metric score threshold* (Umbral de puntuación de métrica):  puntuación mínima de métrica para todas las canalizaciones. Esto garantiza que si tiene una métrica objetivo definida que desee alcanzar, no dedicará más tiempo en el trabajo de entrenamiento que el necesario.
-    Validación| Seleccione una de las opciones de validación cruzada en el trabajo de entrenamiento. <br> [Más información sobre la validación cruzada](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>La previsión solo admite la validación cruzada de k iteraciones.
     Simultaneidad| *Número máximo de iteraciones simultáneas*: número máximo de canalizaciones (iteraciones) para probar en el trabajo de entrenamiento. El trabajo no ejecutará más iteraciones que el número especificado de ellas. Más información sobre el modo en que el aprendizaje automático automatizado realiza [múltiples ejecuciones secundarias en los clústeres](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
 
 1. (Opcional) Consulte la configuración de caracterización: Si decide habilitar **Caracterización automática** en el formulario **Ver configuración de caracterización**, se aplican las técnicas de caracterización predeterminadas. En **Ver configuración de caracterización** puede cambiar estos valores predeterminados y personalizarlos según corresponda. Obtenga información sobre cómo [personalizar las caracterizaciones](#customize-featurization). 
 
     ![Captura de pantalla que muestra el cuadro de diálogo Select task type (Seleccionar tipo de tarea) con la opción View featurization settings (Ver configuración de caracterización) seleccionada.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
+
+1. Con el formulario **[Opcional] Validar y probar** puede hacer lo siguiente: 
+
+    1. Especificar el tipo de validación que se usará para el trabajo de entrenamiento. [Más información sobre la validación cruzada](how-to-configure-cross-validation-data-splits.md#prerequisites). 
+    
+        1. La previsión de tareas solo admite la validación cruzada de k iteraciones.
+    
+    1. Proporcionar un conjunto de datos de prueba (versión preliminar) para evaluar el modelo recomendado que el aprendizaje automático automatizado genera automáticamente al final del experimento. Cuando se proporcionan datos de prueba, se desencadena automáticamente una serie de pruebas al final del experimento. Esta serie solo se ejecuta en el mejor modelo recomendado por el aprendizaje automático automatizado. Obtenga información sobre cómo obtener los [resultados de la serie de pruebas remotas](#view-remote-test-run-results-preview).
+    
+        >[!IMPORTANT]
+        > La característica para proporcionar un conjunto de datos de prueba con el fin de evaluar los modelos generados está en versión preliminar. Esta funcionalidad es una característica [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) en versión preliminar y puede cambiar en cualquier momento.
+
+        1. Los datos de prueba se consideran algo independiente del entrenamiento y la validación, con el fin de no sesgar los resultados de la serie de pruebas del modelo recomendado. [Obtenga más información sobre el sesgo durante la validación del modelo](concept-automated-ml.md#training-validation-and-test-data).
+        1. Puede proporcionar su propio conjunto de datos de prueba u optar por usar un porcentaje de su conjunto de datos de entrenamiento.          
+        1. El esquema del conjunto de datos de prueba debe coincidir con el conjunto de datos de entrenamiento. La columna de destino es opcional, pero, si no se indica, no se calcula ninguna métrica de prueba.
+        1. El conjunto de datos de prueba no debe ser el mismo que el conjunto de datos de entrenamiento o de validación.
+        1. La previsión de ejecuciones no admite la división entre entrenamiento y pruebas.
+        
+        ![Captura de pantalla en la que se muestra el formulario donde se seleccionan los datos de validación y de prueba](media/how-to-use-automated-ml-for-ml-models/validate-test-form.png)
+        
 ## <a name="customize-featurization"></a>Personalización de la caracterización
 
 En el formulario **Caracterización**, puede habilitar o deshabilitar la caracterización automática y personalizar la configuración de caracterización automática para su experimento. Para abrir este formulario, consulte el paso 10 de la sección [Creación y ejecución de un experimento](#create-and-run-experiment). 
@@ -192,11 +210,48 @@ En la pestaña Transformación de datos, puede ver un diagrama del preprocesamie
 
 ![Transformación de datos](./media/how-to-use-automated-ml-for-ml-models/data-transformation.png)
 
+## <a name="view-remote-test-run-results-preview"></a>Visualización de los resultados de la serie de pruebas remotas (versión preliminar)
+
+Si ha especificado un conjunto de datos de prueba o ha optado por una división entre entrenamiento y prueba durante la configuración del experimento —en el formulario **Validar y probar**—, el aprendizaje automático automatizado prueba automáticamente el modelo recomendado de manera predeterminada. Como resultado, el aprendizaje automático automatizado calcula las métricas de prueba para determinar la calidad del modelo recomendado y sus predicciones. 
+
+>[!IMPORTANT]
+> La característica para probar modelos con un conjunto de datos de prueba con el fin de evaluar los modelos generados está en versión preliminar. Esta funcionalidad es una característica [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) en versión preliminar y puede cambiar en cualquier momento.
+
+Para ver las métricas de la serie de pruebas del modelo recomendado, haga lo siguiente:
+ 
+1. Vaya a la página **Modelos** y seleccione el mejor modelo. 
+1. Seleccione la pestaña **Resultados de la prueba (versión preliminar)** . 
+1. Seleccione la serie que desee y consulte la pestaña **Métricas**.  ![Pestaña "Resultados de la prueba" del modelo recomendado que se ha probado automáticamente](./media/how-to-use-automated-ml-for-ml-models/test-best-model-results.png)
+    
+Para ver las predicciones de prueba usadas para calcular las métricas de prueba, haga lo siguiente: 
+
+1. Vaya a la parte inferior de la página y seleccione el vínculo de **Conjunto de datos de salidas** para abrir el conjunto de datos. 
+1. En la página **Conjuntos de datos**, seleccione la pestaña **Explorar** para ver las predicciones de la serie de pruebas.
+    1. El archivo de predicción también se puede ver o descargar desde la pestaña **Salidas y registros**. Expanda la carpeta **Predicciones** para localizar el archivo `predicted.csv`.
+
+El archivo de predicción también se puede ver o descargar desde la pestaña "Salidas y registros". Expanda la carpeta "Predicciones" para localizar el archivo "predictions.csv".
+
+## <a name="test-an-existing-automated-ml-model-preview"></a>Prueba de un modelo de aprendizaje automático automatizado ya existente (versión preliminar)
+
+Una vez completado el experimento, puede probar los modelos que el aprendizaje automático automatizado genera por usted. Si desea probar otro modelo generado por el aprendizaje automático automatizado que no sea el recomendado, puede hacerlo mediante los siguientes pasos: 
+
+1. Seleccione una serie de experimento de aprendizaje automático automatizado ya existente.  
+1. Vaya a la pestaña **Modelos** de la serie y seleccione el modelo completado que quiera probar.
+1. En la página **Detalles** del modelo, seleccione el botón **Modelo de prueba (versión preliminar)** para abrir el panel **Modelo de prueba**.
+1. En el panel **Modelo de prueba**, seleccione el clúster de proceso y el conjunto de datos de prueba que quiera usar para la serie de pruebas. 
+1. Seleccione el botón **Probar**. El esquema del conjunto de datos de prueba debe coincidir con el conjunto de datos de entrenamiento, pero la **columna de destino** es opcional.
+1. Una vez que se cree la serie de pruebas del modelo, en la página **Detalles** se mostrará el mensaje correspondiente. Seleccione la pestaña **Resultados de la prueba** para ver el progreso de la serie.
+
+1. Para ver los resultados de la serie de pruebas, abra la página **Detalles** y siga los pasos descritos en la sección [Visualización de los resultados de la serie de pruebas remotas](#view-remote-test-run-results-preview). 
+
+    ![Formulario del modelo de prueba](./media/how-to-use-automated-ml-for-ml-models/test-model-form.png)
+    
+
 ## <a name="model-explanations-preview"></a>Explicaciones de modelos (versión preliminar)
 
 Para entender mejor el modelo, puede ver qué características de datos (con o sin diseño) han influido en las predicciones del modelo con el panel de explicaciones del modelo. 
 
-El panel de explicaciones del modelo proporciona un análisis general del modelo entrenado junto con sus predicciones y explicaciones. También permite profundizar en un punto de datos individual y sus importancias de características individuales. [Obtenga más información sobre las visualizaciones del panel de explicaciones](how-to-machine-learning-interpretability-aml.md#visualizations).
+El panel de explicaciones del modelo proporciona un análisis general del modelo entrenado junto con sus predicciones y explicaciones. También permite profundizar en un determinado punto de datos y la importancia de sus características concretas. [Obtenga más información sobre las visualizaciones del panel de explicaciones](how-to-machine-learning-interpretability-aml.md#visualizations).
 
 Para obtener explicaciones de un modelo determinado: 
 
@@ -231,14 +286,14 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
 
 1. Rellene el panel **Implementar modelo**.
 
-    Campo| Value
+    Campo| Valor
     ----|----
     Nombre| Escriba un nombre único para la implementación.
     Descripción| Escriba una descripción para saber mejor para qué sirve esta implementación.
-    Compute type (Tipo de proceso)| Seleccione el tipo de punto de conexión que desea implementar: *Azure Kubernetes Service (AKS)* o *Azure Container Instance (ACI)* .
+    Compute type (Tipo de proceso)| Seleccione el tipo de punto de conexión que quiera implementar: [*Azure Kubernetes Service (AKS)*](../aks/intro-kubernetes.md) o [*Azure Container Instances (ACI)* ](../container-instances/container-instances-overview.md).
     Nombre del proceso| *Solo se aplica a AKS:* Seleccione el nombre del clúster de AKS en que desea realizar la implementación.
     Enable authentication (Habilitar autenticación) | Seleccione esta opción para permitir la autenticación basada en token o basada en clave.
-    Use custom deployment assets (Usar recursos de implementación personalizados)| Habilite esta característica si desea cargar su propio archivo de entorno y script de puntuación. [Más información sobre los scripts de puntuación](how-to-deploy-and-where.md).
+    Use custom deployment assets (Usar recursos de implementación personalizados)| Habilite esta característica si desea cargar su propio archivo de entorno y script de puntuación. De lo contrario, el aprendizaje automático automatizado proporcionará estos recursos por usted de manera predeterminada. [Más información sobre los scripts de puntuación](how-to-deploy-and-where.md).
 
     >[!Important]
     > Los nombres de archivo deben tener menos de 32 caracteres y deben comenzar y terminar con caracteres alfanuméricos. Puede incluir guiones, caracteres de subrayado, puntos y caracteres alfanuméricos. No se permiten espacios.

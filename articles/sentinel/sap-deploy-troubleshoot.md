@@ -1,21 +1,21 @@
 ---
-title: Solución de problemas de implementación de la solución SAP de Azure Sentinel | Microsoft Docs
-description: Obtenga información sobre cómo solucionar problemas específicos que pueden producirse en la implementación solución SAP de Azure Sentinel.
+title: Solución de problemas de implementación de la solución SAP de Microsoft Sentinel | Microsoft Docs
+description: Aprenda a solucionar problemas específicos que pueden producirse en la implementación de la solución Microsoft Sentinel SAP.
 author: batamig
 ms.author: bagold
-ms.service: azure-sentinel
+ms.service: microsoft-sentinel
 ms.topic: troubleshooting
 ms.custom: mvc, ignite-fall-2021
-ms.date: 08/09/2021
-ms.subservice: azure-sentinel
-ms.openlocfilehash: d514ceee8f81943efd6024abcde510e910b6cc5f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/09/2021
+ms.subservice: microsoft-sentinel
+ms.openlocfilehash: 7eee4c9fdd3de93017c15556646fa9e6ece8b22c
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131013942"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520016"
 ---
-# <a name="troubleshooting-your-azure-sentinel-sap-solution-deployment"></a>Solución de problemas de implementación de la solución SAP de Azure Sentinel
+# <a name="troubleshooting-your-microsoft-sentinel-sap-solution-deployment"></a>Solución de problemas de implementación de la solución Microsoft Sentinel SAP
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -69,7 +69,7 @@ docker restart sapcon-[SID]
 
 ## <a name="view-all-docker-execution-logs"></a>Ver todos los registros de ejecución de Docker
 
-Para ver todos los registros de ejecución de la implementación del conector de datos de Azure Sentinel para SAP, ejecute uno de los siguientes comandos:
+Para ver todos los registros de ejecución de la implementación del conector de datos de Microsoft Sentinel para SAP, ejecute uno de los siguientes comandos:
 
 ```bash
 docker exec -it sapcon-[SID] bash && cd /sapcon-app/sapcon/logs
@@ -97,7 +97,7 @@ total 508
 -rw-r--r-- 1 root root    525 Mar 12 16:01  ABAPSpoolOutputLog.log
 -rw-r--r-- 1 root root      0 Mar 12 15:51  ABAPTableDataLog.log
 -rw-r--r-- 1 root root    495 Mar 12 16:01  ABAPWorkflowLog.log
--rw-r--r-- 1 root root 465311 Mar 14 06:54  API.log # view this log to see submits of data into Azure Sentinel
+-rw-r--r-- 1 root root 465311 Mar 14 06:54  API.log # view this log to see submits of data into Microsoft Sentinel
 -rw-r--r-- 1 root root      0 Mar 12 15:51  LogsDeltaManager.log
 -rw-r--r-- 1 root root      0 Mar 12 15:51  PersistenceManager.log
 -rw-r--r-- 1 root root   4830 Mar 12 16:01  RFC.log
@@ -195,9 +195,9 @@ Si se producen errores en tiempo de ejecución de ABAP en sistemas grandes, inte
 1. Compruebe si llegan y hay mensajes en SAP **SM20** o **RSAU_READ_LOG**, sin que aparezcan errores especiales en el registro del conector.
 
 
-### <a name="incorrect-azure-sentinel-workspace-id-or-key"></a>Clave o Id. de área de trabajo de Azure Sentinel incorrectos
+### <a name="incorrect-microsoft-sentinel-workspace-id-or-key"></a>Identificador o clave incorrectos del área de trabajo de Microsoft Sentinel
 
-Si se da cuenta de que ha indicado una clave o un Id. de área de trabajo incorrectos en el [script de implementación](sap-deploy-solution.md#create-key-vault-for-your-sap-credentials), actualice las credenciales almacenadas en Azure KeyVault.
+Si se da cuenta de que ha indicado una clave o un Id. de área de trabajo incorrectos en el [script de implementación](sap-deploy-solution.md#create-a-key-vault-for-your-sap-credentials), actualice las credenciales almacenadas en Azure KeyVault.
 
 Después de comprobar las credenciales en Azure Key Vault, reinicie el contenedor:
 
@@ -234,7 +234,7 @@ Si recibe un mensaje de error similar a **Falta la autorización RFC de back-end
 
 ### <a name="missing-data-in-your-workbooks-or-alerts"></a>Faltan datos en sus libros o alertas
 
-Si descubre que faltan datos en sus libros o alertas de Azure Sentinel, asegúrese de que la directiva **Auditlog** esté habilitada correctamente en SAP, sin errores en el archivo de registro. 
+Si descubre que faltan datos en sus libros o alertas de Microsoft Sentinel, asegúrese de que la directiva **Auditlog** esté habilitada correctamente en SAP, sin errores en el archivo de registro. 
 
 Use la transacción **RSAU_CONFIG_LOG** para este paso.
 
@@ -247,7 +247,13 @@ Para más información, consulte [Configuración del sistema SAP](sap-deploy-sol
 
 ### <a name="network-connectivity-issues"></a>Problemas de conectividad de red
 
-Si tiene problemas de conectividad de red con el entorno de SAP o con Azure Sentinel, compruebe la conectividad de red para asegurarse de que los datos fluyan según lo previsto.
+Si tiene problemas de conectividad de red con el entorno de SAP o con Microsoft Sentinel, compruebe la conectividad de red para asegurarse de que los datos fluyan según lo previsto.
+
+Algunos problemas comunes son:
+
+- Los firewalls entre el contenedor de Docker y los hosts de SAP pueden estar bloqueando el tráfico. El host de SAP recibe comunicación a través de los siguientes puertos TCP, los cuales deben estar abiertos: **32xx**, **5xx13** y **33xx**, donde **xx** es el número de instancia de SAP.
+
+- La comunicación saliente desde el host de SAP a Microsoft Container Registry o Azure requiere la configuración del proxy. Esto suele afectar a la instalación y requiere que configure las variables de entorno `HTTP_PROXY` y `HTTPS_PROXY`. También puede ingerir variables de entorno en el contenedor de Docker al crear el contenedor, agregando la marca `-e` al comando `create` / `run` de Docker.
 
 ### <a name="other-unexpected-issues"></a>Otras incidencias inesperadas
 
@@ -300,7 +306,7 @@ Si no puede importar las [solicitudes de cambio de registro de SAP necesarias](s
 
 ### <a name="audit-log-data-not-ingested-past-initial-load"></a>Datos del registro de auditoría que no se ingieren después de la carga inicial
 
-Si los datos del registro de auditoría de SAP, visibles en las transacciones **RSAU_READ_LOAD** o **SM200**, no se ingieren en Azure Sentinel después de la carga inicial, es posible que se produzca un error de configuración en el sistema SAP y el sistema operativo host de SAP.
+Si los datos del registro de auditoría de SAP, visibles en las transacciones **RSAU_READ_LOAD** o **SM200**, no se ingieren en Microsoft Sentinel después de la carga inicial, es posible que se produzca un error de configuración en el sistema SAP y el sistema operativo host de SAP.
 
 - Las cargas iniciales se ingieren después de una instalación nueva del conector de datos de SAP o después de eliminar el archivo **metadata.db**.
 - Un error de configuración de muestra podría producirse cuando la zona horaria del sistema SAP esté establecida en **CET** en la transacción **STZAC**, pero la zona horaria del sistema operativo host de SAP esté establecida en **UTC**.
@@ -332,8 +338,8 @@ Para comprobar si hay errores de configuración, ejecute el informe **RSDBTIME**
 Para más información, consulte:
 
 - [Implementación de la supervisión de amenazas continua de SAP (versión preliminar pública)](sap-deploy-solution.md)
-- [Referencia sobre de los registros de la solución Azure Sentinel para SAP (versión preliminar pública)](sap-solution-log-reference.md)
-- [Implementación del conector de datos de SAP de Azure Sentinel con SNC](sap-solution-deploy-snc.md)
+- [Referencia sobre los registros de la solución Microsoft Sentinel SAP (versión preliminar pública)](sap-solution-log-reference.md)
+- [Implementación del conector de datos de Microsoft Sentinel SAP con SNC](sap-solution-deploy-snc.md)
 - [Opciones de configuración de expertos, implementación local y orígenes de registro de SAPControl](sap-solution-deploy-alternate.md)
-- [Solución Azure Sentinel para SAP: referencia de contenido de seguridad (versión preliminar pública)](sap-solution-security-content.md)
-- [Requisitos detallados de SAP para la solución Azure Sentinel para SAP (versión preliminar pública)](sap-solution-detailed-requirements.md)
+- [Solución Microsoft Sentinel SAP: referencia de contenido de seguridad (versión preliminar pública)](sap-solution-security-content.md)
+- [Requisitos detallados de SAP para la solución Microsoft Sentinel SAP (versión preliminar pública)](sap-solution-detailed-requirements.md)

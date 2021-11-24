@@ -1,34 +1,34 @@
 ---
-title: Visualización de los datos mediante Workbooks de Azure Monitor en Azure Sentinel | Microsoft Docs
-description: Aprenda a visualizar los datos mediante libros en Azure Sentinel.
+title: Visualización de los datos mediante Workbooks de Azure Monitor en Microsoft Sentinel | Microsoft Docs
+description: Aprenda a visualizar los datos mediante libros en Microsoft Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: ef77535810671c0f442aa90eade688778c381750
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 525f67a7c9284a9ac78c388e52041d7895032104
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131064494"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522619"
 ---
 # <a name="use-azure-monitor-workbooks-to-visualize-and-monitor-your-data"></a>Uso de libros de Azure Monitor para visualizar y supervisar los datos
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Después de que haya [conectado los orígenes de datos](quickstart-onboard.md) a Azure Sentinel, puede visualizar y supervisar los datos mediante la adopción de Azure Sentinel de Workbooks de Azure Monitor, lo que proporciona versatilidad al crear paneles personalizados. Aunque los Workbooks se muestran de manera diferente en Azure Sentinel, puede que le resulte útil ver cómo [crear informes interactivos con los libros de Azure Monitor](../azure-monitor/visualize/workbooks-overview.md). Azure Sentinel permite crear libros personalizados en los datos y también incluye plantillas de libro integradas que permiten obtener información rápidamente en los datos en cuanto se conecta con un origen de datos.
+Después de que haya [conectado los orígenes de datos](quickstart-onboard.md) a Microsoft Sentinel, puede visualizar y supervisar los datos mediante la adopción de Microsoft Sentinel de Workbooks de Azure Monitor, lo que proporciona versatilidad al crear paneles personalizados. Aunque los libros se muestran de manera diferente en Microsoft Sentinel, puede que le resulte útil ver cómo [crear informes interactivos con los libros de Azure Monitor](../azure-monitor/visualize/workbooks-overview.md). Microsoft Azure Sentinel permite crear libros personalizados en los datos y también incluye plantillas de libro integradas que permiten obtener información rápidamente en los datos en cuanto se conecta con un origen de datos.
 
-En este artículo se describe cómo visualizar los datos en Azure Sentinel.
+En este artículo se describe cómo visualizar los datos en Microsoft Sentinel.
 
 > [!div class="checklist"]
 > * Uso de libros integrados
@@ -36,16 +36,16 @@ En este artículo se describe cómo visualizar los datos en Azure Sentinel.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Debe tener al menos permisos de **lector de libros** o de **colaborador de libros** en el grupo de recursos del área de trabajo de Azure Sentinel.
+Debe tener al menos permisos de **lector de libros** o de **colaborador de libros** en el grupo de recursos del área de trabajo de Microsoft Sentinel.
 
 > [!NOTE]
-> Los libros que puede ver en Azure Sentinel se guardan en el grupo de recursos del área de trabajo de Azure Sentinel y se etiquetan según el área de trabajo en el que se crearon.
+> Los libros que puede ver en Microsoft Sentinel se guardan en el grupo de recursos del área de trabajo de Microsoft Sentinel y se etiquetan según el área de trabajo en el que se crearon.
 
 ## <a name="use-built-in-workbooks"></a>Uso de libros integrados
 
-1. Vaya a **Libros** y, a continuación, seleccione **Plantillas** para ver la lista completa de los libros integrados de Azure Sentinel. 
+1. Vaya a **Libros** y, a continuación, seleccione **Plantillas** para ver la lista completa de los libros integrados de Microsoft Sentinel. 
 
-    Para ver cuáles son importantes para los tipos de datos que ha conectado, el campo **Tipos de datos requeridos** de cada libro mostrará el tipo de datos junto a una marca de verificación verde si ya ha transmitido los datos correspondientes a Azure Sentinel.
+    Para ver cuáles son importantes para los tipos de datos que ha conectado, el campo **Tipos de datos requeridos** de cada libro mostrará el tipo de datos junto a una marca de verificación verde si ya ha transmitido los datos correspondientes a Microsoft Sentinel.
 
     [ ![Ir a Libros.](media/tutorial-monitor-data/access-workbooks.png) ](media/tutorial-monitor-data/access-workbooks.png#lightbox)
 
@@ -79,7 +79,7 @@ Debe tener al menos permisos de **lector de libros** o de **colaborador de libro
 
 1. Al compilar una consulta, asegúrese de que **Origen de datos** esté establecido en **Registros** y **Tipo de recurso** esté establecido en **Log Analytics**. A continuación, elija las áreas de trabajo apropiadas. 
 
-1. Después de crear el libro, guárdelo. Asegúrese de que lo guarda en el grupo de recursos y la suscripción del área de trabajo de Azure Sentinel.
+1. Después de crear el libro, guárdelo. Asegúrese de que lo guarda en el grupo de recursos y la suscripción del área de trabajo de Microsoft Sentinel.
 
 1. Si desea permitir que otros usuarios de su organización utilicen el libro, en **Guardar en** seleccione **Informes compartidos**. Si desea que este libro esté disponible solo para usted, seleccione **Mis informes**.
 
@@ -127,8 +127,8 @@ Para eliminar un libro guardado (ya sea una plantilla guardada o un libro person
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a visualizar los datos en Azure Sentinel mediante libros de Azure.
+En este artículo, ha aprendido a visualizar los datos en Microsoft Sentinel mediante libros de Azure.
 
-Para aprender a automatizar las respuestas a las amenazas, consulte [Configuración de respuestas automatizadas frente a amenazas en Azure Sentinel](tutorial-respond-threats-playbook.md).
+Para aprender a automatizar las respuestas a las amenazas, consulte [Configuración de respuestas automatizadas frente a amenazas en Microsoft Sentinel](tutorial-respond-threats-playbook.md).
 
-Para obtener información sobre los libros integrados más populares, vea [Libros de Azure Sentinel más utilizados](top-workbooks.md). 
+Para obtener información sobre los libros integrados más populares, consulte [Libros de Microsoft Sentinel más utilizados](top-workbooks.md). 

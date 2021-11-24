@@ -1,36 +1,36 @@
 ---
-title: Supervisión del estado de los conectores de datos con este libro de Azure Sentinel | Microsoft Docs
+title: Seguimiento del estado de los conectores de datos con este libro de Microsoft Sentinel | Microsoft Docs
 description: Use el libro de supervisión de estado para realizar un seguimiento de la conectividad y el rendimiento de los conectores de datos.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2020
+ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 89f18c1a7ab517dde3552e1449d0971f29774f91
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 087ee5a8fd0b3f6337306532525c19db46a2c203
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131037024"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524443"
 ---
-# <a name="monitor-the-health-of-your-data-connectors-with-this-azure-sentinel-workbook"></a>Supervisión del estado de los conectores de datos con este libro de Azure Sentinel
+# <a name="monitor-the-health-of-your-data-connectors-with-this-microsoft-sentinel-workbook"></a>Seguimiento del estado de los conectores de datos con este libro de Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-El **libro de supervisión de estado de conectores de datos** permite realizar un seguimiento del estado, la conectividad y el rendimiento de los conectores de datos desde Azure Sentinel. El libro proporciona supervisiones adicionales, detecta anomalías y proporciona información sobre el estado de ingesta de datos del área de trabajo. Puede usar la lógica del libro para supervisar el estado general de los datos ingeridos y crear vistas personalizadas y alertas basadas en reglas.
+Con el **libro de seguimiento de estado de conectores de datos** puede realizar un seguimiento del estado, la conectividad y el rendimiento de los conectores de datos desde Microsoft Sentinel. El libro proporciona supervisiones adicionales, detecta anomalías y proporciona información sobre el estado de ingesta de datos del área de trabajo. Puede usar la lógica del libro para supervisar el estado general de los datos ingeridos y crear vistas personalizadas y alertas basadas en reglas.
 
 ## <a name="use-the-health-monitoring-workbook"></a>Uso del libro de supervisión de estado
 
-1. En el portal de Azure Sentinel, seleccione **Libros** en el menú **Administración de amenazas**.
+1. En el portal de Microsoft Sentinel, seleccione **Libros** en el menú **Administración de amenazas**.
 
 1. En la galería **Libros**, escriba *Estado* en la barra de búsqueda y seleccione **Data collection health monitoring** (Supervisión del estado de conectores de datos) entre los resultados.
 
@@ -42,7 +42,7 @@ El **libro de supervisión de estado de conectores de datos** permite realizar u
 
 Hay tres secciones con pestañas en este libro:
 
-1. En la pestaña **Overview** (Información general) se muestra el estado general de la ingesta de datos en el área de trabajo seleccionada: medidas de volumen, tasas de EPS y hora de último registro recibidas.
+1. En la pestaña **Información general** se muestra el estado general de la ingesta de datos en el área de trabajo seleccionada: medidas de volumen, tasas de EPS y hora de recepción del último registro.
 
 1. La pestaña **Data collection anomalies** (Anomalías de recopilación de datos) lo ayudará a detectar anomalías en el proceso de recopilación de datos, por tabla y origen de datos. Cada pestaña presenta anomalías para una tabla determinada (la pestaña **General** incluye una colección de tablas). Las anomalías se calculan mediante la función **series_decompose_anomalies()** , que devuelve una **puntuación de las anomalías**. [Más información sobre esta función](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). Establezca los siguientes parámetros para la función que se va a evaluar:
 
@@ -68,4 +68,4 @@ Hay tres secciones con pestañas en este libro:
     :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-3.png" alt-text="Página de información del agente del libro de supervisión de estado de conectores de datos" lightbox="media/monitor-data-connector-health/data-health-workbook-3.png":::
 
 ## <a name="next-steps"></a>Pasos siguientes
-Aprenda a [incorporar los datos en Azure Sentinel](quickstart-onboard.md), [conecte orígenes de datos](connect-data-sources.md) y [obtenga visibilidad sobre ellos y aprenda a defenderse de posibles amenazas](get-visibility.md).
+Descubra cómo [incorporar sus datos en Microsoft Sentinel](quickstart-onboard.md), [conectar orígenes de datos](connect-data-sources.md) y [tener visibilidad de datos y posibles amenazas](get-visibility.md).

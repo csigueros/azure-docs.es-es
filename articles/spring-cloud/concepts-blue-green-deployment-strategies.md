@@ -1,18 +1,18 @@
 ---
 title: Estrategias de implementación azul-verde en Azure Spring Cloud
 description: En este tema se explican dos enfoques para las implementaciones azul-verde en Azure Spring Cloud.
-author: barbkess
-ms.author: barbkess
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 11/12/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 194529a03a493ec22d22260576a678ab07401f4c
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 8b019c5cc8e7e7a8ed132cc6adbf0d4c7d0495a4
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132056575"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486270"
 ---
 # <a name="blue-green-deployment-strategies-in-azure-spring-cloud"></a>Estrategias de implementación azul-verde en Azure Spring Cloud
 
@@ -95,7 +95,7 @@ Sin embargo, también hay inconvenientes, como se describe en la sección siguie
 
 #### <a name="deployment-pipeline-failures"></a>Errores de canalización de implementación
 
-Entre el momento en que se inicia una implementación y el momento en que se elimina la implementación de ensayo, se producirá un error en los intentos adicionales de ejecutar la canalización de implementación. La canalización intentará crear una nueva implementación, lo que dará lugar a un error porque solo se permiten dos implementaciones por cada aplicación de Azure Spring Cloud.
+Entre el momento en que se inicia una implementación y el momento en que se elimina la implementación de ensayo, se producirá un error en los intentos adicionales de ejecutar la canalización de implementación. La canalización intentará crear una nueva implementación, lo que dará lugar a un error porque solo se permiten dos implementaciones por aplicación en Azure Spring Cloud.
 
 Por lo tanto, la orquestación de la implementación debe tener los medios para reintentar un proceso de implementación con errores en un momento posterior, o los medios para asegurarse de que los flujos de implementación para cada versión permanecerán en cola hasta que se complete el flujo para todas las versiones anteriores.
 

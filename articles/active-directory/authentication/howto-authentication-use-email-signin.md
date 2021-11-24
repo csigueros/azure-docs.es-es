@@ -10,12 +10,12 @@ ms.author: justinha
 author: calui
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: 7cee43e911c2713b13f7e8e729a00b4c2379ce22
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: e7b34e98776f252c2122d58601c8067df208b2f2
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130251098"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486780"
 ---
 # <a name="sign-in-to-azure-ad-with-email-as-an-alternate-login-id-preview"></a>Inicio de sesión en Azure AD mediante el correo electrónico como Id. de inicio de sesión alternativo (versión preliminar)
 
@@ -30,7 +30,9 @@ Algunas organizaciones no han migrado a la autenticación híbrida por las sigui
 * Al cambiar el UPN de Azure AD, se produce un desajuste entre los entornos local y de Azure AD que podría ocasionar problemas con determinadas aplicaciones y servicios.
 * Debido a motivos empresariales o de cumplimiento, la organización no desea usar el UPN local para iniciar sesión en Azure.
 
-Para facilitar la adopción de la autenticación híbrida, puede configurar Azure AD para que los usuarios puedan iniciar sesión con su correo electrónico como Id. de inicio de sesión alternativo. Por ejemplo, si *Contoso* cambia de nombre a *Fabrikam*, en lugar de seguir iniciando sesión con el UPN heredado `balas@contoso.com`, se puede usar el correo electrónico como Id. de inicio de sesión alternativo. Para acceder a una aplicación o un servicio, los usuarios iniciarían sesión en Azure AD con su correo electrónico que no es UPN, como `balas@fabrikam.com`.
+Para facilitar la adopción de la autenticación híbrida, puede configurar Azure AD para que los usuarios puedan iniciar sesión con su correo electrónico como Id. de inicio de sesión alternativo. Por ejemplo, si *Contoso* cambia de nombre a *Fabrikam*, en lugar de seguir iniciando sesión con el UPN heredado `ana@contoso.com`, se puede usar el correo electrónico como Id. de inicio de sesión alternativo. Para acceder a una aplicación o un servicio, los usuarios iniciarían sesión en Azure AD con su correo electrónico que no es UPN, como `ana@fabrikam.com`.
+
+![Diagrama de correo electrónico como Id. de inicio de sesión alternativo.](media/howto-authentication-use-email-signin/email-alternate-login-id.png)
 
 En este artículo se muestra cómo habilitar y usar el correo electrónico como id. de inicio de sesión alternativo.
 
@@ -39,7 +41,7 @@ En este artículo se muestra cómo habilitar y usar el correo electrónico como 
 Esto es lo que necesita saber sobre el correo electrónico como Id. de inicio de sesión alternativo:
 
 * La característica está disponible en la edición Azure AD Free y superiores.
-* La característica habilita el inicio de sesión con *proxyAddresses* de dominio comprobadas de usuarios de Azure AD autenticados para la nube.
+* La característica habilita el inicio de sesión con *ProxyAddresses*, además de UPN, para usuarios de Azure AD autenticados para la nube. Puede obtener más información sobre cómo se aplica esto a escenarios B2B de Azure en la sección [B2B](#b2b-guest-user-sign-in-with-an-email-address).
 * Cuando un usuario inicia sesión con un correo electrónico que no es UPN, las notificaciones `unique_name` y `preferred_username` (si están presentes) del [Token de identificador](../develop/id-tokens.md) devolverán el correo electrónico que no es UPN.
 * La característica admite la autenticación administrada con sincronización de hash de contraseñas (PHS) o autenticación transferida (PTA).
 * Hay dos opciones para configurar la característica:
@@ -57,8 +59,7 @@ En el estado de versión preliminar actual, se aplican las siguientes limitacion
 
 * **Flujos no admitidos**: actualmente, algunos flujos no son compatibles con los correos electrónicos que no son UPN, como los siguientes:
     * Identity Protection no empareja los correos electrónicos que no son UPN con detección de riesgo *Credenciales filtradas*. Esta detección de riesgo usa el UPN para asociar las credenciales que se han filtrado. Para obtener más información, consulte [Detección y corrección de riesgos de Azure AD Identity Protection][identity-protection].
-    * Las invitaciones B2B enviadas a un correo electrónico que no es UPN no son totalmente compatibles. Después de aceptar una invitación enviada a un correo electrónico que no es UPN, es posible que el inicio de sesión con el correo electrónico que no es UPN no funcione para el usuario invitado en el punto de conexión del inquilino del recurso.
-    * Cuando un usuario ha iniciado sesión con un correo electrónico que no es UPN, no puede cambiar su contraseña. El autoservicio de restablecimiento de contraseña (SSPR) de Azure AD debe funcionar según lo previsto. Durante SSPR, el usuario puede ver su UPN si comprueba su identidad por medio de un correo electrónico alternativo.
+    * Cuando un usuario ha iniciado sesión con un correo electrónico que no es UPN, no puede cambiar su contraseña. El autoservicio de restablecimiento de contraseña (SSPR) de Azure AD debe funcionar según lo previsto. Durante SSPR, el usuario puede ver su UPN si comprueba su identidad por medio de un correo electrónico no UPN.
 
 * **Escenarios no admitidos:** los siguientes escenarios no se admiten. Inicie sesión con un correo electrónico que no es UPN para:
     * [Dispositivos híbridos unidos a Azure AD](../devices/concept-azure-ad-join-hybrid.md)
@@ -68,8 +69,6 @@ En el estado de versión preliminar actual, se aplican las siguientes limitacion
     * Aplicaciones que usan autenticación heredada, como POP3 y SMTP
     * Skype Empresarial
     * Microsoft Office en macOS
-    * Microsoft Teams en Internet
-    * OneDrive, cuando el flujo de inicio de sesión no implique autenticación multifactor.
     * Portal de administración de Microsoft 365
 
 * **Aplicaciones no admitidas:** es posible que algunas aplicaciones de terceros no funcionen según lo previsto si asumen que las notificaciones `unique_name` o `preferred_username` son inmutables o siempre coincidirán con un atributo de usuario específico, como UPN.
@@ -123,6 +122,12 @@ Uno de los atributos de usuario que se sincroniza automáticamente mediante Azur
 > Solo los mensajes de correo electrónico de los dominios comprobados del inquilino se sincronizan con Azure AD. Cada inquilino de Azure AD tiene uno o varios dominios comprobados, para los que se ha comprobado la propiedad, y se enlazan de forma exclusiva con el inquilino.
 >
 > Para más información, consulte [Agregar y comprobar un nombre de dominio personalizado en Azure AD][verify-domain].
+
+## <a name="b2b-guest-user-sign-in-with-an-email-address"></a>Inicio de sesión de usuario invitado B2B con una dirección de correo electrónico
+
+![Diagrama del correo electrónico como identificador de inicio de sesión alternativo para el inicio de sesión del usuario invitado B2B.](media/howto-authentication-use-email-signin/email-alternate-login-id-b2b.png)
+
+El correo electrónico como identificador de inicio de sesión alternativo se aplica a la[colaboración de empresa a empresa de Azure AD (B2B) ](../external-identities/what-is-b2b.md)en un modelo "traiga sus propios identificadores de inicio de sesión". Cuando el correo electrónico como identificador de inicio de sesión alternativo está habilitado en el inquilino principal, los usuarios de Azure AD pueden realizar el inicio de sesión de invitado con correo electrónico que no sea UPN en el punto de conexión inquilino del recurso. No se requiere ninguna acción del inquilino de recursos para habilitar esta funcionalidad.
 
 ## <a name="enable-user-sign-in-with-an-email-address"></a>Habilitar el inicio de sesión de usuario con una dirección de correo electrónico
 

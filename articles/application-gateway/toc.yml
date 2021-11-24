@@ -124,7 +124,7 @@
           href: tutorial-manage-web-traffic-cli.md
     - name: Configuración del equilibrador de carga interno
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: configure-application-gateway-with-private-frontend-ip.md
         - name: Azure PowerShell
           href: application-gateway-ilb-arm.md
@@ -216,7 +216,7 @@
               href: redirect-external-site-cli.md
         - name: HTTP a HTTPS
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: redirect-http-to-https-portal.md
             - name: Azure PowerShell
               href: redirect-http-to-https-powershell.md
@@ -280,6 +280,8 @@
           href: application-gateway-backend-health-troubleshooting.md
         - name: Errores en Key Vault
           href: application-gateway-key-vault-common-errors.md
+    - name: Configuración del búfer de proxy
+      href: proxy-buffers.md
     - name: Páginas de error personalizadas
       href: custom-error.md
     - name: Migración de v1 a v2
