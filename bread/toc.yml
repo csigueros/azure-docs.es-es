@@ -289,7 +289,7 @@
         - name: Administración
           tocHref: /azure/azure-resource-manager/management/
           topicHref: /azure/azure-resource-manager/management/
-        - name: Solucionar problemas
+        - name: Solución de problemas
           tocHref: /azure/azure-resource-manager/troubleshooting/
           topicHref: /azure/azure-resource-manager/troubleshooting/
         - name: Aplicaciones administradas
@@ -672,8 +672,8 @@
           tocHref: /azure/media-services/azure-media-player/
           topicHref: /azure/media-services/azure-media-player/
         - name: Live Video Analytics on IoT Edge
-          tocHref: /azure/media-services/live-video-analytics-edge/
-          topicHref: /azure/media-services/live-video-analytics-edge/
+          tocHref: /shows/internet-of-things-show/deep-dive-live-video-analytics-on-iot-edge
+          topicHref: /shows/internet-of-things-show/deep-dive-live-video-analytics-on-iot-edge
     - name: Servicios de mensajería
       tocHref: /azure/messaging-services/
       topicHref: /azure/messaging-services/

@@ -10,12 +10,12 @@ metadata:
   author: MikeRayMSFT
   ms.author: mikeray
   ms.date: 12/16/2020
-  ms.openlocfilehash: cdfa89d1b39e6bc823d863bdb156c706d4c7247f
-  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+  ms.openlocfilehash: c7313545fc9d11b6659805f8cc972a6675f872eb
+  ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/09/2021
-  ms.locfileid: "129716096"
+  ms.lasthandoff: 11/23/2021
+  ms.locfileid: "132956490"
 landingContent:
 - title: Acerca de
   linkLists:
@@ -33,22 +33,14 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Creación de un controlador de datos
-      url: create-data-controller.md
+    - text: Planeamiento de la implementación
+      url: plan-azure-arc-data-services.md
     - text: Instalar las herramientas de cliente
       url: install-client-tools.md
-- title: Hiperescala de PostgreSQL habilitada para Azure Arc (versión preliminar)
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Crear
-      url: create-postgresql-hyperscale-server-group.md
-    - text: Conectar
-      url: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
-    - text: Migrate
-      url: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
-    - text: Restauración
-      url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
+    - text: Realización de los requisitos previos
+      url: create-data-controller-direct-prerequisites.md
+    - text: Creación de un controlador de datos
+      url: create-data-controller-direct-azure-portal.md
 - title: SQL Managed Instance habilitado para Azure Arc
   linkLists:
   - linkListType: quickstart
@@ -67,3 +59,15 @@ landingContent:
     links:
     - text: Jumpstart
       url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/
+- title: Hiperescala de PostgreSQL habilitada para Azure Arc (versión preliminar)
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Crear
+      url: create-postgresql-hyperscale-server-group.md
+    - text: Conectar
+      url: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
+    - text: Migrate
+      url: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
+    - text: Restauración
+      url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md

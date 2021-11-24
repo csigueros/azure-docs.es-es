@@ -72,6 +72,6 @@ items:
     expanded: true
     items:
       - name: API de REST
-        href: /rest/api/servicelinker
+        href: /rest/api/
       - name: SDK de Python
-        href: /python/api/overview/azure/servicelinker
+        href: /python/api/overview/azure/
