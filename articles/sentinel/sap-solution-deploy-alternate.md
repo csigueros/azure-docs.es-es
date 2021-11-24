@@ -3,17 +3,15 @@ title: Opciones de configuración de expertos del conector de datos de Microsoft
 description: Aprenda a implementar el conector de datos de Microsoft Sentinel para entornos SAP mediante opciones de configuración de expertos y una máquina local. Asimismo, obtenga más información sobre los orígenes de registros de SAPControl.
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.subservice: microsoft-sentinel
-ms.openlocfilehash: 56176315a6d4d56c419f15a4472aa4f6b739a227
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: a8769eb0d1fdd5cd9e1cf6c7ec3687b3516a210e
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132520035"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711875"
 ---
 # <a name="expert-configuration-options-on-premises-deployment-and-sapcontrol-log-sources"></a>Opciones de configuración de expertos, implementación local y orígenes de registro de SAPControl
 

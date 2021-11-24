@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: fe8fd05dfc43fc4ff98182f90e3459af28529127
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 43e844380374a8e507325494b67faef1daf85340
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123254111"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523949"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Introducción a las opciones de autenticación basada en la identidad de Azure Files con el acceso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -85,7 +85,7 @@ En esta tabla se resumen los escenarios de autenticación de recursos compartido
 - Las autenticaciones de Azure AD DS y de AD DS local no admiten la autenticación en cuentas de equipo. En su lugar, puede pensar en usar una cuenta de inicio de sesión de servicio.
 - La autenticación de Azure AD DS y la autenticación de AD DS local no se admiten en dispositivos unidos a Azure AD o en dispositivos registrados de Azure AD.
 - Los recursos compartidos de archivos de Azure solo admiten la autenticación basada en identidades en uno de los siguientes servicios de dominio: [Azure Active Directory Domain Services (Azure AD DS)](#azure-ad-ds) o [Active Directory Domain Services (AD DS) local](#ad-ds).
-- No se admite ningún método de autenticación basado en identidad con Network File System (NFS), que se encuentra en versión preliminar.
+- No se admite ningún método de autenticación basado en identidad con recursos compartidos de Network File System (NFS).
 
 ## <a name="advantages-of-identity-based-authentication"></a>Ventajas de la autenticación basadas en identidad
 La autenticación basada en identidad para Azure Files ofrece varias ventajas respecto al uso de la autenticación de clave compartida:

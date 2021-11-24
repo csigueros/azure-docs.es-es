@@ -9,14 +9,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/26/2021
+ms.date: 11/12/2021
 ms.author: radeltch
-ms.openlocfilehash: d7e1a6391690461b11b5e13b6ea002b7e4629bae
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 74f9fef91149a34c189c696e1791ad6c035e963e
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132322977"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493654"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Alta disponibilidad del sistema de escalabilidad horizontal de SAP HANA en Red Hat Enterprise Linux 
 
@@ -53,7 +53,41 @@ En este artículo se describe cómo implementar un sistema SAP HANA de alta disp
 
 En las configuraciones de ejemplo, como en los comandos de instalación, la instancia de HANA es `03` y el identificador del sistema HANA es `HN1`. Los ejemplos se basan en HANA 2.0 SP4 y Red Hat Enterprise Linux (RHEL) para SAP 7.6. 
 
-Algunos lectores se beneficiarán de consultar una variedad de notas y recursos de SAP antes de continuar con los temas de este artículo. Puede encontrar estos recursos recopilados en la sección "Recursos adicionales" cerca del final de este artículo.
+## <a name="prerequisites"></a>Requisitos previos
+
+Algunos lectores se beneficiarán de consultar una variedad de notas y recursos de SAP antes de continuar con los temas de este artículo:
+
+* Nota de SAP [1928533], que incluye:  
+  * Una lista de los tamaños de máquina virtual de Azure que se admiten para la implementación de software de SAP.
+  * Información importante sobre capacidad para los tamaños de máquina virtual de Azure.
+  * Software de SAP admitido y combinaciones de sistema operativo y base de datos.
+  * La versión del kernel de SAP necesaria para Windows y Linux en Microsoft Azure.
+* La nota de SAP [2015553] enumera los requisitos previos para las implementaciones de software de SAP admitidas por SAP en Azure.
+* Nota de SAP [2002167]: se ha recomendado la configuración del sistema operativo para RHEL.
+* Nota de SAP [2009879]: tiene directrices de SAP HANA para RHEL.
+* Nota de SAP [2178632]: contiene información detallada sobre todas las métricas de supervisión notificadas para SAP en Azure.
+* Nota de SAP [2191498]: incluye la versión de agente de host de SAP necesaria para Linux en Azure.
+* Nota de SAP [2243692]: contiene información sobre las licencias de SAP en Linux en Azure.
+* Nota de SAP [1999351]: contiene información adicional sobre la solución de problemas de la extensión de supervisión mejorada de Azure para SAP.
+* Nota de SAP [1900823]: incluye información sobre los requisitos de almacenamiento de SAP HANA.
+* La [wiki de la comunidad SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contiene todas las notas de SAP que se necesitan para Linux.
+* [Planeación e implementación de Azure Virtual Machines para SAP en Linux][planning-guide].
+* [Implementación de Azure Virtual Machines para SAP en Linux][deployment-guide].
+* [Implementación de DBMS de Azure Virtual Machines para SAP en Linux][dbms-guide].
+* [Requisitos de red de SAP HANA](https://www.sap.com/documents/2016/08/1cd2c2fb-807c-0010-82c7-eda71af511fa.html).
+* Documentación general de RHEL:
+  * [Introducción al complemento de alta disponibilidad](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index).
+  * [Administración del complemento de alta disponibilidad](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index).
+  * [Referencia del complemento de alta disponibilidad](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index).
+  * [Guía de redes de Red Hat Enterprise Linux](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide).
+  * [Configuración de la replicación del sistema de escalabilidad horizontal de SAP HANA en un clúster de Pacemaker con sistemas de archivos HANA en recursos compartidos NFS](https://access.redhat.com/solutions/5423971).
+  * [Activo/activo (habilitado para lectura): Escalabilidad horizontal y replicación del sistema de la solución de alta disponibilidad de RHEL para SAP HANA](https://access.redhat.com/sites/default/files/attachments/v8_ha_solution_for_sap_hana_scale_out_system_replication_1.pdf).
+* Documentación de RHEL específica para Azure:
+  * [Instalación de SAP HANA en Red Hat Enterprise Linux para su uso en Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure).
+  * [Solución Red Hat Enterprise Linux para la escalabilidad horizontal de SAP HANA y la replicación del sistema](https://access.redhat.com/solutions/4386601).
+* [Aplicaciones de NetApp SAP en Microsoft Azure que usan Azure NetApp Files][anf-sap-applications-azure].
+* [Documentación sobre Azure NetApp Files][anf-azure-doc]. 
+* [Volúmenes NFS v4.1 en Azure NetApp Files para SAP HANA](./hana-vm-operations-netapp.md).
 
 ## <a name="overview"></a>Información general
 
@@ -186,7 +220,8 @@ Es mejor usar el equilibrador de carga estándar. A continuación se muestra có
    
 Cuando use el equilibrador de carga estándar, debe tener en cuenta la siguiente limitación. Al colocar máquinas virtuales sin direcciones IP públicas en el grupo de back-end de un equilibrador de carga interno, no hay conectividad saliente a Internet. Para permitir el enrutamiento a puntos de conexión públicos, debe realizar una configuración adicional. Para más información, consulte [Conectividad del punto de conexión público para las máquinas virtuales que usan Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
-No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro `net.ipv4.tcp_timestamps` en `0`. Para obtener más información, consulte [Sondeos de estado de Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md) y la nota de SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
+   > [!IMPORTANT]
+   > No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro `net.ipv4.tcp_timestamps` en `0`. Para obtener más información, consulte [Sondeos de estado de Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md) y la nota de SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
 ### <a name="deploy-the-azure-netapp-files-infrastructure"></a>Implementación de la infraestructura de Azure NetApp Files 
 
@@ -443,20 +478,20 @@ En este ejemplo para implementar SAP HANA en la configuración de escalabilidad 
 
 ### <a name="prepare-for-hana-installation"></a>Preparación de la instalación de HANA
 
-1. **[AH]** Antes de realizar la instalación de HANA, establezca la contraseña raíz. Puede deshabilitar la contraseña raíz una vez completada la instalación. Ejecute como comando `root` `passwd` para establecer la contraseña.  
+1. **[AH]** Antes de realizar la instalación de HANA, establezca la contraseña raíz. Puede deshabilitar la contraseña raíz una vez completada la instalación. Ejecute `root` como comando `passwd` para establecer la contraseña.  
 
 1. **[1,2]** Cambie los permisos para `/hana/shared`. 
     ```bash
     chmod 775 /hana/shared
     ```
 
-1. **[1]** En **hana-s1-db2** y **hana-s1-db3**, compruebe que puede iniciar sesión a través de Secure Shell (SSH) sin que se le pida una contraseña. Si no es el caso, intercambie las claves `ssh`, tal como se documenta en [Utilización de la autenticación basada en claves](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
+1. **[1]** Compruebe que puede iniciar sesión en **hana-s1-db2** y **hana-s1-db3**, a través de Secure Shell (SSH) sin que se le pida una contraseña. Si no es el caso, intercambie las claves `ssh`, tal como se documenta en [Utilización de la autenticación basada en claves](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
     ```bash
     ssh root@hana-s1-db2
     ssh root@hana-s1-db3
     ```
 
-1. **[2]** En **hana-s2-db2** y **hana-s2-db3**, compruebe que puede iniciar sesión a través de SSH sin que se le pida una contraseña. Si no es el caso, intercambie las claves `ssh`, tal como se documenta en [Utilización de la autenticación basada en claves](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
+1. **[2]** Compruebe que puede iniciar sesión en **hana-s2-db2** y **hana-s2-db3**, a través de SSH sin que se le pida una contraseña. Si no es el caso, intercambie las claves `ssh`, tal como se documenta en [Utilización de la autenticación basada en claves](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
     ```bash
     ssh root@hana-s2-db2
     ssh root@hana-s2-db3
@@ -963,7 +998,7 @@ Ahora está listo para crear los recursos de clúster:
        meta master-max="1" clone-node-max=1 interleave=true
       ```
       > [!IMPORTANT]
-      > Es una buena idea establecer `AUTOMATED_REGISTER` en `false`, mientras se realizan pruebas de conmutación por error, para evitar que una instancia principal con errores se registre automáticamente como secundaria. Después de las pruebas, como procedimiento recomendado, establezca `AUTOMATED_REGISTER` en `*true` para que, después de la adquisición, la replicación del sistema pueda reanudarse automáticamente. 
+      > Es una buena idea establecer `AUTOMATED_REGISTER` en `false`, mientras se realizan pruebas de conmutación por error, para evitar que una instancia principal con errores se registre automáticamente como secundaria. Después de las pruebas, como procedimiento recomendado, establezca `AUTOMATED_REGISTER` en `true` para que, después de la adquisición, la replicación del sistema pueda reanudarse automáticamente. 
 
    1. Cree la dirección IP virtual y los recursos asociados.  
       ```bash
@@ -1283,42 +1318,6 @@ Al probar un clúster de HANA configurado con una secundaria habilitada para lec
 
 
 Se recomienda probar exhaustivamente la configuración del clúster de SAP HANA, también mediante la realización de pruebas, documentadas en [Alta disponibilidad para SAP HANA en máquinas virtuales de Azure en RHEL](./sap-hana-high-availability-rhel.md#test-the-cluster-setup).
-
-## <a name="additional-resources"></a>Recursos adicionales
-
-Para beneficio de los lectores que pueden requerir conocimientos adicionales sobre el material que se trata en este artículo, hemos recopilado estos recursos:
-
-* Nota de SAP [1928533], que incluye:  
-  * Una lista de los tamaños de máquina virtual de Azure que se admiten para la implementación de software de SAP.
-  * Información importante sobre capacidad para los tamaños de máquina virtual de Azure.
-  * Software de SAP admitido y combinaciones de sistema operativo y base de datos.
-  * La versión del kernel de SAP necesaria para Windows y Linux en Microsoft Azure.
-* La nota de SAP [2015553] enumera los requisitos previos para las implementaciones de software de SAP admitidas por SAP en Azure.
-* Nota de SAP [2002167]: se ha recomendado la configuración del sistema operativo para RHEL.
-* Nota de SAP [2009879]: tiene directrices de SAP HANA para RHEL.
-* Nota de SAP [2178632]: contiene información detallada sobre todas las métricas de supervisión notificadas para SAP en Azure.
-* Nota de SAP [2191498]: incluye la versión de agente de host de SAP necesaria para Linux en Azure.
-* Nota de SAP [2243692]: contiene información sobre las licencias de SAP en Linux en Azure.
-* Nota de SAP [1999351]: contiene información adicional sobre la solución de problemas de la extensión de supervisión mejorada de Azure para SAP.
-* Nota de SAP [1900823]: incluye información sobre los requisitos de almacenamiento de SAP HANA.
-* La [wiki de la comunidad SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contiene todas las notas de SAP que se necesitan para Linux.
-* [Planeación e implementación de Azure Virtual Machines para SAP en Linux][planning-guide].
-* [Implementación de Azure Virtual Machines para SAP en Linux][deployment-guide].
-* [Implementación de DBMS de Azure Virtual Machines para SAP en Linux][dbms-guide].
-* [Requisitos de red de SAP HANA](https://www.sap.com/documents/2016/08/1cd2c2fb-807c-0010-82c7-eda71af511fa.html).
-* Documentación general de RHEL:
-  * [Introducción al complemento de alta disponibilidad](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index).
-  * [Administración del complemento de alta disponibilidad](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index).
-  * [Referencia del complemento de alta disponibilidad](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index).
-  * [Guía de redes de Red Hat Enterprise Linux](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide).
-  * [Configuración de la replicación del sistema de escalabilidad horizontal de SAP HANA en un clúster de Pacemaker con sistemas de archivos HANA en recursos compartidos NFS](https://access.redhat.com/solutions/5423971).
-  * [Activo/activo (habilitado para lectura): Escalabilidad horizontal y replicación del sistema de la solución de alta disponibilidad de RHEL para SAP HANA](https://access.redhat.com/sites/default/files/attachments/v8_ha_solution_for_sap_hana_scale_out_system_replication_1.pdf).
-* Documentación de RHEL específica para Azure:
-  * [Instalación de SAP HANA en Red Hat Enterprise Linux para su uso en Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure).
-  * [Solución Red Hat Enterprise Linux para la escalabilidad horizontal de SAP HANA y la replicación del sistema](https://access.redhat.com/solutions/4386601).
-* [Aplicaciones de NetApp SAP en Microsoft Azure que usan Azure NetApp Files][anf-sap-applications-azure].
-* [Documentación sobre Azure NetApp Files][anf-azure-doc]. 
-* [Volúmenes NFS v4.1 en Azure NetApp Files para SAP HANA](./hana-vm-operations-netapp.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

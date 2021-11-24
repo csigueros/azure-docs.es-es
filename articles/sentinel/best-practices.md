@@ -4,17 +4,15 @@ description: Obtenga información sobre los procedimientos recomendados que se d
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 15543989655bf094f221a4259ad0b3e765338329
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 9c70c97c120ae0b5d55ccba37878b344c49aacee
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132524709"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722760"
 ---
 # <a name="best-practices-for-microsoft-sentinel"></a>Procedimientos recomendados de Microsoft Sentinel
 
@@ -38,7 +36,7 @@ La documentación de Microsoft Sentinel tiene instrucciones de procedimientos r
     - [Diseño de una arquitectura de áreas de trabajo de Microsoft Sentinel](design-your-workspace-architecture.md)
     - [Diseños de ejemplo de áreas de trabajo de Microsoft Sentinel](sample-workspace-designs.md)
     - [Procedimientos recomendados para la recopilación de datos](best-practices-data.md)
-    - [Costos y facturación de Microsoft Sentinel](azure-sentinel-billing.md)
+    - [Costos y facturación de Microsoft Sentinel](billing.md)
     - [Permisos en Microsoft Sentinel](roles.md)
     - [Protección de la propiedad intelectual del MSSP en Microsoft Sentinel](mssp-protect-intellectual-property.md)
     - [Integración de inteligencia sobre amenazas en Microsoft Sentinel](threat-intelligence-integration.md)
@@ -144,7 +142,7 @@ Durante una investigación, o después de haber tomado medidas para corregir y e
 
 ### <a name="handle-incidents-with-entity-behavior"></a>Control de incidentes con comportamiento de entidad
 
-El comportamiento de la entidad en Microsoft Sentinel permite a los usuarios revisar e investigar acciones y alertas para entidades específicas, como investigar en cuentas y nombres de host. Para más información, consulte:
+El comportamiento de la entidad en Microsoft Sentinel permite a los usuarios revisar e investigar acciones y alertas para entidades específicas, como investigar en cuentas y nombres de host. Para obtener más información, consulte:
 
 - [Habilitación del análisis de comportamiento de usuarios y entidades (UEBA) en Microsoft Sentinel](enable-entity-behavior-analytics.md)
 - [Investigación de incidentes con datos de UEBA](investigate-with-ueba.md)

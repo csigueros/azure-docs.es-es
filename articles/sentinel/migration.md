@@ -4,17 +4,16 @@ description: Aprenda la mejor manera de migrar desde una solución de SIEM exist
 services: sentinel
 documentationcenter: na
 author: batamig
-ms.service: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 5df30dd53422da751271ac644adf7072efc6dc46
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 5e1946affdf33239c89bbc5556f5905ccad6ed4f
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132520795"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132713182"
 ---
 # <a name="migrate-to-microsoft-sentinel-from-an-existing-siem"></a>Migración a Microsoft Sentinel desde una solución de SIEM existente
 
@@ -72,7 +71,7 @@ Tenga en cuenta las ventajas y desventajas de cada enfoque a la hora de decidir 
 > [!NOTE]
 > Muchas organizaciones evitan ejecutar varias soluciones de análisis locales debido al costo y la complejidad.
 >
-> Microsoft Sentinel proporciona [precios de pago por uso](azure-sentinel-billing.md) y una infraestructura flexible, lo que da a los equipos de SOC el tiempo suficiente para adaptarse al cambio. Migre y pruebe el contenido al ritmo que funcione mejor para su organización.
+> Microsoft Sentinel proporciona [precios de pago por uso](billing.md) y una infraestructura flexible, lo que da a los equipos de SOC el tiempo suficiente para adaptarse al cambio. Migre y pruebe el contenido al ritmo que funcione mejor para su organización.
 >
 ### <a name="short-term-approach"></a>Enfoque a corto plazo
 
@@ -146,7 +145,7 @@ Analice algunos datos de Microsoft Sentinel, como los datos en la nube, y luego
 
 Esta configuración es rentable, ya que puede mover el análisis de datos en la nube a Microsoft Sentinel sin duplicar los costos ni pagar dos veces por los datos. Sigue teniendo la libertad de migrar a su propio ritmo. A medida que continúa desplazando los orígenes de datos y las detecciones a Microsoft Sentinel, resulta más fácil migrar a Microsoft Sentinel como interfaz principal. Pero el simple reenvío de incidentes enriquecidos a una solución de SIEM heredada limita el valor que obtiene de las capacidades de investigación, búsqueda y automatización de Microsoft Sentinel.
 
-Para más información, consulte:
+Para obtener más información, consulte:
 
 - [Envío de alertas enriquecidas de Microsoft Sentinel a la solución de SIEM heredada](https://techcommunity.microsoft.com/t5/azure-sentinel/sending-enriched-azure-sentinel-alerts-to-3rd-party-siem-and/ba-p/1456976)
 - [Envío de alertas enriquecidas de Microsoft Sentinel a IBM QRadar](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-side-by-side-with-qradar/ba-p/1488333)
@@ -181,7 +180,7 @@ Asegúrese de migrar solo los datos que representen los casos de uso clave actua
 
 1. Use cualquiera de los siguientes recursos para ingerir datos:
 
-    - Use **[conectores de datos integrados](connect-data-sources.md) de Microsoft Sentinel** para empezar a ingerir datos. Por ejemplo, puede que desee iniciar una [evaluación gratuita](azure-sentinel-billing.md#free-trial) con los datos en la nube o que quiera usar [conectores de datos gratuitos](azure-sentinel-billing.md#free-data-sources) para ingerir datos de otros productos de Microsoft.
+    - Use **[conectores de datos integrados](connect-data-sources.md) de Microsoft Sentinel** para empezar a ingerir datos. Por ejemplo, puede que desee iniciar una [evaluación gratuita](billing.md#free-trial) con los datos en la nube o que quiera usar [conectores de datos gratuitos](billing.md#free-data-sources) para ingerir datos de otros productos de Microsoft.
 
     - Use **[Syslog](connect-data-sources.md#syslog), el [formato de evento común (CEF)](connect-data-sources.md#common-event-format-cef) o las [API REST](connect-data-sources.md#rest-api-integration)** para conectar otros orígenes de datos.
 
@@ -261,7 +260,7 @@ Use flujos de trabajo automatizados para agrupar y clasificar por orden de prior
 
 Para más información, consulte:
 
-- [Orquestación de seguridad, automatización y respuesta (SOAR) en Microsoft Sentinel](automation-in-azure-sentinel.md)
+- [Orquestación de seguridad, automatización y respuesta (SOAR) en Microsoft Sentinel](automation.md)
 - [Automatización de la respuesta a amenazas con cuadernos de estrategias en Microsoft Sentinel](automate-responses-with-playbooks.md)
 - [Automatización del control de incidentes en Microsoft Sentinel con las reglas de automatización](automate-incident-handling-with-automation-rules.md)
 
@@ -286,7 +285,7 @@ Para más información, consulte:
 
 - [Procedimientos recomendados para la migración de reglas](https://techcommunity.microsoft.com/t5/azure-sentinel/best-practices-for-migrating-detection-rules-from-arcsight/ba-p/2216417)
 - [Seminario web: Procedimientos recomendados para convertir reglas de detección](https://www.youtube.com/watch?v=njXK1h9lfR4)
-- [Orquestación de seguridad, automatización y respuesta (SOAR) en Microsoft Sentinel](automation-in-azure-sentinel.md)
+- [Orquestación de seguridad, automatización y respuesta (SOAR) en Microsoft Sentinel](automation.md)
 - [Mejora en la administración de SOC con métricas de incidentes](manage-soc-with-incident-metrics.md)
 - [Ruta de aprendizaje de Microsoft Sentinel](/learn/paths/security-ops-sentinel/)
 - [Examen SC-200: Microsoft Security Operations Analyst](/learn/certifications/exams/sc-200)

@@ -235,7 +235,7 @@
               href: configure-authentication-provider-google.md
             - name: Autenticación con Twitter
               href: configure-authentication-provider-twitter.md
-            - name: Autenticación con un proveedor de OpenID Connect (versión preliminar)
+            - name: Autenticación con un proveedor de OpenID Connect
               href: configure-authentication-provider-openid-connect.md
             - name: Autenticación mediante Iniciar sesión con Apple (versión preliminar)
               href: configure-authentication-provider-apple.md

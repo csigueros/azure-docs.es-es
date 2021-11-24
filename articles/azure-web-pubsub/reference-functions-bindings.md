@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 11/08/2021
-ms.openlocfilehash: 40904b087d58ee6a07ca7acecdd2b2927348799e
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 863fd6ce34c2f2fb822490ae363cf2f979594c99
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132493255"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132705196"
 ---
 #  <a name="azure-web-pubsub-trigger-and-bindings-for-azure-functions"></a>Desencadenador y enlaces de Azure Web PubSub para Azure Functions
 
@@ -423,7 +423,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 `WebPubSubConnection` proporciona las propiedades siguientes.
 
-| Nombre del enlace | Description |
+| Nombre del enlace | Descripción |
 |---------|---------|
 | baseUrl | Identificador URI de conexión de cliente de Web PubSub. |
 | url | Identificador URI absoluto de la conexión de Web PubSub; contiene la base generada por `AccessToken` en la solicitud. |
@@ -576,7 +576,7 @@ En un lenguaje débilmente tipado como `javascript`, **`actionName`** es el par�
 > [!IMPORTANT]
 > La propiedad de datos del mensaje en las acciones relacionadas con el envío de mensajes debe ser `string` si el tipo de datos está establecido en `json` o `text` para evitar la ambigüedad de la conversión de datos. Use `JSON.stringify()` para convertir el objeto json que necesite. Esto se aplica a cualquier lugar mediante la propiedad de mensaje, por ejemplo, `UserEventResponse.Data` trabajando con `WebPubSubTrigger`. 
 > 
-> Si el tipo de datos está establecido en `binary`, se permite usar el enlace admitido de forma natural `dataType` como `binary` como se configuró en `function.json`. Consulte [Definiciones de desencadenador y enlace](/azure/azure-functions/functions-triggers-bindings?tabs=csharp#trigger-and-binding-definitions) para más información.
+> Si el tipo de datos está establecido en `binary`, se permite usar el enlace admitido de forma natural `dataType` como `binary` como se configuró en `function.json`. Consulte [Definiciones de desencadenador y enlace](../azure-functions/functions-triggers-bindings.md?tabs=csharp#trigger-and-binding-definitions) para más información.
 
 ---
 

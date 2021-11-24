@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 09/27/2021
 ms.custom: references_regions
-ms.openlocfilehash: 3a06bf01ec9afa62a656eb5590a7ae283063ec88
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: b29896a9ca047b05c3313b716b2a4df1b0e72f6c
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130074235"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132517185"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Tipos de archivo y orígenes de datos admitidos en Azure Purview
 
@@ -29,7 +29,8 @@ Los siguientes tipos de archivo se admiten para los exámenes y para la extracci
 
 - Formatos de archivo estructurados admitidos por extensión: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML, GZIP
  > [!Note]
- > * En los tipos de archivo AVRO, ORC y PARQUET, el analizador de Purview no admite tipos de datos complejos (por ejemplo, MAP, LIST, STRUCT) para la extracción de esquemas. 
+ > * El analizador de Purview solo admite la extracción de esquemas de los tipos de archivo estructurados indicados arriba.
+ > * En los tipos de archivo AVRO, ORC y PARQUET, el analizador de Purview no permite la extracción de esquemas de archivos que contienen tipos de datos complejos (por ejemplo, MAP, LIST, STRUCT). 
  > * El analizador de Purview admite el examen de tipos de archivo PARQUET comprimidos con Snappy para la extracción y clasificación de esquemas. 
  > * En el caso de los tipos de archivo GZIP, el archivo GZIP debe asignarse a un único archivo csv dentro de él. 
  > Los archivos Gzip están sujetos a reglas de clasificación personalizadas y del sistema. Actualmente no se admite el examen de un archivo Gzip asignado a varios archivos o cualquier otro tipo de archivo que no sea CSV. 

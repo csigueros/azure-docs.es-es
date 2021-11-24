@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 61716993bc4c9f3da4ad606789f050a280a94817
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: ae07694e72f910945fbb213a448bfd910fef9786
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111754656"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132483865"
 ---
 # <a name="get-started-with-the-azure-virtual-desktop-agent"></a>Introducción al agente de Azure Virtual Desktop
 
@@ -42,7 +42,7 @@ Otros aspectos importantes que debe tener en cuenta:
 - La actualización del agente no está conectada a las actualizaciones de la compilación de infraestructura de Azure Virtual Desktop. Cuando se actualiza la infraestructura de Azure Virtual Desktop, no significa que el agente se haya actualizado junto con ella.
 - Dado que las máquinas virtuales del grupo de hosts pueden recibir actualizaciones del agente en momentos diferentes, deberá ser capaz de indicar la diferencia entre los problemas de paquetes piloto y las actualizaciones de agente con errores. Si navega a los registros de eventos de la máquina virtual en **Visor de eventos** > **Registros de Windows** > **Aplicación** y ve un evento con la etiqueta "ID 3277", eso significa que la actualización del agente no funcionó. Si no ve ese evento, la máquina virtual se encuentra en un paquete piloto diferente y se actualizará más adelante.
 - Cuando el agente de Geneva Monitoring se actualiza a la versión más reciente, se busca la antigua tarea GenevaTask y se deshabilita antes de crear una nueva tarea para el nuevo agente de supervisión. La versión anterior del agente de supervisión no se elimina en caso de que la versión más reciente del agente de supervisión tenga un problema que requiera revertir a la versión anterior para corregirlo. Si la versión más reciente tiene un problema, el agente de supervisión anterior se volverá a habilitar para continuar con la entrega de datos de supervisión. Todas las versiones de supervisión anteriores a la última que instaló antes de la actualización se eliminarán de la VM.
-- La VM mantiene tres versiones de la pila en paralelo a la vez. Esto permite una recuperación rápida si algo va mal con la actualización. La versión más antigua de la pila se quita de la VM cada vez que se actualiza la pila.
+- La VM mantiene tres versiones del agente y de la pila en paralelo a la vez. Esto permite una recuperación rápida si algo va mal con la actualización. La versión más antigua del agente o pila se quita de la máquina virtual cada vez que se actualiza el agente o la pila. Si elimina estos componentes prematuramente y el agente o la pila tienen un error, el agente o la pila no se podrán revertir a una versión anterior, lo que pondrá la máquina virtual en un estado no disponible.
 
 La actualización del agente normalmente tarda entre 2 y 3 minutos en una nueva máquina virtual y no debe hacer que esta pierda la conexión o se apague. Este proceso de actualización se aplica a Azure Virtual Desktop (clásico) y a la versión más reciente de Azure Virtual Desktop con Azure Resource Manager.
 

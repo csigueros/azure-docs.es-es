@@ -4,17 +4,15 @@ description: Obtenga información sobre los procedimientos recomendados para dis
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 83909e0ef8667b4ee466b9e8f1ad04a717e8302a
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: a7d4dd4c8bcda776b5fe4cea886b5e8a6bd87ea9
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132524766"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714625"
 ---
 # <a name="microsoft-sentinel-workspace-architecture-best-practices"></a>Procedimientos recomendados de arquitectura de áreas de trabajo de Microsoft Sentinel
 
@@ -39,7 +37,7 @@ Aunque es más fácil de administrar menos áreas de trabajo, es posible que ten
 Al determinar cuántos inquilinos y áreas de trabajo usar, tenga en cuenta que la mayoría de las características de Microsoft Sentinel funcionan mediante una sola área de trabajo o una instancia de Microsoft Sentinel, y Microsoft Sentinel ingiere todos los registros que se encuentran dentro del área de trabajo.
 
 > [!IMPORTANT]
-> Los costes son una de las consideraciones principales a la hora de determinar la arquitectura de Microsoft Sentinel. Para obtener más información, consulte [Costes y facturación de Microsoft Sentinel](azure-sentinel-billing.md).
+> Los costes son una de las consideraciones principales a la hora de determinar la arquitectura de Microsoft Sentinel. Para obtener más información, consulte [Costes y facturación de Microsoft Sentinel](billing.md).
 >
 ### <a name="working-with-multiple-tenants"></a>Trabajo con varios inquilinos
 

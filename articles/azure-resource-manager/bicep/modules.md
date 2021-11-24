@@ -3,12 +3,12 @@ title: Módulos de Bicep
 description: Describe cómo definir un módulo en un archivo de Bicep y cómo utilizar los ámbitos de módulo.
 ms.topic: conceptual
 ms.date: 11/12/2021
-ms.openlocfilehash: a8aedd784875fccbad81957550380cc4fa236616
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: b01b37d9adb605e1e3c2b257114a33f120e89ef9
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132551281"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491362"
 ---
 # <a name="bicep-modules"></a>Módulos de Bicep
 
@@ -91,7 +91,7 @@ Por ejemplo:
 
 Cuando se hace referencia a un módulo en un registro, la extensión de Bicep en Visual Studio Code automáticamente llama a [bicep restore](bicep-cli.md#restore) para copiar el módulo externo en la caché local. El módulo externo tarda unos minutos en restaurarse. Si IntelliSense para el módulo no funciona de inmediato, espere a que se complete la restauración.
 
-La ruta de acceso completa de un módulo en un registro puede ser larga. En lugar de proporcionar la ruta de acceso completa cada vez que desea usar el módulo, puede [configurar alias en el archivo bicepconfig.json](bicep-config-modules.md#aliases-for-modules). Los alias facilitan la referencia al módulo. Por ejemplo, con un alias, puede acortar la ruta de acceso a:
+La ruta de acceso completa de un módulo en un registro puede ser larga. En lugar de proporcionar la ruta de acceso completa cada vez que desea usar el módulo, puede [configurar alias en el archivo bicepconfig.json](bicep-config.md#aliases-for-modules). Los alias facilitan la referencia al módulo. Por ejemplo, con un alias, puede acortar la ruta de acceso a:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/alias-definition.bicep" highlight="1" :::
 

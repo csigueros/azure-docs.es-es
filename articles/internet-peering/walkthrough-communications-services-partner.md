@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.author: gatharej
-ms.openlocfilehash: 395ca8022b0355ff79c200dfbe87bc78e29de089
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: d17ae08067568098fffcdd443ba196c0023fbd42
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129060865"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519352"
 ---
 # <a name="azure-internet-peering-for-communications-services-walkthrough"></a>Tutorial de emparejamiento de Internet de Azure para Communication Services
 
@@ -64,7 +64,7 @@ Asegúrese de seleccionar las siguientes opciones en la página "Crear un empare
 
 Tipo de emparejamiento:   **Directo**
 
-Red de Microsoft:  **8075**
+Red de Microsoft: **8075 (con Voice)**
 
 SKU:        **Premium gratis**
 

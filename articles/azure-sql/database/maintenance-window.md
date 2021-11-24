@@ -9,13 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 10/15/2021
-ms.openlocfilehash: c73ee217fd802a839b565cd1174c94f8da288a0e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/12/2021
+ms.openlocfilehash: cea06c5731fd17b05987e2c070264588f5428345
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131026058"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491381"
 ---
 # <a name="maintenance-window-preview"></a>Ventana de mantenimiento (versión preliminar)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -38,7 +38,7 @@ La ventana de mantenimiento se puede configurar en la creación o para los recur
 
 ### <a name="gain-more-predictability-with-maintenance-window"></a>Ganar en previsibilidad con la ventana de mantenimiento
 
-De forma predeterminada, la directiva de mantenimiento de Azure SQL bloquea las actualizaciones impactantes durante el período de **8.00 a 17.00, hora local, todos los días** para evitar interrupciones durante el horario comercial habitual de máxima actividad. La hora local viene determinada por la ubicación de la [región de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que hospeda el recurso y puede observar el horario de verano según la definición de la zona horaria local. 
+De manera predeterminada, la directiva de mantenimiento de Azure SQL bloquea la mayoría de las actualizaciones con impacto durante el período de **8:00 a 17:00, hora local, todos los días** para evitar interrupciones durante las horas de máxima actividad. La hora local viene determinada por la ubicación de la [región de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que hospeda el recurso y puede observar el horario de verano según la definición de la zona horaria local. 
 
 Para ajustar aún más el horario de las actualizaciones de mantenimiento a sus recursos de Azure SQL. Para ello, elija entre otras dos franjas de tiempo de la ventana de mantenimiento:
  

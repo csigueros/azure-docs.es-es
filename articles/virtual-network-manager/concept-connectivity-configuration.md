@@ -7,12 +7,12 @@ ms.service: virtual-network-manager
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: template-concept, ignite-fall-2021
-ms.openlocfilehash: bf7adbb0fd54243e71f6e313892f3f418071c217
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: face052462909e755771f12ff19fed8139675183
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132719175"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484597"
 ---
 # <a name="connectivity-configuration-in-azure-virtual-network-manager-preview"></a>Configuración de conectividad en Azure Virtual Network Manager (versión preliminar)
 
@@ -72,7 +72,7 @@ La malla global es necesaria cuando desea que las redes virtuales de radio se co
 
 ### <a name="use-hub-as-a-gateway"></a>Uso del centro de conectividad como puerta de enlace
 
-Otra opción que puede habilitar en una configuración de centro de conectividad y radio es usar el centro como puerta de enlace. Esta configuración permitirá que todas las redes virtuales del grupo de redes usen la VPN o la puerta de enlace de ExpressRoute en la red virtual del centro de conectividad para pasar el tráfico. Consulte [Puertas de enlace y conectividad local](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity).
+Otra opción que puede habilitar en una configuración de centro de conectividad y radio es usar el centro como puerta de enlace. Esta configuración permitirá que todas las redes virtuales del grupo de redes usen la VPN o la puerta de enlace de ExpressRoute en la red virtual del centro de conectividad para pasar el tráfico. Consulte [Puertas de enlace y conectividad local](/azure/virtual-network/virtual-network-peering-overview#gateways-and-on-premises-connectivity).
 
 Al implementar una topología de centro de conectividad y radio desde el Azure Portal, **Usar el centro de conectividad como puerta de enlace** está habilitado de forma predeterminada para las redes virtuales de radio en el grupo de red. Azure Virtual Network Manager intentará crear una conexión de emparejamiento de red virtual entre el centro y la red virtual de radios en el grupo de recursos. Si la puerta de enlace no existe en la red virtual del centro de conectividad, se producirá un error en la creación del emparejamiento desde la red virtual de radio al centro de conectividad. La conexión de emparejamiento del centro de conectividad al radio se seguirá creando sin una conexión establecida. 
 

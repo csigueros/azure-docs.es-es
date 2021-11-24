@@ -9,12 +9,12 @@ ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/22/2021
-ms.openlocfilehash: 07891ea9f4f25827c80ac56a2731d4a5393f3b38
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 2f0acb894d6bdacef69dcf8adb2088214e094415
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131438728"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132517964"
 ---
 # <a name="execute-a-fail-activity-in-azure-data-factory-and-synapse-analytics"></a>Ejecución de la actividad Fail en Azure Data Factory y Synapse Analytics
 
@@ -77,3 +77,4 @@ Consulte otras actividades de flujo de control admitidas, incluidas las siguient
 - [Actividad de búsqueda](control-flow-lookup-activity.md)
 - [Actividad web](control-flow-web-activity.md)
 - [Actividad Until](control-flow-until-activity.md)
+- [Descripción del error de canalización](tutorial-pipeline-failure-error-handling.md)

@@ -4,14 +4,14 @@ description: En este tema se proporciona información general sobre el seguimien
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: juliako
-ms.openlocfilehash: c24d7f4a67afbf194be498e4fcd15779a806a3b9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6726c67cf5274ba252b86ace9165330dc296afb4
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605152"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491950"
 ---
-# <a name="trace-observed-people-in-a-video"></a>Seguimiento de las personas observadas en un vídeo
+# <a name="trace-observed-people-in-a-video-preview"></a>Seguimiento de las personas observadas en un vídeo (versión preliminar)
 
 Video Indexer detecta a las personas observadas en los vídeos y proporciona información como la ubicación de la persona en el fotograma de vídeo y la marca de tiempo exacta (inicio, fin) en la que aparece una persona. La API devuelve las coordenadas del cuadro de límite (en píxeles) para cada instancia de persona detectada, incluido el grado de confianza de la detección.  
  
@@ -25,7 +25,6 @@ Estos son algunos escenarios en los que esta característica podría ser útil:
 Por ejemplo, si un vídeo contiene una persona, la operación de detección mostrará las apariciones de esa persona junto con sus coordenadas en los fotogramas de vídeo. Puede usar esta funcionalidad para determinar la ruta de una persona en un vídeo. También le permite saber si hay varias instancias de la misma persona en un vídeo.
 
 La característica de **seguimiento de personas observadas** recién agregada está disponible al indexar el archivo si elige el valor preestablecido **Opción avanzada** -> **Advanced video** (Vídeo avanzado) o **Advanced video + audio** (Vídeo y audio avanzado) en **Indexación de audio y vídeo**. La indexación estándar no incluirá este nuevo modelo avanzado. 
-
 
 :::image type="content" source="./media/observed-people-tracing/youtube-trailer.png" alt-text="Captura de pantalla del seguimiento de personas observadas":::  
  

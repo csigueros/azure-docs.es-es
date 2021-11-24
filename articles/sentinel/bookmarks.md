@@ -5,15 +5,17 @@ author: yelevin
 ms.author: yelevin
 manager: rkarlin
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: b423543ee06f02be08b066bb5f435d5f89a54d28
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 7ddfa01141ac95b78371d8fbe0a239e09057481a
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132716278"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524747"
 ---
 # <a name="keep-track-of-data-during-hunting-with-microsoft-sentinel"></a>Realizar un seguimiento de los datos durante la búsqueda con Microsoft Sentinel
 
@@ -31,7 +33,7 @@ Ahora puede identificar y solucionar brechas en la cobertura de la técnica MITR
 >
 > La asignación de técnicas de MITRE ATT&CK a marcadores se encuentra actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
-También puede investigar más tipos de entidades mientras busca con marcadores mediante la asignación del conjunto completo de tipos de entidad e identificadores admitidos por Microsoft Sentinel Analytics en las consultas personalizadas. Esto le permite USAR marcadores para explorar las entidades devueltas en los resultados de las consultas de búsqueda mediante las [páginas de entidad](entities.md#entity-pages), los [incidentes](investigate-cases.md) y el [gráfico de investigación](investigate-cases.md#use-the-investigation-graph-to-deep-dive). Si un marcador captura los resultados de una consulta de búsqueda, hereda automáticamente la técnica MITRE ATT&CK de la consulta y las asignaciones de entidades.
+También puede investigar más tipos de entidades mientras busca con marcadores mediante la asignación del conjunto completo de tipos de entidad e identificadores admitidos por Microsoft Sentinel Analytics en las consultas personalizadas. Esto le permite USAR marcadores para explorar las entidades devueltas en los resultados de las consultas de búsqueda mediante las [páginas de entidad](entities-in-azure-sentinel.md#entity-pages), los [incidentes](investigate-cases.md) y el [gráfico de investigación](investigate-cases.md#use-the-investigation-graph-to-deep-dive). Si un marcador captura los resultados de una consulta de búsqueda, hereda automáticamente la técnica MITRE ATT&CK de la consulta y las asignaciones de entidades.
 
 > [!IMPORTANT]
 >

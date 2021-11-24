@@ -8,12 +8,12 @@ ms.subservice: mlops
 ms.date: 10/21/2021
 ms.topic: conceptual
 ms.custom: how-to, devplatv2
-ms.openlocfilehash: ecde110225ef42ace6b19e54930ee9f4152acec6
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: c704af7d5249ca1a24da554e7789d3c92a360861
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131558637"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519465"
 ---
 # <a name="monitor-managed-online-endpoints-preview"></a>Supervisión de puntos de conexión en línea administrados (versión preliminar)
 
@@ -54,6 +54,13 @@ En función del recurso que seleccione, las métricas que vea serán diferentes.
 - Latencia de solicitudes P90 (la latencia de las solicitudes se encuentra en el percentil 90)
 - Latencia de solicitudes P95 (la latencia de las solicitudes se encuentra en el percentil 95)
 - Solicitudes por minuto
+- Nuevas conexiones por segundo
+- Recuento de conexiones activas
+- Bytes de red
+
+> ![NOTA] El ancho de banda se limita si se superan los límites (vea la sección Puntos de conexión en línea administrados de [Administración y aumento de las cuotas de los recursos con Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)). Para determinar si las solicitudes están limitadas:
+> - Supervise la métrica "Bytes de red".
+> - Los encabezados de respuesta tendrán los campos: `ms-azureml-bandwidth-request-delay-ms` y `ms-azureml-bandwidth-response-delay-ms`. Los valores de los campos son los retrasos, en milisegundos, del límite de ancho de banda.
 
 Se divide en las dimensiones siguientes:
 
@@ -63,12 +70,12 @@ Se divide en las dimensiones siguientes:
 
 ### <a name="metrics-at-deployment-scope"></a>Métricas en el ámbito de implementación
 
-- Uso de CPU
+- Porcentaje de uso de la CPU
 - Capacidad de implementación (el número de instancias del tipo de instancia solicitado)
 - Utilización de disco
 - Uso de memoria de GPU (solo aplicable a instancias de GPU)
 - Uso de GPU (solo aplicable a instancias de GPU)
-- Uso de memoria
+- Porcentaje de uso de la memoria
 
 Se divide en la dimensión siguiente:
 

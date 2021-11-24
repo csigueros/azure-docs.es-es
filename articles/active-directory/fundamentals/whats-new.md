@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0144ea1819a2ea3fd58b238744290556fbea0eae
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: ee25c39514146ddf9e7489868c24b656211115a6
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132159116"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398428"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -100,7 +100,7 @@ Se han agregado las siguientes funcionalidades nuevas a las transformaciones de 
 
 ---
 
-### <a name="public-preview---flagged"></a>Versión preliminar pública: con marca  
+### <a name="public-preview--flagged-sign-ins"></a>Versión preliminar pública: inicios de sesión marcados  
 
 **Tipo:** Nueva característica  
 **Categoría del servicio:** Notificación  
@@ -307,15 +307,6 @@ Se ha mejorado el tiempo de carga de Aplicaciones. Los usuarios que se dirigen a
 **Funcionalidad del producto:** Experiencia para el desarrollador
  
 El explorador moderno Edge ahora se incluye en el requisito para proporcionar un encabezado `Origin` al canjear un [código de autorización de aplicación de página única](../develop/v2-oauth2-auth-code-flow.md#redirect-uri-setup-required-for-single-page-apps). Una corrección de compatibilidad eximía accidentalmente al explorador moderno Edge de los controles de CORS y ese error se va a corregir durante octubre. Un subconjunto de aplicaciones dependía de que CORS se deshabilitase en el explorador, lo que tiene el efecto secundario de quitar el encabezado `Origin` del tráfico. Se trata de una configuración no admitida para usar Azure AD y estas aplicaciones que dependían de deshabilitar CORS ya no pueden usar el explorador moderno Edge como solución alternativa de seguridad.  Todos los exploradores modernos deben incluir ahora el encabezado `Origin` por especificación HTTP para asegurarse de que se aplica CORS. [Más información](../develop/reference-breaking-changes.md#the-device-code-flow-ux-will-now-include-an-app-confirmation-prompt). 
-
----
-
-### <a name="general-availability---access-packages-can-expire-after-number-of-hours"></a>Disponibilidad general: los paquetes de acceso pueden expirar después de varias horas
-
-**Tipo:** Nueva característica  
-**Categoría del servicio:** Administración de acceso a usuarios **Funcionalidad del producto:** Administración de derechos
- 
-Ahora hay otra opción para la configuración de expiración avanzada en la administración de derechos. Es posible configurar un paquete de acceso que expirará en cuestión de horas, además de la configuración anterior. [Más información](../governance/entitlement-management-access-package-create.md#lifecycle).
 
 ---
 

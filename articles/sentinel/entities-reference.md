@@ -1,38 +1,38 @@
 ---
-title: Referencia de los tipos de entidad de Azure Sentinel | Microsoft Docs
-description: En este artículo se muestran los tipos de entidad de Azure Sentinel y sus identificadores necesarios.
+title: Referencia de tipos de entidad de Microsoft Sentinel | Microsoft Docs
+description: En este artículo se muestran los tipos de entidad de Microsoft Sentinel y sus identificadores necesarios.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 02/10/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 44f8eb527901f5457a4eddfab0bfdd8191f60d0f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c5917011bd937e88811c9f0cffaed7f8c1c61f00
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131046838"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521213"
 ---
-# <a name="azure-sentinel-entity-types-reference"></a>Referencia de los tipos de entidad de Azure Sentinel
+# <a name="microsoft-sentinel-entity-types-reference"></a>Referencia de los tipos de entidad de Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ## <a name="entity-types-and-identifiers"></a>Tipos de entidad e identificadores
 
-En la tabla siguiente se muestran los **tipos de entidad** disponibles actualmente para la asignación en Azure Sentinel y los **atributos** disponibles como **identificadores** para cada tipo de entidad, que aparecen en la lista desplegable **Identificadores** en la sección [Asignación de entidades](map-data-fields-to-entities.md) del [Asistente para reglas de análisis](detect-threats-custom.md).
+En la tabla siguiente se muestran los **tipos de entidad** disponibles actualmente para la asignación en Microsoft Sentinel y los **atributos** disponibles como **identificadores** para cada tipo de entidad, que aparecen en la lista desplegable **Identificadores** en la sección [Asignación de entidades](map-data-fields-to-entities.md) del [Asistente para reglas de análisis](detect-threats-custom.md).
 
 Cada uno de los identificadores de la columna **Identificadores necesarios** es mínimamente necesario para identificar su entidad. Sin embargo, es posible que un identificador necesario, por sí solo, no sea suficiente para proporcionar una identificación *única*. Cuanto más identificadores se usan, mayor es la probabilidad de una identificación única. Puede usar hasta tres identificadores para una asignación de entidad única.
 
-Para obtener los mejores resultados (una identificación única garantizada) debe usar identificadores de la columna **Identificadores más seguros** siempre que sea posible. El uso de varios identificadores seguros permite la correlación entre identificadores seguros de distintos esquemas y orígenes de datos. Esto, a su vez, permite que Azure Sentinel proporcione conclusiones más completas para una entidad determinada.
+Para obtener los mejores resultados (una identificación única garantizada) debe usar identificadores de la columna **Identificadores más seguros** siempre que sea posible. El uso de varios identificadores seguros permite la correlación entre identificadores seguros de distintos esquemas y orígenes de datos. Esto, a su vez, permite que Microsoft Sentinel proporcione conclusiones más completas para una entidad determinada.
 
 | Tipo de entidad | Identificadores | Identificadores necesarios | Identificadores más seguros |
 | - | - | - | - |
@@ -141,7 +141,7 @@ Identificadores no seguros de una entidad de host:
 | ----- | ---- | ----------- |
 | Tipo | String | ‘ip’ |
 | Dirección | String | Dirección IP en forma de cadena, como 127.0.0.1 (ya sea IPv4 o IPv6). |
-| Ubicación | GeoLocation | Contexto de ubicación geográfica asociado a la entidad IP. <br><br>Para obtener más información, consulte también [Enriquecimiento de entidades en Azure Sentinel con datos de geolocalización mediante la API REST (versión preliminar pública)](geolocation-data-api.md). |
+| Ubicación | GeoLocation | Contexto de ubicación geográfica asociado a la entidad IP. <br><br>Para obtener más información, consulte también [Enriquecimiento de entidades en Microsoft Sentinel con datos de geolocalización mediante la API REST (versión preliminar pública)](geolocation-data-api.md). |
 |
 
 Identificadores seguros de una entidad IP:
@@ -503,7 +503,7 @@ En la lista siguiente se definen los identificadores de las aplicaciones en la n
 |17865|Ariba Inc|
 |18432|Zscaler|
 |19688|Xactly|
-|20595|Microsoft Cloud App Security|
+|20595|Microsoft Defender para aplicaciones en la nube|
 |20892|Microsoft SharePoint Online|
 |20893|Microsoft Exchange Online|
 |20940|Active Directory|
@@ -542,6 +542,6 @@ En la lista siguiente se definen los identificadores de las aplicaciones en la n
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento ha obtenido información acerca de la estructura de la entidad, los identificadores y el esquema de Azure Sentinel.
+En este documento ha obtenido información acerca de la estructura de la entidad, los identificadores y el esquema de Microsoft Sentinel.
 
 Obtenga más información sobre las [entidades](entities-in-azure-sentinel.md) y [la asignación de entidades](map-data-fields-to-entities.md). 

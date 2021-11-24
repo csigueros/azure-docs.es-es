@@ -1,20 +1,20 @@
 ---
-title: Enlace de una instancia de Azure Database for MySQL con una aplicación de Azure Spring Cloud
-description: Aprenda a enlazar una instancia de Azure Database for MySQL a una aplicación de Azure Spring Cloud.
+title: Enlace de una instancia de Azure Database for MySQL con una aplicación en Azure Spring Cloud
+description: Aprenda a enlazar una instancia de Azure Database for MySQL con una aplicación en Azure Spring Cloud.
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 45ded9214f310f3505cc5d032754333c5cf702d8
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 7c48b9eee1ff727cbd3d2ab7204045d962a21f44
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862542"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490352"
 ---
-# <a name="bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Enlace de una instancia de Azure Database for MySQL con una aplicación de Azure Spring Cloud
+# <a name="bind-an-azure-database-for-mysql-instance-to-your-application-in-azure-spring-cloud"></a>Enlace de una instancia de Azure Database for MySQL con una aplicación en Azure Spring Cloud
 
 **Este artículo se aplica a:** ✔️ Java
 
@@ -26,7 +26,7 @@ Con Azure Spring Cloud puede enlazar determinados servicios de Azure con sus apl
 * Una cuenta de Azure Database for MySQL
 * Azure CLI
 
-Si no tiene ninguna instancia de Azure Spring Cloud implementado, siga las instrucciones de [Inicio rápido: Inicio de una aplicación de Azure Spring Cloud desde Azure Portal](./quickstart.md) para implementar la primera aplicación de Spring Cloud.
+Si no tiene una instancia implementada de Azure Spring Cloud, siga las instrucciones de [Inicio rápido: Inicio de una aplicación en Azure Spring Cloud mediante Azure Portal](./quickstart.md) para implementar su primera aplicación de Spring Cloud.
 
 ## <a name="prepare-your-java-project"></a>Preparación del proyecto de Java
 

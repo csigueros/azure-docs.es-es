@@ -6,6 +6,8 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,12 +15,12 @@ ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 583d86c64014bc107994880b587e4fe9f5309597
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 29a464e27b6ee276d0fe2bc313a87ae718453067
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132710998"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519864"
 ---
 # <a name="work-with-threat-indicators-in-microsoft-sentinel"></a>Uso de los indicadores de amenazas de Microsoft Sentinel
 
@@ -255,5 +257,5 @@ También hay una completa comunidad de [libros de Azure Monitor en GitHub](https
 En este artículo ha aprendido todas las formas en que puede trabajar con indicadores de inteligencia sobre amenazas en Microsoft Sentinel. Para más información sobre la inteligencia sobre amenazas en Microsoft Sentinel, consulte los siguientes artículos:
 - [Descripción de la inteligencia sobre amenazas en Microsoft Azure Sentinel](understand-threat-intelligence.md).
 - Conexión de Microsoft Sentinel a las [fuentes de inteligencia sobre amenazas STIX/TAXII](./connect-threat-intelligence-taxii.md).
-- [Conexión de plataformas de inteligencia sobre amenazas](./connect-threat-intelligence-tip.md) con Microsoft Sentinel.
+- [Conexión de plataformas de inteligencia sobre amenazas](./connect-threat-intelligence-tip.md) con Microsoft Sentinel.
 - Consulte qué [plataformas TIP, fuentes TAXII y enriquecimientos](threat-intelligence-integration.md) se pueden integrar fácilmente con Microsoft Sentinel.

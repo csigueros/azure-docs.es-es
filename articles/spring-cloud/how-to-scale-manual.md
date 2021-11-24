@@ -7,12 +7,12 @@ ms.author: karler
 author: karlerickson
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 22bae9cd5a626f6a90427bd7522f2b99fa08ca0c
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: ca0a783b5bba849e27b04050327f7c9e7bc82189
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015362"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492575"
 ---
 # <a name="scale-an-application-in-azure-spring-cloud"></a>Escalado de una aplicación en Azure Spring Cloud
 
@@ -68,7 +68,7 @@ Si está en el nivel Básico y se le imponen una o varias de estas [limitaciones
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este ejemplo se ha explicado cómo escalar manualmente una aplicación de Azure Spring Cloud. Para aprender a supervisar una aplicación mediante la configuración de alertas, consulte [Configuración de la escalabilidad automática](./how-to-setup-autoscale.md).
+En este ejemplo se explica cómo escalar manualmente una aplicación de Azure Spring Cloud. Para aprender a supervisar una aplicación mediante la configuración de alertas, consulte [Configuración de la escalabilidad automática](./how-to-setup-autoscale.md).
 
 > [!div class="nextstepaction"]
 > [Aprenda a configurar las alertas](./tutorial-alerts-action-groups.md)

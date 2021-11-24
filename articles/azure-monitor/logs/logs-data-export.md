@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: yossi-y
 ms.author: yossiy
 ms.date: 10/17/2021
-ms.openlocfilehash: 8088b85ceefef2d3ffb11e7713fefd115c84b781
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 9814c90a60aaa67ff6c1914c28568fb478bd0f87
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131435175"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488551"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 La exportación de datos del área de trabajo de Log Analytics en Azure Monitor permite exportar continuamente los datos de las tablas seleccionadas del área de trabajo de Log Analytics en una cuenta de Azure Storage o Azure Event Hubs a medida que se recopilan. En este artículo se ofrecen detalles sobre esta característica y pasos para configurar la exportación de datos en las áreas de trabajo.
@@ -73,7 +73,7 @@ La exportación de datos del área de trabajo de Log Analytics permite exportar 
     - Oeste de EE. UU. 2
 
 ## <a name="data-completeness"></a>Integridad de los datos
-La exportación de datos continuará reintentando el envío de datos durante un máximo de 30 minutos si el destino no está disponible. Si sigue sin estar disponible después de 30 minutos, los datos se descartarán hasta que el destino esté disponible.
+La exportación de datos está optimizada para mover grandes volúmenes de datos a los destinos y, en determinadas condiciones de reintento, puede incluir una fracción de registros duplicados. La operación de exportación al destino podría dar un error cuando se alcanzan los límites de entrada. Consulte los detalles en [Creación o actualización de una regla de exportación de datos](#create-or-update-data-export-rule). La exportación sigue reintentándose hasta 30 minutos. Si el destino no está disponible para aceptar datos, estos se descartarán hasta que el destino esté disponible.
 
 ## <a name="cost"></a>Coste
 Actualmente no hay cargos adicionales por la característica de exportación de datos. Los precios de la exportación de datos se anunciarán en el futuro y habrá un periodo de aviso antes del inicio de la facturación. Si decide seguir usando la exportación de datos después del período de aviso, se le facturará según la tarifa aplicable.

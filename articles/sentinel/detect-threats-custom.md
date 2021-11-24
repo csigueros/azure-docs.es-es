@@ -6,6 +6,8 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -13,12 +15,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a054570ed76d7245962cd387ac5f793692af2cde
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 66ccebb9154285c7f387b7ef51424cbfb177fa04
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721468"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521574"
 ---
 # <a name="create-custom-analytics-rules-to-detect-threats"></a>Creación de reglas de análisis personalizadas para detectar amenazas
 
@@ -93,7 +95,7 @@ En la pestaña **Establecer la lógica de la regla**, puede escribir una consult
 
 - Use la sección de configuración de **asignación de entidades** para asignar parámetros de los resultados de las consultas a entidades reconocidas por Microsoft Sentinel. Las entidades enriquecen la salida de las reglas (alertas e incidentes) con datos esenciales que actúan como bloques de creación de cualquier proceso de investigación y de las acciones de corrección posteriores. También son los criterios por los que puede agrupar las alertas en incidentes en la pestaña **Configuración de los incidentes**.
 
-    Obtenga más información sobre las [entidades en Microsoft Sentinel](entities.md).
+    Obtenga más información sobre las [entidades en Microsoft Sentinel](entities-in-azure-sentinel.md).
 
     Consulte [Asignación de campos de datos a entidades en Microsoft Sentinel](map-data-fields-to-entities.md) para obtener instrucciones completas de asignación de entidades, junto con información importante sobre la [compatibilidad con versiones anteriores](map-data-fields-to-entities.md#notes-on-the-new-version).
 
@@ -298,7 +300,7 @@ Para más información, consulte:
 Para más información, consulte:
 
 - [Tutorial: Investigación de incidentes con Microsoft Sentinel](investigate-cases.md)
-- [Clasificación y análisis de datos mediante entidades en Microsoft Sentinel](entities.md)
+- [Clasificación y análisis de datos mediante entidades en Microsoft Sentinel](entities-in-azure-sentinel.md)
 - [Tutorial: Uso de cuadernos de estrategias con reglas de automatización en Microsoft Sentinel](tutorial-respond-threats-playbook.md)
 
 Además, obtenga información de un ejemplo del uso de reglas de análisis personalizadas al [supervisar Zoom](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) con un [conector personalizado](create-custom-connector.md).

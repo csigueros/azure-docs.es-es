@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 70fbed7df5ece53eb4403fea7f055563eaac1633
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 4cafdcc07ec0cfcd5aa3a7731c7a9571441183fd
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132308193"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132712935"
 ---
 # <a name="detect-threats-quickly-with-near-real-time-nrt-analytics-rules-in-microsoft-sentinel"></a>Detección rápida de amenazas con reglas de análisis casi en tiempo real (NRT) en Microsoft Sentinel
 
@@ -38,7 +36,7 @@ Las [reglas de análisis casi en tiempo real](detect-threats-built-in.md#nrt) de
 
 Las reglas NRT se codifican de forma rígida para que se ejecuten una vez cada minuto y capturen los eventos ingeridos en el minuto anterior, de modo que puedan proporcionarle información lo más al minuto posible.
 
-A diferencia de las reglas programadas normales que se ejecutan con un retraso integrado de cinco minutos para tener en cuenta el retraso del tiempo de ingesta, las reglas NRT se ejecutan con un retraso de solo dos minutos, y resuelven el problema del retraso de ingesta consultando el tiempo de ingesta de los eventos en lugar de su tiempo de generación en el origen (el campo TimeGenerated). Como resultado, se producen mejoras de frecuencia y precisión en las detecciones. (Para comprender este problema de una forma más completa, consulte [Programación de consultas y umbral de alerta](detect-threats-custom.md#query-scheduling-and-alert-threshold) y el artículo vinculado mencionado allí, [Control del retraso de ingesta en las reglas de alertas programadas de Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/handling-ingestion-delay-in-azure-sentinel-scheduled-alert-rules/ba-p/2052851)).
+A diferencia de las reglas programadas normales que se ejecutan con un retraso integrado de cinco minutos para tener en cuenta el retraso del tiempo de ingesta, las reglas NRT se ejecutan con un retraso de solo dos minutos, y resuelven el problema del retraso de ingesta consultando el tiempo de ingesta de los eventos en lugar de su tiempo de generación en el origen (el campo TimeGenerated). Como resultado, se producen mejoras de frecuencia y precisión en las detecciones. (Para comprender este problema de una forma más completa, consulte [Programación de consultas y umbral de alertas](detect-threats-custom.md#query-scheduling-and-alert-threshold) y [Control del retraso de ingesta en las reglas de análisis programadas](ingestion-delay.md).)
 
 Las reglas NRT tienen muchas de las características y funcionalidades de las reglas de análisis programadas. Hay disponible el conjunto completo de funcionalidades de enriquecimiento de alertas: puede asignar entidades y exponer detalles personalizados, y puede configurar contenido dinámico para los detalles de las alertas. Puede elegir cómo se agrupan las alertas en incidentes, puede suprimir temporalmente la ejecución de una consulta después de generar un resultado y puede definir reglas de automatización y cuadernos de estrategias para que se ejecuten en respuesta a las alertas e incidentes generados a partir de la regla.
 

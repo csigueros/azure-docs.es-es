@@ -3,17 +3,15 @@ title: Solución de problemas de implementación de la solución SAP de Microsof
 description: Aprenda a solucionar problemas específicos que pueden producirse en la implementación de la solución Microsoft Sentinel SAP.
 author: batamig
 ms.author: bagold
-ms.service: microsoft-sentinel
 ms.topic: troubleshooting
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.subservice: microsoft-sentinel
-ms.openlocfilehash: 7eee4c9fdd3de93017c15556646fa9e6ece8b22c
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 0a833292784f62c16a8b0394ac10e602fa054a2c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132520016"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711966"
 ---
 # <a name="troubleshooting-your-microsoft-sentinel-sap-solution-deployment"></a>Solución de problemas de implementación de la solución Microsoft Sentinel SAP
 

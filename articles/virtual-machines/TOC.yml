@@ -161,6 +161,8 @@
               href: av2-series.md
             - name: Ampliables de la serie B
               href: sizes-b-series-burstable.md
+            - name: Series DCasv5 y DCadsv5
+              href: dcasv5-dcadsv5-series.md
             - name: Serie DCsv2
               href: dcv2-series.md
             - name: Serie DCsv3 y DCdsv3
@@ -181,6 +183,8 @@
               href: ddv5-ddsv5-series.md
             - name: Series Dasv5 y Dadsv5
               href: dasv5-dadsv5-series.md
+            - name: Series DCasv5 y DCadsv5
+              href: dcasv5-dcadsv5-series.md
         - name: Proceso optimizado
           items:
             - name: Información general
@@ -211,6 +215,8 @@
               href: edv5-edsv5-series.md
             - name: Serie Easv5 y Eadsv5
               href: easv5-eadsv5-series.md
+            - name: Series ECasv5 y ECadsv5
+              href: ecasv5-ecadsv5-series.md
             - name: Serie M
               href: m-series.md
             - name: Serie de memoria media Msv2 y Mdsv2
@@ -1391,7 +1397,7 @@
       href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
     - name: Filtrado del tráfico de red
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: ../virtual-network/tutorial-filter-network-traffic.md?context=/azure/virtual-machines/context/context
         - name: Azure PowerShell
           href: ../virtual-network/tutorial-filter-network-traffic-powershell.md?context=/azure/virtual-machines/context/context
@@ -1399,7 +1405,7 @@
           href: ../virtual-network/tutorial-filter-network-traffic-cli.md?context=/azure/virtual-machines/context/context
     - name: 'Creación de una máquina virtual: IP pública estática'
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-portal.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Azure PowerShell
           href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-ps.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
@@ -1411,7 +1417,7 @@
           href: ../virtual-network/ip-services/remove-public-ip-address-vm.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: 'Creación de una máquina virtual: IP privada estática'
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: ../virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Azure PowerShell
           href: ../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext

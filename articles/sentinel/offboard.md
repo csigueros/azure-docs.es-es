@@ -1,48 +1,46 @@
 ---
-title: Eliminación de Azure Sentinel | Microsoft Docs
-description: Eliminación de la instancia de Azure Sentinel.
+title: Eliminación de Microsoft Sentinel | Microsoft Docs
+description: Eliminación de la instancia de Microsoft Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2020
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: afb17cf0cc999680d2cd60a0be8e4a227aa146bf
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ff22dabc5e2e2f73140145f7ac5f377e91d3def8
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131009194"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132712573"
 ---
-# <a name="remove-azure-sentinel-from-your-workspace"></a>Eliminación de Azure Sentinel del área de trabajo
+# <a name="remove-microsoft-sentinel-from-your-workspace"></a>Eliminación de Microsoft Sentinel del área de trabajo
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Si ya no quiere usar Azure Sentinel, en este artículo se explica cómo eliminarlo del área de trabajo.
+Si ya no quiere usar Microsoft Sentinel, en este artículo se explica cómo eliminarlo del área de trabajo.
 
-## <a name="how-to-remove-azure-sentinel"></a>Eliminación de Azure Sentinel
+## <a name="how-to-remove-microsoft-sentinel"></a>Eliminación de Microsoft Sentinel
 
-Siga este proceso para eliminar Azure Sentinel del área de trabajo:
+Siga este proceso para eliminar Microsoft Sentinel del área de trabajo:
 
-1. Vaya a **Azure Sentinel**, **Configuración** y seleccione la pestaña **Remove Azure Sentinel** (Eliminar Azure Sentinel).
+1. Vaya a **Microsoft Sentinel**, **Configuración** y seleccione la pestaña **Quitar Microsoft Sentinel**.
 
-1. Antes de eliminar Azure Sentinel, use las casillas para indicarnos el motivo de la eliminación.
+1. Antes de eliminar Microsoft Sentinel, use las casillas para indicarnos el motivo de la eliminación.
 
-1. Seleccione **Eliminación de Azure Sentinel del área de trabajo**.
+1. Seleccione **Quitar Microsoft Sentinel del área de trabajo**.
     
     ![Eliminar la solución SecurityInsights](media/offboard/delete-solution.png)
 
 ## <a name="what-happens-behind-the-scenes"></a>¿Qué sucede en segundo plano?
 
-Al eliminar la solución, Azure Sentinel tarda hasta 48 horas en completar la primera fase del proceso de eliminación.
+Al eliminar la solución, Microsoft Sentinel tarda hasta 48 horas en completar la primera fase del proceso de eliminación.
 
 Una vez identificada la desconexión, comienza el proceso de retirada.
 
@@ -51,15 +49,15 @@ Una vez identificada la desconexión, comienza el proceso de retirada.
 
 -   AWS
 
--   Alertas de seguridad de servicios de Microsoft: Microsoft Defender for Identity (*anteriormente Azure ATP*), Microsoft Cloud App Security, incluidos la generación de informes de Cloud Discovery Shadow IT, Azure AD Identity Protection, Microsoft Defender para Endpoint (*anteriormente Microsoft Defender ATP*), alertas de Azure Defender de Azure Security Center
+-   Alertas de seguridad de servicios de Microsoft: Microsoft Defender for Identity (*anteriormente Azure ATP*), Microsoft Defender for Cloud Apps, incluida la generación de informes de Cloud Discovery Shadow IT, Azure AD Identity Protection, Microsoft Defender para punto de conexión (*anteriormente ATP de Microsoft Defender*), alertas de seguridad de Microsoft Defender for Cloud
 
 -   Información sobre amenazas
 
--   Registros de seguridad habituales (incluidos los registros basados en CEF, Barracuda y Syslog) (si obtiene las alertas de Azure Defender a partir de Azure Security Center, se seguirán recopilando estos registros).
+-   Registros de seguridad habituales (incluidos los registros basados en CEF, Barracuda y Syslog) (si obtiene las alertas de Microsoft Defender for Cloud, se seguirán recopilando estos registros).
 
--   Eventos de seguridad de Windows (si obtiene las alertas de Azure Defender a partir de Azure Security Center, se seguirán recopilando estos registros).
+-   Eventos de seguridad de Windows (si obtiene las alertas de Microsoft Defender for Cloud, se seguirán recopilando estos registros).
 
-Durante las primeras 48 horas, los datos y las reglas de análisis (incluida la configuración de la automatización en tiempo real) dejarán de ser accesibles o consultables en Azure Sentinel.
+Durante las primeras 48 horas, los datos y las reglas de análisis (incluida la configuración de la automatización en tiempo real) dejarán de ser accesibles o consultables en Microsoft Sentinel.
 
 **Después de 30 días, se eliminarán estos recursos:**
 
@@ -80,5 +78,5 @@ Después de quitar el servicio, hay un período de gracia de 30 días durante el
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, ha aprendido a eliminar el servicio Azure Sentinel. Si cambia de opinión y desea volver a instalarlo:
-- Introducción a la [incorporación de Azure Sentinel](quickstart-onboard.md).
+En este documento, ha aprendido a eliminar el servicio Microsoft Sentinel. Si cambia de opinión y desea volver a instalarlo:
+- Introducción a la [incorporación de Microsoft Sentinel](quickstart-onboard.md).

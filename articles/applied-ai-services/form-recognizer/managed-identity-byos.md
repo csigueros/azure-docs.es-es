@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: lajanuar
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: e1ccf10041c36b26b70bf5c4e5a107c0f6bf19ac
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 83b8867ae750fe85bc848e339ddb0409cba85093
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131021626"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400611"
 ---
 # <a name="create-and-use-managed-identity-for-your-form-recognizer-resource"></a>Creación y uso de identidades administradas para el recurso de Form Recognizer
 
@@ -29,6 +29,10 @@ La identidad administrada de Azure es una entidad de servicio que crea una ident
 La identidad administrada admite cuentas de Azure Blob Storage de acceso privado y público.  Para las cuentas de almacenamiento con acceso público, puede optar por usar una firma de acceso compartido (SAS) para conceder acceso limitado.   En este artículo, aprenderá a habilitar una identidad administrada asignada por el sistema para la instancia de Form Recognizer.
 
 ## <a name="private-storage-account-access"></a>Acceso de la cuenta de almacenamiento privado
+> [!NOTE]
+>
+> Actualmente, Form Recognizer solo admite las identidades administradas asignadas por el sistema. Las identidades administradas asignadas por el usuario están en la hoja de ruta y se habilitarán en un futuro próximo. 
+
 
  Las [identidades administradas de los recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md) admiten el acceso y la autenticación de la cuenta de almacenamiento privado de Azure. Si tiene una cuenta de almacenamiento de Azure protegida por un firewall o Virtual Network (red virtual) o si ha habilitado bring-your-own-storage (BYOS), Form Recognizer no puede acceder directamente a los datos de la cuenta de almacenamiento; sin embargo, una vez habilitada una identidad administrada, el servicio Form Recognizer puede acceder a la cuenta de almacenamiento mediante una credencial de identidad administrada asignada.
 

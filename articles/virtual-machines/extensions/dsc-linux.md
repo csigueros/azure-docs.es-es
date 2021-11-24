@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.collection: linux
 ms.date: 06/12/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f5fbea307653b8ee603c799a442f0e4d0a132be7
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: fcecc23d99ddc11169200ff903767be6c8c62b9b
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112300406"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486184"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensión de DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -22,6 +22,8 @@ Desired State Configuration (DSC) es una plataforma de administración que puede
 
 > [!NOTE]
 > La extensión de DSC para Linux y la [extensión de máquina virtual de Log Analytics para Linux](./oms-linux.md) presentan actualmente un conflicto y no se admiten en una configuración en paralelo. No use las dos soluciones en la misma máquina virtual.
+>
+> Antes de habilitar la extensión DSC, debe saber que ahora hay una versión más reciente de DSC en versión preliminar, administrada mediante una característica de Azure Policy de nombre [configuración de invitado](../../governance/policy/concepts/guest-configuration.md). La característica de configuración de invitado combina características de la extensión Desired State Configuration (DSC), Azure Automation State Configuration y las características que más solicitan los clientes en sus comentarios. La configuración de invitado también incluye la compatibilidad con máquinas híbridas a través de [servidores habilitados para Arc](../../azure-arc/servers/overview.md).
 
 Microsoft publica y admite la extensión DSCForLinux. La extensión instala los agentes OMI y DSC en las máquinas virtuales de Azure. La extensión DSC también puede realizar las siguientes acciones:
 

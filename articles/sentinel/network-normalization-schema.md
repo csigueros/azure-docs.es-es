@@ -1,34 +1,32 @@
 ---
-title: Referencia del esquema de normalización de sesiones de red de Azure Sentinel (versión preliminar pública) | Microsoft Docs
-description: En este artículo se muestra el esquema de normalización de sesiones de red de Azure Sentinel.
+title: Referencia del esquema de normalización de sesiones de red de Microsoft Sentinel (versión preliminar pública) | Microsoft Docs
+description: En este artículo se muestra el esquema de normalización de sesiones de red de Microsoft Sentinel.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/17/2021
+ms.date: 11/09/2021
 ms.author: ofshezaf
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: bca951ee50a503aa91a0dec680a787a5c2f95ad8
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: bf13dee6c6a33ae16440357013a34dc36ef93826
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131083880"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132712915"
 ---
-# <a name="azure-sentinel-network-session-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de sesiones de red de Azure Sentinel (versión preliminar pública)
+# <a name="microsoft-sentinel-network-session-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de sesiones de red de Microsoft Sentinel (versión preliminar pública)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 El esquema de normalización de sesiones de red se usa para describir la actividad de una red IP. Aquí se incluyen las conexiones y las sesiones de red. Los sistemas operativos, los enrutadores, los firewalls, los sistemas de prevención de intrusiones y las puertas de enlace de seguridad web, entre otros, notifican estos eventos.
 
-Para más información sobre la normalización en Azure Sentinel, consulte [Normalización en Azure Sentinel](normalization.md).
+Para más información sobre la normalización en Microsoft Sentinel, consulte [Normalización y modelo de información SIEM avanzado (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > En este artículo se describe la versión 0.2 del esquema de normalización de red, donde la [versión 0.1](normalization-schema-v1.md) se publicó antes de que ASIM estuviera disponible y no se alinea con ASIM en varios lugares. Para más información, consulte [Diferencias entre versiones del esquema de normalización de red](normalization-schema-v1.md#changes). 
@@ -105,11 +103,11 @@ Para usar un analizador independiente del origen que unifique todos los analizad
 - **imWebSession**, para sesiones HTTP, normalmente notificadas por servidores web, servidores proxy web y puertas de enlace de seguridad web.
 - **inNetworkNotables**, para sesiones detectadas por un motor de detección, normalmente como sospechosas. Por lo general, los sistemas de prevención de intrusiones, los firewalls y las puertas de enlace de seguridad web notifican eventos destacados.
 
-Implemente los [analizadores independientes del origen y específicos del origen](normalization-about-parsers.md) desde el [repositorio de GitHub de Azure Sentinel](https://aka.ms/AzSentinelNetworkSession).
+Implemente los [analizadores independientes del origen y específicos del origen](normalization-about-parsers.md) desde el [repositorio de GitHub de Microsoft Sentinel](https://aka.ms/AzSentinelNetworkSession).
 
 ### <a name="built-in-source-specific-parsers"></a>Analizadores específicos del origen integrados
 
-Azure Sentinel proporciona los siguientes analizadores de sesión de red integrados específicos del producto:
+Microsoft Sentinel proporciona los siguientes analizadores de sesión de red integrados específicos del producto:
 
 - Analizadores específicos del origen:
   - **Microsoft 365 Defender para puntos de conexión**: vimNetworkSessionMicrosoft365Defender
@@ -117,7 +115,7 @@ Azure Sentinel proporciona los siguientes analizadores de sesión de red integra
   - **Microsoft Sysmon para Linux**: vimNetworkSessionSysmonLinux
   - **Firewall de eventos de Windows**: actividad de firewall de Windows recopilada mediante eventos de Windows 515x, bien mediante el agente de Log Analytics o el agente de Azure Monitor en la tabla Event o WindowsEvent, vimNetworkSessionMicrosoftWindowsEventFirewall 
 
-Los analizadores se pueden implementar desde el [repositorio de GitHub de Azure Sentinel](https://aka.ms/AzSentinelNetworkSession).
+Los analizadores se pueden implementar desde el [repositorio de GitHub de Microsoft Sentinel](https://aka.ms/AzSentinelNetworkSession).
 
 ### <a name="add-your-own-normalized-parsers"></a>Adición de sus propios analizadores normalizados
 
@@ -352,9 +350,9 @@ Si uno de los puntos de conexión de la sesión de red notifica el evento, puede
 
 Para más información, consulte:
 
-- [Normalización en Azure Sentinel](normalization.md)
-- [Referencia del esquema de normalización de la autenticación de Azure Sentinel (versión preliminar pública)](authentication-normalization-schema.md)
-- [Referencia del esquema de normalización de eventos de archivo de Azure Sentinel (versión preliminar pública)](file-event-normalization-schema.md)
-- [Referencia del esquema de normalización de DNS de Azure Sentinel](dns-normalization-schema.md)
-- [Referencia del esquema de normalización de eventos de proceso de Azure Sentinel](process-events-normalization-schema.md)
-- [Referencia del esquema de normalización de eventos de registro de Azure Sentinel (versión preliminar pública)](registry-event-normalization-schema.md)
+- [Normalización en Microsoft Sentinel](normalization.md)
+- [Referencia del esquema de normalización de la autenticación de Microsoft Sentinel (versión preliminar pública)](authentication-normalization-schema.md)
+- [Referencia del esquema de normalización de eventos de archivo de Microsoft Sentinel (versión preliminar pública)](file-event-normalization-schema.md)
+- [Referencia del esquema de normalización de DNS de Microsoft Sentinel](dns-normalization-schema.md)
+- [Referencia del esquema de normalización de eventos de proceso de Microsoft Sentinel](process-events-normalization-schema.md)
+- [Referencia del esquema de normalización de eventos de registro de Microsoft Sentinel (versión preliminar pública)](registry-event-normalization-schema.md)

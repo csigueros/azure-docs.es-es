@@ -6,8 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -15,12 +13,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 07a2f605c2cb0211d7aaa1dae37d3cf015e369db
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: c6abd0f799f3f8f2f457352de3a23bdd2ecbd9de
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132518610"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721088"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-microsoft-sentinel"></a>Identificación de amenazas avanzadas con el Análisis de comportamiento de usuarios y entidades (UEBA) en Microsoft Sentinel
 
@@ -75,7 +73,7 @@ Consulte cómo se usa el análisis de comportamiento en [Microsoft Defender for 
 
 ## <a name="entity-pages"></a>Páginas de entidad
 
-Descubra más sobre las [entidades en Microsoft Sentinel](entities-in-azure-sentinel.md) y vea la lista completa de las [entidades e identificadores admitidos](entities-reference.md).
+Descubra más sobre las [entidades en Microsoft Sentinel](entities.md) y vea la lista completa de las [entidades e identificadores admitidos](entities-reference.md).
 
 Si encuentra una entidad de usuario o de host (las entidades de dirección IP están en versión preliminar) en una búsqueda de entidades, una alerta o una investigación, puede seleccionar la entidad y se le dirigirá a una **página de la entidad**, una hoja de datos llena de información útil acerca de la entidad. Entre los tipos de información que encontrará en esta página se incluyen datos básicos sobre la entidad, una escala de tiempo de eventos importantes relacionados con esta entidad y conclusiones sobre el comportamiento de la entidad.
  

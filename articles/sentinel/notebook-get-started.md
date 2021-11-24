@@ -1,46 +1,46 @@
 ---
-title: Introducción a los cuadernos de Jupyter y MSTICPy en Azure Sentinel | Microsoft Docs
-description: Lea la guía de introducción de Azure Sentinel para cuadernos de ML de Azure Sentinel a fin de obtener información sobre los conceptos básicos de los cuadernos de Azure Sentinel con MSTICPy y consultas.
+title: Introducción a los cuadernos de Jupyter y MSTICPy en Microsoft Sentinel
+description: Lea la guía de introducción de Microsoft Sentinel para cuadernos de ML de Microsoft Sentinel a fin de obtener información sobre los conceptos básicos de los cuadernos de Microsoft Sentinel con MSTICPy y consultas.
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
+ms.service: microsoft-sentinel
 ms.topic: how-to
-ms.date: 08/23/2021
-ms.openlocfilehash: b6ba98d1e0640070ac8d36943e6f546e10018f4e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/09/2021
+ms.openlocfilehash: 3bcafc82c3fced8a5c3ff53feddb8be5d4338178
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036967"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132517469"
 ---
-# <a name="tutorial-get-started-with-jupyter-notebooks-and-msticpy-in-azure-sentinel"></a>Tutorial: Introducción a los cuadernos de Jupyter y MSTICPy en Azure Sentinel
+# <a name="tutorial-get-started-with-jupyter-notebooks-and-msticpy-in-microsoft-sentinel"></a>Tutorial: Introducción a Jupyter Notebook y MSTICPy en Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-En este tutorial se describe cómo ejecutar el cuaderno **Getting Started Guide For Azure Sentinel ML Notebooks** (Guía de introducción para cuadernos de ML de Azure Sentinel), que establece configuraciones básicas para ejecutar cuadernos de Jupyter en Azure Sentinel y consultas de datos sencillas.
+En este tutorial se describe cómo ejecutar el cuaderno **Getting Started Guide For Microsoft Sentinel ML Notebooks** (Guía de introducción para cuadernos de ML de Microsoft Sentinel), que establece configuraciones básicas para ejecutar cuadernos de Jupyter en Microsoft Sentinel y consultas de datos sencillas.
 
-En el cuaderno **Getting Started Guide for Azure Sentinel ML Notebooks** (Guía de introducción para cuadernos de ML de Azure Sentinel) se usa MSTICPy, una biblioteca de Python de herramientas de ciberseguridad creada por Microsoft, que proporciona la funcionalidad de búsqueda e investigación de amenazas.
+En el cuaderno **Getting Started Guide for Microsoft Sentinel ML Notebooks** (Guía de introducción para cuadernos de ML de Microsoft Sentinel) se usa MSTICPy, una biblioteca de Python de herramientas de ciberseguridad creada por Microsoft, que proporciona la funcionalidad de búsqueda e investigación de amenazas.
 
-MSTICPy reduce la cantidad de código que los clientes necesitan escribir para Azure Sentinel y proporciona lo siguiente:
+MSTICPy reduce la cantidad de código que los clientes necesitan escribir para Microsoft Sentinel y proporciona lo siguiente:
 
-- Funcionalidades de consulta de datos, tablas de Azure Sentinel, Microsoft Defender para punto de conexión, Splunk y otros orígenes de datos.
+- Funcionalidades de consulta de datos en tablas de Microsoft Sentinel, Microsoft Defender para puntos de conexión, Splunk y otros orígenes de datos.
 - Búsquedas de inteligencia sobre amenazas con proveedores de TI como VirusTotal y AlienVault OTX.
 - Funciones de enriquecimiento como la geolocalización de direcciones IP, la extracción del indicador de riesgo (IoC) y búsquedas WhoIs.
 - Herramientas de visualización mediante escalas de tiempo de eventos, árboles de proceso y asignación geográfica.
 - Análisis avanzados, como la descomposición de series temporales, la detección de anomalías y la agrupación en clústeres.
 
-En los pasos de este tutorial se describe cómo ejecutar el cuaderno **Getting Started Guide for Azure Sentinel ML Notebooks** (Guía de introducción para cuadernos de ML de Azure Sentinel) en el área de trabajo Azure Machine Learning mediante Azure Sentinel. También puede usar este tutorial como guía para realizar pasos similares a fin de ejecutar cuadernos en otros entornos, incluido el local.
+En los pasos de este tutorial se describe cómo ejecutar el cuaderno **Getting Started Guide for Microsoft Sentinel ML Notebooks** (Guía de introducción para cuadernos de ML de Microsoft Sentinel) en el área de trabajo Azure Machine Learning mediante Microsoft Sentinel. También puede usar este tutorial como guía para realizar pasos similares a fin de ejecutar cuadernos en otros entornos, incluido el local.
 
 Para obtener más información, vea [Uso de cuadernos como tecnología de las investigaciones](hunting.md#use-notebooks-to-power-investigations) y [Uso de Jupyter Notebook para buscar amenazas de seguridad](notebooks.md).
 
 > [!NOTE]
-> En varios cuadernos de Azure Sentinel no se usa MSTICPy, como los cuadernos de **Credential Scanner** o los ejemplos de PowerShell y C#. Los cuadernos en los que no se usa MSTICpy no necesitan la configuración de MSTICPy que se describe en este artículo.
+> En varios cuadernos de Microsoft Sentinel no se usa MSTICPy, como los cuadernos de **Credential Scanner** o los ejemplos de PowerShell y C#. Los cuadernos en los que no se usa MSTICpy no necesitan la configuración de MSTICPy que se describe en este artículo.
 >
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Para usar cuadernos en Azure Sentinel, asegúrese de que tiene los permisos necesarios. Para obtener más información, vea [Administración del acceso a los cuadernos de Azure Sentinel](notebooks.md#manage-access-to-azure-sentinel-notebooks).
+- Para usar cuadernos en Microsoft Sentinel, asegúrese de que tiene los permisos necesarios. Para obtener más información, consulte [Administración del acceso a los cuadernos de Microsoft Sentinel](notebooks.md#manage-access-to-microsoft-sentinel-notebooks).
 
 - Para realizar los pasos de este tutorial, necesitará Python 3.6 o posterior. En Azure Machine Learning puede usar un kernel de Python 3.8 (recomendado) o uno de Python 3.6.
 
@@ -59,10 +59,9 @@ Para obtener más información, vea [Uso de cuadernos como tecnología de las in
 
 En este procedimiento se describe cómo iniciar el cuaderno e inicializar MSTICpy.
 
+1. En Microsoft Sentinel, seleccione **Cuadernos** a la izquierda.
 
-1. En Azure Sentinel, seleccione **Cuadernos** a la izquierda.
-
-1. En la pestaña **Templates** (Plantillas) seleccione **A Getting Started Guide For Azure Sentinel ML Notebooks** > **Save notebook** (Una guía de introducción para cuadernos de ML de Azure Sentinel > Guardar cuaderno) para guardarlo en el área de trabajo de Azure Machine Learning.
+1. En la pestaña **Plantillas** seleccione **Guía de introducción para Microsoft Sentinel ML Notebooks** > **Guardar cuaderno** para guardarlo en el área de trabajo de Azure Machine Learning.
 
     Seleccione **Launch notebook** (Iniciar cuaderno) para ejecutar el cuaderno. El cuaderno contiene una serie de celdas:
 
@@ -110,7 +109,7 @@ En este procedimiento se describe cómo iniciar el cuaderno e inicializar MSTICp
     El estado de inicialización se muestra en la salida. Se esperan advertencias de configuración sobre valores que faltan en el archivo `Missing msticpyconfig.yaml` porque todavía no ha configurado nada.
 
 > [!NOTE]
-> La mayoría de los cuadernos de Azure Sentinel comienzan con una celda de inicialización de MSTICpy que:
+> La mayoría de los cuadernos de Microsoft Sentinel comienzan con una celda de inicialización de MSTICpy que:
 >
 > - Define las versiones mínimas de Python y MSTICPy que necesita el cuaderno.
 > - Garantiza que está instalada la versión más reciente de MSTICPy.
@@ -121,9 +120,9 @@ En este procedimiento se describe cómo iniciar el cuaderno e inicializar MSTICp
 
 Después de la inicialización básica, está listo para crear el archivo con la configuración básica para trabajar con MSTICPy.
 
-Muchos cuadernos de Azure Sentinel se conectan a servicios externos como [VirusTotal](https://www.virustotal.com) (VT) para recopilar y enriquecer datos. Para conectarse a estos servicios, debe establecer y almacenar los detalles de configuración, como los tokens de autenticación. Almacenar estos datos en el archivo de configuración evita tener que escribir tokens de autenticación y detalles del área de trabajo cada vez que se usa un cuaderno.
+Muchos cuadernos de Microsoft Sentinel se conectan a servicios externos como [VirusTotal](https://www.virustotal.com) (VT) para recopilar y enriquecer datos. Para conectarse a estos servicios, debe establecer y almacenar los detalles de configuración, como los tokens de autenticación. Almacenar estos datos en el archivo de configuración evita tener que escribir tokens de autenticación y detalles del área de trabajo cada vez que se usa un cuaderno.
 
-MSTICPy usa **msticpyconfig.yaml** para almacenar una amplia gama de detalles de configuración.  De forma predeterminada, la función de inicialización del cuaderno genera un archivo **msticpyconfig.yaml**. Si [ha clonado este cuaderno desde el portal de Azure Sentinel](#run-and-initialize-the-getting-started-guide-notebook), el archivo de configuración se rellenará con datos del área de trabajo de Azure Sentinel. Estos datos se leen desde un archivo **config.json** creado en el área de trabajo de Azure Machine Learning al iniciar el cuaderno. Para obtener más información, vea la [documentación de configuración de paquetes de MSTICPy](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html).
+MSTICPy usa **msticpyconfig.yaml** para almacenar una amplia gama de detalles de configuración.  De forma predeterminada, la función de inicialización del cuaderno genera un archivo **msticpyconfig.yaml**. Si [ha clonado este cuaderno desde el portal de Microsoft Sentinel](#run-and-initialize-the-getting-started-guide-notebook), el archivo de configuración se rellenará con datos del área de trabajo de Microsoft Sentinel. Estos datos se leen desde un archivo **config.json** creado en el área de trabajo de Azure Machine Learning al iniciar el cuaderno. Para obtener más información, vea la [documentación de configuración de paquetes de MSTICPy](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html).
 
 En las secciones siguientes se describe cómo agregar detalles de configuración adicionales al archivo **msticpyconfig.yaml**.
 
@@ -151,9 +150,9 @@ En las secciones siguientes se describe cómo agregar detalles de configuración
 
     :::image type="content" source="media/notebook-get-started/msticpy-editor.png" alt-text="Captura de pantalla del editor de configuraciones de MSTICPy.":::
 
-    El archivo **msticpyconfig.yaml** creado automáticamente, que se muestra en el editor de configuraciones, contiene dos entradas en la configuración de Azure Sentinel. Las dos se han rellenado con detalles del área de trabajo de Azure Sentinel desde la que se ha clonado el cuaderno. Una entrada tiene el nombre del área de trabajo y la otra se denomina **Default** (Predeterminada).
+    El archivo **msticpyconfig.yaml** creado automáticamente, que se muestra en el editor de configuraciones, contiene dos entradas en la sección de Microsoft Sentinel. Las dos se han rellenado con detalles del área de trabajo de Microsoft Sentinel desde la que se ha clonado el cuaderno. Una entrada tiene el nombre del área de trabajo y la otra se denomina **Default** (Predeterminada).
 
-    MSTICPy permite almacenar configuraciones para varias áreas de trabajo de Azure Sentinel y cambiar entre ellas. La entrada **Default** (Predeterminada) le permite autenticarse en el área de trabajo "principal" de forma predeterminada, sin tener que nombrarla de forma explícita. Si agrega áreas de trabajo adicionales, puede configurar cualquiera de ellas para que sea la entrada **Default** (Predeterminada).
+    MSTICPy permite almacenar configuraciones para varias áreas de trabajo de Microsoft Sentinel y cambiar entre ellas. La entrada **Default** (Predeterminada) le permite autenticarse en el área de trabajo "principal" de forma predeterminada, sin tener que nombrarla de forma explícita. Si agrega áreas de trabajo adicionales, puede configurar cualquiera de ellas para que sea la entrada **Default** (Predeterminada).
 
     > [!NOTE]
     > En el entorno de Azure Machine Learning, el editor de configuraciones puede tardar entre 10 y 20 segundos en aparecer.
@@ -182,7 +181,7 @@ En este procedimiento se describe cómo almacenar la [clave de API de VirusTotal
 1. Seleccione **Update** (Actualizar) y después **Save Settings** (Guardar configuración) en la parte inferior del editor de configuraciones.
 
 > [!TIP]
-> Para obtener más información sobre otros proveedores de inteligencia sobre amenazas admitidos, vea [Proveedores de inteligencia sobre amenazas](https://msticpy.readthedocs.io/en/latest/data_acquisition/TIProviders.html) en la documentación de MSTICPy e [Integración de inteligencia sobre amenazas en Azure Sentinel](threat-intelligence-integration.md).
+> Para obtener más información sobre otros proveedores de inteligencia sobre amenazas admitidos, consulte [Proveedores de inteligencia sobre amenazas](https://msticpy.readthedocs.io/en/latest/data_acquisition/TIProviders.html) en la documentación de MSTICPy e [Integración de inteligencia sobre amenazas en Microsoft Sentinel](threat-intelligence-integration.md).
 >
 ### <a name="add-geoip-provider-settings"></a>Adición de la configuración del proveedor GeoIP
 
@@ -206,14 +205,13 @@ En este procedimiento se describe cómo almacenar una [clave de cuenta de MaxMin
     - En Windows, esta carpeta se asigna a **%USERPROFILE%/.msticpy**.
     - En Linux o macOS, esta ruta se asigna a la carpeta **.msticpy** de la carpeta principal.
 
-
 > [!TIP]
 > Para obtener más información sobre otros servicios de búsqueda de geolocalización admitidos, vea la [documentación de proveedores GeoIP de MSTICPy](https://msticpy.readthedocs.io/en/latest/data_acquisition/GeoIPLookups.html).
 >
 
 ### <a name="configure-azure-cloud-settings"></a>Configuración de valores de Azure Cloud
 
-Si en la organización no se usa la nube pública de Azure, debe especificarlo en la configuración para autenticarse y usar correctamente los datos de Azure Sentinel y Azure. Para obtener más información, vea [Especificación de la nube de Azure y los métodos de autenticación de Azure predeterminados](#specify-the-azure-cloud-and-azure-authentication-methods).
+Si en la organización no se usa la nube pública de Azure, debe especificarlo en la configuración para autenticarse y usar correctamente los datos de Microsoft Sentinel y Azure. Para obtener más información, vea [Especificación de la nube de Azure y los métodos de autenticación de Azure predeterminados](#specify-the-azure-cloud-and-azure-authentication-methods).
 
 ### <a name="validate-settings"></a>Validación de la configuración
 
@@ -227,7 +225,7 @@ Si tiene que realizar cambios debido a la validación, hágalos y, después, sel
 
 Cuando haya terminado, seleccione el botón **Close** (Cerrar) para ocultar la salida de validación.
 
-Para obtener más información, vea: [Configuraciones avanzadas para cuadernos de Jupyter Notebook y MSTICPy en Azure Sentinel](notebooks-msticpy-advanced.md).
+Para obtener más información, consulte [Configuraciones avanzadas para cuadernos de Jupyter y MSTICPy en Microsoft Sentinel](notebooks-msticpy-advanced.md).
 
 ## <a name="load-saved-msticpy-settings"></a>Carga de la configuración de MSTICPy guardada
 
@@ -242,12 +240,12 @@ msticpy.settings.refresh_config()
 
 ## <a name="test-your-notebook"></a>Prueba del cuaderno
 
-Ahora que ha inicializado el entorno y ha establecido la configuración básica para el área de trabajo, use la clase `QueryProvider` de MSTICPy para probar el cuaderno. `QueryProvider` consulta un origen de datos, en este caso el área de trabajo de Azure Sentinel, y hace que los datos consultados estén disponibles para verlos y analizarlos en el cuaderno.
+Ahora que ha inicializado el entorno y ha establecido la configuración básica para el área de trabajo, use la clase `QueryProvider` de MSTICPy para probar el cuaderno. `QueryProvider` consulta un origen de datos, en este caso el área de trabajo de Microsoft Sentinel, y hace que los datos consultados estén disponibles para verlos y analizarlos en el cuaderno.
 
-Use los procedimientos siguientes para crear una instancia de la clase `QueryProvider`, autenticarse en Azure Sentinel desde el cuaderno y ver y ejecutar consultas con una variedad de opciones de parámetros diferentes.
+Use los procedimientos siguientes para crear una instancia de la clase `QueryProvider`, autenticarse en Microsoft Sentinel desde el cuaderno, y ver y ejecutar consultas con una variedad de opciones de parámetros diferentes.
 
 > [!TIP]
-> Puede tener varias instancias de `QueryProvider` cargadas para usarlas con varias áreas de trabajo de Azure Sentinel u otros proveedores de datos, como Microsoft Defender para punto de conexión.
+> Puede tener varias instancias de `QueryProvider` cargadas para usarlas con varias áreas de trabajo de Microsoft Sentinel u otros proveedores de datos, como Microsoft Defender para punto de conexión.
 >
 
 ### <a name="load-the-queryprovider"></a>Carga de QueryProvider
@@ -255,18 +253,18 @@ Use los procedimientos siguientes para crear una instancia de la clase `QueryPro
 A fin de cargar `QueryProvider` para `AzureSentinel`, continúe a la celda con el código siguiente y ejecútelo:
 
 ```python
-# Initialize a QueryProvider for Azure Sentinel
+# Initialize a QueryProvider for Microsoft Sentinel
 qry_prov = QueryProvider("AzureSentinel")
 ```
 
 > [!NOTE]
-> Si ve una advertencia `Runtime dependency of PyGObject is missing` al cargar el controlador de Azure Sentinel, vea el [Error: *Falta la dependencia en tiempo de ejecución de PyGObject*](https://github.com/Azure/Azure-Sentinel-Notebooks/wiki/%22Runtime-dependency-of-PyGObject-is-missing%22-error).
+> Si ve una advertencia `Runtime dependency of PyGObject is missing` al cargar el controlador de Microsoft Sentinel, consulte el [Error: *Falta la dependencia en tiempo de ejecución de PyGObject*](https://github.com/Azure/Azure-Sentinel-Notebooks/wiki/%22Runtime-dependency-of-PyGObject-is-missing%22-error).
 Esta advertencia no afecta a la funcionalidad del cuaderno.
 >
 
-### <a name="authenticate-to-your-azure-sentinel-workspace-from-your-notebook"></a>Autenticación en el área de trabajo de Azure Sentinel desde el cuaderno
+### <a name="authenticate-to-your-microsoft-sentinel-workspace-from-your-notebook"></a>Autenticación en el área de trabajo de Microsoft Sentinel desde el cuaderno
 
-Autentíquese en el área de trabajo de Azure Sentinel mediante la [autorización de dispositivos](../active-directory/develop/v2-oauth2-device-code.md) con las credenciales de Azure.
+Autentíquese en el área de trabajo de Microsoft Sentinel mediante la [autorización de dispositivos](../active-directory/develop/v2-oauth2-device-code.md) con las credenciales de Azure.
 
 La autorización de dispositivos agrega otro factor a la autenticación mediante la generación de un código de dispositivo de un solo uso que se proporciona como parte del proceso de autenticación.
 
@@ -275,7 +273,7 @@ La autorización de dispositivos agrega otro factor a la autenticación mediante
 1. Ejecute la siguiente celda de código para generar y mostrar un código de dispositivo:
 
    ```python
-   # Get the Azure Sentinel workspace details from msticpyconfig
+   # Get the Microsoft Sentinel workspace details from msticpyconfig
    # Loading WorkspaceConfig with no parameters uses the details
    # of your Default workspace
    # If you want to connect to a specific workspace use this syntax:
@@ -283,7 +281,7 @@ La autorización de dispositivos agrega otro factor a la autenticación mediante
    # ('WorkspaceName' should be one of the workspaces defined in msticpyconfig.yaml)
    ws_config = WorkspaceConfig()
 
-   # Connect to Azure Sentinel with your QueryProvider and config details
+   # Connect to Microsoft Sentinel with your QueryProvider and config details
    qry_prov.connect(ws_config)
    ```
 
@@ -293,7 +291,7 @@ La autorización de dispositivos agrega otro factor a la autenticación mediante
 
 1. Seleccione y copie el código indicado en el Portapapeles. Después, vaya a [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) y pegue el código donde se le solicite.
 
-1. Cuando vea el mensaje de confirmación del inicio de sesión, cierre la pestaña del explorador para volver al cuaderno en Azure Sentinel.
+1. Cuando vea el mensaje de confirmación del inicio de sesión, cierre la pestaña del explorador para volver al cuaderno en Microsoft Sentinel.
 
    En el cuaderno se muestra una salida similar a la siguiente:
 
@@ -312,16 +310,16 @@ Para autenticarse mediante la CLI de Azure escriba lo siguiente en una celda vac
 ```
 
 > [!NOTE]
-> Tendrá que volver a autenticarse si reinicia la instancia de Proceso o cambia a otra instancia. Para obtener más información, vea la sección [Caching credentials with Azure CLI](https://github.com/Azure/Azure-Sentinel-Notebooks/wiki/Caching-credentials-with-Azure-CLI) (Almacenamiento en caché de credenciales con la CLI de Azure) en la wiki del repositorio de GitHub de cuadernos de Azure Sentinel.
+> Tendrá que volver a autenticarse si reinicia la instancia de Proceso o cambia a otra instancia. Para obtener más información, consulte la sección sobre [almacenamiento en caché de credenciales con la CLI de Azure](https://github.com/Azure/Azure-Sentinel-Notebooks/wiki/Caching-credentials-with-Azure-CLI) en la wiki del repositorio de GitHub de cuadernos de Microsoft Sentinel.
 >
 
-### <a name="view-the-azure-sentinel-workspace-data-schema-and-built-in-msticpy-queries"></a>Visualización del esquema datos del área de trabajo de Azure Sentinel y las consultas integradas de MSTICPy
+### <a name="view-the-microsoft-sentinel-workspace-data-schema-and-built-in-msticpy-queries"></a>Visualización del esquema datos del área de trabajo de Microsoft Sentinel y las consultas integradas de MSTICPy
 
-Después de conectarse a una instancia de QueryProvider de Azure Sentinel, puede comprender los tipos de datos disponibles para consultar si consulta el esquema de datos del área de trabajo de Azure Sentinel.
+Después de conectarse a una instancia de QueryProvider de Microsoft Sentinel, puede comprender los tipos de datos disponibles para consultar si consulta el esquema de datos del área de trabajo de Microsoft Sentinel.
 
-QueryProvider de Azure Sentinel tiene una propiedad `schema_tables`, que proporciona una lista de tablas de esquema, y una propiedad `schema`, que también incluye los nombres de columna y los tipos de datos de cada tabla.
+QueryProvider de Microsoft Sentinel tiene una propiedad `schema_tables`, que proporciona una lista de tablas de esquema, y una propiedad `schema`, que también incluye los nombres de columna y los tipos de datos de cada tabla.
 
-**Para ver las 10 primeras tablas del esquema de Azure Sentinel**:
+**Para ver las 10 primeras tablas del esquema de Microsoft Sentinel**:
 
 Continúe a la celda siguiente, con el código siguiente, y ejecútelo. Puede omitir `[:10]` para enumerar todas las tablas del área de trabajo.
 
@@ -605,7 +603,7 @@ La opción **Use KeyRing** (Usar conjunto de claves) está seleccionada de forma
 
 **Para agregar la configuración de Key Vault en el editor de configuraciones de MSTICPy**:
 
-1.  Continúe a la celda siguiente, con el código siguiente y ejecútelo:
+1. Continúe a la celda siguiente, con el código siguiente y ejecútelo:
 
     ```python
     mpedit.set_tab("Key Vault")
@@ -620,7 +618,7 @@ La opción **Use KeyRing** (Usar conjunto de claves) está seleccionada de forma
 
 ### <a name="test-key-vault"></a>Prueba del almacén de claves
 
-Para probar el almacén de claves, compruebe si puede conectarse y ver los secretos. Si no ha agregado un secreto, no verá ningún detalle. Si es necesario, agregue un secreto de prueba desde el portal de Azure Key Vault al almacén y compruebe que se muestra en Azure Sentinel.
+Para probar el almacén de claves, compruebe si puede conectarse y ver los secretos. Si no ha agregado un secreto, no verá ningún detalle. Si es necesario, agregue un secreto de prueba desde el portal de Azure Key Vault al almacén y compruebe que se muestra en Microsoft Sentinel.
 
 Por ejemplo:
 
@@ -652,7 +650,7 @@ También puede usar esta configuración de Azure para definir las preferencias p
 
 **Para especificar la nube de Azure y los métodos de autenticación de Azure**:
 
-1.  Continúe a la celda siguiente, con el código siguiente y ejecútelo:
+1. Continúe a la celda siguiente, con el código siguiente y ejecútelo:
 
     ```python
     mpedit.set_tab("Azure")
@@ -666,7 +664,7 @@ También puede usar esta configuración de Azure para definir las preferencias p
     - **env** para almacenar las credenciales de Azure en variables de entorno.
     - **msi** para usar Managed Service Identity, que es una identidad asignada al host o la máquina virtual donde se ejecuta el centro de Jupyter. MSI no se admite actualmente en instancias de Proceso de ML de Azure.
     - **cli** para usar las credenciales de una sesión de la CLI de Azure autenticada.
-    - **interactive** para usar el flujo de autorización de dispositivos interactivo mediante un [código de dispositivo de un solo uso](#authenticate-to-your-azure-sentinel-workspace-from-your-notebook).
+    - **interactive** para usar el flujo de autorización de dispositivos interactivo mediante un [código de dispositivo de un solo uso](#authenticate-to-your-microsoft-sentinel-workspace-from-your-notebook).
 
     > [!TIP]
     > En la mayoría de los casos, se recomienda seleccionar varios métodos, como **cli** e **interactive**. La autenticación de Azure probará cada uno de los métodos configurados en el orden indicado anteriormente hasta que uno sea correcto.
@@ -678,12 +676,11 @@ Por ejemplo:
 
 :::image type="content" source="media/notebook-get-started/settings-for-azure-gov-cloud.png" alt-text="Captura de pantalla de la configuración definida para la nube de Azure Government.":::
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo se han descrito los aspectos básicos del uso de MSTICPy con cuadernos de Jupyter en Azure Sentinel. Para obtener más información, vea [Configuraciones avanzadas para cuadernos de Jupyter y MSTICPy en Azure Sentinel](notebooks-msticpy-advanced.md).
+En este artículo se han descrito los aspectos básicos del uso de MSTICPy con cuadernos de Jupyter en Microsoft Sentinel. Para obtener más información, consulte [Configuraciones avanzadas para cuadernos de Jupyter y MSTICPy en Microsoft Sentinel](notebooks-msticpy-advanced.md).
 
-También puede probar otros cuadernos almacenados en el [repositorio Azure Sentinel Notebooks en GitHub](https://github.com/Azure/Azure-Sentinel-Notebooks) como:
+También puede probar otros cuadernos almacenados en el [repositorio Microsoft Sentinel Notebooks en GitHub](https://github.com/Azure/Azure-Sentinel-Notebooks) como:
 
 - [Paseo por las características de Cybersec](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/9bba6bb9007212fca76169c3d9a29df2da95582d/A%20Tour%20of%20Cybersec%20notebook%20features.ipynb)
 - [Ejemplos de Machine Learning](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/9bba6bb9007212fca76169c3d9a29df2da95582d/Machine%20Learning%20in%20Notebooks%20Examples.ipynb)
@@ -692,15 +689,15 @@ También puede probar otros cuadernos almacenados en el [repositorio Azure Senti
 > [!TIP]
 > Si usa el cuaderno descrito en este tutorial en otro entorno de Jupyter, puede usar cualquier kernel que admita Python 3.6 o posterior.
 >
-> Para usar cuadernos de MSTICPy fuera de Azure Sentinel y Azure Machine Learning (ML), también tendrá que configurar el entorno de Python. Instale Python 3.6 o posterior con la distribución Anaconda, que incluye muchos de los paquetes necesarios.
+> Para usar cuadernos de MSTICPy fuera de Microsoft Sentinel y Azure Machine Learning (ML), también tendrá que configurar el entorno de Python. Instale Python 3.6 o posterior con la distribución Anaconda, que incluye muchos de los paquetes necesarios.
 >
 
 ### <a name="more-reading-on-msticpy-and-notebooks"></a>Más información sobre MSTICPy y los cuadernos
 
-En la tabla siguiente se enumeran más referencias para obtener información sobre MSTICPy, Azure Sentinel y cuadernos de Jupyter.
+En la tabla siguiente se enumeran más referencias para obtener información sobre MSTICPy, Microsoft Sentinel y cuadernos de Jupyter.
 
 |Firmante  |Más referencias  |
 |---------|---------|
-|**MSTICPy**     |      - [Configuración del paquete MSTICPy](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html)<br> - [Editor de configuraciones de MSTICPy](https://msticpy.readthedocs.io/en/latest/getting_started/SettingsEditor.html)<br>    - [Configuración del entorno de Notebook](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/ConfiguringNotebookEnvironment.ipynb).<br>    - [Cuaderno MPSettingsEditor](https://github.com/microsoft/msticpy/blob/master/docs/notebooks/MPSettingsEditor.ipynb). <br><br>**Nota**: El repositorio Azure-Sentinel-Notebooks de GitHub también contiene un archivo *msticpyconfig.yaml* de plantilla con secciones comentadas, lo que puede ayudarle a comprender la configuración.      |
-|**Azure Sentinel y cuadernos de Jupyter**     |      - [Cuadernos de Jupyter: introducción](https://realpython.com/jupyter-notebook-introduction/)<br>    - [Documentación de MSTICPy](https://msticpy.readthedocs.io/)<br>    - [Documentación de cuadernos de Azure Sentinel](notebooks.md)<br>    - [The Infosec Jupyterbook](https://infosecjupyterbook.com/introduction.html)<br>    - [Tutorial del Cuaderno del Explorador de host de Linux](https://techcommunity.microsoft.com/t5/azure-sentinel/explorer-notebook-series-the-linux-host-explorer/ba-p/1138273)<br>    - [Por qué usar Jupyter para investigaciones de seguridad](https://techcommunity.microsoft.com/t5/azure-sentinel/why-use-jupyter-for-security-investigations/ba-p/475729)<br>    - [Investigaciones de seguridad con Azure Sentinel y Notebooks](https://techcommunity.microsoft.com/t5/azure-sentinel/security-investigation-with-azure-sentinel-and-jupyter-notebooks/ba-p/432921)<br>    - [Documentación de Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/index.html)<br>    - [Documentación de Bokeh](https://docs.bokeh.org/en/latest/)       |
+|**MSTICPy**     |      - [Configuración del paquete MSTICPy](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html)<br> - [Editor de configuraciones de MSTICPy](https://msticpy.readthedocs.io/en/latest/getting_started/SettingsEditor.html)<br>    - [Configuración del entorno de Notebook](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/ConfiguringNotebookEnvironment.ipynb).<br>    - [Cuaderno MPSettingsEditor](https://github.com/microsoft/msticpy/blob/master/docs/notebooks/MPSettingsEditor.ipynb). <br><br>**Nota**: El repositorio `Azure-Sentinel-Notebooks` de GitHub también contiene un archivo *msticpyconfig.yaml* de plantilla con secciones comentadas, que puede ayudarle a comprender la configuración.      |
+|**Microsoft Sentinel y cuadernos de Jupyter**     |      - [Cuadernos de Jupyter: introducción](https://realpython.com/jupyter-notebook-introduction/)<br>    - [Documentación de MSTICPy](https://msticpy.readthedocs.io/)<br>    - [Documentación de cuadernos de Microsoft Sentinel](notebooks.md)<br>    - [The Infosec Jupyterbook](https://infosecjupyterbook.com/introduction.html)<br>    - [Tutorial del Cuaderno del Explorador de host de Linux](https://techcommunity.microsoft.com/t5/azure-sentinel/explorer-notebook-series-the-linux-host-explorer/ba-p/1138273)<br>    - [Por qué usar Jupyter para investigaciones de seguridad](https://techcommunity.microsoft.com/t5/azure-sentinel/why-use-jupyter-for-security-investigations/ba-p/475729)<br>    - [Investigaciones de seguridad con Microsoft Sentinel y Notebooks](https://techcommunity.microsoft.com/t5/azure-sentinel/security-investigation-with-azure-sentinel-and-jupyter-notebooks/ba-p/432921)<br>    - [Documentación de Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/index.html)<br>    - [Documentación de Bokeh](https://docs.bokeh.org/en/latest/)       |
 |     |         |

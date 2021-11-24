@@ -7,6 +7,8 @@ author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 0a8f4a58-e96a-4883-adf3-6b8b49208e6a
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -14,12 +16,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 029fcc5d9df8ee16aa7727353763f0e4d12e2796
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: fa4673a573138ac3ccbac533e980f36eb148c6f6
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132716132"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518078"
 ---
 # <a name="connect-azure-active-directory-azure-ad-data-to-microsoft-sentinel"></a>Conexión de datos de Azure Active Directory (Azure AD) a Microsoft Sentinel
 

@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo Azure Policy usa Rego y Open Polic
 ms.date: 09/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 337f0863c4c09da6956a6fb1539395566adf6a48
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 80f9f1e796580964df14cc15cafc0b844b227a5d
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131852168"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492879"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Descripción de Azure Policy para clústeres de Kubernetes (versión preliminar)
 
@@ -172,7 +172,7 @@ Para obtener información general sobre la plataforma de extensiones, vea las [e
 > Nota: Si ya ha implementado Azure Policy para Kubernetes en un clúster de Azure Arc mediante Helm directamente sin extensiones, siga las instrucciones indicadas para [eliminar el gráfico de Helm](#remove-the-add-on-from-azure-arc-enabled-kubernetes). Una vez realizada la eliminación, puede continuar.
 1. Asegúrese de que el clúster de Kubernetes es una distribución compatible.
 
-    > Nota: La extensión Azure Policy para Arc es compatible con las [siguientes distribuciones de Kubernetes](/azure-arc/kubernetes/conceptual-extensions).
+    > Nota: La extensión Azure Policy para Arc es compatible con las [siguientes distribuciones de Kubernetes](/azure/azure-arc/kubernetes/validation-program).
 1. Asegúrese de que ha cumplido todos los requisitos previos comunes para las extensiones de Kubernetes enumeradas [aquí](/azure/azure-arc/kubernetes/extensions), incluida la [conexión del clúster a Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli).
 
     > Nota: La extensión de Azure Policy es compatible con los clústeres de Kubernetes habilitado para Arc [en estas regiones](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
@@ -212,19 +212,19 @@ Para obtener información general sobre la plataforma de extensiones, vea las [e
 > 
 Para crear una instancia de la extensión, para el clúster habilitado para Arc, ejecute el siguiente comando, sustituyendo `<>` por sus valores:
 
-```console
+```azurecli-interactive
 az k8s-extension create --cluster-type connectedClusters --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --extension-type Microsoft.PolicyInsights --name <EXTENSION_INSTANCE_NAME>
 ```
 
 #### <a name="example"></a>Ejemplo:
 
-```console
+```azurecli-interactive
 az k8s-extension create --cluster-type connectedClusters --cluster-name my-test-cluster --resource-group my-test-rg --extension-type Microsoft.PolicyInsights --name azurepolicy
 ```
 
 #### <a name="example-output"></a>Salida de ejemplo:
 
-```
+```json
 {
   "aksAssignedIdentity": null,
   "autoUpgradeMinorVersion": true,
@@ -279,20 +279,20 @@ az k8s-extension show --cluster-type connectedClusters --cluster-name <CLUSTER_N
 az k8s-extension show --cluster-type connectedClusters --cluster-name my-test-cluster --resource-group my-test-rg --name azurepolicy
 ```
 
-#### <a name="to-validate-that-the-add-on-installation-was-successful-and-that-the-azure-policy-and-gatekeeper-pods-are-running-run-the-following-command"></a>Para comprobar que la instalación del complemento se ha realizado correctamente y que los pods azure-policy y gatekeeper están en ejecución, ejecute el comando siguiente:
+Para comprobar que la instalación de la extensión se ha realizado correctamente y que los pods azure-policy y gatekeeper están en ejecución, ejecute el comando siguiente:
 
-```console
+```bash
+# azure-policy pod is installed in kube-system namespace
 kubectl get pods -n kube-system
-```
 
-```console
+# gatekeeper pod is installed in gatekeeper-system namespace
 kubectl get pods -n gatekeeper-system
 ```
 
 ### <a name="delete-azure-policy-extension"></a>Eliminación de la extensión de Azure Policy
 Para eliminar la instancia de la extensión, ejecute el siguiente comando, sustituyendo `<>` por sus valores:
 
-```console
+```azurecli-interactive
 az k8s-extension delete --cluster-type connectedClusters --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --name <EXTENSION_INSTANCE_NAME>
 ```
 

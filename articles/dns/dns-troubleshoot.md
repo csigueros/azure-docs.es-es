@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: troubleshooting
 ms.date: 11/10/2021
 ms.author: rohink
-ms.openlocfilehash: b0d38ea5cd5af3ad743aed4aaf5f83a0b40955f4
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: bc003c640e51b855f446878aa0b5829b2d2c09c5
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132343497"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400364"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Guía de solución de problemas de Azure DNS
 
@@ -65,35 +65,7 @@ La resolución de nombres de DNS es un proceso de varios pasos que puede generar
 
 * [Delegación de un dominio en DNS de Azure](dns-domain-delegation.md)
 
-## <a name="unhealthy-dns-zones"></a>Zonas DNS con estado incorrecto
-
-Los errores de configuración pueden hacer que las zonas DNS no tengan un estado correcto. Estos son los escenarios que pueden dar lugar a este comportamiento:
-
-* **Delegación incorrecta**: una zona contiene registros de delegación *NS* que le permiten delegar el tráfico de la zona principal a la secundaria. Si alguno de los registros de *NS* está presente en la zona primaria, se supone que el servidor DNS enmascara otros registros de la delegación, excepto los registros de adherencia. Sin embargo, si la zona contiene otros registros en la delegación, la zona se marcará como incorrecta.
-
-    En la tabla siguiente se proporcionan escenarios y sus resultados de mantenimiento de zona correspondientes, cuando una zona contiene el registro de delegación de NS.
-
-    | Escenario | ¿La zona contiene </br>un registro de delegación de NS? | ¿La zona contiene </br>registros adheridos? | ¿La zona contiene otros </br>registros en la </br>delegación? | Mantenimiento de la zona |
-    |----------|-------------------------------------|-----------------------------|--------------------------------------------------|-------------|
-    | 1        | No                                  | -                           | -                                                | Healthy     |
-    | 2        | Sí                                 | Sí                         | No                                               | Healthy     |
-    | 3        | Sí                                 | No                          | No                                               | Healthy     |
-    | 4        | Sí                                 | No                          | Sí                                              | Unhealthy (Incorrecto)   |
-    | 5        | Sí                                 | Sí                         | Sí                                              | Unhealthy (Incorrecto)   |
-
-    **Recomendación:** elimine todos los registros excepto los registros de adherencia que estén en los registros de delegación en sus zonas.
-
-* **TTL cero**: TTL (tiempo de vida) es una configuración que indica al solucionador de DNS cuánto tiempo debe almacenar en caché una consulta antes de solicitar una nueva. Una vez hecho esto, la información recopilada se almacena en la memoria caché del solucionador recursivo o local durante el TLL, antes de que vuelva a recopilar detalles nuevos y actualizados.
-
-    Si el TTL se establece en 0 en la configuración, puede experimentar uno de los siguientes problemas:
-
-    * Respuesta larga.
-    * Aumento del tráfico y el costo de DNS.
-    * Propensión a ataques DDoS.
-
-    **Recomendación**: asegúrese de que el valor TTL no esté establecido en *0*. 
-
-## <a name="dns-zone-status"></a>Estado de zona DNS
+## <a name="dns-zone-status-and-unhealthy-delegation-scenarios"></a>Estado de zona DNS y escenarios de delegación incorrectos
 
 El estado de zona DNS indica el estado actual de la zona. El estado de zona DNS puede ser **Desconocido**, **Disponible** y **Degradado.**
 
@@ -129,11 +101,13 @@ Si han transcurrido 24 horas después de corregir la configuración y las zonas 
 
 En el siguiente escenario se muestra un error de configuración que ha provocado el estado incorrecto de las zonas DNS.
 
-* **Delegación incorrecta**: una zona contiene registros de delegación NS que le permiten delegar el tráfico de la zona principal a la secundaria. Si hay algún registro de delegación de NS en la zona primaria, se supone que el servidor DNS enmascarará todos los demás registros por debajo del registro de delegación de NS, excepto los registros glue, y dirigirá el tráfico a la zona secundaria correspondiente en función de la consulta del usuario. Si una zona primaria contiene otros registros diseñados para las zonas secundarias (zonas delegadas) debajo del registro de delegación NS, la zona se marcará como incorrecta y su estado será **Degradado**.
+**Delegación incorrecta**
 
-* **Registro glue** :se trata de registros en el registro de delegación, que ayudan a dirigir el tráfico a las zonas delegadas o secundarias mediante sus direcciones IP y se configuran como se muestra a continuación.
+Una zona principal contiene registros de delegación NS que ayudan a delegar el tráfico de la zona principal a la secundaria. Si hay algún registro de delegación de NS en la zona primaria, se supone que el servidor DNS enmascarará todos los demás registros por debajo del registro de delegación de NS, excepto los registros glue, y dirigirá el tráfico a la zona secundaria correspondiente en función de la consulta del usuario. Si una zona primaria contiene otros registros diseñados para las zonas secundarias (zonas delegadas) debajo del registro de delegación NS, la zona se marcará como incorrecta y su estado será **Degradado**.
 
-| Configuración | Value |
+**¿Qué son los registros de adherencia?** - Se trata de registros del registro de delegación que ayudan a dirigir el tráfico a las zonas delegadas o secundarias mediante sus direcciones IP y que se configuran como se muestra a continuación.
+
+| Configuración | Valor |
 | ------- | ----- |
 | **Zona** | contoso.com |
 | **Registro de delegación** | NS secundarios </br> ns1.child.contoso.com |
@@ -145,7 +119,7 @@ A continuación se muestra un ejemplo de una zona que contiene registros por deb
 
 * Nombre de la zona: contoso.com
 
-| Nombre | Tipo | TTL | Value |
+| Nombre | Tipo | TTL | Valor |
 | ---- | ---- | --- | ----- |
 | @ | NS | 3600 | ns1-04.azure-dns.com. |
 | @ | SOA | 3600 | _Valores de SOA_ |
@@ -157,13 +131,15 @@ A continuación se muestra un ejemplo de una zona que contiene registros por deb
 
 En el ejemplo anterior, el elemento **secundario** es el registro de delegación de NS. Los registros _**foo.child**_ y _**txt.child**_ son registros que solo deben estar presentes en la zona secundaria, **child.contoso.com**. Estos registros pueden producir incoherencias si no se quitan de la zona primaria, **contoso.com**. Estas incoherencias podrían hacer que la zona se considerara como incorrecta con un estado **Degradado**.
 
-#### <a name="example-of-when-a-zone-is-considered-healthy-or-unhealthy"></a>Ejemplo de cuándo una zona se considera correcta o incorrecta
+#### <a name="examples-of-when-a-zone-is-considered-healthy-or-unhealthy"></a>Ejemplos de cuándo una zona se considera correcta o incorrecta
 
-* La zona no contiene registros de delegación de NS, registros glue ni otros registros. - **Correcta**
-* La zona solo contiene registros de delegación de NS. - **Correcta**
-* La zona solo contiene registros de delegación de NS y registros glue. - **Correcta**
-* La zona contiene registros de delegación NS y otros registros (excepto registros glue) por debajo del registro de delegación, que deberían estar presentes en la zona secundaria. - **Incorrecta**
-* La zona contiene registros de delegación de NS, registros glue y otros registros (excepto registros glue). - **Incorrecta**
+| Ejemplo | Estado |
+| ------- | ------ |
+| La zona no contiene registros de delegación de NS, registros glue ni otros registros. | **Healthy** |
+| La zona solo contiene registros de delegación de NS. | **Healthy** |
+| La zona solo contiene registros de delegación de NS y registros glue. | **Healthy** |
+| La zona contiene registros de delegación NS y otros registros (excepto registros glue) por debajo del registro de delegación, que deberían estar presentes en la zona secundaria. | **Incorrecto** |
+| La zona contiene registros de delegación NS, registros de adherencia y otros (excepto registros de adherencia). | **Incorrecto** |
 
 **¿Cómo se puede corregir esto?** - Para resolverlo, busque y elimine todos los registros, excepto los registros glue en los registros de delegación de NS en la zona primaria.
 

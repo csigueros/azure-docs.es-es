@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 11/20/2020
 ms.topic: how-to
 ms.custom: deploy
-ms.openlocfilehash: fa5c362db03af7004751e39708553edf79f5827a
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 14fb372a00621806ed4423813ee5e23b3c313688
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446533"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132402435"
 ---
 # <a name="deploy-models-trained-with-azure-machine-learning-on-your-local-machines"></a>Implementación de modelos entrenados con Azure Machine Learning en equipos locales 
 
@@ -188,7 +188,7 @@ El modelo puede descargarse:
 - Desde la línea de comandos, utilizando `az ml model download` (consulte la [descarga de modelos](/cli/azure/ml/model#az_ml_model_download)).
 - Utilizando el método `Model.download()` del SDK de Python (consulte la [clase Model](/python/api/azureml-core/azureml.core.model.model#download-target-dir------exist-ok-false--exists-ok-none-)).
 
-Un modelo de Azure es uno o varios objetos de Python serializados, empaquetados como un archivo pickle de Python (extensión .pkl). El contenido del archivo pickle depende de la técnica o de la biblioteca de aprendizaje automático que se utilice para entrenar el modelo. Por ejemplo, si utiliza el modelo del tutorial, puede cargar el modelo con:
+Un modelo de Azure puede estar en cualquier formato que use el marco, aunque suele ser uno o varios objetos de Python serializados, empaquetados como un archivo pickle de Python (extensión .pkl). El contenido del archivo pickle depende de la técnica o de la biblioteca de aprendizaje automático que se utilice para entrenar el modelo. Por ejemplo, si utiliza el modelo del tutorial, puede cargar el modelo con:
 
 ```python
 import pickle

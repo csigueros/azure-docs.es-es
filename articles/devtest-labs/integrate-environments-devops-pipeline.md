@@ -2,59 +2,55 @@
 title: Integración de entornos en Azure Pipelines
 description: Aprenda a integrar entornos de Azure DevTest Labs en las canalizaciones de integración continua (CI) y entrega continua (CD) de Azure DevOps.
 ms.topic: how-to
-ms.date: 06/26/2020
-ms.openlocfilehash: 4f205fb70978a667df8a8fe82beea38e492828a0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/15/2021
+ms.openlocfilehash: b3478242dddd7141100f05ae44a09902a2546ffd
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128651127"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488102"
 ---
-# <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integración de entornos en las canalizaciones CI/CD de Azure DevOps
-Puede usar la extensión Azure DevTest Labs Tasks que se instala en Azure DevOps Services (anteriormente conocido como Visual Studio Team Services) para integrar fácilmente la canalización de compilación y versión de integración continua (CI) y entrega continua (CD) con Azure DevTest Labs. Estas extensiones permiten que sea más fácil implementar rápidamente un [entorno](devtest-lab-test-env.md) para una determinada tarea de prueba y, luego, eliminarlo cuando finalice la prueba. 
+# <a name="integrate-environments-into-your-cicd-pipelines"></a>Integración de entornos en las canalizaciones de CI/CD 
+En este artículo aprenderá a crear e implementar un entorno para luego eliminarlo, todo ello en una canalización completa. Puede usar este entorno para integrar las canalizaciones de versión de integración continua (CI)/entrega continua (CD) con Azure DevTest Labs. Usará la extensión Azure DevTest Labs Tasks en Azure DevOps Services para la integración. Estas extensiones permiten que sea más fácil implementar rápidamente un [entorno](devtest-lab-test-env.md) para una determinada tarea de prueba y, luego, eliminarlo cuando finalice la prueba. 
 
-En este artículo se muestra cómo crear e implementar un entorno para luego eliminarlo, todo ello en una canalización completa. Lo habitual sería realizar cada tarea de forma individual en su propia canalización de compilación, prueba e implementación. Las extensiones usadas en este artículo son un complemento a estas [tareas de creación o eliminación de máquinas virtuales de DTL](devtest-lab-integrate-ci-cd.md):
+Lo habitual sería realizar cada tarea de forma individual en su propia canalización de compilación, prueba e implementación. Las extensiones usadas en este artículo son un complemento a estas [tareas de creación o eliminación de máquinas virtuales de DTL](devtest-lab-integrate-ci-cd.md):
 
 - Creación de un entorno
 - Eliminación de un entorno
 
-## <a name="before-you-begin"></a>Antes de empezar
-Antes de integrar la canalización de CI/CD con Azure DevTest Labs, instale la extensión [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) desde Visual Studio Marketplace. 
+## <a name="prerequisites"></a>Requisitos previos
+Para poder integrar la canalización de CI/CD con Azure DevTest Labs, debe hacer lo siguiente: 
+1. Instalar la extensión [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) desde Visual Studio Marketplace. 
+1. [Crear un laboratorio](devtest-lab-create-lab.md) y asegurarse de que está configurado para usar el **entorno público**, opción que está activada de forma predeterminada.
 
-## <a name="create-and-configure-the-lab-for-environments"></a>Creación y configuración del laboratorio para los entornos
-En esta sección se describe cómo crear y configurar un laboratorio donde se va a implementar el entorno de Azure.
+## <a name="create-a-release-definition--environment"></a>Creación de una definición de versión y un entorno
+Para crear la definición de versión, siga estos pasos:
 
-1. [Cree un laboratorio](devtest-lab-create-lab.md) si aún no tiene uno. 
-2. Configure el laboratorio y cree una plantilla de entorno siguiendo las instrucciones de este artículo: [Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager](devtest-lab-create-environment-from-arm.md).
-3. En este ejemplo, use una plantilla de inicio rápido de Azure existente [https://azure.microsoft.com/resources/templates/web-app-redis-cache-sql-database](https://azure.microsoft.com/resources/templates/web-app-redis-cache-sql-database).
-4. Copie la carpeta **web-app-redis-cache-sql-database** en la carpeta **ArmTemplate** del repositorio configurado en el paso 2.
+1. En el proyecto de Azure DevOps, seleccione **Versiones** en la sección **Canalizaciones**.
+1. En la pestaña **Versiones**, seleccione **Nueva canalización**.  En la ventana **Seleccionar una plantilla** de la derecha, puede encontrar la lista de plantillas destacadas para patrones de implementación habituales. 
+1. Para esta canalización, seleccione **Fase vacía** para empezar a crear el entorno que se usará con fines de desarrollo o pruebas.
+1. En la fase vacía, seleccione **Tareas** en la barra de herramientas y, a continuación, seleccione **Fase 1**.
 
-## <a name="create-a-release-definition"></a>Creación de una definición de versión
-Para crear la definición de la versión, siga estos pasos:
+   :::image type="content" source="./media/integrate-environments-devops-pipeline/new-release-pipeline-stage.png" alt-text="Captura de pantalla que muestra cómo abrir la fase de versión de la canalización.":::
 
-1.  En la pestaña **Versiones** del concentrador **Compilación y versión**, seleccione el botón con el **signo de la suma (+)**.
-2.  En la ventana **Crear definición de versión**, seleccione la plantilla **Vacía** y, luego, seleccione **Siguiente**.
-3.  Seleccione **Elegir más tarde** y, luego, seleccione **Crear** para crear una nueva definición de versión con un entorno predeterminado y ningún artefacto vinculado.
-4.  Para abrir el menú contextual, en la nueva definición de versión, seleccione los **puntos suspensivos (...)** junto al nombre del entorno y, luego, seleccione **Configurar variables**.
-5.  En la ventana de **configuración del entorno**, escriba los siguientes valores para las variables que se usan en las tareas de definición de versión:
-1.  En **administratorLogin**, escriba el nombre de inicio de sesión del administrador de SQL.
-2.  En **administratorLoginPassword**, escriba la contraseña que va a usar con el inicio de sesión del administrador de SQL. Use el icono de "candado" para ocultar y proteger la contraseña.
-3.  En **databaseName**, escriba el nombre de la base de datos SQL.
-4.  Estas variables son específicas de los entornos de ejemplo, entornos diferentes pueden tener distintas variables.
+1. Para agregar tareas a la fase, seleccione el signo más (+) en la sección **Trabajo de agente**. Aparece una lista donde puede buscar tareas disponibles. 
+1. En la ventana **Agregar tarea**, busque `Azure DevTest Labs Create Environment`.
+1. Seleccione la tarea `Azure DevTest Labs Create Environment` en los resultados y, después, **Agregar**.
+1. Seleccione la tarea que acaba de agregar. Aparece la ventana **Azure DevTest Labs Create Environment (Preview)** (Crear entorno de Azure DevTest Labs [versión preliminar]).
 
-## <a name="create-an-environment"></a>Creación de un entorno
-La siguiente fase de la implementación es crear el entorno que se usará con fines de desarrollo o prueba.
+   :::image type="content" source="./media/integrate-environments-devops-pipeline/new-release-pipeline-environment.png" alt-text="Captura de pantalla que muestra los campos necesarios para el entorno de Azure Pipelines para Azure DevTest Labs.":::
 
-1. En la definición de versión, seleccione **Agregar tareas**.
-2. En la pestaña **Tareas**, agregue una tarea de creación de entorno de Azure DevTest Labs. Configure la tarea de la siguiente manera:
-    1. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints) (Punto de conexión de servicio de Azure Resource Manager).
-2. En **Nombre del laboratorio**, seleccione el nombre de la instancia que creó anteriormente*.
-3. En **Nombre del repositorio**, seleccione el repositorio donde se ha insertado la plantilla de Resource Manager (201)*.
-4. En **Nombre de la plantilla**, seleccione el nombre del entorno en el que guardó el repositorio de código fuente*. 
-5. El **nombre del laboratorio**, el **nombre del repositorio** y el **nombre de la plantilla** son las representaciones descriptivas de los identificadores de recursos de Azure. Escribir manualmente el nombre descriptivo provoca errores, así que use las listas desplegables para seleccionar la información.
-6. En **Nombre del entorno**, escriba un nombre para identificar de forma única la instancia del entorno en el laboratorio.  Debe ser único dentro del laboratorio.
-7. Las secciones **Parameter File** (Archivo de parámetro) y **Parameters** (Parámetros) permiten pasar parámetros personalizados al entorno. Se pueden usar una o ambas secciones para establecer los valores de parámetro. En este ejemplo, se usará la sección de parámetros. Use los nombres de las variables que definió en el entorno, por ejemplo: `-administratorLogin "$(administratorLogin)" -administratorLoginPassword "$(administratorLoginPassword)" -databaseName "$(databaseName)" -cacheSKUCapacity 1`
-8. La información dentro de la plantilla de entorno se puede recorrer en la sección de salida de la plantilla. Active la casilla **Create output variables based on the environment template output** (Crear variables de salida según la salida de la plantilla de entorno) para que otras tareas puedan usar los datos. `$(Reference name.Output Name)` es el patrón a seguir. Por ejemplo, si el nombre de referencia era DTL y el nombre de salida de plantilla era ubicación, la variable sería `$(DTL.location)`.
+2. En la pestaña **Tareas**, configure el entorno de la siguiente manera:
+
+   |Campo|Description|
+   |-----|-----------|
+   |**Suscripción a Azure Resource Manager**|Suscripción de Azure Resource Manager para configurar antes de la ejecución. Seleccione una conexión en la lista **Conexiones disponibles del servicio de Azure** o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints) (Punto de conexión de servicio de Azure Resource Manager).|
+   |**Nombre de laboratorio**|Seleccione el nombre de un laboratorio que creó anteriormente (consulte los requisitos previos). En la práctica, debe seleccionar el laboratorio en el que desea realizar la implementación. El recurso se crea en este laboratorio.  También puede usar variables, `$(labName)`.  Escribir manualmente el nombre descriptivo provoca errores, así que use las listas desplegables para seleccionar la información.|
+   |**Nombre del entorno**|Nombre del entorno que se va a crear en el laboratorio seleccionado.|
+   |**Nombre del repositorio**|Nombre del repositorio de código fuente que contiene la plantilla. Puede elegir el repositorio predeterminado, `Public Environment Repo`, u otro repositorio que contenga la plantilla que desea usar. Los repositorios se diseñan en las directivas de laboratorio.  Escribir manualmente el nombre descriptivo provoca errores, así que use las listas desplegables para seleccionar la información.|
+   |**Nombre de plantilla**|Nombre de la plantilla que se usará para crear el entorno. Seleccione el nombre de la plantilla de entorno. Escribir manualmente el nombre descriptivo provoca errores, así que use las listas desplegables para seleccionar la información.| 
+   |**Nombre del entorno**|Escriba un nombre para identificar de forma única la instancia del entorno dentro del laboratorio.  Debe ser único dentro del laboratorio.|
+   |**Parameters File (Archivo de parámetros)**  & **Parameter overrides (Invalidaciones de parámetros)**|Se usan para pasar parámetros personalizados al entorno. Se pueden usar una o ambas secciones para establecer los valores de parámetro. Por ejemplo, puede usar estos campos para pasar la contraseña cifrada. También puede usar variables para evitar pasar información secreta en los registros e incluso enlazarla a Azure Key Vault.|
 
 ## <a name="delete-the-environment"></a>Eliminación del entorno
 La fase final consiste en eliminar el entorno que ha implementado en su instancia de Azure DevTest Labs. Lo habitual es eliminar el entorno después de ejecutar las tareas de desarrollo o de ejecutar las pruebas que necesita en los recursos implementados.

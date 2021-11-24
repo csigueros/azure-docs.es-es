@@ -3,15 +3,17 @@ title: Implementación del conector de datos de SAP de Microsoft Sentinel con Se
 description: Información sobre cómo implementar el conector de datos de Microsoft Sentinel para entornos de SAP con una conexión segura a través de SNC, para registros basados en interfaces de NetWeaver/ABAP.
 author: batamig
 ms.author: bagol
+ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: 2437859c3ee236e1dc3c641f22de5e1d3ce07fff
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.subservice: microsoft-sentinel
+ms.openlocfilehash: cc3c58743fc1cfca90ff8a2f20e5450895accc75
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132711894"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519883"
 ---
 # <a name="deploy-the-microsoft-sentinel-sap-data-connector-with-snc"></a>Implementación del conector de datos de SAP de Microsoft Sentinel con SNC
 
@@ -23,25 +25,25 @@ En este artículo se describe cómo implementar el conector de datos de SAP de M
 > El proceso predeterminado y más recomendado para implementar el conector de datos de SAP de Microsoft Sentinel es [mediante una máquina virtual de Azure](sap-deploy-solution.md). Este artículo está destinado a usuarios avanzados.
 
 > [!IMPORTANT]
-> La solución Microsoft Sentinel SAP está actualmente en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
+> La solución de SAP de Microsoft Sentinel está actualmente en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las versiones preliminares de Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Los requisitos previos básicos para implementar el conector de datos de Microsoft Sentinel SAP son los mismos, independientemente del método de implementación.
+Los requisitos previos básicos para implementar el conector de datos de SAP de Microsoft Sentinel son los mismos, independientemente del método de implementación.
 
 Antes de empezar, asegúrese de que el sistema cumple los requisitos previos que se documentan en el [procedimiento principal de implementación del conector de datos de SAP](sap-deploy-solution.md#prerequisites).
 
 Estos son otros requisitos previos para trabajar con SNC:
 
-- **Tener una conexión segura a SAP con SNC**. Defina los parámetros de SNC específicos de la conexión en las constantes de repositorio del sistema ABAP AS al que se esté conectando. Para obtener más información, consulte la [página wiki de la comunidad de SAP](https://wiki.scn.sap.com/wiki/display/Security/Securing+Connections+to+AS+ABAP+with+SNC).
+- **Tener una conexión segura a SAP con SNC**. Defina los parámetros de SNC específicos de la conexión en las constantes de repositorio del sistema ABAP AS al que se esté conectando. Para más información, consulte la [página wiki de la comunidad de SAP](https://wiki.scn.sap.com/wiki/display/Security/Securing+Connections+to+AS+ABAP+with+SNC).
 
-- **Descargar la utilidad SAPCAR** desde SAP Service Marketplace. Para obtener más información, consulte la [Guía de instalación de SAP](https://help.sap.com/viewer/d1d04c0d65964a9b91589ae7afc1bd45/5.0.4/en-US/467291d0dc104d19bba073a0380dc6b4.html).
+- **Descargar la utilidad SAPCAR** desde SAP Service Marketplace. Para más información, consulte la [Guía de instalación de SAP](https://help.sap.com/viewer/d1d04c0d65964a9b91589ae7afc1bd45/5.0.4/en-US/467291d0dc104d19bba073a0380dc6b4.html).
 
 Para más información, consulte [Requisitos de SAP detallados para la solución de SAP de Microsoft Sentinel (versión preliminar pública)](sap-solution-detailed-requirements.md).
 
 ## <a name="create-your-azure-key-vault"></a>Creación del almacén de claves de Azure
 
-Cree un almacén de claves de Azure que pueda dedicar a su conector de datos de Microsoft Sentinel SAP.
+Cree un almacén de claves de Azure que pueda dedicar a su conector de datos de SAP de Microsoft Sentinel.
 
 Ejecute el siguiente comando para crear el almacén de claves de Azure y conceder acceso a una entidad de servicio de Azure:
 
@@ -70,9 +72,9 @@ az keyvault set-policy --name $kvname --resource-group $kvgp --object-id $spID -
 
 Para más información, consulte [Inicio rápido: Creación de un almacén de claves mediante la CLI de Azure](../key-vault/general/quick-create-cli.md).
 
-## <a name="add-azure-key-vault-secrets"></a>Adición de secretos de Azure Key Vault
+## <a name="add-azure-key-vault-secrets"></a>Añadir secretos de Azure Key Vault
 
-Para agregar secretos de Azure Key Vault, ejecute el siguiente script, con su propio identificador de sistema y las credenciales que quiera agregar:
+Para añadir secretos de Azure Key Vault, ejecute el siguiente script, con su propio identificador de sistema y las credenciales que quiera añadir:
 
 ```azurecli
 #Add Azure Log ws ID
@@ -154,7 +156,7 @@ Después de implementar el conector de datos de SAP, realice los siguientes proc
 
 1. Descargue la biblioteca criptográfica de SAP desde [SAP Service Marketplace](https://launchpad.support.sap.com/#/) > **Software Downloads** > **Browse our Download Catalog** > **SAP Cryptographic Software** (SAP Service Marketplace > Descargas de software > Buscar en nuestro catálogo criptográfico > Software criptográfico de SAP).
 
-    Para obtener más información, consulte la [Guía de instalación de SAP](https://help.sap.com/viewer/d1d04c0d65964a9b91589ae7afc1bd45/5.0.4/en-US/86921b29cac044d68d30e7b125846860.html).
+    Para más información, consulte la [Guía de instalación de SAP](https://help.sap.com/viewer/d1d04c0d65964a9b91589ae7afc1bd45/5.0.4/en-US/86921b29cac044d68d30e7b125846860.html).
 
 1. Use la utilidad SAPCAR para extraer los archivos de biblioteca e impleméntelos en la máquina virtual del conector de datos de SAP, en el `<sec>` directorio.
 
@@ -170,7 +172,7 @@ Después de implementar el conector de datos de SAP, realice los siguientes proc
     ./sapgenpse get_pse -p my_pse.pse -noreq -x my_pin "CN=sapcon.com, O=my_company, C=IL"
     ```
 
-    Para obtener más información, consulte [Creación de un entorno de seguridad personal](https://help.sap.com/viewer/4773a9ae1296411a9d5c24873a8d418c/8.0/en-US/285bb1fda3fa472c8d9205bae17a6f95.html) en la documentación de SAP.
+    Para más información, consulte [Creación de un entorno de seguridad personal](https://help.sap.com/viewer/4773a9ae1296411a9d5c24873a8d418c/8.0/en-US/285bb1fda3fa472c8d9205bae17a6f95.html) en la documentación de SAP.
 
 1. Cree las credenciales del entorno PSE. Por ejemplo:
 
@@ -178,7 +180,7 @@ Después de implementar el conector de datos de SAP, realice los siguientes proc
     ./sapgenpse seclogin -p my_pse.pse -x my_pin -O MXDispatcher_Service_User
     ```
 
-    Para obtener más información, consulte [Creación de credenciales](https://help.sap.com/viewer/4773a9ae1296411a9d5c24873a8d418c/8.0/en-US/d8b50371667740e797e6c9f0e9b7141f.html) en la documentación de SAP.
+    Para más información, consulte [Creación de credenciales](https://help.sap.com/viewer/4773a9ae1296411a9d5c24873a8d418c/8.0/en-US/d8b50371667740e797e6c9f0e9b7141f.html) en la documentación de SAP.
 
 1. Intercambie los certificados de clave pública entre el centro de identidades y el PSE de SNC de AS ABAP.
 
@@ -196,7 +198,7 @@ Después de implementar el conector de datos de SAP, realice los siguientes proc
     ./sapgenpse maintain_pk -a full_path/my_secure_dir/my_exported_cert.crt -p my_pse.pse -x my_pin
     ```
 
-    Para obtener más información, consulte [Intercambio de certificados de clave pública](https://help.sap.com/viewer/4773a9ae1296411a9d5c24873a8d418c/8.0/en-US/7bbf90b29c694e6080e968559170fbcd.html) en la documentación de SAP.
+    Para más información, consulte [Intercambio de certificados de clave pública](https://help.sap.com/viewer/4773a9ae1296411a9d5c24873a8d418c/8.0/en-US/7bbf90b29c694e6080e968559170fbcd.html) en la documentación de SAP.
 
 ## <a name="edit-the-sap-data-connector-configuration"></a>Edición de la configuración del conector de datos de SAP
 
@@ -225,7 +227,7 @@ Después de implementar el conector de datos de SAP, realice los siguientes proc
     > El valor predeterminado de `<Interprefix>` es su SID, como `A4H-<ABAPSNCPARTNERNAME>`.
     >
 
-Si especifica secretos directamente en el archivo de configuración, defina los parámetros de la siguiente manera:
+Si introduce secretos directamente en el archivo de configuración, defina los parámetros de la siguiente manera:
 
 ```ini
 [Secrets Source]
@@ -240,11 +242,11 @@ snc_lib = /sapcon-app/sec/libsapcrypto.so (Relevant directory)
 x509cert = MIIDJjCCAtCgAwIBAgIBNzA ... NgalgcTJf3iUjZ1e5Iv5PLKO (Relevant certificate code)
 ```
 
-### <a name="attach-the-snc-parameters-to-your-user"></a>Asociación de parámetros de SNC a su usuario
+### <a name="attach-the-snc-parameters-to-your-user"></a>Asociación de parámetros de SNC al usuario
 
 1. En la máquina virtual del conector de datos de SAP, llame a la transacción `SM30` y seleccione conservar la tabla `USRACLEXT`.
 
-1. Agregue una entrada nueva. En el campo **User** (Usuario), escriba el usuario de comunicaciones que se usa para conectarse al sistema ABAP.
+1. Añadir una entrada nueva. En el campo **User** (Usuario), escriba el usuario de comunicaciones que se usa para conectarse al sistema ABAP.
 
 1. Escriba el nombre de SNC cuando se le solicite. El nombre de SNC es el nombre distintivo y único que se proporcionó al crear el PSE de Identity Manager. Por ejemplo: `CN=IDM, OU=SAP, C=DE`
 
@@ -278,7 +280,7 @@ En este procedimiento se describe cómo activar el conector de datos de SAP medi
     docker stop sapcon-<SID>
     ```
 
-Por ejemplo, pueden surgir problemas debido a una configuración incorrecta en el archivo **systemconfig.ini** o en el almacén de claves de Azure, o bien es posible que algunos de los pasos para crear una conexión segura a través de SNC no se hayan ejecutado como es debido.
+Por ejemplo, pueden surgir problemas debido a una configuración errónea en el archivo **systemconfig.ini** o en el almacén de claves de Azure. También es posible que algunos de los pasos para crear una conexión segura a través de SNC no se hayan ejecutado como es debido.
 
 Pruebe a realizar de nuevo los pasos anteriores para configurar una conexión segura a través de SNC. Para más información, consulte [Solución de problemas de implementación de la solución de SAP de Microsoft Sentinel](sap-deploy-troubleshoot.md).
 
@@ -291,5 +293,5 @@ Al implementar la solución, el conector de datos de SAP se muestra en Microsoft
 Para más información, consulte:
 
 - [Requisitos de SAP detallados para la solución de SAP de Microsoft Sentinel](sap-solution-detailed-requirements.md)
-- [Referencia a los registros de la solución Microsoft Sentinel SAP](sap-solution-log-reference.md)
+- [Referencia a los registros de la solución de SAP de Microsoft Sentinel](sap-solution-log-reference.md)
 - [Solución de SAP de Microsoft Sentinel: referencia al contenido de seguridad](sap-solution-security-content.md)

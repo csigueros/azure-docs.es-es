@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/02/2021
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: e485efa572dd1b786b714b74b4d6df49d7a44853
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 12f2cc667cc568132eb4e91a1f739f81b075fd80
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130236457"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400098"
 ---
 # <a name="mount-azure-storage-as-a-local-share-in-a-container-app-in-app-service"></a>Montaje de Azure Storage como un recurso compartido local en una aplicación de contenedor en App Service
 
@@ -26,7 +26,7 @@ En esta guía, se muestra cómo montar archivos de Azure Storage como un recurso
 
 ::: zone pivot="container-linux"
 
-En esta guía, se muestra cómo montar Azure Storage como un recurso compartido de red en un contenedor Linux integrado o en un contenedor Linux personalizado en App Service. Entre las ventajas del montaje personalizado del almacenamiento se encuentran:
+En esta guía, se muestra cómo montar Azure Storage como un recurso compartido de red en un contenedor Linux integrado o en un contenedor Linux personalizado en App Service. Vea el vídeo [Montaje de Azure Storage como un recurso compartido local](https://www.youtube.com/watch?v=OJkvpWYr57Y). Entre las ventajas del montaje personalizado del almacenamiento se encuentran:
 
 ::: zone-end
 
@@ -99,6 +99,7 @@ Se admiten las siguientes características para los contenedores Linux:
 - No se admite el acceso FTP/FTPS al montaje personalizado del almacenamiento (use el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/)).
 - La compatibilidad con la CLI de Azure, Azure PowerShell y Azure SDK se encuentra en versión preliminar.
 - No se admite la asignación de `/` ni `/home` al montaje personalizado del almacenamiento.
+- No asigne el montaje de almacenamiento personalizado a `/tmp` ni a sus subdirectorios, ya que puede agotarse el tiempo de espera durante el inicio de la aplicación.
 - Los montajes de Azure Storage no se pueden usar junto con la opción de configuración de clonación durante la creación de [ranuras de implementación](deploy-staging-slots.md).
 - No se hace una copia de seguridad de los montajes de Azure Storage cuando se hace una [copia de seguridad de la aplicación](manage-backup.md). Asegúrese de seguir los procedimientos recomendados para hacer una copia de seguridad de las cuentas de Azure Storage. 
 
@@ -248,5 +249,6 @@ Para validar que el almacenamiento de Azure Storage se ha montado correctamente 
 ::: zone pivot="container-linux"
 
 - [Configurar un contenedor personalizado](configure-custom-container.md?pivots=platform-linux)
+- [Vídeo: Montaje de Azure Storage como un recurso compartido local](https://www.youtube.com/watch?v=OJkvpWYr57Y)
 
 ::: zone-end

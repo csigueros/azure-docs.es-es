@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 11/11/2021
 ms.author: makromer
-ms.openlocfilehash: f24bb345442b2320344cf1c9e89d383571447ded
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 5ea0e509f7969c011cb18f99433c85fc97ed5528
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130044788"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487203"
 ---
 # <a name="copy-and-transform-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copia y transformación de datos desde y hacia un punto de conexión de REST mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -511,6 +511,9 @@ Las **reglas de paginación** se definen como un diccionario en el conjunto de d
 | AbsoluteUrl | Indica la dirección URL para emitir la siguiente solicitud. Puede ser una **dirección URL absoluta o relativa**. |
 | QueryParameters.*request_query_parameter* O QueryParameters["request_query_parameter"] | El usuario define "request_query_parameter", que hace referencia a un nombre de parámetro de consulta en la siguiente dirección URL de solicitud HTTP. |
 | Headers.*request_header* O Headers["request_header"] | El usuario define "request_header", que hace referencia a un nombre de encabezado en la siguiente solicitud HTTP. |
+| EndCondition:*end_condition* | "end_condition" la define el usuario, e indica la condición que hará finalizar el bucle de paginación en la siguiente solicitud HTTP. |
+| MaxRequestNumber | Indica el número máximo de solicitudes de paginación. Si lo deja vacío significa que no hay límite. |
+| SupportRFC5988 | Se admite RFC 5988 en las reglas de paginación. De manera predeterminada, se establece en true. Solo se respetará si no se define ninguna otra regla de paginación.
 
 **Valores admitidos** en las reglas de paginación:
 

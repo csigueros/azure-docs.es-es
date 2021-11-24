@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 8004ef319efc08610f9c1a5de16b7c430d51d666
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 6013811622492f476e65c91d3c028007e2802c27
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129209220"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132485181"
 ---
 # <a name="view-edit-and-delete-assets-in-purview-catalog"></a>Visualización, edición y eliminación de recursos en el catálogo de Purview
 
@@ -81,11 +81,16 @@ Puede ir a la pestaña de esquema en la pantalla de edición para actualizar el 
 
 Puede ir a la pestaña de contacto de la pantalla de edición para actualizar los propietarios y expertos en el recurso. Puede buscar por nombre completo, correo electrónico o alias de la persona dentro de Azure Active Directory.
 
-### <a name="edit-behavior-explained"></a>Descripción del comportamiento de edición
+### <a name="scans-on-edited-assets"></a>Exámenes en recursos editados
 
-Si hace una actualización a nivel de recurso, como agregar al recurso una descripción, una clasificación a nivel de recurso, un término del glosario o un contacto, los exámenes posteriores actualizarán el esquema de recursos (el analizador detectará nuevas columnas y clasificaciones en ejecuciones de examen posteriores).
+Si edita un recurso agregando una descripción, una clasificación en el nivel de recurso, un término de glosario o un contacto, los exámenes posteriores seguirán actualizando el esquema de recursos (el analizador detectará nuevas columnas y clasificaciones en las ejecuciones de examen posteriores).
 
-Si hace una actualización a nivel de columna, como agregar una descripción, una clasificación de nivel de columna, un término del glosario o actualizar el tipo de dato o el nombre de la columna, los exámenes posteriores **no** actualizarán el esquema de recursos (el analizador **no detectará** nuevas columnas y clasificaciones en ejecuciones de examen posteriores).
+Si realiza algunas actualizaciones en el nivel de columna, como agregar una descripción, una clasificación en el nivel de columna o un término de glosario, los exámenes posteriores también actualizarán el esquema de recursos (el analizador detectará nuevas columnas y clasificaciones en las ejecuciones de examen posteriores). 
+
+Incluso en los recursos editados, después de un examen, Azure Purview reflejará la realidad del sistema de origen. Por ejemplo, si edita una columna y se elimina del origen, se eliminará del recurso en Purview. 
+
+>[!NOTE]
+> Si actualiza el **nombre o el tipo de datos de una columna** en un recurso de Azure Purview, los exámenes posteriores **no** actualizarán el esquema de recursos. **Tampoco** se detectarán nuevas columnas y clasificaciones.
 
 ## <a name="deleting-assets"></a>Eliminación de recursos
 
@@ -93,11 +98,12 @@ Para eliminar un recurso, seleccione el icono de eliminación bajo el nombre del
 
 ### <a name="delete-behavior-explained"></a>Descripción del proceso de eliminación
 
-Todos los recursos que elimine mediante el botón de eliminación se eliminarán permanentemente. Sin embargo, si ejecuta un **examen completo** en el origen desde el que se ingiere el recurso en el catálogo, el recurso se volverá a ingerir y podrá detectarlo mediante el catálogo de Purview.
+Todos los recursos que elimine mediante el botón de eliminación se eliminarán permanentemente en Azure Purview. Sin embargo, si ejecuta un **examen completo** en el origen desde el que se ingiere el recurso en el catálogo, el recurso se volverá a ingerir y podrá detectarlo mediante el catálogo de Purview.
 
 Si tiene un examen programado (semanal o mensual) en el origen, el **recurso eliminado no se volverá a ingerir** en el catálogo a menos que un usuario final modifique el recurso desde la ejecución anterior del examen.   Por ejemplo, si se eliminó una tabla SQL de Purview, pero después de eliminar la tabla un usuario agregó una nueva columna a la tabla en SQL, en el siguiente examen el recurso se volverá a examinar e ingerir en el catálogo.
 
 Si elimina un recurso, solo se eliminará dicho recurso. Purview no admite actualmente eliminaciones en cascada. Por ejemplo, si elimina un recurso de cuenta de almacenamiento en el catálogo, los contenedores, las carpetas y los archivos que se encuentren en él no se eliminarán. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

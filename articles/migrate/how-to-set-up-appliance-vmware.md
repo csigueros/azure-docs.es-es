@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/12/2021
-ms.openlocfilehash: 1082b63bc6f12531d502e75c1c096639b0eab00b
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: c95c92c1f592cc5f042975e832df66e585d99740
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132719281"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132402492"
 ---
 # <a name="set-up-an-appliance-for-servers-in-a-vmware-environment"></a>Configuración de un dispositivo para servidores en un entorno de VMware
 
@@ -64,7 +64,7 @@ Antes de implementar el archivo OVA, compruebe que el archivo sea seguro:
    
     Ejemplo: `C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256`
 
-1. Compruebe el valor hash más reciente mediante la comparación del resultado del comando anterior con el valor documentado [aquí](./tutorial-discover-vmware.md#verify-security).
+1. Compruebe el valor hash más reciente mediante la comparación del resultado del comando anterior con el valor documentado [aquí](/azure/migrate/tutorial-discover-vmware#verify-security).
 
 #### <a name="create-the-appliance-server"></a>Creación del servidor del dispositivo
 

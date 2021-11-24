@@ -1,26 +1,26 @@
 ---
-title: Conexión de datos de Syslog a Azure Sentinel | Microsoft Docs
-description: Conecte cualquier máquina o dispositivo que admita Syslog en Azure Sentinel mediante un agente en una máquina Linux entre el dispositivo y Azure Sentinel.
+title: Conexión de datos de Syslog a Microsoft Sentinel | Microsoft Docs
+description: Conecte cualquier máquina o dispositivo que admita Syslog en Microsoft Sentinel mediante un agente en una máquina Linux entre el dispositivo y Microsoft Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9e9460620c3d18c8e7d35663e5e89ca7aa024360
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2342c2b3959ecb4ff9c174e769ce27f06ff36483
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131004352"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524557"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Recopilación de datos de orígenes basados en Linux mediante Syslog
 
@@ -28,24 +28,24 @@ ms.locfileid: "131004352"
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-**Syslog** es un protocolo de registro de eventos que es común a Linux. Puede usar el demonio de Syslog integrado en dispositivos Linux para recopilar eventos locales de los tipos que especifique y hacer que envíe esos eventos a Azure Sentinel mediante el **agente de Log Analytics para Linux** (anteriormente conocido como agente de OMS).
+**Syslog** es un protocolo de registro de eventos que es común a Linux. Puede usar el demonio de Syslog integrado en dispositivos Linux para recopilar eventos locales de los tipos que especifique y hacer que envíe esos eventos a Microsoft Sentinel mediante el **agente de Log Analytics para Linux** (anteriormente conocido como agente de OMS).
 
-En este artículo se describe cómo conectar los orígenes de datos a Azure Sentinel mediante Syslog. Para más información sobre los conectores compatibles que usan este método, consulte [Referencia de conectores de datos](data-connectors-reference.md).
+En este artículo se describe cómo conectar los orígenes de datos a Microsoft Sentinel mediante Syslog. Para más información sobre los conectores compatibles que usan este método, consulte [Referencia de conectores de datos](data-connectors-reference.md).
 
 ## <a name="architecture"></a>Architecture
 
-Al instalar el agente de Log Analytics en su VM o dispositivo, el script de instalación configura el demonio de Syslog local para que reenvíe mensajes al agente en el puerto UDP 25224. Después de recibir los mensajes, el agente los envía al área de trabajo de Log Analytics a través de HTTPS, donde se ingieren en la tabla Syslog en **Azure Sentinel > Registros**.
+Al instalar el agente de Log Analytics en su VM o dispositivo, el script de instalación configura el demonio de Syslog local para que reenvíe mensajes al agente en el puerto UDP 25224. Después de recibir los mensajes, el agente los envía al área de trabajo de Log Analytics a través de HTTPS, donde se ingieren en la tabla Syslog en **Microsoft Sentinel > Registros**.
 
 Para más información, consulte [Orígenes de datos de Syslog en Azure Monitor](../azure-monitor/agents/data-sources-syslog.md).
 
-:::image type="content" source="media/connect-syslog/syslog-diagram.png" alt-text="En este diagrama se muestra el flujo de datos de los orígenes de Syslog al área de trabajo de Azure Sentinel, donde el agente de Log Analytics se instala directamente en el dispositivo de origen de datos.":::
+:::image type="content" source="media/connect-syslog/syslog-diagram.png" alt-text="En este diagrama se muestra el flujo de datos de los orígenes de Syslog al área de trabajo de MicrosoftSentinel, donde el agente de Log Analytics se instala directamente en el dispositivo de origen de datos.":::
 
-Para algunos tipos de dispositivo que no permiten la instalación local del agente de Log Analytics, el agente se puede instalar en su lugar en un reenviador de registros dedicado basado en Linux. El dispositivo de origen debe configurarse para enviar eventos de Syslog al demonio de Syslog en este reenviador en lugar del demonio local. El demonio de Syslog en el reenviador envía eventos al agente de Log Analytics a través de UDP. Si se espera que este reenviador de Linux recopile un gran volumen de eventos de Syslog, su demonio de Syslog envía eventos al agente a través de TCP en su lugar. En cualquier caso, el agente envía los eventos desde allí al área de trabajo de Log Analytics en Azure Sentinel.
+Para algunos tipos de dispositivo que no permiten la instalación local del agente de Log Analytics, el agente se puede instalar en su lugar en un reenviador de registros dedicado basado en Linux. El dispositivo de origen debe configurarse para enviar eventos de Syslog al demonio de Syslog en este reenviador en lugar del demonio local. El demonio de Syslog en el reenviador envía eventos al agente de Log Analytics a través de UDP. Si se espera que este reenviador de Linux recopile un gran volumen de eventos de Syslog, su demonio de Syslog envía eventos al agente a través de TCP en su lugar. En cualquier caso, el agente envía los eventos desde allí al área de trabajo de Log Analytics en Microsoft Sentinel.
 
-:::image type="content" source="media/connect-syslog/syslog-forwarder-diagram.png" alt-text="En este diagrama se muestra el flujo de datos de los orígenes de Syslog al área de trabajo de Azure Sentinel, donde el agente de Log Analytics se instala directamente en el dispositivo de origen de datos en un dispositivo independiente de reenvío de registros.":::
+:::image type="content" source="media/connect-syslog/syslog-forwarder-diagram.png" alt-text="En este diagrama se muestra el flujo de datos de los orígenes de Syslog al área de trabajo de Microsoft Sentinel, donde el agente de Log Analytics se instala directamente en el dispositivo de origen de datos en un dispositivo independiente de reenvío de registros.":::
 
 > [!NOTE]
-> - Si el dispositivo admite **Common Event Format (CEF) en Syslog**, se recopila un conjunto de datos más completo y los datos se analizan en la colección. Debe elegir esta opción y seguir las instrucciones de [Conexión de registros con formato CEF de un dispositivo a Azure Sentinel](connect-common-event-format.md).
+> - Si el dispositivo admite **Common Event Format (CEF) en Syslog**, se recopila un conjunto de datos más completo y los datos se analizan en la colección. Debe elegir esta opción y seguir las instrucciones de [Obtención de registros con formato CEF desde un dispositivo o aplicación a Microsoft Sentinel](connect-common-event-format.md).
 >
 > - Log Analytics admite la recopilación de mensajes enviados por los demonios **rsyslog** o **syslog-ng**, donde rsyslog es el predeterminado. El demonio predeterminado de Syslog en la versión 5 de Red Hat Enterprise Linux (RHEL), CentOS y Oracle Linux (**sysklog**) *no se admite* para la recopilación de eventos de Syslog. Para recopilar datos de Syslog de esta versión de estas distribuciones, es necesario instalar configurar el demonio de Rsyslog para reemplazar Sysklog.
 
@@ -55,15 +55,15 @@ Hay tres pasos para configurar la recopilación de Syslog:
 
 - **Configure los valores de registro de la aplicación** correspondientes a la ubicación del demonio de Syslog que enviará eventos al agente.
 
-- **Configure el propio agente de Log Analytics**. Esto se realiza desde dentro de Azure Sentinel, y la configuración se envía a todos los agentes instalados.
+- **Configure el propio agente de Log Analytics**. Esto se realiza desde dentro de Microsoft Sentinel, y la configuración se envía a todos los agentes instalados.
 
 ## <a name="configure-your-linux-machine-or-appliance"></a>Configuración de la máquina o el dispositivo Linux
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Conectores de datos**.
+1. En el menú de navegación de Microsoft Sentinel, seleccione **Conectores de datos**.
 
 1. En la galería de conectores, seleccione **Syslog** y luego **Abrir página del conector**.
 
-    Si el tipo de dispositivo aparece en la **galería de conectores de datos** de Azure Sentinel, elija el conector para el dispositivo en lugar del conector genérico de Syslog. Si hay instrucciones adicionales o especiales para el tipo de dispositivo, las verá, junto con contenido personalizado, como libros y plantillas de reglas de análisis, en la página del conector del dispositivo.
+    Si el tipo de dispositivo aparece en la **galería de conectores de datos** de Microsoft Sentinel, elija el conector para el dispositivo en lugar del conector genérico de Syslog. Si hay instrucciones adicionales o especiales para el tipo de dispositivo, las verá, junto con contenido personalizado, como libros y plantillas de reglas de análisis, en la página del conector del dispositivo.
 
 1. Instale el agente de Linux. En **Elija dónde quiere instalar al agente:**
 
@@ -78,13 +78,13 @@ Hay tres pasos para configurar la recopilación de Syslog:
 
 ### <a name="using-the-same-machine-to-forward-both-plain-syslog-and-cef-messages"></a>Uso del mismo equipo para reenviar Syslog sin formato *y* mensajes de CEF
 
-Puede usar la [máquina del reenviador de registros de CEF](connect-log-forwarder.md) existente para recopilar y reenviar registros también desde orígenes de Syslog sin formato. Sin embargo, debe realizar los pasos siguientes para evitar el envío de eventos en ambos formatos a Azure Sentinel, ya que esto provocará la duplicación de eventos.
+Puede usar la [máquina del reenviador de registros de CEF](connect-log-forwarder.md) existente para recopilar y reenviar registros también desde orígenes de Syslog sin formato. Sin embargo, debe realizar los pasos indicados a continuación para evitar el envío de eventos en ambos formatos a Microsoft Sentinel, ya que esto provocará la duplicación de eventos.
 
 Cuando ya haya configurado la [recopilación de datos de los orígenes de CEF](connect-common-event-format.md) y haya configurado el agente de Log Analytics:
 
 1. En cada máquina que envíe registros en formato CEF, debe editar el archivo de configuración de Syslog para quitar las funciones que se usan para enviar mensajes CEF. De este modo, las instalaciones que se envían en CEF no se enviarán también en Syslog. Consulte [Configuración de Syslog en agente de Linux](../azure-monitor/agents/data-sources-syslog.md#configure-syslog-on-linux-agent) para obtener instrucciones detalladas sobre cómo hacerlo.
 
-1. Debe ejecutar el siguiente comando en esas máquinas para deshabilitar la sincronización del agente con la configuración de Syslog en Azure Sentinel. Esto garantiza que el cambio de configuración que ha realizado en el paso anterior no se sobrescriba.
+1. Debe ejecutar el siguiente comando en esas máquinas para deshabilitar la sincronización del agente con la configuración de Syslog en Microsoft Sentinel. Esto garantiza que el cambio de configuración que ha realizado en el paso anterior no se sobrescriba.
 
     ```c
     sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable
@@ -92,9 +92,9 @@ Cuando ya haya configurado la [recopilación de datos de los orígenes de CEF](c
 
 ## <a name="configure-your-devices-logging-settings"></a>Configuración de los valores de registro del dispositivo
 
-Muchos tipos de dispositivo tienen sus propios conectores de datos en la galería de **conectores de datos**. Algunos de estos conectores requieren instrucciones adicionales especiales para configurar correctamente la recopilación de registros en Azure Sentinel. Estas instrucciones pueden incluir la implementación de un analizador basado en una función de Kusto.
+Muchos tipos de dispositivo tienen sus propios conectores de datos en la galería de **conectores de datos**. Algunos de estos conectores requieren instrucciones adicionales especiales para configurar correctamente la recopilación de registros en Microsoft Sentinel. Estas instrucciones pueden incluir la implementación de un analizador basado en una función de Kusto.
 
-Todos los conectores enumerados en la galería mostrarán instrucciones específicas en sus respectivas páginas de conector en el portal, así como en sus secciones de la página [Referencia de conectores de datos de Azure Sentinel](data-connectors-reference.md).
+Todos los conectores enumerados en la galería mostrarán instrucciones específicas en sus respectivas páginas de conector en el portal, así como en sus secciones de la página [Referencia de conectores de datos de Microsoft Sentinel](data-connectors-reference.md).
 
 
 ## <a name="configure-the-log-analytics-agent"></a>Configuración del agente de Log Analytics
@@ -124,7 +124,7 @@ Todos los conectores enumerados en la galería mostrarán instrucciones específ
 > [!IMPORTANT]
 > La detección de inicios de sesión de SSH anómalos se encuentra actualmente en **versión preliminar**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
-Azure Sentinel puede aplicar aprendizaje automático (ML) a los datos de Syslog para identificar una actividad de inicio de sesión de Secure Shell anómala (SSH). Los escenarios incluyen:
+Microsoft Sentinel puede aplicar aprendizaje automático (ML) a los datos de Syslog para identificar una actividad de inicio de sesión de Secure Shell anómala (SSH). Los escenarios incluyen:
 
 - Viaje imposible: cuando se producen dos eventos de inicio de sesión correctos desde dos ubicaciones que son imposibles de alcanzar en el período de tiempo de los dos eventos de inicio de sesión.
 
@@ -134,7 +134,7 @@ Esta detección requiere una configuración específica del conector de datos de
 
 1. En el paso 2 anterior, en [Configuración del agente de Log Analytics](#configure-the-log-analytics-agent), asegúrese de que **auth** y **authpriv** se seleccionan como instalaciones para supervisar y que se eligen todos los niveles de gravedad. 
 
-2. Deje tiempo suficiente para que se recopile la información de Syslog. A continuación, vaya a **Azure Sentinel: Registros** y copie y pegue la siguiente consulta:
+2. Deje tiempo suficiente para que se recopile la información de Syslog. A continuación, vaya a **Microsofte Sentinel: Registros** y copie y pegue la siguiente consulta:
     
     ```kusto
     Syslog
@@ -151,7 +151,7 @@ Esta detección requiere una configuración específica del conector de datos de
     Si el recuento resultante es mayor que cero, los datos de Syslog son adecuados para la detección de inicios de sesión de SSH anómalos. Puede habilitar esta detección en **Análisis** >  **Rule templates (Plantillas de reglas)**  >  **(Versión preliminar) Anomalous SSH Login Detection** (Detección de inicios de sesión de SSH anómalos).
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, ha aprendido a conectar dispositivos locales de Syslog a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+En este documento, ha aprendido a conectar dispositivos locales de Syslog a Microsoft Sentinel. Para obtener más información sobre Microsoft Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- Empiece a [detectar amenazas con Microsoft Sentinel](detect-threats-built-in.md).
 - [Use libros](monitor-your-data.md) para supervisar los datos.

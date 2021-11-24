@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/13/2021
+ms.date: 11/16/2021
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3de8e679cb6c99db4057ec5e5b0ae48b2b4c3500
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 62033ff6c76c2c16a6a3b0d442fec843ae2e86af
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132490295"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724024"
 ---
 # <a name="use-the-azure-identity-library-to-get-an-access-token-for-authorization"></a>Uso de la biblioteca cliente de Azure Identity para obtener un token de acceso para la autorización
 
@@ -32,7 +32,7 @@ Para más información sobre la biblioteca cliente de Azure Identity para su len
 - [Biblioteca cliente de Azure Identity para Java](/java/api/overview/azure/identity-readme)
 - [Biblioteca cliente de Azure Identity para Python](/python/api/overview/azure/identity-readme)
 - [Biblioteca cliente de Azure Identity para JavaScript](/javascript/api/overview/azure/identity-readme)
-- [Biblioteca de cliente de Azure Identity para Go](/javascript/api/overview/azure/identity-readme)
+- [Biblioteca de cliente de Azure Identity para Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity)
 
 ## <a name="assign-azure-roles-for-access-to-data"></a>Asignación de roles de Azure para el acceso a los datos
 

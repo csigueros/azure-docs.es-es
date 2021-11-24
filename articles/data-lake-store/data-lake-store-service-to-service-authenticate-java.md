@@ -1,20 +1,20 @@
 ---
-title: 'Autenticación entre servicios: Data Lake Storage Gen1 – SDK de Java'
-description: Aprenda a realizar la autenticación de servicio a servicio con Azure Data Lake Storage Gen1 mediante Azure Active Directory con Java.
+title: 'Autenticación entre servicios: Data Lake Storage Gen2: SDK de Java'
+description: Aprenda a realizar la autenticación entre servicios con Azure Data Lake Storage Gen2 mediante Azure Active Directory con Java
 author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.custom: devx-track-java
 ms.author: normesta
-ms.openlocfilehash: 05e8b7a8e86a45e8bf217af443fa0bb61c0ca7bb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8f36eaef8c84afd1010d6e4ab2714b0d538028b9
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128606482"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132494561"
 ---
-# <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Autenticación de servicio a servicio con Azure Data Lake Storage Gen1 mediante Java
+# <a name="service-to-service-authentication-with-azure-data-lake-storage-gen2-using-java"></a>Autenticación entre servicios con Azure Data Lake Storage Gen2 mediante Java
 
 > [!div class="op_single_selector"]
 > * [Uso de Java](data-lake-store-service-to-service-authenticate-java.md)
@@ -24,13 +24,13 @@ ms.locfileid: "128606482"
 >
 >  
 
-En este artículo, aprenderá a usar el SDK de Java para realizar la autenticación de servicio a servicio con Azure Data Lake Storage Gen1. No se admite la autenticación de usuario final con Data Lake Storage Gen1 mediante el SDK de Java.
+En este artículo va a aprender a usar el SDK de Java para realizar la autenticación entre servicios con Azure Data Lake Storage Gen2. No se admite la autenticación de usuario final con Data Lake Storage Gen2 mediante el SDK de Java.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Cree una aplicación "web" de Azure Active Directory**. Debe haber completado los pasos descritos en [Service-to-service authentication with Data Lake Storage Gen1 using Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md) (Autenticación entre servicios con Data Lake Storage Gen1 mediante Azure Active Directory).
+* **Cree una aplicación "web" de Azure Active Directory**. Debe haber completado los pasos de [Aprenda a realizar la autenticación entre servicios con Azure Data Lake Storage Gen2 mediante Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 * [Maven](https://maven.apache.org/install.html). Este tutorial usa Maven para crear las dependencias de un proyecto. Aunque es posible generarlas sin utilizar un sistema como Maven o Gradle, estos sistemas facilitan mucho la administración de las dependencias.
 
@@ -45,9 +45,14 @@ En este artículo, aprenderá a usar el SDK de Java para realizar la autenticaci
     ```xml
     <dependencies>
       <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-data-lake-store-sdk</artifactId>
-        <version>2.2.3</version>
+          <groupId>com.azure</groupId>
+          <artifactId>azure-storage-file-datalake</artifactId>
+          <version>12.6.0</version>
+      </dependency>
+      <dependency>
+          <groupId>com.azure</groupId>
+          <artifactId>azure-identity</artifactId>
+          <version>1.3.3</version>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
@@ -57,35 +62,39 @@ En este artículo, aprenderá a usar el SDK de Java para realizar la autenticaci
     </dependencies>
     ```
 
-    La primera dependencia es el uso del SDK de Data Lake Storage Gen1 (`azure-data-lake-store-sdk`) desde el repositorio de Maven. La segunda dependencia consiste en especificar qué plataforma de registro (`slf4j-nop`) se usará para esta aplicación. El SDK de Data Lake Storage Gen1 usa la fachada de registro [slf4j](https://www.slf4j.org/), que permite elegir entre una serie de plataformas de registro populares, como slf4j, registro de Java, Logback, etc., o no registrarse. En este ejemplo, se deshabilita el registro; por tanto, se usa el enlace **slf4j-nop**. Para usar otras opciones de registro en su aplicación, consulte [este artículo](https://www.slf4j.org/manual.html#projectDep).
+    La primera dependencia es el uso del SDK de Data Lake Storage Gen2 (`azure-storage-file-datalake`) desde el repositorio de Maven. La segunda dependencia consiste en especificar la plataforma de registro (`slf4j-nop`) que se va a usar para esta aplicación. El SDK de Data Lake Storage Gen2 usa la fachada de registro [slf4j](https://www.slf4j.org/), que permite elegir entre una serie de plataformas de registro populares, como log4j, registro de Java, Logback, o ningún registro. En este ejemplo, se deshabilita el registro; por tanto, se usa el enlace **slf4j-nop**. Para usar otras opciones de registro en la aplicación, vea [Declaración de dependencias del proyecto para el registro](https://www.slf4j.org/manual.html#projectDep).
 
 3. Agregue las siguientes instrucciones de importación a la aplicación.
 
     ```java
-    import com.microsoft.azure.datalake.store.ADLException;
-    import com.microsoft.azure.datalake.store.ADLStoreClient;
-    import com.microsoft.azure.datalake.store.DirectoryEntry;
-    import com.microsoft.azure.datalake.store.IfExists;
-    import com.microsoft.azure.datalake.store.oauth2.AccessTokenProvider;
-    import com.microsoft.azure.datalake.store.oauth2.ClientCredsTokenProvider;
+    import com.azure.identity.ClientSecretCredential;
+    import com.azure.identity.ClientSecretCredentialBuilder;
+    import com.azure.storage.file.datalake.DataLakeDirectoryClient;
+    import com.azure.storage.file.datalake.DataLakeFileClient;
+    import com.azure.storage.file.datalake.DataLakeServiceClient;
+    import com.azure.storage.file.datalake.DataLakeServiceClientBuilder;
+    import com.azure.storage.file.datalake.DataLakeFileSystemClient;
+    import com.azure.storage.file.datalake.models.ListPathsOptions;
+    import com.azure.storage.file.datalake.models.PathAccessControl;
+    import com.azure.storage.file.datalake.models.PathPermissions;
     ```
 
-4. Utilice el siguiente fragmento de código de la aplicación de Java para obtener el token para la aplicación web de Active Directory que se ha creado anteriormente con una de las subclases de `AccessTokenProvider` (el siguiente ejemplo usa `ClientCredsTokenProvider`). El proveedor de tokens almacena en caché las credenciales que se utilizan para obtener el token en la memoria y renueva el token de forma automática si está a punto de expirar. Puede crear sus propias subclases de `AccessTokenProvider` para que los tokens se obtengan mediante su código de cliente. Por ahora vamos a usar simplemente el que se proporciona en el SDK.
+4. Use el siguiente fragmento de código de la aplicación de Java para obtener un token para la aplicación web de Active Directory que se ha creado anteriormente con una de las clases de `StorageSharedKeyCredential` (el siguiente ejemplo usa `credential`). El proveedor de tokens almacena en caché las credenciales que se usan para obtener el token en memoria, y renueva el token de forma automática si está a punto de expirar. Puede crear sus propias subclases de `StorageSharedKeyCredential` para que los tokens se obtengan mediante su código de cliente. Por ahora vamos a usar simplemente el que se proporciona en el SDK.
 
     Reemplace **FILL-IN-HERE** por los valores reales de la aplicación web de Azure Active Directory.
 
     ```java
-    private static String clientId = "FILL-IN-HERE";
-    private static String authTokenEndpoint = "FILL-IN-HERE";
-    private static String clientKey = "FILL-IN-HERE";
-
-    AccessTokenProvider provider = new ClientCredsTokenProvider(authTokenEndpoint, clientId, clientKey);   
+    private static String clienttId = "FILL-IN-HERE";
+    private static String tenantId = "FILL-IN-HERE";
+    private static String clientSecret = "FILL-IN-HERE";
+   
+    ClientSecretCredential credential = new ClientSecretCredentialBuilder().clientId(clientId).tenantId(tenantId).clientSecret(clientSecret).build();
     ```
 
-El SDK de Data Lake Storage Gen1 proporciona métodos útiles que permiten obtener los tokens de seguridad necesarios para comunicarse con la cuenta de Data Lake Storage Gen1. Sin embargo, el SDK no obliga a que se usen solo estos métodos. También puede usar cualquier otro medio de obtención del token, como el [SDK de Azure Active Directory](https://github.com/AzureAD/azure-activedirectory-library-for-java) o su propio código personalizado.
+El SDK de Data Lake Storage Gen2 proporciona métodos útiles que permiten administrar los tokens de seguridad necesarios para comunicarse con la cuenta de Data Lake Storage Gen2. Pero el SDK no obliga a que se usen solo estos métodos. También puede usar cualquier otro medio de obtención de tokens, como la [biblioteca cliente de Azure Identity](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity) o su propio código personalizado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a usar la autenticación de usuario final para autenticarse en Data Lake Storage Gen1 mediante el SDK de Java. Ahora puede consultar los siguientes artículos, que tratan sobre cómo usar el SDK de Java con Data Lake Storage Gen1.
+En este artículo ha aprendido a usar la autenticación de usuario final para autenticarse en Data Lake Storage Gen2 mediante el SDK de Java. Ahora puede ver los siguientes artículos, que tratan sobre cómo usar el SDK de Java para trabajar con Data Lake Storage Gen2.
 
-* [Operaciones de datos en Data Lake Storage Gen1 mediante el SDK de Java](data-lake-store-get-started-java-sdk.md)
+* [Operaciones de datos en Data Lake Storage Gen2 mediante el SDK de Java](data-lake-store-get-started-java-sdk.md)

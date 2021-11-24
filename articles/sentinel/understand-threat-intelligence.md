@@ -6,6 +6,8 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -13,12 +15,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 76c0043fb2bc2d339f997f12b8f05e9aff97fcd2
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 09835e201417040d3f8db6fd2387f325b2728e9d
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132712117"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132516957"
 ---
 # <a name="understand-threat-intelligence-in-microsoft-sentinel"></a>Descripción de la inteligencia sobre amenazas en Microsoft Azure Sentinel
 

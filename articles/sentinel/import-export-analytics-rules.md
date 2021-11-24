@@ -6,8 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -15,12 +13,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 97eb1145e8eebaed91019fbd68330c1399522002
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: c2b94a19c900005d3a03f193f95cd249e2f4eaf9
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132518553"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720936"
 ---
 # <a name="export-and-import-analytics-rules-to-and-from-arm-templates"></a>Exportación de reglas de análisis a plantillas de ARM y su importación desde
 
@@ -40,7 +38,7 @@ El archivo incluye todos los parámetros definidos en la regla de análisis, por
 
 ## <a name="export-rules"></a>Exportación de reglas
 
-1. En el menú de navegación de Microsoft Sentinel seleccione **Análisis**.
+1. En el menú de navegación de Microsoft Sentinel, seleccione **Análisis**.
 
 1. Seleccione la regla que desea exportar y haga clic en **Exportar** en la barra de la parte superior de la pantalla.
 
@@ -57,7 +55,7 @@ El archivo incluye todos los parámetros definidos en la regla de análisis, por
 
 1. Tenga listo un archivo JSON de plantilla de ARM de reglas de análisis.
 
-1. En el menú de navegación de Microsoft Sentinel seleccione **Análisis**.
+1. En el menú de navegación de Microsoft Sentinel, seleccione **Análisis**.
 
 1. Haga clic en **Importar** en la barra de la parte superior de la pantalla. En el cuadro de diálogo resultante, vaya al archivo JSON que representa la regla que quiere importar y selecciónelo; a continuación, seleccione **Abrir**.
 

@@ -1,26 +1,26 @@
 ---
-title: Mejora de la administración de SOC con las métricas de incidentes de Azure Sentinel | Microsoft Docs
-description: Use la información de la pantalla de métricas de incidentes de Azure Sentinel y el libro como ayuda para administrar el Centro de operaciones de seguridad (SOC).
+title: Mejora de la administración de SOC con las métricas de incidentes de Microsoft Sentinel | Microsoft Docs
+description: Use la información de la pantalla de métricas de incidentes de Microsoft Sentinel y el libro como ayuda para administrar el centro de operaciones de seguridad (SOC).
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2021
+ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 0f6fc1ef284cc1e9ac984af0d5b3ace2314c1afa
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9e20c875068387342edf6fd70fe93689e26fb1ad
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023108"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523607"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>Mejora en la administración de SOC con métricas de incidentes
 
@@ -28,11 +28,11 @@ ms.locfileid: "131023108"
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-Los administradores del Centro de operaciones de seguridad (SOC) deben tener medidas y métricas de eficiencia generales a su alcance para calibrar el rendimiento de su equipo. Querrá ver las operaciones de los incidentes a lo largo del tiempo clasificadas por muchos criterios diferentes, como la gravedad, las tácticas de MITRE, el tiempo medio para la evaluación de prioridades, el tiempo medio de resolución, etc. Ahora, Azure Sentinel pone todos estos datos a su disposición con las nuevas tablas y esquemas **SecurityIncident** de Log Analytics y el libro **Security operations efficiency** (Eficiencia de las operaciones de seguridad) que se incluye. Podrá visualizar el rendimiento del equipo a lo largo del tiempo y usar esta información para mejorar su eficacia. También puede escribir y usar sus propias consultas de KQL en la tabla de incidentes para crear libros personalizados que se ajusten a sus necesidades específicas de auditoría y a los indicadores clave de rendimiento.
+Los administradores del Centro de operaciones de seguridad (SOC) deben tener medidas y métricas de eficiencia generales a su alcance para calibrar el rendimiento de su equipo. Querrá ver las operaciones de los incidentes a lo largo del tiempo clasificadas por muchos criterios diferentes, como la gravedad, las tácticas de MITRE, el tiempo medio para la evaluación de prioridades, el tiempo medio de resolución, etc. Ahora, Microsoft Sentinel pone todos estos datos a su disposición con la nueva tabla **SecurityIncident** y el esquema de Log Analytics y el libro **Security operations efficiency** (Eficiencia de las operaciones de seguridad) que se incluye. Podrá visualizar el rendimiento del equipo a lo largo del tiempo y usar esta información para mejorar su eficacia. También puede escribir y usar sus propias consultas de KQL en la tabla de incidentes para crear libros personalizados que se ajusten a sus necesidades específicas de auditoría y a los indicadores clave de rendimiento.
 
 ## <a name="use-the-security-incidents-table"></a>Uso de la tabla de incidentes de seguridad
 
-La tabla **SecurityIncident** está integrada en Azure Sentinel. La encontrará con las demás tablas de la colección **SecurityInsights** en **Registros**. Puede consultarla como cualquier otra tabla de Log Analytics.
+La tabla **SecurityIncident** está integrada en Microsoft Sentinel. La encontrará con las demás tablas de la colección **SecurityInsights** en **Registros**. Puede consultarla como cualquier otra tabla de Log Analytics.
 
 :::image type="content" source="./media/manage-soc-with-incident-metrics/security-incident-table.png" alt-text="Tabla de incidentes de seguridad":::
 
@@ -91,7 +91,7 @@ Para complementar la tabla **SecurityIncidents**, se ha proporcionado una planti
 - Actividades recientes 
 - Clasificaciones de cierre recientes  
 
-Para encontrar esta plantilla de libro nueva, elija **Libros** en el menú de navegación de Azure Sentinel y seleccione la pestaña **Plantillas**. Elija **Security operations efficiency** (Eficiencia de operaciones de seguridad) en la galería y haga clic en uno de estos botones: **Ver libro guardado** y **Ver plantilla**.
+Para encontrar esta nueva plantilla de libro, elija **Libros en** el menú de navegación de Microsoft Sentinel y seleccione la pestaña **Plantillas**. Elija **Eficiencia de las operaciones de seguridad** en la galería y haga clic en uno de los botones **Ver libro guardado** y **Ver plantilla**.
 
 :::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Galería de Security incidents workbook"::: (Libro de incidentes de seguridad)
 
@@ -105,5 +105,5 @@ Puede usar la plantilla para crear sus propios libros personalizados adaptados a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para empezar a trabajar con Azure Sentinel, necesita una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/free/).
-- Aprenda a [incorporar los datos en Azure Sentinel](quickstart-onboard.md), [obtenga visibilidad sobre ellos y aprenda a defenderse de posibles amenazas](get-visibility.md).
+- Para empezar a trabajar con Microsoft Azure Sentinel, necesita una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/free/).
+- Aprenda a [incorporar los datos en Microsoft Azure Sentinel](quickstart-onboard.md), [obtenga visibilidad sobre ellos y aprenda a defenderse de posibles amenazas](get-visibility.md).

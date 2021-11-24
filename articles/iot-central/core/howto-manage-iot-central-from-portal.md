@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 07/06/2021
 ms.topic: how-to
-ms.openlocfilehash: 2d8ab101b39412d9345fa470d3b6584036990581
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: dc9611eebdce1e988e760fda3b000cb52d0ff95a
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131084974"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488281"
 ---
 # <a name="manage-and-monitor-iot-central-from-the-azure-portal"></a>Administración y supervisión de IoT Central desde Azure Portal
 
@@ -41,7 +41,7 @@ Para crear una aplicación, vaya a la página [Aplicación IoT Central](https://
     * Japón Oriental
     * Norte de Europa
     * Sudeste de Asia
-    * Sur de Reino Unido
+    * Sur de Reino Unido 2
     * Oeste de Europa
     * Oeste de EE. UU.
 
@@ -74,7 +74,13 @@ Para mover la aplicación a otra suscripción, seleccione **Cambiar** al lado de
 
 ## <a name="configure-a-managed-identity"></a>Configuración de una identidad administrada
 
-Al configurar una exportación de datos en la aplicación de IoT Central, puede optar por configurar la conexión al destino con una *cadena de conexión* o una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md). El uso de una identidad administrada es más seguro porque no es necesario almacenar las credenciales del destino en la aplicación de IoT Central. Actualmente, IoT Central usa [identidades administradas asignadas por el sistema](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). Para crear la identidad administrada para la aplicación, use Azure Portal o la API de REST.
+Al configurar una exportación de datos en la aplicación de IoT Central, puede optar por configurar la conexión al destino con una *cadena de conexión* o una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md). Las identidades administradas son más seguras porque:
+
+* No se almacenan las credenciales del recurso en una cadena de conexión en la aplicación IoT Central.
+* Las credenciales se vinculan automáticamente a la vigencia de la aplicación IoT Central.
+* Las identidades administradas rotan automáticamente sus claves de seguridad periódicamente.
+
+Actualmente, IoT Central usa [identidades administradas asignadas por el sistema](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). Para crear la identidad administrada para la aplicación, use Azure Portal o la API de REST.
 
 > [!NOTE]
 > Solo puede agregar una identidad administrada a una aplicación de IoT Central que se creó en una región. Todas las aplicaciones nuevas se crean en una región. Para más información, consulte [Actualizaciones](https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-august-2021/).

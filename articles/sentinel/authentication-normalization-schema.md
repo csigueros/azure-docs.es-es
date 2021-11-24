@@ -6,6 +6,8 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,12 +15,12 @@ ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 471c76128d0df5aef41e4d50f6ddcdf7f97f34ff
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 62bf35c4638433cc4e9820f8d0bb7e2592bcebf5
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132722912"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132517584"
 ---
 # <a name="microsoft-sentinel-authentication-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de autenticación de Microsoft Sentinel (versión preliminar pública)
 
@@ -164,7 +166,7 @@ Un **actor**, que ejecuta una *aplicación que actúa* (**ActingApp**) en un *di
 | **SrcDvcOs**|Opcional |String |Sistema operativo del dispositivo de origen. <br><br>Ejemplo: `Windows 10` |
 |**SrcIsp** | Opcional|String |Proveedor de servicios de Internet (ISP) usado por el dispositivo de origen para conectarse a Internet. <br><br>Ejemplo: `corpconnect` |
 | **SrcGeoCountry**|Opcionales |País |Ejemplo: `Canada` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types). |
-| **SrcGeoCity**|Opcionales |City (Ciudad) |Ejemplo: `Montreal` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types). |
+| **SrcGeoCity**|Opcionales |City |Ejemplo: `Montreal` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types). |
 |**SrcGeoRegion** | Opcionales|Region | Ejemplo: `Quebec` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types).|
 | **SrcGeoLongtitude**|Opcionales |Longitud  | Ejemplo: `-73.614830` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types).|
 | **SrcGeoLatitude**|Opcionales |Latitud |Ejemplo: `45.505918` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types). |
@@ -190,8 +192,8 @@ Un **actor**, que ejecuta una *aplicación que actúa* (**ActingApp**) en un *di
 
 Para más información, consulte:
 
-- [Normalización en Microsoft Sentinel](normalization.md)
+- [Normalización en Microsoft Sentinel](normalization.md)
 - [Referencia del esquema de normalización de DNS de Microsoft Sentinel](dns-normalization-schema.md)
-- [Referencia del esquema de normalización de eventos de archivo de Microsoft Sentinel (versión preliminar pública)](file-event-normalization-schema.md)
+- [Referencia del esquema de normalización de eventos de archivo de Microsoft Sentinel (versión preliminar pública)](file-event-normalization-schema.md)
 - [Referencia del esquema de normalización de sesiones de red de Microsoft Sentinel](./network-normalization-schema.md)
 - [Referencia del esquema de normalización de eventos de proceso de Microsoft Sentinel (versión preliminar pública)](process-events-normalization-schema.md)
