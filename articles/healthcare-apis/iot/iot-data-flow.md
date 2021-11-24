@@ -8,30 +8,30 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 11/22/2021
 ms.author: jasteppe
-ms.openlocfilehash: 82ede0faff91b74f329d9555b6df90152d9fbf8b
-ms.sourcegitcommit: 3a063c59bb9396ce1d4b9a3565b194edf30393a2
+ms.openlocfilehash: 090c051195559458314e89b47f3a0e4fcb6a838c
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132964903"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133030900"
 ---
 # <a name="iot-connector-data-flow"></a>Flujo de datos del conector de IoT
 
 > [!IMPORTANT]
 > Azure Healthcare APIs se encuentra actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
 
-En este artículo se proporciona información general sobre el flujo de datos del conector de IoT. Aprenderá sobre las distintas fases de procesamiento de datos en el conector de IoT que [](https://www.hl7.org/fhir/observation.html) transforman los datos del dispositivo en recursos de observación basados en Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;).
+En este artículo se proporciona información general sobre el flujo de datos del conector de IoT. Aprenderá sobre las distintas fases de procesamiento de datos en el conector de IoT que [](https://www.hl7.org/fhir/observation.html) transforma los datos del dispositivo en recursos de observación basados en Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;).
 
-Los datos de dispositivos relacionados con el estado o dispositivos médicos fluyen a través de una ruta de acceso en la que el conector de IoT transforma los datos en FHIR y, a continuación, los datos se almacenan en el servicio FHIR y se accede a ellos desde este. La ruta de acceso a los datos de mantenimiento sigue estos pasos en este orden: ingesta, normalización, agrupación, transformación y persistencia. En este flujo de datos, los datos de mantenimiento se recuperan del dispositivo en el primer paso de la ingesta. Una vez recibidos los datos, se procesan o normalizan según las plantillas de esquema seleccionadas por el usuario o creadas por el usuario, por lo que los datos de mantenimiento son más fáciles de procesar y se pueden agrupar. Los datos de mantenimiento se agrupan en tres parámetros De funcionamiento. Una vez normalizados y agrupados los datos de mantenimiento, se pueden procesar o transformar a través de asignaciones de destino de FHIR y, a continuación, guardarse o conservarse en el servicio FHIR.
+Los datos de dispositivos relacionados con la salud o dispositivos médicos fluyen a través de una ruta de acceso en la que el conector de IoT transforma los datos en FHIR y, a continuación, los datos se almacenan en el servicio FHIR y se accede a ellos desde este. La ruta de acceso a los datos de mantenimiento sigue estos pasos en este orden: ingesta, normalización, agrupación, transformación y persistencia. En este flujo de datos, los datos de mantenimiento se recuperan del dispositivo en el primer paso de la ingesta. Una vez recibidos los datos, se procesan o normalizan por plantillas de esquema seleccionadas por el usuario o creadas por el usuario, de modo que los datos de mantenimiento sean más fáciles de procesar y se puedan agrupar. Los datos de mantenimiento se agrupan en tres parámetros Operate. Una vez normalizados y agrupados los datos de mantenimiento, se pueden procesar o transformar a través de asignaciones de destino de FHIR y, a continuación, guardarse o conservarse en el servicio FHIR.
 
 En este artículo se profundiza más en cada paso del flujo de datos. Los pasos siguientes son cómo implementar un conector [de IoT](deploy-iot-connector-in-azure.md) mediante asignaciones de dispositivos (el paso de normalización) y asignaciones de destino de FHIR (el paso de transformación).
 
-En las secciones siguientes se describen las fases por las que pasan los datos de IoMT (Internet de las cosas médicas) una vez recibidos de un centro de eventos en el conector de IoT.
+En las secciones siguientes se describen las fases por las que pasan los datos de IoMT (Internet de las cosas médicas) una vez recibidos de un centro de eventos y en el conector de IoT.
 
-:::image type="content" source="media/iot-data-flow/iot-data-flow.png" alt-text="Los datos de IoMT fluyen desde dispositivos IoT a un centro de eventos. El conector de IoT ingiere los datos de IoMT, ya que se normalizan, agrupan, transforman y conservan en el servicio FHIR." lightbox="media/iot-data-flow/iot-data-flow.png":::
+:::image type="content" source="media/iot-data-flow/iot-data-flow.png" alt-text="Los datos de IoMT fluyen desde dispositivos IoT a un centro de eventos. El conector de IoT ingiere los datos de IoMT a medida que se normalizan, agrupan, transforman y conservan en el servicio FHIR." lightbox="media/iot-data-flow/iot-data-flow.png":::
 
 ## <a name="ingest"></a>Ingesta
-La ingesta es la primera fase en la que se reciben los datos del dispositivo en el conector de IoT. El punto de conexión de ingesta para los datos del dispositivo se hospeda en una [Azure Event Hubs](../../event-hubs/index.yml). Azure Event Hubs plataforma admite alta escala y rendimiento con la capacidad de recibir y procesar millones de mensajes por segundo. También permite que el conector de IoT consuma mensajes de forma asincrónica, lo que elimina la necesidad de que los dispositivos esperen mientras se procesan los datos del dispositivo.
+La ingesta es la primera fase en la que se reciben los datos del dispositivo en el conector de IoT. El punto de conexión de ingesta para los datos del dispositivo se hospeda en [una Azure Event Hubs](../../event-hubs/index.yml). Azure Event Hubs plataforma admite alta escala y rendimiento con capacidad para recibir y procesar millones de mensajes por segundo. También permite que el conector de IoT consuma mensajes de forma asincrónica, lo que elimina la necesidad de que los dispositivos esperen mientras se procesan los datos del dispositivo.
 
 > [!NOTE]
 > En este momento el único formato admitido para los datos del dispositivo es JSON.
@@ -54,14 +54,14 @@ La agrupación de la identidad del dispositivo y el tipo de medida habilita el u
 > El valor de período de tiempo se establece de manera predeterminada en 15 minutos y no se puede configurar para la versión preliminar.
 
 ## <a name="transform"></a>Transformación
-En la fase De transformación, los mensajes agrupados normalizados se procesan a través de plantillas de asignación de destino de FHIR. Los mensajes que coinciden con un tipo de plantilla se transforman en recursos de observación basados en FHIR, tal y como se especifica mediante la asignación.
+En la fase Transformación, los mensajes agrupados normalizados se procesan a través de plantillas de asignación de destino de FHIR. Los mensajes que coinciden con un tipo de plantilla se transforman en recursos de observación basados en FHIR, tal y como se especifica mediante la asignación.
 
-En este momento, [el recurso](https://www.hl7.org/fhir/device.html) dispositivo, junto con su recurso [patient](https://www.hl7.org/fhir/patient.html) asociado, también se recupera del servicio FHIR mediante el identificador de dispositivo presente en el mensaje. Estos recursos se agregan como una referencia al recurso Observación que se va a crear.
+En este momento, [el](https://www.hl7.org/fhir/device.html) recurso dispositivo, junto con su recurso [patient](https://www.hl7.org/fhir/patient.html) asociado, también se recupera del servicio FHIR mediante el identificador de dispositivo presente en el mensaje. Estos recursos se agregan como una referencia al recurso Observación que se va a crear.
 
 > [!NOTE]
 > Todas las buscar identidades se almacenan en caché una vez resueltas para reducir la carga en el servicio FHIR. Si planea reutilizar dispositivos con varios pacientes, se recomienda crear un recurso de dispositivo virtual específico para el paciente y enviar el identificador de dispositivo virtual en la carga del mensaje. El dispositivo virtual se puede vincular al recurso de dispositivo real como primario.
 
-Si no existe ningún recurso de dispositivo para un identificador de dispositivo determinado en el servicio FHIR, el resultado depende del valor de `Resolution Type` establecido en el momento de la creación. Cuando se establece en `Lookup`, se omite el mensaje específico y la canalización seguirá procesando otros mensajes entrantes. Si se establece en , el conector de IoT creará un dispositivo sin sistema duro y recursos de pacientes `Create` en el servicio FHIR.  
+Si no existe ningún recurso de dispositivo para un identificador de dispositivo determinado en el servicio FHIR, el resultado depende del valor de establecido en el `Resolution Type` momento de la creación. Cuando se establece en `Lookup`, se omite el mensaje específico y la canalización seguirá procesando otros mensajes entrantes. Si se establece en , el conector de IoT creará un dispositivo sin sistema duro y recursos de pacientes `Create` en el servicio FHIR.  
 
 ## <a name="persist"></a>Persist
 Una vez que se genera el recurso de Observation FHIR en la fase de transformación, el recurso se guarda en el servicio FHIR. Si el recurso de Observation FHIR es nuevo, se creará en el servicio FHIR. Si el recurso de Observation FHIR ya existía, se actualizará.
@@ -76,4 +76,4 @@ Aprenda a crear asignaciones de destino de dispositivos y FHIR.
 > [!div class="nextstepaction"]
 > [Asignaciones de destino de FHIR](how-to-use-fhir-mappings.md)
 
-(FHIR&#174;) es una marca comercial registrada de [HL7](https://hl7.org/fhir/) y se usa con el permiso hl7.
+(FHIR&#174;) es una marca registrada [de HL7](https://hl7.org/fhir/) y se usa con el permiso HL7.
