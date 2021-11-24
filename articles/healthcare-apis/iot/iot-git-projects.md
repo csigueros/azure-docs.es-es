@@ -1,18 +1,18 @@
 ---
 title: 'Proyectos GitHub relacionados para el conector de IoT: API de Azure Healthcare'
-description: Enumeración de todos los repositorios de código abierto (GitHub) para el conector de IoT
+description: El conector de IoT tiene una sólida biblioteca de código abierto (GitHub) para ingerir mensajes de dispositivo desde dispositivos portátiles populares.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 10/28/2021
+ms.date: 11/23/2021
 ms.author: jasteppe
-ms.openlocfilehash: 76bf145ea76ea44d65e2c5dc3873cb51707840a5
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: c7b80efbb032315bfca36511cf07e1f5a1f3b8a4
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132309854"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133061454"
 ---
 # <a name="open-source-projects"></a>Proyectos de código abierto
 
@@ -20,19 +20,19 @@ Consulte nuestros proyectos de código abierto en GitHub que proporcionan códig
 
 ## <a name="iot-connector-github-projects"></a>Proyectos de conector GitHub IoT
 
-#### <a name="fhir-integration"></a>Integración de FHIR
+### <a name="fhir-integration"></a>Integración de FHIR
 
-* [microsoft/iomt-fhir:](https://github.com/microsoft/iomt-fhir)versión de código abierto del servicio administrado del conector ioT de las API de Azure Healthcare. Se puede usar con cualquier servicio Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;) que admita [FHIR R7&#174;](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491)
+* [microsoft/iomt-fhir:](https://github.com/microsoft/iomt-fhir)versión de código abierto del servicio administrado del conector ioT de las API de Azure Healthcare. Se puede usar con cualquier servicio Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;) que admita [FHIR R4&#174;](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491)
 
-#### <a name="device-and-fhir-destination-mappings"></a>Asignaciones de destino de dispositivos y FHIR
+### <a name="device-and-fhir-destination-mappings"></a>Asignaciones de destino de dispositivos y FHIR
 
 * [Asignador de datos del conector ioMT:](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper)herramienta para editar, probar y solucionar problemas de las asignaciones de destino del dispositivo del conector ioT y FHIR. Exporte las asignaciones para cargar en el conector de IoT Azure Portal use con la versión de código abierto.
 
-#### <a name="wearables-integration"></a>Integración de wearables
+### <a name="wearables-integration"></a>Integración de wearables
 
 Fitbit
 
-* [microsoft/fitbit-on-fhir:](https://github.com/microsoft/FitbitOnFHIR)lleve fitbit&#174; datos a un servicio de FHIR.
+* [microsoft/fitbit-on-fhir:](https://github.com/microsoft/FitbitOnFHIR)lleve fitbit&#174; datos a un servicio FHIR.
 
 HealthKit
 
@@ -54,4 +54,4 @@ Aprenda a implementar el conector de IoT en el Azure Portal
 >[!div class="nextstepaction"]
 >[Implementación del servicio administrado del conector de IoT](deploy-iot-connector-in-azure.md)
 
-(FHIR&#174;) es una marca comercial registrada [de HL7](https://hl7.org/fhir/) y se usa con el permiso HL7.
+(FHIR&#174;) es una marca registrada [de HL7](https://hl7.org/fhir/) y se usa con el permiso HL7.

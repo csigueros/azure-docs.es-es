@@ -8,12 +8,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/19/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: b549ce3e8e79b7315144f52484fe63f7553982c4
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 8c4a708cd04334f10f44c07d5daf9468f7137acf
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132492651"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722703"
 ---
 # <a name="how-to-monitor-spring-boot-apps-with-the-appdynamics-java-agent-preview"></a>Supervisión de aplicaciones Spring Boot con el agente de Java de AppDynamics (versión preliminar)
 
@@ -222,4 +222,4 @@ Para comprender las limitaciones del agente de AppDynamics, vea [Supervisión de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Use el agente In-Process de Java de Application Insights en Azure Spring Cloud](/azure/spring-cloud/how-to-application-insights)
+* [Use el agente In-Process de Java de Application Insights en Azure Spring Cloud](./how-to-application-insights.md)

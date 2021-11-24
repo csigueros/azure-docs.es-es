@@ -4,17 +4,16 @@ description: Obtenga información sobre los pasos de configuración específicos
 services: sentinel
 documentationcenter: na
 author: batamig
-ms.service: microsoft-sentinel
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c5ba2be13c48c85786f2ab916eaf9a37c649a5e9
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: b32e2aae53d590bcec82cae6f083d20969c26a0c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132518572"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723140"
 ---
 # <a name="find-your-microsoft-sentinel-data-connector"></a>Búsqueda del conector de datos de Microsoft Sentinel
 
@@ -333,7 +332,7 @@ Antes de configurar el nuevo conector del registro de actividad de Azure, debe d
 
 | Atributo del conector | Descripción |
 | --- | --- |
-| **Método de ingesta de datos** | **Integración entre servicios de Azure: <br>[Conexión de alertas de seguridad de Microsoft Defender for Cloud](connect-azure-security-center.md)** (Artículo de conector principal) |
+| **Método de ingesta de datos** | **Integración entre servicios de Azure: <br>[Conexión de alertas de seguridad de Microsoft Defender for Cloud](connect-defender-for-cloud.md)** (Artículo de conector principal) |
 | **Tabla de Log Analytics** | SecurityAlert |
 | **Compatible con** | Microsoft |
 | | |
@@ -1035,7 +1034,7 @@ Agregue http://localhost:8081/ en **Authorized redirect URIs** (URI de redirecci
 
 <a name="microsoft-cloud-app-security-mcas"></a>
 
-## <a name="microsoft-defender-for-cloud-apps"></a>Microsoft Defender para aplicaciones en la nube
+## <a name="microsoft-defender-for-cloud-apps"></a>Microsoft Defender for Cloud Apps
 
 | Atributo del conector | Descripción |
 | --- | --- |

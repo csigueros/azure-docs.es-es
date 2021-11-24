@@ -7,12 +7,13 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 11/10/2021
 ms.author: jasteppe
-ms.openlocfilehash: 5d55af3165991c8a6d16596ae9d4e8f9f4e8e3e9
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.custom: mode-portal
+ms.openlocfilehash: 8323d2026bc45c3c357ad0055cc7da37c5a345b8
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132812359"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133061585"
 ---
 # <a name="deploy-iot-connector-in-the-azure-portal"></a>Implementación del conector de IoT en el Azure Portal
 
@@ -59,7 +60,7 @@ En la **pestaña Aspectos** básicos, complete los campos obligatorios en **Deta
 
    El nombre del centro de eventos es el nombre **de la Event Hubs que** ha implementado. 
 
-   Para obtener información sobre Azure Event Hubs, consulte [Inicio rápido: Creación de un centro de](../../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)eventos mediante Azure Portal .
+   Para obtener información sobre Azure Event Hubs, consulte [Inicio rápido: Creación de un centro de eventos mediante Azure Portal](../../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace).
 
 3. Escriba el **grupo de consumidores**.
 
@@ -75,7 +76,7 @@ En la **pestaña Aspectos** básicos, complete los campos obligatorios en **Deta
 
     ![Captura de pantalla del espacio de nombres completo.](media/event-hub-hostname.png#lightbox)  
 
-    Para obtener más información sobre los Event Hubs de nombres, vea [Espacio](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) de nombres en el documento Características y terminología de Azure Event Hubs.
+    Para obtener más información sobre los Event Hubs de nombres, vea [Espacio](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) de nombres en el documento Características y terminología Azure Event Hubs.
 
 5. Seleccione **Siguiente: Asignación de dispositivos.** 
   
@@ -119,9 +120,9 @@ En la **pestaña Destino,** escriba las propiedades de destino asociadas al cone
 
    **Creación**
 
-     El destino del conector de IoT intenta recuperar un recurso de dispositivo del servidor FHIR mediante el identificador de dispositivo incluido en el mensaje del centro de eventos. También intenta recuperar un recurso de paciente del servidor de FHIR mediante el identificador de paciente incluido en el mensaje del centro de eventos. Si no se encuentra ninguno de los recursos, se crearán nuevos recursos (dispositivo, paciente o ambos) que contengan solo el identificador contenido en el mensaje del centro de eventos. Cuando se usa la **opción Crear,** se pueden configurar un identificador de dispositivo y un identificador de paciente en la asignación de dispositivos. En otras palabras, cuando el  destino IoT Connector está en  modo Crear, puede funcionar normalmente sin agregar recursos de dispositivos y pacientes al servidor de FHIR.
+     El destino del conector de IoT intenta recuperar un recurso de dispositivo del servidor FHIR mediante el identificador de dispositivo incluido en el mensaje del centro de eventos. También intenta recuperar un recurso de paciente del servidor de FHIR mediante el identificador de paciente incluido en el mensaje del centro de eventos. Si no se encuentra ninguno de los recursos, se crearán nuevos recursos (dispositivo, paciente o ambos) que contengan solo el identificador contenido en el mensaje del centro de eventos. Cuando se usa la **opción Crear,** se pueden configurar un identificador de dispositivo y un identificador de paciente en la asignación de dispositivos. En otras palabras, cuando el  destino IoT Connector está en  modo De creación, puede funcionar normalmente sin agregar recursos de dispositivos y pacientes al servidor de FHIR.
 
-   **Lookup**
+   **Búsqueda**
 
      El destino del conector de IoT intenta recuperar un recurso de dispositivo del servidor FHIR mediante el identificador de dispositivo incluido en el mensaje del centro de eventos. Si no se encuentra el recurso del dispositivo, se producirá un error y los datos no se procesarán. Para **que la** búsqueda funcione correctamente, debe existir un recurso de  dispositivo con un  identificador que coincida con el identificador de dispositivo incluido en el mensaje del centro de eventos y el recurso de dispositivo debe tener una referencia a un recurso de paciente que también exista. En otras palabras, cuando el destino del conector de  IoT está en modo de búsqueda, los recursos del dispositivo y del paciente deben agregarse al servidor de FHIR antes de que se puedan procesar los datos.
 
@@ -182,7 +183,7 @@ Para asegurarse de que el conector de IoT funciona correctamente, debe haber con
 
    El Azure Event Hubs receptor de datos permite que el conector de IoT al que se asigna este rol reciba datos de este centro de eventos.
 
-   Para obtener más información sobre los roles de aplicación, vea Autenticación & autorización para las API de atención sanitaria [(versión preliminar).](.././authentication-authorization.md)
+   Para obtener más información sobre los roles de aplicación, vea Autenticación & autorización para las API de atención [sanitaria (versión preliminar).](.././authentication-authorization.md)
 
 5. Seleccione **Asignar acceso a** y mantenga la opción predeterminada seleccionada **Usuario, grupo o entidad de servicio.**
 
@@ -214,7 +215,7 @@ Para obtener más información sobre cómo crear acceso a Event Hubs recursos, v
 
    El rol escritor de datos de FHIR proporciona acceso de lectura y escritura que el conector de IoT usa para funcionar. Dado que el conector de IoT se implementa como un recurso independiente, el servicio FHIR recibirá solicitudes del conector de IoT. Si el servicio FHIR no sabe quién realiza la solicitud o si no tiene el rol asignado, denegará la solicitud como no autorizada.
 
-   Para obtener más información sobre los roles de aplicación, vea Autenticación & autorización para las API de atención sanitaria [(versión preliminar).](.././authentication-authorization.md)
+   Para obtener más información sobre los roles de aplicación, vea Autenticación & autorización para las API de atención [sanitaria (versión preliminar).](.././authentication-authorization.md)
 
 5. En el **campo Seleccionar,** escriba la entidad de seguridad del conector de IoT.  
 

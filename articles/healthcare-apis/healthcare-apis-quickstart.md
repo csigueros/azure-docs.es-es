@@ -7,24 +7,25 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 07/12/2021
 ms.author: ginle
-ms.openlocfilehash: 1b77b05f5780f41a9b4c573d117b18f2493b635a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: mode-portal
+ms.openlocfilehash: 89be6d8bab9ef544ffa62a85f0b87afb15fab013
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121786112"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133061571"
 ---
 # <a name="deploy-healthcare-apis-preview-workspace-using-azure-portal"></a>Implementación del área de trabajo de las API de atención sanitaria (versión preliminar) mediante Azure Portal
 
 > [!IMPORTANT]
 > Azure Healthcare APIs se encuentra actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
 
-En este artículo, aprenderá a crear un área de trabajo mediante la implementación de las API de Azure Healthcare a través de Azure Portal. El área de trabajo es un contenedor lógico centralizado para todos los servicios de API de atención sanitaria, como servicios FHIR, servicios DICOM® y conectores de IoT. Permite organizar y administrar determinadas opciones de configuración que se comparten entre todos los conjuntos de datos y servicios subyacentes, si procede.
+En este artículo, aprenderá a crear un área de trabajo mediante la implementación de las API de Azure Healthcare a través de Azure Portal. El área de trabajo es un contenedor lógico centralizado para todos los servicios de API de atención sanitaria, como servicios de FHIR, servicios DICOM® y conectores de IoT. Permite organizar y administrar determinadas opciones de configuración que se comparten entre todos los conjuntos de datos y servicios subyacentes, si procede.
 
 
 ## <a name="prerequisite"></a>Requisito previo
 
-Para poder crear un área de trabajo en Azure Portal, debe tener una suscripción de cuenta. Si no tiene una suscripción a Azure, consulte Creación [de una cuenta gratuita de Azure hoy mismo.](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
+Para poder crear un área de trabajo en el Azure Portal, debe tener una suscripción de cuenta. Si no tiene una suscripción a Azure, consulte Creación [de una cuenta gratuita de Azure hoy mismo.](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
 
 ## <a name="create-new-azure-service"></a>Creación de un servicio de Azure
 
@@ -80,4 +81,3 @@ Ahora que se ha creado el área de trabajo, puede hacer lo siguiente:
 
 >[!div class="nextstepaction"]
 >[¿Qué es un área de trabajo de Azure Machine Learning?](workspace-overview.md)
-
