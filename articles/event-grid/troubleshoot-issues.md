@@ -3,12 +3,12 @@ title: Solución de problemas de Event Grid
 description: En este artículo se proporcionan diferentes formas de solucionar problemas de Azure Event Grid.
 ms.topic: conceptual
 ms.date: 06/10/2021
-ms.openlocfilehash: 94370af8a3325d1798c3e2bcb65c2ccb3e54a43b
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: c055c3ce926844a976c95aece7888b595125f414
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/16/2021
-ms.locfileid: "132546355"
+ms.locfileid: "132517565"
 ---
 # <a name="troubleshoot-azure-event-grid-issues"></a>Solución de problemas de Azure Event Grid
 En este artículo se proporciona información que lo ayuda a solucionar problemas de Azure Event Grid. 
@@ -31,7 +31,8 @@ Hay varias razones por las que las aplicaciones cliente no pueden conectarse a u
 ## <a name="error-codes"></a>Códigos de error
 Si recibe mensajes de error con códigos de error como 400, 409 y 403, consulte [Solución de problemas de Azure Event Grid](troubleshoot-errors.md). 
 
-## <a name="distributed-tracing"></a>Seguimiento distribuido
+## <a name="distributed-tracing"></a>Seguimiento distribuido 
+
 Las bibliotecas de Event Grid en .NET, Java, Python y JavaScript admiten el seguimiento distribuido. Para adherirse a la [Guía de la especificación de CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.1/extensions/distributed-tracing.md) sobre el seguimiento distribuido, la biblioteca establece los atributos `traceparent` y `tracestate` de una extensión `CloudEvent` cuando el seguimiento distribuido está habilitado.
 
 Para obtener más información sobre cómo habilitar el seguimiento distribuido en la aplicación, consulte la documentación de seguimiento distribuido de Azure SDK:

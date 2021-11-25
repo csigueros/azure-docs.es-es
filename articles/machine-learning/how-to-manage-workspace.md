@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 04/22/2021
 ms.topic: how-to
 ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 5a5ef573b4df91e191dac2fa24a09c65aace5cea
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 5d569598c51429cb12027f3955fa9315a05b16bb
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132723615"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521992"
 ---
 # <a name="manage-azure-machine-learning-workspaces-in-the-portal-or-with-the-python-sdk"></a>Administración de áreas de trabajo de Azure Machine Learning en el portal o con el SDK de Python
 
@@ -185,7 +185,7 @@ El SDK de Azure Machine Learning para Python proporciona la clase [PrivateEndpoi
 
 ### <a name="vulnerability-scanning"></a>Examen de vulnerabilidades
 
-Microsoft Defender for Cloud proporciona características unificadas de administración para la seguridad y protección contra amenazas en todas las cargas de trabajo en la nube híbrida. Debe permitir que Microsoft Defender for Cloud analice los recursos y siga sus recomendaciones. Para más información, consulte [Examen de imágenes de Azure Container Registry mediante Defender for Cloud](../security-center/defender-for-container-registries-introduction.md) e [Integración de Azure Kubernetes Service en Defender for Cloud](../security-center/defender-for-kubernetes-introduction.md).
+Microsoft Defender for Cloud proporciona características unificadas de administración para la seguridad y protección contra amenazas en todas las cargas de trabajo en la nube híbrida. Debe permitir que Microsoft Defender for Cloud analice los recursos y siga sus recomendaciones. Para más información, consulte [Examen de imágenes de Azure Container Registry mediante Defender for Cloud](../security-center/defender-for-container-registries-introduction.md) e [Integración de Azure Kubernetes Service en Defender for Cloud](../security-center/defender-for-kubernetes-introduction.md).
 
 ### <a name="advanced"></a>Avanzado
 
@@ -339,7 +339,7 @@ Cuando ya no necesite un área de trabajo, elimínela.
 
 [!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
 
-Si eliminó el área de trabajo por error, es posible que aún pueda recuperar los cuadernos. Para obtener más información, consulte [Conmutación por error para la continuidad empresarial y la recuperación ante desastres](./how-to-high-availability-machine-learning.md#workspace-deletion).
+Si eliminó el área de trabajo por error, es posible que aún pueda recuperar los cuadernos. Para obtener más información, consulte [Conmutación por error para la continuidad empresarial y la recuperación ante desastres](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion).
 
 # <a name="python"></a>[Python](#tab/python)
 

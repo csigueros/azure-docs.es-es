@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +13,12 @@ ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1e5e0752459362dbb3cea63b9adb5f453f40d2fd
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 3b8f06a5700dd4bb0ec4c75223ffe9680515215f
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132524481"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721164"
 ---
 # <a name="microsoft-sentinel-file-event-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de eventos de archivos de Microsoft Sentinel (versión preliminar pública)
 
@@ -204,7 +202,7 @@ La ruta de acceso se debe normalizar para que coincida con uno de los siguientes
 Para más información, consulte:
 
 - [Normalización en Microsoft Sentinel](normalization.md)
-- [Referencia del esquema de normalización de la autenticación de Microsoft Sentinel (versión preliminar pública)](authentication-normalization-schema.md)
+- [Referencia del esquema de normalización de la autenticación de Microsoft Sentinel (versión preliminar pública)](authentication-normalization-schema.md)
 - [Referencia del esquema de normalización de DNS de Microsoft Sentinel](dns-normalization-schema.md)
 - [Referencia del esquema de normalización de redes de Microsoft Sentinel](./network-normalization-schema.md)
 - [Referencia del esquema de normalización de eventos de proceso de Microsoft Sentinel (versión preliminar pública)](process-events-normalization-schema.md)

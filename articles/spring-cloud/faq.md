@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 607cc8e3341e395fb7ef31c4af5c5c8b5fc75cec
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: ecc563cfc400fcf0e90320cb5c2436fe84cfa0d0
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132484785"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704009"
 ---
 # <a name="azure-spring-cloud-faq"></a>Preguntas frecuentes de Azure Spring Cloud
 
@@ -64,7 +64,7 @@ Azure Spring Cloud tiene las limitaciones conocidas siguientes:
 * Azure Spring Cloud ofrece dos planes de tarifa: Básico y Estándar. El plan Básico está destinado a desarrollo y pruebas y a probar Azure Spring Cloud. El plan Estándar está optimizado para ejecutar el tráfico de producción de uso general. Consulte [Detalle de precios de Azure Spring Cloud](https://azure.microsoft.com/pricing/details/spring-cloud/) para obtener información sobre los límites y la comparación de niveles de las características.
 
 ### <a name="whats-the-difference-between-service-binding-and-service-connector"></a>¿En qué se diferencian Service Binding y Service Connector?
-No estamos desarrollando activamente más funcionalidades para Service Binding en favor de la nueva solución de Azure denominada [Service Connector](/azure/service-connector/overview). Por un lado, la nueva solución ofrece una experiencia de integración coherente entre los servicios de hospedaje de aplicaciones en Azure, como App Service. Por otro lado, cubre mejor sus necesidades empezando por admitir los 10 servicios de Azure de destino más usados, entre los que se incluyen MySQL, SQL DB, Cosmos DB, Postgres DB, Redis, Storage, etc. Service Connector se encuentra actualmente en versión preliminar pública y le invitamos a probar la nueva experiencia.
+No estamos desarrollando activamente más funcionalidades para Service Binding en favor de la nueva solución de Azure denominada [Service Connector](../service-connector/overview.md). Por un lado, la nueva solución ofrece una experiencia de integración coherente entre los servicios de hospedaje de aplicaciones en Azure, como App Service. Por otro lado, cubre mejor sus necesidades empezando por admitir los 10 servicios de Azure de destino más usados, entre los que se incluyen MySQL, SQL DB, Cosmos DB, Postgres DB, Redis, Storage, etc. Service Connector se encuentra actualmente en versión preliminar pública y le invitamos a probar la nueva experiencia.
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>¿Cómo puedo realizar comentarios y notificar incidencias?
 

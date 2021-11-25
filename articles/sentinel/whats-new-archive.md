@@ -4,17 +4,15 @@ description: Una descripción de las novedades y los cambios en Azure Sentinel e
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9a4203f053fc295c2dfeac2a5ad40184dcd9c3b6
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 5c9d7e56ce82dfeff44d44e8dbea7952cbd5af68
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132522448"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711199"
 ---
 # <a name="archive-for-whats-new-in-azure-sentinel"></a>Archivo de novedades en Azure Sentinel
 
@@ -96,7 +94,7 @@ Puede enriquecer las alertas de dos formas nuevas para que sean más informativa
 
 Comience por llevar la asignación de entidades al siguiente nivel. Ahora puede asignar casi 20 tipos de entidades, usuarios, hosts y direcciones IP a archivos y procesos, a buzones de correo, a recursos de Azure y a dispositivos IoT. También puede usar varios identificadores para cada entidad y fortalecer así su identificación única. Esto le ofrece un conjunto de datos mucho más completo en los incidentes, proporciona una correlación más amplia y una investigación más eficaz. [Conozca la nueva forma de asignar entidades](map-data-fields-to-entities.md) en las alertas.
 
-[Obtenga más información sobre las entidades](entities-in-azure-sentinel.md) y consulte la [lista completa de entidades disponibles y sus identificadores](entities-reference.md).
+[Obtenga más información sobre las entidades](entities.md) y consulte la [lista completa de entidades disponibles y sus identificadores](entities-reference.md).
 
 Mejore aún más sus funcionalidades de investigación y respuesta mediante la personalización de las alertas para mostrar los detalles de los eventos sin procesar. Ahora puede visibilizar el contenido del evento en los incidentes y aumentar de este modo su capacidad y flexibilidad para investigar amenazas de seguridad y responder a ellas. [Obtenga información sobre cómo exponer los detalles personalizados](surface-custom-details-in-alerts.md) en las alertas.
 

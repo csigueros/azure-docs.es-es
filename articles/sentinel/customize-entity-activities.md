@@ -6,8 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -15,12 +13,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0483d839af7a8707aa3be632f9d168447488e768
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: c787600e29f7e813ca8e27ac827803c572986ff1
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132523626"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721430"
 ---
 # <a name="customize-activities-on-entity-page-timelines"></a>Personalización de actividades en las escalas de tiempo de las páginas de entidad
 
@@ -104,7 +102,7 @@ Aquí escribirá o pegará la consulta KQL que se usará para detectar la activi
 
 Para correlacionar eventos y detectar la actividad personalizada, KQL requiere una entrada de varios parámetros, dependiendo del tipo de entidad. Los parámetros son los distintos identificadores de la entidad en cuestión.
 
-Es mejor seleccionar un identificador sólido para tener una asignación de uno a uno entre los resultados de la consulta y la entidad. La selección de un identificador débil puede producir resultados inexactos. [Obtenga más información sobre las entidades y la diferencia entre identificadores sólidos y débiles.](entities-in-azure-sentinel.md)
+Es mejor seleccionar un identificador sólido para tener una asignación de uno a uno entre los resultados de la consulta y la entidad. La selección de un identificador débil puede producir resultados inexactos. [Obtenga más información sobre las entidades y la diferencia entre identificadores sólidos y débiles.](entities.md)
 
 En la tabla siguiente se proporciona información acerca de los identificadores de las entidades.
 

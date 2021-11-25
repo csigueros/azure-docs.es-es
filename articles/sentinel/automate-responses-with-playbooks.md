@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 34b1400b2d3e4b69b83c572517df230380bc2a91
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: ce0edbdd0464772264e29315e463d989b79bbaa3
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132522144"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718096"
 ---
 # <a name="automate-threat-response-with-playbooks-in-microsoft-sentinel"></a>Automatización de la respuesta a amenazas con cuadernos de estrategias en Microsoft Sentinel
 
