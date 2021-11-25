@@ -3,15 +3,21 @@ title: Alertas de seguridad para entornos
 description: En este artículo se muestra cómo ver las alertas de seguridad de un entorno en DevTest Labs y tomar las medidas adecuadas.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 0dccf45f32d6eaf272a464198edd0c5043dbc364
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 57f1a0b240035d75746b9d23482446be71d1b1f9
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132325170"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398048"
 ---
 # <a name="security-alerts-for-environments-in-azure-devtest-labs"></a>Alertas de seguridad de entornos en Azure DevTest Labs
-Como usuario de laboratorio, ahora puede ver las alertas de Microsoft Defender for Cloud para sus entornos de laboratorio. Defender for Cloud recopila, analiza e integra automáticamente los datos de registro de los recursos de Azure, la red y las soluciones de asociados conectados, como firewalls y soluciones de protección de puntos de conexión, para detectar amenazas reales y reducir los falsos positivos. En Defender for Cloud, se muestra una lista de alertas de seguridad prioritarias, junto con la información que necesita para investigar rápidamente el problema y recomendaciones para corregir un ataque. [Obtenga más información sobre las alertas de seguridad en Microsoft Defender for Cloud](../security-center//security-center-alerts-overview.md).  
+Como usuario de laboratorio, puede ver las alertas de Microsoft Defender for Cloud para sus laboratorios. Defender for Cloud recopila, analiza e integra automáticamente los datos de registro. Los datos proceden de recursos de Azure, la red y soluciones conectadas, como el firewall y la protección de punto de conexión. Defender for Cloud detecta amenazas reales y reduce los falsos positivos. Defender for Cloud:
+
+- Enumera las alertas de seguridad prioritarias.
+- Proporciona información para investigar rápidamente los problemas.
+- Recomienda cómo corregir los ataques.
+
+[Obtenga más información sobre las alertas de seguridad en Microsoft Defender for Cloud](../security-center//security-center-alerts-overview.md).
 
 
 ## <a name="prerequisites"></a>Prerequisites

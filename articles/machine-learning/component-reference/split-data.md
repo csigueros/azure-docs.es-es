@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 6ca47916dff0973ac5c28afce737055cba80a7d1
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: c80b6f432943c11318949a43c2889d3c86b78c90
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131566095"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486998"
 ---
 # <a name="split-data-component"></a>Componente Dividir datos
 
@@ -58,9 +58,9 @@ Este componente es especialmente útil cuando necesita separar los datos en conj
   
 1. Seleccione la opción **Randomized split** (División aleatoria) si quiere realizar la selección de datos en los dos grupos de forma aleatoria. Esta es la opción preferida cuando se crean conjuntos de datos de entrenamiento y prueba.
 
-1. **Valor de inicialización aleatorio**: escriba un valor entero no negativo para iniciar la secuencia seudoaleatoria de instancias que se usará. Este valor de inicialización predeterminado se usa en todos los componentes que generan números aleatorios. 
+1. **Valor de inicialización aleatorio**: este parámetro se omitirá si **Randomized split** (División aleatoria) está establecido en false. De lo contrario, escriba un valor entero no negativo para iniciar la secuencia seudoaleatoria de instancias que se usará. Este valor de inicialización predeterminado se usa en todos los componentes que generan números aleatorios. 
 
-   Especificar un valor de inicialización hace que los resultados sean reproducibles. Si tiene que repetir los resultados de una operación de división, debe especificar un valor de inicialización para el generador de números aleatorios. De lo contrario, el valor de inicialización aleatorio se establece de forma predeterminada en **0**, lo que significa que se obtiene del reloj del sistema. Como consecuencia, la distribución de datos puede ser ligeramente diferente cada vez que haga una división. 
+   Especificar un valor de inicialización hace que los resultados sean reproducibles. Si tiene que repetir los resultados de una operación de división, debe especificar el mismo número de inicialización para el generador de números aleatorios. 
 
 1. **Stratified split** (División estratificada): Establezca esta opción en **True** para garantizar que los dos conjuntos de datos de resultados contengan una muestra representativa de los valores de la *columna de estratos* o la *columna de clave de estratificación*. 
 

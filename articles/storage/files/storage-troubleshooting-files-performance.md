@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: c18e242694d5f4d02ce9111d852a66bf49e48bcd
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 44cbae10fc83ddbacf9abc8fd6510667c1f27e00
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275494"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524386"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solución de problemas de rendimiento de recursos compartidos de archivos de Azure
 
@@ -23,7 +23,7 @@ En este artículo se enumeran algunos problemas habituales relacionados con los 
 |-|:-:|:-:|
 | Recursos compartidos de archivos Estándar (GPv2), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Recursos compartidos de archivos Estándar (GPv2), GRS/GZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Alta latencia, rendimiento bajo y problemas de rendimiento general
 
@@ -81,8 +81,8 @@ Para determinar si la mayoría de las solicitudes están centradas en los metada
 #### <a name="workaround"></a>Solución alternativa
 
 - Compruebe si la aplicación se puede modificar para reducir el número de operaciones de metadatos.
-- Agregue un disco duro virtual (VHD) al recurso compartido de archivos y móntelo a través de SMB desde el cliente para realizar operaciones de archivos en los datos. Este enfoque funciona para escenarios de escritor o lector único o escenarios con varios lectores y sin escritores. Dado que el sistema de archivos es propiedad del cliente y no de Azure Files, esto permite que las operaciones de metadatos sean locales. La configuración ofrece un rendimiento similar al de un almacenamiento con conexión directa local.
-    -   Para montar un disco duro virtual en un cliente de Windows, use el cmdlet [Mount-DiskImage](/powershell/module/storage/mount-diskimage) de Powershell.
+- Agregue un disco duro virtual (VHD) al recurso compartido de archivos y móntelo a través desde el cliente para realizar operaciones de archivos en los datos. Este enfoque funciona para escenarios de escritor o lector único o escenarios con varios lectores y sin escritores. Dado que el sistema de archivos es propiedad del cliente y no de Azure Files, esto permite que las operaciones de metadatos sean locales. La configuración ofrece un rendimiento similar al de un almacenamiento con conexión directa local.
+    -   Para montar un disco duro virtual en un cliente de Windows, use el cmdlet [Mount-DiskImage](/powershell/module/storage/mount-diskimage) de PowerShell.
     -   Para montar un disco duro virtual en Linux, consulte la documentación de la distribución de Linux.     
 
 ### <a name="cause-3-single-threaded-application"></a>Causa 3: Aplicación de un único subproceso
@@ -124,6 +124,7 @@ Una posible causa es la ausencia de compatibilidad multicanal de SMB para recurs
 - Obtener una máquina virtual con un núcleo más grande puede ayudar a mejorar el rendimiento.
 - Ejecutar la aplicación cliente desde varias máquinas virtuales aumentará el rendimiento.
 - Siempre que sea posible, use las API de REST.
+- En el caso de los recursos compartidos de archivos NFS, nconnect está disponible, en versión preliminar. No se recomienda para las cargas de trabajo de producción.
 
 ## <a name="throughput-on-linux-clients-is-significantly-lower-than-that-of-windows-clients"></a>El rendimiento en los clientes de Linux es significativamente menor que el de los clientes de Windows
 
@@ -219,7 +220,7 @@ Cambios recientes en la configuración de SMB multicanal sin volver a montar.
 
 ### <a name="cause"></a>Causa  
 
-La notificación de cambio de un número alto de archivos en recursos compartidos de archivos puede producir latencias altas significativas. Esto suele ocurrir con sitios web hospedados en recursos compartidos de archivos con una estructura de directorios anidada profunda. Un escenario típico es la aplicación web hospedada en IIS donde se configura la notificación de cambio de archivos para cada directorio en la configuración predeterminada. Cada cambio ([ReadDirectoryChangesW](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) en el recurso compartido en el que está registrado el cliente SMB envía una notificación de cambio desde el servicio de archivos al cliente, que usa recursos del sistema, y el problema empeora con el número de cambios. Esto puede dar lugar a una limitación de recursos compartidos y, por tanto, a una mayor latencia del lado cliente. 
+La notificación de cambio de un número alto de archivos en recursos compartidos de archivos puede producir latencias altas significativas. Esto suele ocurrir con sitios web hospedados en recursos compartidos de archivos con una estructura de directorios anidada profunda. Un escenario típico es la aplicación web hospedada en IIS donde se configura la notificación de cambio de archivos para cada directorio en la configuración predeterminada. Cada cambio ([ReadDirectoryChangesW](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) en el recurso compartido en el que está registrado el cliente envía una notificación de cambio desde el servicio de archivos al cliente, que usa recursos del sistema, y el problema empeora con el número de cambios. Esto puede dar lugar a una limitación de recursos compartidos y, por tanto, a una mayor latencia del lado cliente. 
 
 Para confirmarlo, puede usar las métricas de Azure en el portal: 
 
@@ -227,7 +228,7 @@ Para confirmarlo, puede usar las métricas de Azure en el portal:
 1. En el menú de la izquierda, en Supervisión, seleccione Métricas. 
 1. Seleccione Archivo como el espacio de nombres de la métrica para el ámbito de la cuenta de almacenamiento. 
 1. Seleccione Transacciones como métrica. 
-1. Agregue un filtro para ResponseType y compruebe si alguna solicitud tiene un código de respuesta de SuccessWithThrottling (para SMB) o ClientThrottlingError (para REST).
+1. Agregue un filtro para ResponseType y compruebe si alguna solicitud tiene un código de respuesta de SuccessWithThrottling (para SMB o NFS) o ClientThrottlingError (para REST).
 
 ### <a name="solution"></a>Solución 
 

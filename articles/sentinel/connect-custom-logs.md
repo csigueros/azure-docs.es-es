@@ -1,28 +1,28 @@
 ---
-title: Recopilación de datos en formatos de registro personalizados para Azure Sentinel | Microsoft Docs
-description: Recopile datos de orígenes de datos personalizados e ingiéralos en Azure Sentinel mediante el agente de Log Analytics.
+title: Recopilación de datos en formatos de registro personalizados para Microsoft Sentinel | Microsoft Docs
+description: Recopile datos de orígenes de datos personalizados e ingiéralos en Microsoft Sentinel mediante el agente de Log Analytics.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/17/2020
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 94dbcf84f705aef7e8d723c6516c8a2d36e010ee
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1a64f6e11abf8531c90968c2f24824f700ac73d9
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023424"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524595"
 ---
-# <a name="collect-data-in-custom-log-formats-to-azure-sentinel-with-the-log-analytics-agent"></a>Recopilación de datos en formatos de registro personalizados para Azure Sentinel con el agente de Log Analytics
+# <a name="collect-data-in-custom-log-formats-to-microsoft-sentinel-with-the-log-analytics-agent"></a>Recopilación de datos en formatos de registro personalizados para Microsoft Sentinel con el agente de Log Analytics
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "131023424"
 
 Muchas aplicaciones registran datos en archivos de texto, en lugar de los servicios de registro estándar, como el registro de eventos de Windows o Syslog. Puede usar el agente de Log Analytics para recopilar datos en archivos de texto de formatos no estándar de equipos Windows y Linux. Una vez recopilados, puede analizar los datos en campos individuales en las consultas o extraerlos durante la recopilación de campos individuales.
 
-En este artículo se describe cómo conectar los orígenes de datos a Azure Sentinel mediante formatos de registro personalizados. Para obtener más información sobre los conectores de datos compatibles que usan este método, consulte [Referencia de conectores de datos](data-connectors-reference.md).
+En este artículo se describe cómo conectar los orígenes de datos a Microsoft Sentinel mediante formatos de registro personalizados. Para obtener más información sobre los conectores de datos compatibles que usan este método, consulte [Referencia de conectores de datos](data-connectors-reference.md).
 
 Obtenga información sobre los [registros personalizados en la documentación de Azure Monitor](../azure-monitor/agents/data-sources-custom-logs.md).
 
@@ -40,7 +40,7 @@ De forma similar a Syslog, hay dos pasos para configurar la recopilación de reg
 
 - Configure los valores de registro de la aplicación.
 
-- Configure el agente de Log Analytics desde dentro de Azure Sentinel.
+- Configure el agente de Log Analytics desde dentro de Microsoft Sentinel.
 
 ## <a name="install-the-log-analytics-agent"></a>Instalación del agente de Log Analytics
 
@@ -49,11 +49,11 @@ Instale el agente de Log Analytics en la máquina Linux o Windows que generará 
 > [!NOTE]
 > Algunos proveedores recomiendan instalar el agente de Log Analytics en un servidor de registro independiente en lugar de hacerlo directamente en el dispositivo. Consulte la sección del producto en la página [Referencia de conectores de datos](data-connectors-reference.md) o la documentación del producto.
 
-Seleccione la pestaña adecuada a continuación, en función de si el conector tiene una página del conector de datos en Azure Sentinel.
+Seleccione la pestaña adecuada a continuación, en función de si el conector tiene una página del conector de datos en Microsoft Sentinel.
 
 # <a name="from-a-specific-data-connector-page"></a>[Desde una página específica del conector de datos](#tab/DCG)
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Conectores de datos**.
+1. En el menú de navegación de Microsoft Sentinel, seleccione **Conectores de datos**.
 
 1. Seleccione el tipo de dispositivo y, a continuación, seleccione **Abrir página del conector**.
 
@@ -68,7 +68,7 @@ Seleccione la pestaña adecuada a continuación, en función de si el conector t
 
 # <a name="other-data-sources"></a>[Otros orígenes de datos](#tab/CUS)
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Configuración** y, a continuación, la pestaña **Configuración del área de trabajo**.
+1. En el menú de navegación de Microsoft Sentinel, seleccione **Configuración** y, a continuación, la pestaña **Configuración del área de trabajo**.
 
 1. Instale e incorpore el agente en el dispositivo que genera los registros. Elija Linux o Windows según corresponda.
 
@@ -81,15 +81,16 @@ Seleccione la pestaña adecuada a continuación, en función de si el conector t
 
 ## <a name="configure-the-logs-to-be-collected"></a>Configure los registros que se van a recopilar.
 
-Muchos tipos de dispositivo tienen sus propios conectores de datos que aparecen en la página **Conectores de datos** de Azure Sentinel. Algunos de estos conectores requieren instrucciones adicionales especiales para configurar correctamente la recopilación de registros en Azure Sentinel. Estas instrucciones pueden incluir la implementación de un analizador basado en una función de Kusto. 
+Muchos tipos de dispositivo tienen sus propios conectores de datos que aparecen en la página **Conectores de datos** de Microsoft Sentinel. Algunos de estos conectores requieren instrucciones adicionales especiales para configurar correctamente la recopilación de registros en Microsoft Sentinel. Estas instrucciones pueden incluir la implementación de un analizador basado en una función de Kusto. 
 
-Todos los conectores enumerados en Azure Sentinel mostrarán instrucciones específicas en sus respectivas páginas de conector en el portal, así como en sus secciones de la página [Referencia de conectores de datos de Azure Sentinel](data-connectors-reference.md).
+Todos los conectores enumerados en la galería mostrarán instrucciones específicas en sus respectivas páginas de conector en el portal, así como en sus secciones de la página [Referencia de conectores de datos de Microsoft Sentinel](data-connectors-reference.md).
 
 Si el producto no aparece en la página **Conectores de datos**, consulte la documentación del proveedor para obtener instrucciones sobre cómo configurar el registro para el dispositivo.
 
 ## <a name="configure-the-log-analytics-agent"></a>Configuración del agente de Log Analytics
 
 1. En la página del conector, seleccione el vínculo **Open your workspace custom logs configuration** (Abrir la configuración de los registros personalizados del área de trabajo).
+
     O bien, en el menú de navegación del área de trabajo de Log Analytics, seleccione **Registros personalizados**.
 
 1. En la pestaña **Tablas personalizadas**, seleccione **Agregar registro personalizado**.
@@ -110,7 +111,7 @@ Para consultar los datos de registro personalizados en **Registros**, escriba el
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, ha aprendido a recopilar datos de tipos de registro personalizados para ingerirlos en Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+En este documento, ha aprendido a recopilar datos de tipos de registro personalizados para ingerirlos en Microsoft Sentinel. Para obtener más información sobre Microsoft Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- Empiece a [detectar amenazas con Microsoft Sentinel](detect-threats-built-in.md).
 - [Use libros](monitor-your-data.md) para supervisar los datos.

@@ -4,16 +4,16 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 007c19a10db5e000770c8c80189453d4a80edec2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 526a1bf1c39ad503a2f0585999247a8e91b4c727
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82204590"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132529489"
 ---
 En la tabla siguiente se enumeran los límites asociados a los diferentes niveles de servicio (S1, S2, S3 y F1). Para información sobre el costo de cada *unidad* en cada nivel, consulte los [Precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-| Resource | S1 Estándar | S2 Estándar | S3 Estándar | F1 Gratis |
+| Recurso | S1 Estándar | S2 Estándar | S3 Estándar | F1 Gratis |
 | --- | --- | --- | --- | --- |
 | Mensajes por día |400.000 |6\.000.000 |300.000.000 |8,000 |
 | Unidades máximas |200 |200 |10 |1 |
@@ -25,7 +25,7 @@ En la tabla siguiente se enumeran los límites asociados a los diferentes nivele
 
 En la tabla siguiente se enumeran los límites que se aplican a los recursos de IoT Hub:
 
-| Resource | Límite |
+| Recurso | Límite |
 | --- | --- |
 | Cantidad máxima de Centros de IoT de pago por suscripción a Azure |50 |
 | Cantidad máxima de Centros de IoT gratis por suscripción a Azure |1 |
@@ -48,7 +48,7 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos de 
 | Tamaño máximo de carga del método directo | 128 KB |
 | Retención máxima del historial de trabajos | 30 días |
 | Número máximo de trabajos simultáneos | 10 (para S3), 5 para (S2), 1 (para S1) |
-| Número máximo de puntos de conexión adicionales | 10 (para S1, S2 y S3) |
+| Número máximo de puntos de conexión adicionales (más allá de los [puntos de conexión integrados)](../articles/iot-hub/iot-hub-devguide-endpoints.md) | 10 (para S1, S2 y S3) |
 | Número máximo de reglas de enrutamiento de mensajes | 100 (para S1, S2 y S3) |
 | Número máximo de secuencias de dispositivos conectados simultáneamente | 50 (solo para S1, S2, S3 y F1) |
 | Nivel máximo de transferencia de datos de secuencia de dispositivos | 300 MB por día (solo para S1, S2, S3 y F1) |

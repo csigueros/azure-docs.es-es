@@ -12,18 +12,18 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 161805ec90daec9814e3ac8b0547bf36a22d7d91
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 8560ea04e57553f556122cfa1986cabb03442a4e
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132135272"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399036"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API de punto de conexión de Azure AD Connect Sync V2 
 Microsoft ha implementado un nuevo punto de conexión (API) para Azure AD Connect que mejora el rendimiento de las operaciones del servicio de sincronización para Azure Active Directory. Al usar el nuevo punto de conexión V2, experimentará mejoras de rendimiento notables en la exportación y la importación respecto a Azure AD. Este nuevo punto de conexión admite:
     
- - Grupos de sincronización de hasta 250 000 miembros
- - Mejoras en el rendimiento de la exportación y la importación a Azure AD
+ - Grupos de sincronización de hasta 250 000 miembros.
+ - Mejoras en el rendimiento de la exportación y la importación a Azure AD.
  
 > [!NOTE]
 > Actualmente, el nuevo punto de conexión no tiene ningún límite de tamaño de grupo configurado para los grupos de Microsoft 365 que se escriben de manera diferida. Esto puede afectar a las latencias del ciclo de sincronización de Active Directory. Se recomienda aumentar los tamaños de grupo por incrementos.  
@@ -36,12 +36,12 @@ Microsoft ha implementado un nuevo punto de conexión (API) para Azure AD Conne
 
 ## <a name="prerequisites"></a>Requisitos previos  
 Para usar el nuevo punto de conexión V2, tendrá que usar Azure AD Connect v2.0. Al implementar AADConnect V2.0, el punto de conexión V2 se habilitará automáticamente.
-La compatibilidad con el punto de conexión V2 ya no está disponible para las versiones V1.x. Si tiene que sincronizar grupos con más de 50 000 miembros, debe actualizar a Azure AD Connect V2.0.
+Hay un problema conocido por el que la actualización a la compilación 1.6 más reciente restablece el límite de pertenencia a grupos a 50 000. Cuando un servidor se actualiza a AADConnect 1.6, el cliente debe volver a aplicar los cambios de reglas que aplicaron al aumentar inicialmente el límite de pertenencia a grupos a 250 000 antes de habilitar la sincronización para el servidor. 
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes  
  
-**¿Cuándo se convertirá el nuevo punto de conexión en el valor predeterminado para las actualizaciones y las nuevas instalaciones?**   El punto de conexión V2 es la configuración predeterminada para AADConnect V2.0 y no es compatible con AADConnect V1.x.
-Hay un problema por el cual los clientes que tienen el punto de conexión V2 en ejecución con una versión anterior e intentan actualizar a la versión V1.6 más reciente verán que se restablece la limitación de 50 000 en la pertenencia a grupos. Este problema no se corregirá en la versión 1.6 y se requerirá que los clientes actualicen a AADConnect V2.0 si se trata de un problema para ellos.
+**¿Cuándo se convertirá el nuevo punto de conexión en el valor predeterminado para las actualizaciones y las nuevas instalaciones?**   El punto de conexión V2 es la configuración predeterminada de AADConnect V2.0 y recomendamos a los clientes que actualicen a AADConnect V2.0 para aprovechar las ventajas de este punto de conexión.
+Hay un problema por el cual los clientes que tienen el punto de conexión V2 en ejecución con una versión anterior e intentan actualizar a la versión V1.6 más reciente verán que se restablece la limitación de 50 000 en la pertenencia a grupos. Cuando un servidor se actualiza a AADConnect 1.6, el cliente debe volver a aplicar los cambios de reglas que aplicaron al aumentar inicialmente el límite de pertenencia a grupos a 250 000 antes de habilitar la sincronización para el servidor. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

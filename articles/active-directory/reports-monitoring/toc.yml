@@ -54,6 +54,8 @@
   items:
     - name: Informes
       items:
+        - name: Acceso a los registros de actividad
+          href: howto-access-activity-logs.md
         - name: Descarga de registros
           href: howto-download-logs.md
         - name: "Administración de cuentas de usuario inactivas en Azure\_AD"

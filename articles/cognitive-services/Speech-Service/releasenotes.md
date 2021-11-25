@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/15/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b4b291006795728348aa694e56c3e84a88d8e65c
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 7a4e02461b7ba7eaba82b74cc2191b9528376b51
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131469965"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486672"
 ---
 # <a name="speech-service-release-notes"></a>Notas de la versión del servicio Voz
 
@@ -167,8 +167,8 @@ ms.locfileid: "131469965"
 
 #### <a name="new-features"></a>Nuevas características
 
-- **C++/C#** : nueva identificación de idioma continua y al inicio/de una sola captura gracias a la API `SourceLanguageRecognizer`. Si solo quiere detectar los idiomas hablados en el contenido del audio, esta es la API para hacerlo.
-- **C++/C#** : el reconocimiento de voz y la traducción de voz ahora admiten la identificación de idioma continua y de una sola captura para que pueda determinar mediante programación qué idiomas se hablan antes de que se transcriban o traduzcan. Consulte la documentación [aquí sobre el reconocimiento de voz](how-to-automatic-language-detection.md) y [aquí sobre la traducción de voz](get-started-speech-translation.md).
+- **C++/C#** : nueva identificación de idioma continua y al inicio gracias a la API `SourceLanguageRecognizer`. Si solo quiere detectar los idiomas hablados en el contenido del audio, esta es la API para hacerlo.
+- **C++/C#** : el reconocimiento de voz y la traducción de voz ahora admiten la identificación de idioma continua y al inicio para que pueda determinar mediante programación qué idiomas se hablan antes de que se transcriban o traduzcan. Consulte la documentación [aquí sobre el reconocimiento de voz](how-to-automatic-language-detection.md) y [aquí sobre la traducción de voz](get-started-speech-translation.md).
 - **C#** : se ha agregado compatibilidad con Unity para macOS (x64). Esta funcionalidad hace posible los casos de uso de reconocimiento de voz y síntesis de voz en realidad mixta y juegos.
 - **Go**: se ha agregado compatibilidad con la síntesis de voz/texto a voz al lenguaje de programación Go para que la síntesis de voz esté disponible en más casos de uso si cabe. Consulte nuestro [inicio rápido](get-started-text-to-speech.md?tabs=windowsinstall&pivots=programming-language-go) o nuestra [documentación de referencia](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go).
 - **C++/C#/Java/Python/Objective-C/Go**: el sintetizador de voz ahora admite el objeto `connection`. Este objeto ayuda a administrar y supervisar la conexión al servicio de voz y es especialmente útil para conectarse previamente a fin de reducir la latencia. Consulte la documentación [aquí](how-to-lower-speech-synthesis-latency.md).

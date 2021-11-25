@@ -9,19 +9,19 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d97270c130545e8a54f924dcc4f50c4a1f36420b
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 5cf49696bb162bff92acc52db1e2ab95cee3927c
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129387703"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487709"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Spring Data Azure Cosmos DB v3 para la API Core (SQL): Notas de la versión y recursos
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [.NET SDK v2](sql-api-sdk-dotnet.md)
+> * [SDK de .NET v2](sql-api-sdk-dotnet.md)
 > * [SDK de .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK de fuente de cambios de .NET, versión 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
@@ -91,11 +91,14 @@ Puede usar Spring Data Azure Cosmos DB en las aplicaciones de [Azure Spring Clo
 | **Talleres y laboratorios de Azure Cosmos DB** |[Página principal de talleres de Cosmos DB](https://aka.ms/cosmosworkshop)
 
 > [!IMPORTANT]
-> * Versión 3.10.0: se recomienda encarecidamente usar la versión 3.10.0 y versiones posteriores.
 > * La versión 3.5.0 admite Spring Boot 2.4.3 y versiones posteriores.
 
 ## <a name="release-history"></a>Historial de versiones
 El historial de versiones se mantiene en el repositorio azure-sdk-for-java. Para obtener una lista detallada de las versiones, consulte el [archivo changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md).
+
+## <a name="recommended-version"></a>Versión recomendada
+
+Se recomienda encarecidamente usar la versión 3.10.0 y versiones posteriores.
 
 ## <a name="additional-notes"></a>Notas adicionales
 

@@ -5,19 +5,16 @@ services: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 51488a6694b843821110127640281a2da9986862
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 878bead652cf9962febc7622ef98ade0abc6cce5
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124744753"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399700"
 ---
 # <a name="deploy-startstop-vms-v2-preview"></a>Implementación de Start/Stop VMs v2 (versión preliminar)
 
 Siga la secuencia de pasos que aparecen en este tema para instalar la característica Start/Stop VMs v2 (versión preliminar). Después de completar el proceso de instalación, configure las programaciones para personalizar esta característica según sus necesidades.
-
-> [!NOTE]
-> Si tiene problemas durante la implementación, se produce un problema al usar Start/Stop VMs v2 (versión preliminar), o bien si tiene una pregunta relacionada, puede enviar una incidencia en [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). La apertura de una incidencia de soporte técnico de Azure desde el [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) no está disponible para esta versión preliminar. 
 
 ## <a name="permissions-considerations"></a>Consideraciones sobre permisos
 Tenga en cuenta lo siguiente antes y durante la implementación:
@@ -199,7 +196,7 @@ En cada escenario, puede dirigir la acción a una o varias suscripciones, a uno 
 
 ## <a name="sequenced-start-and-stop-scenario"></a>Escenario de inicio y detención secuenciados
 
-En un entorno que incluye dos o más componentes en varias máquinas virtuales de Azure Resource Manager de una arquitectura de aplicación distribuida, es importante que se pueda decidir la secuencia en que los componentes se inician o detienen en orden.
+En un entorno que incluye dos o más componentes en varias máquinas virtuales de Azure Resource Manager de una arquitectura de aplicación distribuida, es importante que se pueda decidir la secuencia en que los componentes se inician o detienen en orden. Asegúrese de que ha aplicado las etiquetas **sequencestart** y **sequencestop** a las máquinas virtuales de destino, como se describe en la [página de información general](../../azure-functions/start-stop-vms/overview.md#overview) antes de configurar este escenario.
 
 1. En la lista de aplicaciones lógicas, seleccione **ststv2_vms_Sequenced_start** para configurar el inicio secuenciado. Si desea configurar la detención secuenciada, seleccione **ststv2_vms_Sequenced_stop**.
 

@@ -7,18 +7,18 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: efcff17cd867deb885e8591db48dd23424a445a2
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 3c21d89329db89b73a0e37046062eae876084e2b
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131452440"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399776"
 ---
 # <a name="customer-responsibilities-for-running-azure-spring-cloud-in-vnet"></a>Responsabilidades del cliente para ejecutar Azure Spring Cloud en una red virtual
 
 En este artículo se incluyen especificaciones para el uso de Azure Spring Cloud en una red virtual.
 
-Cuando se implementa Azure Spring Cloud en la red virtual, tiene dependencias de salida de los servicios fuera de la red virtual. Para fines operativos y de administración, Azure Spring Cloud debe tener acceso a determinados puertos y nombres de dominio completo (FQDN). Estos puntos de conexión son obligatorios para la comunicación con el plano de administración de Azure Spring Cloud y para la descarga e instalación de las actualizaciones de seguridad y componentes principales del clúster de Kubernetes.
+Cuando se implementa Azure Spring Cloud en la red virtual, tiene dependencias de salida de los servicios fuera de la red virtual. Para fines operativos y de administración, Azure Spring Cloud debe tener acceso a determinados puertos y nombres de dominio completo (FQDN). Azure Spring Cloud requiere estos puntos de conexión para la comunicación con el plano de administración y para la descarga e instalación de las actualizaciones de seguridad y componentes principales del clúster de Kubernetes.
 
 De forma predeterminada, Azure Spring Cloud tiene acceso de salida a Internet ilimitado. Este nivel de acceso a la red permite que las aplicaciones que ejecuta accedan a recursos externos según sea necesario. Si desea restringir el tráfico de salida, es necesario el acceso a un número limitado de puertos y direcciones para las tareas de mantenimiento. La solución más sencilla para proteger las direcciones de salida consiste en usar un dispositivo de firewall que pueda controlar el tráfico de salida en función de los nombres de dominio. Azure Firewall, por ejemplo, puede restringir el tráfico saliente HTTP y HTTPS en función del FQDN de destino. También puede configurar las reglas de seguridad y de firewall que prefiera para permitir estos puertos y direcciones necesarios.
 
@@ -82,4 +82,4 @@ Azure Firewall proporciona la etiqueta de FQDN **AzureKubernetesService** para s
 ## <a name="see-also"></a>Vea también
 
 * [Acceso a una aplicación en una red privada](access-app-virtual-network.md)
-* [Exposición de las aplicaciones mediante Application Gateway y Azure Firewall](expose-apps-gateway-azure-firewall.md)
+* [Exposición de aplicaciones a Internet mediante Application Gateway](expose-apps-gateway.md)

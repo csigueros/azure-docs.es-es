@@ -171,7 +171,7 @@
               href: sql/create-sql-api-python.md
     - name: Tutoriales
       items:
-        - name: 1 - Creación y administración de datos
+        - name: Creación y administración de datos
           items:
             - name: Compilación de una aplicación de consola
               items:
@@ -191,18 +191,20 @@
                   href: sql/sql-api-java-application.md
                 - name: Node.js
                   href: sql/sql-api-nodejs-application.md
-        - name: 2 - Migración de los datos
+        - name: Migración de los datos
           items:
             - name: Uso de la herramienta de migración de datos
               href: import-data.md
             - name: Uso de compatibilidad en masa con .NET
               href: sql/tutorial-sql-api-dotnet-bulk-import.md
-        - name: 3 - Consulta de datos
+        - name: Consultar datos
           href: sql/tutorial-query-sql-api.md
-        - name: 4 - Creación de un cuaderno
+        - name: Creación de un cuaderno
           href: sql/create-notebook-visualize-data.md
-        - name: 5 - Distribución global de datos
+        - name: Distribución de datos global
           href: sql/tutorial-global-distribution-sql-api.md
+        - name: Aplicación de Spring Boot en Azure Kubernetes Service
+          href: sql/tutorial-springboot-azure-kubernetes-service.md
     - name: Ejemplos
       items:
         - name: Ejemplos de SDK de .NET V3
@@ -1477,6 +1479,8 @@
           href: configure-synapse-link.md
         - name: Conexión a Azure Synapse Link
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: "Synapse Link y Power\_BI integrado"
+          href: integrated-power-bi-synapse-link.md
         - name: Puntos de conexión privados y de almacén analítico
           href: analytical-store-private-endpoints.md
         - name: "Consulta con Azure Synapse Spark\_3"
@@ -1497,7 +1501,7 @@
               href: continuous-backup-restore-permissions.md
             - name: 'Aprovisionamiento de una cuenta: copia de seguridad continua'
               href: provision-account-continuous-backup.md
-            - name: Obtención de la marca de tiempo de restauración más reciente
+            - name: Obtención de la marca de tiempo restauración más reciente
               href: get-latest-restore-timestamp.md
             - name: 'Restauración de una cuenta: copia de seguridad continua'
               href: restore-account-continuous-backup.md

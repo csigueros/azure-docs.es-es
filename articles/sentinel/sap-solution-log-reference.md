@@ -1,40 +1,40 @@
 ---
-title: 'Solución Azure Sentinel para SAP: referencia de registros disponibles | Microsoft Docs'
-description: Obtenga información sobre los registros de SAP disponibles en la solución Azure Sentinel para SAP.
+title: 'Solución Microsoft Sentinel para SAP: referencia de registros disponibles | Microsoft Docs'
+description: Obtenga información sobre los registros de SAP disponibles en la solución Microsoft Sentinel para SAP.
 author: batamig
 ms.author: bagold
-ms.service: azure-sentinel
+ms.service: microsoft-sentinel
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
-ms.date: 07/21/2021
-ms.subservice: azure-sentinel
-ms.openlocfilehash: 15f057dbbc402ba42f5cdf15342827f14eb3895d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/09/2021
+ms.subservice: microsoft-sentinel
+ms.openlocfilehash: 5d02b40794e226238896b7327a47d9cfb2acbe0e
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131064247"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132518002"
 ---
-# <a name="azure-sentinel-sap-solution-logs-reference-public-preview"></a>Referencia sobre de los registros de la solución Azure Sentinel para SAP (versión preliminar pública)
+# <a name="microsoft-sentinel-sap-solution-logs-reference-public-preview"></a>Referencia sobre de los registros de la solución Microsoft Sentinel para SAP (versión preliminar pública)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-En este artículo se describen los registros de SAP disponibles en el conector de datos de Azure Sentinel para SAP, entre los que se incluyen los nombres de tabla de Azure Sentinel, los fines del registro y los esquemas de registro detallados. Las descripciones de los campos de los esquemas se basan en las descripciones de los campos de la [documentación de SAP](https://help.sap.com/) pertinente.
+En este artículo se describen los registros de SAP disponibles en el conector de datos de Microsoft Sentinel para SAP, entre los que se incluyen los nombres de tabla de Microsoft Sentinel, los fines del registro y los esquemas de registro detallados. Las descripciones de los campos de los esquemas se basan en las descripciones de los campos de la [documentación de SAP](https://help.sap.com/) pertinente.
 
 Este artículo está destinado a usuarios de SAP avanzados.
 
 > [!NOTE]
-> Si se usa la interfaz de XBP 3.0, la solución de Azure Sentinel para SAP usa servicios *no publicados.* Estos servicios no afectan al comportamiento del conector ni del sistema back-end.
+> Si se usa la interfaz de XBP 3.0, la solución de Microsoft Sentinel para SAP usa servicios *no publicados*. Estos servicios no afectan al comportamiento del conector ni del sistema back-end.
 >
 > Para "publicar" estos servicios, implemente las [funciones XBP sin publicar que encontrará en SAP Note 2910263](https://launchpad.support.sap.com/#/notes/2910263).
 
 > [!IMPORTANT]
-> La solución Azure Sentinel para SAP está actualmente en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
+> La solución Microsoft Sentinel para SAP está actualmente en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
 >
 
 ## <a name="abap-application-log"></a>Registro de aplicaciones de ABAP
 
-- **Nombre en Azure Sentinel**: `ABAPAppLog_CL`
+- **Nombre en Microsoft Sentinel**: `ABAPAppLog_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcc9f36611d3a6510000e835363f.html)
 
@@ -82,7 +82,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="abap-change-documents-log"></a>Registro de documentos de cambio de ABAP
 
-- **Nombre en Azure Sentinel**: `ABAPChangeDocsLog_CL`
+- **Nombre en Microsoft Sentinel**: `ABAPChangeDocsLog_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/6f51f5216c4b10149358d088a0b7029c/7.01.22/en-US/b8686150ed102f1ae10000000a44176f.html)
 
@@ -130,7 +130,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="abap-cr-log"></a>Registro de CR de ABAP
 
-- **Nombre en Azure Sentinel**: `ABAPCRLog_CL`
+- **Nombre en Microsoft Sentinel**: `ABAPCRLog_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcd5f36611d3a6510000e835363f.html)
 
@@ -166,7 +166,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="abap-db-table-data-log"></a>Registro de datos de tabla de base de datos de ABAP
 
-- **Nombre en Azure Sentinel**: `ABAPTableDataLog_CL`
+- **Nombre en Microsoft Sentinel**: `ABAPTableDataLog_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcd2f36611d3a6510000e835363f.html)
 
@@ -198,7 +198,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="abap-gateway-log"></a>Registro de puerta de enlace de ABAP
 
-- **Nombre en Azure Sentinel**: `ABAPOS_GW_CL`
+- **Nombre en Microsoft Sentinel**: `ABAPOS_GW_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/62b4de4187cb43668d15dac48fc00732/7.5.7/en-US/48b2a710ca1c3079e10000000a42189b.html)
 
@@ -218,7 +218,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="abap-icm-log"></a>Registro de ICM de ABAP
 
-- **Nombre en Azure Sentinel**: `ABAPOS_ICM_CL`
+- **Nombre en Microsoft Sentinel**: `ABAPOS_ICM_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/7.52.4/en-US/a10ec40d01e740b58d0a5231736c434e.html)
 
@@ -240,7 +240,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="abap-job-log"></a>Registro de trabajos de ABAP
 
-- **Nombre en Azure Sentinel**: `ABAPJobLog_CL`
+- **Nombre en Microsoft Sentinel**: `ABAPJobLog_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/b07e7195f03f438b8e7ed273099d74f3/7.31.19/en-US/4b2bc0974c594ba2e10000000a42189c.html)
 
@@ -284,7 +284,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="abap-security-audit-log"></a>Registro de auditoría de seguridad de ABAP
 
-- **Nombre en Azure Sentinel**: `ABAPAuditLog_CL`
+- **Nombre en Microsoft Sentinel**: `ABAPAuditLog_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/280f016edb8049e998237fcbd80558e7/7.5.7/en-US/4d41bec4aa601c86e10000000a42189b.html)
 
@@ -334,7 +334,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="abap-spool-log"></a>Registro de spool de ABAP
 
-- **Nombre en Azure Sentinel**: `ABAPSpoolLog_CL`
+- **Nombre en Microsoft Sentinel**: `ABAPSpoolLog_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/290ce8983cbc4848a9d7b6f5e77491b9/7.52.1/en-US/4eae791c40f72045e10000000a421937.html)
 
@@ -393,7 +393,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="apab-spool-output-log"></a>Registro de salida de spool de APAB
 
-- **Nombre en Azure Sentinel**: `ABAPSpoolOutputLog_CL`
+- **Nombre en Microsoft Sentinel**: `ABAPSpoolOutputLog_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/290ce8983cbc4848a9d7b6f5e77491b9/7.52.1/en-US/4eae779e40f72045e10000000a421937.html)
 
@@ -444,7 +444,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="abap-syslog"></a>Syslog ABAP
 
-- **Nombre en Azure Sentinel**: `ABAPOS_Syslog_CL`
+- **Nombre en Microsoft Sentinel**: `ABAPOS_Syslog_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcbaf36611d3a6510000e835363f.html)
 
@@ -473,7 +473,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="abap-workflow-log"></a>Registro de flujo de trabajo de ABAP
 
-- **Nombre en Azure Sentinel**: `ABAPWorkflowLog_CL`
+- **Nombre en Microsoft Sentinel**: `ABAPWorkflowLog_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcccf36611d3a6510000e835363f.html)
 
@@ -528,7 +528,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="abap-workprocess-log"></a>Registro de proceso de trabajo de ABAP
 
-- **Nombre en Azure Sentinel**: `ABAPOS_WP_CL`
+- **Nombre en Microsoft Sentinel**: `ABAPOS_WP_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/d0739d980ecf42ae9f3b4c19e21a4b6e/7.3.15/en-US/46fb763b6d4c5515e10000000a1553f6.html)
 
@@ -553,7 +553,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="hana-db-audit-trail"></a>Registro de auditoría de base de datos de HANA
 
-- **Nombre en Azure Sentinel**: `Syslog`
+- **Nombre en Microsoft Sentinel**: `Syslog`
 
 - **Documentación de SAP relacionada**: [General](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/48fd6586304c4f859bf92d64d0cd8b08.html) |  [Registro de auditoría](https://help.sap.com/viewer/b3ee5778bc2e4a089d3299b82ec762a7/2.0.03/en-US/0a57444d217649bf94a19c0b68b470cc.html)
 
@@ -577,7 +577,7 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="java-files"></a>Archivos JAVA
 
-- **Nombre en Azure Sentinel**: `JavaFilesLogsCL`
+- **Nombre en Microsoft Sentinel**: `JavaFilesLogsCL`
 
 - **Documentación de SAP relacionada**: [General](https://help.sap.com/viewer/2f8b1599655d4544a3d9c6d1a9b6546b/7.5.9/en-US/485059dfe31672d4e10000000a42189c.html) | [Registro de auditoría de seguridad de Java](https://help.sap.com/viewer/1531c8a1792f45ab95a4c49ba16dc50b/7.5.9/en-US/4b6013583840584ae10000000a42189c.html)
 
@@ -620,9 +620,9 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 Para más información, consulte:
 
-- [Implementación de la solución Azure Sentinel para SAP](sap-deploy-solution.md)
-- [Requisitos detallados de SAP para la solución Azure Sentinel SAP](sap-solution-detailed-requirements.md)
-- [Implementación del conector de datos de SAP de Azure Sentinel con SNC](sap-solution-deploy-snc.md)
+- [Implementación de la solución Microsoft Azure Sentinel para SAP](sap-deploy-solution.md)
+- [Requisitos de SAP detallados para la solución Microsoft Sentinel para SAP](sap-solution-detailed-requirements.md)
+- [Implementación del conector de datos de Microsoft Sentinel para SAP con SNC](sap-solution-deploy-snc.md)
 - [Opciones de configuración de expertos, implementación local y orígenes de registro de SAPControl](sap-solution-deploy-alternate.md)
-- [Azure Sentinel para SAP: contenido de seguridad integrado](sap-solution-security-content.md)
-- [Solución de problemas de implementación de la solución SAP de Azure Sentinel](sap-deploy-troubleshoot.md)
+- [Microsoft Sentinel para SAP: contenido de seguridad integrado](sap-solution-security-content.md)
+- [Solución de problemas de implementación de la solución Microsoft Sentinel para SAP](sap-deploy-troubleshoot.md)

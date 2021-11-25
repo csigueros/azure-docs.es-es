@@ -1,18 +1,18 @@
 ---
 title: Bloqueo del tráfico de salida
-description: Obtenga información sobre la integración con Azure Firewall para proteger el tráfico saliente desde dentro de un entorno de App Service.
-author: ccompy
+description: Obtenga información sobre la integración con Azure Firewall para proteger el tráfico saliente desde dentro de App Service Environment.
+author: madsd
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
 ms.date: 09/16/2021
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: d1deab13de8272cde24396241af5e8fe99066e90
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: d8896f9bbe7ee4429236eac7763d66b1efd4313c
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132372556"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523721"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueo de una instancia de App Service Environment
 

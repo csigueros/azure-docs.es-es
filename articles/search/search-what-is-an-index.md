@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/12/2021
-ms.openlocfilehash: 075cfe83405d5535bdd72fbc6b280768f6d00e0a
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 51b075dbce189370cf502bce6d46471da6c58348
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132371056"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490542"
 ---
 # <a name="indexes-in-azure-cognitive-search"></a>Índices en Azure Cognitive Search
 
-En Azure Cognitive Search, un *índice de búsqueda* es el contenido que se puede buscar, disponible para el motor de búsqueda para la indexación, la búsqueda de texto completo y las consultas filtradas. Un índice se define mediante un esquema y se guarda en el servicio de búsqueda. A continuación, se realiza la importación de datos como segundo paso. Este contenido existe en el servicio de búsqueda aparte de los almacenes de datos principales, ya que es necesario que sea así para los tiempos de respuesta de milisegundos que se esperan de las operaciones de búsqueda. Excepto en escenarios de indexación específicos, el servicio de búsqueda nunca se conectará con los datos locales ni los consultará.
+En Azure Cognitive Search, un *índice de búsqueda* es el contenido que se puede buscar, disponible para el motor de búsqueda para la indexación, la búsqueda de texto completo y las consultas filtradas. Un índice se define mediante un esquema y se guarda en el servicio de búsqueda. A continuación, se realiza la importación de datos como segundo paso. Este contenido existe en el servicio de búsqueda aparte de los almacenes de datos principales, ya que es necesario que sea así para los tiempos de respuesta de milisegundos que se esperan de las operaciones modernas. Excepto en escenarios de indexación específicos, el servicio de búsqueda nunca se conectará con los datos locales ni los consultará.
 
 Si va a crear y administrar un índice de búsqueda, este artículo le ayudará a comprender lo siguiente:
 
@@ -107,15 +107,23 @@ Aunque puede agregar nuevos campos en cualquier momento, las definiciones de cam
 
 En Azure Cognitive Search, la estructura física de un índice es, en gran medida, una implementación interna. Puede acceder a su esquema, consultar su contenido, supervisar su tamaño y administrar la capacidad, pero los propios clústeres (índices, particiones y otros archivos y carpetas) están fuera de los límites y Microsoft los administra internamente en su nombre.
 
-El tamaño de un índice viene determinado por la cantidad y la composición de los documentos, la configuración del índice (por ejemplo, si incluye proveedores de sugerencias) y los atributos de los campos individuales. Puede supervisar el tamaño del índice en la pestaña Índices de Azure Portal o mediante la emisión de una solicitud GET INDEX en el servicio de búsqueda.
+El tamaño de un índice viene determinado por:
+
++ Cantidad y composición de los documentos
++ Configuración del índice (en concreto, si incluye los proveedores de sugerencias)
++ Atributos en campos individuales
+
+Puede supervisar el tamaño del índice en la pestaña Índices de Azure Portal o mediante la emisión de una [solicitud GET INDEX](/rest/api/searchservice/get-index) en el servicio de búsqueda.
 
 ### <a name="factors-influencing-index-size"></a>Factores que influyen en el tamaño del índice
 
 La composición y la cantidad de los documentos se determinarán según lo que decida importar. Recuerde que un índice de búsqueda solo debe incluir contenido que admita búsquedas. Si los documentos de origen incluyen campos binarios, normalmente se omitirían del esquema de índice (a menos que use el enriquecimiento con IA para descifrar y analizar el contenido para crear información que admita las búsquedas de texto).
 
-La configuración del índice puede incluir otros componentes, además de documentos, como proveedores de sugerencias, analizadores de clientes, perfiles de puntuación, configuración de CORS e información de clave de cifrado. En la lista anterior, el único componente que puede afectar al tamaño del índice son los proveedores de sugerencias. Los proveedores de sugerencias son construcciones que admiten consultas de estructura anticipada o con la función de autocompletar. Por lo tanto, cuando se incluye un proveedor de sugerencias, el proceso de indexación crea las estructuras de datos necesarias para las coincidencias textuales de caracteres. Los proveedores de sugerencias se implementan en el nivel de campo, por lo que solo se incluye en estas estructuras de datos el contenido de los campos compatibles con el proveedor de sugerencias.
+La configuración del índice puede incluir otros componentes, además de documentos, como proveedores de sugerencias, analizadores de clientes, perfiles de puntuación, configuración de CORS e información de clave de cifrado. En la lista anterior, el único componente que puede afectar al tamaño del índice son los proveedores de sugerencias. Los [**proveedores de sugerencias**](index-add-suggesters.md) son construcciones que admiten consultas de estructura anticipada o con la función de autocompletar. Por lo tanto, cuando se incluye un proveedor de sugerencias, el proceso de indexación crea las estructuras de datos necesarias para las coincidencias textuales de caracteres. Los proveedores de sugerencias se implementan en el nivel de campo, así que elija solo los campos que sean razonables para el tipo por adelantado.
 
 Los atributos de campo son la tercera consideración del tamaño del índice. Los atributos determinan los comportamientos. Para admitir esos comportamientos, el proceso de indexación creará las estructuras de datos compatibles. Por ejemplo, "searchable" invoca la [búsqueda de texto completo](search-lucene-query-architecture.md), que examina los índices invertidos para el término con tokens. Por el contrario, un atributo "filtrable" u "ordenable" admite la iteración en cadenas sin modificar.
+
+### <a name="example-demonstrating-the-storage-implications-of-attributes-and-suggesters"></a>Ejemplo que muestra las implicaciones de almacenamiento de atributos y proveedores de sugerencias
 
 La siguiente captura de pantalla ilustra los patrones de almacenamiento de índices resultantes de diversas combinaciones de atributos. El índice se basa en el **índice de ejemplo de bienes inmuebles**, que puede crear fácilmente mediante el Asistente para la importación de datos y los datos de ejemplo integrados. Aunque no se muestran los esquemas de índice, puede deducir los atributos según el nombre del índice. Por ejemplo, el índice *realestate-searchable* tiene seleccionado el atributo "buscable" y nada más, el índice *realestate-retrievable* tiene seleccionado el atributo "recuperable" y nada más y así sucesivamente.
 
@@ -131,15 +139,17 @@ Tampoco se refleja en la tabla anterior el impacto de los [analizadores](search-
 
 Ahora que tiene una idea mejor de lo que es un índice, en esta sección se presentan las operaciones en tiempo de ejecución del índice, incluida la conexión a un solo índice y su protección.
 
-### <a name="self-contained-indexes"></a>Índices independientes 
+### <a name="index-isolation"></a>Aislamiento del índice
   
-En Cognitive Search, cada índice es independiente. No hay ningún concepto de índices relacionados ni unión de índices independientes para la indexación o la consulta. No hay compatibilidad con el portal o la API para mover o copiar un índice. En su lugar, los clientes suelen orientar su solución de implementación de aplicaciones a un servicio de búsqueda diferente (si se usa el mismo nombre de índice), o bien revisar el nombre para crear una copia en el servicio de búsqueda actual y, a continuación, compilarla.
+En Cognitive Search, trabajará con un índice a la vez, donde todas las operaciones relacionadas con el índice tienen como destino un único índice. No hay ningún concepto de índices relacionados ni unión de índices independientes para la indexación o la consulta. 
+
+Al administrar un índice, tenga en cuenta que no hay compatibilidad con el portal o la API para mover o copiar un índice. En su lugar, los clientes suelen orientar su solución de implementación de aplicaciones a un servicio de búsqueda diferente (si se usa el mismo nombre de índice), o bien revisar el nombre para crear una copia en el servicio de búsqueda actual y, a continuación, compilarla.
 
 ### <a name="continuously-available"></a>Disponibilidad continua
 
 Un índice tiene disponibilidad continua: no se puede pausar ni desconectar. Dado que está diseñado para el funcionamiento continuo, cualquier actualización de su contenido o adiciones al propio índice se hacen en tiempo real. Como resultado, las consultas podrían devolver temporalmente resultados incompletos si una solicitud coincide con una actualización del documento.
 
-Tenga en cuenta que existe continuidad de consultas para las operaciones de documentos (actualización o eliminación) o para las modificaciones que no afectan a la estructura existente y a la integridad del índice actual. Si necesita realizar actualizaciones estructurales, estas se suelen administrar mediante un flujo de trabajo de colocación y recompilación en un entorno de desarrollo o mediante la creación de una nueva versión del índice en el servicio de producción.
+Tenga en cuenta que existe continuidad de consultas para las operaciones de documentos (actualización o eliminación) o para las modificaciones que no afectan a la estructura existente y a la integridad del índice actual (como agregar nuevos campos). Si necesita realizar actualizaciones estructurales (cambio de campos existentes), estas se suelen administrar mediante un flujo de trabajo de colocación y recompilación en un entorno de desarrollo o mediante la creación de una nueva versión del índice en el servicio de producción.
 
 Para evitar la recompilación, algunos clientes que están realizando pequeños cambios eligen "versionar" un campo mediante la creación de uno nuevo que coexista junto con una versión anterior. Con el tiempo, esto conduce a contenido huérfano en forma de campos o definiciones de analizador personalizadas obsoletos, especialmente en un índice de producción, cuya replicación resulta costosa. Puede solucionar estos problemas en las actualizaciones planeadas del índice como parte de la administración del ciclo de vida de los índices.
 
@@ -147,7 +157,7 @@ Para evitar la recompilación, algunos clientes que están realizando pequeños 
 
 Todas las solicitudes de indexación y consulta tienen como destino un índice. Los puntos de conexión suelen ser uno de los siguientes:
 
-| punto de conexión | Conexión y control de acceso |
+| Punto de conexión | Conexión y control de acceso |
 |----------|-------------------------------|
 | `<your-service>.search.windows.net/indexes` | Tiene como destino la colección de índices. Se usa al crear, mostrar o eliminar un índice. Se requieren derechos de administrador para estas operaciones, disponibles mediante claves de API de administración o un rol de colaborador de búsqueda. |
 | `<your-service>.search.windows.net/indexes/<your-index>/docs` | Tiene como destino la colección de documentos de un mismo índice. Se usa al consultar un índice. Los derechos de lectura son suficientes y están disponibles mediante claves de API de consulta o un rol de lector de datos. |

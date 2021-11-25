@@ -2,39 +2,55 @@
 title: 'Conceptos: seguridad en Azure Kubernetes Service (AKS)'
 description: Obtenga información acerca de la seguridad en Azure Kubernetes Service (AKS), incluidos los secretos de Kubernetes, las directivas de red, y la comunicación con el maestro y los nodos.
 services: container-service
-author: georgewallace
+author: miwithro
 ms.topic: conceptual
-ms.date: 03/11/2021
-ms.author: gwallace
-ms.openlocfilehash: 8fb1e35055bae35fa850bec638f07877e6d75cb3
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.date: 11/11/2021
+ms.author: miwithro
+ms.openlocfilehash: b29d7f245ce809745665bbeb4ea5cb858014e23b
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132058644"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490769"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceptos de seguridad de las aplicaciones y los clústeres en Azure Kubernetes Service (AKS)
 
-La seguridad del clúster protege los datos de los clientes a medida que ejecuta cargas de trabajo de aplicaciones en Azure Kubernetes Service (AKS). 
+La seguridad de los contenedores protege toda la canalización de un extremo a otro, desde la compilación hasta las cargas de trabajo de la aplicación que se ejecutan en Azure Kubernetes Service (AKS).
 
-Kubernetes incluye componentes de seguridad, tales como *directivas de red* y *secretos*. Mientras tanto, Azure incluye componentes como grupos de seguridad de red y actualizaciones de clústeres orquestadas. AKS combina estos componentes de seguridad para:
+La cadena de suministro segura incluye el registro y el entorno de compilación.
+
+Kubernetes incluye componentes de seguridad, tales como *normas de seguridad de pods* y *secretos*. Mientras tanto, Azure incluye componentes como Active Directory, Microsoft Defender for Cloud, Azure Policy, Azure Key Vault, grupos de seguridad de red y actualizaciones de clústeres orquestadas. AKS combina estos componentes de seguridad para:
+* Proporcionar un caso completo de autenticación y autorización.
+* Utilizar el servicio Azure Policy integrado en AKS para proteger las aplicaciones.
+* Obtener información completa de la compilación mediante la aplicación con Microsoft Defender para contenedores.
 * Hacer que el clúster de AKS ejecute las últimas actualizaciones de seguridad del sistema operativo y versiones de Kubernetes.
 * Proporcionar tráfico de pod seguro y acceso a credenciales confidenciales.
 
 En este artículo se presentan los conceptos básicos para proteger sus aplicaciones en AKS:
 
 - [Conceptos de seguridad de las aplicaciones y los clústeres en Azure Kubernetes Service (AKS)](#security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks)
-  - [Seguridad de componentes maestros](#master-security)
+  - [Seguridad](#build-security)
+  - [Seguridad del registro](#registry-security)
+  - [Seguridad de clúster](#cluster-security)
   - [Seguridad de nodos](#node-security)
     - [Aislamiento de proceso](#compute-isolation)
   - [Actualización de un clúster de Service Fabric](#cluster-upgrades)
     - [Acordonamiento y purga](#cordon-and-drain)
   - [Seguridad de las redes](#network-security)
     - [Grupos de seguridad de red de Azure](#azure-network-security-groups)
+  - [Seguridad de aplicaciones](#application-security)
   - [Secretos de Kubernetes](#kubernetes-secrets)
   - [Pasos siguientes](#next-steps)
 
-## <a name="master-security"></a>Seguridad de componentes maestros
+## <a name="build-security"></a>Seguridad de compilación
+
+Como punto de entrada de la cadena de suministro, es importante realizar análisis estáticos de las compilaciones de imágenes antes de que se promuevan hacia abajo en la canalización. Esto incluye la evaluación de vulnerabilidades y cumplimiento.  No se trata de dejar de generar una compilación porque tenga una vulnerabilidad alta, ya que eso interrumpirá el desarrollo, sino de ver el "Estado del proveedor" para segmentar en función de las vulnerabilidades que pueden procesar los equipos de desarrollo.  Utilice también "Períodos de gracia" para conceder tiempo a los desarrolladores para corregir los problemas identificados. 
+
+## <a name="registry-security"></a>Seguridad del registro
+
+Al evaluar el estado de las vulnerabilidades de la imagen en el registro, se detectará el desfase y también se detectarán las imágenes que no proceden del entorno de compilación. Use [Notary V2](https://github.com/notaryproject/notaryproject) para adjuntar firmas a las imágenes para asegurarse de que las implementaciones proceden de una ubicación de confianza.
+
+## <a name="cluster-security"></a>Seguridad de clúster
 
 En AKS, los componentes maestros de Kubernetes forman parte del servicio administrado, proporcionado y mantenido por Microsoft. Cada clúster de AKS tiene su propio maestro de Kubernetes dedicado con un solo inquilino para proporcionar el servidor de API, Scheduler, etc.
 
@@ -117,6 +133,11 @@ Si proporciona su propia subred para el clúster de AKS (tanto si usa Azure CNI 
 
 Para limitar el tráfico de red entre los pods del clúster, AKS ofrece compatibilidad con las [directivas de red de Kubernetes][network-policy]. Con las directivas de red, puede permitir o denegar las rutas de acceso de red específicas en el clúster en función de los espacios de nombres y los selectores de etiquetas.
 
+## <a name="application-security"></a>Seguridad de aplicaciones
+
+Para proteger los pods que se ejecutan en AKS, utilice [Microsoft Defender para Kubernetes][azure-defender-for-kubernetes] para detectar y restringir los ciberataques contra las aplicaciones que se ejecutan en los pods.  Ejecute un examen continuo para detectar el desfase en el estado de vulnerabilidad de la aplicación e implemente un proceso "azul/verde/valor controlado" para aplicar revisiones y reemplazar las imágenes vulnerables. 
+
+
 ## <a name="kubernetes-secrets"></a>Secretos de Kubernetes
 
 Con un *secreto* de Kubernetes, puede insertar datos confidenciales en pods, como credenciales de acceso o claves. 
@@ -155,6 +176,7 @@ Para obtener más información sobre los conceptos básicos de Kubernetes y AKS,
 [encryption-atrest]: ../security/fundamentals/encryption-atrest.md
 
 <!-- LINKS - Internal -->
+[azure-defender-for-kubernetes]: ../defender-for-cloud/container-security.md
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
 [aks-aad]: ./managed-aad.md

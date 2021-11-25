@@ -6,12 +6,12 @@ ms.author: viseshag
 ms.service: purview
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.openlocfilehash: 276069d17dba6b02cbc46026f4660525fe93d136
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: de0904275100f0d72dac8e401736ad276f1c928a
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132158346"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132401501"
 ---
 # <a name="access-control-in-azure-purview"></a>Control de acceso en Azure Purview
 
@@ -22,7 +22,7 @@ Azure Purview usa **colecciones** para organizar y administrar el acceso a trav�
 Una colección es una herramienta que Azure Purview usa para agrupar recursos, orígenes y otros artefactos en una jerarquía para facilitar la detección y para administrar el control de acceso. Todo el acceso a los recursos de Purview se administra desde las colecciones de la propia instancia de Purview.
 
 > [!NOTE]
-> A partir del 8 de noviembre de 2021, los conservadores de datos y otros roles superiores pueden acceder a ***Insights***. Los lectores de datos no tienen acceso a Insights.
+> A partir del 8 de noviembre de 2021, los conservadores de datos pueden acceder a ***Insights***. Los lectores de datos no tienen acceso a Insights.
 >
 >
 ## <a name="roles"></a>Roles
@@ -43,7 +43,7 @@ Azure Purview usa un conjunto de roles predefinidos para controlar quién puede 
 |Necesito editar el glosario o configurar nuevas definiciones de clasificación.|Administrador provisional de datos|
 |Tengo que ver Insights para comprender la posición de gobernanza de mi patrimonio de datos.|Administrador provisional de datos|
 |La entidad de servicio de la aplicación debe insertar datos en Azure Purview.|Administrador provisional de datos|
-|Necesito configurar exámenes mediante Purview Studio.|Administrador de orígenes de datos, más, como mínimo, lector de datos **o** administrador provisional de datos sobre la colección en la que está registrado el origen.|
+|Necesito configurar exámenes mediante Purview Studio.|Conservador de datos sobre la colección **o** conservador de datos **y** administrador de orígenes de datos donde el origen está registrado|
 |Necesito habilitar una entidad de servicio o un grupo para configurar y supervisar exámenes en Azure Purview sin permitirles que accedan a la información del catálogo. |Administrador de orígenes de datos|
 |Necesito asignar usuarios a roles en Azure Purview. | Administrador de colecciones |
 

@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/16/2020
+ms.date: 11/15/2021
 ms.author: rolyon
-ms.openlocfilehash: 8f42a384c0ef8605de42243fcbb232d3ff615583
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 947645848fd60a6d2864a1715ddc32424a683ce8
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132301350"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524842"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Procedimientos recomendados para Azure RBAC
 
@@ -44,7 +44,18 @@ Para más información, vea [¿Qué es Azure AD Privileged Identity Management?]
 
 ## <a name="assign-roles-to-groups-not-users"></a>Asignación de roles a grupos, no a usuarios
 
-Para que las asignaciones de roles sean más fáciles de administrar, evite la asignación directa de roles a los usuarios. En su lugar, asigne roles a grupos. La asignación de roles a grupos en lugar de a usuarios también ayuda a minimizar el número de asignaciones de roles, que tiene un [límite de 2000 asignaciones de roles por suscripción](troubleshooting.md#azure-role-assignments-limit). 
+Para que las asignaciones de roles sean más fáciles de administrar, evite la asignación directa de roles a los usuarios. En su lugar, asigne roles a grupos. La asignación de roles a grupos en lugar de a usuarios también ayuda a minimizar el número de asignaciones de roles, que tiene un [límite de asignaciones de roles por suscripción](troubleshooting.md#azure-role-assignments-limit).
+
+## <a name="assign-roles-using-the-unique-role-id-instead-of-the-role-name"></a>Asignación de roles con el identificador de rol único en lugar del nombre del rol
+
+Hay un par de veces en las que el nombre de un rol puede cambiar, por ejemplo:
+
+- Utiliza su propio rol personalizado y decide cambiar el nombre.
+- Utiliza una rol de versión preliminar que tiene **(Versión preliminar)** en el nombre. Cuando se libera el rol, se cambia su nombre.
+
+Incluso si se cambia el nombre de un rol, su identificador no cambia. Si utiliza scripts o automatización para crear las asignaciones de roles, se recomienda utilizar el identificador de rol único en lugar del nombre del rol. Por tanto, si se cambia el nombre de un rol, es más probable que los scripts funcionen.
+
+Para obtener más información, vea [Asignación de un rol con el identificador de rol único y Azure PowerShell](role-assignments-powershell.md#assign-a-role-for-a-user-using-the-unique-role-id-at-a-resource-group-scope) y [Asignación de un rol con el identificador de rol único y la CLI de Azure](role-assignments-cli.md#assign-a-role-for-a-user-using-the-unique-role-id-at-a-resource-group-scope).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

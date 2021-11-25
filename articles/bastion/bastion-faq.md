@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 09/07/2021
 ms.author: cherylmc
-ms.openlocfilehash: 30c96f2d7b679b0032a2b8c406cc6c210c143a11
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 74a1093f8a084360669c5b436fa56d6ea7aa33d8
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132062177"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132494584"
 ---
 # <a name="azure-bastion-faq"></a>Preguntas más frecuentes sobre Azure Bastion
 
@@ -166,3 +166,6 @@ Asegúrese de que el usuario tenga acceso de **lectura** tanto a la máquina vir
 |Microsoft.Network/virtualNetworks/read|Obtiene la definición de red virtual|Acción|
 |Microsoft.Network/virtualNetworks/subnets/virtualMachines/read|Obtiene referencias a todas las máquinas virtuales de una subred de red virtual|Acción|
 |Microsoft.Network/virtualNetworks/virtualMachines/read|Obtiene referencias a todas las máquinas virtuales de una red virtual|Acción|
+
+### <a name="what-is-the-maximum-screen-resolution-supported-via-bastion"></a>¿Cuál es la resolución de pantalla máxima admitida a través de Bastion?  
+Actualmente, 1920x1080 (1080p) es la resolución máxima admitida. 

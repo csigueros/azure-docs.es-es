@@ -30,7 +30,7 @@
   items:
     - name: 1. Habilitación de Defender for Cloud en las suscripciones
       href: get-started.md
-    - name: 2. Habilitación de las protecciones mejoradas
+    - name: 2. Habilitación de las características de seguridad mejoradas
       href: enable-enhanced-security.md
     - name: 3. Conexión de máquinas híbridas y de varias nubes
       items:

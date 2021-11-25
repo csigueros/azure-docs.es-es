@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 814ed1001c39b48a5aa93162cb54ec520050eb66
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 7d56a9747627bd81e9bc0cc72fce804a64af91e4
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457570"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132398086"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxis de las consultas de enrutamiento de mensajes de IoT Hub
 
@@ -149,10 +149,9 @@ deviceClient.sendEvent(message, (err, res) => {
 > [!NOTE] 
 > Se muestra cómo administrar la codificación del cuerpo en JavaScript. Si quiere ver un ejemplo en C#, descargue los [ejemplos de C# de Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip). Descomprima el archivo master.zip. El archivo Program.cs de la solución de Visual Studio *SimulatedDevice* muestra cómo codificar y enviar mensajes a una instancia de IoT Hub. Este es el mismo ejemplo que se usa para probar el enrutamiento de mensajes, como se explica en el [tutorial de enrutamiento de mensajes](tutorial-routing.md). En la parte inferior de Program.cs, también hay un método para leer en uno de los archivos codificados, descodificarlo y escribirlo de nuevo en ASCII para que pueda leerlo. 
 
-
 ### <a name="query-expressions"></a>Expresiones de consulta
 
-Una consulta al cuerpo del mensaje debe tener el prefijo `$body`. Puede usar una referencia al cuerpo, una referencia a la matriz del cuerpo o varias referencias al cuerpo en la expresión de consulta. La expresión de consulta también puede combinar una referencia al cuerpo y a las referencias a las propiedades de la aplicación de mensajes. Por ejemplo, todas las expresiones siguientes son expresiones de consulta válidas: 
+Una consulta en un cuerpo del mensaje debe tener el prefijo `$body`. Puede usar una referencia al cuerpo, una referencia a la matriz del cuerpo o varias referencias al cuerpo en la expresión de consulta. La expresión de consulta también puede combinar una referencia al cuerpo y a las referencias a las propiedades de la aplicación de mensajes. Por ejemplo, todas las expresiones siguientes son expresiones de consulta válidas:
 
 ```sql
 $body.Weather.HistoricalData[0].Month = 'Feb' 
@@ -170,9 +169,16 @@ length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
 
-> [!NOTE] 
+> [!NOTE]
+> Para filtrar una carga de notificación gemela en función de lo que ha cambiado, ejecute la consulta en el cuerpo del mensaje:
+>
+> ```sql
+> $body.properties.desired.telemetryConfig.sendFrequency
+> ```
+
+> [!NOTE]
 > Solo puede ejecutar consultas y funciones en las propiedades de referencia del cuerpo. No puede ejecutar consultas o funciones en toda la referencia del cuerpo. Por ejemplo, la siguiente consulta *no* se admite y devolverá `undefined`:
-> 
+>
 > ```sql
 > $body[0] = 'Feb'
 > ```

@@ -8,20 +8,22 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 11/12/2021
-ms.openlocfilehash: 2e2b10b5fd42a51951d35f7a1e73e1fcac68ba82
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 203b4c6c55c4476e27dad484a2edef4609211343
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132371683"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487996"
 ---
 # <a name="create-a-search-index-in-azure-cognitive-search"></a>Creación de un índice de búsqueda en Azure Cognitive Search
 
-Las solicitudes de consulta en Azure Cognitive Search tienen como objetivo texto que permite búsquedas en un índice de búsqueda. En este artículo, aprenderá los pasos para definir y publicar un índice de búsqueda mediante cualquiera de las modalidades admitidas por Azure Cognitive Search. 
+Las consultas en Azure Cognitive Search tienen como objetivo texto que permite búsquedas en un índice de búsqueda. En este artículo, aprenderá los pasos para definir y publicar un índice de búsqueda mediante cualquiera de las modalidades admitidas por Azure Cognitive Search. 
 
-A menos que use un [indizador](search-howto-create-indexers.md), la creación y el relleno de un índice son tareas independientes. Para escenarios que no son de indizador, el siguiente paso después de la creación del índice será la [importación de datos](search-what-is-data-import.md). Para más información, consulte [Índices de búsqueda en Azure Cognitive Search](search-what-is-an-index.md).
+A menos que use un [indexador](search-howto-create-indexers.md), la creación y el relleno de un índice son dos tareas independientes. Para escenarios que no son de indizador, el siguiente paso después de la creación del índice será la [importación de datos](search-what-is-data-import.md). 
 
-## <a name="prerequisites"></a>Prerrequisitos
+Para más información sobre los conceptos relacionados con índices, consulte [Búsqueda de índices en Azure Cognitive Search](search-what-is-an-index.md).
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Los permisos de escritura son necesarios para crear y cargar índices, concedidos a través de una [clave de API de administración](search-security-api-keys.md) en la solicitud. Como alternativa, si participa en la [versión preliminar pública del control de acceso basado en rol](search-security-rbac.md) de Azure Active Directory, puede emitir la solicitud como miembro del rol de colaborador de búsqueda.
 
@@ -37,14 +39,14 @@ Por último, todos los niveles de servicio tiene [límites de índice](search-li
 
 ## <a name="allowed-updates"></a>Actualizaciones permitidas
 
-[Crear índice](/rest/api/searchservice/create-index) es una operación que crea estructuras de datos físicos (archivos e índices invertidos) en el servicio de búsqueda. La capacidad de realizar cambios mediante la opción [Actualizar índice](/rest/api/searchservice/update-index) depende de si la modificación invalida esas estructuras físicas. La mayoría de los atributos de campo no se pueden cambiar una vez creado el campo en el índice.
+[**Crear índice**](/rest/api/searchservice/create-index) es una operación que crea estructuras de datos físicos (archivos e índices invertidos) en el servicio de búsqueda. Una vez creado el índice, la capacidad de realizar cambios mediante la opción [**Actualizar índice**](/rest/api/searchservice/update-index) depende de si la modificación invalida esas estructuras físicas. La mayoría de los atributos de campo no se pueden cambiar una vez creado el campo en el índice.
 
 Para minimizar el abandono en el proceso de diseño, en la tabla siguiente se describen qué elementos son fijos y flexibles en el esquema. El cambio de un elemento fijo requiere una recompilación del índice, mientras que los elementos flexibles se pueden cambiar en cualquier momento sin afectar a la implementación física. 
 
 | Elemento | ¿Se puede actualizar? |
 |---------|-----------------|
 | Nombre | No |
-| Key | No |
+| Clave | No |
 | Tipos y nombres de campo | No |
 | Atributos de campo (que se puedan buscar, filtrar, clasificar, ordenar) | No |
 | Atributo de campo (recuperable) | Sí |
@@ -67,7 +69,7 @@ Use esta lista de comprobación para ayudar a impulsar las decisiones de diseño
 
 1. Identifique un campo en los datos de origen que contenga valores únicos, lo que le permite funcionar como el campo de clave en el índice. Por ejemplo, si va a indexar desde Blob Storage, la ruta de acceso de almacenamiento se suele usar como clave de documento. 
 
-   Cada índice requiere un campo que actúa como *clave de documento* (a veces denominado "id. de documento"). La clave debe asignarse al identificador único de los datos de origen. La capacidad de identificar documentos de búsqueda específicos de forma única es necesaria para recuperar un documento específico en el índice de búsqueda y para el procesamiento selectivo de datos en el nivel por documento.
+   Cada índice requiere un campo que actúa como *clave de documento* (a veces denominado "id. de documento"). La clave será una cadena en el índice de búsqueda, pero puede asignarla a cualquier identificador único de los datos de origen. La capacidad de identificar documentos de búsqueda específicos de forma única es necesaria para volver a constituir un registro o entidad en un resultado de búsqueda, para recuperar un documento específico en el índice de búsqueda y para el procesamiento selectivo de datos en el nivel por documento.
 
 1. Identifique los campos del origen de datos que aportarán contenido que permite búsquedas en el índice. El contenido que permite búsquedas incluye cadenas cortas o largas que se consultan mediante el motor de búsqueda de texto completo. Si el contenido es detallado (frases pequeñas o fragmentos más grandes), experimente con diferentes analizadores para ver cómo se tokeniza el texto.
 
@@ -103,7 +105,7 @@ En la siguiente captura de pantalla se muestra en qué parte de la barra de coma
 
 ### <a name="rest"></a>[**REST**](#tab/kstore-rest)
 
-[**Crear índice (REST)** ](/rest/api/searchservice/create-index) se usa para crear un índice. Tanto Postman como Visual Studio Code (con una extensión para Azure Cognitive Search) pueden funcionar como un cliente de un índice de búsqueda. Con cualquiera de las dos herramientas puede conectarse al servicio de búsqueda y enviar solicitudes:
+[**Crear índice (REST)**](/rest/api/searchservice/create-index) se usa para crear un índice. Tanto Postman como Visual Studio Code (con una extensión para Azure Cognitive Search) pueden funcionar como un cliente de un índice de búsqueda. Con cualquiera de las dos herramientas puede conectarse al servicio de búsqueda y enviar solicitudes:
 
 + [Creación de un índice de búsqueda mediante REST y Postman](search-get-started-rest.md)
 + [Introducción a Visual Studio Code y Azure Cognitive Search](search-get-started-vs-code.md)

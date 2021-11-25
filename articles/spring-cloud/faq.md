@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 8e5f4e1a50b25fc9022444c25a2c1e091c5496e3
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: 607cc8e3341e395fb7ef31c4af5c5c8b5fc75cec
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997483"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484785"
 ---
 # <a name="azure-spring-cloud-faq"></a>Preguntas frecuentes de Azure Spring Cloud
 
@@ -55,7 +55,7 @@ Azure Spring Cloud tiene las limitaciones conocidas siguientes:
 
 * `spring.application.name` se sustituirá por el nombre de la aplicación que se usó para crear cada aplicación.
 * El valor predeterminado de `server.port` es el puerto 1025. Si se aplica cualquier otro valor, se invalidará. También debe respetar esta configuración y no especificar el puerto del servidor en el código.
-* Azure Portal, las plantillas de Azure Resource Manager y Terraform no admiten la carga de paquetes de aplicación. Para cargar paquetes de aplicación, implemente la aplicación mediante la CLI de Azure, Azure DevOps, el complemento Maven para Azure Spring Cloud, Azure Toolkit for IntelliJ y la extensión Visual Studio Code para Azure Spring Cloud.
+* Azure Portal, las plantillas de Azure Resource Manager y Terraform no admiten la carga de paquetes de aplicación. Para cargar paquetes de aplicación, implemente la aplicación mediante la CLI de Azure, Azure DevOps, el complemento Maven para Azure Spring Cloud, Azure Toolkit for IntelliJ y la extensión Visual Studio Code para Azure Spring Cloud.
 
 ### <a name="what-pricing-tiers-are-available"></a>¿Qué planes de tarifa están disponibles?
 
@@ -72,9 +72,9 @@ Si encuentra algún problema con Azure Spring Cloud, cree una [solicitud de sopo
 
 ## <a name="development"></a>Desarrollo
 
-### <a name="i-am-a-spring-cloud-developer-but-new-to-azure-what-is-the-quickest-way-for-me-to-learn-how-to-develop-an-azure-spring-cloud-application"></a>Soy un desarrollador de Spring Cloud, pero nunca he usado Azure. ¿Cuál es la forma más rápida de aprender a desarrollar una aplicación de Azure Spring Cloud?
+### <a name="i-am-a-spring-cloud-developer-but-new-to-azure-what-is-the-quickest-way-for-me-to-learn-how-to-develop-an-application-in-azure-spring-cloud"></a>Soy un desarrollador de Spring Cloud, pero nunca he usado Azure. ¿Cuál es la forma más rápida de aprender a desarrollar una aplicación de Azure Spring Cloud?
 
-Para conocer la forma más rápida de empezar a trabajar con Azure Spring Cloud, siga las instrucciones de [Inicio rápido: inicio de una aplicación de Azure Spring Cloud mediante Azure Portal](./quickstart.md).
+Para conocer la forma más rápida de comenzar con Azure Spring Cloud, siga las instrucciones del [inicio rápido en el que se explica cómo iniciar una aplicación de Azure Spring Cloud mediante Azure Portal](./quickstart.md).
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>¿Qué runtime de Java es compatible con Azure Spring Cloud?

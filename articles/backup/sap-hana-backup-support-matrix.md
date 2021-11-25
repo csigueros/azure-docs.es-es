@@ -2,14 +2,17 @@
 title: Matriz de compatibilidad de SAP HANA
 description: En este artículo se proporciona información sobre los escenarios admitidos y las limitaciones al usar Azure Backup para realizar copias de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure.
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 11/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: b9d642d0c70b06677aedcce99c1f21ac4b3a7d34
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: 310fc7ba4753656015c15001b23e5a953aa76adf
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130244547"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132488456"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de compatibilidad de la copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -23,9 +26,10 @@ Azure Backup admite la realización de copias de seguridad de bases de datos de 
 | **Escenario**               | **Configuraciones admitidas**                                | **Configuraciones no admitidas**                              |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Topología**               | SAP HANA que solo se ejecuta en máquinas virtuales Linux de Azure                    | Instancias grandes de HANA (HLI)                                   |
-| **Regiones**                   | **DISPONIBILIDAD GENERAL:**<br> **Américas**: Centro de EE. UU., Este de EE. UU. 2, Este de EE. UU., Centro-norte de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU., Oeste de EE. UU., Centro de Canadá, Este de Canadá, Sur de Brasil <br> **Asia Pacífico**: Centro de Australia, Centro de Australia 2, Este de Australia, Sudeste de Australia, Este de Japón, Oeste de Japón, Centro de Corea, Sur de Corea del Sur, Asia Oriental, Sudeste Asiático, Centro de la India, India del Sur, Oeste de la India, Este de China, Norte de China, Este de China 2, Norte de China 2 <br> **Europa**: Oeste de Europa, Norte de Europa, Centro de Francia, Sur de Reino Unido, Oeste de Reino Unido, Norte de Alemania, Centro-oeste de Alemania, Norte de Suiza, Oeste de Suiza, Centro-norte de Suiza, Este de Noruega, Oeste de Noruega <br> **África/ME**: Norte de Sudáfrica, Oeste de Sudáfrica, Norte de Emiratos Árabes Unidos, Centro de Emiratos Árabes Unidos  <BR>  **Regiones de Azure Government** | Sur de Francia, Centro de Alemania, Nordeste de Alemania, US Gov IOWA |
+| **Regiones**                   | **DISPONIBILIDAD GENERAL:**<br> **Américas**: Centro de EE. UU., Este de EE. UU. 2, Este de EE. UU., Centro-norte de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU. 2, Oeste de EE. UU. 3, Centro-oeste de EE. UU., Oeste de EE. UU., Centro de Canadá, Este de Canadá, Sur de Brasil <br> **Asia Pacífico**: Centro de Australia, Centro de Australia 2, Este de Australia, Sudeste de Australia, Este de Japón, Oeste de Japón, Centro de Corea, Sur de Corea del Sur, Asia Oriental, Sudeste Asiático, Centro de la India, India del Sur, Oeste de la India, Este de China, Norte de China, Este de China 2, Norte de China 2 <br> **Europa**: Oeste de Europa, Norte de Europa, Centro de Francia, Sur de Reino Unido, Oeste de Reino Unido, Norte de Alemania, Centro-oeste de Alemania, Norte de Suiza, Oeste de Suiza, Centro-norte de Suiza, Este de Noruega, Oeste de Noruega <br> **África/ME**: Norte de Sudáfrica, Oeste de Sudáfrica, Norte de Emiratos Árabes Unidos, Centro de Emiratos Árabes Unidos  <BR>  **Regiones de Azure Government** | Sur de Francia, Centro de Alemania, Nordeste de Alemania, US Gov IOWA |
 | **Versiones del SO**            | SLES 12 con SP2, SP3, SP4 y SP5; SLES 15 con SP0, SP1, SP2 y SP3 <br><br>  RHEL 7.4, 7.6, 7.7, 7.9, 8.1, 8.2 y 8.4                |                                             |
 | **Versiones de HANA**          | SDC en HANA 1.x, MDC en HANA 2.x, SPS04, SPS05 Rev <= 55 (aún pendiente de validación para los escenarios habilitados para el cifrado)      |                                                            |
+| **Cifrado** | SSLEnforce, cifrado de datos de HANA |            |
 | **Implementaciones de HANA**       | SAP HANA en una sola máquina virtual de Azure: solo escalado vertical. <br><br> En el caso de las implementaciones de alta disponibilidad, ambos nodos de las dos máquinas diferentes se tratan como individuales con cadenas de datos independientes.               | Escalado horizontal <br><br> En las implementaciones de alta disponibilidad, la copia de seguridad no conmutará por error automáticamente al nodo secundario. La configuración de la copia de seguridad debe realizarse por separado para cada nodo.                                           |
 | **Instancias de HANA**         | Una sola instancia de SAP HANA en una sola máquina virtual de Azure: solo escalado vertical | Varias instancias de SAP HANA en una sola VM. Solo puede proteger una de estas instancias múltiples a la vez.                  |
 | **Tipos de base de datos HANA**    | Contenedor de base de datos única (SDC) en la versión 1.x, contenedor de varias bases de datos (MDC) en la versión 2.x | MDC en HANA 1.x                                              |

@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 04/22/2021
 ms.topic: how-to
 ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: d7fa588c0711285c968c13ab14e319fb803e9785
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 5a5ef573b4df91e191dac2fa24a09c65aace5cea
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132323474"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723615"
 ---
 # <a name="manage-azure-machine-learning-workspaces-in-the-portal-or-with-the-python-sdk"></a>Administración de áreas de trabajo de Azure Machine Learning en el portal o con el SDK de Python
 
@@ -306,13 +306,15 @@ Vea una lista de todas las áreas de trabajo que puede usar.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Busque las suscripciones en la [página Suscripciones de Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).  Copie el identificador y úselo en el código siguiente para ver todas las áreas de trabajo disponibles para esa suscripción.
+Busque las suscripciones en la [página Suscripciones de Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Copie el identificador y úselo en el código siguiente para ver todas las áreas de trabajo disponibles para esa suscripción.
 
 ```python
 from azureml.core import Workspace
 
 Workspace.list('<subscription-id>')
 ```
+
+El método Workspace.list(..) no devuelve el objeto de área de trabajo completo. Solo incluye información básica sobre las áreas de trabajo existentes en la suscripción. Para obtener un objeto completo para un área de trabajo específica, use Workspace.get(..).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -337,7 +339,7 @@ Cuando ya no necesite un área de trabajo, elimínela.
 
 [!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
 
-Si eliminó el área de trabajo por error, podrá recuperar los cuadernos. Consulte [esta documentación](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion).
+Si eliminó el área de trabajo por error, es posible que aún pueda recuperar los cuadernos. Para obtener más información, consulte [Conmutación por error para la continuidad empresarial y la recuperación ante desastres](./how-to-high-availability-machine-learning.md#workspace-deletion).
 
 # <a name="python"></a>[Python](#tab/python)
 

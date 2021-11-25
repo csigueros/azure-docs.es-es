@@ -4,23 +4,23 @@ description: Una descripción de las novedades y los cambios en Azure Sentinel e
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 603b4a083de5a71a29456fc1128b7a53a40c8782
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9a4203f053fc295c2dfeac2a5ad40184dcd9c3b6
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131064095"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522448"
 ---
 # <a name="archive-for-whats-new-in-azure-sentinel"></a>Archivo de novedades en Azure Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-La página principal de notas de la versión de [Novedades de Azure Sentinel](whats-new.md) contiene actualizaciones de los últimos seis meses, mientras que esta página contiene elementos más antiguos.
+La página principal de notas de la versión de [Novedades de Sentinel](whats-new.md) contiene actualizaciones de los últimos seis meses, mientras que esta página contiene elementos más antiguos.
 
 Para más información sobre las características anteriores, consulte los [blogs de Tech Community](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 

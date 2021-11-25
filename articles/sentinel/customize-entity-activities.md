@@ -1,26 +1,26 @@
 ---
-title: Personalización de las actividades en las escalas de tiempo de entidades de Azure Sentinel| Microsoft Docs
-description: Agregue actividades personalizadas a aquellas de las que Azure Sentinel hace un seguimiento y muéstrelas en la escala de tiempo de las páginas de entidad.
+title: Personalización de las actividades en las escalas de tiempo de entidades de Microsoft Sentinel| Microsoft Docs
+description: Agregue actividades personalizadas a aquellas de las que Microsoft Sentinel hace un seguimiento y muéstrelas en la escala de tiempo de las páginas de entidad.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6fd6db5b75124552bff3f48a516cd352d817cf27
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0483d839af7a8707aa3be632f9d168447488e768
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131055224"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523626"
 ---
 # <a name="customize-activities-on-entity-page-timelines"></a>Personalización de actividades en las escalas de tiempo de las páginas de entidad
 
@@ -32,7 +32,7 @@ ms.locfileid: "131055224"
 
 ## <a name="introduction"></a>Introducción
 
-Azure Sentinel viene preconfigurado para hacer un seguimiento de determinadas actividades que además presenta en la escala de tiempo. Pues además de estas actividades, puede agregar otras para que también se les haga un seguimiento y se presenten en la escala de tiempo. Puede crear actividades personalizadas basadas en consultas de datos de entidades de cualquier origen de datos conectado. En los ejemplos siguientes se muestra cómo podría usar esta funcionalidad:
+Microsoft Sentinel viene preconfigurado para hacer un seguimiento de determinadas actividades que además presenta en la escala de tiempo. Pues además de estas actividades, puede agregar otras para que también se les haga un seguimiento y se presenten en la escala de tiempo. Puede crear actividades personalizadas basadas en consultas de datos de entidades de cualquier origen de datos conectado. En los ejemplos siguientes se muestra cómo podría usar esta funcionalidad:
 
 - Agregar nuevas actividades a la escala de tiempo de la entidad mediante la modificación de las plantillas de actividad estándar existentes.
 
@@ -40,7 +40,7 @@ Azure Sentinel viene preconfigurado para hacer un seguimiento de determinadas ac
 
 ## <a name="getting-started"></a>Introducción
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Entity behavior** (Comportamiento de entidad).
+1. En el menú de navegación de Microsoft Sentinel, seleccione **Comportamiento de la entidad**.
 
 1. En la hoja **Comportamiento de la entidad**, seleccione **Personalizar página de entidad** en la parte superior de la pantalla.
 
@@ -146,7 +146,7 @@ SecurityEvent
 
 Para mayor comodidad, puede que desee determinar cómo se presenta la actividad en la escala de tiempo al agregar parámetros dinámicos a la salida de la actividad.
 
-Azure Sentinel proporciona parámetros integrados que puede usar y también puede usar otros en función de los campos proyectados en la consulta.
+Microsoft Sentinel proporciona parámetros integrados que puede usar y también puede usar otros en función de los campos proyectados en la consulta.
 
 Use el formato siguiente para los parámetros: `{{ParameterName}}`
 
@@ -209,6 +209,6 @@ También puede usar el filtro **Actividades** para presentar u ocultar actividad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, ha aprendido a crear actividades personalizadas para las escalas de tiempo de la página de su entidad. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+En este documento, ha aprendido a crear actividades personalizadas para las escalas de tiempo de la página de su entidad. Para obtener más información sobre Microsoft Sentinel, consulte los siguientes artículos:
 - Obtenga la imagen completa sobre las [páginas de entidad](identify-threats-with-entity-behavior-analytics.md).
 - Consulte la lista completa de [entidades e identificadores](entities-reference.md).

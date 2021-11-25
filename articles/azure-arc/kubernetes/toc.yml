@@ -22,36 +22,54 @@
       href: ./resource-graph-samples.md
 - name: Conceptos
   items:
-    - name: Arquitectura de agente
-      href: conceptual-agent-architecture.md
-    - name: Configuraciones y GitOps
-      href: conceptual-configurations.md
-    - name: Extensiones de clúster
-      href: conceptual-extensions.md
-    - name: Conexión de clúster
+    - name: Introducción al agente
+      href: conceptual-agent-overview.md
+    - name: Modos de conectividad
+      href: conceptual-connectivity-modes.md
+    - name: Intercambio de datos entre el clúster y Azure
+      href: conceptual-data-exchange.md
+    - name: Administración de identidades y acceso
+      items:
+        - name: Azure RBAC
+          href: conceptual-azure-rbac.md
+    - name: Acceso al clúster desde cualquier lugar
       href: conceptual-cluster-connect.md
-    - name: Ubicaciones personalizadas
-      href: conceptual-custom-locations.md
-    - name: Azure RBAC
-      href: conceptual-azure-rbac.md
+    - name: Extensión de las funcionalidades de Azure a clústeres en cualquier lugar
+      items:
+        - name: Extensiones de clúster
+          href: conceptual-extensions.md
+        - name: Ubicaciones personalizadas
+          href: conceptual-custom-locations.md
+    - name: Implementación de aplicaciones en el clúster
+      items:
+        - name: Configuraciones y GitOps
+          href: conceptual-configurations.md
+        - name: Flujo de trabajo de CI/CD mediante GitOps
+          href: conceptual-gitops-ci-cd.md
+        - name: Experiencia del desarrollador de bucles internos
+          href: conceptual-inner-loop-gitops.md
     - name: Preguntas más frecuentes
       href: faq.md
-    - name: Flujo de trabajo de CI/CD mediante GitOps
-      href: conceptual-gitops-ci-cd.md
-    - name: Experiencia del desarrollador de bucles internos
-      href: conceptual-inner-loop-gitops.md
 - name: Guías paso a paso
   items:
-    - name: Conexión del clúster mediante una entidad de servicio
-      href: create-onboarding-service-principal.md
     - name: Actualización de agentes
       href: agent-upgrade.md
-    - name: Escenarios
+    - name: Conexión segura a un clúster desde cualquier lugar
+      href: cluster-connect.md
+    - name: Vista de recursos de Kubernetes de Azure Portal
+      href: kubernetes-resource-view.md
+    - name: "Uso del control de acceso basado en roles de Azure\_AD para comprobaciones de autorización"
+      href: azure-rbac.md
+    - name: Implementación de aplicaciones en el clúster
       items:
         - name: Implementación de gráficos de Helm mediante GitOps
           href: use-gitops-with-helm.md
-        - name: Aplicación de GitOps mediante Azure Policy
+        - name: Implementación a escala de configuraciones mediante Azure Policy
           href: use-azure-policy.md
+        - name: Implementación de cargas de trabajo de IoT
+          href: deploy-azure-iot-edge-workloads.md
+    - name: Administración de clústeres
+      items:
         - name: Implementación y administración de extensiones de clúster
           href: extensions.md
         - name: Supervisión mediante Azure Monitor para contenedores
@@ -62,16 +80,10 @@
           href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: Implementación de Open Service Mesh habilitado para Azure Arc
           href: tutorial-arc-enabled-open-service-mesh.md
-        - name: Conexión segura a un clúster desde cualquier lugar
-          href: cluster-connect.md
-        - name: Vista de recursos de Kubernetes de Azure Portal
-          href: kubernetes-resource-view.md
-        - name: "Uso del control de acceso basado en roles de Azure\_AD para comprobaciones de autorización"
-          href: azure-rbac.md
+    - name: Implementación de servicios habilitados para Arc
+      items:
         - name: Creación de ubicaciones personalizadas
           href: custom-locations.md
-        - name: Implementación de cargas de trabajo de IoT
-          href: deploy-azure-iot-edge-workloads.md
         - name: Machine Learning habilitado para Azure Arc
           href: ../../machine-learning/how-to-attach-arc-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
     - name: Solución de problemas

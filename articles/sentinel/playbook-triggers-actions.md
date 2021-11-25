@@ -1,65 +1,64 @@
 ---
-title: Uso de desencadenadores y acciones en cuadernos de estrategias de Azure Sentinel | Microsoft Docs
-description: Obtenga información más detallada sobre cómo proporcionar a los cuadernos de estrategias el acceso a la información de las alertas e incidentes de Azure Sentinel, y use esa información para realizar acciones correctivas.
+title: Uso de desencadenadores y acciones en cuadernos de estrategias de Microsoft Sentinel | Microsoft Docs
+description: Obtenga información más detallada sobre cómo proporcionar a los cuadernos de estrategias el acceso a la información de las alertas e incidentes de Microsoft Sentinel, y use esa información para realizar acciones correctivas.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 093db947b30444b4d7c3614126c83977fd45e3de
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 89b296d47f24391eb0c31b2292aa4add273d71f6
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131083961"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524405"
 ---
-# <a name="use-triggers-and-actions-in-azure-sentinel-playbooks"></a>Uso de desencadenadores y acciones en cuadernos de estrategias de Azure Sentinel
+# <a name="use-triggers-and-actions-in-microsoft-sentinel-playbooks"></a>Uso de desencadenadores y acciones en cuadernos de estrategias de Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-En este documento se explican los tipos de desencadenadores y acciones del [conector de Azure Sentinel de Logic Apps](/connectors/azuresentinel/), que los cuadernos de estrategias pueden usar para interactuar con Azure Sentinel y la información en las tablas del área de trabajo. Además, se muestra cómo obtener tipos específicos de información de Azure Sentinel que es probable que necesite.
+En este documento se explican los tipos de desencadenadores y acciones del [conector de Microsoft Sentinel de Logic Apps](/connectors/azuresentinel/), que los cuadernos de estrategias pueden usar para interactuar con Microsoft Sentinel y la información en las tablas del área de trabajo. Además, se muestra cómo obtener tipos específicos de información de Microsoft Sentinel que es probable que necesite.
 
-Este documento, junto con nuestra guía para la [Autenticación de cuadernos de estrategias en Azure Sentinel](authenticate-playbooks-to-sentinel.md), es un complemento de nuestra otra documentación del cuaderno de estrategias: [Tutorial: Uso de cuadernos de estrategias con reglas de automatización en Azure Sentinel](tutorial-respond-threats-playbook.md). Estos tres documentos se referirán entre sí de un lado a otro.
+Este documento, junto con nuestra guía para la [Autenticación de cuadernos de estrategias en Microsoft Sentinel](authenticate-playbooks-to-sentinel.md), es un complemento de nuestra otra documentación del cuaderno de estrategias: [Tutorial: Uso de cuadernos de estrategias con reglas de automatización en Microsoft Sentinel](tutorial-respond-threats-playbook.md). Estos tres documentos se referirán entre sí de un lado a otro.
 
-Para ver una presentación de los cuadernos de estrategias, consulte [Automatización de la respuesta a amenazas con cuadernos de estrategias en Azure Sentinel](automate-responses-with-playbooks.md).
+Para ver una presentación de los cuadernos de estrategias, consulte [Automatización de la respuesta a amenazas con cuadernos de estrategias en Microsoft Sentinel](automate-responses-with-playbooks.md).
 
-Para la especificación completa del conector de Azure Sentinel, consulte la [documentación del conector de Logic Apps](/connectors/azuresentinel/).
+Para la especificación completa del conector de Microsoft Sentinel, consulte la [documentación del conector de Logic Apps](/connectors/azuresentinel/).
 
 ## <a name="permissions-required"></a>Permisos necesarios
 
 | Componentes del conector o roles | Desencadenadores | Acciones "Get" | Actualizar incidente,<br>agregar un comentario |
 | ------------- | :-----------: | :------------: | :-----------: |
-| **[Lector de Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
-| **Azure Sentinel [Respondedor](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)/[Colaborador](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
+| **[Lector de Microsoft Sentinel](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
+| **Microsoft Sentinel [Respondedor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder)/[Colaborador](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
 | 
 
-[Más información sobre permisos en Azure Sentinel](./roles.md).
+[Más información sobre permisos en Microsoft Sentinel](./roles.md).
 
-## <a name="azure-sentinel-triggers-summary"></a>Resumen de desencadenadores de Azure Sentinel
+## <a name="microsoft-sentinel-triggers-summary"></a>Resumen de desencadenadores de Microsoft Sentinel
 
-Aunque el conector de Azure Sentinel se puede usar de varias maneras, los componentes del conector se pueden dividir en dos flujos, cada uno desencadenado por una aparición diferente de Azure Sentinel:
+Aunque el conector de Microsoft Sentinel se puede usar de varias maneras, los componentes del conector se pueden dividir en dos flujos, cada uno desencadenado por una aparición diferente de Microsoft Sentinel:
 
 | Desencadenador | Nombre completo del desencadenador en<br>Diseñador de Logic Apps | Cuándo se debe usar | Limitaciones conocidas 
 | --------- | ------------ | -------------- | -------------- | 
-| **Desencadenador de incidentes** | "When Azure Sentinel incident creation rule was triggered (Preview)" (Cuando se desencadenó la regla de creación de incidentes de Azure Sentinel [versión preliminar]) | Se recomienda para la mayoría de los escenarios de automatización de incidentes.<br><br>El cuaderno de estrategias recibe objetos de incidentes, incluidas las entidades y las alertas. El uso de este desencadenador permite adjuntar el cuaderno de estrategias a una **regla de automatización**, por lo que se puede desencadenar al crear un incidente en Azure Sentinel y se pueden aplicar todas las [ventajas de las reglas de automatización](./automate-incident-handling-with-automation-rules.md) al incidente. | Los cuadernos de estrategias con este desencadenador no se pueden ejecutar manualmente desde Azure Sentinel.<br><br>Los cuadernos de estrategias con este desencadenador no admiten la agrupación de alertas, lo que significa que solo recibirán la primera alerta enviada con cada incidente.
-| **Desencadenador de alertas** | When a response to an Azure Sentinel alert is triggered (Cuando se desencadena una respuesta a una alerta de Azure Sentinel) | Aconsejable para los cuadernos de estrategias que deben ejecutarse en alertas manualmente desde el portal de Azure Sentinel o para las reglas de análisis **programadas** que no generan incidentes para sus alertas. | Este desencadenador no se puede usar para automatizar las respuestas de las alertas generadas por las reglas de análisis de **seguridad de Microsoft**.<br><br>Las **reglas de automatización** no pueden llamar a los cuadernos de estrategias que usan este desencadenador. |
+| **Desencadenador de incidentes** | "When Microsoft Sentinel incident creation rule is triggered (Preview)" (Cuando se desencadena la regla de creación de incidentes de Microsoft Sentinel [versión preliminar]). | Se recomienda para la mayoría de los escenarios de automatización de incidentes.<br><br>El cuaderno de estrategias recibe objetos de incidentes, incluidas las entidades y las alertas. El uso de este desencadenador permite adjuntar el cuaderno de estrategias a una **regla de automatización**, por lo que se puede desencadenar al crear un incidente en Microsoft Sentinel y se pueden aplicar todas las [ventajas de las reglas de automatización](./automate-incident-handling-with-automation-rules.md) al incidente. | Los cuadernos de estrategias con este desencadenador no se pueden ejecutar manualmente desde Microsoft Sentinel.<br><br>Los cuadernos de estrategias con este desencadenador no admiten la agrupación de alertas, lo que significa que solo recibirán la primera alerta enviada con cada incidente.
+| **Desencadenador de alertas** | "When a response to a Microsoft Sentinel Alert is triggered" (Cuando se desencadena una respuesta a una alerta de Microsoft Sentinel). | Aconsejable para los cuadernos de estrategias que deben ejecutarse en alertas manualmente desde el portal de Microsoft Sentinel o para las reglas de análisis **programadas** que no generan incidentes para sus alertas. | Este desencadenador no se puede usar para automatizar las respuestas de las alertas generadas por las reglas de análisis de **seguridad de Microsoft**.<br><br>Las **reglas de automatización** no pueden llamar a los cuadernos de estrategias que usan este desencadenador. |
 |
 
-Los esquemas usados por estos dos flujos no son idénticos.
-El procedimiento recomendado es usar el flujo del **desencadenador de incidentes de Azure Sentinel**, que es aplicable a la mayoría de los escenarios.
+Los esquemas usados por estos dos flujos no son idénticos. El procedimiento recomendado es usar el flujo del **desencadenador de incidentes de Microsoft Sentinel**, que es aplicable a la mayoría de los escenarios.
 
 ### <a name="incident-dynamic-fields"></a>Campos dinámicos de incidentes
 
-El objeto **Incidente** recibido de **When Azure Sentinel incident creation rule was triggered** (Cuando se desencadenó la regla de creación de incidentes de Azure Sentinel) incluye los siguientes campos dinámicos:
+El objeto **Incidente** recibido de **When Microsoft Sentinel incident creation rule was triggered** (Cuando se desencadenó la regla de creación de incidentes de Microsoft Sentinel) incluye los siguientes campos dinámicos:
 
 - Propiedades del incidente (se muestra como "Incidente: nombre de campo")
 
@@ -77,7 +76,7 @@ El objeto **Incidente** recibido de **When Azure Sentinel incident creation rule
   - Id. del área de trabajo
   - Definición de un nombre de grupo de recursos
 
-## <a name="azure-sentinel-actions-summary"></a>Resumen de acciones de Azure Sentinel
+## <a name="microsoft-sentinel-actions-summary"></a>Resumen de acciones de Microsoft Sentinel
 
 | Componente | Cuándo se debe usar |
 | --------- | -------------- |
@@ -91,8 +90,9 @@ El objeto **Incidente** recibido de **When Azure Sentinel incident creation rule
 ## <a name="work-with-incidents---usage-examples"></a>Utilización de incidentes: ejemplos de uso
 
 > [!TIP] 
-> Las acciones **Actualizar incidente** y **Add comment to incident** (Agregar comentario a incidente) requieren el valor de **Incident ARM ID** (Id. de ARM del incidente). <br>
-Use la acción **Alert - Get Incident** (Alerta: obtener incidente) de antemano para obtener el valor de **Incident ARM ID** (Id. de ARM del incidente).
+> Las acciones **Actualizar incidente** y **Add comment to incident** (Agregar comentario a incidente) requieren el valor de **Incident ARM ID** (Id. de ARM del incidente).
+>
+> Use la acción **Alert - Get Incident** (Alerta: obtener incidente) de antemano para obtener el valor de **Incident ARM ID** (Id. de ARM del incidente).
 
 ### <a name="update-an-incident"></a>Actualización de un incidente
 -  El cuaderno de estrategias se desencadena **cuando se crea un incidente**.
@@ -193,5 +193,5 @@ Puede proporcionar el siguiente código JSON para generar el esquema. En el cód
     
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido más sobre el uso de los desencadenadores y las acciones de los cuadernos de estrategias de Azure Sentinel para responder a las amenazas. 
-- Más información en [Búsqueda de amenazas con Azure Sentinel](hunting.md).
+En este artículo, ha aprendido más sobre el uso de los desencadenadores y las acciones de los cuadernos de estrategias de Microsoft Sentinel para responder a las amenazas. 
+- Aprenda a [buscar amenazas de forma proactiva](hunting.md) mediante Microsoft Sentinel.

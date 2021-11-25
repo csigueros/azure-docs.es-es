@@ -3,18 +3,18 @@ title: Autenticación en recursos de Azure con servidores habilitados para Azure
 description: En este artículo se describe la compatibilidad de Azure Instance Metadata Service con servidores habilitados para Azure Arc y cómo puede autenticarse en los recursos de Azure y locales mediante un secreto.
 ms.topic: conceptual
 ms.date: 11/08/2021
-ms.openlocfilehash: 7fc08c304a7a3b13e639ebf1e6bd1ce92922f712
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: d73f4d1e7d10af8f270f77fcb11219d8481c848f
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132134750"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400174"
 ---
 # <a name="authenticate-against-azure-resources-with-azure-arc-enabled-servers"></a>Autenticación en recursos de Azure con servidores habilitados para Azure Arc
 
-Las aplicaciones o procesos que se ejecutan directamente en servidores habilitados para Azure Arc pueden sacar partido de las identidades administradas para acceder a otros recursos de Azure que admiten la autenticación basada en Azure Active Directory. Una aplicación puede obtener un [token de acceso](../../active-directory/develop/developer-glossary.md#access-token), que representa su identidad asignada por el sistema en servidores habilitados para Azure Arc, y usarlo como token de "portador" para autenticarse en otro servicio.
+Las aplicaciones o procesos que se ejecutan directamente en servidores habilitados para Azure Arc pueden usar las identidades administradas para acceder a otros recursos de Azure que admiten la autenticación basada en Azure Active Directory. Una aplicación puede obtener un [token de acceso](../../active-directory/develop/developer-glossary.md#access-token), que representa su identidad asignada por el sistema en servidores habilitados para Azure Arc, y usarlo como token de "portador" para autenticarse en otro servicio.
 
-Vea la documentación de [información general sobre las identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md) para obtener una descripción detallada de las identidades administradas, así como saber distinguir las identidades asignadas por el sistema y las asignadas por el usuario.
+Consulte la documentación de [información general sobre las identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md) para obtener una descripción detallada de las identidades administradas, así como comprender las identidades asignadas por el sistema y las asignadas por el usuario.
 
 En este artículo se muestra cómo un servidor puede usar una identidad administrada asignada por el sistema para acceder a Azure [Key Vault](../../key-vault/general/overview.md). Actuando como un arranque, Key Vault hace posible que la aplicación cliente use un secreto para acceder a recursos que no están protegidos por Azure Active Directory (AD). Por ejemplo, los certificados TLS/SSL que los servidores web de IIS usan se pueden almacenar en Azure Key Vault y puede implementar de forma segura los certificados en servidores Windows o Linux fuera de Azure.
 
@@ -45,7 +45,7 @@ La variable de entorno del sistema **IDENTITY_ENDPOINT** se usa para detectar el
 - En Linux, debe ser miembro del grupo **himds**.
 - Un servidor conectado y registrado con servidores habilitados para Azure Arc.
 - Debe ser miembro del [grupo Propietario](../../role-based-access-control/built-in-roles.md#owner) en la suscripción o el grupo de recursos para crear los recursos necesarios y realizar los pasos de administración de roles.
-- Una instancia de Azure Key Vault para almacenar y recuperar la credencial. y asignar el acceso de identidad de Azure Arc a KeyVault.
+- Una instancia de Azure Key Vault para almacenar y recuperar la credencial y asignar el acceso de la identidad de Azure Arc a KeyVault.
 
     - Si no tiene una instancia de Key Vault creada, consulte [Creación de un almacén de claves](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#create-a-key-vault-).
     - Para configurar el acceso mediante la identidad administrada usada por el servidor, consulte [Conceder acceso para Linux](../../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad.md#grant-access) o [Conceder acceso para Windows](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#grant-access). En el paso 5, va a escribir el nombre del servidor habilitado para Azure Arc. Para completar esto con PowerShell, consulte [Asignación de una directiva de acceso de Key Vault mediante Azure PowerShell](../../key-vault/general/assign-access-policy-powershell.md).

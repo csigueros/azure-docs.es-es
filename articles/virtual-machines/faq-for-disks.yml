@@ -8,12 +8,12 @@ metadata:
   ms.date: 06/15/2017
   ms.author: rogarana
   ms.subservice: disks
-  ms.openlocfilehash: 53af4de413739318a78f3ced65f64ffa89ba0545
-  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+  ms.openlocfilehash: 75eccc45269218fa4af9dd8ccac9ed9509c84934
+  ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/03/2021
-  ms.locfileid: "131424691"
+  ms.lasthandoff: 11/15/2021
+  ms.locfileid: "132492536"
 title: Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 summary: En este artículo se responden algunas de las preguntas más frecuentes acerca de Azure Managed Disks y los discos SSD Premium de Azure.
 sections:
@@ -197,7 +197,7 @@ sections:
   - question: >
       ¿Se admite la característica de discos compartidos para discos no administrados o blobs en páginas?
     answer: >
-      No, solo se admite en discos Ultra y discos SSD administrados Premium.
+      No, solo se admite para un subconjunto de tipos de discos administrados. Para más información, vea el [artículo conceptual](disks-shared.md).
   - question: >
       ¿En qué regiones se admiten los discos compartidos?
     answer: >
@@ -378,7 +378,7 @@ sections:
   - question: >
       ¿Puedo convertir máquinas virtuales con discos no administrados que se encuentran en las cuentas de almacenamiento o que se hayan cifrado previamente en discos administrados?
     answer: >
-      Sí
+      Yes
   - question: >
       ¿Se cifrará también un VHD exportado de un disco administrado o de una instantánea?
     answer: >

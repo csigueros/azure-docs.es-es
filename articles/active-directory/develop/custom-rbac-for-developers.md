@@ -8,24 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/28/2021
+ms.date: 11/15/2021
 ms.custom: template-concept
 ms.author: cchiedo
 ms.reviewer: john.garland, maggie.marxen, ian.bennett, marsma
-ms.openlocfilehash: f1378d1e011deaddf793dea9bebc7b099bedde9e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fc1154965b037fbc57dcafa30f08fd951721bf6f
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737307"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486734"
 ---
 # <a name="role-based-access-control-for-application-developers"></a>Control de acceso basado en rol para desarrolladores de aplicaciones
 
-El control de acceso basado en rol (RBAC) permite que determinados usuarios o grupos tengan permisos específicos con respecto a los recursos a los que tienen acceso, qué pueden hacer con esos recursos y quién los administra. En este artículo se explica el control de acceso basado en rol específico de la aplicación.
-
-> [!NOTE]
-> El control de acceso basado en rol de la aplicación difiere del [control de acceso basado en rol de Azure](../../role-based-access-control/overview.md) y del [control de acceso basado en rol de Azure AD](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Los roles personalizados de Azure y los roles integrados forman parte de RBAC de Azure, lo cual le permite administrar los recursos de Azure. El RBAC de Azure AD permite administrar recursos de Azure AD.
-
+El control de acceso basado en rol (RBAC) permite que determinados usuarios o grupos tengan permisos específicos con respecto a los recursos a los que tienen acceso, qué pueden hacer con esos recursos y quién los administra. El control de acceso basado en rol de la aplicación difiere del [control de acceso basado en rol de Azure](../../role-based-access-control/overview.md) y del [control de acceso basado en rol de Azure AD](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Los roles personalizados de Azure y los roles integrados forman parte de RBAC de Azure, lo cual le permite administrar los recursos de Azure. El RBAC de Azure AD permite administrar recursos de Azure AD. En este artículo se explica el control de acceso basado en rol específico de la aplicación.
 
 
 ## <a name="what-are-roles"></a>¿Qué son los roles?
@@ -64,8 +60,7 @@ Tanto los roles como los grupos de aplicaciones almacenan información sobre las
 
 Usar el almacenamiento personalizado permite a los desarrolladores una personalización y un control adicionales sobre cómo asignar roles a los usuarios y cómo representarlos. Pero una mayor flexibilidad también conlleva más responsabilidad. Por ejemplo, actualmente no hay ningún mecanismo disponible para incluir esta información en los tokens devueltos desde Azure AD. Si los desarrolladores mantienen información de rol en un almacén de datos personalizado, necesitarán que las aplicaciones recuperen los roles. Por lo general, esto se hace mediante puntos de extensibilidad definidos en el middleware disponible para la plataforma que se usa a fin de desarrollar la aplicación. Además, los desarrolladores son responsables de proteger correctamente el almacén de datos personalizado.
 
-> [!NOTE]
-> Con [directivas personalizadas de Azure AD B2C](../../active-directory-b2c/custom-policy-overview.md) es posible interactuar con almacenes de datos personalizados e incluir notificaciones personalizadas en un token.
+Con [directivas personalizadas de Azure AD B2C](../../active-directory-b2c/custom-policy-overview.md) es posible interactuar con almacenes de datos personalizados e incluir notificaciones personalizadas en un token.
 
 ## <a name="choosing-an-approach"></a>Elección de un enfoque
 
@@ -81,12 +76,9 @@ Aunque se pueden usar roles de aplicación o grupos para la autorización, las d
 |**Los valores de rol son estáticos entre inquilinos de Azure AD**|Sí  |No |Depende de la implementación.|
 |**Los valores de rol se pueden usar en varias aplicaciones**|No. A menos que la configuración del rol se duplique en cada registro de aplicación.|Sí |Sí |
 |**Información almacenada en el directorio**|Sí  |Sí |No |
-|**La información se entrega mediante tokens**|Sí (notificación de roles).  |Sí* (notificación de grupos). |No. Se recupera en tiempo de ejecución mediante código personalizado. |
+|**La información se entrega mediante tokens**|Sí (notificación de roles).  |Sí (en el caso de un uso por encima del límite, es posible que sea necesario recuperar las *notificaciones de grupos* en tiempo de ejecución). |No. Se recupera en tiempo de ejecución mediante código personalizado. |
 |**Duración**|Reside en el registro de aplicación en el directorio. Se quita cuando se elimina el registro de aplicación.|Reside en el directorio. Permanecen intactos incluso si se quita el registro de aplicación. |Reside en el almacén de datos personalizado. No está vinculado al registro de aplicación.|
 
-
-> [!NOTE]
-> Sí*: en el caso de un uso por encima del límite, es posible que sea necesario recuperar las *notificaciones de grupos* en tiempo de ejecución.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

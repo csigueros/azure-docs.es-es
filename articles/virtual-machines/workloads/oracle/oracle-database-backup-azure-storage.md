@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: f30a7fcbc99f6a47574d101e3792d992dc2c1af8
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 2c9128f6e03f039ddc6e56ec9672a7a0a18f9889
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123260039"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520434"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-files"></a>Copia de seguridad y recuperación de una base de datos de Oracle Database 19c en una máquina virtual Linux de Azure mediante Azure Files
 
@@ -175,7 +175,7 @@ Siga estos pasos para hacer una copia de seguridad en Azure Files:
 
 ### <a name="set-up-azure-files"></a>Configuración de Azure Files
 
-En este paso, hará una copia de seguridad de la base de datos de Oracle mediante Oracle Recovery Manager (RMAN) en Azure Files. Los recursos compartidos de archivos de Azure son recursos compartidos de archivos totalmente administrados en la nube. Se pueden acceder mediante el protocolo de Bloque de mensajes del servidor (SMB) o el protocolo Network File System (NFS). En este paso se describe cómo crear un recurso compartido de archivos que usa el protocolo SMB para su montaje en la máquina virtual. Para información sobre el montaje con NFS, consulte [Montaje de Blob Storage con el protocolo Network File System (NFS) 3.0](../../../storage/blobs/network-file-system-protocol-support-how-to.md).
+En este paso, hará una copia de seguridad de la base de datos de Oracle mediante Oracle Recovery Manager (RMAN) en Azure Files. Los recursos compartidos de archivos de Azure son recursos compartidos de archivos totalmente administrados en la nube. Se pueden acceder mediante el protocolo de Bloque de mensajes del servidor (SMB) o el protocolo Network File System (NFS). En este paso se describe cómo crear un recurso compartido de archivos que usa el protocolo SMB para su montaje en la máquina virtual. Para obtener información sobre cómo montar mediante NFS, consulte [Procedimiento para crear un recurso compartido de NFS](../../../storage/files/storage-files-how-to-create-nfs-shares.md).
 
 Al montar la instancia de Azure Files, usaremos `cache=none` para deshabilitar el almacenamiento en caché de los datos del recurso compartido. Y para asegurarse de que los archivos creados en el recurso compartido son propiedad del usuario de Oracle, establezca también las opciones `uid=oracle` y `gid=oinstall`. 
 
