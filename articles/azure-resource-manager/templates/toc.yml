@@ -382,7 +382,7 @@
           items:
             - name: Resource group
               href: deploy-to-resource-group.md
-            - name: Suscripción
+            - name: Subscription
               href: deploy-to-subscription.md
             - name: Grupo de administración
               href: deploy-to-management-group.md
@@ -472,6 +472,8 @@
           href: template-functions-object.md
         - name: Funciones de recursos
           href: template-functions-resource.md
+        - name: Funciones de Scope
+          href: template-functions-scope.md
         - name: Funciones de cadena
           href: template-functions-string.md
     - name: REST
