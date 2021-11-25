@@ -6,6 +6,8 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,12 +15,12 @@ ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6f788517a6a29e568ec983b509594039fe99e6e9
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: cff85330635a5c6f9501f6064d36fa623159df22
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132712308"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522828"
 ---
 # <a name="microsoft-sentinel-process-event-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de eventos de proceso de Microsoft Sentinel (versión preliminar pública)
 
@@ -206,7 +208,7 @@ El esquema de eventos de proceso hace referencia a las entidades siguientes, que
 | **ParentProcessTokenElevation**    | Opcional     | String     |Token que indica la presencia o ausencia de elevación de privilegios de Control de acceso de usuario (UAC) aplicada al proceso principal.     <br><br>  Ejemplo: `None` |
 | **ParentProcessCreationTime**      | Opcionales    | DateTime   |    La fecha y hora en que se inició el proceso principal. |
 | <a name="targetusername"></a>**TargetUsername** | Obligatorio para los eventos de creación de procesos. | String     | Nombre de usuario del usuario de destino.  <br><br>Ejemplo:   `CONTOSO\WIN-GG82ULGC9GO$`      |
-| **TargetUsernameType**             | Obligatorio para los eventos de creación de procesos.   | Enumerated | Especifica el tipo de nombre de usuario almacenado en el campo [TargetUsername](#targetusername). Para más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).          <br><br>  Ejemplo: `Windows`        |
+| **TargetUsernameType**             | Obligatorio para los eventos de creación de procesos.   | Enumerated | Especifica el tipo de nombre de usuario almacenado en el campo [TargetUsername](#targetusername). Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).          <br><br>  Ejemplo: `Windows`        |
 |<a name="targetuserid"></a> **TargetUserId**   | Recomendado | String     | Identificador único del usuario de destino. El identificador específico depende del sistema que genere el evento. Para más información, consulte la [Entidad Usuario](normalization-about-schemas.md#the-user-entity).            <br><br> Ejemplo: `S-1-5-18`    |
 | **TargetUserIdType**               | Recomendado | String     | Tipo del identificador de usuario almacenado en el campo [TargetUserId](#targetuserid). Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).            <br><br> Ejemplo: `SID`  |
 | **TargetUserSessionId**            | Opcional     | String     |Identificador único de la sesión de inicio de sesión del usuario de destino. <br><br>Ejemplo: `999`          <br><br>**Nota**: El tipo se define como *cadena* para admitir distintos sistemas, pero en Windows este valor debe ser numérico. <br><br>Si usa una máquina Windows o Linux y ha usado un tipo diferente, asegúrese de convertir los valores. Por ejemplo, si ha utilizado un valor hexadecimal, conviértalo en un valor decimal.     |

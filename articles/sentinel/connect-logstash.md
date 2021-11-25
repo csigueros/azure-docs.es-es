@@ -6,8 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
@@ -15,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 1bb2d8c60fd8962363277a7f530db7d84394498e
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 827fd0f5fcc42639b435184a051edbd040602e7d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132521821"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724926"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-microsoft-sentinel"></a>Uso de Logstash para conectar orígenes de datos a Microsoft Sentinel
 

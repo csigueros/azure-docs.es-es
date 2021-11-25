@@ -6,6 +6,8 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -13,12 +15,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a4518498edf3d2da14c09d396aff56542d61478f
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 5b2ae955210a230353cdc6af54c8e17b56388192
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132713018"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132517508"
 ---
 # <a name="manage-multiple-tenants-in-microsoft-sentinel-as-an-mssp"></a>Administración de varios inquilinos en Microsoft Sentinel como un MSSP
 

@@ -6,12 +6,12 @@ ms.service: virtual-wan
 ms.topic: troubleshooting
 ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: e28d5c9358077e072c31026bdc164a9b2037a40a
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 70924c1d810ca0caf6beecef4aadf1be811bd5ed
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132492481"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132703856"
 ---
 # <a name="virtual-wan-faq"></a>Preguntas más frecuentes sobre Virtual WAN
 
@@ -209,7 +209,7 @@ No. Virtual WAN no requiere ExpressRoute desde cada sitio. Los sitios pueden est
 
 ### <a name="is-there-a-network-throughput-or-connection-limit-when-using-azure-virtual-wan"></a>¿Hay un límite en el rendimiento o la conexión de la red al utilizar Azure Virtual WAN?
 
-El rendimiento de red es por servicio en un centro de conectividad de Virtual WAN. Aunque puede tener tantas instancias de Virtual WAN como desee, cada una permite un centro de conectividad por región. En cada centro de conectividad, el rendimiento agregado de VPN es de hasta 20 Gbps, el rendimiento agregado de ExpressRoute es hasta 20 Gbps y el rendimiento agregado de VPN de punto a sitio o VPN de usuario es de hasta 20 Gbps. El enrutador del centro de conectividad virtual admite hasta 50 Gbps con los flujos de tráfico de red virtual a red virtual y supone una carga de trabajo total de 2000 máquinas virtuales en todas las redes virtuales conectadas a un solo centro de conectividad virtual. Este [límite](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits) se puede aumentar abriendo una solicitud de soporte técnico de cliente en línea. Para conocer las consecuencias para los costos, consulte los costos de *Unidad de infraestructura de enrutamiento* en la página [Precios de Azure Virtual WAN](https://azure.microsoft.com/pricing/details/virtual-wan/). 
+El rendimiento de red es por servicio en un centro de conectividad de Virtual WAN. Aunque puede tener tantas instancias de Virtual WAN como desee, cada una permite un centro de conectividad por región. En cada centro de conectividad, el rendimiento agregado de VPN es de hasta 20 Gbps, el rendimiento agregado de ExpressRoute es hasta 20 Gbps y el rendimiento agregado de VPN de punto a sitio o VPN de usuario es de hasta 20 Gbps. El enrutador del centro de conectividad virtual admite hasta 50 Gbps con los flujos de tráfico de red virtual a red virtual y supone una carga de trabajo total de 2000 máquinas virtuales en todas las redes virtuales conectadas a un solo centro de conectividad virtual. Este [límite](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) se puede aumentar abriendo una solicitud de soporte técnico de cliente en línea. Para conocer las consecuencias para los costos, consulte los costos de *Unidad de infraestructura de enrutamiento* en la página [Precios de Azure Virtual WAN](https://azure.microsoft.com/pricing/details/virtual-wan/). 
 
 Cuando los sitios VPN se conectan a un centro de conectividad, lo hacen con conexiones. Virtual WAN admite hasta 1000 conexiones o 2000 túneles IPsec por centro de conectividad virtual. Cuando los usuarios remotos se conectan a un centro de conectividad virtual, se conectan a la instancia de VPN Gateway P2S, que admite hasta 10 000 usuarios en función de la unidad de escalado (ancho de banda) elegida para la instancia de VPN Gateway P2S en el centro de conectividad virtual.
 
@@ -334,4 +334,3 @@ Para obtener más información sobre las opciones disponibles de proveedores de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener más información sobre Virtual WAN, consulte el artículo [acerca de Virtual WAN](virtual-wan-about.md).
-

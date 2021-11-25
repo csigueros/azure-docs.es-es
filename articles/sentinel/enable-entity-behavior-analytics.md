@@ -6,6 +6,8 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -13,12 +15,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: cff89d82c96cd20db59e0ed0de77f988dacead90
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: e8541c6205f8cfd7503b16fa918ca531d30d4339
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721354"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521365"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-microsoft-sentinel"></a>Habilitación del análisis de comportamiento de usuarios y entidades (UEBA) en Microsoft Sentinel 
 
