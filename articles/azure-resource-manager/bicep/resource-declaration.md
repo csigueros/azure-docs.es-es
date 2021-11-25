@@ -4,13 +4,13 @@ description: Se describe cómo declarar recursos para implementar en Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/25/2021
-ms.openlocfilehash: 28f61a3fb3a40cb4db0a06f3c59fe6b07ec7d5bc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/12/2021
+ms.openlocfilehash: 1398215116307cf810d259ac52c30f6588e612ab
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131074220"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132494010"
 ---
 # <a name="resource-declaration-in-bicep"></a>Declaración de recursos en Bicep
 
@@ -34,7 +34,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2021-04-01' = {
 }
 ```
 
-Los nombres simbólicos distinguen mayúsculas de minúsculas.  Pueden contener letras, números y _, pero no pueden empezar con un número.
+Los nombres simbólicos distinguen mayúsculas de minúsculas. Pueden contener letras, números y caracteres de subrayado (`_`). No pueden empezar con un número. Un recurso no puede tener el mismo nombre que un parámetro, una variable o un módulo.
 
 Para ver los tipos de recursos y la versión disponibles, consulte [Referencia de recursos de Bicep](/azure/templates/). Bicep no admite `apiProfile`, que está disponible en [código JSON de plantillas de Azure Resource Manager (plantillas de ARM)](../templates/syntax.md).
 
@@ -46,9 +46,10 @@ resource <symbolic-name> '<full-type-name>@<api-version>' = if (condition) {
 }
 ```
 
-Para implementar más de una instancia de un recurso, use la sintaxis `for`. Para obtener más información, consulte [Bucles iterativos en Bicep](loops.md).
+Para implementar más de una instancia de un recurso, use la sintaxis `for`. Puede usar el decorador `batchSize` para especificar si las instancias se implementan en serie o en paralelo. Para obtener más información, consulte [Bucles iterativos en Bicep](loops.md).
 
 ```bicep
+@batchSize(int) // optional decorator for serial deployment
 resource <symbolic-name> '<full-type-name>@<api-version>' = [for <item> in <collection>: {
   <properties-to-repeat>
 }]

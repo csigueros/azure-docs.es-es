@@ -3,23 +3,19 @@ metadata:
   title: 'Preguntas más frecuentes sobre Microsoft Defender for Cloud: preguntas sobre los agentes de Log Analytics existentes'
   description: Estas Preguntas más frecuentes responden cuestiones de los clientes que ya usan el agente de Log Analytics y que se plantean usar Microsoft Defender for Cloud, un producto que permite evitar las amenazas, detectarlas y responder ante ellas.
   services: security-center
-  documentationcenter: na
   author: memildin
   manager: rkarlin
   ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
-  ms.service: security-center
-  ms.devlang: na
+  ms.service: defender-for-cloud
   ms.topic: conceptual
-  ms.tgt_pltfrm: na
-  ms.workload: na
-  ms.date: 11/09/2021
+  ms.date: 11/14/2021
   ms.author: memildin
-  ms.openlocfilehash: 7ff4935b36b8f7736f244a115944e8e24acc20ae
-  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+  ms.openlocfilehash: 804493ada16d46f9d14b7e2dd0106db66fb56b80
+  ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/11/2021
-  ms.locfileid: "132350036"
+  ms.lasthandoff: 11/15/2021
+  ms.locfileid: "132487219"
 title: Preguntas frecuentes para clientes que ya usan registros de Azure Monitor
 summary: ''
 sections:
@@ -31,12 +27,12 @@ sections:
   - question: >
       ¿Defender for Cloud instala soluciones en mis áreas de trabajo de Log Analytics existentes? ¿Qué implica desde el punto de vista de la facturación?
     answer: >
-      Cuando Defender for Cloud identifica que una VM ya está conectada a un área de trabajo creada por el usuario, habilita las soluciones en esta área de trabajo según la configuración de precios. Las soluciones se aplican solo a las VM de Azure pertinentes a través de la [selección de destino de solución](../azure-monitor/insights/solution-targeting.md), por lo que la facturación sigue siendo la misma.
+      Cuando Defender for Cloud identifica que una VM ya está conectada a un área de trabajo creada por el usuario, habilita las soluciones en esta área de trabajo según la configuración de precios. Las soluciones se aplican solo a los recursos pertinentes a través de la [selección de destino de solución](../azure-monitor/insights/solution-targeting.md), por lo que la facturación sigue siendo la misma.
 
 
-      - **Azure Defender desactivado**: Defender for Cloud instala la solución "SecurityCenterFree" en el área de trabajo. No se le facturará.
+      - **Seguridad mejorada desactivada**: Defender for Cloud instala la solución "SecurityCenterFree" en el área de trabajo. No se le facturará.
 
-      - **Azure Defender activado**: Defender for Cloud instala la solución "Security" en el área de trabajo.
+      - **Habilite todos los planes de Microsoft Defender**: Defender for Cloud instala la solución "Security" en el área de trabajo.
 
          ![Soluciones del área de trabajo predeterminada](./media/platform-migration-faq/solutions.png)
   - question: >

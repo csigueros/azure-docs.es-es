@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/12/2021
+ms.date: 11/12/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93f5af54992189d553c9e5c5c141a6ca08b7018e
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 334ebbecdd9da5bd55eff57f4c170c1a898e6c12
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860524"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486875"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Optimice los avisos de reautenticación y comprenda la duración de la sesión en Multi-Factor Authentication de Azure AD.
 
@@ -100,7 +100,11 @@ Esta opción permite configurar la duración del token emitido por Azure Active 
 
 ## <a name="review-your-tenant-configuration"></a>Revisión de la configuración del inquilino  
 
-Ahora que comprende cómo funcionan las diferentes opciones y la configuración recomendada, es el momento de comprobar la configuración de los inquilinos y realizar los cambios según corresponda:
+Ahora que comprende cómo funcionan las diferentes opciones y la configuración recomendada, es el momento de comprobar la configuración de los inquilinos. Para empezar, puede ver los registros de inicio de sesión para comprender qué directivas de duración de sesión se aplicaron durante el inicio de sesión.
+
+En cada registro de inicio de sesión, vaya a la pestaña **Detalles de autenticación** y explore **Directivas de duración de sesión aplicadas**. Para más información, consulte [Detalles de autenticación](../reports-monitoring/concept-sign-ins.md#authentication-details).
+
+![Captura de pantalla de los detalles de autenticación.](./media/concepts-azure-multi-factor-authentication-prompts-session-lifetime/details.png)
 
 Para configurar o revisar la opción *Remain signed-in* (Permanecer conectado), complete los pasos siguientes:
 

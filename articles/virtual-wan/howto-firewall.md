@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 05/26/2021
 ms.author: cherylmc
-ms.openlocfilehash: bf3aae99eb62a76885040589560c505ba2a8a2c3
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 20ae45cd4e6ab7d1e165cd67f0cec62318197258
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132487943"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723729"
 ---
 # <a name="configure-azure-firewall-in-a-virtual-wan-hub"></a>Configuración de Azure Firewall en un centro de Virtual WAN
 
@@ -69,7 +69,7 @@ Para volver a la página **Información general** del centro, puede volver hacie
 :::image type="content" source="./media/howto-firewall/arrow.png" alt-text="Captura de pantalla que muestra cómo volver a la página de información general." lightbox="./media/howto-firewall/arrow.png":::
 
 ## <a name="upgrade-to-azure-firewall-premium"></a>Actualización a Azure Firewall Premium
-En cualquier momento, es posible actualizar de Azure Firewall Estándar a Premium siguiendo estas [instrucciones](https://docs.microsoft.com/azure/firewall/premium-migrate#migrate-a-secure-hub-firewall). Esta operación requerirá una ventana de mantenimiento, ya que se generará un tiempo de inactividad mínimo. 
+En cualquier momento, es posible actualizar de Azure Firewall Estándar a Premium siguiendo estas [instrucciones](../firewall/premium-migrate.md#migrate-a-secure-hub-firewall). Esta operación requerirá una ventana de mantenimiento, ya que se generará un tiempo de inactividad mínimo. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

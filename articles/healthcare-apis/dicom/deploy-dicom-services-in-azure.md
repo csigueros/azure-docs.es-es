@@ -7,12 +7,13 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 08/04/2021
 ms.author: aersoy
-ms.openlocfilehash: b07d9bba578aeac026864e40a23236816b510f1e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: mode-portal
+ms.openlocfilehash: fefaf7fc2daced95ffde90834ad38131ecfc6b94
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121787245"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133041677"
 ---
 # <a name="deploy-dicom-service-using-the-azure-portal"></a>Implemente el servicio DICOM mediante el Azure Portal
 
@@ -21,26 +22,26 @@ ms.locfileid: "121787245"
 
 En este inicio rápido, aprenderá a implementar el servicio DICOM mediante el Azure Portal.
 
-Una vez completada la implementación, puede usar el Azure Portal para ir al servicio DICOM recién creado para ver los detalles, incluida la dirección URL del servicio. La dirección URL del servicio para acceder al servicio DICOM será: ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com``` . Asegúrese de especificar la versión como parte de la dirección URL al realizar solicitudes. Puede encontrar más información en la documentación del servicio [Control de versiones de API para DICOM](api-versioning-dicom-service.md).
+Una vez completada la implementación, puede usar el Azure Portal para ir al servicio DICOM recién creado para ver los detalles, incluida la dirección URL del servicio. La dirección URL del servicio para acceder al servicio DICOM será: ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com``` . Asegúrese de especificar la versión como parte de la dirección URL al realizar solicitudes. Puede encontrar más información en la documentación del servicio [CONTROL de versiones de API para DICOM](api-versioning-dicom-service.md).
 
 ## <a name="prerequisite"></a>Requisito previo
 
-Para implementar el servicio DICOM, debe tener un área de trabajo creada en el Azure Portal. Para obtener más información sobre cómo crear un área de trabajo, vea **Implementar área de trabajo en Azure Portal**.
+Para implementar el servicio DICOM, debe tener un área de trabajo creada en el Azure Portal. Para obtener más información sobre cómo crear un área de trabajo, vea **Implementar área de trabajo en el Azure Portal**.
 
 ## <a name="deploying-dicom-service"></a>Implementación del servicio DICOM
 
 1. En la **página Grupo de** recursos de la Azure Portal, seleccione el nombre del área de trabajo de las API de atención **sanitaria.**
 
-   [![Seleccione grupo de recursos del área de trabajo. ](media/select-workspace-resource-group.png) ](media/select-workspace-resource-group.png#lightbox)
+   [![Seleccione el grupo de recursos del área de trabajo. ](media/select-workspace-resource-group.png) ](media/select-workspace-resource-group.png#lightbox)
 
 2. Seleccione **Deploy DICOM service (Implementar servicio DICOM).**
 
    [![implementar el servicio dicom. ](media/workspace-deploy-dicom-services.png) ](media/workspace-deploy-dicom-services.png#lightbox)
 
 
-3. Seleccione **Add DICOM service (Agregar servicio DICOM).**
+3. Seleccione **Agregar servicio DICOM.**
 
-   [![agregar servicio dicom. ](media/add-dicom-service.png) ](media/add-dicom-service.png#lightbox)
+   [![agregue el servicio dicom. ](media/add-dicom-service.png) ](media/add-dicom-service.png#lightbox)
 
 
 4. Escriba un nombre para el servicio DICOM y, a continuación, **seleccione Revisar y crear**. 
@@ -48,11 +49,11 @@ Para implementar el servicio DICOM, debe tener un área de trabajo creada en el 
     [![nombre del servicio dicom. ](media/enter-dicom-service-name.png) ](media/enter-dicom-service-name.png#lightbox)
 
 
-   (**Opcional)** Seleccione **Siguiente: Etiquetas >**.
+   (**Opcional**) Seleccione **Siguiente: Etiquetas >**.
 
     Las etiquetas son pares nombre-valor que se usan para categorizar los recursos. Para más información sobre las etiquetas, consulte [Uso de etiquetas para organizar los recursos de Azure y la jerarquía de administración.](../../azure-resource-manager/management/tag-resources.md)
 
-5. Cuando observe la marca de verificación de validación verde, seleccione **Crear para** implementar el servicio DICOM.
+5. Cuando observe la marca de verificación de validación verde, **seleccione Crear para** implementar el servicio DICOM.
 
 6. Cuando se complete el proceso de implementación, seleccione **Ir al recurso**.  
 
@@ -62,7 +63,7 @@ Para implementar el servicio DICOM, debe tener un área de trabajo creada en el 
 
    A continuación se muestra el resultado del servicio DICOM recién implementado.
 
-   [![Dicom finalizó la implementación. ](media/results-deployed-dicom-service.png) ](media/results-deployed-dicom-service.png#lightbox)
+   [![Implementación finalizada de dicom. ](media/results-deployed-dicom-service.png) ](media/results-deployed-dicom-service.png#lightbox)
 
 
 
@@ -70,9 +71,3 @@ Para implementar el servicio DICOM, debe tener un área de trabajo creada en el 
 
 >[!div class="nextstepaction"]
 >[Introducción al servicio DICOM](dicom-services-overview.md)
-
-
-
-
-
-

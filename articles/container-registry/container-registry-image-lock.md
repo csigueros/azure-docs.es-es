@@ -3,12 +3,12 @@ title: Bloqueo de imágenes
 description: Establezca atributos para una imagen de contenedor o un repositorio a fin de que pueda eliminarse o sobrescribirse en una instancia de Azure Container Registry.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: 340beb1bb6666ddf0de7de38adee6be71f5f52bd
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0b2cdd770233833e45c84bea1916ddf7f6e1e317
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772350"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132494564"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloqueo de una imagen de contenedor en una instancia de Azure Container Registry
 
@@ -53,37 +53,37 @@ Para ver los atributos actuales de una etiqueta, ejecute el siguiente comando [a
 
 ```azurecli
 az acr repository show \
-    --name myregistry --image image:tag \
+    --name myregistry --image myimage:tag \
     --output jsonc
 ```
 
 ### <a name="lock-an-image-by-tag"></a>Bloquear una imagen por etiqueta
 
-Para bloquear la imagen *myrepo/myimage:tag* en *myregistry*, ejecute el siguiente comando [az acr repository update][az-acr-repository-update]:
+Para bloquear la imagen *myimage:tag* en *myregistry*, ejecute el siguiente comando [az acr repository update][az-acr-repository-update]:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage:tag \
+    --name myregistry --image myimage:tag \
     --write-enabled false
 ```
 
 ### <a name="lock-an-image-by-manifest-digest"></a>Bloquear una imagen por la síntesis del manifiesto
 
-Para bloquear una imagen *myrepo/myimage* identificada por la síntesis del manifiesto (hash de SHA-256, representado como `sha256:...`), ejecute el siguiente comando. (Para encontrar la síntesis del manifiesto asociada con una o varias etiquetas de imagen, ejecute el comando [az acr repository show-manifests][az-acr-repository-show-manifests]).
+Para bloquear una imagen *myimage* identificada por la síntesis del manifiesto (hash de SHA-256, representado como `sha256:...`), ejecute el siguiente comando. (Para encontrar la síntesis del manifiesto asociada con una o varias etiquetas de imagen, ejecute el comando [az acr repository show-manifests][az-acr-repository-show-manifests]).
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage@sha256:123456abcdefg \
+    --name myregistry --image myimage@sha256:123456abcdefg \
     --write-enabled false
 ```
 
 ### <a name="lock-a-repository"></a>Bloqueo de un repositorio
 
-Para bloquear el repositorio *myrepo/myimage* y todas las imágenes que contiene, ejecute el siguiente comando:
+Para bloquear el repositorio *myrepo* y todas las imágenes que contiene, ejecute el siguiente comando:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --repository myrepo/myimage \
+    --name myregistry --repository myrepo \
     --write-enabled false
 ```
 
@@ -91,57 +91,57 @@ az acr repository update \
 
 ### <a name="protect-an-image-from-deletion"></a>Proteger una imagen de la eliminación
 
-Para permitir que la imagen *myrepo/myimage:tag* se actualice pero no se elimine, ejecute el siguiente comando:
+Para permitir que la imagen *myimage:tag* se actualice pero no se elimine, ejecute el siguiente comando:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage:tag \
+    --name myregistry --image myimage:tag \
     --delete-enabled false --write-enabled true
 ```
 
 ### <a name="protect-a-repository-from-deletion"></a>Proteger un repositorio de la eliminación
 
-El comando siguiente establece el repositorio *myrepo/myimage* para que no se pueda eliminar. Sin embargo, se pueden actualizar o eliminar imágenes individuales.
+El comando siguiente establece el repositorio *myrepo* para que no se pueda eliminar. Sin embargo, se pueden actualizar o eliminar imágenes individuales.
 
 ```azurecli
 az acr repository update \
-    --name myregistry --repository myrepo/myimage \
+    --name myregistry --repository myrepo \
     --delete-enabled false --write-enabled true
 ```
 
 ## <a name="prevent-read-operations-on-an-image-or-repository"></a>Evitar operaciones de lectura en una imagen o un repositorio
 
-Para evitar operaciones de lectura (extracción) en la imagen *myrepo/myimage:tag*, ejecute el siguiente comando:
+Para evitar operaciones de lectura (extracción) en la imagen *myimage:tag*, ejecute el siguiente comando:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage:tag \
+    --name myregistry --image myimage:tag \
     --read-enabled false
 ```
 
-Para evitar operaciones de lectura en todas las imágenes del repositorio *myrepo/myimage*, ejecute el siguiente comando:
+Para evitar operaciones de lectura en todas las imágenes del repositorio *myimage*, ejecute el siguiente comando:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --repository myrepo/myimage \
+    --name myregistry --repository myrepo \
     --read-enabled false
 ```
 
 ## <a name="unlock-an-image-or-repository"></a>Desbloquear una imagen o un repositorio
 
-Para restaurar el comportamiento predeterminado de la imagen *myrepo/myimage:tag* para que se pueda eliminar y actualizar, ejecute el siguiente comando:
+Para restaurar el comportamiento predeterminado de la imagen *myimage:tag* para que se pueda eliminar y actualizar, ejecute el siguiente comando:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage:tag \
+    --name myregistry --image myimage:tag \
     --delete-enabled true --write-enabled true
 ```
 
-Para restaurar el comportamiento predeterminado del repositorio *myrepo/myimage* y de todas las imágenes para que se puedan eliminar y actualizar, ejecutan el siguiente comando:
+Para restaurar el comportamiento predeterminado del repositorio *myrepo* y de todas las imágenes para que se puedan eliminar y actualizar, ejecutan el siguiente comando:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --repository myrepo/myimage \
+    --name myregistry --repository myrepo \
     --delete-enabled true --write-enabled true
 ```
 

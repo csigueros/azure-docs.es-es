@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +13,12 @@ ms.topic: reference
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c5f88a7b5234e2a791d26ecc339e6750497ef6a9
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: b263a0d7be7d0bd42494dc5c5a931f9c97b00bfb
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132522866"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132712858"
 ---
 # <a name="microsoft-sentinel-network-normalization-schema-legacy-version---public-preview"></a>Esquema de normalización de redes de Microsoft Sentinel (versión heredada - versión preliminar pública)
 

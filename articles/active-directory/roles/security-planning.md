@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1af397b12c01d64e1947448dbd0b5096ae436343
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: fd62f1b5974d03e19bd210eec7f8a2cadca0eb22
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132335297"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487912"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -303,7 +303,7 @@ Si Azure Active Directory está conectado con la instancia local de Active Direc
 
 #### <a name="establish-integrated-monitoring"></a>Establezca la supervisión integrada
 
-[Microsoft Defender for Cloud](../../security-center/security-center-introduction.md):
+[Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md):
 
 * Permite supervisar la seguridad y administrar las directivas integradas en las suscripciones de Azure.
 * Ayuda a detectar amenazas que podrían pasar desapercibidas de otro modo.

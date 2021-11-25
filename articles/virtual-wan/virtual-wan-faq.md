@@ -6,12 +6,12 @@ ms.service: virtual-wan
 ms.topic: troubleshooting
 ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: 17482c9de7cc6c26355fa6ec629028739b209785
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: e28d5c9358077e072c31026bdc164a9b2037a40a
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132134341"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132492481"
 ---
 # <a name="virtual-wan-faq"></a>Preguntas más frecuentes sobre Virtual WAN
 
@@ -246,6 +246,10 @@ Sí. Una conexión a Internet y un dispositivo físico que admita IPsec, preferi
 Un centro de conectividad virtual puede propagar una ruta predeterminada aprendida en una red virtual, una VPN de sitio a sitio y una conexión ExpressRoute si la marca está "habilitada" en la conexión. Esta marca está visible cuando el usuario edita una conexión de red virtual, una conexión VPN o una conexión ExpressRoute. De forma predeterminada, esta marca está deshabilitada cuando un sitio o circuito de ExpressRoute se conecta a un centro. Está habilitada de forma predeterminada cuando se agrega una conexión de red virtual para conectar una red virtual a un centro de conectividad virtual.
 
 La ruta predeterminada no se origina en el centro de conectividad de Virtual WAN; la ruta se propaga si ya la ha aprendido el centro de Virtual WAN como resultado de la implementación de un firewall en el centro o en caso de que otro sitio conectado tenga habilitada la tunelización forzada. Las rutas predeterminadas no se propaga entre los centros (entre centros).
+
+### <a name="is-it-possible-to-create-multiple-virtual-wan-hubs-in-the-same-region"></a>¿Es posible crear varios centros de conectividad de Virtual WAN en la misma región?
+Sí. Los clientes ahora pueden crear más de un centro de conectividad en la misma región para la misma instancia de Azure Virtual WAN. 
+
 
 ### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>¿Cómo selecciona el centro de conectividad virtual de una instancia de Virtual WAN la mejor ruta desde varios centros?
 

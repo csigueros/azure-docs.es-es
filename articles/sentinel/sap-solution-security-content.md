@@ -3,17 +3,15 @@ title: 'Solución Microsoft Sentinel SAP: referencia de contenido de seguridad |
 description: Obtenga información sobre el contenido de seguridad integrado que proporciona la solución Microsoft Sentinel SAP.
 author: batamig
 ms.author: bagold
-ms.service: microsoft-sentinel
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.subservice: microsoft-sentinel
-ms.openlocfilehash: a2512bd38ff865b27d0ea667f33f42979aa4e4bb
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: a1413fefdc12cf9712419adaa8586da0ef7b921d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132524329"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711818"
 ---
 # <a name="microsoft-sentinel-sap-solution-security-content-reference-public-preview"></a>Solución Microsoft Sentinel SAP: referencia de contenido de seguridad (versión preliminar pública)
 

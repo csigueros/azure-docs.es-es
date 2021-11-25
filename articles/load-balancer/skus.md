@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/21/2021
 ms.author: allensu
-ms.openlocfilehash: 472816907aeb16dfbab1fb7b793186e165246947
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 0501f703ce32df37a755c05240b24b8262ccf314
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132722950"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491172"
 ---
 # <a name="azure-load-balancer-skus"></a>SKU de Azure Load Balancer
 
@@ -51,9 +51,9 @@ Las máquinas virtuales independientes, los conjuntos de disponibilidad y los co
 | **Operaciones de administración** | La mayoría de las operaciones en menos de 30 segundos | Normalmente, entre 60 y 90 segundos |
 | **Acuerdo de Nivel de Servicio** | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | No disponible | 
 | **Compatibilidad con Emparejamiento de VNET global** | Se admite ILB estándar a través del Emparejamiento de VNET global | No compatible | 
-| **[Compatibilidad con NAT Gateway](../virtual-network/nat-gateway/nat-overview.md)** | Tanto el ILB estándar como el LB público estándar son compatibles con Nat Gateway. | No compatible | 
-| **[Compatibilidad con Private Link](../private-link/private-link-overview.md)** | El ILB estándar es compatible con Private Link. | No compatible | 
-| **[Equilibrio de carga entre regiones (versión preliminar)](./cross-region-overview.md)** | Los LB públicos estándar es compatible con LB entre regiones. | No compatible | 
+| **[Compatibilidad con NAT Gateway](https://docs.microsoft.com/azure/virtual-network/nat-gateway/nat-overview)** | Tanto el ILB estándar como el LB público estándar son compatibles con Nat Gateway. | No compatible | 
+| **[Compatibilidad con Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)** | El ILB estándar es compatible con Private Link. | No compatible | 
+| **[Equilibrio de carga entre regiones (versión preliminar)](https://docs.microsoft.com/azure/load-balancer/cross-region-overview)** | Los LB públicos estándar es compatible con LB entre regiones. | No compatible | 
 
 Para más información, consulte [Límites del equilibrador de carga](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer). Para más información de Load Balancer Estándar, consulte los artículos de [introducción](./load-balancer-overview.md), [precios](https://aka.ms/lbpricing) y [Acuerdo de Nivel de Servicio](https://aka.ms/lbsla).
 

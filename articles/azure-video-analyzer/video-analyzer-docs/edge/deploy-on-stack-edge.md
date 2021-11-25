@@ -4,12 +4,12 @@ description: En este artículo se describe cómo implementar Azure Video Analyz
 ms.topic: how-to
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b03935028fec1cce2ea5794abf95ecfa70ea2921
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 023d6500a16d5b808bbb2e249076eae9b53741f8
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131554590"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487637"
 ---
 # <a name="deploy-azure-video-analyzer-on-azure-stack-edge"></a>Implementación de Azure Video Analyzer en Azure Stack Edge
 
@@ -182,7 +182,7 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
 1. Seleccione la pestaña **Configuración del módulo**, proporcione un nombre para el módulo y especifique el URI de imagen del contenedor. Por ejemplo:   
     
     * **Nombre del módulo IoT Edge**: rtspsim  
-    * **URI de imagen**: mcr.microsoft.com/lva-utilities/rtspsim-live555:1.2 
+    * **URI de imagen**: mcr.microsoft.com/ava-utilities/rtspsim-live555:1.2 
 
 1. Seleccione la pestaña **Opciones de creación del contenedor** y, a continuación, pegue el código JSON siguiente en el cuadro:
     

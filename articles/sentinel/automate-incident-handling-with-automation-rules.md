@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 52f716bf8a5a4457f1f61545e079c17f16c708c3
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 83f9a7e8787cee4079cc3fb643c107922ef0a213
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132522163"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722874"
 ---
 # <a name="automate-incident-handling-in-microsoft-sentinel-with-automation-rules"></a>Automatización del control de incidentes en Microsoft Sentinel mediante reglas de automatización
 
@@ -88,7 +86,7 @@ Las reglas de automatización proporcionan una forma de automatizar el control d
 
 Las siguientes son algunas alertas de seguridad de Microsoft:
 
-- Microsoft Defender para aplicaciones en la nube
+- Microsoft Defender for Cloud Apps
 - Azure AD Identity Protection
 - Microsoft Defender for Cloud
 - Defender para IoT (anteriormente conocido como Azure Security Center para IoT)

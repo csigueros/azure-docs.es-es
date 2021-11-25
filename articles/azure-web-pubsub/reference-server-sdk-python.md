@@ -6,16 +6,16 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 11/08/2021
-ms.openlocfilehash: 1345eec1d0868e602ba90624cd6dcc6c8635f68c
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 256dbd5e988f95f8e4df7ea6fd1c83b88bc45d46
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132705140"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487413"
 ---
 # <a name="azure-web-pubsub-service-client-library-for-python"></a>Biblioteca cliente del servicio Azure Web PubSub para Python
 
-[Azure Web PubSub](./index.yml) es un servicio administrado de Azure que ayuda a los desarrolladores a compilar fácilmente aplicaciones web con características en tiempo real y patrón de publicación-suscripción. Cualquier escenario que requiera mensajería de publicación y suscripción en tiempo real entre el servidor y los clientes o entre clientes, puede usar el servicio Azure Web PubSub. Las características tradicionales en tiempo real que a menudo requieren tener que sondear desde el servidor o enviar solicitudes HTTP, también pueden usar el servicio Azure Web PubSub.
+[Azure Web PubSub](https://aka.ms/awps/doc) es un servicio administrado de Azure que ayuda a los desarrolladores a compilar fácilmente aplicaciones web con características en tiempo real y patrón de publicación-suscripción. Cualquier escenario que requiera mensajería de publicación y suscripción en tiempo real entre el servidor y los clientes o entre clientes, puede usar el servicio Azure Web PubSub. Las características tradicionales en tiempo real que a menudo requieren tener que sondear desde el servidor o enviar solicitudes HTTP, también pueden usar el servicio Azure Web PubSub.
 
 Puede usar esta biblioteca en el lado del servidor de aplicaciones para administrar las conexiones de cliente de WebSocket, como se muestra en el diagrama siguiente:
 
@@ -183,10 +183,10 @@ Para más detalles, visite https://cla.microsoft.com.
 
 Cuando se envía una solicitud de incorporación de cambios, un bot de CLA determinará de forma automática si tiene que aportar un CLA y completar la PR adecuadamente (por ejemplo, la etiqueta, el comentario). Solo siga las instrucciones que le dará el bot. Solo será necesario que lo haga una vez en todos los repositorios con nuestro CLA.
 
-Este proyecto ha adoptado el [Código de conducta de Microsoft Open Source][code_of_conduct]. Para obtener más información, vea las preguntas más frecuentes sobre el código de conducta o póngase en contacto con opencode@microsoft.com si tiene preguntas o comentarios.
+Este proyecto ha adoptado el [Código de conducta de Microsoft Open Source][code_of_conduct]. Para obtener más información, vea las Preguntas más frecuentes sobre el código de conducta, o póngase en contacto con opencode@microsoft.com si tiene preguntas o comentarios.
 
 <!-- LINKS -->
-[webpubsubservice_docs]: ./index.yml
+[webpubsubservice_docs]: https://aka.ms/awps/doc
 [azure_cli]: /cli/azure
 [azure_sub]: https://azure.microsoft.com/free/
 [package]: https://pypi.org/project/azure-messaging-webpubsubservice/

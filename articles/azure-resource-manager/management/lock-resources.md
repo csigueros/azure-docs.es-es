@@ -4,12 +4,12 @@ description: Impida que los usuarios actualicen o eliminen recursos de Azure apl
 ms.topic: conceptual
 ms.date: 07/01/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 62581028b58001c51721b79149ad2c75dacc86a8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 324aed15446e83e0853f4b590c7d679a7f598abe
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128642403"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491400"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloqueo de recursos para impedir cambios inesperados
 
@@ -97,9 +97,9 @@ Para eliminar todo el contenido para el servicio, incluido el grupo de recursos 
 
 [!INCLUDE [resource-manager-lock-resources](../../../includes/resource-manager-lock-resources.md)]
 
-### <a name="arm-template"></a>Plantilla ARM
+### <a name="template"></a>Plantilla
 
-Al usar una plantilla de Azure Resource Manager (plantilla de ARM) para implementar un bloqueo, debe tener en cuenta el ámbito del bloqueo y el ámbito de la implementación. Para aplicar un bloqueo en el ámbito de implementación, como el bloqueo de un grupo de recursos o una suscripción, no configure la propiedad de ámbito. Al bloquear un recurso dentro del ámbito de implementación, configure la propiedad de ámbito.
+Al usar una plantilla de Azure Resource Manager (plantilla de ARM) o un archivo Bicep para implementar un bloqueo, debe tener en cuenta el ámbito del bloqueo y el ámbito de la implementación. Para aplicar un bloqueo en el ámbito de implementación, como el bloqueo de un grupo de recursos o una suscripción, no configure la propiedad de ámbito. Al bloquear un recurso dentro del ámbito de implementación, configure la propiedad de ámbito.
 
 La plantilla siguiente aplica un bloqueo al grupo de recursos en el que está implementada. Observe que no hay una propiedad de ámbito en el recurso de bloqueo porque el ámbito del bloqueo coincide con el ámbito de implementación. Esta plantilla se implementa en el nivel de grupo de recursos.
 

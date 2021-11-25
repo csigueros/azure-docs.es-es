@@ -4,15 +4,14 @@ description: Lea la guía de introducción de Microsoft Sentinel para cuadernos 
 services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.openlocfilehash: 3bcafc82c3fced8a5c3ff53feddb8be5d4338178
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 35912f00173b1e3072dffc2b899e003a8c2767d8
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132517469"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132712725"
 ---
 # <a name="tutorial-get-started-with-jupyter-notebooks-and-msticpy-in-microsoft-sentinel"></a>Tutorial: Introducción a Jupyter Notebook y MSTICPy en Microsoft Sentinel
 

@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo Azure Policy usa Rego y Open Polic
 ms.date: 09/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 80f9f1e796580964df14cc15cafc0b844b227a5d
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: c1b96c07d556d7a0d478f7589b474fd75580f1be
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132492879"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722228"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Descripción de Azure Policy para clústeres de Kubernetes (versión preliminar)
 
@@ -165,15 +165,15 @@ Por último, para comprobar que el complemento más reciente está instalado, ej
 
 En este artículo se describe cómo [crear](#create-azure-policy-extension), [mostrar el estado de la extensión](#show-azure-policy-extension) y [eliminar](#delete-azure-policy-extension) la extensión Azure Policy para Kubernetes.
 
-Para obtener información general sobre la plataforma de extensiones, vea las [extensiones de clúster de Azure Arc](/azure/azure-arc/kubernetes/conceptual-extensions).
+Para obtener información general sobre la plataforma de extensiones, vea las [extensiones de clúster de Azure Arc](../../../azure-arc/kubernetes/conceptual-extensions.md).
 
 ### <a name="prerequisites"></a>Prerrequisitos
 
 > Nota: Si ya ha implementado Azure Policy para Kubernetes en un clúster de Azure Arc mediante Helm directamente sin extensiones, siga las instrucciones indicadas para [eliminar el gráfico de Helm](#remove-the-add-on-from-azure-arc-enabled-kubernetes). Una vez realizada la eliminación, puede continuar.
 1. Asegúrese de que el clúster de Kubernetes es una distribución compatible.
 
-    > Nota: La extensión Azure Policy para Arc es compatible con las [siguientes distribuciones de Kubernetes](/azure/azure-arc/kubernetes/validation-program).
-1. Asegúrese de que ha cumplido todos los requisitos previos comunes para las extensiones de Kubernetes enumeradas [aquí](/azure/azure-arc/kubernetes/extensions), incluida la [conexión del clúster a Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli).
+    > Nota: La extensión Azure Policy para Arc es compatible con las [siguientes distribuciones de Kubernetes](../../../azure-arc/kubernetes/validation-program.md).
+1. Asegúrese de que ha cumplido todos los requisitos previos comunes para las extensiones de Kubernetes enumeradas [aquí](../../../azure-arc/kubernetes/extensions.md), incluida la [conexión del clúster a Azure Arc](../../../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli).
 
     > Nota: La extensión de Azure Policy es compatible con los clústeres de Kubernetes habilitado para Arc [en estas regiones](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
 1. Abra los puertos para la extensión de Azure Policy. La extensión de Azure Policy usa estos dominios y puertos para obtener las definiciones de directiva y las asignaciones, así como para notificar a Azure Policy el cumplimiento del clúster.
@@ -186,7 +186,7 @@ Para obtener información general sobre la plataforma de extensiones, vea las [e
    |`dc.services.visualstudio.com` |`443` |
 
 1. Antes de instalar la extensión de Azure Policy o habilitar cualquiera de las características del servicio, la suscripción debe habilitar los proveedores de recursos **Microsoft.PolicyInsights**.
-    > Nota: Para habilitar el proveedor de recursos, siga los pasos descritos en [Tipos y proveedores de recursos](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) o ejecute el comando de PowerShell o la CLI de Azure:
+    > Nota: Para habilitar el proveedor de recursos, siga los pasos descritos en [Tipos y proveedores de recursos](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) o ejecute el comando de PowerShell o la CLI de Azure:
    - Azure CLI
 
      ```azurecli-interactive
@@ -705,11 +705,11 @@ status:
 Para más información acerca de cómo solucionar los problemas del complemento de Kubernetes, consulte la sección [Kubernetes](../troubleshoot/general.md#add-on-for-kubernetes-general-errors) en el artículo de solución de problemas de Azure Policy.
 
 En el caso de problemas relacionados con la extensión de Azure Policy para Arc, vea:
-- [Solución de problemas de Kubernetes habilitado para Azure Arc](/azure/azure-arc/kubernetes/troubleshooting#azure-arc-enabled-kubernetes-troubleshooting)
+- [Solución de problemas de Kubernetes habilitado para Azure Arc](../../../azure-arc/kubernetes/troubleshooting.md#azure-arc-enabled-kubernetes-troubleshooting)
 
 Para problemas relacionados con Azure Policy, vea:
-- [Inspección de registros de Azure Policy](/azure/governance/policy/concepts/policy-for-kubernetes#logging)
-- [Solución de problemas generales de Azure Policy en Kubernetes](/azure/governance/policy/troubleshoot/general#add-on-for-kubernetes-general-errors)
+- [Inspección de registros de Azure Policy](#logging)
+- [Solución de problemas generales de Azure Policy en Kubernetes](../troubleshoot/general.md#add-on-for-kubernetes-general-errors)
 
 ## <a name="remove-the-add-on"></a>Eliminar el complemento
 

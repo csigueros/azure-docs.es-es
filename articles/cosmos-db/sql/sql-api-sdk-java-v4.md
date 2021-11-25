@@ -9,18 +9,18 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 48988392c1961d6878ccfc0d6c40d86dbe8fd237
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 4fa239d9e35787f181414cb12919aff6a47de02c
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389141"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487736"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Versión 4 del SDK de Java para la API SQL de Azure Cosmos DB: notas de la versión y recursos
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [.NET SDK v2](sql-api-sdk-dotnet.md)
+> * [SDK de .NET v2](sql-api-sdk-dotnet.md)
 > * [SDK de .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK de fuente de cambios de .NET, versión 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
@@ -69,11 +69,14 @@ La versión 4 del SDK de Java de Azure Cosmos DB para Core (SQL) combina una A
 | **Talleres y laboratorios de Azure Cosmos DB** |[Página principal de talleres de Cosmos DB](https://aka.ms/cosmosworkshop)
 
 > [!IMPORTANT]
-> * Versión 4.18.0: se recomienda encarecidamente usar la versión 4.18.0 y versiones posteriores.
 > * La actualización 4.13.0 actualiza las versiones principales `reactor-core` y `reactor-netty` a la serie de versiones `2020.0.4 (Europium)`.
 
 ## <a name="release-history"></a>Historial de versiones
 El historial de versiones se mantiene en el repositorio azure-sdk-for-java. Para obtener una lista detallada de las versiones, consulte el [archivo changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md).
+
+## <a name="recommended-version"></a>Versión recomendada
+
+Se recomienda encarecidamente usar la versión 4.18.0 y versiones posteriores.
 
 ## <a name="faq"></a>Preguntas más frecuentes
 [!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)] 

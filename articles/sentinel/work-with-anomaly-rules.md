@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +13,12 @@ ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1469f89877c9a20009dd3e1178b77a7f001314ba
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: a0a5fa5f316e744e5cfd50abd7113fe8782f7ca9
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132518781"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710939"
 ---
 # <a name="work-with-anomaly-detection-analytics-rules-in-microsoft-sentinel"></a>Uso de reglas de análisis de detección de anomalías en Microsoft Sentinel
 

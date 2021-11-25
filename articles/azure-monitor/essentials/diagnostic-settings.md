@@ -6,12 +6,12 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 11/11/2021
-ms.openlocfilehash: aa49185d8941038ab100a0a480061cf63560f439
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 6de7ed1acffd7f4c05d912f7f565f4b811ebd357
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132705462"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132402052"
 ---
 # <a name="create-diagnostic-settings-to-send-azure-monitor-platform-logs-and-metrics-to-different-destinations"></a>Creación de una configuración de diagnóstico para enviar registros y métricas de plataforma de Azure Monitor a diferentes destinos
 
@@ -64,7 +64,7 @@ Los registros y las métricas de plataforma se pueden enviar a los destinos de l
 | [Área de trabajo de Log Analytics](../logs/design-logs-deployment.md) | Las métricas se convierten en formulario de registro. Es posible que esta opción no esté disponible en todos los tipos de recursos. Si se envían al almacén de registros de Azure Monitor (que se puede buscar mediante análisis de registros), podrá integrarlas en consultas, alertas y visualizaciones con datos de registro existentes.  
 | [Cuenta de Almacenamiento de Azure](../../storage/blobs/index.yml) | Archivar los registros y las métricas en una cuenta de almacenamiento de Azure resulta útil para realizar auditorías, análisis estáticos o copias de seguridad. En comparación con los registros de Azure Monitor y las áreas de trabajo de Log Analytics, Azure Storage es más económico y los registros se pueden mantener indefinidamente.  | 
 | [Event Hubs](../../event-hubs/index.yml) | El envío de registros y métricas a Event Hubs permite transmitir datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros.  |
-| [Integraciones de asociados de Azure Monitor](../../partner-solutions/overview.md)| Integraciones especializadas entre Azure Monitor y otras plataformas de supervisión que no son de Microsoft. Resulta útil cuando ya se usa uno de los asociados.  |
+| [Integraciones de asociados de Azure Monitor](/azure/partner-solutions/overview/)| Integraciones especializadas entre Azure Monitor y otras plataformas de supervisión que no son de Microsoft. Resulta útil cuando ya se usa uno de los asociados.  |
 
 ## <a name="requirements-and-limitations"></a>Limitaciones y requisitos
 
@@ -91,7 +91,7 @@ Se deben crear todos los destinos para la configuración de diagnóstico antes d
 | Área de trabajo de Log Analytics | No es necesario que el área de trabajo esté en la misma región que el recurso que se esté supervisando.|
 | Cuenta de almacenamiento de Azure | No utilice una cuenta de almacenamiento existente que tenga otros datos sin supervisión almacenados en ella, para que pueda controlar mejor el acceso a los datos. Sin embargo, si va a archivar el registro de actividad y los registros de recurso, puede que tenga sentido utilizar esa misma cuenta de almacenamiento para mantener todos los datos de supervisión en una ubicación central.<br><br>Para enviar los datos al almacenamiento inmutable, establezca la directiva de inmutabilidad para la cuenta de almacenamiento tal como se escribe en [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../../storage/blobs/immutable-policy-configure-version-scope.md). Debe seguir todos los pasos que aparecen en este artículo vinculado, incluida la habilitación de las escrituras de blobs en anexos protegidos.<br><br>La cuenta de almacenamiento debe estar en la misma región que el recurso que se esté supervisando, si el recurso es regional.|
 | Event Hubs | La directiva de acceso compartido del espacio de nombres define los permisos que tiene el mecanismo de transmisión. Para transmitir a Event Hubs, se necesitan permisos de administración, envío y escucha. Para actualizar la configuración de diagnóstico para incluir la transmisión, debe tener el permiso ListKey sobre esa regla de autorización de Event Hubs.<br><br>El espacio de nombres del centro de eventos debe estar en la misma región que el recurso que se está supervisando, si este es regional. <br><br> La configuración de diagnósticos no puede tener acceso a los recursos de Event Hubs cuando están habilitadas las redes virtuales. Tiene que habilitar la opción de *Permitir que los servicios de confianza de Microsoft* puedan omitir este firewall en la instancia de Event Hubs para que Azure Monitor (configuración de diagnósticos) tenga acceso a los recursos de Event Hubs.|
-| Integraciones de asociados | Varía según el asociado.  Consulte la [documentación de integraciones de asociados de Azure Monitor](../../partner-solutions/overview.md) para obtener más información.  
+| Integraciones de asociados | Varía según el asociado.  Consulte la [documentación de integraciones de asociados de Azure Monitor](/azure/partner-solutions/overview/) para obtener más información.  
 
 ### <a name="azure-data-lake-storage-gen2-as-a-destination"></a>Azure Data Lake Storage Gen2 como destino
 
@@ -147,11 +147,11 @@ Puede realizar configuraciones de diagnóstico en Azure Portal desde el menú de
         ![Enviar a Storage](media/diagnostic-settings/storage-settings-new.png)
 
         > [!TIP]
-        > Considere la posibilidad de establecer la directiva de retención en 0 y usar la [directiva de ciclo de vida de Azure Storage](../../storage/blobs/lifecycle-management-policy-configure.md) o eliminar los datos del almacenamiento mediante un trabajo programado. Es probable que estas estrategias proporcionen un comportamiento más coherente. 
+        > Considere la posibilidad de establecer la directiva de retención en 0 y usar la [directiva de ciclo de vida de Azure Storage](/azure/storage/blobs/lifecycle-management-policy-configure) o eliminar los datos del almacenamiento mediante un trabajo programado. Es probable que estas estrategias proporcionen un comportamiento más coherente. 
         >
         > En primer lugar, si está usando el almacenamiento para archivar, querrá conservar los datos durante más de 365 días. En segundo lugar, si elige una directiva de retención que sea mayor que 0, la fecha de expiración se asociará a los registros cuando se almacenen. No se puede cambiar la fecha de los registros una vez almacenados. Si establece la directiva de retención de *WorkflowRuntime* en 180 días y 24 horas después la establece en 365 días, los registros almacenados durante las primeras 24 horas se eliminarán automáticamente a los 180 días, mientras que todos los registros posteriores de ese mismo tipo se eliminarán automáticamente después de 365 días. Aunque posteriormente se modifique la directiva de retención, los registros que se almacenaron durante las 24 primeras horas no se conservarán 365 días.
 
-     1. **Integración de asociados**: primero debe instalar una integración de asociados en la suscripción. Las opciones de configuración variarán según el asociado. Para obtener más información, vea [Integraciones de asociados de Azure Monitor](../../partner-solutions/overview.md). 
+     1. **Integración de asociados**: primero debe instalar una integración de asociados en la suscripción. Las opciones de configuración variarán según el asociado. Para obtener más información, vea [Integraciones de asociados de Azure Monitor](/azure/partner-solutions/overview/). 
     
 6. Haga clic en **Save**(Guardar).
 

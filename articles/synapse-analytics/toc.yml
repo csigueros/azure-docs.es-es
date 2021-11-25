@@ -448,7 +448,7 @@ items:
                     displayName: 'transparent, data, encryption'
           - name: Administración de cargas de trabajo
             items:
-              - name: Introducción
+              - name: Información general
                 href: ./sql-data-warehouse/sql-data-warehouse-workload-management.md?context=/azure/synapse-analytics/context/context
                 displayName: 'workload, management'
               - name: Clasificación de la carga de trabajo
@@ -1349,7 +1349,7 @@ items:
                 href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
   - name: Machine Learning
     items:
-      - name: Introducción
+      - name: Información general
         items:
           - name: ¿Qué es el aprendizaje automático en Azure Synapse?
             href: machine-learning/what-is-machine-learning.md
@@ -1459,6 +1459,8 @@ items:
         href: /rest/api/synapse/
       - name: Utilidades Spark para Microsoft
         href: ./spark/microsoft-spark-utilities.md
+      - name: API de montaje y desmontaje de archivos en Synapse
+        href: ./spark/synapse-file-mount-api.md
       - name: Ejemplos
         href: 'https://github.com/Azure-Samples/Synapse'
       - name: Vistas del sistema

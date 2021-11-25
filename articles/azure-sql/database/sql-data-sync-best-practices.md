@@ -11,12 +11,12 @@ author: MaraSteiu
 ms.author: masteiu
 ms.reviewer: mathoma
 ms.date: 12/20/2018
-ms.openlocfilehash: a85c3199f1307a6f7618aec4efdc0506f17598a0
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 7b18b7ddcb6c2f737263cdaa7dd3e51cbde3da52
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132494812"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715042"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Procedimientos recomendados de Azure SQL Data Sync 
 
@@ -54,7 +54,7 @@ Azure SQL Database solo admite un único conjunto de credenciales. Para realizar
 
 ### <a name="auditing"></a>Auditoría
 
-Se recomienda habilitar la auditoría en el nivel de las bases de datos en los grupos de sincronización. Aprenda a [habilitar la auditoría en la base de datos de Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/auditing-overview) o a [habilitar la auditoría en la base de datos de SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-ver15).
+Se recomienda habilitar la auditoría en el nivel de las bases de datos en los grupos de sincronización. Aprenda a [habilitar la auditoría en la base de datos de Azure SQL](./auditing-overview.md) o a [habilitar la auditoría en la base de datos de SQL Server](/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-ver15).
 
 ## <a name="setup"></a>Configurar
 

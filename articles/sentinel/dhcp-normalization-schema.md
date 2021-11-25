@@ -6,6 +6,8 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,12 +15,12 @@ ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 27e9e052265264a298e27fe64dfad4561c68dd12
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: f0287e6f116e8d63c0b20aa970974e48a31524c2
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132724318"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521460"
 ---
 # <a name="microsoft-sentinel-dhcp-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de DHCP de Microsoft Sentinel (versión preliminar pública)
 

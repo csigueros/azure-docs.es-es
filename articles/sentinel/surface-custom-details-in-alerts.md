@@ -6,8 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -15,12 +13,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 022c58b2d51405043620174030f1f1b85e3238a6
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 0b8cf32cce618ec5298ac9494062a67b53d98d76
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132523854"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711616"
 ---
 # <a name="surface-custom-event-details-in-alerts-in-microsoft-sentinel"></a>Exposición de detalles de eventos personalizados de alertas en Microsoft Sentinel 
 
@@ -74,4 +72,4 @@ El procedimiento que se detalla a continuación forma parte del Asistente para c
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a exponer detalles personalizados en alertas mediante reglas de análisis de Azure Sentinel. Para obtener más información sobre Microsoft Sentinel, consulte los siguientes artículos:
 - Obtenga una visión completa de las [reglas de análisis de consultas programadas](detect-threats-custom.md).
-- Obtenga más información sobre las [entidades en Microsoft Sentinel](entities-in-azure-sentinel.md).
+- Obtenga más información sobre las [entidades en Microsoft Sentinel](entities.md).

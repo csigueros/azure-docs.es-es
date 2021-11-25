@@ -7,12 +7,12 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/18/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 228e0ac6243ae25463a81967c6d5cbcd903ad2ce
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: eec377641eca7dd31ab04e9f6cdee949352d4a61
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124824158"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491153"
 ---
 # <a name="edit-host-and-app-settings-for-logic-apps-in-single-tenant-azure-logic-apps"></a>Edición de la configuración de host y aplicación para aplicaciones lógicas en Azure Logic Apps de inquilino único
 
@@ -163,6 +163,15 @@ Esta configuración afecta al rendimiento y la capacidad de Azure Logic Apps de 
 |---------|---------------|-------------|
 | `Runtime.FlowRetentionThreshold` | `90.00:00:00` <br>(90 días) | Establece la cantidad de tiempo para mantener el historial de ejecución de los flujos de trabajo después de que se inicie una ejecución. |
 | `Runtime.Backend.FlowRunTimeout` | `90.00:00:00` <br>(90 días) | Establece la cantidad de tiempo que un flujo de trabajo puede seguir ejecutándose antes de forzar un tiempo de espera. <p><p>**Importante**: Asegúrese de que este valor es menor o igual que el valor de `Runtime.FlowRetentionThreshold`. De lo contrario, los historiales de ejecución podrían eliminarse antes de que se completen los trabajos asociados. |
+||||
+   
+<a name="run-actions"></a>
+
+### <a name="run-actions"></a>Ejecutar acciones
+
+| Configuración | Valor predeterminado | Descripción |
+|---------|---------------|-------------|
+| `Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout` | `00:10:00` <br>(10 minutos) | Establece la cantidad de tiempo para que se ejecute un trabajo de acción de un flujo de trabajo antes de que se agote el tiempo de espera y se vuelva a intentar. |
 ||||
 
 <a name="inputs-outputs"></a>

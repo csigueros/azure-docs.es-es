@@ -1,28 +1,26 @@
 ---
-title: Referencia del esquema de normalización de eventos de proceso de Azure Sentinel | Microsoft Docs
-description: En este artículo, se describe el esquema de normalización de eventos de proceso de Azure Sentinel.
+title: Referencia del esquema de normalización de eventos de proceso de Microsoft Sentinel | Microsoft Docs
+description: En este artículo, se describe el esquema de normalización de eventos de proceso de Microsoft Sentinel.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 06/22/2021
+ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6525b6821c7107aa100c6ce79d606c2832f04b97
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6f788517a6a29e568ec983b509594039fe99e6e9
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036929"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132712308"
 ---
-# <a name="azure-sentinel-process-event-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de eventos de proceso de Azure Sentinel (versión preliminar pública)
+# <a name="microsoft-sentinel-process-event-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de eventos de proceso de Microsoft Sentinel (versión preliminar pública)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -30,7 +28,7 @@ El esquema de normalización de eventos de proceso se usa para describir la acti
 
 Un proceso, tal como lo define OSSEM, es un objeto de contención y administración que representa una instancia en ejecución de un programa. Aunque los propios procesos no se ejecutan, administran subprocesos que ejecutan código.
 
-Para más información sobre la normalización en Azure Sentinel, consulte [Normalización en Azure Sentinel](normalization.md).
+Para obtener más información sobre la normalización en Microsoft Sentinel, consulte [Normalización y modelo de información SIEM avanzado (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > El esquema de normalización de eventos de proceso está actualmente en versión preliminar. Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción.
@@ -40,7 +38,7 @@ Para más información sobre la normalización en Azure Sentinel, consulte [Norm
 
 ## <a name="parsers"></a>Analizadores
 
-Azure Sentinel proporciona los siguientes analizadores de eventos de proceso integrados específicos del producto:
+Microsoft Sentinel proporciona los siguientes analizadores de eventos de proceso integrados específicos del producto:
 
 - **Creación de procesos de eventos de seguridad (evento 4688)** , recopilado mediante el agente de Log Analytics o el agente de Azure Monitor.
 - **Terminación de procesos de eventos de seguridad (evento 4689)** , recopilado mediante el agente de Log Analytics o el agente de Azure Monitor.
@@ -54,7 +52,7 @@ Para usar los analizadores independientes del origen que unifiquen todos los ana
 - **imProcessTerminate**, para consultas que requieren información de terminación de procesos.
 - **imProcessEvents**, para consultas que requieren información de creación y terminación de procesos. En tales casos, el campo `EventType` permite distinguir entre los eventos y se establece en `ProcessCreate` o `ProcessTerminate`, respectivamente. Los eventos de terminación de procesos suelen incluir mucha menos información que los de creación de procesos.
 
-Implemente los [analizadores independientes del origen y específicos del origen](normalization-about-parsers.md) desde el [repositorio de GitHub de Azure Sentinel](https://aka.ms/AzSentinelProcessEvents).
+Implemente los [analizadores independientes del origen y específicos del origen](normalization-about-parsers.md) desde el [repositorio de GitHub de Microsoft Sentinel](https://aka.ms/AzSentinelProcessEvents).
 
 ## <a name="add-your-own-normalized-parsers"></a>Adición de los analizadores normalizados propios
 
@@ -64,7 +62,7 @@ Agregue la función KQL a los analizadores independientes del origen `imProcess<
 
 ## <a name="normalized-content-for-process-activity-data"></a>Contenido normalizado para datos de actividad de proceso
 
-El siguiente contenido de Azure Sentinel funciona con cualquier actividad de proceso normalizada mediante el modelo de información de Azure Sentinel:
+El siguiente contenido de Microsoft Sentinel funciona con cualquier actividad de proceso normalizada mediante el modelo de información SIEM avanzado:
 
 - **Reglas de análisis**:
 
@@ -96,7 +94,7 @@ El siguiente contenido de Azure Sentinel funciona con cualquier actividad de pro
     - [Ofuscación Unicode en la línea de comandos](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/UnicodeObfuscationInCommandLine.yaml)
 
 
-    Para más información, consulte [Búsqueda de amenazas con Azure Sentinel](hunting.md).
+    Para obtener más información, consulte [Búsqueda de amenazas con Microsoft Sentinel](hunting.md).
 
 ## <a name="schema-details"></a>Detalles del esquema
 
@@ -242,9 +240,9 @@ El esquema de eventos de proceso hace referencia a las entidades siguientes, que
 
 Para más información, consulte:
 
-- [Normalización en Azure Sentinel](normalization.md)
-- [Referencia del esquema de normalización de la autenticación de Azure Sentinel (versión preliminar pública)](authentication-normalization-schema.md)
-- [Referencia del esquema de normalización de DNS de Azure Sentinel](dns-normalization-schema.md)
-- [Referencia del esquema de normalización de eventos de archivo de Azure Sentinel (versión preliminar pública)](file-event-normalization-schema.md)
-- [Referencia del esquema de normalización de redes de Azure Sentinel](./network-normalization-schema.md)
-- [Referencia del esquema de normalización de eventos de registro de Azure Sentinel (versión preliminar pública)](registry-event-normalization-schema.md)
+- [Normalización en Microsoft Sentinel](normalization.md)
+- [Referencia del esquema de normalización de la autenticación de Microsoft Sentinel (versión preliminar pública)](authentication-normalization-schema.md)
+- [Referencia del esquema de normalización de DNS de Microsoft Sentinel](dns-normalization-schema.md)
+- [Referencia del esquema de normalización de eventos de archivo de Microsoft Sentinel (versión preliminar pública)](file-event-normalization-schema.md)
+- [Referencia del esquema de normalización de redes de Microsoft Sentinel](./network-normalization-schema.md)
+- [Referencia del esquema de normalización de eventos de registro de Microsoft Sentinel (versión preliminar pública)](registry-event-normalization-schema.md)

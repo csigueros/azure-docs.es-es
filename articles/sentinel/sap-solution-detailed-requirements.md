@@ -3,15 +3,17 @@ title: Requisitos detallados de SAP para la solución Microsoft Sentinel para SA
 description: Obtenga información sobre los requisitos detallados del sistema SAP de la solución Microsoft Sentinel para SAP.
 author: batamig
 ms.author: bagold
+ms.service: microsoft-sentinel
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: 2c1383f2917b7f26aaf623b7ddd9666ff2909fc6
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.subservice: microsoft-sentinel
+ms.openlocfilehash: f826ac6f3d5ec00ca2cf11948a1a18d0cb95de32
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132711856"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521118"
 ---
 # <a name="microsoft-sentinel-sap-solution-detailed-sap-requirements-public-preview"></a>Requisitos detallados de SAP para la solución Microsoft Sentinel para SAP (versión preliminar pública)
 

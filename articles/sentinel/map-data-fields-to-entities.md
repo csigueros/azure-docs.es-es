@@ -6,8 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -15,12 +13,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 48c08771fef5b18445d0a1b5268ea5ea2c535abf
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 7a4e0dba6dbbd460eac651eb16dd5de108deffe1
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132523436"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723083"
 ---
 # <a name="map-data-fields-to-entities-in-microsoft-sentinel"></a>Asignación de campos de datos a entidades en Microsoft Sentinel 
 
@@ -85,4 +83,4 @@ El procedimiento que se detalla a continuación forma parte del asistente para c
 
 En este documento, ha aprendido cómo asignar campos de datos a entidades en las reglas de análisis de Microsoft Sentinel. Para obtener más información sobre Microsoft Sentinel, consulte los siguientes artículos:
 - Obtenga una visión completa de las [reglas de análisis de consultas programadas](detect-threats-custom.md).
-- Obtenga más información sobre las [entidades en Microsoft Sentinel](entities-in-azure-sentinel.md).
+- Obtenga más información sobre las [entidades en Microsoft Sentinel](entities.md).
