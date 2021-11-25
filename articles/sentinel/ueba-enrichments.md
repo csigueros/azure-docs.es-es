@@ -3,18 +3,16 @@ title: Referencia de características enriquecidas de UEBA de Microsoft Sentinel
 description: En este artículo se muestran las características enriquecidas generadas por el análisis de comportamiento de entidades de Microsoft Sentinel.
 author: yelevin
 manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 345f34d2e0db508b831dca6d7f19b27436448de0
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 843e1eafa02687cefddf310c467cfd9a56717f5d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132519826"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711407"
 ---
 # <a name="microsoft-sentinel-ueba-enrichments-reference"></a>Referencia de enriquecimientos de UEBA de Microsoft Sentinel
 

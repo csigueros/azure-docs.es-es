@@ -7,16 +7,16 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: dfb522e5231072e427c14dfe1c8c16889dd3ff9e
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: e39641317cc02c12666adf622ccb931ef57d9339
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129214178"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493692"
 ---
 # <a name="how-to-create-import-and-export-glossary-terms"></a>Creación, importación y exportación de términos del glosario
 
-En este artículo se describe cómo crear un término del glosario empresarial en el catálogo de datos de Azure Purview, y cómo importar y exportar términos de glosario mediante archivos .csv.
+En este artículo se describe cómo trabajar con el glosario empresarial en Azure Purview. Se proporcionan instrucciones para crear un término del glosario empresarial en el catálogo de datos de Azure Purview, y cómo importar y exportar términos de glosario mediante archivos .csv.
 
 ## <a name="create-a-new-term"></a>Creación de un nuevo término
 
@@ -71,7 +71,7 @@ Tenga en cuenta que los nombres de los términos distinguen mayúsculas de minú
 
    :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-import.png" alt-text="Captura de pantalla de la página Términos del glosario, botón Import terms (Importar términos).":::
 
-3. Descargue la plantilla .csv y úsela para escribir los términos que desee agregar.
+3. Descargue la plantilla .csv y úsela para escribir los términos que desee agregar. Al asignar un nombre al archivo de plantilla csv, el nombre debe empezar por una letra y solo puede incluir letras, números, espacios, "_" u otros caracteres Unicode no ascii. Los caracteres especiales del nombre de archivo crearán un error.
 
    > [!Important]
    > El sistema solo admite la importación de columnas que estén disponibles en la plantilla. La plantilla "Valores predeterminados del sistema" tendrá todos los atributos predeterminados.
@@ -101,4 +101,4 @@ Debe poder exportar términos del glosario siempre que los términos seleccionad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Lea el [Tutorial: Creación e importación de términos del glosario](tutorial-import-create-glossary-terms.md) para más información.
+* Para más información sobre los términos del glosario, consulte la [referencia del glosario](reference-purview-glossary.md)

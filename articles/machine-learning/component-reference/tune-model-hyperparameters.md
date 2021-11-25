@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2020
-ms.openlocfilehash: e1efc37e8bb824a6111987a789b48e805aeb1785
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: f11800c1501c0efad6dec18542ecaa912527689a
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131565981"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491666"
 ---
 # <a name="tune-model-hyperparameters"></a>Optimizar los hiperparámetros del modelo
 
@@ -69,7 +69,7 @@ En esta sección se describe cómo realizar un barrido de parámetros básico, q
 
     Sin embargo, la métrica que se elija determinará la clasificación de los modelos. Solo el modelo superior, clasificado por la métrica elegida, se genera como un modelo entrenado que se usará para la puntuación.
 
-8.  En **Random seed** (Inicialización aleatoria), escriba el número que se usará para iniciar el barrido de parámetros. 
+8.  En **Random seed** (valor de inicialización aleatorio), escriba un número entero como un estado generador de números pseudo aleatorios que se usa para seleccionar aleatoriamente valores de parámetro en un intervalo predefinido. Este parámetro solo es efectivo si el **Modo de barrido de parámetros** es **Barrido aleatorio**.
 
 9. Envíe la canalización.
 

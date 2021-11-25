@@ -3,16 +3,15 @@ title: Creación de un informe de Power BI a partir de datos de Microsoft Senti
 description: Aprenda a crear un informe de Power BI mediante una consulta exportada desde Microsoft Sentinel Log Analytics. Comparta el informe con otros usuarios en el servicio Power BI y un canal de Teams.
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: cd6c6de1fc1a83cecdf0ea96e912f989bdf6b904
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 345e6fc447c2c20fcb2219a7280a740dade7a205
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132521327"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132712462"
 ---
 # <a name="tutorial-create-a-power-bi-report-from-microsoft-sentinel-data"></a>Tutorial: Creación de un informe de Power BI a partir de datos de Microsoft Sentinel
 

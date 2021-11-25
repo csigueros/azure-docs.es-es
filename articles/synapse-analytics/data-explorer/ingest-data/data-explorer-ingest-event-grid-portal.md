@@ -9,12 +9,12 @@ ms.reviewer: tzgitlin
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.openlocfilehash: 2c472ae5950bc035612987c35e76291dc5c23f49
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: cb275db1c34fa8e479a10a3ac5495160855c6add
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132485666"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720366"
 ---
 # <a name="ingest-blobs-into-azure-synapse-data-explorer-by-subscribing-to-event-grid-notifications-preview"></a>Ingesta de blobs en el Explorador de datos de Azure Synapse mediante la suscripción a las notificaciones de Event Grid (versión preliminar)
 
@@ -27,7 +27,7 @@ ms.locfileid: "132485666"
 
 [!INCLUDE [data-connector-intro](../includes/data-explorer-ingest-data-intro.md)]
 
-En este artículo, aprenderá a ingerir blobs desde la cuenta de almacenamiento en el Explorador de datos de Azure Synapse mediante una conexión de datos de Event Grid. Creará una conexión de datos de Event Grid que establece una suscripción de [Azure Event Grid](/azure/event-grid/overview). La suscripción de Event Grid enruta los eventos desde la cuenta de almacenamiento al Explorador de datos mediante un centro de eventos de Azure. A continuación, puede ver un ejemplo del flujo de datos a lo largo de todo el sistema.
+En este artículo, aprenderá a ingerir blobs desde la cuenta de almacenamiento en el Explorador de datos de Azure Synapse mediante una conexión de datos de Event Grid. Creará una conexión de datos de Event Grid que establece una suscripción de [Azure Event Grid](../../../event-grid/overview.md). La suscripción de Event Grid enruta los eventos desde la cuenta de almacenamiento al Explorador de datos mediante un centro de eventos de Azure. A continuación, puede ver un ejemplo del flujo de datos a lo largo de todo el sistema.
 
 Para obtener información general sobre la ingesta en el Explorador de datos desde Event Grid, consulte [Conexión a Event Grid](data-explorer-ingest-event-grid-overview.md).<!-- To create resources manually in the Azure portal, see [Manually create resources for Event Grid ingestion](ingest-data-event-grid-manual.md). -->
 
@@ -56,7 +56,7 @@ Para obtener información general sobre la ingesta en el Explorador de datos des
         ```
 
 * Cree [una cuenta de almacenamiento](/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
-* La suscripción de notificación de Event Grid se puede establecer en cuentas de Azure Storage para `BlobStorage`, `StorageV2` o [Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction).
+* La suscripción de notificación de Event Grid se puede establecer en cuentas de Azure Storage para `BlobStorage`, `StorageV2` o [Data Lake Storage Gen2](../../../storage/blobs/data-lake-storage-introduction.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -96,7 +96,7 @@ Ahora, conecte la cuenta de almacenamiento al Explorador de datos para que los d
         * Para definir un filtro en un prefijo de blob (o en una carpeta en Azure Data Lake Gen2), el campo *debe* establecerse de la siguiente manera: *`/blobServices/default/containers/[container name]/blobs/[folder/blob prefix]`* .
     * El campo **sufijo** es el sufijo *literal* del blob. No se permiten comodines.
     * El campo **Distinguir mayúsculas de minúsculas** indica si los filtros de prefijos y sufijos distinguen mayúsculas de minúsculas.
-    * Para más información sobre el filtrado de eventos, consulte [Eventos de Blob Storage](/azure/storage/blobs/storage-blob-event-overview#filtering-events).
+    * Para más información sobre el filtrado de eventos, consulte [Eventos de Blob Storage](../../../storage/blobs/storage-blob-event-overview.md#filtering-events).
 
     :::image type="content" source="../media/ingest-data-event-grid/filter-settings.png" alt-text="Configuración del filtro de Event Grid.":::
 
@@ -148,7 +148,7 @@ Vamos a trabajar con un pequeño script de shell que emite algunos comandos bás
 1. Carga un archivo existente (en forma de blob) en ese contenedor.
 1. Enumera los blobs del contenedor.
 
-Puede usar [Azure Cloud Shell](/azure/cloud-shell/overview) para ejecutar el script directamente en el portal.
+Puede usar [Azure Cloud Shell](../../../cloud-shell/overview.md) para ejecutar el script directamente en el portal.
 
 Guarde los datos en un archivo y cárguelo con este script:
 

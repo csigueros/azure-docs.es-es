@@ -3,20 +3,20 @@ title: Administración de Microsoft Azure Maps Creator
 description: En este artículo, aprenderá a administrar Microsoft Azure Maps Creator.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 10/08/2021
+ms.date: 11/11/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: 09a70e55d796e0eb16d0806fb9a0726ff67ea812
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 124b75aa0a80f84299fd0e113f2d4d7f1a427213
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129729774"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400213"
 ---
 # <a name="manage-azure-maps-creator"></a>Administración de Azure Maps Creator
 
-Puede usar Azure Maps Creator para crear datos privados de mapas de interiores. Mediante el uso de la API de Azure Maps y el módulo Indoor Maps, puede desarrollar aplicaciones web interactivas y dinámicas de planos interiores. Para obtener información sobre precios, consulte [Elección del plan de tarifa adecuado en Azure Maps](choose-pricing-tier.md).
+Puede usar Azure Maps Creator para crear datos privados de mapas de interiores. Mediante el uso de la API de Azure Maps y el módulo Indoor Maps, puede desarrollar aplicaciones web interactivas y dinámicas de planos interiores. Para obtener información sobre precios, consulte la sección *Creator* de [Precios de Azure Maps](https://aka.ms/CreatorPricing).
 
 En este artículo le guiaremos por los pasos necesarios para crear y eliminar un recurso de Creator en una cuenta de Azure Maps.
 
@@ -59,7 +59,7 @@ Para eliminar un recurso de Creator:
 2. Seleccione **Eliminar**.
 
     >[!WARNING]
-    >Al eliminar el recurso de Creator de la cuenta de Azure Maps, también se eliminarán las conversiones, los conjuntos de datos, los conjuntos de mosaicos y los conjuntos de estados de características que se crearon con los servicios de Creator.
+    >Al eliminar el recurso de Creator de la cuenta de Azure Maps, también se eliminarán las conversiones, los conjuntos de datos, los conjuntos de mosaicos y los conjuntos de estados de características que se crearon con los servicios de Creator. Una vez eliminado un recurso de Creator, no se puede deshacer la acción.
 
      :::image type="content" source="./media/how-to-manage-creator/creator-delete.png" alt-text="Página de Creator con el botón eliminar":::
 

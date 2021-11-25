@@ -4,15 +4,17 @@ description: Use un árbol de decisión para entender cómo podría querer dise�
 services: sentinel
 author: batamig
 ms.author: bagol
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0e18dc78e45c1fb619a8727a550ffa81ce2a7d27
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 0fccafee7a645be13ae17eca98d99305dd2b4a10
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132724394"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521555"
 ---
 # <a name="design-your-microsoft-sentinel-workspace-architecture"></a>Diseño de la arquitectura de áreas de trabajo de Microsoft Sentinel
 
@@ -86,13 +88,13 @@ Si necesita dividir la facturación o el contracargo, considere si los informes 
 
 - **Si *no* necesita dividir la facturación o el contracargo**, continúe con el [paso 5](#step-5-collecting-any-non-soc-data).
 
-- **Si *necesita* dividir la facturación o el contracargo**, considere si los [informes de uso o los cargos cruzados manuales](billing.md) resultan adecuados en su caso.
+- **Si *necesita* dividir la facturación o el contracargo**, considere si los [informes de uso o los cargos cruzados manuales](azure-sentinel-billing.md) resultan adecuados en su caso.
 
   - **Si los informes de uso o los cargos cruzados manuales resultan adecuados en su caso**, continúe con el [paso 5](#step-5-collecting-any-non-soc-data).
 
   - **Si *ninguna* de las dos opciones resulta adecuada en su caso**, use un área de trabajo de Microsoft Sentinel independiente para cada propietario de costos.
 
-  <a name="note2"></a>[Nota 2 del árbol de decisión:](#decision-tree) Para obtener más información, vea [Costos y facturación de Microsoft Sentinel](billing.md).
+  <a name="note2"></a>[Nota 2 del árbol de decisión:](#decision-tree) Para obtener más información, vea [Costos y facturación de Microsoft Sentinel](azure-sentinel-billing.md).
 
 ### <a name="step-5-collecting-any-non-soc-data"></a>Paso 5: ¿Recopilar datos que no sean SOC?
 
@@ -150,7 +152,7 @@ Sin embargo, esta recomendación de usar áreas de trabajo independientes con da
 
   - Si la importancia del costo de salida de datos hace que merezca la pena mantener áreas de trabajo independientes, use un área de trabajo de Microsoft Sentinel independiente para cada región en la que necesite reducir dicho costo.
 
-    <a name="note5"></a>[Nota 5 del árbol de decisión:](#decision-tree) Se recomienda tener el menor número de áreas de trabajo posible. Use la [calculadora de precios de Azure](billing.md#estimate-microsoft-sentinel-costs) para calcular el coste y determinar qué regiones necesita realmente, y combine las áreas de trabajo de regiones con costes de salida bajos. Los costos de ancho de banda pueden representar solo una pequeña parte de la factura de Azure en comparación con los costes de ingesta de Microsoft Sentinel y Log Analytics.
+    <a name="note5"></a>[Nota 5 del árbol de decisión:](#decision-tree) Se recomienda tener el menor número de áreas de trabajo posible. Use la [calculadora de precios de Azure](azure-sentinel-billing.md#estimate-microsoft-sentinel-costs) para calcular el coste y determinar qué regiones necesita realmente, y combine las áreas de trabajo de regiones con costes de salida bajos. Los costos de ancho de banda pueden representar solo una pequeña parte de la factura de Azure en comparación con los costes de ingesta de Microsoft Sentinel y Log Analytics.
 
     Por ejemplo, el coste se podría calcular de la siguiente manera:
 
@@ -206,7 +208,7 @@ Si piensa usar RBAC de nivel de tabla o contexto de recursos, tenga presente lo 
 
 Para obtener ejemplos prácticos de este árbol de decisión, vea [Diseños de ejemplo de áreas de trabajo de Microsoft Sentinel](sample-workspace-designs.md).
 
-Para obtener más información, consulte:
+Para más información, consulte:
 
 - [Procedimientos recomendados de arquitectura de áreas de trabajo de Microsoft Sentinel](best-practices-workspace-architecture.md)
 - [Procedimientos recomendados de Microsoft Sentinel](best-practices.md)

@@ -9,19 +9,19 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d7d06180caedf23fb79b05ca9bbc345038722ea2
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 50b032779039ed50a1d0132bfd109394be379636
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123114307"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491931"
 ---
 # <a name="azure-cosmos-db-net-sdk-v3-for-sql-api-download-and-release-notes"></a>SDK de Azure Cosmos DB para .NET v3 para SQL API: descarga y notas de la versión
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [.NET SDK v2](sql-api-sdk-dotnet.md)
+> * [SDK de .NET v2](sql-api-sdk-dotnet.md)
 > * [SDK de .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK de fuente de cambios de .NET, versión 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
@@ -49,7 +49,17 @@ ms.locfileid: "123114307"
 |**Tutorial de Entity Framework Core**|[Entity Framework Core con el proveedor de Azure Cosmos DB](/ef/core/providers/cosmos/#get-started)|
 |**Plataforma admitida actualmente**|[Microsoft .NET Standard 2.0](/dotnet/standard/net-standard)|
 
-[!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v3/changelog.md)]
+## <a name="release-history"></a>Historial de versiones
+
+El historial de versiones se mantiene en el repositorio de origen del SDK de .NET de Azure Cosmos DB. Para obtener una lista detallada de las versiones de características y los errores corregidos en cada versión, consulte la [documentación del registro de cambios del SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md)
+
+## <a name="recommended-version"></a><a name="recommended-version"></a> Versión recomendada
+
+Hay diferentes versiones secundarias de los SDK de .NET están disponibles en la versión 3.x.x. **La versión mínima recomendada es de 3.20.1**.
+
+## <a name="known-issues"></a><a name="known-issues"></a> Problemas conocidos
+
+Para obtener una lista de problemas conocidos con la versión mínima recomendada del SDK, consulte la [sección de problemas conocidos](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md#-known-issues).
 
 ## <a name="faq"></a>Preguntas más frecuentes
 [!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]

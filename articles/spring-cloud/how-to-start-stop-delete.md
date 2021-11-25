@@ -1,20 +1,20 @@
 ---
-title: Inicio, detención y eliminación de una aplicación de Azure Spring Cloud | Microsoft Docs
-description: Inicio, detención y eliminación de una aplicación de Azure Spring Cloud
+title: Inicio, detención y eliminación de una aplicación en Azure Spring Cloud | Microsoft Docs
+description: Aquí se explica cómo iniciar, detener y eliminar una aplicación en Azure Spring Cloud
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 73fcf419438f24c784514c723397049d50dd87be
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 0e27f7ac841635f33bc40db739df4cf2240e2149
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015444"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484749"
 ---
-# <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Inicio, detención y eliminación de una aplicación de Azure Spring Cloud
+# <a name="start-stop-and-delete-an-application-in-azure-spring-cloud"></a>Inicio, detención y eliminación de una aplicación en Azure Spring Cloud
 
 **Este artículo se aplica a:** ✔️ Java ✔️ C#
 

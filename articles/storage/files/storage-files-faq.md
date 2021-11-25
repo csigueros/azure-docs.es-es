@@ -7,15 +7,15 @@ ms.date: 11/5/2021
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 79cb958616bc709ddd2dd866283eed0bd90d5610
-ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
+ms.openlocfilehash: 636fd6e0ee1a259d132c84a55cae078a3fbaa0c5
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131866739"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524367"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
-[Azure Files](storage-files-introduction.md) le ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede obtener acceso mediante el protocolo [Bloque de mensajes del servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) estándar y el [protocolo Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (versión preliminar). Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
+[Azure Files](storage-files-introduction.md) le ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede obtener acceso mediante el protocolo [Bloque de mensajes del servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) estándar y el protocolo [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System). Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
 
 En este artículo se responden las preguntas más frecuentes sobre las características y las funcionalidades de Azure Files, incluido el uso de Azure File Sync con Azure Files. Si no encuentra una respuesta a su pregunta, póngase en contacto con nosotros mediante los siguientes canales (en orden incremental):
 
@@ -350,12 +350,12 @@ La sincronización inicial suele estar limitada por la velocidad de carga inicia
 * <a id="when-to-use-nfs"></a>
  **¿Cuándo debo usar NFS en Azure Files?**
 
-    Consulte [Recursos compartidos NFS (versión preliminar)](files-nfs-protocol.md).
+    Consulte [Recursos compartidos NFS](files-nfs-protocol.md).
 
 * <a id="backup-nfs-data"></a>
  **¿Cómo hago una copia de seguridad de los datos almacenados en recursos compartidos NFS?**
 
-    La realización de copias de seguridad de los datos en recursos compartidos NFS se puede organizar mediante herramientas conocidas, como rsync, o productos de uno de nuestros asociados para la copia de seguridad. Varios asociados para la copia de seguridad, entre los que se incluyen [Commvault](https://documentation.commvault.com/commvault/v11/article?p=92634.htm), [Veeam](https://www.veeam.com/blog/?p=123438) y [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001), formaron parte de nuestra versión preliminar inicial y han ampliado sus soluciones para que funcionen con SMB 3.x y NFS 4.1 para Azure Files.
+    La realización de copias de seguridad de los datos en recursos compartidos NFS se puede organizar mediante herramientas conocidas, como rsync, o productos de uno de nuestros asociados para la copia de seguridad. Varios asociados para la copia de seguridad, entre los que se incluyen [Commvault](https://documentation.commvault.com/commvault/v11/article?p=92634.htm), [Veeam](https://www.veeam.com/blog/?p=123438) y [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001), han ampliado sus soluciones para que funcionen con SMB 3.x y NFS 4.1 para Azure Files.
 
 * <a id="migrate-nfs-data"></a>
  **¿Puedo migrar datos existentes a un recurso compartido NFS?**

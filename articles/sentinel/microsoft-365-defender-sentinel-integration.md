@@ -6,8 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -15,12 +13,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a5a969397ce63568c95891206d95275af5caf6a8
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 34b39bcac7f852bedcfd1b03d399f5ef4987e0be
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132520491"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132713163"
 ---
 # <a name="microsoft-365-defender-integration-with-microsoft-sentinel"></a>Integración de Microsoft 365 Defender en Microsoft Azure Sentinel
 
@@ -48,7 +46,7 @@ Esta integración da a los incidentes de seguridad de Microsoft 365 visibilidad
 - **Microsoft Defender para punto de conexión** (anteriormente Microsoft Defender ATP)
 - **Microsoft Defender for Identity** (anteriormente Azure ATP)
 - **Microsoft Defender para Office 365** (anteriormente ATP de Office 365)
-- **Microsoft Defender para aplicaciones en la nube**
+- **Microsoft Defender for Cloud Apps**
 
 Además de recopilar alertas de estos componentes, Microsoft 365 Defender genera alertas propias. Crea incidentes a partir de todas estas alertas y los envía a Microsoft Sentinel.
 

@@ -8,12 +8,13 @@ ms.subservice: iomt
 ms.topic: quickstart
 ms.date: 09/10/2021
 ms.author: rabhaiya
-ms.openlocfilehash: 6eca34979b1be4abc6985492bcace04072f4135d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: mode-portal
+ms.openlocfilehash: 6feeb319d96b74b2f7dac82236274f587ae75445
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124748876"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133061531"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Inicio rápido: Implementación del conector de Azure IoT para FHIR (versión preliminar): Azure Portal
 
@@ -50,7 +51,7 @@ Escriba la configuración del nuevo conector de Azure IoT para FHIR. Haga clic e
 
 [![Creación de un conector de IoT](media/quickstart-iot-fhir-portal/portal-iot-connector-create.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-create.jpg#lightbox)
 
-|Configuración|Value|Descripción |
+|Configuración|Valor|Descripción |
 |---|---|---|
 |Nombre del conector|Un nombre único|Escriba un nombre para identificar el conector de Azure IoT para FHIR. Este nombre debe ser único en un recurso Azure API for FHIR. El nombre solo puede contener letras minúsculas, números y el carácter de guion (-). Debe comenzar y terminar con una letra o un número, y debe tener entre 3 y 24 caracteres de longitud.|
 |Tipo de resolución|Lookup o Create|Seleccione **Lookup** si tiene un proceso fuera de banda para crear recursos FHIR de tipo [Device](https://www.hl7.org/fhir/device.html) y [Patient](https://www.hl7.org/fhir/patient.html) en su instancia de Azure API for FHIR. El conector de Azure IoT para FHIR usará la referencia a estos recursos al crear un recurso FHIR de tipo [Observation](https://www.hl7.org/fhir/observation.html) para representar los datos del dispositivo. Seleccione **Crear** si desea que el conector de Azure IoT para FHIR cree recursos de tipo Device y Patient esenciales en Azure API for FHIR con los respectivos valores de identificador presentes en los datos del dispositivo.|

@@ -2,13 +2,13 @@
 title: Errores de plantilla no válida
 description: Describe cómo resolver errores de plantilla no válida al implementar plantillas de Azure Resource Manager.
 ms.topic: troubleshooting
-ms.date: 05/22/2020
-ms.openlocfilehash: f91da0287a0464291e457e3f58de35a1a5e0fc3d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/11/2021
+ms.openlocfilehash: 2565a68b63e23ecd81338c0bfbbdc36878c1a95a
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131093256"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132401922"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Resolución de errores de plantilla no válida
 
@@ -54,66 +54,11 @@ Si recibe este tipo de error, revise cuidadosamente la sintaxis de las expresion
 
 ## <a name="solution-2---incorrect-segment-lengths"></a>Solución 2: longitudes de segmentos incorrectas
 
-Cuando el nombre del recurso no tiene el formato correcto, se produce otro error de plantilla no válida.
-
-```
-Code=InvalidTemplate
-Message=Deployment template validation failed: 'The template resource {resource-name}'
-for type {resource-type} has incorrect segment lengths.
-```
-
-Un recurso de nivel de raíz debe tener un segmento menos en el nombre que en el tipo de recurso. Cada segmento se distingue por una barra diagonal. En el ejemplo siguiente, el tipo tiene dos segmentos y el nombre tiene uno, por lo que es un **nombre válido**.
-
-```json
-{
-  "type": "Microsoft.Web/serverfarms",
-  "name": "myHostingPlanName",
-  ...
-}
-```
-
-Pero el ejemplo siguiente **no es un nombre válido** porque el nombre tiene el mismo número de segmentos que el tipo.
-
-```json
-{
-  "type": "Microsoft.Web/serverfarms",
-  "name": "appPlan/myHostingPlanName",
-  ...
-}
-```
-
-Para los recursos secundarios, el tipo y el nombre deben tener el mismo número de segmentos. Este número de segmentos tiene sentido, ya que el tipo y el nombre completo del elemento secundario incluyen el tipo y el nombre del elemento primario. Por lo tanto, el nombre completo sigue teniendo un segmento menos que el tipo completo.
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.KeyVault/vaults",
-    "name": "contosokeyvault",
-    ...
-    "resources": [
-      {
-        "type": "secrets",
-        "name": "appPassword",
-        ...
-      }
-    ]
-  }
-]
-```
-
-Obtener los segmentos correctos puede resultar complicado con los tipos de Resource Manager que se aplican en los proveedores de recursos. Por ejemplo, para aplicar un bloqueo de recurso a un sitio web, el tipo debe tener 4 segmentos. Por lo tanto, el nombre tiene 3 segmentos:
-
-```json
-{
-  "type": "Microsoft.Web/sites/providers/locks",
-  "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
-  ...
-}
-```
+Cuando el nombre del recurso no tiene el formato correcto, se produce otro error de plantilla no válida. Para resolver ese error, consulte [Resolución de errores de no coincidencia de nombre y tipo](error-invalid-name-segments.md).
 
 <a id="parameter-not-valid"></a>
 
-## <a name="solution-3---parameter-is-not-valid"></a>Solución 3: el parámetro no es válido
+## <a name="solution-3---parameter-isnt-valid"></a>Solución 3: el parámetro no es válido
 
 Si proporciona un valor de parámetro que no es uno de los valores permitidos, recibe un mensaje de error similar al siguiente:
 

@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 11/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 442bf95401f4816a192940191c3bee96aed4aa97
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d3ce22128b209a65d5f9036b0943f2425e2c5de3
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124827330"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132401257"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos con IBM Informix como origen o destino mediante Azure Data Factory o Synapse Analytics
 
@@ -37,7 +37,7 @@ Puede copiar datos desde un origen de Informix a cualquier almacén de datos de 
 Para usar este conector de Informix, necesitará lo siguiente:
 
 - Configurar un entorno Integration Runtime autohospedado. Consulte el artículo sobre [Integration Runtime autohospedado](create-self-hosted-integration-runtime.md) para más información.
-- Instale el controlador ODBC de Informix para el almacén de datos en la máquina de Integration Runtime. Para la instalación y configuración de los controladores, consulte el artículo de [Informix ODBC Driver Guide](https://www.ibm.com/support/knowledgecenter/SSGU8G_11.70.0/com.ibm.odbc.doc/odbc.htm) (Guía del controlador ODBC de Informix) en IBM Knowledge Center para obtener más información, o póngase en contacto con el equipo de soporte técnico de IBM para obtener instrucciones.
+- Descargue el SDK de cliente de 64 bits para Informix para crear una conexión ODBC para el almacén de datos en la máquina del entorno de ejecución de integración. Para la descarga y configuración del SDK, consulte los detalles en este [artículo](https://www.ibm.com/support/pages/informix-client-software-development-kit-client-sdk-and-informix-connect-system-requirements) o póngase en contacto con el equipo de soporte técnico de IBM para obtener instrucciones sobre la instalación de controladores.
 
 ## <a name="getting-started"></a>Introducción
 

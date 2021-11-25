@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: eur
-ms.openlocfilehash: ba4e6fc3d128daf54f55456163acb6a563745b55
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 0944e5da8bde152a2c8e9fd67e5641d419b0b1fd
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131507954"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132493971"
 ---
 # <a name="speech-service-for-telephony-data"></a>Servicio Voz para datos de telefonía
 
@@ -130,7 +130,7 @@ Otro escenario es la integración directa con el protocolo de inicio de sesión 
 
 ## <a name="sample-code"></a>Código de ejemplo
 
-El código de ejemplo está disponible en GitHub para cada una de las características del servicio Voz. En estos ejemplos se tratan escenarios comunes como la lectura de audio de un archivo o flujo, el reconocimiento continuo y de una sola emisión, y el trabajo con modelos personalizados. Use estos vínculos para ver ejemplos de SDK y REST:
+El código de ejemplo está disponible en GitHub para cada una de las características del servicio Voz. En estos ejemplos se tratan escenarios comunes como la lectura de audio de un archivo o flujo, el reconocimiento continuo y al inicio, y el trabajo con modelos personalizados. Use estos vínculos para ver ejemplos de SDK y REST:
 
 - [Ejemplos de traducción de voz y voz a texto (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Ejemplos de transcripción de Azure Batch (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)

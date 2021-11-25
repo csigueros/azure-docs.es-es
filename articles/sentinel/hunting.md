@@ -4,18 +4,16 @@ description: Use las consultas de búsqueda integradas de Microsoft Sentinel a m
 services: sentinel
 documentationcenter: na
 author: yelevin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 6e1308b039cc86bbe10fc062138ab76c486ad29a
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 73927528d75d23c2276b3fca2a1e396fe076b90e
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132518629"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721050"
 ---
 # <a name="hunt-for-threats-with-microsoft-sentinel"></a>Búsqueda de amenazas con Microsoft Sentinel
 

@@ -8,12 +8,12 @@ ms.subservice: troubleshooting
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 16608f77971c3c19836d8f956512f28f945d3667
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: fd560856ab087727d73317eaef5de01950281db9
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109809065"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132399489"
 ---
 # <a name="synapse-studio-troubleshooting"></a>Solución de problemas de Synapse Studio
 
@@ -34,7 +34,7 @@ La ejecución de la consulta con "grupo de SQL sin servidor" muestra el mensaje 
 ![Síntoma 2](media/troubleshooting-synapse-studio/symptom2.png)
  
 
-## <a name="troubleshooting-steps"></a>Pasos para solucionar problemas
+### <a name="troubleshooting-steps"></a>Pasos para solucionar problemas
 
 > [!NOTE] 
 >    Los siguientes pasos de solución de problemas son para Chromium Edge y Chrome. Puede usar otros exploradores (como FireFox) con los mismos pasos de solución de problemas, pero la ventana "Herramienta del desarrollador" puede tener un diseño diferente de las capturas de pantalla que aparecen en esta guía de solución de problemas. Si es posible, NO use un Edge clásico para la solución de problemas, ya que puede mostrar información inexacta en determinadas situaciones.
@@ -100,6 +100,47 @@ Algunos exploradores admiten la visualización de marcas de tiempo en la pestañ
 ![configuración de la consola de herramientas para desarrolladores](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
 
 ![mostrar marca de tiempo](media/troubleshooting-synapse-studio/show-time-stamp.png)
+
+## <a name="notebook-websocket-connection-issue"></a>Problema de conexión de WebSocket del cuaderno
+
+### <a name="symptom"></a>Síntoma
+El mensaje de error muestra: la conexión del cuaderno se ha cerrado inesperadamente. Para restablecer la conexión, vuelva a ejecutar el cuaderno. Información de diagnóstico: websocket_close_error (identificador de correlación) 
+
+![Problema de conexión de WebSocket del cuaderno](media/troubleshooting-synapse-studio/notebook-websocket-connection-issue.png)
+
+### <a name="root-cause"></a>Causa principal: 
+La ejecución del cuaderno depende del establecimiento de una conexión de WebSocket a la siguiente dirección URL 
+``` 
+wss://{workspace}.dev.azuresynapse.net/jupyterApi/versions/1/sparkPools/{spark-pool}/api/kernels/{kernel-id}/channels 
+``` 
+
++ **{workspace}** es el nombre del área de trabajo de Synapse, 
++ **{spark-pool}** es el nombre del grupo de Spark en el que se está trabajando actualmente, 
++ **{kernel-id}** es un GUID que se usa para distinguir sesiones de cuaderno. 
+
+Al configurar la conexión de WebSocket, Synapse Studio va a incluir un token de acceso (token de portador JWT) en el encabezado Sec-WebSocket-Protocol de la solicitud de WebSocket. 
+
+A veces, la solicitud de WebSocket podría bloquearse, o el token JWT del encabezado de solicitud podría estar censurado en el entorno de red. Esto hace que Synapse Notebook no pueda establecer la conexión con el servidor ni ejecutar el cuaderno. 
+
+### <a name="action"></a>Acción: 
+
+Si es posible, intente cambiar el entorno de red, por ejemplo, dentro o fuera de la red corporativa, o acceda a Synapse Notebook en otra estación de trabajo. 
+
++ Si puede ejecutar el cuaderno en la misma estación de trabajo pero en otro entorno de red, trabaje con el administrador de red para averiguar si se ha bloqueado la conexión de WebSocket. 
+
++ Si puede ejecutar el cuaderno en otra estación de trabajo pero en el mismo entorno de red, asegúrese de que no ha instalado ningún complemento del explorador que pueda bloquear la solicitud de WebSocket. 
+
+De lo contrario, póngase en contacto con el administrador de red y asegúrese de que las solicitudes de WebSocket salientes con el siguiente patrón de dirección URL estén permitidas y su encabezado de solicitud no esté censurado: 
+
+``` 
+wss://{workspace}.dev.azuresynapse.net/{path} 
+``` 
++ **{workspace}** es el nombre del área de trabajo de Synapse; 
+
++ **{path}** indica cualquier subruta de acceso (es decir, se incluye el carácter de barra diagonal) del URI. 
+
+Este patrón de dirección URL es más flexible que el que se muestra en la sección "Causa principal", ya que permite agregar nuevas características dependientes de WebSocket a Synapse sin ningún problema de conectividad potencial en el futuro. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si los pasos anteriores no le ayudan a resolver el problema, [cree una incidencia de soporte técnico](../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).

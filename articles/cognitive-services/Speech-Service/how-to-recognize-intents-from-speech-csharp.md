@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: eur
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 50a046682b8c7c04a8dd11534583c6bb4666432a
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 8b831d1e6c945528b917d7a0b21955e33be52f6d
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131509231"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484313"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Reconocimiento de intenciones a partir de contenido de voz mediante el SDK de Voz para C#
 
@@ -158,14 +158,14 @@ En lugar de agregar intenciones individuales, puede usar el método `AddAllInten
 
 ## <a name="start-recognition"></a>Inicio del reconocimiento
 
-Cuando haya creado el reconocedor y haya agregado las intenciones, puede empezar el reconocimiento. El SDK de Voz admite tanto el reconocimiento continuo como el de una sola emisión.
+Cuando haya creado el reconocedor y haya agregado las intenciones, puede empezar el reconocimiento. El SDK de Voz admite tanto reconocimiento al inicio como reconocimiento continuo.
 
 | Modo de reconocimiento | Métodos para la llamada | Resultado |
 | ---------------- | --------------- | ------ |
-| Emisión única | `RecognizeOnceAsync()` | Devuelve la intención reconocida, si la hubiera, después de una expresión. |
+| Al inicio | `RecognizeOnceAsync()` | Devuelve la intención reconocida, si la hubiera, después de una expresión. |
 | Continuo | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Reconoce varias expresiones; emite eventos (por ejemplo, `IntermediateResultReceived`) cuando los resultados están disponibles. |
 
-La aplicación utiliza el modo de emisión única y, por lo tanto, llama a `RecognizeOnceAsync()` para iniciar el reconocimiento. El resultado es un objeto `IntentRecognitionResult` que contiene información sobre la intención reconocida. La respuesta JSON de LUIS se extrae mediante la siguiente expresión:
+La aplicación utiliza el modo de reconocimiento al inicio y, por lo tanto, llama a `RecognizeOnceAsync()` para iniciarlo. El resultado es un objeto `IntentRecognitionResult` que contiene información sobre la intención reconocida. La respuesta JSON de LUIS se extrae mediante la siguiente expresión:
 
 ```csharp
 result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)

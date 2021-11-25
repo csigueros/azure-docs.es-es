@@ -3,16 +3,17 @@ title: Enlace de entrada de Azure SQL para Functions
 description: Aprenda a usar el enlace de entrada de Azure SQL en Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.date: 11/9/2021
+ms.date: 11/12/2021
 ms.author: drskwier
-ms.openlocfilehash: 45afc0cc6ccf42711b878d3fccd7912d2bdc750d
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.reviewer: cachai
+ms.openlocfilehash: 3c910ab85d3689eadfdf4ba32cc2702ce03ace65
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132349986"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132491096"
 ---
-# <a name="azure-sql-input-binding-for-azure-functions"></a>Enlace de entrada de Azure SQL para Azure Functions
+# <a name="azure-sql-input-binding-for-azure-functions-preview"></a>Enlace de entrada de Azure SQL para Azure Functions (versión preliminar)
 
 El enlace de entrada de Azure SQL recupera datos de una base de datos y los pasa al parámetro de entrada de la función.
 

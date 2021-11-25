@@ -6,6 +6,8 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
@@ -13,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
-ms.openlocfilehash: 256743af821f1dc3cdb83d71246cf31ed2b9a7cc
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 4c1d4f5dcbb0a707f0ec6ff728ddb72a27ab1e0d
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721620"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521745"
 ---
 # <a name="resources-for-creating-microsoft-sentinel-custom-connectors"></a>Recursos para crear conectores personalizados de Microsoft Sentinel
 

@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +13,12 @@ ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f2034ba667e3d96846aa27e58dce2555da39116b
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 407c57a235a1c716edeb8e17b80cbd1881d562ea
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132518838"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711161"
 ---
 # <a name="create-and-customize-microsoft-sentinel-playbooks-from-built-in-templates"></a>Creación y personalización de cuadernos de estrategias de Microsoft Sentinel a partir de plantillas integradas
 
@@ -162,7 +160,7 @@ Para notificar un error o solicitar una mejora para un cuaderno de estrategias, 
 
 En este artículo, ha aprendido a trabajar con plantillas de cuadernos de estrategias, para crear y personalizar cuadernos de estrategias que se adapten a sus necesidades. Obtenga más información sobre cuadernos de estrategias y automatización en Microsoft Sentinel:
 
-- [Orquestación de seguridad, automatización y respuesta (SOAR) en Microsoft Sentinel](automation-in-azure-sentinel.md)
+- [Orquestación de seguridad, automatización y respuesta (SOAR) en Microsoft Sentinel](automation.md)
 - [Automatización de la respuesta a amenazas con cuadernos de estrategias en Microsoft Sentinel](automate-responses-with-playbooks.md)
 - [Tutorial: Uso de cuadernos de estrategias con reglas de automatización en Microsoft Sentinel](tutorial-respond-threats-playbook.md)
 - [Autenticación de cuadernos de estrategias en Microsoft Sentinel](authenticate-playbooks-to-sentinel.md)

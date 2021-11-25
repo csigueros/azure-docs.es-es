@@ -1,34 +1,32 @@
 ---
 title: Uso de análisis de comportamiento de entidades para detectar amenazas avanzadas | Microsoft Docs
-description: Habilitación del análisis del comportamiento de usuarios y entidades en Azure Sentinel y configuración de orígenes de datos
+description: Habilite el análisis del comportamiento de usuarios y entidades de Microsoft Sentinel y configure orígenes de datos
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 60b048340e4df87d18b0cb3dba2bf7008719ab45
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cff89d82c96cd20db59e0ed0de77f988dacead90
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131046857"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721354"
 ---
-# <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Habilitación del análisis de comportamiento de usuarios y entidades (UEBA) en Azure Sentinel 
+# <a name="enable-user-and-entity-behavior-analytics-ueba-in-microsoft-sentinel"></a>Habilitación del análisis de comportamiento de usuarios y entidades (UEBA) en Microsoft Sentinel 
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
-> Las características de UEBA y de las páginas de entidad ahora están en **disponibilidad general** en **_todas_** las zonas geográficas y regiones de Azure Sentinel. 
+> Las características UEBA y Páginas de entidad ya tienen **disponibilidad general** en **_todas_** las zonas geográficas y regiones de Microsoft Sentinel. 
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -41,17 +39,17 @@ Para habilitar o deshabilitar esta característica (estos requisitos previos no 
 - El usuario debe tener asignados los roles **Administrador global** o **Administrador de seguridad** en Azure AD.
 
 - El usuario debe tener asignado al menos uno de los siguientes **roles de Azure** ([más información sobre RBAC de Azure](roles.md)):
-    - **Colaborador de Azure Sentinel** en los niveles de área de trabajo o grupo de recursos.
+    - **Colaborador de Microsoft Sentinel** en los niveles de área de trabajo o grupo de recursos.
     - **Colaborador de Log Analytics** en los niveles de grupo de recursos o suscripción.
 
 - El área de trabajo no debe tener ningún bloqueo de recursos de Azure aplicado. [Más información sobre el bloqueo de recursos de Azure](../azure-resource-manager/management/lock-resources.md).
 
 > [!NOTE]
-> No se requiere ninguna licencia especial para agregar la funcionalidad de UEBA a Azure Sentinel, pero se pueden aplicar **cargos adicionales**.
+> No se requiere ninguna licencia especial para agregar la funcionalidad UEBA a Microsoft Sentinel, aunque se pueden aplicar **cargos adicionales**.
 
 ## <a name="how-to-enable-user-and-entity-behavior-analytics"></a>Habilitación del análisis de comportamiento de usuarios y entidades
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Entity behavior** (Comportamiento de entidad).
+1. En el menú de navegación de Microsoft Sentinel, seleccione **Comportamiento de la entidad**.
 
 1. En el encabezado **Turn it on** (Activarlo), cambie el control de alternancia a **On** (Activar).
 
@@ -65,9 +63,9 @@ Para habilitar o deshabilitar esta característica (estos requisitos previos no 
     >
     > Una vez que haya habilitado UEBA, tendrá la opción de conectar nuevos orígenes de datos para habilitarlos para UEBA directamente desde el panel del conector de datos si son compatibles con UEBA.
 
-1. Seleccione **Go to entity search** (Ir a búsqueda de entidades). Esto le llevará al panel de búsqueda de entidades, que, desde ahora, será lo que vea cuando elija **Entity behavior** (Comportamiento de entidad) en el menú principal de Azure Sentinel.
+1. Seleccione **Go to entity search** (Ir a búsqueda de entidades). Esto le lleva al panel de búsqueda de entidades, que, desde ahora, es lo que va a ver cuando seleccione **Comportamiento de la entidad** en el menú principal de Microsoft Sentinel.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, ha aprendido a habilitar y configurar el análisis de comportamiento de usuarios y entidades (UEBA) en Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+En este documento ha aprendido a habilitar y configurar el análisis de comportamiento de usuarios y entidades (UEBA) en Microsoft Sentinel. Para obtener más información sobre Microsoft Sentinel, vea los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](detect-threats-built-in.md).
+- Empiece a [detectar amenazas con Microsoft Sentinel](detect-threats-built-in.md).

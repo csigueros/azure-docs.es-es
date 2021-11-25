@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f01526c598b0d890dc40f591f825e10e6060cf8c
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 521bc428af19dcbe16d71bf3393ade6ca37a5b15
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132522543"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132712896"
 ---
 # <a name="normalization-and-the-advanced-siem-information-model-asim-public-preview"></a>Normalización y el modelo de información de SIEM avanzado (ASIM) (versión preliminar pública)
 
@@ -107,7 +105,7 @@ Para empezar a usar ASIM:
 
 ## <a name="next-steps"></a><a name="next-steps"></a>Pasos siguientes
 
-En este artículo se describe la normalización en Microsoft Sentinel y el modelo de información avanzado de SIEM.
+En este artículo se describe la normalización en Microsoft Sentinel y el modelo de información SIEM avanzado.
 
 Para más información, consulte:
 

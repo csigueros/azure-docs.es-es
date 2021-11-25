@@ -1,18 +1,18 @@
 ---
 title: Trabajo con planos interiores en Azure Maps Creator
 description: En este artículo se presentan los conceptos que se aplican a los servicios de Azure Maps Creator.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 05/26/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 11/11/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: 646045df9a6586d80969ec3e80081d45d4dcd249
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0e4f25e140c9b7d2693c94ead25b375e2298adbc
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725617"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132400022"
 ---
 # <a name="creator-for-indoor-maps"></a>Uso de Creator para planos interiores
 
@@ -29,7 +29,10 @@ En el siguiente diagrama se muestra todo el flujo de trabajo.
 
 ## <a name="create-azure-maps-creator"></a>Creación de Azure Maps Creator
 
-Para usar los servicios de Creator, debe crear Azure Maps Creator en una cuenta de Azure Maps. Para obtener información sobre cómo crear Azure Maps Creator en Azure Maps, consulte [Administración de Creator de Azure Maps](how-to-manage-creator.md).
+Para usar los servicios de Creator, debe crear Creator de Azure Maps en una cuenta de Azure Maps con el plan de tarifa de Gen 2. Para obtener información sobre cómo crear Azure Maps Creator en Azure Maps, consulte [Administración de Creator de Azure Maps](how-to-manage-creator.md).
+
+> [!TIP]
+> Para obtener información de precios, vea la sección *Creator* de [Precios de Azure Maps](https://aka.ms/CreatorPricing).
 
 ## <a name="creator-authentication"></a>Autenticación de Creator
 

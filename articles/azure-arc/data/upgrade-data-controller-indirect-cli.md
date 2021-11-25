@@ -9,19 +9,19 @@ ms.author: jeschult
 ms.reviewer: mikeray
 ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: dd5122f123dae93ea07cab65983183b1ffd8b463
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 5c1afa620fb3b81666aada950c257f38ff5d9a4f
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132495217"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707721"
 ---
 # <a name="upgrade-indirect-mode-azure-arc-data-controller-using-the-cli"></a>Actualización de un controlador de datos de Azure Arc de modo indirecto mediante la CLI
 
 En este artículo se explica cómo actualizar un controlador de datos de Azure Arc conectado de forma indirecta mediante la CLI de Azure (`az`).
 
 > [!IMPORTANT]
-> Este artículo no se aplica a los controladores de datos habilitados para Azure Arc conectados de forma directa. Para obtener la información más reciente sobre cómo actualizar un controlador de datos conectado de forma directa, vea las [notas de la versión](/azure/azure-arc/data/release-notes#data-controller-upgrade).
+> Este artículo no se aplica a los controladores de datos habilitados para Azure Arc conectados de forma directa. Para obtener la información más reciente sobre cómo actualizar un controlador de datos conectado de forma directa, vea las [notas de la versión](./release-notes.md#data-controller-upgrade).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -65,7 +65,7 @@ En esta sección se muestra cómo actualizar un controlador de datos en modo ind
 > [!NOTE]
 > Algunos de los modos y niveles de servicio de datos están disponibles con carácter general y otros están en versión preliminar.
 > Si instala servicios de disponibilidad general y de versión preliminar en el mismo controlador de datos, no puede realizar una actualización local.
-> Para actualizar, elimine todas las instancias de base de datos que no sean de disponibilidad general. Puede encontrar la lista de servicios disponibles con carácter general y en versión preliminar en las [notas de la versión](/azure/azure-arc/data/release-notes).
+> Para actualizar, elimine todas las instancias de base de datos que no sean de disponibilidad general. Puede encontrar la lista de servicios disponibles con carácter general y en versión preliminar en las [notas de la versión](./release-notes.md).
 
 ### <a name="indirect-mode"></a>Modo indirecto
 

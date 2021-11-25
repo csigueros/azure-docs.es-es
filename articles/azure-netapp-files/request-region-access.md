@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 11/15/2021
 ms.author: b-juche
-ms.openlocfilehash: 55a4d9c74e0f4e2ee54b3a7bc16e2ef7e4b30502
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: 9d610a74e63c85a66cd0be42cfdda3139c673f67
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132159297"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520643"
 ---
 # <a name="request-region-access-for-azure-netapp-files"></a>Solicitar acceso a la región para Azure NetApp Files
 
-En este artículo se indica cómo solicitar acceso a una región.
+En algunas situaciones especiales, es posible que tenga que solicitar explícitamente acceso a una región. En este artículo se explica cómo enviar una solicitud. 
 
 ## <a name="steps"></a>Pasos
 

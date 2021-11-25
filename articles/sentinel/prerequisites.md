@@ -4,15 +4,17 @@ description: Obtenga información sobre las actividades previas a la implementac
 services: sentinel
 author: batamig
 ms.author: bagol
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 90637b5637a6855318b78e73289225fd1536019b
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: bae2e792ab85ec87f1187c632f9582e9d38e87ed
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132712288"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521137"
 ---
 # <a name="pre-deployment-activities-and-prerequisites-for-deploying-microsoft-sentinel"></a>Actividades previas a la implementación y requisitos previos para implementar Microsoft Sentinel
 
@@ -36,13 +38,13 @@ Antes de implementar Microsoft Sentinel, se recomienda realizar los pasos siguie
 
     Para obtener más información, consulte [Procedimientos recomendados de arquitectura de áreas de trabajo de Azure Sentinel](best-practices-workspace-architecture.md) y [Diseños de área de trabajo de ejemplo de Azure Sentinel](sample-workspace-designs.md).
 
-1. Una vez identificados los casos de uso empresariales, los orígenes de datos y los requisitos de tamaño de datos, [empiece a planear el presupuesto](billing.md), teniendo en cuenta las implicaciones de costos de cada escenario planeado.
+1. Una vez identificados los casos de uso empresariales, los orígenes de datos y los requisitos de tamaño de datos, [empiece a planear el presupuesto](azure-sentinel-billing.md), teniendo en cuenta las implicaciones de costos de cada escenario planeado.
 
     Asegúrese de que el presupuesto cubre el costo de la ingesta de datos para Microsoft Sentinel y Azure Log Analytics, los cuadernos de estrategias que se implementarán, etcétera.
 
-    Para obtener más información, consulte:
+    Para más información, consulte:
 
-    - [Costos y facturación de Microsoft Sentinel](billing.md)
+    - [Costos y facturación de Microsoft Sentinel](azure-sentinel-billing.md)
     - [Precios de Microsoft Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/)
     - [Precios de Log Analytics](https://azure.microsoft.com/pricing/details/monitor/)
     - [Precios de Logic Apps (cuadernos de estrategias)](https://azure.microsoft.com/pricing/details/logic-apps/)

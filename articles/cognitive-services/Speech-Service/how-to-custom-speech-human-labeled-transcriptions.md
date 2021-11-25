@@ -1,7 +1,7 @@
 ---
 title: 'Instrucciones para las transcripciones con etiqueta humana: servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: Para mejorar la precisión del reconocimiento de voz, en especial cuando hay eliminaciones o sustituciones incorrectas de palabras, puede usar las transcripciones con etiqueta humana junto con los datos de audio. Las transcripciones con etiqueta humana son transcripciones textuales, palabra por palabra, de un archivo de audio.
+description: Las transcripciones con etiqueta humana se usan con los datos de audio para mejorar la precisión del reconocimiento de voz. Esto resulta especialmente útil cuando las palabras se eliminan o se reemplazan incorrectamente.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: eur
-ms.openlocfilehash: 35cb9d2ea9f370043639f1c80b2cf901c6bcc510
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 913d8e0ef9a0ae74db2530167e99cefc92e75bb5
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131508276"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132397251"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Creación de transcripciones con etiqueta humana
 
-Si quiere mejorar la precisión del reconocimiento, en especial cuando se producen problemas por eliminaciones o sustituciones incorrectas de palabras, le interesa usar las transcripciones con etiqueta humana junto con los datos de audio. ¿Qué son las transcripciones con etiqueta humana? Fácil; son transcripciones textuales, palabra por palabra, de un archivo de audio.
+Las transcripciones con etiqueta humana son transcripciones textuales, palabra por palabra, de un archivo de audio. Las transcripciones con etiqueta humana se usan para mejorar la precisión del reconocimiento, especialmente cuando las palabras se eliminan o reemplazan incorrectamente.
 
-Se necesita una muestra grande de datos de transcripciones para mejorar el reconocimiento; se recomienda proporcionar entre 1 y 20 horas de datos de transcripción. El servicio Voz usará hasta 20 horas de audio para el entrenamiento. En esta página revisaremos las instrucciones diseñadas para ayudarle a crear transcripciones de alta calidad. Esta guía se divide por configuración regional, con secciones para inglés de Estados Unidos, chino mandarín y alemán.
+Se necesita una gran muestra de datos de transcripción para mejorar el reconocimiento. Se recomienda proporcionar entre 1 y 20 horas de datos de transcripción. El servicio Voz usará hasta 20 horas de audio para el entrenamiento. En esta página revisaremos las instrucciones diseñadas para ayudarle a crear transcripciones de alta calidad. Esta guía se divide por configuración regional, con secciones para inglés de Estados Unidos, chino mandarín y alemán.
 
 > [!NOTE]
 > No todos los modelos base admiten la personalización con archivos de audio. Si un modelo base no lo admite, el entrenamiento solo usará el texto de las transcripciones de la misma manera en que se usa el texto relacionado. Consulte la [compatibilidad con idiomas](language-support.md#speech-to-text) para obtener una lista de los modelos base que admiten el entrenamiento con datos de audio.
@@ -41,7 +41,7 @@ Estos son algunos ejemplos:
 | ------------------- | ------------ | ----- |
 | “Hello world” | "Hello world" | Las comillas de apertura y cierre se han sustituido por los caracteres ASCII adecuados. |
 | John’s day | John's day | El apóstrofo se ha sustituido por el carácter ASCII adecuado. |
-| it was good—no, it was great! | it was good--no, it was great! | El guion largo se ha sustituido por dos guiones. |
+| It was good—no, it was great! | it was good--no, it was great! | El guion largo se ha sustituido por dos guiones. |
 
 ### <a name="text-normalization-for-us-english"></a>Normalización de texto para inglés de Estados Unidos
 
@@ -57,7 +57,7 @@ La normalización de texto es la transformación de palabras en un formato coher
 
 Estos son algunos ejemplos de normalización que debe realizar en la transcripción:
 
-| Texto original               | Texto después de la normalización              |
+| Texto original               | Texto después de la normalización (humana)      |
 | --------------------------- | ------------------------------------- |
 | Dr. Bruce Banner            | Doctor Bruce Banner                   |
 | James Bond, 007             | James Bond double oh seven           |
@@ -68,6 +68,7 @@ Estos son algunos ejemplos de normalización que debe realizar en la transcripci
 | Water is H20                | Water is H 2 O                        |
 | Play OU812 by Van Halen     | Play O U 8 1 2 by Van Halen           |
 | UTF-8 with BOM              | U T F 8 with BOM                      |
+| It costs \$3.14             | It costs three fourteen               |
 
 Las siguientes reglas de normalización se aplican automáticamente a las transcripciones:
 
@@ -77,7 +78,7 @@ Las siguientes reglas de normalización se aplican automáticamente a las transc
 
 Estos son algunos ejemplos de normalización que se realiza de modo automático en la transcripción:
 
-| Texto original                          | Texto después de la normalización          |
+| Texto original                          | Texto después de la normalización (automática) |
 | -------------------------------------- | --------------------------------- |
 | "Holy cow!" said Batman.               | holy cow said batman              |
 | "What?" said Batman's sidekick, Robin. | what said batman's sidekick robin |
@@ -86,7 +87,6 @@ Estos son algunos ejemplos de normalización que se realiza de modo automático 
 | 104 Elm Street                         | one oh four Elm street            |
 | Tune to 102.7                          | tune to one oh two point seven    |
 | Pi is about 3.14                       | pi is about three point one four  |
-| It costs \$3.14                        | it costs three fourteen           |
 
 ## <a name="mandarin-chinese-zh-cn"></a>Chino mandarín (zh-CN)
 
@@ -120,7 +120,7 @@ Las siguientes reglas de normalización se aplican automáticamente a las transc
 - Las letras de ancho completo se convierten en letras de ancho medio.
 - Uso de letras mayúsculas para todas las palabras en inglés
 
-Estos son algunos ejemplos de normalización que se realiza de modo automático en la transcripción:
+Estos son algunos ejemplos de normalización de transcripción automática:
 
 | Texto original | Texto después de la normalización |
 | ------------- | ------------------------ |
@@ -170,7 +170,7 @@ Estos son algunos ejemplos de normalización que se realiza de modo automático 
 | ---------------- | ------------------------ |
 | Frankfurter Ring | frankfurter ring         |
 | ¡Eine Frage!     | eine frage               |
-| wir, haben       | wir haben                |
+| Wir, haben       | wir haben                |
 
 ### <a name="text-normalization-for-japanese"></a>Normalización de texto para japonés
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 85aff2a31d2ac7221f78439a142dbe7517ab042a
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: ff7f250fa7fae2fb0a68710c94a9437204a61439
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132398903"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714835"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tiempo de la ingesta de datos de registro en Azure Monitor
 Azure Monitor es un servicio de datos a gran escala que atiende a miles de clientes que envían terabytes de datos cada mes a un ritmo creciente. Con frecuencia se plantean preguntas sobre el tiempo necesario para que los datos de registro estén disponibles una vez que se han recopilado. En este artículo se explican los distintos factores que afectan a esta latencia.
@@ -73,7 +73,7 @@ Algunas soluciones no recopilan los datos de un agente y pueden usar un método 
 - La solución Microsoft 365 sondea los registros de actividad mediante la API de Actividad de administración, que actualmente no proporciona garantías de latencia casi en tiempo real.
 - Los datos de las soluciones de Windows Analytics (Update Compliance por ejemplo) se recopilan con una frecuencia diaria por la solución.
 
-Consulte la [documentación de cada solución](/azure/azure-monitor/insights/solutions) para determinar su frecuencia de recopilación.
+Consulte la [documentación de cada solución](../insights/solutions.md) para determinar su frecuencia de recopilación.
 
 ### <a name="pipeline-process-time"></a>Tiempo del proceso de canalización
 

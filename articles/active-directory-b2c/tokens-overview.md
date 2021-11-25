@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 10/1/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 954b206d0256a62940a4c2561cd18a69298afa9a
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.custom: b2c-support
+ms.openlocfilehash: ab1dfac449bd37fb88f533a824d35eb52e83ccb0
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "131036226"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132517603"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Configuración de tokens en Azure Active Directory B2C
 
@@ -137,6 +138,8 @@ https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.w
 ```
 
 Para determinar qué directiva se usó para firmar un token (y dónde solicitar los metadatos), tiene dos opciones. En primer lugar, el nombre de la directiva se incluye en la notificación `tfp` (predeterminada) o `acr` (según la configuración) del token. Las notificaciones se pueden analizar fuera del cuerpo del JWT; para ello, descodifique la descodificación en base 64 del cuerpo y deserialice la cadena JSON resultante. La notificación `tfp` o `acr` es el nombre de la directiva que se usó para emitir el token. La otra opción consiste en codificar la directiva en el valor del parámetro `state` al emitir la solicitud y, a continuación, descodificarla para determinar qué directiva se ha usado. Cualquiera de estos métodos es válido.
+
+Azure AD B2C usa el algoritmo RS256, que se basa en la especificación [RFC 3447](https://www.rfc-editor.org/rfc/rfc3447#section-3.1). La clave pública consta de dos componentes: el módulo RSA (`n`) y el exponente público RSA (`e`). Puede convertir mediante programación los valores `n` y `e` en un formato de certificado para la validación de tokens.
 
 La descripción de cómo realizar la validación de la firma queda fuera del ámbito de este documento. Hay muchas bibliotecas de código abierto disponibles para ayudarle a validar un token.
 

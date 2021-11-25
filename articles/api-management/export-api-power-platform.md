@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 07/27/2021
 ms.author: danlep
-ms.openlocfilehash: 7bc73c3134d01dd88112dd1564b12ecfe5f710b6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fb27e1a96152885446da2e77e0901680affe3569
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128639059"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132494850"
 ---
 # <a name="export-apis-from-azure-api-management-to-the-power-platform"></a>Exportación de API de Azure API Management a Power Platform 
 
@@ -43,6 +43,9 @@ Este artículo le indica cómo crear en Azure Portal un conector de Power Platfo
 Una vez creado el conector, vaya al entorno de [Power Apps](https://make.powerapps.com) o de [Power Automate](https://flow.microsoft.com). Verá la API en **Datos > Conectores personalizados**.
 
 :::image type="content" source="media/export-api-power-platform/custom-connector-power-app.png" alt-text="Conector personalizado en Power Platform":::
+
+> [!NOTE]
+> Para llamar a la API desde la consola de prueba de PowerApps, debe agregar la dirección URL "https://flow.microsoft.com" como origen a la [directiva de CORS](api-management-cross-domain-policies.md#CORS) en la instancia de API Management.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

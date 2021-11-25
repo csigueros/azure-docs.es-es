@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +13,12 @@ ms.topic: reference
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: c5917011bd937e88811c9f0cffaed7f8c1c61f00
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: d147808610ce0377396ae602296f8e54a9bfdd0c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132521213"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721278"
 ---
 # <a name="microsoft-sentinel-entity-types-reference"></a>Referencia de los tipos de entidad de Microsoft Sentinel
 
@@ -503,7 +501,7 @@ En la lista siguiente se definen los identificadores de las aplicaciones en la n
 |17865|Ariba Inc|
 |18432|Zscaler|
 |19688|Xactly|
-|20595|Microsoft Defender para aplicaciones en la nube|
+|20595|Microsoft Defender for Cloud Apps|
 |20892|Microsoft SharePoint Online|
 |20893|Microsoft Exchange Online|
 |20940|Active Directory|
@@ -544,4 +542,4 @@ En la lista siguiente se definen los identificadores de las aplicaciones en la n
 
 En este documento ha obtenido información acerca de la estructura de la entidad, los identificadores y el esquema de Microsoft Sentinel.
 
-Obtenga más información sobre las [entidades](entities-in-azure-sentinel.md) y [la asignación de entidades](map-data-fields-to-entities.md). 
+Obtenga más información sobre las [entidades](entities.md) y [la asignación de entidades](map-data-fields-to-entities.md). 

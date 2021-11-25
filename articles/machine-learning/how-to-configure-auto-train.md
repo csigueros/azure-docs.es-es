@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.date: 10/21/2021
+ms.date: 11/15/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1
-ms.openlocfilehash: c175c0340c954aa86f35cf808031b08130db7036
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 57d529d74d5e320c8a41fdcf71ddd61d11e4379e
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132286305"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519389"
 ---
 # <a name="set-up-automl-training-with-python"></a>Configuración del entrenamiento de AutoML con Python
 
@@ -91,7 +91,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 ## <a name="training-validation-and-test-data"></a>Datos de entrenamiento, validación y prueba
 
-Puede especificar **datos del entrenamiento y conjuntos de datos de validación**  independientes directamente en el constructor `AutoMLConfig`. Más información sobre [cómo configurar las divisiones de datos y la validación cruzada](how-to-configure-cross-validation-data-splits.md) para los experimentos de AutoML. 
+Puede especificar **datos del entrenamiento y conjuntos de datos de validación**  independientes directamente en el constructor `AutoMLConfig`. Consulte más información sobre cómo [configurar datos de entrenamiento, validación, validación cruzada y prueba](how-to-configure-cross-validation-data-splits.md) para los experimentos de AutoML. 
 
 Si no especifica explícitamente un parámetro `validation_data` o `n_cross_validation`, AutoML aplica las técnicas predeterminadas para determinar cómo se realiza la validación. Esta determinación depende del número de filas del conjunto de datos asignadas a su parámetro `training_data`. 
 
@@ -100,7 +100,15 @@ Si no especifica explícitamente un parámetro `validation_data` o `n_cross_vali
 |**Mayor&nbsp;que&nbsp;20 000&nbsp;filas**| Se aplica la división de datos de entrenamiento o validación. El valor predeterminado consiste en usar el 10 % del conjunto de datos de entrenamiento inicial como conjunto de validación. A su vez, ese conjunto de validación se usa para calcular las métricas.
 |**Menor&nbsp;que&nbsp;20 000&nbsp;filas**| Se aplica el enfoque de validación cruzada. El número predeterminado de iteraciones depende del número de filas. <br> **Si el conjunto de datos tiene menos de 1000 filas**, se usan diez iteraciones. <br> **Si hay entre 1000 y 20 000 filas**, se usan tres iteraciones.
 
-En este momento, debe proporcionar sus propios **datos de prueba** para la evaluación del modelo. Para obtener un ejemplo de código sobre cómo aportar sus propios datos de prueba para la evaluación del modelo, consulte la sección de **pruebas** de [este cuaderno de Jupyter](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb).
+
+> [!TIP] 
+> Puede cargar **datos de prueba (versión preliminar)** para evaluar los modelos que el aprendizaje automático automatizado ha generado automáticamente. Estas características son funcionalidades en versión preliminar [experimentales](/python/api/overview/azure/ml/#stable-vs-experimental) y pueden cambiar en cualquier momento.
+> Obtenga información sobre cómo: 
+> * [Pasar los datos de prueba al objeto AutoMLConfig](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
+> * [Probar los modelos que el aprendizaje automático automatizado ha generado para el experimento](#test-models-preview).
+>  
+> Si prefiere una experiencia sin código, consulte el [paso 11 en la configuración de AutoML con la interfaz de usuario de Estudio](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
+
 
 ### <a name="large-data"></a>Datos grandes 
 
@@ -508,9 +516,59 @@ RunDetails(run).show()
 
 ![Widget de cuaderno de Jupyter Notebooks para aprendizaje automático automatizado](./media/how-to-configure-auto-train/azure-machine-learning-auto-ml-widget.png)
 
+## <a name="test-models-preview"></a>Modelos de prueba (versión preliminar)
+
+>[!IMPORTANT]
+> La característica para probar modelos con un conjunto de datos de prueba con el fin de evaluar los modelos generados por AutoML está en versión preliminar. Esta funcionalidad es una característica [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) en versión preliminar y puede cambiar en cualquier momento.
+
+Al pasar los parámetros `test_data` o `test_size` a `AutoMLConfig`, se desencadena automáticamente una serie de pruebas remotas que usan los datos de prueba proporcionados para evaluar el mejor modelo que el aprendizaje automático automatizado recomienda tras la finalización del experimento. Esta serie de pruebas remotas se realiza al final del experimento, una vez que se determina el mejor modelo. Consulte cómo [pasar datos de prueba a `AutoMLConfig`](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
+
+### <a name="get-test-run-results"></a>Obtención de los resultados de la serie de pruebas 
+
+Puede obtener las predicciones y métricas de la serie de pruebas remotas desde [Estudio de Azure Machine Learning](how-to-use-automated-ml-for-ml-models.md#view-remote-test-run-results-preview) o con el código siguiente. 
+
+```python
+best_run, fitted_model = remote_run.get_output()
+test_run = next(best_run.get_children(type='automl.model_test'))
+test_run.wait_for_completion(show_output=False, wait_post_processing=True)
+
+# Get test metrics
+test_run_metrics = test_run.get_metrics()
+for name, value in test_run_metrics.items():
+    print(f"{name}: {value}")
+
+# Get test predictions as a Dataset
+test_run_details = test_run.get_details()
+dataset_id = test_run_details['outputDatasets'][0]['identifier']['savedId']
+test_run_predictions = Dataset.get_by_id(workspace, dataset_id)
+predictions_df = test_run_predictions.to_pandas_dataframe()
+
+# Alternatively, the test predictions can be retrieved via the run outputs.
+test_run.download_file("predictions/predictions.csv")
+predictions_df = pd.read_csv("predictions.csv")
+
+```
+
+### <a name="test-existing-automated-ml-model"></a>Prueba del modelo de ML automatizado existente
+
+Para probar otros modelos de ML automatizado existentes creados, la mejor ejecución o la ejecución secundaria, use [`ModelProxy()`](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy) para probar un modelo una vez completada la ejecución principal de AutoML. `ModelProxy()` ya devuelve las predicciones y las métricas y no requiere procesamiento adicional para recuperar las salidas.
+
+> [!NOTE]
+> ModelProxy es una clase en versión preliminar [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) y puede cambiar en cualquier momento.
+
+En el código siguiente se muestra cómo probar un modelo de cualquier ejecución mediante el método [ModelProxy.test()](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy#test-test-data--azureml-data-abstract-dataset-abstractdataset--include-predictions-only--bool---false-----typing-tuple-azureml-data-abstract-dataset-abstractdataset--typing-dict-str--typing-any--). En el método test() tiene la opción de especificar si solo desea ver las predicciones de la serie de pruebas con el parámetro `include_predictions_only`. 
+
+```python
+from azureml.train.automl.model_proxy import ModelProxy
+
+model_proxy = ModelProxy(child_run=my_run, compute_target=cpu_cluster)
+predictions, metrics = model_proxy.test(test_data, include_predictions_only= True
+)
+```
+
 ## <a name="register-and-deploy-models"></a>Registro e implementación de modelos
 
-Puede registrar un modelo, y así volver a él para usarlo más tarde. 
+Después de probar un modelo y confirmar que desea usarlo en producción, puede registrarlo para su uso posterior. 
 
 Para registrar un modelo a partir de una ejecución de aprendizaje automático automatizado, use el método [`register_model()`](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-). 
 

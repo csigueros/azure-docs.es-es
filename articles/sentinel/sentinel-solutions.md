@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 940acf043711c7645423a9e52d8c4dabc2592e3f
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: d5e4f129c53ac26c66a6ca26dbe70781803809a3
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132516933"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711654"
 ---
 # <a name="about-microsoft-sentinel-content-and-solutions"></a>Acerca del contenido y las soluciones de Microsoft Sentinel
 
@@ -102,7 +100,7 @@ El contenido integrado de Microsoft Sentinel se puede aplicar con una o más de 
 | **Seguridad/Otros**   | Otros productos y servicios de seguridad sin otra categoría clara.           |
 | **Seguridad: inteligencia sobre amenazas**  | Plataformas, fuentes, productos y servicios de inteligencia sobre amenazas.        |
 | **Seguridad: protección contra amenazas**   | Protección contra amenazas, protección del correo electrónico, productos y servicios de XDR y protección del punto de conexión.     |
-| **Seguridad: vulnerabilidad de día 0**   | Soluciones especializadas para ataques de vulnerabilidad de día cero como [Nobelium](/azure/security/fundamentals/recover-from-identity-compromise). |
+| **Seguridad: vulnerabilidad de día 0**   | Soluciones especializadas para ataques de vulnerabilidad de día cero como [Nobelium](../security/fundamentals/recover-from-identity-compromise.md). |
 | **Seguridad: Automatización (SOAR)**   | Automatizaciones de seguridad, SOAR (operaciones de seguridad y respuestas automatizadas), operaciones de seguridad y productos y servicios de respuesta a incidentes.   |
 | **Seguridad: seguridad en la nube** | CASB (Agente de seguridad de acceso a la nube), CWPP (Plataformas de protección de cargas de trabajo en la nube), CSPM (Administración de la posición de seguridad en la nube y otros productos y servicios de Cloud Security). |
 | **Seguridad: Azure Information Protection**   | Productos y servicios de protección de la información y protección de documentos.|

@@ -3,15 +3,17 @@ title: Implementación de la supervisión de amenazas continua de SAP | Microsof
 description: Aprenda a implementar la solución Microsoft Sentinel para entornos de SAP.
 author: batamig
 ms.author: bagol
+ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: dfafd0ccdb37e2f716bf50195ce19ad06486eb50
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.subservice: microsoft-sentinel
+ms.openlocfilehash: e8d58104e2a622482280ea0a546dbacc95cdc832
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132712069"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520111"
 ---
 #  <a name="deploy-sap-continuous-threat-monitoring-preview"></a>Implementación de la supervisión de amenazas continua de SAP (versión preliminar)
 

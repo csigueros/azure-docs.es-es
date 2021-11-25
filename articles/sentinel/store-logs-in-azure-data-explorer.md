@@ -6,8 +6,6 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
@@ -15,12 +13,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 06fa0559d2ce0796cd8031b06b8ff4034d943675
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 7e5df37d8f118d7d4e822ba7f92fc2a388046b3b
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132523911"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711559"
 ---
 # <a name="integrate-azure-data-explorer-for-long-term-log-retention"></a>Integración con Azure Data Explorer para conservar registros a largo plazo
 
@@ -240,7 +238,7 @@ Al almacenar los datos de Microsoft Sentinel en Azure Data Explorer, tenga en c
 
 Independientemente de donde almacene los datos, siga buscando e investigando mediante Microsoft Sentinel.
 
-Para más información, consulte:
+Para obtener más información, consulte:
 
 - [Tutorial: Investigación de incidentes con Microsoft Sentinel](investigate-cases.md)
-- [Tutorial: Búsqueda de amenazas con Microsoft Sentinel](hunting.md)
+- [Búsqueda de amenazas con Microsoft Sentinel](hunting.md)

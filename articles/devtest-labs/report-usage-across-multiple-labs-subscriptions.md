@@ -3,16 +3,16 @@ title: Uso de Azure DevTest Labs en varios laboratorios y suscripciones
 description: Aprenda a notificar el uso de Azure DevTest Labs en varios laboratorios y suscripciones.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 671941e259bd1329dab3e30c1c95eb77ed3091f9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d2bf6954b629c3a9fc28569a86df4aa61f5dc94f
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128642840"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132401048"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Notificación del uso de Azure DevTest Labs en varios laboratorios y suscripciones
 
-La mayoría de las grandes organizaciones quiere realizar un seguimiento del uso de los recursos para hacerlos más eficaces, visualizando tendencias y valores atípicos en el uso. En función del uso de los recursos, los propietarios o administradores de laboratorios pueden personalizarlos para [mejorar el uso de los recursos y los costos](../cost-management-billing/cost-management-billing-overview.md). En Azure DevTest Labs, puede descargar el uso de recursos por laboratorio, lo cual permite un análisis más profundo de los patrones de uso. Estos patrones de uso pueden ayudar a identificar cambios para mejorar la eficacia. A la mayoría de las empresas les gustaría conocer tanto el uso de laboratorios individuales como el uso total en [varios laboratorios y suscripciones](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
+La mayoría de las grandes organizaciones quiere realizar un seguimiento del uso de los recursos para ser más eficaces a la hora de visualizar tendencias y valores atípicos. En función del uso de los recursos, los propietarios o administradores de laboratorios pueden personalizarlos para [mejorar el uso de los recursos y los costos](../cost-management-billing/cost-management-billing-overview.md). En Azure DevTest Labs, puede descargar el uso de recursos por laboratorio, lo cual permite un análisis más profundo de los patrones de uso. Estos patrones de uso ayudan a identificar cambios para mejorar la eficacia. A la mayoría de las empresas les gustaría conocer tanto el uso de laboratorios individuales como el uso total en [varios laboratorios y suscripciones](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
 
 En este artículo se describe cómo administrar la información sobre el uso de los recursos en varios laboratorios y suscripciones.
 
@@ -22,7 +22,7 @@ En este artículo se describe cómo administrar la información sobre el uso de 
 
 En esta sección se describe cómo exportar el uso de recursos para un único laboratorio.
 
-Antes de poder exportar el uso de recursos de DevTest Labs, tiene que configurar una cuenta de Azure Storage para permitir que se almacenen los distintos archivos que contienen los datos de uso. Hay dos formas habituales de ejecutar la exportación de datos:
+Para poder exportar el uso de los recursos de DevTest Labs, debe configurar una cuenta de Azure Storage para los archivos que contienen los datos de uso. Hay dos maneras habituales de ejecutar la exportación de datos:
 
 * [API REST de DevTest Labs](/rest/api/dtl/labs/exportresourceusage) 
 * El módulo [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) de Az.Resource de PowerShell con la acción `exportResourceUsage`, el identificador del recurso de laboratorio y los parámetros necesarios. 
@@ -39,14 +39,14 @@ En estos momentos hay dos archivos CSV:
 * *virtualmachines.csv*: contiene información sobre las máquinas virtuales del laboratorio.
 * *disks.csv*: contiene información sobre los diferentes discos del laboratorio 
 
-Estos archivos se almacenan en el contenedor de blobs *labresourceusage* con el nombre del laboratorio, el identificador único de este, la fecha de ejecución y la fecha completa o la fecha de inicio basada en la solicitud de exportación. Un ejemplo de estructura de blobs sería:
+Estos archivos se almacenan en el contenedor de blobs *labresourceusage*. Los archivos están bajo el nombre del laboratorio, el identificador único del laboratorio, la fecha de ejecución y `full` o la fecha de inicio de la solicitud de exportación. Un ejemplo de estructura de blobs es:
 
 * `labresourceusage/labname/1111aaaa-bbbb-cccc-dddd-2222eeee/<End>DD26-MM6-2019YYYY/full/virtualmachines.csv`
 * `labresourceusage/labname/1111aaaa-bbbb-cccc-dddd-2222eeee/<End>DD-MM-YYYY/26-6-2019/20-6-2019<Start>DD-MM-YYYY/virtualmachines.csv`
 
 ## <a name="exporting-usage-for-all-labs"></a>Exportación del uso de todos los laboratorios
 
-Para exportar la información de uso de varios laboratorios, considere la posibilidad de usar 
+Para exportar la información de uso de varios laboratorios, considere la posibilidad de usar: 
 
 * [Azure Functions](../azure-functions/index.yml), disponible en muchos lenguajes, incluido PowerShell, o 
 * [Runbook de Azure Automation](../automation/index.yml), use PowerShell, Python o un diseñador gráfico personalizado para escribir el código de exportación.
@@ -61,11 +61,11 @@ Un almacenamiento a largo plazo consolida la información de exportación de los
 
 El almacenamiento a largo plazo se puede usar para realizar cualquier manipulación en el texto, por ejemplo: 
 
-* agregar nombres descriptivos
-* crear agrupaciones complejas
-* agregar los datos.
+* Agregar nombres descriptivos
+* Crear agrupaciones complejas
+* Agregar los datos
 
-Algunas soluciones de almacenamiento comunes son [SQL Server](https://azure.microsoft.com/services/sql-database/), [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/) y [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). La elección de la solución de almacenamiento a largo plazo que elija dependerá de las preferencias. Puede considerar la posibilidad de elegir la herramienta en función de lo que ofrece en cuanto a la disponibilidad de interacción al visualizar los datos.
+Algunas soluciones de almacenamiento comunes son [SQL Server](https://azure.microsoft.com/services/sql-database/), [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/) y [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). La solución de almacenamiento a largo plazo que elija depende de las preferencias. Puede considerar la posibilidad de elegir la herramienta en función de lo que ofrece para la disponibilidad de interacción al visualizar los datos.
 
 ## <a name="visualizing-data-and-gathering-insights"></a>Visualización de datos y recopilación de información
 

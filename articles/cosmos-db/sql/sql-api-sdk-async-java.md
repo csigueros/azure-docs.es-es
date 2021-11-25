@@ -6,22 +6,22 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 04/06/2021
+ms.date: 11/11/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: ecec077db8ca0b9b1a5285256eabb67791d461f2
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 209fc857296556124cb5fa2003fb0c578dfe3317
+ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123114464"
+ms.lasthandoff: 11/12/2021
+ms.locfileid: "132397573"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java asincrónico de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [.NET SDK v2](sql-api-sdk-dotnet.md)
+> * [SDK de .NET v2](sql-api-sdk-dotnet.md)
 > * [SDK de .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK de fuente de cambios de .NET, versión 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
@@ -60,6 +60,9 @@ El SDK de Java asincrónico de API de SQL es distinto al SDK de Java de API de S
 | **Consejos de rendimiento**| [Léame de GitHub](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)| 
 | **Tiempo de ejecución mínimo admitido**|[JDK 8](/java/azure/jdk/) | 
 
+## <a name="release-history"></a>Historial de versiones
+
+El historial de versiones se mantiene en el repositorio de origen del SDK de Java de Azure Cosmos DB. Para obtener una lista detallada de las versiones de características y los errores corregidos en cada versión, consulte la [documentación del registro de cambios del SDK](https://github.com/Azure/azure-cosmosdb-java/blob/master/changelog/README.md).
 
 ## <a name="faq"></a>Preguntas más frecuentes
 [!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]

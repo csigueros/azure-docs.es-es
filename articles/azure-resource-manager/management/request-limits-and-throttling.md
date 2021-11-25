@@ -2,14 +2,14 @@
 title: Límites y limitación de solicitudes
 description: En este artículo se describe cómo usar la limitación con las solicitudes de Azure Resource Manager cuando se han alcanzado los límites de suscripción.
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 11/15/2021
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: cb562d6f6489ff30c6b940963a20974eb987b031
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 781c958e1a75e87c3f042e80282909e132730978
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322192"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523395"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitación de solicitudes de Resource Manager
 
@@ -36,6 +36,8 @@ Los límites de regulación predeterminados por hora se muestran en la tabla sig
 Estas cifras están limitadas a la entidad de seguridad (usuario o aplicación) que realiza las solicitudes y al id. de suscripción o de inquilino. Si las solicitudes proceden de más de una entidad de seguridad, el límite en toda la suscripción o inquilino es superior a 12 000 y 1200 por hora.
 
 Estos límites se aplican a cada instancia de Azure Resource Manager. En cada región de Azure hay varias instancias, y Azure Resource Manager está implementado en todas las regiones de Azure.  Por lo tanto, en la práctica, los límites son superiores a estos. Normalmente, las solicitudes de un usuario se controlan mediante diferentes instancias de Azure Resource Manager.
+
+Las solicitudes restantes se devuelven en los [valores de encabezado de respuesta](#remaining-requests).
 
 ## <a name="resource-provider-limits"></a>Límites del proveedor de recursos
 
@@ -93,6 +95,7 @@ Puede determinar el número de solicitudes restantes examinando los encabezados 
 
 | Encabezado de respuesta | Descripción |
 | --- | --- |
+| x-ms-ratelimit-remaining-subscription-deletes |Eliminaciones restantes del ámbito de la suscripción. Este valor lo devuelven las operaciones de eliminación. |
 | x-ms-ratelimit-Remaining-Subscription-Reads |Lecturas restantes del ámbito de la suscripción. Este valor lo devuelven las operaciones de lectura. |
 | x-ms-ratelimit-Remaining-Subscription-Writes |Escrituras restantes del ámbito de la suscripción. Este valor lo devuelven las operaciones de escritura. |
 | x-ms-ratelimit-Remaining-tenant-Reads |Lecturas restantes del ámbito del inquilino |

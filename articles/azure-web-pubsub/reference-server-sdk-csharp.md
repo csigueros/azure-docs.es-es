@@ -6,16 +6,16 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 11/11/2021
-ms.openlocfilehash: ac940b7760ce94beaca5148bfc4e33a59e14b626
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: a3ec19ab07ebe74c618ce3c6af8981d442f6fc21
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132709792"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132486669"
 ---
 # <a name="azure-web-pubsub-service-client-library-for-net"></a>Biblioteca cliente del servicio Azure Web PubSub para .NET
 
-[Azure Web PubSub](./index.yml) es un servicio administrado de Azure que ayuda a los desarrolladores a compilar fácilmente aplicaciones web con características en tiempo real y patrón de publicación-suscripción. Cualquier escenario que requiera mensajería de publicación y suscripción en tiempo real entre el servidor y los clientes o entre clientes, puede usar el servicio Azure Web PubSub. Las características tradicionales en tiempo real que a menudo requieren tener que sondear desde el servidor o enviar solicitudes HTTP, también pueden usar el servicio Azure Web PubSub.
+[Azure Web PubSub](https://aka.ms/awps/doc) es un servicio administrado de Azure que ayuda a los desarrolladores a compilar fácilmente aplicaciones web con características en tiempo real y patrón de publicación-suscripción. Cualquier escenario que requiera mensajería de publicación y suscripción en tiempo real entre el servidor y los clientes o entre clientes, puede usar el servicio Azure Web PubSub. Las características tradicionales en tiempo real que a menudo requieren tener que sondear desde el servidor o enviar solicitudes HTTP, también pueden usar el servicio Azure Web PubSub.
 
 Puede usar esta biblioteca en el lado del servidor de aplicaciones para administrar las conexiones de cliente de WebSocket, como se muestra en el diagrama siguiente:
 
@@ -32,8 +32,8 @@ Use esta biblioteca para:
  
 [Código fuente](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/webpubsub/Azure.Messaging.WebPubSub/src) |
 [Paquete](https://www.nuget.org/packages/Azure.Messaging.WebPubSub) |
-[Documentación de referencia de API]() |
-[Documentación del producto](./index.yml) |
+[Documentación de referencia de API](https://aka.ms/awps/sdk/csharp) |
+[Documentación del producto](https://aka.ms/awps/doc) |
 [Ejemplos][samples_ref]
 
 ## <a name="getting-started"></a>Introducción

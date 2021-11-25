@@ -6,6 +6,8 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -13,12 +15,12 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: bd0166e501cac685d9d0f0e661511e8c8e78df35
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 3b49f1bdbe14dd13417bfef0348e1fd53543d7ca
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132715195"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132521251"
 ---
 # <a name="extend-microsoft-sentinel-across-workspaces-and-tenants"></a>Extensión de Microsoft Azure Sentinel entre áreas de trabajo e inquilinos
 

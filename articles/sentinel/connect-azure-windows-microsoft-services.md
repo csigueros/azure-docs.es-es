@@ -3,16 +3,18 @@ title: Conexión de Microsoft Sentinel a servicios de Azure, Windows y Microsoft
 description: Aprenda a conectar Microsoft Sentinel a servicios en la nube de Azure y Microsoft 365, y a registros de eventos de Windows Server.
 author: yelevin
 manager: rkarlin
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 4843f3bf4f5ccaf22446bb98a5e44fa6179d9946
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 79007f7716a8a24350bbfa6083b9891c425c120e
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132724451"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132523037"
 ---
 # <a name="connect-microsoft-sentinel-to-azure-windows-microsoft-and-amazon-services"></a>Conexión de Microsoft Sentinel a servicios de Azure, Windows, Microsoft y Amazon
 
@@ -33,7 +35,7 @@ En este artículo se presenta información común a los grupos de conectores. Ve
 Las integraciones siguientes son más únicas y populares, y se tratan de manera individual, con sus propios artículos:
 
 - [Microsoft 365 Defender](connect-microsoft-365-defender.md)
-- [Microsoft Defender for Cloud](connect-defender-for-cloud.md)
+- [Microsoft Defender for Cloud](connect-azure-security-center.md)
 - [Azure Active Directory](connect-azure-active-directory.md)
 - [Eventos de seguridad de Windows](connect-windows-security-events.md)
 - [Amazon Web Services (AWS) CloudTrail](connect-aws.md)
@@ -298,4 +300,4 @@ En este documento, ha aprendido a conectar servicios de Azure, Microsoft y Windo
 - Obtenga información general sobre los [conectores de datos de Microsoft Sentinel](connect-data-sources.md).
 - [Búsqueda del conector de datos de Microsoft Sentinel](data-connectors-reference.md).
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](get-visibility.md).
-- Empiece a [detectar amenazas con Microsoft Sentinel](detect-threats-built-in.md).
+- Empiece a [detectar amenazas con Microsoft Sentinel](detect-threats-built-in.md).

@@ -2,14 +2,14 @@
 title: Proveedores de recursos y tipos de recursos
 description: Describe los proveedores de recursos compatibles con Azure Resource Manager. Describe sus esquemas, versiones de API disponibles y las regiones que pueden hospedar los recursos.
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 11/15/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 7e8ebf6217296b4792887dc0af2c40fc66a9dd85
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: c048da5d7027885bf30b512d9e16e5851697c8b4
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123038961"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132522657"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos y proveedores de recursos de Azure
 
@@ -39,7 +39,9 @@ Antes de usar un proveedor de recursos, la suscripción de Azure debe registrars
 
 Algunos proveedores de recursos están registrados de forma predeterminada. Para obtener una lista de los proveedores de recursos registrados de forma predeterminada, consulte [Proveedores de recursos para servicios de Azure](azure-services-resource-providers.md).
 
-Otros proveedores de recursos están registrados automáticamente cuando toma determinadas medidas. Cuando implementa una plantilla de Azure Resource Manager, se registran automáticamente todos los proveedores de recursos necesarios. Cuando crea un recurso a través del portal, el proveedor de recursos normalmente se registra de manera automática. En otros escenarios, es posible que tenga que registrar manualmente un proveedor de recursos. 
+Otros proveedores de recursos están registrados automáticamente cuando toma determinadas medidas. Cuando crea un recurso a través del portal, el proveedor de recursos normalmente se registra de manera automática. Al implementar una plantilla de Azure Resource Manager o un archivo Bicep, los proveedores de recursos definidos en la plantilla se registran automáticamente. Sin embargo, si un recurso de la plantilla crea recursos compatibles que no están en la plantilla, como los recursos de supervisión o seguridad, debe registrar manualmente esos proveedores de recursos.
+
+En otros escenarios, es posible que tenga que registrar manualmente un proveedor de recursos.
 
 > [!IMPORTANT]
 > El código de aplicación **no debe bloquear la creación de recursos** para un proveedor de recursos con el estado de **registro**. Al registrar el proveedor de recursos, la operación se realiza de forma individual para cada región admitida. Para crear recursos en una región, el registro solo debe completarse en dicha región. Si no se bloquea un proveedor de recursos con el estado de registro, la aplicación puede continuar mucho antes que si se espera a que se completen todas las regiones.

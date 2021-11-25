@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/09/2021
+ms.date: 11/12/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50b3a4501eeeefe9bcdf59da8bb1e9eacda07bf9
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: 97798fdfc680d2cc644a47acc814a8fbe7e44654
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132157474"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132490049"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>Configuración del grupo de acceso con privilegios (versión preliminar) en Privileged Identity Management
 
@@ -96,7 +96,7 @@ Privileged Identity Management proporciona el cumplimiento opcional de Azure AD 
 
 ### <a name="require-multifactor-authentication-on-active-assignment"></a>Requerir autenticación multifactor para las asignaciones activas
 
-Esta opción requiere que los administradores completen una autenticación multifactor antes de crear una asignación de roles activa (en lugar de elegible). Privileged Identity Management no puede exigir la autenticación multifactor cuando el usuario utiliza su asignación de roles, porque ya está activa en el rol desde el momento en que se asigna.
+Esta opción exige que los administradores completen una autenticación multifactor para crear una asignación de roles activa (en lugar de elegible). Privileged Identity Management no puede exigir la autenticación multifactor cuando el usuario utiliza su asignación de roles, porque ya está activa en el rol desde el momento en que se asigna.
 
 Para requerir la autenticación multifactor al crear una asignación de roles activa, seleccione la casilla **Requerir autenticación multifactor para las asignaciones activas**.
 
@@ -110,7 +110,7 @@ Para más información, consulte [Autenticación multifactor y Privileged Identi
 
 ## <a name="activation-maximum-duration"></a>Duración máxima de la activación
 
-Use control deslizante **Duración máxima de la activación (horas)** para establecer el tiempo máximo, en horas, que un rol permanece activo antes de expirar. Este valor puede oscilar entre una y 24 horas.
+Use el control deslizante **Duración máxima de la activación** para establecer el tiempo máximo, en horas, que una solicitud de activación de una asignación de roles permanece activa antes de expirar. Este valor puede oscilar entre una y 24 horas.
 
 ## <a name="require-justification"></a>Requerir justificación
 

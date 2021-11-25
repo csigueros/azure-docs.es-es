@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 43ec5162b0dc1bfd9def8afea6a36c7899483a55
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 38b276bda8242f1cfef39c58925552ba35625baa
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132520301"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132712839"
 ---
 # <a name="advanced-siem-information-model-asim-parsers-public-preview"></a>Analizadores del modelo de información SIEM avanzado (ASIM, versión preliminar pública)
 
@@ -287,7 +285,7 @@ Para obtener más información, consulte la [plantilla de ARM de analizador gen�
 
 En este artículo se aborda el contenido del modelo información SIEM avanzado (ASIM).
 
-Para más información, consulte:
+Para obtener más información, consulte:
 
 - Vea el [seminario web de profundización sobre los analizadores de normalización de Microsoft Sentinel y el contenido normalizado](https://www.youtube.com/watch?v=zaqblyjQW6k) o revise las [diapositivas](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
 - [Introducción al modelo de información SIEM avanzado](normalization.md)

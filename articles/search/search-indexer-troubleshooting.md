@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2021
-ms.openlocfilehash: d54aec5bae8fb86b9c0ed0356cd6af713500527f
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 47a06786c99e156eb541c08c4965c10ae845bdc8
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132492064"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722551"
 ---
 # <a name="indexer-troubleshooting-guidance-for-azure-cognitive-search"></a>Solución de problemas comunes con el indizador en Azure Cognitive Search
 
@@ -205,7 +205,7 @@ Azure Cognitive Search tiene una dependencia implícita del indexado de Cosmos D
 Los indexadores usan una estrategia de almacenamiento en búfer conservadora para asegurarse de que todos los documentos nuevos y modificados del origen de datos se recogen durante la indexación. En determinadas situaciones, estos búferes se pueden superponer, lo que hace que un indexador indexe un documento dos o más veces, lo que hace que el número de documentos procesados sea mayor que el número real de documentos del origen de datos. Este comportamiento **no** afecta a los datos almacenados en el índice, como la duplicación de documentos, pero este puede tardar más tiempo en alcanzar la coherencia final. Esto puede llegar a ser frecuente si se cumple alguna de las condiciones siguientes:
 
 - Las solicitudes del indexador a petición se emiten en una sucesión rápida
-- La topología del origen de datos incluye varias réplicas y particiones (un ejemplo de este tipo se describe [aquí](https://docs.microsoft.com/azure/cosmos-db/consistency-levels))
+- La topología del origen de datos incluye varias réplicas y particiones (un ejemplo de este tipo se describe [aquí](../cosmos-db/consistency-levels.md))
 
 Los indexadores no están diseñados para que se invoquen varias veces en una sucesión rápida. Si necesita actualizaciones rápidamente, el enfoque admitido es insertar actualizaciones en el índice mientras actualiza simultáneamente el origen de datos. Para el procesamiento a petición, se recomienda seguir el ritmo de las solicitudes en intervalos de cinco minutos o más y ejecutar el indexador según una programación.
 

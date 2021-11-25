@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2021
 ms.author: duau
-ms.openlocfilehash: 807138187e37deef6f23121ce085e62f520ad335
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d102978b12c37033d2d52c7ee749c1e7f7878c7c
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736667"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132489064"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Admisión de protocolos para encabezados HTTP en Azure Front Door
 Este artículo describe el protocolo que admite el servicio Front Door con partes de la ruta de acceso de llamada (consulte la imagen). Las secciones siguientes proporcionan más información acerca de los encabezados HTTP admitidos por el servicio Front Door.
@@ -27,7 +27,10 @@ Este artículo describe el protocolo que admite el servicio Front Door con part
 >Front Door no certifica ningún encabezado HTTP que no se documente aquí.
 
 ## <a name="client-to-front-door"></a>Cliente para Front Door
+
 Front Door acepta la mayoría de los encabezados de la solicitud entrante sin tener que modificarlos. Algunos encabezados reservados se quitan de la solicitud entrante si se envían, incluidos los encabezados con el prefijo X-FD-*.
+
+El encabezado de solicitud de depuración, "X-Azure-DebugInfo", proporciona información de depuración adicional sobre Front Door. Debe enviar el encabezado de solicitud "X-Azure-DebugInfo: 1" del cliente a Front Door para recibir [encabezados de respuesta opcionales](#optional-debug-response-headers) de Front Door al cliente. 
 
 ## <a name="front-door-to-backend"></a>Front Door al back-end
 
@@ -55,6 +58,8 @@ Los encabezados enviados a Front Door desde el back-end se pasan también al cl
 | ------------- | ------------- |
 | X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Se trata de una cadena de referencia única que identifica una solicitud atendida por Front Door, lo que es fundamental para la solución de problemas, ya que se usa para buscar registros de acceso.|
 | X-Cache | *X-Cache*: este encabezado describe el estado de almacenamiento en caché de la solicitud. <br/> - *X-Cache: TCP_HIT*: el primer byte de la solicitud es un acierto de caché del perímetro de Front Door. <br/> - *X-Cache: TCP_REMOTE_HIT*: el primer byte de la solicitud es un acierto de caché de la caché regional (capa de escudo de origen), pero un error de la caché perimetral. <br/> - *X-Cache: TCP_MISS*: el primer byte de la solicitud es un error de caché y el contenido se sirve desde el origen. <br/> - *X-Cache: PRIVATE_NOSTORE*: la solicitud no se puede almacenar en caché, ya que el encabezado de respuesta Cache-Control está establecido en privado o sin almacén. <br/> - *X-Cache: CONFIG_NOCACHE*: la solicitud está configurada para no almacenarse en caché en el perfil de Front Door. |
+
+### <a name="optional-debug-response-headers"></a>Encabezados de respuesta de depuración opcionales
 
 Debe enviar el encabezado de solicitud "X-Azure-DebugInfo: 1" para habilitar los siguientes encabezados de respuesta opcionales.
 

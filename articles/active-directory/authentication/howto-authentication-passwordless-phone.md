@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/29/2021
+ms.date: 11/12/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19e4a99967e8fdc64eb7d10c66649cac59db048a
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 11e8af7f7e955e960644f2748087a86e1aa5b61f
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131456258"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132484620"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Habilitación del inicio de sesión sin contraseña con la aplicación Microsoft Authenticator 
 
@@ -61,7 +61,10 @@ Siga estos pasos para habilitar el método de autenticación para el inicio de s
 1. Cada grupo o usuario agregado está habilitado de manera predeterminada para usar Microsoft Authenticator en los modos de notificación push y sin contraseña (modo "Cualquiera"). Para cambiar esto, para cada fila:
    1. Vaya a **…**  > **Configurar**.
    1. En **Modo de autenticación**, elija **Cualquiera** o **Sin contraseña**. Al elegir **Insertar** se impide el uso de la credencial de inicio de sesión telefónico sin contraseña. 
-1. Para aplicar la nueva directiva, seleccione **Guardar**.
+1. Para aplicar la nueva directiva, haga clic en **Guardar**. 
+
+   >[!NOTE]
+   >Si ve un error al intentar guardar, podría deberse al número de usuarios o grupos que se van a agregar. Como solución alternativa, reemplace los usuarios y grupos que está intentando agregar por un único grupo en la misma operación y, a continuación, haga de nuevo clic en **Guardar**.
 
 ## <a name="user-registration-and-management-of-microsoft-authenticator"></a>Registro de usuarios y administración de Microsoft Authenticator
 

@@ -1,9 +1,11 @@
 ---
-title: Detección de un ataque avanzado de varias fases en Microsoft Sentinel
+title: Detección de un ataque avanzado de varias fases en Microsoft Sentinel
 description: Use la tecnología de fusión de Microsoft Sentinel para reducir el exceso de alertas y crear incidentes útiles basados en la detección avanzada de ataques de varias fases.
 services: sentinel
 documentationcenter: na
 author: yelevin
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -11,14 +13,14 @@ ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 808910eb32973a3d567960c98364d1d60036d673
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 8fa4fea5502f2e034aa6b5ba3f672cf8012dcd5a
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721145"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520054"
 ---
-# <a name="advanced-multistage-attack-detection-in-microsoft-sentinel"></a>Detección de un ataque avanzado de varias fases en Microsoft Sentinel
+# <a name="advanced-multistage-attack-detection-in-microsoft-sentinel"></a>Detección de un ataque avanzado de varias fases en Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -60,7 +62,7 @@ Los algoritmos de ML del motor de Fusion aprenden constantemente de los ataques 
   - Microsoft Defender for Cloud
   - Microsoft Defender para IoT
   - Microsoft 365 Defender
-  - Microsoft Defender for Cloud Apps
+  - Microsoft Defender para aplicaciones en la nube
   - Microsoft Defender para punto de conexión
   - Microsoft Defender for Identity
   - Microsoft Defender para Office 365
@@ -74,10 +76,10 @@ Cuando las correlaciones del motor de Fusion generan la detección de una amenaz
 
 El motor Fusion de Microsoft Sentinel genera un incidente cuando detecta varias alertas de tipos diferentes de los siguientes orígenes de datos y determina que pueden estar relacionadas con la actividad de ransomware:
 
-- [Microsoft Defender for Cloud](connect-defender-for-cloud.md)
+- [Microsoft Defender for Cloud](connect-azure-security-center.md)
 - [Microsoft Defender para punto de conexión](./data-connectors-reference.md#microsoft-defender-for-endpoint)
 - [Microsoft Defender for Identity](./data-connectors-reference.md#microsoft-defender-for-identity)
-- [Microsoft Defender for Cloud Apps](./data-connectors-reference.md#microsoft-defender-for-cloud-apps)
+- [Microsoft Defender para aplicaciones en la nube](./data-connectors-reference.md#microsoft-defender-for-cloud-apps)
 - [Reglas de análisis programadas de Microsoft Sentinel](detect-threats-built-in.md#scheduled). Fusion solo tiene en cuenta las reglas de análisis programadas con información táctica y entidades asignadas.
 
 Esos incidentes de Fusion se denominan **Se han detectado varias alertas posiblemente relacionadas con la actividad de ransomware** y se generan cuando se detectan alertas relevantes durante un período de tiempo específico. Además, están asociadas a las fases **Ejecución** y **Evasión defensiva** de un ataque.

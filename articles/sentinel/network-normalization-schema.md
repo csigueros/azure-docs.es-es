@@ -6,6 +6,8 @@ cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,12 +15,12 @@ ms.topic: reference
 ms.date: 11/09/2021
 ms.author: ofshezaf
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: bf13dee6c6a33ae16440357013a34dc36ef93826
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: df994e2be047e2829ea56423b85eee32e63c0154
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132712915"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132520425"
 ---
 # <a name="microsoft-sentinel-network-session-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de sesiones de red de Microsoft Sentinel (versión preliminar pública)
 

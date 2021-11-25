@@ -4,15 +4,17 @@ description: Obtenga información sobre los procedimientos recomendados que se d
 services: sentinel
 author: batamig
 ms.author: bagol
+ms.service: microsoft-sentinel
+ms.subservice: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b64e7d9cedeb0e979f6b733163617a67c69d79fe
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 17561127c040fc1aedac771093e0bfa6366c4d30
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132714644"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132524785"
 ---
 #  <a name="data-collection-best-practices"></a>Procedimientos recomendados para la recopilación de datos
 
@@ -22,7 +24,7 @@ En esta sección se revisan los procedimientos recomendados para recopilar datos
 
 ## <a name="prioritize-your-data-connectors"></a>Priorización de sus conectores de datos
 
-Si no tiene claro qué conectores de datos satisfarán mejor las necesidades de su entorno, empiece por habilitar todos los [conectores de datos gratuitos](billing.md#free-data-sources).
+Si no tiene claro qué conectores de datos satisfarán mejor las necesidades de su entorno, empiece por habilitar todos los [conectores de datos gratuitos](azure-sentinel-billing.md#free-data-sources).
 
 Los conectores de datos gratuitos empiezan a demostrar el valor de Microsoft Sentinel con prontitud, mientras sigue planeando otros conectores de datos y presupuestos.
 
@@ -45,7 +47,7 @@ Filtre los registros usando uno de los siguientes métodos:
 - **Logstash**. Permite filtrar el contenido de mensajes y realizar cambios en los mensajes de registro. Para obtener más información, consulte [Conexión con Logstash](create-custom-connector.md#connect-with-logstash).
 
 > [!IMPORTANT]
-> El uso de Logstash para filtrar el contenido de mensajes hará que sus registros se ingieran como registros personalizados, lo que a su vez provocará que los [registros de nivel gratuito](billing.md#free-data-sources) pasen a ser de nivel de pago.
+> El uso de Logstash para filtrar el contenido de mensajes hará que sus registros se ingieran como registros personalizados, lo que a su vez provocará que los [registros de nivel gratuito](azure-sentinel-billing.md#free-data-sources) pasen a ser de nivel de pago.
 >
 > Los registros personalizados también deben someterse a [reglas de análisis](automate-incident-handling-with-automation-rules.md), [búsqueda de amenazas](hunting.md) y [libros](get-visibility.md), ya que no se agregan automáticamente. Los registros personalizados tampoco son actualmente compatibles con funcionalidades de [aprendizaje automático](bring-your-own-ml.md).
 >

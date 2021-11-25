@@ -2,18 +2,18 @@
 title: Indexación de un conjunto de datos grande mediante indizadores integrados
 titleSuffix: Azure Cognitive Search
 description: Estrategias de indexación de datos de gran tamaño o indexación de cálculo intensivo mediante modo por lotes, recursos y técnicas para indexación programada, paralela y distribuida.
-manager: liamca
+manager: nitinme
 author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.openlocfilehash: c754c47bda03987c00b763d39c608f9de3d84deb
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 11/12/2021
+ms.openlocfilehash: 0c7dccdc484a99e751a7676729a760499b501672
+ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558820"
+ms.lasthandoff: 11/15/2021
+ms.locfileid: "132487974"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Indexación de grandes conjuntos de datos en Azure Cognitive Search
 
@@ -23,11 +23,11 @@ A medida que los volúmenes de datos aumentan o las necesidades de procesamiento
 
 Las mismas técnicas también se aplican a procesos de ejecución prolongada. En concreto, los pasos que se describen en [indización paralela](#parallel-indexing) son útiles para la indización de cálculo intensivo, como el análisis de imágenes o el procesamiento de lenguaje natural en la [canalización de enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md).
 
-En las secciones siguientes se exploran técnicas para indexar grandes cantidades de datos mediante la API de inserción y los índices.
+En las secciones siguientes se explican técnicas para indexar grandes cantidades de datos mediante la API de inserción y los indexadores.
 
 ## <a name="use-the-push-api"></a>Uso de la API de inserción
 
-Cuando se insertan datos en un índice mediante la [API REST para agregar documentos](/rest/api/searchservice/addupdate-or-delete-documents) o el [método IndexDocuments](/dotnet/api/azure.search.documents.searchclient.indexdocuments), hay varias consideraciones clave que afectan a la velocidad de indexación. Esos factores se describen en la siguiente sección y van desde el establecimiento de la capacidad del servicio a las optimizaciones de código.
+Cuando se insertan datos en un índice mediante la [API REST para agregar documentos](/rest/api/searchservice/addupdate-or-delete-documents) o el [método IndexDocuments (.NET)](/dotnet/api/azure.search.documents.searchclient.indexdocuments), hay varias consideraciones clave que afectan a la velocidad de indexación. Esos factores se describen en la siguiente sección y van desde el establecimiento de la capacidad del servicio a las optimizaciones de código.
 
 Para más información y ejemplos de código que ilustran la indexación de modelos de inserción, consulte [Tutorial: Optimización de la indexación mediante la API de inserción](tutorial-optimize-indexing-push-api.md).
 

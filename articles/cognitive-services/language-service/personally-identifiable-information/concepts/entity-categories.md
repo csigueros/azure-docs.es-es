@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: article
-ms.date: 11/02/2021
+ms.date: 11/15/2021
 ms.author: aahi
 ms.custom: language-service-pii, ignite-fall-2021
-ms.openlocfilehash: 49db4778dcdb2f4cbe3bff2ac07fc16ece2883f8
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 099926359944c1f9e9a673f3c754019c761e6220
+ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131090967"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132519541"
 ---
 # <a name="supported-personally-identifiable-information-pii-entity-categories"></a>Categorías de entidad de información de identificación personal (PII) admitidas
 
@@ -47,7 +47,7 @@ Este categoría contiene la entidad siguiente:
     :::column span="2":::
         **Detalles**
 
-        Nombres de personas. También se devuelve con `domain=phi`.
+        Nombres de personas. Se devuelve como PII y PHI.
 
         Para obtener esta categoría de entidad, agregue `Person` al parámetro `pii-categories`. `Person` se devolverá en la respuesta de la API si se detecta.
       
@@ -104,7 +104,7 @@ Este categoría contiene la entidad siguiente:
     :::column span="2":::
         **Detalles**
 
-        Números de teléfono (solo números de teléfono de EE. UU y la UE). También se devuelve con `domain=phi`.
+        Números de teléfono (solo números de teléfono de EE. UU y la UE). Se devuelve como PII y PHI.
 
         Para obtener esta categoría de entidad, agregue `PhoneNumber` al parámetro `pii-categories`. `PhoneNumber` se devolverá en la respuesta de la API si se detecta.
       
@@ -134,7 +134,7 @@ Este categoría contiene la entidad siguiente:
     :::column span="2":::
         **Detalles**
 
-        Empresas, grupos políticos, bandas musicales, clubs deportivos, organismos gubernamentales y organizaciones públicas. Las nacionalidades y las religiones no se incluyen en este tipo de entidad. También se devuelve con `domain=phi`.
+        Empresas, grupos políticos, bandas musicales, clubs deportivos, organismos gubernamentales y organizaciones públicas. Las nacionalidades y las religiones no se incluyen en este tipo de entidad. Se devuelve como PII y PHI.
 
         Para obtener esta categoría de entidad, agregue `Organization` al parámetro `pii-categories`. `Organization` se devolverá en la respuesta de la API si se detecta.
       
@@ -235,7 +235,7 @@ Este categoría contiene la entidad siguiente:
     :::column span="2":::
         **Detalles**
 
-        Dirección de correo postal completa. También se devuelve con `domain=phi`.
+        Dirección de correo postal completa. Se devuelve como PII y PHI.
 
         Para obtener esta categoría de entidad, agregue `Address` al parámetro `pii-categories`. `Address` se devolverá en la respuesta de la API si se detecta.
       
@@ -264,7 +264,7 @@ Este categoría contiene la entidad siguiente:
     :::column span="2":::
         **Detalles**
 
-        Direcciones de correo. También se devuelve con `domain=phi`.
+        Direcciones de correo. Se devuelve como PII y PHI.
       
         Para obtener esta categoría de entidad, agregue `Email` al parámetro `pii-categories`. `Email` se devolverá en la respuesta de la API si se detecta.
 
@@ -292,7 +292,7 @@ Este categoría contiene la entidad siguiente:
     :::column span="2":::
         **Detalles**
 
-        Direcciones URL de sitios web. También se devuelve con `domain=phi`.
+        Direcciones URL de sitios web. Se devuelve como PII y PHI.
 
         Para obtener esta categoría de entidad, agregue `URL` al parámetro `pii-categories`. `URL` se devolverá en la respuesta de la API si se detecta.
       
@@ -321,7 +321,7 @@ Este categoría contiene la entidad siguiente:
     :::column span="2":::
         **Detalles**
 
-        Direcciones IP de red. También se devuelve con `domain=phi`.
+        Direcciones IP de red. Se devuelve como PII y PHI.
 
         Para obtener esta categoría de entidad, agregue `IP` al parámetro `pii-categories`. `IP` se devolverá en la respuesta de la API si se detecta.
       
@@ -376,7 +376,7 @@ La entidad de esta categoría puede tener las subcategorías siguientes.
     :::column span="2":::
         **Detalles**
 
-        Fechas calendario. También se devuelve con `domain=phi`.
+        Fechas calendario. Se devuelve como PII y PHI.
 
         Para obtener esta categoría de entidad, agregue `Date` al parámetro `pii-categories`. `Date` se devolverá en la respuesta de la API si se detecta.
       
@@ -445,7 +445,7 @@ La entidad de esta categoría puede tener las subcategorías siguientes.
 
 ### <a name="azure-information"></a>Información de Azure
 
-Estas categorías de entidad incluyen información de Azure identificable entre la que se incluye la información de autenticación y las cadenas de conexión. No se devuelve con el parámetro `domain=phi`.
+Estas categorías de entidad incluyen información de Azure identificable entre la que se incluye la información de autenticación y las cadenas de conexión. No se devuelve como PHI.
 
 :::row:::
     :::column span="":::
