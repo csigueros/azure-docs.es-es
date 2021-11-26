@@ -12,12 +12,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: bonova, mathoma, danil
 ms.date: 09/21/2021
-ms.openlocfilehash: 505dbbed8dc0287d33e09d1db6471a4dedee6f6f
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 9406a8c0a54bac170c43a75f95842f2cf0dde171
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131476953"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132548869"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparación de características: Azure SQL Database e Instancia administrada de Azure SQL
 
@@ -35,6 +35,9 @@ Azure administra las bases de datos y garantiza su alta disponibilidad. Algunas 
 Si necesita más detalles sobre las diferencias, los encontrará en las páginas aparte:
 - [Diferencias entre Azure SQL Database y SQL Server](transact-sql-tsql-differences-sql-server.md)
 - [Diferencias entre Azure SQL Managed Instance y SQL Server](../managed-instance/transact-sql-tsql-differences-sql-server.md)
+
+> [!div class="nextstepaction"]
+> [Encuesta para mejorar Azure SQL](https://aka.ms/AzureSQLSurveyNov2021)
 
 
 ## <a name="features-of-sql-database-and-sql-managed-instance"></a>Características de SQL Database e Instancia administrada de SQL

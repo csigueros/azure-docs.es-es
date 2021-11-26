@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d196fa6eabd0a6f9fc08b8d1b1d60e649d02ee1b
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: ca051199e6fcbfab9a8de9e4a03d845bfa03c454
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129234972"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132553750"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicación de escritorio que llama a las API web: Registro de aplicación
 
@@ -41,6 +41,8 @@ Si la aplicación de escritorio usa la autenticación interactiva, puede iniciar
 Los URI de redirección que se utilizan en una aplicación de escritorio dependen del flujo que se quiera utilizar.
 
 Especifique el URI de redirección de la aplicación mediante la [configuración de la plataforma](quickstart-register-app.md#add-a-redirect-uri) de la aplicación en **Registros de aplicaciones** en Azure Portal.
+
+- En el caso de las aplicaciones que usen [Web Authentication Manager (WAM)](scenario-desktop-acquire-token-wam.md), no es preciso configurar los identificadores URI de redireccionamiento en MSAL, pero deben configurarse en el [registro de la aplicación](scenario-desktop-acquire-token-wam.md#redirect-uri).
 
 - Para las aplicaciones que usan la autenticación interactiva:
 

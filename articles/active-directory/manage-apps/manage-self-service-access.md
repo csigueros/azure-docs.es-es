@@ -13,14 +13,14 @@ ms.date: 09/23/2021
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: phsignor
-ms.openlocfilehash: 2a076fa39266a0295d2b1fda6c60f9e6a528f143
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: b0e70acffd8f2d10e8e0a4d2fec8c84b7c5e1747
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132054645"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550294"
 ---
-# <a name="enable-self-service-application-assignment-in-azure-active-directory"></a>Habilitación de la asignación del autoservicio de las aplicaciones en Azure Active Directory
+# <a name="enable-self-service-application-assignment"></a>Habilitación de la asignación del autoservicio de las aplicaciones
 
 En este artículo, aprenderá a habilitar el acceso de autoservicio a las aplicaciones mediante el Centro de administración de Azure Active Directory.
 

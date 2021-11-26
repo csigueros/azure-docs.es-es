@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to
-ms.openlocfilehash: a8d6d95e015400ce92d4963527ae976ddde689fe
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 8f7d2dbdab590d2236032d3dd96a2008e2aa79c0
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131858399"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132553845"
 ---
 # <a name="connect-to-and-manage-mysql-in-azure-purview-preview"></a>Conexión y administración de MySQL en Azure Purview (versión preliminar)
 
@@ -32,7 +32,7 @@ Las versiones de servidor de MySQL admitidas son de la 5.7 a la 8.x.
 
 Al examinar el origen de MySQL, Purview admite lo siguiente:
 
-- Extraer metadatos, incluidos el servidor, las bases de datos, los esquemas, las tablas, las vistas, las columnas de tabla o vista, etc. de MySQL.
+- Extraer metadatos, incluidos el servidor, las bases de datos, los esquemas, las tablas, las vistas y las columnas de tabla o vista de MySQL.
 - Capturar el linaje en relaciones de recursos entre tablas y vistas.
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -45,7 +45,7 @@ Al examinar el origen de MySQL, Purview admite lo siguiente:
 
 * Configure la versión más reciente del [entorno de ejecución de integración autohospedado](https://www.microsoft.com/download/details.aspx?id=39717). Para obtener más información, consulte la [guía de creación y configuración de un entorno de ejecución de integración autohospedado](../data-factory/create-self-hosted-integration-runtime.md).
 
-* Asegúrese de que [JDK 11](https://www.MySQL.com/java/technologies/javase-jdk11-downloads.html) esté instalado en la máquina virtual donde también lo esté el entorno de ejecución de integración autohospedado.
+* Asegúrese de que [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) esté instalado en la máquina virtual donde también lo esté el entorno de ejecución de integración autohospedado.
 
 * Asegúrese de que Visual C++ Redistributable para Visual Studio 2012 Update 4 esté instalado en la máquina del entorno de ejecución de integración autohospedado. Si no tiene instalada esta actualización, [puede descargarla de aquí](https://www.microsoft.com/download/details.aspx?id=30679).
 
@@ -143,8 +143,8 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha registrado el origen, siga las guías a continuación para obtener más información sobre Purview y sus datos.
+Ahora que ha registrado el origen, siga las guías mostradas a continuación para obtener más información sobre Purview y los datos.
 
-- [Información sobre datos en Azure Purview](concept-insights.md)
+- [Conclusiones sobre los datos en Azure Purview](concept-insights.md)
 - [Linaje en Azure Purview](catalog-lineage-user-guide.md)
 - [Búsqueda en Data Catalog](how-to-search-catalog.md)

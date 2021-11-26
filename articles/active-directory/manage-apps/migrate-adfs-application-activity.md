@@ -13,14 +13,14 @@ ms.date: 01/14/2019
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: alamaral
-ms.openlocfilehash: 38b7137c130925ef7c8e9c127830c33f507b7642
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1074a89374b2cc4f5e272b3b325062de471b2c76
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131046268"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549876"
 ---
-# <a name="review-the-application-activity-report-in-azure-active-directory"></a>Revise el informe de actividad de la aplicación en Azure Active Directory
+# <a name="review-the-application-activity-report"></a>Revisión del informe de actividad de la aplicación
 
 Muchas organizaciones usan Servicios de federación de Active Directory (AD FS) para proporcionar un inicio de sesión único a las aplicaciones en la nube. El traslado de aplicaciones de AD FS a Azure AD para la autenticación aporta importantes ventajas, especialmente en lo que respecta a la administración de costos y riesgos, a la productividad, al cumplimiento y a la gobernanza. Sin embargo, entender qué aplicaciones son compatibles con Azure AD e identificar los pasos de migración específicos puede llevar mucho tiempo.
 
@@ -33,7 +33,7 @@ El informe de actividades de aplicaciones de AD FS de Azure Portal permite ide
 
 Los datos de actividad de aplicaciones de AD FS están disponibles para los usuarios que tienen asignados cualquiera de estos roles de administrador: administrador global, lector de informes, lector de seguridad, administrador de aplicaciones o administrador de aplicaciones en la nube.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * En estos momentos, su organización debe usar AD FS para acceder a las aplicaciones.
 * Azure AD Connect Health debe estar habilitado en el inquilino de Azure AD.

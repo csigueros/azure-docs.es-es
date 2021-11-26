@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: a0c499ad15618d874a99be65f6d3af8d11fd88ec
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 30039e687750cbe7f21cea62b117608e41ee4f93
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408954"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132553218"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Elección entre los modelos de compra de núcleo virtual y DTU: Azure SQL Database y SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,6 +26,11 @@ Azure SQL Database y Azure SQL Managed Instance le permiten comprar fácilmente 
 
 - [Modelo de compra basado en núcleo virtual](service-tiers-vcore.md) (recomendado). Este modelo de compra permite elegir entre un nivel de proceso aprovisionado y un nivel de proceso sin servidor. Con el nivel de proceso aprovisionado, elige la cantidad exacta de recursos de proceso que se aprovisionan siempre para la carga de trabajo. Con el nivel de proceso sin servidor, debe especificar el escalado automático de los recursos de proceso mediante un rango de procesos configurables. Con este nivel de proceso, también puede pausar y reanudar automáticamente la base de datos en función de la actividad de carga de trabajo. El precio unitario de un núcleo virtual por unidad de tiempo es inferior en el nivel de proceso aprovisionado que en el nivel de proceso sin servidor.
 - [Modelo de compra basado en unidad de transacción de base de datos (DTU)](service-tiers-dtu.md). Este modelo de compra proporciona paquetes de proceso y almacenamiento agrupados y equilibrados para cargas de trabajo habituales.
+
+
+> [!div class="nextstepaction"]
+> [Encuesta para mejorar Azure SQL](https://aka.ms/AzureSQLSurveyNov2021) 
+
 
 Existen dos modelos de compra:
 

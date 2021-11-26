@@ -11,12 +11,12 @@ author: AlainDormehlMSFT
 ms.author: aldorme
 ms.reviewer: mathoma, urmilano, wiassaf
 ms.date: 03/17/2021
-ms.openlocfilehash: 428bc56ed2bcd4cf3da434bff1e399e04706db7d
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 842093f7cf74416e4bfb7b8ee3ed1faf83818675
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112121771"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132546999"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Supervisión y ajuste del rendimiento en Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,6 +28,9 @@ Azure SQL Database ofrece una serie de asesores de base de datos para proporcion
 Azure SQL Database e Instancia administrada de Azure SQL cuentan con funcionalidades avanzadas de supervisión y ajuste respaldadas por inteligencia artificial para ayudarle a solucionar los problemas de las bases de datos y soluciones, y maximizar su rendimiento. Puede optar por configurar la [exportación de streaming](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) de los resultados de [Intelligent Insights](intelligent-insights-overview.md) y de otras métricas y registros de recursos de bases de datos a uno de varios destinos para su consumo y análisis, especialmente mediante [SQL Analytics](../../azure-monitor/insights/azure-sql.md). Azure SQL Analytics es una solución de supervisión en la nube que se utiliza para supervisar el rendimiento de todas las bases de datos a escala, endistintas suscripciones y en una vista única. Para obtener una lista de los registros y las métricas que puede exportar, consulte el artículo sobre la [telemetría de diagnóstico para la exportación](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export).
 
 SQL Server tiene sus propias funcionalidades de supervisión y diagnóstico que aprovechan SQL Database y SQL Managed Instance, como el [almacén de consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) y las [vistas de administración dinámica (DMV)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). Consulte [Supervisión del rendimiento en Azure SQL Database con vistas de administración dinámica](monitoring-with-dmvs.md) para que los scripts supervisen diversos problemas de rendimiento.
+
+> [!div class="nextstepaction"]
+> [Encuesta para mejorar Azure SQL](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="monitoring-and-tuning-capabilities-in-the-azure-portal"></a>Funcionalidades de supervisión y optimización en Azure Portal
 

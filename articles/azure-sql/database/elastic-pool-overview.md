@@ -11,17 +11,20 @@ author: arvindshmicrosoft
 ms.author: arvindsh
 ms.reviewer: mathoma
 ms.date: 06/23/2021
-ms.openlocfilehash: a3847bb1ac435779e50ce8cc41a3940bb6adfab7
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: 669b8610cba44be369ba805834eca2f700d211e0
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112965137"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132548888"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Los grupos elásticos ayudan a administrar y escalar varias bases de datos de Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Los grupos elásticos de Azure SQL Database son una solución simple y rentable para la administración y escalado de varias bases de datos que tienen distintas e imprevisibles demandas de uso. En un grupo elástico, las bases de datos se encuentran en un único servidor y comparten un número establecido de recursos a un precio establecido. Los grupos elásticos en Azure SQL Database permiten a los desarrolladores de SaaS optimizar el rendimiento del precio para un grupo de bases de datos dentro de un presupuesto prescrito a la vez que se ofrece elasticidad de rendimiento para cada base de datos.
+
+> [!div class="nextstepaction"]
+> [Encuesta para mejorar Azure SQL](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="what-are-sql-elastic-pools"></a>¿Qué son los grupos elásticos de SQL?
 

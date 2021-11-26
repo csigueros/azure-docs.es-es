@@ -7,17 +7,17 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 06/23/2021
-ms.openlocfilehash: 4bebe0ea34f9f9cc62b0ed4e96fd6fb1c7615635
-ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
+ms.openlocfilehash: 36565dd38b74e8e03d44625f3dab765a26207c7c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112913462"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723045"
 ---
 # <a name="generate-a-sas-uri-for-a-vm-image"></a>Generación de un URI de SAS para una imagen de VM
 
 > [!NOTE]
-> Para publicar la máquina virtual, no necesita un URI de SAS. Simplemente puede compartir una imagen en el Centro de partners. Consulte [Procedimiento para crear una máquina virtual con una base aprobada](azure-vm-create-using-approved-base.md) o [Procedimiento para crear una máquina virtual mediante su propia imagen](azure-vm-create-using-own-image.md).
+> Para publicar la máquina virtual, no necesita un URI de SAS. Simplemente puede compartir una imagen en el Centro de partners. Consulte [Procedimiento para crear una máquina virtual con una base aprobada](azure-vm-use-approved-base.md) o [Procedimiento para crear una máquina virtual mediante su propia imagen](azure-vm-use-own-image.md).
 
 La generación de los identificadores URI de SAS para los discos duros virtuales debe cumplir los requisitos siguientes:
 
@@ -175,4 +175,4 @@ Compruebe el URI de SAS antes de publicarlo en el Centro de partners para evitar
 
 - Si tiene incidencias, consulte [Mensajes de error de SAS de máquina virtual](azure-vm-sas-failure-messages.md).
 - [Inicio de sesión en el Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165935)
-- [Creación de una oferta de máquina virtual en Azure Marketplace](azure-vm-create.md)
+- [Creación de una oferta de máquina virtual en Azure Marketplace](azure-vm-offer-setup.md)

@@ -4,22 +4,24 @@ description: Aprenda a instalar y configurar Grafana en una máquina virtual par
 author: TheovanKraay
 ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 11/16/2021
 ms.author: thvankra
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8fe10e1706667bba10133131f7a1d50a6e3fa110
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 3b74d168f37391bf89bc7591b7263ba40f3d1074
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132309817"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723267"
 ---
 # <a name="configure-grafana-to-visualize-metrics-emitted-from-the-managed-instance-cluster"></a>Configuración de Grafana para visualizar las métricas emitidas desde un clúster de instancia administrada
 
-Cuando se implementa un clúster de Azure Managed Instance for Apache Cassandra, el servicio aprovisiona un servidor que hospeda [Prometheus](https://prometheus.io/), que se puede usar desde varias herramientas de cliente. Prometheus es una solución de supervisión de código abierto. La instancia administrada emitirá métricas y conservará 10 minutos o 10 GB de datos (el umbral que se alcance primero). En este artículo se describe cómo configurar Grafana para visualizar las métricas emitidas desde el clúster de Managed Instance. Son necesarias las siguientes tareas para visualizar las métricas:
+Al implementar un clúster de Azure Managed Instance for Apache Cassandra, el servicio aprovisiona el software del agente de [Metric Collector for Apache Cassandra](https://github.com/datastax/metric-collector-for-apache-cassandra) en cada nodo de datos. Las métricas se pueden utilizar mediante [Prometheus](https://prometheus.io/) y visualizar con Grafana. En este artículo se describe cómo configurar Prometheus y Grafana para visualizar las métricas emitidas desde el clúster de Managed Instance. 
+
+Son necesarias las siguientes tareas para visualizar las métricas:
 
 * Implementar una máquina virtual con Ubuntu dentro de la red virtual de Azure donde esté presente la instancia administrada.
-* Instalar la [herramienta Grafana](https://grafana.com/grafana/) de código abierto para crear paneles y visualizar las métricas emitidas desde Prometheus.
+* Instale el [panel de Prometheus](https://github.com/datastax/metric-collector-for-apache-cassandra#installing-the-prometheus-dashboards) en la máquina virtual.
 
 ## <a name="deploy-an-ubuntu-server"></a>Implementación de un servidor Ubuntu
 
@@ -42,71 +44,104 @@ Cuando se implementa un clúster de Azure Managed Instance for Apache Cassandra,
 
    :::image type="content" source="./media/visualize-prometheus-grafana/configure-networking-details.png" alt-text="Configure las opciones de red del servidor Ubuntu." border="true":::
 
-1. Por último, seleccione **Revisar y crear** para crear el servidor de Grafana.
+1. Por último, seleccione **Revisar y crear** para crear el servidor de métricas.
 
-## <a name="install-grafana"></a>Instalación de Grafana
+## <a name="install-prometheus-dashboards"></a>Instalación de paneles de Prometheus
 
-1. En Azure Portal, abra la red virtual en la que ha implementado la instancia administrada y el servidor Grafana. Debería ver una instancia de conjunto de escalado de máquinas virtuales llamado **cassandra-jump (instance 0)** . Estas métricas de Prometheus se hospedan en este conjunto de escalado de máquinas virtuales. Anote la dirección IP de esta instancia:
+1. En primer lugar, asegúrese de que la configuración de red del servidor Ubuntu recién implementado tenga reglas de puerto de entrada que permitan los puertos `9090` y `3000`. Estos serán necesarios más adelante para Prometheus y Grafana, respectivamente. 
 
-   :::image type="content" source="./media/visualize-prometheus-grafana/prometheus-instance-address.png" alt-text="Obtención de la dirección IP de la instancia de Prometheus." border="true":::
+   :::image type="content" source="./media/visualize-prometheus-grafana/networking.png" alt-text="Permitir puertos" border="true":::
 
-1. Conéctese al servidor Ubuntu recién creado con la [CLI de Azure](../virtual-machines/linux/ssh-from-windows.md#ssh-clients) o la herramienta cliente preferida para conectarse mediante SSH.
+1. Conéctese al servidor Ubuntu con la [CLI de Azure](../virtual-machines/linux/ssh-from-windows.md#ssh-clients) o la herramienta cliente preferida para conectarse mediante SSH.
 
-1. Después de conectarse a la máquina virtual, debe instalar y configurar Grafana para conectarse al conjunto de escalado de máquinas virtuales donde se hospedan las métricas. Abra un símbolo del sistema y escriba el comando `nano` para abrir el editor de texto Nano. Pegue el siguiente script en el editor de texto y asegúrese de reemplazar `<prometheus IP address>` por la dirección IP que anotó en el paso anterior:
+1. Después de conectarse a la máquina virtual, debe instalar el software de Metrics Collector. En primer lugar, descargue y descomprima los archivos:
 
    ```bash
-   #!/bin/bash
-   
-   echo "Installing Grafana..."
-   
-   if ! $SSH dpkg -s grafana prometheus > /dev/null; then
-       echo "Installing packages."
-       echo 'deb https://packages.grafana.com/oss/deb stable main' | $SSH sudo tee /etc/apt/sources.list.d/grafana.list > /dev/null
-       curl https://packages.grafana.com/gpg.key | $SSH sudo apt-key add -
-       $SSH sudo apt-get update
-       $SSH sudo apt-get install -y grafana prometheus
-   else
-       echo "Skipping package installation"
-   fi
-   
-   echo "Configuring grafana"
-   cat <<EOF | $SSH sudo tee /etc/grafana/provisioning/datasources/prometheus.yml
-   apiVersion: 1
-   datasources:
-     - name: Prometheus
-       type: prometheus
-       url: https://<prometheus IP address>:9443
-       jsonData:
-         tlsSkipVerify: true
-   EOF
-   
-   echo "Restarting Grafana"
-   $SSH sudo systemctl enable grafana-server
-   $SSH sudo systemctl restart grafana-server
-   
-   echo "Installing Grafana plugins"
-   $SSH sudo grafana-cli plugins install natel-discrete-panel
-   $SSH sudo grafana-cli plugins install grafana-polystat-panel
-   $SSH sudo systemctl restart grafana-server
+    #install unzip utility (if not already installed)
+    sudo apt install unzip
+    
+    #get dashboards
+    wget https://github.com/datastax/metric-collector-for-apache-cassandra/releases/download/v0.3.0/datastax-mcac-dashboards-0.3.0.zip -O temp.zip
+    unzip temp.zip
    ```
 
-1. Escriba `ctrl + X` para guardar el archivo. Puede asignar al archivo el nombre `grafana.sh`.
+1. A continuación, vaya al directorio prometheus y use VI para editar el archivo `tg_mcac.json`:
 
-1. Escriba el comando `./grafana.sh` en el símbolo del sistema para instalar Grafana.
+   ```bash
+    cd */prometheus
+    vi tg_mcac.json    
+   ```
 
-1. Una vez completada la instalación, Grafana estará disponible en el **puerto 3000** en la dirección IP del servidor, tal y como se muestra en la siguiente captura de pantalla:
 
-   :::image type="content" source="./media/visualize-prometheus-grafana/open-grafana-port.png" alt-text="Ejecución de Grafana en el puerto 3000." border="true":::
+1. Agregue las direcciones IP de cada nodo del clúster a `targets`, cada una con el puerto 9443. El archivo `tg_mcac.json` debería tener este aspecto:
 
-1. Puede elegir entre los paneles de código abierto creados para Apache Cassandra en Grafana, como el archivo JSON [cluster-overview](https://github.com/TheovanKraay/cassandra-exporter/blob/master/grafana/instaclustr/cluster-overview.json). Descargue e importe la definición JSON del panel en Grafana:
+   ```bash
+    [
+      {
+        "targets": [
+          "10.9.0.6:9443","10.9.0.7:9443","10.9.0.8:9443"
+        ],
+        "labels": {
+    
+        }
+      }
+    ]  
+   ```
 
-   :::image type="content" source="./media/visualize-prometheus-grafana/grafana-import.png" alt-text="Importación de la definición JSON de Grafana." border="true":::
+1. Guarde el archivo. Después, edite el archivo `prometheus.yaml` en el mismo directorio. Busque la sección siguiente:
 
-   :::image type="content" source="./media/visualize-prometheus-grafana/grafana-upload-json.png" alt-text="Carga de la definición JSON de Grafana." border="true":::
+   ```bash
+    file_sd_configs:
+      - files:
+        - 'tg_mcac.json'
+   ```
 
-1. Después, puede supervisar el clúster de la instancia administrada de Cassandra con el panel elegido:
+1. Justo debajo de esta sección, agregue lo siguiente. Esto es necesario porque las métricas se exponen a través de https.
 
-   :::image type="content" source="./media/visualize-prometheus-grafana/monitor-cassandra-metrics.gif" alt-text="Visualización de las métricas de la instancia administrada de Cassandra en el panel." border="true":::
+   ```bash
+    scheme: https
+    tls_config:
+            insecure_skip_verify: true
+   ```
+
+1. Ahora, el archivo debería tener este aspecto. Asegúrese de que las pestañas de cada línea sean como las siguientes. 
+
+   ```bash
+    file_sd_configs:
+      - files:
+        - 'tg_mcac.json'
+    scheme: https
+    tls_config:
+            insecure_skip_verify: true
+   ```
+
+1. Guarde el archivo. Ya está listo para iniciar Prometheus y Grafana. Primero, instale Docker:
+
+    ```bash
+    sudo apt install apt-transport-https ca-certificates curl software-properties-common
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu `lsb_release -cs` test"
+    sudo apt update
+    sudo apt install docker-ce
+    ```
+
+1. Después, instale Docker Compose:
+
+    ```bash
+    sudo apt install docker-compose
+    ```
+
+1. Ahora, vaya al directorio de nivel superior donde se encuentra `docker-compose.yaml` e inicie la aplicación:
+
+    ```bash
+    cd ..
+    sudo docker-compose up
+    ```
+
+1. Prometheus estará disponible en el puerto `9090` y los paneles de Grafana en el puerto `3000` del servidor de métricas:
+
+   :::image type="content" source="./media/visualize-prometheus-grafana/monitor-cassandra-metrics.png" alt-text="Visualización de las métricas de la instancia administrada de Cassandra en el panel." border="true":::
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

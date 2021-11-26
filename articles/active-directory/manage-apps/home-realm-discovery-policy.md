@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 08/20/2021
 ms.author: davidmu
 ms.reviewer: hirsin
-ms.openlocfilehash: ce71512e46f1b78ece832ec1fb1bad938edfcbf8
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 8ac93a42c4911a6694770ee320f84b88d6ea6aa5
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058849"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132547453"
 ---
-# <a name="home-realm-discovery-for-an-application-in-azure-active-directory"></a>Detección del dominio de inicio de una aplicación en Azure Active Directory
+# <a name="home-realm-discovery-for-an-application"></a>Detección del dominio de inicio de una aplicación
 
 La detección del dominio de inicio (HDR) es el proceso que permite a Azure AD determinar con qué proveedor de identidades ("IdP") debe autenticarse un usuario en el momento del inicio de sesión.  Al iniciar sesión en un inquilino de Azure AD para obtener acceso a un recurso o a la página de inicio de sesión común de Azure AD, el usuario debe escribir un nombre de usuario (UPN). Azure AD usa esa información para detectar dónde debe iniciar sesión el usuario.
 

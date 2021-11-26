@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 11/08/2021
-ms.openlocfilehash: ec1a0bfcc883e9434c8c80264c574c3630e395b0
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: 660ae01280f116097d1a16282c8fed4faa18b6c2
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131995091"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706977"
 ---
 #  <a name="azure-web-pubsub-service-internals"></a>Elementos internos del servicio Azure Web PubSub
 
@@ -221,7 +221,7 @@ En general, el protocolo del servidor contiene dos roles:
 <a name="event_handler"></a>
 
 ### <a name="event-handler"></a>Controlador de eventos
-El controlador de eventos controla los eventos de cliente entrantes. Los controladores de eventos se registran y configuran en el servicio a través del portal o la CLI de Azure de antemano para que, cuando se desencadene un evento de cliente, el servicio pueda identificar si se espera que el evento se controle o no. Para la versión preliminar pública, se usa el modo `PUSH` para invocar el controlador de eventos: el controlador de eventos, como lado servidor, expone el punto de conexión de acceso público que invocará el servicio cuando se desencadene el evento. Funciona como **webhook**. 
+El controlador de eventos controla los eventos de cliente entrantes. Los controladores de eventos se registran y configuran en el servicio a través del portal o la CLI de Azure de antemano para que, cuando se desencadene un evento de cliente, el servicio pueda identificar si se espera que el evento se controle o no. Ahora se usa el modo `PUSH` para invocar el controlador de eventos: el controlador de eventos, como lado servidor, expone el punto de conexión de acceso público que invocará el servicio cuando se desencadene el evento. Funciona como **webhook**. 
 
 El servicio entrega los eventos de cliente al webhook ascendente mediante el [protocolo HTTP CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.1/http-protocol-binding.md).
 
@@ -269,7 +269,7 @@ También puede conceder o revocar permisos de publicación/unión para un client
    - Revocar permisos de unión o publicación a un grupo específico o a todos los grupos
    - Comprobar si el cliente tiene permiso para unirse o publicar en un grupo específico o en todos los grupos.
    
-Para la versión preliminar pública, el servicio proporciona API REST para que el servidor se encargue de la administración de las conexiones:
+El servicio proporciona API REST para que el servidor se encargue de la administración de las conexiones:
 
 ![Diagrama que muestra el flujo de trabajo del administrador de conexiones del servicio Web PubSub.](./media/concept-service-internals/manager-rest.png)
 

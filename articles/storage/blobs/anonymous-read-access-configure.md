@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5a770e6f5105dd3525e2aac0e502f35cb6a6f050
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 41041a34d8fbf83095f3f5f9f9f0fb0a76109a39
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128645842"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724299"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configuración de acceso de lectura público anónimo a contenedores y blobs
 
@@ -301,12 +301,12 @@ Get-AzStorageContainer -Context $ctx | Select Name, PublicAccess
 
 En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![Sí](../media/icons/yes-icon.png) |
-| Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png)| ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
+| Tipo de cuenta de almacenamiento | Blob Storage (compatibilidad predeterminada) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png) |
+| Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png)| ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png) |
 
-<sup>1</sup> Tanto Data Lake Storage Gen2 como el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
+<sup>1</sup> La compatibilidad de Data Lake Storage Gen2, el protocolo Network File System (NFS) 3.0 y el protocolo Secure File Transfer (SFTP) admiten requieren una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

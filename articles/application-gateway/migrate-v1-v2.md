@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 000daf7c60d0bc823aacdab85de42af3b6cbbf55
-ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
+ms.openlocfilehash: 55445659ef58d073eb8992060b82c76bd08f8e18
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129419057"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132548318"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migración de Azure Application Gateway y Firewall de aplicaciones web de v1 a v2
 
@@ -43,6 +43,7 @@ Existe un script de Azure PowerShell que hace lo siguiente:
 * v2 no es compatible con IPv6, por lo que las puertas de enlace v1 con IPv6 habilitado no se pueden migrar. Si ejecuta el script, podría no completarse.
 * Si la puerta de enlace v1 solo tiene una dirección IP privada, el script crea una dirección IP pública y una dirección IP privada para la nueva puerta de enlace v2. Las puertas de enlace v2 actualmente no admiten solo direcciones IP privadas.
 * Los encabezados con nombres que contienen caracteres que no son letras, dígitos, guiones y caracteres de subrayado no se pasan a la aplicación. Esto solo se aplica a los nombres de encabezado, no a los valores de encabezado. Este es un cambio importante de la versión v1.
+* La autenticación NTLM y Kerberos no es compatible con Application Gateway v2. El script no puede detectar si la puerta de enlace atiende este tipo de tráfico y puede suponer un cambio importante en las puertas de enlace v1 a v2 si se ejecuta.
 
 ## <a name="download-the-script"></a>Descarga del script
 

@@ -7,15 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 07/20/2021
+ms.date: 11/16/2021
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c2c22b6de6c4c1bdf5cd8856c8d9405f19d56509
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 07bbad3791a287298812da37904cdfa7072dd4ce
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123113784"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722355"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesadores de fuente de cambios de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -68,14 +68,24 @@ El ciclo de vida normal de una instancia de host es:
 
 ## <a name="error-handling"></a>Control de errores
 
-El procesador de fuente de cambios es resistente a los errores de código de usuario. Esto significa que si la implementación del delegado tiene una excepción no controlada (paso nº 4), el subproceso que está procesando ese lote específico de cambios se detendrá y se creará un nuevo subproceso. El nuevo subproceso comprobará cuál fue el último punto en el tiempo que el almacén de concesiones tiene para ese intervalo de valores de clave de partición, y se reiniciará desde allí, enviando de forma eficaz el mismo lote de cambios al delegado. Este comportamiento continúa hasta que el delegado procesa los cambios correctamente, y es el motivo por el que el procesador de fuente de cambios tiene una garantía de "al menos una vez", ya que, si se produce una excepción en el código del delegado, ese lote se vuelve a intentar.
+El procesador de fuente de cambios es resistente a los errores de código de usuario. Esto significa que si la implementación del delegado tiene una excepción no controlada (paso nº 4), el subproceso que está procesando ese lote específico de cambios se detendrá y se creará un nuevo subproceso. El nuevo subproceso comprobará cuál fue el último punto en el tiempo que el almacén de concesiones tiene para ese intervalo de valores de clave de partición, y se reiniciará desde allí, enviando de forma eficaz el mismo lote de cambios al delegado. Este comportamiento continuará hasta que el delegado procese los cambios correctamente y es el motivo por el que el procesador de fuente de cambios tiene una garantía de "al menos una vez".
 
 > [!NOTE]
 > Solo hay un escenario en el que no se reintentará un lote de cambios. Si el error se produce en la primera ejecución del delegado, el almacén de concesiones no tiene ningún estado guardado anterior para usarlo en el reintento. En esos casos, el reintento usaría la [primera configuración de inicio](#starting-time), que podría incluir o no el último lote.
 
 Para evitar que el procesador de fuente de cambios se "atasque" al reintentar continuamente el mismo lote de cambios, debe agregar lógica al código del delegado para escribir documentos, en caso de excepción, en una cola de mensajes fallidos. Este diseño garantiza que se pueda realizar un seguimiento de los cambios sin procesar a la vez que se siguen procesando cambios futuros. La cola de mensajes fallidos podría ser otro contenedor de Cosmos. El almacén de datos exacto no importa, simplemente que se conserven los cambios sin procesar.
 
-Además, puede usar el [estimador de fuente de cambios](how-to-use-change-feed-estimator.md) para supervisar el progreso de las instancias del procesador de fuente de cambios a medida que leen la fuente de cambios. Puede usar esta estimación para entender si el procesador de fuente de cambios está "atascado" o se está retrasando debido a recursos disponibles como CPU, memoria y ancho de banda de red.
+Además, puede usar el [estimador de la fuente de cambios](how-to-use-change-feed-estimator.md) para supervisar el progreso de las instancias del procesador de la fuente de cambios a medida que leen la fuente de cambios, o bien usar la [notificación del ciclo de vida](#life-cycle-notifications) para detectar errores subyacentes.
+
+## <a name="life-cycle-notifications"></a>Notificaciones de ciclo de vida
+
+El procesador de la fuente de cambios le permite enlazar a eventos relevantes en su [ciclo de vida](#processing-life-cycle); puede optar por recibir una notificación a uno o a todos ellos. La recomendación es registrar al menos la notificación del error:
+
+* Registre un controlador para que `WithLeaseAcquireNotification` reciba una notificación cuando el host actual adquiera una concesión para empezar a procesarlo.
+* Registre un controlador para que `WithLeaseReleaseNotification` reciba una notificación cuando el host actual libere una concesión y deje de procesarla.
+* Registre un controlador para que `WithErrorNotification` reciba una notificación cuando el host actual encuentre una excepción durante el procesamiento, siendo capaz de distinguir si el origen es el delegado de usuario (excepción no controlada) o un error que el procesador detecta al intentar acceder al contenedor supervisado (por ejemplo, problemas de red).
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartWithNotifications)]
 
 ## <a name="deployment-unit"></a>Unidad de implementación
 
@@ -99,7 +109,7 @@ Además, el procesador de fuente de cambios puede ajustarse de forma dinámica a
 
 ## <a name="change-feed-and-provisioned-throughput"></a>Fuente de cambios y rendimiento aprovisionado
 
-Las operaciones de lectura de fuente de cambios en el contenedor supervisado consumen RU. 
+Las operaciones de lectura de fuente de cambios en el contenedor supervisado consumen RU.
 
 Las operaciones en el contenedor de concesión consumen RU. Cuanto mayor es el número de instancias que usan el mismo contenedor de concesión, mayor es el consumo de RU potencial. Acuérdese de supervisar el consumo de RU en el contenedor de concesión si decide escalar e incrementar el número de instancias.
 

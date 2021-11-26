@@ -4,13 +4,13 @@ description: Aquí se describe cómo utilizar la propiedad del ámbito al implem
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/30/2021
-ms.openlocfilehash: 2b1fb9960caf81a51c80dae312979d90f6eb5f4d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 11/16/2021
+ms.openlocfilehash: 8d91aa1109db4b1d884e90e3e0744611f9dbf4d8
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124733423"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549857"
 ---
 # <a name="set-scope-for-extension-resources-in-bicep"></a>Establecimiento del ámbito de los recursos de extensión en Bicep
 
@@ -143,11 +143,13 @@ resource createStorageLock 'Microsoft.Authorization/locks@2016-09-01' = {
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
-
-Para obtener información sobre la implementación en ámbitos, consulte:
+Los mismos requisitos se aplican a los recursos de extensión que a otros recursos al dirigirse a un ámbito que es diferente del ámbito de destino de la implementación. Para más información sobre la implementación en más de un ámbito, consulte:
 
 * [Implementaciones de grupos de recursos](deploy-to-resource-group.md)
 * [Implementaciones de suscripciones](deploy-to-subscription.md)
 * [Implementaciones de grupos de administración](deploy-to-management-group.md)
 * [Implementaciones de inquilinos](deploy-to-tenant.md)
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para obtener una lista completa de los tipos de recursos de extensión, consulte los [Tipos de recursos que amplían las capacidades de otros recursos](../management/extension-resource-types.md).

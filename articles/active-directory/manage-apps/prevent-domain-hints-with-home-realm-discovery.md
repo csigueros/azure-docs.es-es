@@ -12,14 +12,14 @@ ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: davidmu
 ms.reviewer: hirsin
-ms.openlocfilehash: db874b82a8d0c966dbe6cdbecd14cf3c5fe521d2
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 912299553e48bbaec6c815e44f91a6ac0b42441e
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129615740"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132547476"
 ---
-# <a name="disable-auto-acceleration-sign-in-in-azure-active-directory"></a>Deshabilitación del inicio de sesión de aceleración automática en Azure Active Directory
+# <a name="disable-auto-acceleration-sign-in"></a>Deshabilitación del inicio de sesión de aceleración automática
 
 La [directiva de detección del dominio de inicio](/graph/api/resources/homeRealmDiscoveryPolicy) (HRD) ofrece a los administradores varias maneras de controlar cómo y dónde se autentican sus usuarios. La sección `domainHintPolicy` de la directiva de HRD se usa para ayudar a migrar usuarios federados a credenciales administradas en la nube como [FIDO](../authentication/howto-authentication-passwordless-security-key.md), asegurándose de que siempre visitan la página de inicio de sesión de Azure AD y no se aceleran automáticamente a un IDP federado como consecuencia de las sugerencias de dominio.
 

@@ -6,15 +6,15 @@ author: luisquintanilla
 ms.author: luquinta
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 10/21/2021
+ms.date: 11/17/2021
 ms.topic: how-to
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 635153d510b18bc0ce97033094abf21a3b6d3d74
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 5ae6b6c636e1713d9f423b00301759ffb469b5f0
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132491635"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723442"
 ---
 # <a name="configure-kubernetes-clusters-for-machine-learning-preview"></a>Configuración de clústeres de Kubernetes para el aprendizaje automático (versión preliminar)
 
@@ -42,7 +42,7 @@ Para implementar la extensión Azure Machine Learning en clústeres de Azure Kub
     > [!NOTE]
     > Para los clústeres de AKS, la conexión a Azure Arc es **opcional**.
 
-* Debe cumplir los [requisitos de red de Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#meet-network-requirements).
+* Debe cumplir los [requisitos de red de Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#meet-network-requirements).
 
     > [!IMPORTANT]
     > Los clústeres que se ejecutan detrás de un servidor proxy o firewall de salida necesitan configuraciones de red adicionales.
@@ -64,7 +64,7 @@ Para implementar la extensión Azure Machine Learning en clústeres de Azure Kub
 
 * **Azure RedHat OpenShift Service (ARO) y OpenShift Container Platform (OCP) solo**
 
-    * Un clúster de Kubernetes de ARO o OCP está en funcionamiento. Para más información, consulte [Creación de un clúster de Kubernetes de ARO](/azure/openshift/tutorial-create-cluster) y [Creación de un clúster de Kubernetes de OCP](https://docs.openshift.com/container-platform/4.6/installing/installing_platform_agnostic/installing-platform-agnostic.html).
+    * Un clúster de Kubernetes de ARO o OCP está en funcionamiento. Para más información, consulte [Creación de un clúster de Kubernetes de ARO](../openshift/tutorial-create-cluster.md) y [Creación de un clúster de Kubernetes de OCP](https://docs.openshift.com/container-platform/4.6/installing/installing_platform_agnostic/installing-platform-agnostic.html).
     * Conceda acceso con privilegios a las cuentas de servicio de AzureML.
 
         Ejecute `oc edit scc privileged` y agregue lo siguiente 
@@ -253,9 +253,11 @@ La asociación de un clúster de Kubernetes habilitado para Azure Arc hace que e
 
 1. Escriba un nombre de proceso y seleccione el clúster de Kubernetes habilitado para Azure Arc en la lista desplegable.
 
-   **(Opcional)** Asigne la identidad administrada asignada por el usuario o el sistema. Las identidades administradas eliminan la necesidad de que los desarrolladores administren las credenciales. Para obtener más información, consulte [Introducción a las identidades administradas](/azure/active-directory/managed-identities-azure-resources/overview).
+    * **(Opcional)** Escriba el espacio de nombres de Kubernetes, que tiene como valor predeterminado `default`. Todas las cargas de trabajo de aprendizaje automático se enviarán al espacio de nombres de Kubernetes especificado en el clúster.
 
-   ![Configuración del clúster de Kubernetes](./media/how-to-attach-arc-kubernetes/configure-kubernetes-cluster-2.png)
+    * **(Opcional)** Asigne la identidad administrada asignada por el usuario o el sistema. Las identidades administradas eliminan la necesidad de que los desarrolladores administren las credenciales. Para obtener más información, consulte [Introducción a las identidades administradas](../active-directory/managed-identities-azure-resources/overview.md).
+
+    ![Configuración del clúster de Kubernetes](./media/how-to-attach-arc-kubernetes/configure-kubernetes-cluster-2.png)
 
 1. Seleccione **Attach** (Asociar).
 
@@ -269,7 +271,7 @@ Puede usar el SDK de Python de Azure Machine Learning para asociar clústeres de
 
 El siguiente código de Python muestra cómo asociar un clúster de Kubernetes habilitado para Azure Arc y cómo usarlo como destino de proceso con la identidad administrada habilitada.
 
-Las identidades administradas eliminan la necesidad de que los desarrolladores administren las credenciales. Para obtener más información, consulte [Introducción a las identidades administradas](/azure/active-directory/managed-identities-azure-resources/overview).
+Las identidades administradas eliminan la necesidad de que los desarrolladores administren las credenciales. Para obtener más información, consulte [Introducción a las identidades administradas](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```python
 from azureml.core.compute import KubernetesCompute

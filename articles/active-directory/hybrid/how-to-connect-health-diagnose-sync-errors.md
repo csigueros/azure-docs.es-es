@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fe6af43c9ca44095c328356e8171da10717875e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2637b0172038a4eb930e6a9f629d879a991a2e86
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98728244"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707892"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnóstico y solución de errores de sincronización de atributos duplicados
 
@@ -109,8 +109,8 @@ Para el **escenario de objeto huérfano**, el usuario individual **Joe Johnson**
 Esta pregunta comprueba el usuario entrante en conflicto y el objeto de usuario existente en Azure AD para ver si pertenecen al mismo usuario.  
 1. El objeto en conflicto acaba de sincronizarse con Azure Active Directory. Comparar los atributos de los objetos:  
    - Display Name (Nombre para mostrar)
-   - Nombre principal del usuario
-   - Id. de objeto
+   - UserPrincipalName o SignInName
+   - ObjectID
 2. Si Azure AD no puede compararlos, compruebe si Active Directory contiene objetos con los valores de **UserPrincipalNames** proporcionados. Respuesta **No** si encuentra ambos.
 
 En el ejemplo siguiente, los dos objetos pertenecen al mismo usuario, **Joe Johnson**.

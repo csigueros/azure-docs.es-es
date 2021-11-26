@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/30/2021
-ms.openlocfilehash: f83fb2b1dbcadf9d40431c7670a1d8618557b047
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 0d31c44a5daa21c16cd7c598f407501104dc53c6
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866963"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132546317"
 ---
 # <a name="plan-a-microsoft-dynamics-365-offer"></a>Planeamiento de una oferta de Microsoft Dynamics 365
 
@@ -24,7 +24,16 @@ Antes de empezar, cree una cuenta de marketplace comercial en el [Centro de part
 
 Cuando prepare la publicación de una nueva oferta, debe decidir la opción de licencia. Esta opción determina la información adicional que deberá proporcionar más adelante cuando cree la oferta en el Centro de partners.
 
-Estas son las opciones de licencia disponibles para las ofertas de Dynamics 365:
+Estas son las opciones de licencia disponibles para los tipos de ofertas de Dynamics 365:
+
+| Tipo de oferta | Opción de publicación |
+| --- | --- |
+| Dynamics 365 for Operations | Ponerse en contacto conmigo |
+| Dynamics 365 Customer Engagement & Power Apps | Obtenerlo ahora<br>Obténgalo ahora (de forma gratuita)<br>Evaluación gratuita (anuncio)<br>Ponerse en contacto conmigo |
+| Dynamics 365 Business Central | Obténgalo ahora (de forma gratuita)<br>Evaluación gratuita (anuncio)<br>Ponerse en contacto conmigo |
+|||
+
+En la tabla siguiente se describe el proceso de transacción de cada opción de publicación.
 
 | Opción de obtención de licencias | Proceso de transacción |
 | --- | --- |

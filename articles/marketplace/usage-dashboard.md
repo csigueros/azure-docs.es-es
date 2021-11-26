@@ -8,12 +8,12 @@ author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
 ms.date: 10/11/2021
-ms.openlocfilehash: 0ef727d47949acb1d095bbfb3890021b273c50db
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 767b25e6578c051b4d4e7ea0a95d927be29db5c7
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811205"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724964"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Panel de uso de los análisis de marketplace comercial
 
@@ -191,6 +191,7 @@ _**Tabla 1: diccionario de términos de datos**_
 | Acción realizada a las | Acción realizada a las | **Aplicable a las ofertas con dimensiones de medidores personalizados**.<br>Indica la hora en que el publicador ha reconocido el uso por encima del límite por parte del cliente para la dimensión de medidor personalizado de la oferta como genuino o falso.<br>_Si el publicador no tiene ofertas con dimensiones de medidores personalizados y exporta esta columna a través del acceso mediante programación, el valor será NULL._ | ActionTakenAt |
 | Acción realizada por | Acción realizada por | **Aplicable a las ofertas con dimensiones de medidores personalizados**.<br>Indica la persona que ha reconocido el uso por encima del límite por parte del cliente para la dimensión de medidor personalizado de la oferta como genuino o falso.<br>_Si el publicador no tiene ofertas con dimensiones de medidores personalizados y exporta esta columna a través del acceso mediante programación, el valor será NULL._ | ActionTakenBy |
 | Impacto financiero estimado (USD) | Impacto financiero estimado en USD | **Aplicable a las ofertas con dimensiones de medidores personalizados**.<br>Cuando el Centro de partners marca como anómalo un uso por encima del límite por parte del cliente para la dimensión de medidor personalizado de la oferta, el campo especifica el impacto financiero estimado (en USD) del uso anómalo por encima del límite.<br>_Si el publicador no tiene ofertas con dimensiones de medidores personalizados y exporta esta columna mediante programación, el valor será NULL._ | EstimatedFinancialImpactUSD |
+| Id. de recurso | Id. de recurso | Identificador único del pedido del cliente para el servicio de Marketplace comercial. Las ofertas basadas en el uso de máquinas virtuales no están asociadas con un pedido. | Id. de recurso |
 | N/D | Id. de recurso | Identificador completo del recurso, incluido el nombre del recurso y el tipo de recurso. Tenga en cuenta que se trata de un campo de datos disponible solo en los informes de descarga.<br>Utilice el formato:<br> /subscriptions/{guid}/resourceGroups/{nombre-del-grupo-de-recursos}/{espacio-de-nombres-del-proveedor-de-recursos}/{tipo-de-recurso}/{nombre-del-recurso}<br>**Nota**: Este campo dejará de usarse el 20/10/2021. | N/D |
 |||||
 

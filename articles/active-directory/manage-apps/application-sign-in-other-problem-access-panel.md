@@ -13,14 +13,14 @@ ms.date: 07/11/2017
 ms.author: davidmu
 ms.reviewer: lenalepa
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e4f03e2f7540b4724b7dfe001f5fc77ac3c0706e
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 4ea75a7aa9b5a2e06ecce612654604af4db1bdf3
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129617841"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132546906"
 ---
-# <a name="troubleshoot-application-sign-in-in-azure-active-directory"></a>Solución de problemas de inicio de sesión de una aplicación en Azure Active Directory
+# <a name="troubleshoot-application-sign-in"></a>Solución de problemas de inicio de sesión de aplicaciones
 
 Aplicaciones es un portal basado en web que permite que un usuario con una cuenta profesional o educativa de Azure Active Directory (Azure AD) vea e inicie las aplicaciones basadas en la nube a las que el administrador de Azure AD le haya concedido acceso. Se accede a Mis aplicaciones mediante un explorador web en [https://myapps.microsoft.com](https://myapps.microsoft.com).
 

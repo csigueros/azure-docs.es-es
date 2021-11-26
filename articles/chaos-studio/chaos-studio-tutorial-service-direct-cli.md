@@ -7,12 +7,12 @@ ms.service: chaos-studio
 ms.topic: how-to
 ms.date: 11/10/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 7366cf2a8452b40830a9b73f314caeaf63368c64
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: e6f1f215a96b6f651e344087c98a3a7d9be278db
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132373446"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718533"
 ---
 # <a name="create-a-chaos-experiment-that-uses-a-service-direct-fault-with-the-azure-cli"></a>Cree un experimento de caos que use un error directo del servicio con la CLI de Azure
 
@@ -33,6 +33,9 @@ Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar 
 Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior derecha de un bloque de código. También puede abrir Cloud Shell en una pestaña independiente acudiendo a [https://shell.azure.com/bash](https://shell.azure.com/bash). Seleccione **Copiar** para copiar los bloques de código, péguelos en Cloud Shell y, después, seleccione **Entrar** para ejecutarlos.
 
 Si prefiere instalar y usar la CLI en un entorno local, para este tutorial se requiere la versión 2.0.30 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
+
+> [!NOTE]
+> Estas instrucciones usan un terminal de Bash en Azure Cloud Shell. Es posible que algunos comandos no funcionen tal como se describe si se ejecuta la CLI localmente o en un terminal de PowerShell.
 
 ## <a name="enable-chaos-studio-on-your-azure-cosmos-db-account"></a>Habilitación de Chaos Studio en la cuenta de Azure Cosmos DB
 

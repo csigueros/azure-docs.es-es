@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/18/2021
+ms.date: 11/16/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 911db718fd7c88501006f89a549a371cd12adef4
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 678dd934bfdece9a957595bbfb16a4e7c8e8d3de
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178189"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720404"
 ---
 # <a name="authorize-access-to-data-in-azure-storage"></a>Autorización del acceso a datos en Azure Storage
 
@@ -32,7 +32,7 @@ En la tabla siguiente se describen las opciones que ofrece Azure Storage para au
 
 Cada opción de autorización se describe brevemente a continuación:
 
-- **Integración de Azure Active Directory (Azure AD)** para autorizar solicitudes a recursos de blob, cola y tabla. Microsoft recomienda usar las credenciales de Azure AD para autorizar las solicitudes de datos siempre que sea posible para mayor seguridad y facilidad de uso. Para obtener más información sobre la integración de Azure AD, consulte [Autorización del acceso a datos en Azure Storage](authorize-data-access.md).
+- **Integración de Azure Active Directory (Azure AD)** para autorizar solicitudes a recursos de blob, cola y tabla. Microsoft recomienda usar las credenciales de Azure AD para autorizar las solicitudes de datos siempre que sea posible para mayor seguridad y facilidad de uso. Para obtener más información sobre la integración de Azure AD, consulte los artículos sobre los recursos de [tabla](../blobs/authorize-access-azure-active-directory.md), [cola](../queues/authorize-access-azure-active-directory.md) o [blob](../tables/authorize-access-azure-active-directory.md).
 
     Puede usar el control de acceso basado en rol de Azure (RBAC de Azure) para administrar los permisos de una entidad de seguridad para los recursos de blob, cola y tabla de una cuenta de almacenamiento. Además, puede usar el control de acceso basado en atributos (ABAC) de Azure para agregar condiciones a las asignaciones de roles de Azure para los recursos de blob. Para más información acerca de RBAC, consulte [¿Qué es el control de acceso basado en rol (RBAC) de Azure?](../../role-based-access-control/overview.md) Para obtener más información acerca de ABAC, consulte [¿Qué es el control de acceso basado en atributos de Azure (ABAC de Azure)? (versión preliminar)](../../role-based-access-control/conditions-overview.md).
 
@@ -52,7 +52,7 @@ Cada opción de autorización se describe brevemente a continuación:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Autorización del acceso a datos en Azure Storage](authorize-data-access.md)
+- Autorice el acceso con Azure Active Directory a recursos de [tabla](../blobs/authorize-access-azure-active-directory.md), [cola](../queues/authorize-access-azure-active-directory.md) o [blob](../tables/authorize-access-azure-active-directory.md).
 - [Autorización con clave compartida](/rest/api/storageservices/authorize-with-shared-key/)
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md) (Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido [SAS])
         

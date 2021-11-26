@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: mathoma
 ms.date: 07/14/2021
-ms.openlocfilehash: c1bb51ff65e7239fc758553288c84a4a52f90740
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 86d4a032b914c56518f5106072eb7a6a1634b8ff
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730457"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550729"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Reglas de firewall de Azure SQL Database y Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -28,6 +28,10 @@ Al crear un servidor en Azure SQL Database y Azure Synapse Analytics denominado 
 > Este artículo *no* se aplica a *Instancia administrada de Azure SQL*. Para obtener información sobre la configuración de red, vea [Conexión de una aplicación a Instancia administrada de Azure SQL](../managed-instance/connect-application-instance.md).
 >
 > Tenga en cuenta que Azure Synapse solo es compatible con las reglas de firewall de IP de nivel de servidor. No es compatible con las de nivel de base de datos.
+
+
+> [!div class="nextstepaction"]
+> [Encuesta para mejorar Azure SQL](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="how-the-firewall-works"></a>Funcionamiento del firewall
 

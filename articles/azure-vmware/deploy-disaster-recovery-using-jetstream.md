@@ -1,22 +1,18 @@
 ---
-title: Implementación de la recuperación ante desastres usando JetStream DR (versión preliminar)
+title: Implementación de la recuperación ante desastres mediante JetStream
 description: Obtenga información sobre cómo implementar JetStream DR en su nube privada de Azure VMware Solution y sus cargas de trabajo locales de VMware.
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 11/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: f43d2a8db4ef29588ad5260c583faab31bd01228
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 394cda9b1cfb45d260a13de910d734755e58cd42
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129279077"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717849"
 ---
-# <a name="deploy-disaster-recovery-using-jetstream-dr-preview"></a>Implementación de la recuperación ante desastres usando JetStream DR (versión preliminar)
+# <a name="deploy-disaster-recovery-using-jetstream-dr"></a>Implementación de la recuperación ante desastres mediante JetStream
 
->[!IMPORTANT]
->JetStream DR de Azure VMware Solution (versión preliminar) se encuentran actualmente en versión preliminar pública.
->Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
->Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [JetStream DR](https://www.jetstreamsoft.com/product-portfolio/jetstream-dr/) es una solución de recuperación ante desastres nativa de la nube diseñada para minimizar el tiempo de inactividad de las máquinas virtuales (VM) en caso de desastre. Las instancias de JetStream DR se implementan tanto en el sitio protegido como en el de recuperación. 
 
@@ -288,33 +284,6 @@ Este cmdlet deshabilita JetStream DR solo en uno de los clústeres y no desinsta
    | **Especificar el nombre de la ejecución**  | Nombre alfanumérico de la ejecución, por ejemplo, **Uninstall-JetDR-Exec1**.   Se usa para comprobar si el cmdlet se ejecutó correctamente.  |
 
  1. [Vea el estado de la ejecución](concepts-run-command.md#view-the-status-of-an-execution).
-
-
-## <a name="region-availability"></a>Disponibilidad en regiones
-
-JetStream DR para Azure VMware Solution está disponible en las siguientes regiones: 
-
-- Este de EE. UU. 
-
-- Norte de Europa 
-
-- Sur de EE. UU. 
-
-- Oeste de Europa 
-
-- Centro de EE. UU. 
-
-- Oeste de EE. UU. 
-
-- Este de Asia 
-
-- Japón Oriental 
-
-- Sur de Brasil 
-
-- Este de Canadá 
-
-- Oeste de Reino Unido 
 
 
  

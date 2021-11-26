@@ -3,12 +3,12 @@ title: Implementación de la recuperación ante desastres con VMware Site Recove
 description: Implemente la recuperación ante desastres con VMware Site Recovery Manager (SRM) en la nube privada de Azure VMware Solution.
 ms.topic: how-to
 ms.date: 10/04/2021
-ms.openlocfilehash: 2cefe85f71c770ce29a14fb4aad7a91efd91651c
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 116c7b672874c1e012b4d9abadacb10bc4ca895f
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129430105"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132547252"
 ---
 # <a name="deploy-disaster-recovery-with-vmware-site-recovery-manager"></a>Implementación de la recuperación ante desastres con VMware Site Recovery Manager
 
@@ -213,6 +213,8 @@ Después de crear el emparejamiento de sitios, siga la documentación de VMware 
 
 - [Realización de una conmutación por recuperación (vmware.com)](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.admin.doc/GUID-556E84C0-F8B7-4F9F-AAB0-0891C084EDE4.html)
 
+   >[!NOTE]
+   >Si se han definido reglas de personalización de IP para las asignaciones de red entre el entorno de AVS y el entorno local, estas reglas no se aplicarán en la conmutación por recuperación desde el entorno de AVS al entorno local debido a un [problema conocido](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/rn/srm-releasenotes-8-3.html#knownissues) con SRM 8.3.0. Puede evitar esta limitación quitando la protección de todas las máquinas virtuales del grupo de protección y reconfigurando la protección en ellas antes de iniciar la conmutación por recuperación.
 
 
 ## <a name="ongoing-management-of-your-srm-solution"></a>Administración continua de la solución de SRM

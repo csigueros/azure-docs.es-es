@@ -13,14 +13,14 @@ ms.date: 07/11/2017
 ms.author: davidmu
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bb824f9527619033467594a98310663c1113fdc
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 6c584b1815fbb17488acf75e0bc4f93c6e06620a
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129620742"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549116"
 ---
-# <a name="unexpected-error-when-performing-consent-to-an-application-in-azure-active-directory"></a>Error inesperado al dar su consentimiento a una aplicación en Azure Active Directory
+# <a name="unexpected-error-when-performing-consent-to-an-application"></a>Error inesperado al otorgar consentimiento a una aplicación
 
 En este artículo, se explican los errores que pueden producirse durante el proceso de otorgar su consentimiento a una aplicación. Si está solucionando solicitudes de consentimiento inesperadas que no contienen ningún mensaje de error, consulte [Escenarios de autenticación para Azure AD](../develop/authentication-vs-authorization.md).
 
@@ -90,7 +90,7 @@ Todos estos errores se producen cuando la aplicación a la que un usuario está 
 
 Ambos mensajes se mostrarán cuando Microsoft haya determinado que la solicitud de consentimiento puede ser peligrosa. Entre otros factores, esto puede ocurrir si no se ha agregado un [publicador comprobado](../develop/publisher-verification-overview.md) al registro de la aplicación. El código de error y mensaje primeros se mostrarán a los usuarios finales cuando se deshabilite el [flujo de trabajo de consentimiento del administrador](configure-admin-consent-workflow.md). El código y mensaje segundos se mostrarán a los usuarios finales cuando el flujo de trabajo de consentimiento del administrador esté habilitado y a los administradores.
 
-Los usuarios finales no podrán conceder el consentimiento a las aplicaciones que se hayan detectado como peligrosas. Los administradores pueden evaluar la aplicación, pero deben hacerlo muy atentamente, y continuar con precaución. Si la aplicación parece sospechosa tras una revisión más profunda, se puede notificar a Microsoft en la pantalla de consentimiento.
+Los usuarios finales no podrán conceder el consentimiento a las aplicaciones que se hayan detectado como peligrosas. Los administradores sí pueden, pero deben tener mucho cuidado, y proceder con precaución. Si la aplicación parece sospechosa tras una revisión más profunda, se puede notificar a Microsoft en la pantalla de consentimiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

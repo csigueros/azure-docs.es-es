@@ -10,12 +10,12 @@ metadata:
   ms.topic: conceptual
   ms.date: 09/30/2021
   ms.author: banders
-  ms.openlocfilehash: 2e14b1e3ba341dc5b7992f128c07f8102df9f0f6
-  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.openlocfilehash: dee90b2d8c16eb06324b8fa5fcdd1ccd82c05b5c
+  ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/22/2021
-  ms.locfileid: "130552702"
+  ms.lasthandoff: 11/17/2021
+  ms.locfileid: "132708292"
 title: Preguntas frecuentes sobre la administración centralizada de Ventaja híbrida de Azure
 summary: ''
 sections:
@@ -47,9 +47,10 @@ sections:
     answer: >
       La nueva experiencia de Ventaja híbrida de Azure de nivel de ámbito está disponible automáticamente para los siguientes contratos:
 
-        - Microsoft Azure Enterprise: MS-AZR-0017P
-        - Azure Government Enterprise: MS-AZR-USGOV-0017P
-        - Plan de Microsoft Azure: MS-AZR-0017G
+        - Contratos Enterprise, entre los que se incluyen:
+            - Microsoft Azure Enterprise: MS-AZR-0017P
+            - Azure Government Enterprise: MS-AZR-USGOV-0017P
+        - Contrato de cliente de Microsoft: plan de Microsoft Azure: MS-AZR-0017G
 
       Aún no se admiten otros tipos de contrato. Para obtener más información, consulte [Requisitos previos](create-sql-license-assignments.md#prerequisites).
   - question: ¿Qué licencias de SQL son válidas para Ventaja híbrida de Azure?

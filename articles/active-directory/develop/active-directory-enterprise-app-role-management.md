@@ -10,14 +10,14 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/15/2021
+ms.date: 11/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 002304f06e97aa04b3c15548e524c931c69ec6d6
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 0c327fda0c88b5c976d59e50321ee4dedf561dd1
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123031740"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715138"
 ---
 # <a name="configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales
 
@@ -93,6 +93,9 @@ Use esta característica si la aplicación espera roles personalizados en la res
         ![Detalles de la propiedad appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
         Si usa la aplicación personalizada (no la aplicación de Azure Marketplace), verá dos roles predeterminados: user y msiam_access. En el caso de la aplicación Marketplace, msiam_access es el único rol predeterminado. No es necesario realizar ningún cambio en los roles predeterminados.
+
+        > [!NOTE]
+        > Al crear varios roles, no modifique el contenido del rol predeterminado, simplemente agregue el nuevo bloque de código msiam_access para el nuevo rol.
 
     1. Genere roles nuevos para la aplicación.
 

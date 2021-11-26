@@ -12,14 +12,14 @@ ms.date: 7/30/2021
 ms.author: davidmu
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2838c6be64718669fb03b3a04dbbea41e5de8c19
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: d3dc75a0c9d5f47d7f415a5df29398e8d407d7cf
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131841835"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132546546"
 ---
-# <a name="restrict-access-to-a-tenant-in-azure-active-directory"></a>Restringir el acceso a un inquilino en Azure Active Directory
+# <a name="restrict-access-to-a-tenant"></a>Restricción del acceso a un inquilino
 
 Las organizaciones de gran tamaño que hacen hincapié en la seguridad desean moverse a servicios en la nube como Microsoft 365, pero deben saber que sus usuarios solo podrán acceder a los recursos aprobados. Tradicionalmente, las empresas restringen los nombres de dominio o las direcciones IP cuando desean administrar el acceso. Este enfoque no sirve en un mundo donde las aplicaciones de software como servicio (o SaaS) se hospedan en una nube pública, ejecutándose en nombres de dominio compartidos como [outlook.office.com](https://outlook.office.com/) y [login.microsoftonline.com](https://login.microsoftonline.com/). El bloqueo de estas direcciones evitaría por completo que los usuarios accedieran a Outlook en la web, en lugar de simplemente limitarlos a identidades y recursos aprobados.
 

@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 09/23/2021
 ms.author: davidmu
 ms.reviewer: alamaral
-ms.openlocfilehash: 89acfa0c1074d170dd0b0b9fb19f227a4e0c21ab
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 0f162e7c14fc2f4c9d123c5beca6a76dc9e6a072
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061055"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132553112"
 ---
-# <a name="manage-access-to-apps-in-azure-active-directory"></a>Administración del acceso a aplicaciones en Azure Active Directory
+# <a name="manage-access-to-an-application"></a>Administración del acceso a una aplicación
 
 El acceso continuo a las aplicaciones, la evaluación del uso y la generación de informes siguen siendo un desafío después de que una aplicación se integra en el sistema de identidad de su organización. En muchos casos, los administradores de TI o el departamento de soporte técnico deben asumir un rol activo continuo en la administración del acceso a las aplicaciones. En ocasiones, la asignación la realiza un equipo de TI general o departamental. En ocasiones, se pretende que la decisión de asignación se delegue en el responsable de la toma de decisiones, lo que requiere su aprobación antes de que TI realice la asignación.  
 

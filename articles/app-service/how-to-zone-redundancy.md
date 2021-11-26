@@ -3,21 +3,21 @@ title: Compatibilidad con zonas de disponibilidad para instancias de App Service
 description: Aprenda a implementar la instancia de App Service para que las aplicaciones tengan redundancia de zona.
 author: seligj95
 ms.topic: article
-ms.date: 09/01/2021
+ms.date: 11/16/2021
 ms.author: jordanselig
 ms.custom: references_regions
-ms.openlocfilehash: 1fb6959ab6e47ad631ea3cac208a3dc52ca41e41
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e0388695708e8ab3c47ea8049038fb95384dabd2
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124832707"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551300"
 ---
 # <a name="availability-zone-support-for-public-multi-tenant-app-service"></a>Compatibilidad con zonas de disponibilidad para instancias de App Service multiinquilino públicas
 
-Microsoft Azure App Service se puede implementar en [Availability Zones (AZ)](../availability-zones/az-overview.md), lo que permite la [alta disponibilidad](https://en.wikipedia.org/wiki/High_availability) para las aplicaciones. Esta arquitectura también se conoce como redundancia de zona.
+Microsoft Azure App Service se puede implementar en [zonas de disponibilidad (AZ)](../availability-zones/az-overview.md) para ayudarle a lograr resistencia y confiabilidad en las cargas de trabajo críticas para la empresa. Esta arquitectura también se conoce como redundancia de zona.
 
-Una aplicación reside en un plan de App Service (ASP) y el plan de App Service existe en una sola unidad de escalado. Cuando se configura una instancia de App Service con redundancia de zona, la plataforma distribuye automáticamente las instancias de máquina virtual en el plan de App Service entre las tres zonas de la región seleccionada. Si se especifica una capacidad mayor que tres y el número de instancias es divisible entre tres, las instancias se propagarán de manera uniforme. De lo contrario, los recuentos de instancias más allá de 3*N se reparten entre las dos zonas restantes.
+Una aplicación reside en un plan de App Service (ASP) y el plan de App Service existe en una sola unidad de escalado. Cuando se configura una instancia de App Service con redundancia de zona, la plataforma distribuye automáticamente las instancias de máquina virtual en el plan de App Service entre las tres zonas de la región seleccionada. Si se especifica una capacidad mayor que tres y el número de instancias es divisible entre tres, las instancias se propagarán de manera uniforme. De lo contrario, los recuentos de instancias más allá de 3*N se reparten entre las dos zonas restantes. En el caso de las instancias de App Services que no están configurados para tener redundancia de zona, las instancias de máquina virtual se colocan en una sola zona de la región seleccionada.
 
 ## <a name="requirements"></a>Requisitos
 

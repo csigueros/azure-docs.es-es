@@ -8,12 +8,12 @@ ms.date: 9/2/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: e77fc64277cd0210a4741bc6828b5f1f72cf0e73
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: bcedacdc52e2f8ef205893db481720920c98c4ef
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831005"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707289"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Análisis y validación de modelos con la biblioteca del analizador de DTDL
 
@@ -25,11 +25,15 @@ Puede usar la biblioteca del analizador directamente en el código de C#, o bien
 
 ## <a name="use-the-dtdl-validator-sample"></a>Uso del ejemplo de validador de DTDL
 
-El [validador de DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) es un proyecto de ejemplo que puede validar los documentos del modelo para garantizar que el DTDL sea válido. Se basa en la biblioteca del analizador de .NET y es independiente del lenguaje. Puede obtenerlo con el botón *Descargar archivo ZIP* en el vínculo de ejemplo.
+El [validador de DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) es un proyecto de ejemplo que puede validar los documentos del modelo para garantizar que el DTDL sea válido. Se basa en la biblioteca del analizador de .NET y es independiente del lenguaje. 
+
+Para ver el código en GitHub, seleccione el botón **Browse code** (Examinar código) en el vínculo de ejemplo, y para descargar el proyecto de GitHub, seleccione el botón **Código** seguido de **Descargar ZIP**.
+
+:::image type="content" source="media/how-to-parse-models/download-repo-zip.png" alt-text="Captura de pantalla del repositorio DTDL-Validator en GitHub, donde están resaltados los pasos para descargarlo como un archivo ZIP." lightbox="media/how-to-parse-models/download-repo-zip.png":::
 
 El código fuente muestra ejemplos de cómo usar la biblioteca del analizador. Puede usar el ejemplo de validador como una utilidad de línea de comandos para validar un árbol de directorios de archivos DTDL. También proporciona un modo interactivo.
 
-En la carpeta del ejemplo de validador de DTDL, vea el archivo *readme.md* para obtener instrucciones sobre cómo empaquetar el ejemplo en un ejecutable independiente.
+En la carpeta del ejemplo de validador de DTDL, vea el archivo **readme.md** para obtener instrucciones sobre cómo empaquetar el ejemplo en un ejecutable independiente.
 
 Una vez que haya creado un paquete independiente y agregado el archivo ejecutable a la ruta de acceso, puede ejecutar el validador con este comando en una consola del equipo:
 

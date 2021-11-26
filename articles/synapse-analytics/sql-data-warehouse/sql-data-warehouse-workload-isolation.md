@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2020
+ms.date: 11/16/2021
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: dec042c66ebed15a51d5c6c1f3ef6a3e3e2fb456
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 7b78fc9a0bb292cbc124e1629351ddd9cc2191e7
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131428033"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132547590"
 ---
 # <a name="azure-synapse-analytics-workload-group-isolation"></a>Aislamiento de grupos de cargas de trabajo de Azure Synapse Analytics
 
@@ -28,16 +28,25 @@ Los grupos de cargas de trabajo son contenedores para un conjunto de solicitudes
 
 En las secciones siguientes se resaltará el modo en que los grupos de cargas de trabajo proporcionan la capacidad de definir el aislamiento, la contención, la definición de recursos de solicitud y el cumplimiento de las reglas de ejecución.
 
+## <a name="resource-governance"></a>Regulación de recursos
+
+Los grupos de cargas de trabajo gobiernan los recursos de memoria y CPU.  No gobiernan la E/S de disco y de red, ni tempdb.  La gobernanza de recursos de memoria y CPU se produce de la siguiente manera:
+
+La memoria se gobierna en el nivel de solicitud y se mantiene a lo largo de la duración de la solicitud.  Consulte [Recursos por definición de solicitud](#resources-per-request-definition) para más información sobre cómo configurar la cantidad de memoria por solicitud.  El parámetro MIN_PERCENTAGE_RESOURCE del grupo de cargas de trabajo dedica memoria exclusivamente a ese grupo de cargas de trabajo.  El parámetro CAP_PERCENTAGE_RESOURCE del grupo de cargas de trabajo es el límite máximo de memoria que un grupo de cargas de trabajo puede utilizar.
+
+Los recursos de CPU se gobiernan en el nivel de grupo de cargas de trabajo y se comparten con todas las solicitudes de un grupo de cargas de trabajo.  Los recursos de CPU son fluidos en comparación con la memoria que se dedica a una solicitud mientras dura la ejecución.  Dado que la CPU es un recurso fluido, todos los grupos de cargas de trabajo pueden utilizar recursos de CPU no utilizados.  Esto significa que el uso de CPU puede superar el límite del parámetro CAP_PERCENTAGE_RESOURCE del grupo de cargas de trabajo.  Esto también significa que el parámetro MIN_PERCENTAGE_RESOURCE del grupo de cargas de trabajo no es una reserva estricta como lo es la memoria.  Cuando los recursos de CPU están en contención, el uso se alineará con la definición de CAP_PERCENTAGE_RESOURCE de los grupos de cargas de trabajo.
+
+
 ## <a name="workload-isolation"></a>Aislamiento de cargas de trabajo
 
 El aislamiento de la carga de trabajo significa que los recursos se reservan, de forma exclusiva, para un grupo de cargas de trabajo.  El aislamiento de la carga de trabajo se logra al configurar el parámetro MIN_PERCENTAGE_RESOURCE en un valor mayor que cero en la sintaxis [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  En el caso de las cargas de trabajo de ejecución continua que necesiten cumplir con acuerdos de nivel de servicio estrictos, el aislamiento garantiza que los recursos siempre estén disponibles para el grupo de cargas de trabajo.
 
-La configuración del aislamiento de cargas de trabajo define implícitamente un nivel garantizado de simultaneidad. Por ejemplo, un grupo de cargas de trabajo con `MIN_PERCENTAGE_RESOURCE` establecido en el 30 % y `REQUEST_MIN_RESOURCE_GRANT_PERCENT` en el 2 % garantiza una simultaneidad de 15.  El nivel de simultaneidad está garantizado, ya que 15 ranuras de recursos del 2 % están reservadas en el grupo de cargas de trabajo en todo momento (independientemente de la configuración de `REQUEST_*MAX*_RESOURCE_GRANT_PERCENT`).  Si `REQUEST_MAX_RESOURCE_GRANT_PERCENT` es mayor que `REQUEST_MIN_RESOURCE_GRANT_PERCENT` y `CAP_PERCENTAGE_RESOURCE` es mayor que `MIN_PERCENTAGE_RESOURCE` se agregan recursos adicionales cuando se soliciten.  Si `REQUEST_MAX_RESOURCE_GRANT_PERCENT` y `REQUEST_MIN_RESOURCE_GRANT_PERCENT` son iguales y `CAP_PERCENTAGE_RESOURCE` es mayor que `MIN_PERCENTAGE_RESOURCE`, es posible que haya más simultaneidad.  Considere el método siguiente para determinar la simultaneidad garantizada:
+La configuración del aislamiento de cargas de trabajo define implícitamente un nivel garantizado de simultaneidad. Por ejemplo, un grupo de cargas de trabajo con un valor de MIN_PERCENTAGE_RESOURCE establecido en 30 % y REQUEST_MIN_RESOURCE_GRANT_PERCENT establecido en 2 %, se garantiza un nivel de simultaneidad de 15.  El nivel de simultaneidad está garantizado, ya que 15 ranuras de recursos del 2 % están reservadas en el grupo de cargas de trabajo en todo momento (independientemente de la configuración de REQUEST_ *MAX* _RESOURCE_GRANT_PERCENT).  Si REQUEST_MAX_RESOURCE_GRANT_PERCENT es mayor que REQUEST_MIN_RESOURCE_GRANT_PERCENT y CAP_PERCENTAGE_RESOURCE es mayor que MIN_PERCENTAGE_RESOURCE se pueden agregar recursos adicionales por solicitud (en función de la disponibilidad de los recursos).  Si REQUEST_MAX_RESOURCE_GRANT_PERCENT y REQUEST_MIN_RESOURCE_GRANT_PERCENT son iguales y CAP_PERCENTAGE_RESOURCE es mayor que MIN_PERCENTAGE_RESOURCE, es posible obtener una simultaneidad adicional.  Considere el método siguiente para determinar la simultaneidad garantizada:
 
 [Simultaneidad garantizada] = [`MIN_PERCENTAGE_RESOURCE`] / [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE]
-> Hay valores mínimos de nivel de servicio viables para min_percentage_resource.  Para obtener más información, vea [Valores efectivos](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json?view=azure-sqldw-latest&preserve-view=true#effective-values).
+> Hay valores mínimos de nivel de servicio específicos para min_percentage_resource.  Para obtener más información, vea [Valores efectivos](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json?view=azure-sqldw-latest&preserve-view=true#effective-values).
 
 En ausencia del aislamiento de la carga de trabajo, las solicitudes operan en el [grupo compartido](#shared-pool-resources) de recursos.  El acceso a los recursos del grupo compartido no está garantizado y se asigna en función de la [importancia](sql-data-warehouse-workload-importance.md).
 
@@ -61,7 +70,7 @@ La configuración de la contención de cargas de trabajo define implícitamente 
 
 ## <a name="resources-per-request-definition"></a>Recursos por definición de solicitud
 
-Los grupos de cargas de trabajo proporcionan un mecanismo para definir la cantidad mínima y máxima de recursos que se asignan por solicitud con los parámetros REQUEST_MIN_RESOURCE_GRANT_PERCENT y REQUEST_MAX_RESOURCE_GRANT_PERCENT en la sintaxis [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  En este caso, el recurso es memoria. Los recursos de CPU están limitados por el valor CAP_PERCENTAGE_RESOURCE del grupo de cargas de trabajo y no se rigen en el nivel de solicitud individual. La configuración de estos valores determina la cantidad de recursos y el nivel de simultaneidad que se puede lograr en el sistema.
+Los grupos de cargas de trabajo proporcionan un mecanismo para definir la cantidad mínima y máxima de recursos que se asignan por solicitud con los parámetros REQUEST_MIN_RESOURCE_GRANT_PERCENT y REQUEST_MAX_RESOURCE_GRANT_PERCENT en la sintaxis [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  En este caso, el recurso es memoria. La gobernanza de recursos de CPU se trata en la sección [Gobernanza de recursos](#resource-governance).
 
 > [!NOTE]
 > REQUEST_MAX_RESOURCE_GRANT_PERCENT es un parámetro opcional cuyo valor predeterminado es el mismo que se especifica para REQUEST_MIN_RESOURCE_GRANT_PERCENT.
@@ -75,7 +84,7 @@ La configuración de REQUEST_MAX_RESOURCE_GRANT_PERCENT en un valor mayor que RE
 
 ## <a name="execution-rules"></a>Reglas de ejecución
 
-En los sistemas de informes ad hoc, los clientes pueden ejecutar por accidente consultas descontroladas que afectan gravemente a la productividad de terceros.  Los administradores del sistema tendrán que dedicar tiempo a eliminar las consultas descontroladas para liberar recursos del sistema.  Los grupos de cargas de trabajo ofrecen la posibilidad de configurar una regla de tiempo de expiración de ejecución de consulta para cancelar las consultas que hayan superado el valor especificado.  Para configurar la regla se establece el parámetro `QUERY_EXECUTION_TIMEOUT_SEC` en la sintaxis [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+En los sistemas de informes ad hoc, los clientes pueden ejecutar por accidente consultas descontroladas que afectan gravemente a la productividad de terceros.  Los administradores del sistema tendrán que dedicar tiempo a eliminar las consultas descontroladas para liberar recursos del sistema.  Los grupos de cargas de trabajo ofrecen la posibilidad de configurar una regla de tiempo de expiración de ejecución de consulta para cancelar las consultas que hayan superado el valor especificado.  Para configurar la regla se establece el parámetro QUERY_EXECUTION_TIMEOUT_SEC en la sintaxis [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="shared-pool-resources"></a>Recursos de grupo compartidos
 

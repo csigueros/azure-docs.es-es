@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: 6d51aa87232445e35533632d5071abd121a3fcfb
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: f90c0969960bcc5b1c77b9151598365075b690ba
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131442205"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132554548"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
 
@@ -370,7 +370,7 @@ Además, cuando se elimina un NSG, se elimina de forma predeterminada el recurso
 
 **Costos del registro de flujo**: El registro de flujos de NSG se factura según el volumen de registros generados. Un volumen de tráfico elevado puede producir un volumen de registro de flujo elevado, con los costos asociados. Los precios del registro de flujos de NSG no incluyen los costos de almacenamiento subyacentes. El uso de la característica de directiva de retención con el registro de flujos de NSG implica que se incurre en costos de almacenamiento independientes durante prolongados períodos de tiempo. Si quiere conservar los datos para siempre y no quiere aplicar ninguna política de retención, establezca la retención en 0 (días). Para obtener más información, consulte [precios de Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/) y [precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/) para obtener más detalles.
 
-**Problemas con las reglas TCP de entrada definidas por el usuario**: [Los grupos de seguridad de red (NSG)](../virtual-network/network-security-groups-overview.md) se implementan como [firewall con estado](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Sin embargo, debido a las limitaciones actuales de la plataforma, las reglas definidas por el usuario que afectan a los flujos TCP de entrada se implementan en modo sin estado. Debido a esto, los flujos afectados por las reglas de entrada definidas por el usuario pasan a no ser de terminación. Además, los recuentos de bytes y de paquetes no se registran para estos flujos. Por lo tanto, el número de bytes y paquetes que se indican en los registros de flujo de NSG (y Análisis de tráfico) podrían ser diferentes de los números reales. Está previsto que una marca de suscripción que corrige estos problemas esté disponible a finales de junio de 2021. Mientras tanto, los clientes que se enfrentan a problemas graves debido a este comportamiento pueden solicitar la suscripción mediante el soporte técnico. Presente una solicitud de soporte técnico en Network Watcher > Registro de flujos de NSG.  
+**Problemas con las reglas TCP de entrada definidas por el usuario**: [Los grupos de seguridad de red (NSG)](../virtual-network/network-security-groups-overview.md) se implementan como [firewall con estado](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Sin embargo, debido a las limitaciones actuales de la plataforma, las reglas definidas por el usuario que afectan a los flujos TCP de entrada se implementan en modo sin estado. Debido a esto, los flujos afectados por las reglas de entrada definidas por el usuario pasan a no ser de terminación. Además, los recuentos de bytes y de paquetes no se registran para estos flujos. Por lo tanto, el número de bytes y paquetes que se indican en los registros de flujo de NSG (y Análisis de tráfico) podrían ser diferentes de los números reales. Esto se puede resolver mediante el establecimiento de la propiedad [FlowTimeoutInMinutes](/powershell/module/az.network/set-azvirtualnetwork?view=azps-6.5.0) de las redes virtuales asociadas en un valor que no sea NULL. 
 
 **Flujos entrantes registrados desde direcciones IP de Internet a VM sin direcciones IP públicas**: Las VM que no tienen una dirección IP pública asignada a través de una dirección IP pública asociada con la NIC como dirección IP pública de nivel de instancia, o que forman parte de un grupo de back-end de equilibrador de carga básico, usan [SNAT predeterminada](../load-balancer/load-balancer-outbound-connections.md) y tiene una dirección IP asignada por Azure para facilitar la conectividad de salida. Como consecuencia, es posible que vea las entradas de registro de flujo para los flujos desde las direcciones IP de Internet, si el flujo está destinado a un puerto en el intervalo de puertos asignados para SNAT. Si bien Azure no permitirá estos flujos a la VM, el intento se registra y aparece en el registro de flujos de NSG de Network Watcher por diseño. Se recomienda que el tráfico entrante de Internet no deseado se bloquee explícitamente con NSG.
 

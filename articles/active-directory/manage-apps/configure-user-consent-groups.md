@@ -13,14 +13,14 @@ ms.date: 08/31/2021
 ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 0613875ad8ecfb12590ac7c2ec51924c0523162d
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 5195b32c05b5f7f8e10e22200c2a345248e43490
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129619773"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132550767"
 ---
-# <a name="configure-group-owner-consent-to-applications-in-azure-active-directory"></a>Configuración del consentimiento del propietario de grupo para las aplicaciones en Azure Active Directory
+# <a name="configure-group-owner-consent-to-applications"></a>Configuración del consentimiento del propietario del grupo para las aplicaciones
 
 Los propietarios de grupos y equipos pueden dar permiso a aplicaciones tales como las aplicaciones que publican otros proveedores, para obtener acceso a los datos de la organización asociados al grupo. Por ejemplo, el propietario de un equipo de Microsoft Teams puede permitir que una aplicación lea todos los mensajes de Teams del equipo o bien mostrar el perfil básico de los miembros de un grupo. Consulte [Consentimiento específico de recursos en Microsoft Teams](/microsoftteams/resource-specific-consent) para obtener más información.
 

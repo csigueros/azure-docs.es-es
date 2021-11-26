@@ -3,16 +3,16 @@ title: restauración de máquinas virtuales mediante Azure Portal
 description: Restaure una máquina virtual de Azure desde un punto de recuperación mediante Azure Portal, incluida la característica Restauración entre regiones.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 11/16/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
-ms.openlocfilehash: 65cf378ffc4e627d482999b5ea65e4d238b8d368
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 09cadbdc0ba340c863b7ad3ddc62ea29a5d92ef1
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132308567"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717925"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Restauración de datos de máquinas virtuales de Azure en Azure Portal
 
@@ -98,6 +98,9 @@ Como una de las [opciones de restauración](#restore-options), puede crear una m
 
 1. Seleccione **Restaurar** para desencadenar la operación de restauración.
 
+>[!Note]
+>Antes de modificar cualquier configuración del grupo de seguridad de red, asegúrese de que la operación de restauración de la máquina virtual se ha completado. Más información sobre el [seguimiento de la operación de restauración](#track-the-restore-operation).
+
 ## <a name="restore-disks"></a>Restauración de los discos
 
 Como una de las [opciones de restauración](#restore-options), puede crear un disco a partir de un punto de restauración. Después, con el disco, puede realizar alguna de las siguientes acciones:
@@ -166,7 +169,7 @@ Si la opción CRR está habilitada, puede ver los elementos de copia de segurida
 1. Seleccione **Región secundaria** para ver los elementos de la región secundaria.
 
 >[!NOTE]
->En la lista solo se mostrarán los tipos de administración de copia de seguridad que admiten la característica CRR. Actualmente, solo se admite la restauración de datos de regiones secundarias en una región secundaria.<br></br>CRR para VM de Azure es compatible con VM administradas de Azure (incluidas las VM de Azure cifradas). Consulte los [tipos de administración que admiten la restauración entre regiones](/azure/backup/backup-support-matrix#cross-region-restore).
+>En la lista solo se mostrarán los tipos de administración de copia de seguridad que admiten la característica CRR. Actualmente, solo se admite la restauración de datos de regiones secundarias en una región secundaria.<br></br>CRR para VM de Azure es compatible con VM administradas de Azure (incluidas las VM de Azure cifradas). Consulte los [tipos de administración que admiten la restauración entre regiones](./backup-support-matrix.md#cross-region-restore).
 
 ![Máquinas virtuales de la región secundaria](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
 

@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: ea17d86bb4e5e4a6b5c5106c7d831c6691018b12
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: b68963217dce0dd3c67b6876319c0a56bffb2b82
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130214745"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715727"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Redes para conjuntos de escalado de máquinas virtuales de Azure
 
@@ -144,8 +144,13 @@ Para crear un conjunto de escalado mediante una plantilla de Azure, asegúrese d
     }
 }
 ```
+Tenga en cuenta que cuando los conjuntos de escalado de máquinas virtuales con IP públicas por instancia se crean con un equilibrador de carga delante, la SKU de las IP de la instancia viene determinada por la SKU del equilibrador de carga (es decir, Básico o Estándar).
 
-Ejemplo de plantilla: [vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-public-ip-linux)
+Plantilla de ejemplo con un equilibrador de carga básico: [vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-public-ip-linux).
+
+Como alternativa, se puede usar un [prefijo de IP pública](../virtual-network/ip-services/public-ip-address-prefix.md) (un bloque contiguo de direcciones IP públicas de SKU estándar) para generar direcciones IP en el nivel de instancia de un conjunto de escalado de máquinas virtuales. Las propiedades zonales del prefijo se pasarán a las IP de instancia, aunque no aparecerán en la salida.
+
+Plantilla de ejemplo con un prefijo de IP pública: [vmms-with-public-ip-prefix](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-with-public-ip-prefix)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Consulta de las direcciones IP públicas de las máquinas virtuales en un conjunto de escalado
 Para enumerar las direcciones IP públicas asignadas para escalar máquinas virtuales del conjunto mediante la CLI, use el comando **az vmss list-instance-public-ips**.

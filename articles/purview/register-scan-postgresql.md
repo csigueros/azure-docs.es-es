@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 01086769e006ee0005665ddde5d7717b8b69a513
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 4d87a78c809791f01745f4406b58832258ea4d36
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131858420"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132548546"
 ---
 # <a name="connect-to-and-manage-postgresql-in-azure-purview-preview"></a>Conexión y administración de PostgreSQL en Azure Purview (versión preliminar)
 
@@ -32,7 +32,7 @@ Las versiones de servidor de PostgreSQL admitidas son de la 8.4 a la 12.x.
 
 Al examinar el origen de PostgreSQL, Purview admite lo siguiente:
 
-- Extraer metadatos, incluidos el servidor, las bases de datos, los esquemas, las tablas, las vistas, las columnas de tabla o vista, etc. de PostgreSQL.
+- La extracción de metadatos, incluidos el servidor, las bases de datos, los esquemas, las tablas, las vistas y las columnas de tabla o vista de PostgreSQL.
 - Capturar el linaje en relaciones de recursos entre tablas y vistas.
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -41,11 +41,11 @@ Al examinar el origen de PostgreSQL, Purview admite lo siguiente:
 
 * Un [recurso de Purview](create-catalog-portal.md) activo.
 
-* Tendrá que ser administrador de orígenes de datos y lector de datos para poder registrar un origen y administrarlo en Purview Studio. Para obtener más información, consulte la [página Permisos de Azure Purview](catalog-permissions.md).
+* Tendrá que ser administrador de orígenes de datos y lector de datos para poder registrar un origen y administrarlo en Purview Studio. Para obtener más información, consulte la [página Permisos de Azure Purview](catalog-permissions.md).
 
 * Configure la versión más reciente del [entorno de ejecución de integración autohospedado](https://www.microsoft.com/download/details.aspx?id=39717). Para obtener más información, consulte la [guía de creación y configuración de un entorno de ejecución de integración autohospedado](../data-factory/create-self-hosted-integration-runtime.md).
 
-* Asegúrese de que [JDK 11](https://www.PostgreSQL.com/java/technologies/javase-jdk11-downloads.html) esté instalado en la máquina virtual donde también lo esté el entorno de ejecución de integración autohospedado.
+* Asegúrese de que [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) esté instalado en la máquina virtual donde también lo esté el entorno de ejecución de integración autohospedado.
 
 * Asegúrese de que Visual C++ Redistributable para Visual Studio 2012 Update 4 esté instalado en la máquina del entorno de ejecución de integración autohospedado. Si no tiene instalada esta actualización, [puede descargarla de aquí](https://www.microsoft.com/download/details.aspx?id=30679).
 
@@ -145,8 +145,8 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha registrado el origen, siga las guías a continuación para obtener más información sobre Purview y sus datos.
+Ahora que ha registrado el origen, siga las guías mostradas a continuación para obtener más información sobre Purview y los datos.
 
-- [Información sobre datos en Azure Purview](concept-insights.md)
+- [Conclusiones sobre los datos en Azure Purview](concept-insights.md)
 - [Linaje en Azure Purview](catalog-lineage-user-guide.md)
 - [Búsqueda en Data Catalog](how-to-search-catalog.md)

@@ -10,12 +10,12 @@ ms.date: 05/18/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 7b34040e9516daeda71704d74ceac64a03572214
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 3be79a2af3dfb05b289a0111c9e1f9fcf17bab02
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131452516"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132555553"
 ---
 # <a name="create-a-storage-account"></a>Creación de una cuenta de Storage
 
@@ -150,6 +150,7 @@ En la siguiente tabla se describen los campos de la ficha **Opciones avanzadas**
 | Seguridad | Habilitar el acceso a la clave de la cuenta de almacenamiento (versión preliminar) | Opcionales | Cuando se habilita, esta configuración permite a los clientes autorizar las solicitudes a la cuenta de almacenamiento mediante las claves de acceso de la cuenta o una cuenta de Azure Active Directory (Azure AD) (valor predeterminado). Si se deshabilita esta configuración, impedirá que se realice la autorización con las claves de acceso de la cuenta. Para obtener más información, consulte [Impedir la autorización con clave compartida para una cuenta de Azure Storage](shared-key-authorization-prevent.md). |
 | Seguridad | Versión de TLS mínima | Requerido | Seleccione la versión mínima necesaria de la Seguridad de la capa de transporte (TLS) para las solicitudes entrantes de una cuenta de almacenamiento. El valor predeterminado es la versión 1.2 de TLS. Cuando esta opción se establece en el valor predeterminado, se rechazan las solicitudes entrantes realizadas con TLS 1.0 o TLS 1.1. Para obtener más información, consulte [Aplicación de una versión mínima necesaria de Seguridad de la capa de transporte (TLS) para las solicitudes a una cuenta de almacenamiento](transport-layer-security-configure-minimum-version.md). |
 | Data Lake Storage Gen2 | Habilitar el espacio de nombres jerárquico | Opcionales | Para usar esta cuenta de almacenamiento para las cargas de trabajo de Azure Data Lake Storage Gen2, configure un espacio de nombres jerárquico. Para más información, vea [Introducción a Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md). |
+| Protocolo de transferencia de archivos seguro (SFTP) | Habilitar SFTP | Opcionales | Habilite el uso del protocolo de transferencia de archivos seguro (SFTP) para transferir datos de forma segura a través de Internet. Para más información, consulte [Compatibilidad con el protocolo de transferencia de archivos segura (SFTP) en Azure Blob Storage](../blobs/secure-file-transfer-protocol-support.md). |
 | Blob Storage | Habilitación del recurso compartido de archivos de red (NFS) v3 | Opcionales | NFS v3 proporciona compatibilidad con el sistema de archivos de Linux en cuanto a la escala de almacenamiento de objetos, y permite a los clientes de Linux montar un contenedor en la instancia de Blob Storage desde una máquina virtual (VM) de Azure o un equipo local. Para obtener más información, consulte [Compatibilidad con el protocolo Network File System (NFS) 3.0 en Azure Blob Storage](../blobs/network-file-system-protocol-support.md). |
 | Blob Storage | Nivel de acceso | Requerido | Los niveles de acceso a blobs permiten almacenar datos de blob de la manera más rentable, en función del uso. Seleccione el nivel de acceso frecuente (valor predeterminado) para los datos a los que se accede con frecuencia. Seleccione el nivel de acceso esporádico para los datos a los que se accede con poca frecuencia. Para más información, vea [Niveles de acceso frecuente, esporádico y de archivo para los datos de blobs](../blobs/access-tiers-overview.md). |
 | Azure Files | Habilitación de recursos compartidos de archivos grandes | Opcionales | Solo está disponible para recursos compartidos de archivos estándar con las redundancias LRS o ZRS. |
@@ -223,8 +224,8 @@ En la tabla siguiente se muestran los valores que se usarán para los parámetro
 
 | Tipo de cuenta de almacenamiento | Configuraciones de redundancia admitidas | Valores admitidos para el parámetro Kind | Valores admitidos para el parámetro SkuName | Admite el espacio de nombres jerárquico |
 |--|--|--|--|--|
-| De uso general estándar, v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Sí |
-| Blobs en bloques Premium | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Sí |
+| De uso general estándar, v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
+| Blobs en bloques Premium | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
 | Recursos compartidos de archivos Prémium | LRS / ZRS | FileStorage | Premium_LRS / Premium_ZRS | No |
 | Blobs en páginas Premium | LRS | StorageV2 | Premium_LRS | No |
 | De uso general v1, estándar, heredado | LRS / GRS / RA-GRS | Storage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
@@ -265,8 +266,8 @@ En la tabla siguiente se muestran los valores que se usarán para los parámetro
 
 | Tipo de cuenta de almacenamiento | Configuraciones de redundancia admitidas | Valores admitidos para el parámetro kind | Valores admitidos para el parámetro sku | Admite el espacio de nombres jerárquico |
 |--|--|--|--|--|
-| De uso general estándar, v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Sí |
-| Blobs en bloques Premium | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Sí |
+| De uso general estándar, v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
+| Blobs en bloques Premium | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
 | Recursos compartidos de archivos Prémium | LRS / ZRS | FileStorage | Premium_LRS / Premium_ZRS | No |
 | Blobs en páginas Premium | LRS | StorageV2 | Premium_LRS | No |
 | De uso general v1, estándar, heredado | LRS / GRS / RA-GRS | Storage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |

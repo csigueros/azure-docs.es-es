@@ -6,18 +6,18 @@ ms.service: azure-web-pubsub
 ms.topic: how-to
 ms.date: 10/25/2021
 ms.author: jixin
-ms.openlocfilehash: a755b0bb9e01dff95c83bb2caf8d7773bb2d46d4
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: c2cc6b0a3b16d69a4ddeb94a8775ad5abc3afec8
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130270177"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714815"
 ---
 # <a name="audit-compliance-of-azure-web-pubsub-service-resources-using-azure-policy"></a>Auditoría del cumplimiento de los recursos del servicio Azure Web PubSub mediante Azure Policy
 
 [Azure Policy](../governance/policy/overview.md) es un servicio de Azure que se usa para crear, asignar y administrar directivas. Dichas directivas aplican distintas reglas y efectos a los recursos, con el fin de que estos sigan siendo compatibles con los estándares corporativos y los acuerdos de nivel de servicio.
 
-En este artículo se presentan las directivas integradas (versión preliminar) para el servicio Azure Web PubSub. Use estas directivas para auditar los recursos nuevos y existentes de Web PubSub para el cumplimiento.
+En este artículo se presentan las directivas integradas para el servicio Azure Web PubSub. Use estas directivas para auditar los recursos nuevos y existentes de Web PubSub para el cumplimiento.
 
 No se aplica ningún cargo por el uso de Azure Policy.
 

@@ -7,12 +7,12 @@ ms.date: 11/11/2021
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: c47a6fa58a9361dc9ab26e119346951e1eef9764
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: ab19c00739fea50b17ab885ffccbb397c115867e
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132373453"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722324"
 ---
 # <a name="create-a-chaos-experiment-that-uses-a-chaos-mesh-fault-with-the-azure-cli"></a>Creación de un experimento de caos que use un error de Chaos Mesh con la CLI de Azure
 
@@ -32,6 +32,9 @@ Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar 
 Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior derecha de un bloque de código. También puede abrir Cloud Shell en una pestaña independiente acudiendo a [https://shell.azure.com/bash](https://shell.azure.com/bash). Seleccione **Copiar** para copiar los bloques de código, péguelos en Cloud Shell y, después, seleccione **Entrar** para ejecutarlos.
 
 Si prefiere instalar y usar la CLI en un entorno local, para este tutorial se requiere la versión 2.0.30 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
+
+> [!NOTE]
+> Estas instrucciones usan un terminal de Bash en Azure Cloud Shell. Es posible que algunos comandos no funcionen tal como se describe si se ejecuta la CLI localmente o en un terminal de PowerShell.
 
 ## <a name="set-up-chaos-mesh-on-your-aks-cluster"></a>Configuración de Chaos Mesh en el clúster de AKS
 
@@ -188,12 +191,12 @@ Con el clúster de AKS ya incorporado, puede crear el experimento. Un experiment
     az rest --method put --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME?api-version=2021-09-15-preview --body @experiment.json
     ```
 
-    Cada experimento crea una identidad administrada asignada por el sistema correspondiente. Observe el valor `principalId` de esta identidad en la respuesta del paso siguiente.
+    Cada experimento crea una identidad administrada asignada por el sistema correspondiente. Tenga en cuenta `principalId` para esta identidad en la respuesta para el paso siguiente.
 
 ## <a name="give-experiment-permission-to-your-aks-cluster"></a>Conceder permiso de experimento al clúster de AKS
 Al crear un experimento de caos, Chaos Studio crea una identidad administrada asignada por el sistema que ejecuta errores en los recursos de destino. Esta identidad debe tener los [permisos adecuados](chaos-studio-fault-providers.md) en el recurso de destino para que el experimento se ejecute correctamente.
 
-Dé al experimento acceso a los recursos mediante el comando siguiente, reemplazando `$EXPERIMENT_PRINCIPAL_ID` por el valor principalId del paso anterior y `$RESOURCE_ID` por el identificador de recurso del recurso de destino (en este caso, el identificador de recurso del clúster de AKS). Ejecute este comando para cada recurso de destino del experimento. 
+Dé al experimento acceso a los recursos mediante el comando siguiente, reemplazando `$EXPERIMENT_PRINCIPAL_ID` por el valor principalId del paso anterior y `$RESOURCE_ID` por el identificador de recurso del recurso de destino (en este caso, el identificador de recurso del clúster de AKS). Ejecute este comando para cada recurso de destino en el experimento. 
 
 ```azurecli-interactive
 az role assignment create --role "Azure Kubernetes Cluster User Role" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope $RESOURCE_ID
@@ -202,13 +205,13 @@ az role assignment create --role "Azure Kubernetes Cluster User Role" --assignee
 ## <a name="run-your-experiment"></a>Ejecutar el experimento
 Ahora ya puede ejecutar el experimento. Para ver el impacto, se recomienda abrir la información general del clúster de AKS e ir a **Información** en una pestaña del explorador independiente. Los datos en directo del **número de pods activos** mostrarán el impacto tras la ejecución el experimento.
 
-1. Inicie el experimento mediante la CLI de Azure, reemplazando `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP` y `$EXPERIMENT_NAME` por las propiedades del experimento.
+1. Cree el experimento mediante la CLI de Azure, reemplazando `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP` y `$EXPERIMENT_NAME` por las propiedades del experimento.
 
     ```azurecli-interactive
     az rest --method post --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME/start?api-version=2021-09-15-preview
     ```
 
-2. La respuesta incluye una dirección URL de estado que puede usar para consultar el estado del experimento mientras se ejecuta.
+2. La respuesta incluye una dirección URL de estado que puede usar para consultar el estado del experimento mientras se ejecuta el experimento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha ejecutado un experimento directo del servicio de Chaos Mesh de AKS, está listo para:

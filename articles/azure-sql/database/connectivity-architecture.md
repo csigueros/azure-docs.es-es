@@ -12,20 +12,22 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: mathoma, vanto
 ms.date: 01/25/2021
-ms.openlocfilehash: 3b009686bf113c233e04dc238429d16980427c26
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ed77571e076dad04fc2110f688c80d4418fb840d
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128607394"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132554149"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 En este artículo se explica la arquitectura de varios componentes que dirigen el tráfico de red a un servidor en Azure SQL Database o Azure Synapse Analytics. También se explican distintas directivas de conexión y cómo afectan a los clientes que se conectan desde dentro de Azure y a los clientes que se conectan desde fuera de Azure.
 
-> [!IMPORTANT]
-> Este artículo *no* se aplica a **Instancia administrada de Azure SQL**. Consulte [Arquitectura de conectividad para una instancia administrada](../managed-instance/connectivity-architecture-overview.md).
+Este artículo *no* se aplica a **Instancia administrada de Azure SQL**. Consulte [Arquitectura de conectividad para una instancia administrada](../managed-instance/connectivity-architecture-overview.md).
+
+> [!div class="nextstepaction"]
+> [Encuesta para mejorar Azure SQL](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="connectivity-architecture"></a>Arquitectura de conectividad
 

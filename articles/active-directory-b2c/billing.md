@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 11/11/2021
+ms.date: 11/16/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 218e0ea1da8d76602989cf123851e5f9f8c14bb5
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: ce908193e379fce29b07d36185a446e04a9d86de
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132289250"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549209"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de facturación para Azure Active Directory B2C
 
@@ -52,7 +52,7 @@ La facturación MAU entró en vigor para los inquilinos de Azure AD B2C el **1
   
 El inquilino de Azure AD B2C también debe estar vinculado al plan de tarifa de Azure adecuado en función de las características que quiera usar. Para las características Premium, se requieren los [precios Premium P1 o P2](https://azure.microsoft.com/pricing/details/active-directory-b2c/) de Azure AD B2C. Es posible que tenga que actualizar el plan de tarifa a medida que use nuevas características. Por ejemplo, en el caso de las directivas de acceso condicional basadas en riesgo, deberá seleccionar el plan de tarifa Azure AD B2C Premium P2 para su inquilino.
 > [!NOTE]
->  Los primeros 50 000 usuarios activos mensuales son gratis para las características Premium P1 y Premium P2, pero **este nivel gratuito no se aplica a las suscripciones con créditos de evaluación gratuita**. Para determinar el número total de MAU, combinamos los MAU de todos los inquilinos (tanto de Azure AD como de Azure AD B2C) que están vinculados a la misma suscripción.
+>  Los primeros 50 000 usuarios activos mensuales son gratis para las características Premium P1 y Premium P2, pero el **nivel gratuito no se aplica a las evaluaciones gratuitas basadas en créditos ni a las suscripciones de patrocinio**. Una vez que expire el período de evaluación gratuita o los créditos para estos tipos de suscripciones, comenzará a cobrarse por los usuarios activos mensuales de Azure AD B2C Para determinar el número total de MAU, combinamos los MAU de todos los inquilinos (tanto de Azure AD como de Azure AD B2C) que están vinculados a la misma suscripción.
 ## <a name="link-an-azure-ad-b2c-tenant-to-a-subscription"></a>Vincular un inquilino de Azure AD B2C a una suscripción
 
 Los cargos por el uso de Azure Active Directory B2C (o Azure AD B2C) se facturan a una suscripción de Azure. Debe vincular explícitamente un inquilino de Azure AD B2C a una suscripción de Azure mediante la creación de un *recurso* de Azure AD B2C en la suscripción de Azure de destino. Se pueden crear varios recursos de Azure AD B2C en una sola suscripción de Azure, junto con otros recursos de Azure, como máquinas virtuales, cuentas de almacenamiento y Logic Apps. Para ver todos los recursos de la suscripción, vaya al inquilino de Azure Active Directory (Azure AD) al que está asociada la suscripción.

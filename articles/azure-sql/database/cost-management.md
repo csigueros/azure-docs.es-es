@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.subservice: service-overview
 ms.topic: how-to
 ms.date: 06/30/2021
-ms.openlocfilehash: 29d0bdba30bb75a085e147c72438f22121744870
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: 5f1464c6fb74bc04dacb230cd2a5993f7566e82a
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113134589"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132546887"
 ---
 # <a name="plan-and-manage-costs-for-azure-sql-database"></a>Planeamiento y administración de los costos de Azure SQL Database
 
@@ -21,6 +21,8 @@ En este artículo se describe cómo puede planear y administrar los costos de Az
 
 En primer lugar, use la calculadora de precios de Azure para agregar recursos de Azure y revise los costos estimados. Después de comenzar a usar los recursos de Azure SQL Database, utilice las características de Cost Management para establecer presupuestos y supervisar los costos. También puede revisar los costos previstos e identificar las tendencias de gasto para identificar las áreas en las que podría querer actuar. Los costos de Azure SQL Database son solo una parte de los costos mensuales de la factura de Azure. Aunque en este artículo se explica cómo planear y administrar los costos de Azure SQL Database, se le facturarán todos los servicios y recursos de Azure que use en su suscripción de Azure, incluidos los servicios de cualquier tercero.
 
+> [!div class="nextstepaction"]
+> [Encuesta para mejorar Azure SQL](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="prerequisites"></a>Requisitos previos
 

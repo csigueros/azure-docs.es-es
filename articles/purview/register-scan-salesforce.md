@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 22b0b3dfc76c6ae2dc8de38113b3cb2075117a70
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 81f4775771c162dce061bc1ad8901bd9b9542d40
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131858493"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132554947"
 ---
 # <a name="connect-to-and-manage-salesforce-in-azure-purview-preview"></a>Conexión y administración de Salesforce en Azure Purview (versión preliminar)
 
@@ -28,19 +28,19 @@ En este artículo se describe cómo registrar Salesforce y cómo autenticarse e 
 |---|---|---|---|---|---|---|
 | [Sí](#register)| [Sí](#scan)| No | No | No | No| No|
 
-Al examinar Salesforce, Purview admite la extracción de metadatos, como organizaciones, objetos, campos, claves externas, propiedades unique_constraints, etc. de Salesforce.
+Al examinar Salesforce, Purview admite la extracción de metadatos, como organizaciones, objetos, campos, claves externas y propiedades unique_constraints de Salesforce.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Un [recurso de Purview](create-catalog-portal.md) activo.
 
-* Tendrá que ser administrador de orígenes de datos y lector de datos para poder registrar un origen y administrarlo en Purview Studio. Para obtener más información, consulte la [página Permisos de Azure Purview](catalog-permissions.md).
+* Tendrá que ser administrador de orígenes de datos y lector de datos para poder registrar un origen y administrarlo en Purview Studio. Para obtener más información, consulte la [página Permisos de Azure Purview](catalog-permissions.md).
 
 * Configure la versión más reciente del [entorno de ejecución de integración autohospedado](https://www.microsoft.com/download/details.aspx?id=39717). Para obtener más información, consulte la [guía de creación y configuración de un entorno de ejecución de integración autohospedado](../data-factory/create-self-hosted-integration-runtime.md).
 
-* Asegúrese de que [JDK 11](https://www.Salesforce.com/java/technologies/javase-jdk11-downloads.html) esté instalado en la máquina virtual donde también lo esté el entorno de ejecución de integración autohospedado.
+* Asegúrese de que [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) esté instalado en la máquina virtual donde también lo esté el entorno de ejecución de integración autohospedado.
 
 * Asegúrese de que Visual C++ Redistributable para Visual Studio 2012 Update 4 esté instalado en la máquina del entorno de ejecución de integración autohospedado. Si no tiene instalada esta actualización, [puede descargarla de aquí](https://www.microsoft.com/download/details.aspx?id=30679).
 
@@ -130,8 +130,8 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha registrado el origen, siga las guías a continuación para obtener más información sobre Purview y sus datos.
+Ahora que ha registrado el origen, siga las guías mostradas a continuación para obtener más información sobre Purview y los datos.
 
-- [Información sobre datos en Azure Purview](concept-insights.md)
+- [Conclusiones sobre los datos en Azure Purview](concept-insights.md)
 - [Linaje en Azure Purview](catalog-lineage-user-guide.md)
 - [Búsqueda en Data Catalog](how-to-search-catalog.md)

@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 85d93c46ca9ef397b9e2ae95cfc042e50ee10bd1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 478bf78549e15c3c0989ae4850d515bdcce5217d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742257"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706746"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Uso de un dispositivo IoT Edge como puerta de enlace
 
@@ -78,7 +78,7 @@ Todos los dispositivos en un escenario de puerta de enlace transparente necesita
 >
 >Puede configurar el centro de IoT Edge para volver al comportamiento anterior estableciendo la variable de entorno **AuthenticationMode** en el valor **CloudAndScope**.
 
-Los dispositivos secundarios solo pueden tener un dispositivo primario. Cada dispositivo primario puede tener hasta 100 dispositivos secundarios.
+Los dispositivos secundarios solo pueden tener un dispositivo primario. De forma predeterminada, un dispositivo primario puede tener hasta 100 elementos secundarios. Puede cambiar este límite estableciendo la variable de entorno **MaxConnectedClients** en el módulo edgeHub del dispositivo primario.
 
 <!-- 1.2.0 -->
 ::: moniker range=">=iotedge-2020-11"

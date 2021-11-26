@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: c0bbc7bb40c292675374a3198fe0514b720adfca
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 7b76f98d13e959529aab2c16776ed34cb0f1a906
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130226117"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706692"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo IoT Edge de nivel inferior a una puerta de enlace Azure IoT Edge
 
@@ -52,6 +52,8 @@ Cree una jerarquía de puertas de enlace IoT Edge mediante la definición de rel
 El paso de configuración de las relaciones de elementos primarios y secundarios autoriza a los dispositivos secundarios a conectarse a su dispositivo primario como se conectarían a IoT Hub.
 
 Solo los dispositivos IoT Edge pueden ser dispositivos primarios, pero tanto los dispositivos IoT Edge como los dispositivos IoT pueden ser secundarios. Un elemento primario puede tener muchos elementos secundarios, pero un elemento secundario solo puede tener un elemento primario. Una jerarquía de puertas de enlace se crea encadenando conjuntos de elementos primarios y secundarios para que el elemento secundario de un dispositivo sea el primario de otro.
+
+De forma predeterminada, un dispositivo primario puede tener hasta 100 elementos secundarios. Puede cambiar este límite estableciendo la variable de entorno **MaxConnectedClients** en el módulo edgeHub del dispositivo primario.
 
 <!-- TODO: graphic of gateway hierarchy -->
 

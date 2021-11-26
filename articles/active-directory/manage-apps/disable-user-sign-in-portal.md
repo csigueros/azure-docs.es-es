@@ -14,14 +14,14 @@ ms.author: davidmu
 ms.reviewer: alamaral
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1c07d650ee3b04099a4e4e41cdd7ee7db200bff
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 72f0dc346e23d78ac9725b388b99f1a440136672
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061815"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132548413"
 ---
-# <a name="disable-how-a-user-signs-in-for-an-application-in-azure-active-directory"></a>Deshabilitar la forma en que un usuario se registra en una aplicación en Azure Active Directory
+# <a name="disable-how-a-user-signs-in-for-an-application"></a>Deshabilitación de la forma en que un usuario inicia sesión en una aplicación
 
 En este artículo, se deshabilita la forma en que un usuario se registra en una aplicación en Azure Active Directory.
 

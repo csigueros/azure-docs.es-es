@@ -6,12 +6,12 @@ ms.author: csugunan
 ms.service: purview
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 7028bb42481c2559d7aa9d044bd25771efc41f31
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: a5b625bfb72e12169162e16f2fbb349d36885600
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129213747"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552246"
 ---
 # <a name="azure-purview-metrics-in-azure-monitor"></a>Métricas de Azure Purview en Azure Monitor
 
@@ -63,6 +63,8 @@ La tabla siguiente contiene la lista de métricas disponibles para explorar en A
 
 | Nombre de la métrica | Espacio de nombres de métrica | Tipo de agregación | Descripción |
 | ------------------- | ------------------- | ------------------- | ----------------- |
+| Unidades de capacidad del mapa de datos | Mapa de datos elástico | Sum <br> Count | Agrega las unidades de capacidad del mapa de datos elásticos durante un período de tiempo |
+| Tamaño de almacenamiento del mapa de datos | Mapa de datos elástico | Sum <br> Avg. | Agrega el tamaño de almacenamiento del mapa de datos elásticos durante un período de tiempo |
 | Examen cancelado | Examen automatizado | Sum <br> Count | Permite agregar los exámenes de origen de datos cancelados durante el período de tiempo. |
 | Examen completado | Examen automatizado | Sum <br> Count | Permite agregar los exámenes de origen de datos completados durante el período de tiempo. |
 | Examen con errores | Examen automatizado | Sum <br> Count | Permite agregar los exámenes de origen de datos con errores durante el período de tiempo. |

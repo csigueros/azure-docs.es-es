@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma, emlisa
 ms.date: 09/24/2021
-ms.openlocfilehash: 0dc5dbec29cf8c1ac6a91777f0c67f0645e7a87d
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 251a00fb5b64645cad5ec8bbdbed17fa229e61e4
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057310"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132554928"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidad para Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,6 +34,9 @@ Hay dos modelos arquitectónicos de alta disponibilidad:
 - El **modelo de disponibilidad prémium** que se basa en un clúster de procesos del motor de base de datos. Depende del hecho de que siempre hay un quórum de nodos del motor de base de datos disponibles. Esta arquitectura va dirigida a aplicaciones críticas con alto rendimiento de E/S y elevada tasa de transacciones, y garantiza un impacto mínimo sobre el rendimiento de la carga de trabajo durante las actividades de mantenimiento.
 
 Azure SQL Database e Instancia administrada de SQL se ejecutan en la versión estable más reciente del Motor de base de datos de SQL Server y del sistema operativo Windows, y la mayoría de los usuarios no advierten que las actualizaciones se realizan continuamente.
+
+> [!div class="nextstepaction"]
+> [Encuesta para mejorar Azure SQL](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="basic-standard-and-general-purpose-service-tier-locally-redundant-availability"></a>Disponibilidad con redundancia local de los niveles de servicio Básico, Estándar y De uso general
 

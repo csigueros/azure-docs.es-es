@@ -7,12 +7,12 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/13/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: b4859103c90e7f54b70be23d49bad0a59a79a3c8
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: b71edfc5f57779bc96b165f8bdef2436ec9d16b3
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132347434"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552572"
 ---
 # <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-visual-studio-code"></a>Creación de un flujo de trabajo de integración con Azure Logic Apps (estándar) de inquilino único en Visual Studio Code
 
@@ -81,7 +81,7 @@ Para obtener más información, consulte la [documentación de Azurite](https://
 
   * [Extensión de C# para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), que habilita la funcionalidad F5 para ejecutar la aplicación lógica.
 
-  * [La última versión de Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools/releases), mediante la versión de Microsoft Installer (MSI), que es la `func-cli-X.X.XXXX-x*.msi`.
+  * [Azure Functions Core Tools: versión 3.x](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.3904), mediante la versión de Microsoft Installer (MSI), que es la `func-cli-X.X.XXXX-x*.msi`. No instale la versión 4.x, ya que no se admite y no funcionará.
 
     Estas herramientas incluyen una versión del mismo runtime en el que se basa el runtime de Azure Functions, que la extensión Azure Logic Apps (estándar) usa en Visual Studio Code.
 

@@ -1,22 +1,22 @@
 ---
 title: 'Acceso condicional: exigir autenticación multifactor para todos los usuarios (Azure Active Directory)'
-description: Cree una directiva de acceso condicional personalizada para exigir que los usuarios realicen la autenticación multifactor
+description: Cree una directiva de acceso condicional personalizada para exigir que todos los usuarios realicen la autenticación multifactor
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 11/05/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb, rogoya
+ms.reviewer: calebb, davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3019a4f1f7b82ad202e8a42f5edb070083fd1db7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 659201e61ac4b479e2ed412cd99a5a848befe3f7
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128578630"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715651"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Acceso condicional: Exigir autenticación multifactor para todos los usuarios
 
@@ -24,7 +24,7 @@ Como Alex Weinert, el director de seguridad de identidades de Microsoft, mencion
 
 > La contraseña no es importante, pero la autenticación multifactor sí. Según nuestros estudios, es prácticamente improbable que una cuenta se comprometa si se usa MFA.
 
-Las instrucciones de este artículo le ayudarán a su organización a crear una directiva de MFA equilibrada para su entorno.
+Las instrucciones de este artículo le ayudarán a su organización a crear una directiva de MFA para su entorno.
 
 ## <a name="user-exclusions"></a>Exclusiones de usuarios
 
@@ -38,6 +38,10 @@ Las directivas de acceso condicional son herramientas eficaces, por lo que se re
 ## <a name="application-exclusions"></a>Excepción de la aplicación
 
 Las organizaciones pueden tener muchas aplicaciones en la nube en uso. No todas estas aplicaciones pueden requerir una seguridad semejante. Por ejemplo, las aplicaciones de nóminas y de asistencia pueden requerir MFA, pero es probable que una cafetería no. Los administradores pueden optar por excluir aplicaciones específicas de su directiva.
+
+## <a name="template-deployment"></a>Implementación de plantilla
+
+A la hora de implementar esta directiva las organizaciones pueden optar por utilizar los pasos que se describen a continuación o las [plantillas de acceso condicional (versión preliminar)](concept-conditional-access-policy-common.md#conditional-access-templates-preview). 
 
 ## <a name="create-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
@@ -53,11 +57,11 @@ Los pasos siguientes le ayudarán a crear una directiva de acceso condicional qu
    1. Seleccione **Listo**.
 1. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Todas las aplicaciones en la nube**.
    1. En **Excluir**, seleccione las aplicaciones que no requieren autenticación multifactor.
-1. En **Condiciones** > **Aplicaciones cliente (versión preliminar)** , en **Seleccionar aplicaciones cliente a las que se aplicará la directiva** mantenga todos los valores seleccionados y haga clic en **Hecho**.
 1. En **Controles de acceso** > **Conceder**, seleccione **Conceder acceso**, **Requerir autenticación multifactor** y **Seleccionar**.
-1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
+1. Confirme la configuración y establezca **Habilitar directiva** en **Solo informe**.
 1. Seleccione **Crear** para crear la directiva.
 
+Después de confirmar la configuración desde el [modo de solo informe](howto-conditional-access-insights-reporting.md), un administrador puede pasar el botón de alternancia **Habilitar directiva** de **Solo informe** a **Activar**.
 ### <a name="named-locations"></a>Ubicaciones con nombre
 
 Las organizaciones pueden optar por incorporar ubicaciones de red conocidas, denominadas **ubicaciones con nombre**, a sus directivas de acceso condicional. Estas ubicaciones con nombre pueden incluir redes IPv4 de confianza, como las de una ubicación de oficina principal. Para obtener más información sobre la configuración de ubicaciones con nombre, consulte el artículo [¿Qué es la condición de ubicación del acceso condicional de Azure Active Directory?](location-condition.md)
@@ -75,7 +79,5 @@ En la directiva de ejemplo anterior, una organización puede optar por no requer
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md)
-
-[Determinación del impacto mediante el modo de solo informe de acceso condicional](howto-conditional-access-insights-reporting.md)
 
 [Simulación del comportamiento de inicio de sesión mediante la herramienta What If de acceso condicional](troubleshoot-conditional-access-what-if.md)

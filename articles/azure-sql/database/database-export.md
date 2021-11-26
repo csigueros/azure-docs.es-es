@@ -11,12 +11,12 @@ ms.author: chadam
 ms.reviewer: ''
 ms.date: 11/01/2021
 ms.topic: how-to
-ms.openlocfilehash: d65e4c496b3be19e710fe94b955bcc7ad01be945
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 52342bded2ac0af55dd0cdd4b7670b05f5f0b249
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131470288"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710508"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Exportación a un archivo BACPAC: Azure SQL Database y Azure SQL Managed Instance
 
@@ -30,6 +30,7 @@ Cuando necesite exportar una base de datos para archivar o migrar a otra platafo
 - Si va a exportar a Blob Storage, el tamaño máximo de un archivo BACPAC es 200 GB. Para archivar un archivo BACPAC de mayor tamaño, exporte al almacenamiento local.
 - No se admite la exportación de un archivo BACPAC en Azure Premium Storage con los métodos que se describen en este artículo.
 - El almacenamiento detrás de un firewall actualmente no se admite.
+- El almacenamiento inmutable actualmente no se admite.
 - El nombre de archivo de almacenamiento o el valor de entrada para StorageURI debe tener menos de 128 caracteres de longitud y no puede terminar con "." ni contener caracteres especiales como un espacio o "<,>,*,%,&,:,\,/,?". 
 - Si la operación de exportación tarda más de 20 horas, es posible que se cancele. Para aumentar el rendimiento durante la exportación, puede hacer lo siguiente:
 

@@ -8,12 +8,12 @@ ms.date: 9/1/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: aa8ea41233cad42bcad9fc387b8f984503c6e75e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 21658ad276b16292a15fe7dc778c152104e6916e
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124797796"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718645"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integración con Logic Apps mediante un conector personalizado
 
@@ -74,7 +74,11 @@ Se le dirigirá a la página de implementación del conector. Cuando haya termin
 
 A continuación, va a configurar el conector que ha creado para la conexión con Azure Digital Twins.
 
-En primer lugar, descargue un archivo de Swagger de Azure Digital Twins personalizado que se ha modificado para que funcione con Logic Apps. Descargue el ejemplo [Swaggers personalizados de Azure Digital Twins (conector de Logic Apps)](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) mediante el botón **Descargar archivo ZIP**. Vaya a la carpeta descargada *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* y descomprímala. 
+En primer lugar, descargue un archivo de Swagger de Azure Digital Twins personalizado que se ha modificado para que funcione con Logic Apps. Vaya al ejemplo que encontrará en el artículo sobre [Swaggers personalizados de Azure Digital Twins](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) y seleccione el botón **Browse code** (Examinar código) debajo del título para ir al repositorio de GitHub para el ejemplo. Para obtener el ejemplo en la máquina, seleccione el botón **Code** (Código) y, después, **Download ZIP** (Descargar ZIP).
+
+:::image type="content" source="media/how-to-integrate-logic-apps/download-repo-zip.png" alt-text="Captura de pantalla del repositorio digital-twins-custom-swaggers en GitHub, donde están resaltados los pasos para descargarlo como un archivo ZIP." lightbox="media/how-to-integrate-logic-apps/download-repo-zip.png"::: 
+
+Vaya a la carpeta descargada y descomprímalo. 
 
 La instancia de Swagger personalizada para este tutorial se encuentra en la carpeta *digital-twins-custom-swaggers-main\LogicApps*. Esta carpeta contiene subcarpetas denominadas *Estable* y *Versión preliminar*, y ambas contienen versiones diferentes de Swagger organizadas por fecha. La carpeta con la fecha más reciente incluirá la última copia del archivo de definición de Swagger. Sea cual sea la versión que seleccione, el archivo Swagger se denomina _digitaltwins.json_.
 

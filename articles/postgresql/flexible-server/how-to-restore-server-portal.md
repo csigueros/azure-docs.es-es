@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 04/22/2021
-ms.openlocfilehash: 795cc61f89729da352deb1dc1688bd19e780ca10
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 11/18/2021
+ms.openlocfilehash: a9d09169b81e274202e9bf3df5a91844cf34807b
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987741"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132721961"
 ---
 # <a name="point-in-time-restore-of-a-flexible-server"></a>Restauración de un servidor flexible a un momento dado
 
@@ -66,6 +66,24 @@ Siga estos pasos para restaurar un servidor flexible utilizando una copia de seg
 6.  Haga clic en **Aceptar**.
 
 7.  Se mostrará una notificación en la que se indica que se ha iniciado la operación de restauración.
+
+## <a name="performing-geo-restore-preview"></a>Realización de restauración geográfica (versión preliminar)
+
+Si el servidor de origen está configurado con copia de seguridad con redundancia geográfica, puede restaurar los servidores a una región emparejada. Tenga en cuenta que, para la primera restauración, es preciso esperar al menos una hora después de crear el servidor de origen.
+
+1.  En [Azure Portal](https://portal.azure.com/), elija el servidor flexible cuya copia de seguridad quiera restaurar geográficamente.
+
+2.  En la página Información general, haga clic en **Restaurar**.
+ :::image type="content" source="./media/how-to-restore-server-portal/geo-restore-click.png" alt-text="Clic de restauración":::
+
+3. En la página de restauración, elija Restauración con redundancia geográfica para restaurar en una región emparejada. 
+ :::image type="content" source="./media/how-to-restore-server-portal/geo-restore-choose-checkbox.png" alt-text="Selección de restauración geográfica":::
+ 
+4. La región y las versiones de la base de datos están seleccionadas previamente. Se restaurará a los últimos datos disponibles en la región emparejada. Puede elegir la **zona de disponibilidad** en la región en que se va a realizar la restauración.
+
+5. De forma predeterminada, las copias de seguridad del servidor restaurado se configuran con copia de seguridad con redundancia geográfica. Si no desea realizar una copia de seguridad con redundancia geográfica, puede hacer clic en **Configurar servidor** y desactivar la copia de seguridad con redundancia geográfica.
+
+6. Si el servidor de origen está configurado con **acceso privado**, solo puede realizar la restauración a otra red virtual de la región remota. Puede elegir una red virtual existente o crear una red virtual y restaurar el servidor en ella.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

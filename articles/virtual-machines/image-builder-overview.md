@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions
 ms.reviewer: cynthn
-ms.openlocfilehash: 07481838f5fca77d7e634003e04169a95d944117
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 702a4b624041a20c925bfc65d92542788f381800
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131452079"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551319"
 ---
 # <a name="azure-image-builder-overview"></a>Introducción a Azure Image Builder
 
@@ -114,12 +114,12 @@ Se incurrirá en algunos costos de procesos, redes y almacenamiento al crear, co
 
 Durante el proceso de creación de imagen, los archivos se descargan y se almacenan en el grupo de recursos de `IT_<DestinationResourceGroup>_<TemplateName>`, que incurrirá en costos menores de almacenamiento. Si no quiere conservarlos, elimine la **plantilla de imagen** después de la compilación de la imagen.
  
-Image Builder crea una máquina virtual con un tamaño D1v2 y el almacenamiento y redes que necesita. Estos recursos estarán en vigor durante el proceso de compilación y se eliminarán una vez que Image Builder haya terminado de crear la imagen. 
+Image Builder crea una máquina virtual con el tamaño predeterminado de máquina virtual D1v2 para imágenes Gen1 y D2ds V4 para imágenes de Gen2, junto con el almacenamiento y las redes necesarias para la máquina virtual. Estos recursos estarán en vigor durante el proceso de compilación y se eliminarán una vez que Image Builder haya terminado de crear la imagen. 
  
 Azure Image Builder distribuirá la imagen a las regiones elegidas, lo que podría suponer cargos de salida de red.
 
 ## <a name="hyper-v-generation"></a>Generación de Hyper-V
-Image Builder actualmente solo admite de forma nativa la creación de imágenes de generación de Hyper-V (Gen1) 1 en Azure Compute Gallery. 
+Image Builder actualmente solo admite de forma nativa la creación de imágenes de la primera y segunda generación de Hyper-V en Azure Compute Gallery. 
  
 ## <a name="next-steps"></a>Pasos siguientes 
  

@@ -12,12 +12,12 @@ ms.reviewer: mathoma
 ms.date: 05/18/2021
 ROBOTS: NOINDEX
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6c16e508aa2002aff07df5fc30e0af4c74bdd025
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 67e79d8b307de6327f3bacf2bfd57f95080b50d1
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413713"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132553199"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Información general del modelo de núcleo virtual: Azure SQL Database y Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,6 +30,9 @@ El modelo de compra de núcleo virtual usado por Azure SQL Database e Instancia 
 - En el caso de Azure SQL Database, el modelo de compra de núcleo virtual proporciona mayores límites de proceso, memoria, E/S y almacenamiento que el modelo DTU.
 
 Para más información sobre cómo elegir entre los modelos de compra de núcleos virtuales y DTU, consulte [Elección entre los modelos de compra de núcleo virtual y DTU: Azure SQL Database y SQL Managed Instance](purchasing-models.md).
+
+> [!div class="nextstepaction"]
+> [Encuesta para mejorar Azure SQL](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="service-tiers"></a>Niveles de servicio
 

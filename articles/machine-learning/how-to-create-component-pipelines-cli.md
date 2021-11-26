@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devplatv2
-ms.openlocfilehash: 71e611855023becf474337b309f510244507bc96
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 7dafb069419c1ff42d2ec5358fbd8eb37465c88f
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131848465"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132552348"
 ---
 # <a name="create-and-run-machine-learning-pipelines-using-components-with-the-azure-machine-learning-cli-preview"></a>Creación y ejecución de canalizaciones de aprendizaje automático mediante componentes con la CLI de Azure Machine Learning (versión preliminar)
 
@@ -189,13 +189,13 @@ De forma predeterminada, solo se vuelven a ejecutar los componentes cuyas entrad
 ## <a name="faq"></a>Preguntas más frecuentes
 
 ### <a name="how-do-i-change-the-location-of-the-outputs-generated-by-the-pipeline"></a>¿Cómo se puede cambiar la ubicación de las salidas generadas por la canalización?
-Puede usar la sección `settings` del trabajo de canalización para especificar un almacén de datos diferente para todos los trabajos de la canalización (vea las líneas 25 y 26 de [este ejemplo](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/jobs/pipelines-with-components/basics/1a_e2e_local_components/pipeline.yml)). Actualmente no se puede especificar un almacén de datos diferente para un trabajo específico o una salida específica. Tampoco se permite actualmente especificar rutas de acceso donde se guardan las salidas en el almacén de datos.
+Puede usar la sección `settings` del trabajo de canalización para especificar un almacén de datos diferente para todos los trabajos de la canalización (vea las líneas 25 y 26 de [este ejemplo](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/basics/1a_e2e_local_components/pipeline.yml)). Actualmente no se puede especificar un almacén de datos diferente para un trabajo específico o una salida específica. Tampoco se permite actualmente especificar rutas de acceso donde se guardan las salidas en el almacén de datos.
 
 ### <a name="how-do-i-specify-a-compute-that-can-be-used-by-all-jobs"></a>¿Cómo puedo especificar un proceso que todos los trabajos puedan usar?
-Puede especificar un proceso en el nivel de trabajo de la canalización, que usarán los trabajos que no mencionen explícitamente un proceso. (Vea la línea 28 de [este ejemplo](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/jobs/pipelines-with-components/basics/1a_e2e_local_components/pipeline.yml)).
+Puede especificar un proceso en el nivel de trabajo de la canalización, que usarán los trabajos que no mencionen explícitamente un proceso. (Vea la línea 28 de [este ejemplo](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/basics/1a_e2e_local_components/pipeline.yml)).
 
 ### <a name="what-job-types-are-supported-in-the-pipeline-job"></a>¿Qué tipos de trabajos se admiten en el trabajo de canalización?
-La versión actual admite tipos de trabajos de comandos y componentes. Para el tipo de trabajo de componente, solo se admite el componente de comando. En futuras versiones, se admitirán más tipos de trabajos, como el barrido.
+La versión actual admite tipos de trabajos de comandos, componentes y barridos.
 
 ### <a name="what-are-the-different-modes-that-i-use-with-inputs-or-outputs"></a>¿Cuáles son los diferentes modos que puedo usar con las entradas o salidas?
 | Category | Modos permitidos | Valor predeterminado |
@@ -209,10 +209,10 @@ Puede iterar rápidamente con trabajos de comandos y conectarlos conjuntamente a
 
 ### <a name="im-doing-distributed-training-in-my-component-the-component-which-is-registered-specifies-distributed-training-settings-including-node-count-how-can-i-change-the-number-of-nodes-used-during-runtime-the-optimal-number-of-nodes-is-best-determined-at-runtime-so-i-dont-want-to-update-the-component-and-register-a-new-version"></a>Estoy realizando el entrenamiento distribuido en mi componente. El componente, que está registrado, especifica la configuración del entrenamiento distribuido, incluido el número de nodos. ¿Cómo puedo cambiar el número de nodos usados durante el tiempo de ejecución? El número óptimo de nodos se determina mejor en tiempo de ejecución, por lo que no quiero actualizar el componente ni registrar una nueva versión.
 
-Puede usar la sección de invalidaciones del trabajo del componente para cambiar la configuración de los recursos y de la distribución. Vea [este ejemplo con TensorFlow](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/jobs/pipelines-with-components/basics/6a_tf_hello_world/) o [este ejemplo con PyTorch](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/jobs/pipelines-with-components/basics/6y_pytorch_hello_world).  
+Puede usar la sección de invalidaciones del trabajo del componente para cambiar la configuración de los recursos y de la distribución. Vea [este ejemplo con TensorFlow](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/6a_tf_hello_world) o [este ejemplo con PyTorch](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/6c_pytorch_hello_world).  
 
 ### <a name="how-can-i-define-an-environment-with-conda-dependencies-inside-a-component"></a>¿Cómo puedo definir un entorno con dependencias de Conda dentro de un componente?
-Consulte [este ejemplo](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/jobs/pipelines-with-components/basics/5c_env_conda_file).
+Consulte [este ejemplo](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/5c_env_conda_file).
  
 
 ## <a name="next-steps"></a>Pasos siguientes

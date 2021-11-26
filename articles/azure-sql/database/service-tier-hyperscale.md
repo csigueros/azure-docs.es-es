@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
 ms.date: 9/9/2021
-ms.openlocfilehash: f5cc4321f49a2cee75f8111bd975f750f075680f
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 12f445c1b532ff3989010ca2a4b747ca0c241aef
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094184"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132546504"
 ---
 # <a name="hyperscale-service-tier"></a>Nivel de servicio Hiperescala
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,6 +33,10 @@ El nivel de servicio Hiperescala de Azure SQL Database es el nivel de servicio
 >
 > - Para más información acerca de los niveles de servicios Uso general y Crítico para la empresa en el modelo de compra basado en núcleo virtual, consulte los niveles de servicio [Uso general](service-tier-general-purpose.md) y [Crítico para la empresa](service-tier-business-critical.md). Para ver una comparación entre el modelo de compra basado en núcleo virtual y el modelo de compra basado en DTU, consulte [Modelos de compra y recursos de Azure SQL Database](purchasing-models.md).
 > - Actualmente, el nivel de servicio Hiperescala solo está disponible para Azure SQL Database, pero no para Azure SQL Managed Instance.
+
+
+> [!div class="nextstepaction"]
+> [Encuesta para mejorar Azure SQL](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="what-are-the-hyperscale-capabilities"></a>¿Cuáles son las funcionalidades de Hiperescala?
 

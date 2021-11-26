@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: irenehua
-ms.openlocfilehash: 7a2e0531427343a2ec267de54cee05b5eb25889f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2ba2d00d1cbb025b665c2c9c6cb929f8b46a1f33
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99592286"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723672"
 ---
 # <a name="add-rules-for-azure-load-balancer-with-virtual-machine-scale-sets"></a>Adición de reglas para Azure Load Balancer con conjuntos de escalado de máquinas virtuales
 
@@ -37,7 +37,11 @@ Cada conjunto de escalado de máquinas virtuales debe tener al menos un grupo NA
 ## <a name="load-balancing-rules"></a>Reglas de equilibrio de carga
 
 Al usar el conjunto de escalado de máquinas virtuales en el grupo de back-end del equilibrador de carga, la regla de equilibrio de carga predeterminada se crea automáticamente.
-  
+
+## <a name="virtual-machine-scale-set-instance-level-ips"></a>Direcciones IP de la instancia del conjunto de escalado de máquinas virtuales
+
+Cuando los conjuntos de escalado de máquinas virtuales con [IP públicas por instancia](../virtual-network/ip-services/public-ip-address-prefix.md) se crean con un equilibrador de carga delante, la SKU de las IP de la instancia viene determinada por la SKU del equilibrador de carga (es decir, Básico o Estándar).  Tenga en cuenta que cuando se usa un equilibrador de carga estándar, las IP de instancia individuales son todas del tipo Estándar "sin zona" (aunque el front-end del equilibrador de carga podría ser zonal o con redundancia de zona).
+
 ## <a name="outbound-rules"></a>Reglas de salida
 
 Para crear una regla de salida para un grupo de back-end al que ya se hace referencia mediante una regla de equilibrio de carga, seleccione **No** en **Crear reglas de salida implícitas** en Azure Portal cuando se cree la regla de equilibrio de carga de entrada.

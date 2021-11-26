@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: eur
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 14cf969fa5aba3f3fddd6fedc63c2ccf19d71e08
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 559081847ae83776bdf2d915cd194ccf6ffddb1f
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132133489"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132546393"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Habla personalizada
 
@@ -49,7 +49,7 @@ En esta tabla se enumeran los tipos de datos aceptados, cuándo se debe utilizar
 
 | Tipo de datos | Se usa para pruebas | Cantidad recomendada | Se utiliza para el entrenamiento | Cantidad recomendada |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio](#audio-data-for-testing) | Sí<br>Se utiliza para la inspección visual | Más de cinco archivos de audio | No | N/D |
+| [Solo audio](#audio-data-for-testing) | Sí<br>Se utiliza para la inspección visual | Más de cinco archivos de audio | No | N/D |
 | [Transcripciones de audio con etiqueta humana](#audio--human-labeled-transcript-data-for-trainingtesting) | Sí<br>Se utiliza para evaluar la precisión | De 0,5 a 5 horas de audio | Sí | De 1 a 20 horas de audio |
 | [Texto sin formato](#plain-text-data-for-training) | No | N/a | Sí | De 1 a 200 MB de texto relacionado |
 | [Texto estructurado](#structured-text-data-for-training-public-preview) (versión preliminar pública) | No | N/a | Sí | Hasta 10 clases con un máximo de 4000 elementos y hasta 50 000 frases de entrenamiento |

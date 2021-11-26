@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 11/10/2021
+ms.date: 11/16/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: d00bfe9e9ed43ed1eafc65d61718de6cb4ecf04e
-ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
+ms.openlocfilehash: 833bec745be68131709a78df1e52ed2ff782b167
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132179844"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132548090"
 ---
 # <a name="azure-firewall-premium-features"></a>Características de Azure Firewall Prémium
 
@@ -58,7 +58,16 @@ IDPS permite detectar ataques en todos los puertos y protocolos para el tráfico
 
 La lista de omisión de IDPS le permite no filtrar el tráfico a ninguna de las direcciones IP, los intervalos y las subredes especificados en la lista de omisión.
 
-También puede usar reglas de firma cuando el modo IDPS está establecido en **Alert**, pero hay una o más firmas específicas que desea bloquear, incluido su tráfico asociado. En este caso, puede agregar nuevas reglas de firma estableciendo el modo de inspección de TLS en **Deny**.
+Las reglas de firma de IDPS (versión preliminar) le permiten:
+
+- Personalice una o varias firmas, y cambie su modo a *Deshabilitado*, *Alerta* o *Alertar y Denegar*. 
+
+   Por ejemplo, si recibe un falso positivo en el que una solicitud legítima es bloqueada por Azure Firewall debido a una firma con errores, puede utilizar el identificador de la firma de los registros de reglas de aplicación y establecer el modo IDPS en off. Esto hace que la firma "defectuosa" se omita y resuelva el problema de falsos positivos.
+- Puede aplicar el mismo procedimiento de ajuste para las firmas que están creando demasiadas alertas de prioridad baja y, por lo tanto, interferir con la visibilidad de las alertas de prioridad alta.
+- Obtención de una visión holística de todas las 55 000 firmas
+- Búsqueda inteligente
+
+   Permite buscar en toda la base de datos de firmas por cualquier tipo de atributo. Por ejemplo, puede buscar el CVE-ID específico para detectar qué firmas se encargan de esta CVE simplemente escribiendo el identificador en la barra de búsqueda.
 
 
 ## <a name="url-filtering"></a>Filtrado para direcciones URL
@@ -171,6 +180,7 @@ Certificados firmados por clientes que no son de confianza|El firewall no confí
 |Propagación de certificados|Cuando se aplica un certificado de entidad de certificación en el firewall, puede tardar entre 5 y 10 minutos en surtir efecto.|Se está investigando una solución.|
 |Compatibilidad con TLS 1.3|TLS 1.3 se admite de forma parcial. El túnel TLS del cliente al firewall se basa en TLS 1.2 y desde el firewall al servidor web externo en TLS 1.3.|Se están investigando actualizaciones.|
 |Punto de conexión privado KeyVault|KeyVault admite el acceso de punto de conexión privado para limitar la exposición de la red. Los Servicios de Azure de confianza pueden omitir esta limitación si se configura una excepción como se describe en la [documentación de KeyVault](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Firewall no aparece actualmente como un servicio de confianza y no puede tener acceso a Key Vault.|Se está investigando una solución.|
+|Lista de omisión de IDPS|La lista de omisión de IDPS no admite grupos de direcciones IP.|Se está investigando una solución.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
