@@ -54,6 +54,8 @@ items:
             href: concept-best-practices-network.md
           - name: Procedimientos recomendados en relación con los exámenes
             href: concept-best-practices-scanning.md
+          - name: Procedimientos recomendados de automatización
+            href: concept-best-practices-automation.md
       - name: Permisos de Azure Purview
         href: catalog-permissions.md
       - name: Mapa de datos
