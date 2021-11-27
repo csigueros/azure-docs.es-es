@@ -6,14 +6,14 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 04/13/2021
+ms.date: 11/15/2021
 ms.author: danlep
-ms.openlocfilehash: 55e5d8de3761bb50295f849232363b5643329c2b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6159b5c5d677dd66dda12573feeb3aad9faa9764
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128596360"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132556541"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparación de características de los planes de tarifa de Azure API Management
 
@@ -41,7 +41,8 @@ Cada [plan de tarifa](https://aka.ms/apimpricing) de API Management ofrece un co
 | API de administración directa                                                                        | No          | Sí       | Sí   | Sí      | Sí     |
 | Métricas y registros de Azure Monitor                                                               | No          | Sí       | Sí   | Sí      | Sí     |
 | IP estática                                                                                    | No          | Sí       | Sí   | Sí      | Sí     |
-| [API de WebSocket (versión preliminar)](websocket-api.md)                                                                                    | No          | Sí       | Sí   | Sí      | Sí     |
+| [API de WebSocket](websocket-api.md)                                                                                    | No          | Sí       | Sí   | Sí      | Sí     |
+| [API de GraphQL (versión preliminar)](graphql-api.md)                                                                               | Sí          | Sí       | Sí   | Sí      | Sí     |
 
 <sup>1</sup> Habilita el uso de Azure AD (y Azure AD B2C) como proveedor de identidades para el inicio de sesión del usuario en el portal para desarrolladores.<br/>
 <sup>2</sup> Incluye funciones relacionadas, por ejemplo, plantillas y notificaciones de usuarios, grupos, problemas, aplicaciones y correo electrónico.<br/>

@@ -2,13 +2,13 @@
 title: Estructura y sintaxis de un archivo Bicep
 description: Describe la estructura y las propiedades de un archivo Bicep mediante la sintaxis declarativa.
 ms.topic: conceptual
-ms.date: 11/12/2021
-ms.openlocfilehash: 352ff708b9b36eff06be8f3a3dda10b28b02e37b
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.date: 11/17/2021
+ms.openlocfilehash: 7483335facd2123153be3e35516011e119252114
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132493990"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707604"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Nociones sobre la estructura y la sintaxis de los archivos Bicep
 
@@ -145,7 +145,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-04-01' = {
 
 Para más información, consulte [Variables en Bicep](./variables.md).
 
-## <a name="resource"></a>Recurso
+## <a name="resources"></a>Recursos
 
 Use la palabra clave `resource` para definir un recurso que se va a implementar. La declaración de recursos incluye un nombre simbólico para el recurso. Va a utilizar este nombre simbólico en otras partes del archivo Bicep para obtener un valor del recurso.
 
@@ -166,6 +166,18 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 ```
 
 Para más información, consulte [Declaración de recursos en Bicep](resource-declaration.md).
+
+Algunos recursos tienen una relación de elementos primarios y secundarios. Puede definir un recurso secundario dentro del recurso primario o fuera de él.
+
+En el ejemplo siguiente se muestra cómo definir un recurso secundario dentro de un recurso primario. Contiene una cuenta de almacenamiento con un recurso secundario (servicio de archivos) que se define dentro de la cuenta de almacenamiento. El servicio de archivos también tiene un recurso secundario (recurso compartido) que se define dentro de él.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/insidedeclaration.bicep" highlight="9,12":::
+
+En el ejemplo siguiente se muestra cómo definir el recurso secundario fuera del recurso primario. Use la propiedad primaria para identificar una relación de recursos primarios y secundarios. Se definen los mismos tres recursos.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/outsidedeclaration.bicep" highlight="10,12,15,17":::
+
+Para más información, consulte el artículo sobre cómo [establecer el nombre y el tipo de recursos secundarios en Bicep](child-resource-name-type.md).
 
 ## <a name="modules"></a>Módulos
 

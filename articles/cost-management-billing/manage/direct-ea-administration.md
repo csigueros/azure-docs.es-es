@@ -3,17 +3,17 @@ title: Administración de Azure Portal para Contratos Enterprise directos
 description: En este artículo, se explican las tareas comunes que realiza un administrador de empresa directo en Azure Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2021
+ms.date: 11/16/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: sapnakeshari
-ms.openlocfilehash: d958ea620e16dbf7ab4e9181d05508246b832907
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 0cd07afa3b5bb63d017443ee4bc9de5e21f652ff
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130007101"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718571"
 ---
 # <a name="azure-portal-administration-for-direct-enterprise-agreements"></a>Administración de Azure Portal para Contratos Enterprise directos
 
@@ -28,6 +28,10 @@ Para administrar el servicio, el administrador de empresa inicial abre  [Azure
 Si se le ha configurado como administrador de empresa, vaya a Azure Portal e inicie sesión con la dirección de correo electrónico y la contraseña de su cuenta profesional, educativa o de Microsoft.
 
 Si tiene más de una cuenta de facturación, seleccione una cuenta de facturación en el menú de ámbitos de facturación. Puede ver las propiedades y la directiva de la cuenta de facturación en el menú de la izquierda.
+
+Consulte el vídeo de [administración de inscripción de EA](https://www.youtube.com/watch?v=NUlRrJFF1_U). Forma parte de la serie de vídeos [Experiencia de facturación del cliente de Enterprise directa en Azure Portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm).
+
+>[!VIDEO https://www.youtube.com/embed/NUlRrJFF1_U]
 
 ## <a name="select-a-billing-scope"></a>Selección de un ámbito de facturación
 
@@ -108,6 +112,10 @@ Los administradores de EA y los administradores de departamento usan los departa
 
 Un administrador de departamento puede agregar cuentas a sus departamentos. Puede quitar cuentas de sus departamentos, pero no de la inscripción.
 
+Consulte el vídeo de [administración de departamentos de EA](https://www.youtube.com/watch?v=NUlRrJFF1_U). Forma parte de la serie de vídeos [Experiencia de facturación del cliente de Enterprise directa en Azure Portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm).
+
+>[!VIDEO https://www.youtube.com/embed/cxAtOSSE6UI]
+
 ### <a name="to-create-a-department"></a>Para crear un departamento
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes).
@@ -163,6 +171,10 @@ Los administradores de empresa obtienen automáticamente permisos de administrad
 La estructura de las cuentas y suscripciones afecta al modo en que se administran y cómo aparecen en las facturas e informes. Entre los ejemplos de estructura típica de una organización se incluye las divisiones empresariales, los equipos funcionales y las ubicaciones geográficas.
 
 Después de agregar una nueva cuenta a la inscripción, se envía al propietario de la cuenta un correo electrónico de propiedad de la cuenta que se usa para confirmar la propiedad.
+
+Consulte el vídeo de [administración de cuentas de EA](https://www.youtube.com/watch?v=VKWAEx6qfPc). Forma parte de la serie de vídeos [Experiencia de facturación del cliente de Enterprise directa en Azure Portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm).
+
+>[!VIDEO https://www.youtube.com/embed/VKWAEx6qfPc]
 
 ### <a name="to-add-an-account-and-account-owner"></a>Para agregar una cuenta y un propietario de cuenta
 
@@ -356,6 +368,10 @@ La creación de distintas suscripciones para cada entorno de aplicación ayuda a
 - También se puede asignar una cuenta de administrador de servicios diferente a cada suscripción.
 - Se pueden asociar las suscripciones a cualquier número de servicios.
 - El propietario de la cuenta crea suscripciones y asigna una cuenta de administrador de servicios a cada una de las suscripciones de su cuenta.
+
+Consulte el vídeo de [administración de suscripciones de EA](https://www.youtube.com/watch?v=KFfcg2eqPo8). Forma parte de la serie de vídeos [Experiencia de facturación del cliente de Enterprise directa en Azure Portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm).
+
+>[!VIDEO https://www.youtube.com/embed/KFfcg2eqPo8]
 
 ## <a name="add-a-subscription"></a>Agregar una suscripción
 

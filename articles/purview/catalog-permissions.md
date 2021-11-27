@@ -6,12 +6,12 @@ ms.author: viseshag
 ms.service: purview
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.openlocfilehash: de0904275100f0d72dac8e401736ad276f1c928a
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: c3cc01b4cc6863b2100a1948b66c811b32b6cb46
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132401501"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724679"
 ---
 # <a name="access-control-in-azure-purview"></a>Control de acceso en Azure Purview
 
@@ -60,6 +60,8 @@ A esta colección raíz se le pueden agregar directamente orígenes, recursos y 
 Los restantes usuarios solo pueden acceder a la información que contiene la cuenta de Azure Purview si a ellos, o a un grupo en el que estén, se les da uno de los roles anteriores. Esto significa que, al crear una cuenta de Azure Purview, nadie más que el creador puede acceder o usar sus API hasta que se le [agrega uno o varios de los roles anteriores en una colección](how-to-create-and-manage-collections.md#add-role-assignments).
 
 Los usuarios solo pueden ser agregados a una colección por un administrador de colecciones, o mediante la herencia de permisos. Los permisos de una colección principal son heredados automáticamente por sus subcolecciones. Sin embargo, puede optar por [restringir la herencia de permisos](how-to-create-and-manage-collections.md#restrict-inheritance) en cualquier colección. Si lo hace, sus subcolecciones ya no heredarán los permisos de la colección primaria y será preciso agregarlos directamente, aunque los administradores de la colección que se heredan automáticamente de una colección principal no se pueden eliminar.
+
+Puede asignar roles de Purview a usuarios, grupos de seguridad y entidades de servicio desde Azure Active Directory, que está asociada a la suscripción de su cuenta de Purview.
 
 ## <a name="assign-permissions-to-your-users"></a>Asignación de permisos a los usuarios
 

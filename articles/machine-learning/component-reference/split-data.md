@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: c80b6f432943c11318949a43c2889d3c86b78c90
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: d7d11ea059128c8d2623ae3b9613acb57c97e1c1
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132486998"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549515"
 ---
 # <a name="split-data-component"></a>Componente Dividir datos
 

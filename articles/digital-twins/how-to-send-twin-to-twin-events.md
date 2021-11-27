@@ -4,23 +4,22 @@ titleSuffix: Azure Digital Twins
 description: Vea cómo crear una función de Azure para propagar eventos por medio del grafo de Twins.
 author: baanders
 ms.author: baanders
-ms.date: 8/13/2021
+ms.date: 11/16/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 68229c648968711bf65c0870c2fb38903376b1d6
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.custom: contperf-fy22q2
+ms.openlocfilehash: cda3a254f72167e4d561974e10334ec7a8e9951a
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122252584"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718285"
 ---
-# <a name="set-up-twin-to-twin-event-handling-with-azure-functions"></a>Configuración del control de eventos de gemelo a gemelo con Azure Functions
+# <a name="set-up-twin-to-twin-event-handling"></a>Configuración del control de eventos de gemelo a gemelo
 
 Un grafo de Azure Digital Twins totalmente conectado se controla por medio de la propagación de eventos. Los datos llegan a Azure Digital Twins desde orígenes externos como IoT Hub y luego se propagan por medio del grafo de Azure Digital Twins, con lo que se actualizan los gemelos pertinentes según corresponda.
 
-Por ejemplo, imagine un gráfico que representa las plantas y las salas de un edificio, donde cada planta contiene varias salas. Es posible que quiera configurar un flujo de datos de gemelo a gemelo de modo que cada vez que se actualice la propiedad de temperatura de un gemelo de sala, se calcule una nueva temperatura media para todas las salas de la misma planta, y la propiedad de temperatura del gemelo de planta se actualice para reflejar la nueva temperatura media en todas las salas que contiene (incluida la que se ha actualizado). 
-
-En este artículo va a ver cómo se envían eventos de gemelo a gemelo, lo que permite actualizar gemelos como respuesta a cambios de propiedades u otros datos de otro gemelo del grafo. Actualmente, las actualizaciones de gemelo a gemelo se controlan mediante la configuración de una [función de Azure](../azure-functions/functions-overview.md) que busca eventos del ciclo de vida de los gemelos que debieran afectar a otras áreas del grafo y realiza cambios en otros gemelos en consecuencia.
+En este artículo se muestra cómo **enviar eventos de gemelo a gemelo**, de modo que los gemelos puedan actualizarse en respuesta a los cambios de propiedad u otros datos de gemelos relacionados en el gráfico. Para ello, se configura una [función de Azure](../azure-functions/functions-overview.md) que busca eventos del ciclo de vida de los gemelos. La función reconoce qué eventos deben afectar a otros gemelos del gráfico y en consecuencia usa los datos de los eventos para actualizar los gemelos afectados.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

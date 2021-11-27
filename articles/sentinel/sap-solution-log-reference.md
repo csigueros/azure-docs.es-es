@@ -3,34 +3,29 @@ title: 'Solución Microsoft Sentinel para SAP: referencia de registros disponib
 description: Obtenga información sobre los registros de SAP disponibles en la solución Microsoft Sentinel para SAP.
 author: batamig
 ms.author: bagold
-ms.service: microsoft-sentinel
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.subservice: microsoft-sentinel
-ms.openlocfilehash: 5d02b40794e226238896b7327a47d9cfb2acbe0e
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: ee74d7658be01c2859d860f4c53b7e8e2b0e1b1a
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132518002"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132711837"
 ---
 # <a name="microsoft-sentinel-sap-solution-logs-reference-public-preview"></a>Referencia sobre de los registros de la solución Microsoft Sentinel para SAP (versión preliminar pública)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
+> [!IMPORTANT]
+> La solución Microsoft Sentinel SAP está actualmente en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
+>
+> Algunos registros, que se indican a continuación, no se envían a Microsoft Sentinel de forma predeterminada, pero se pueden agregar manualmente según sea necesario. Para más información, consulte [Definición de los registros de SAP que se envían a Microsoft Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+>
+
 En este artículo se describen los registros de SAP disponibles en el conector de datos de Microsoft Sentinel para SAP, entre los que se incluyen los nombres de tabla de Microsoft Sentinel, los fines del registro y los esquemas de registro detallados. Las descripciones de los campos de los esquemas se basan en las descripciones de los campos de la [documentación de SAP](https://help.sap.com/) pertinente.
 
 Este artículo está destinado a usuarios de SAP avanzados.
-
-> [!NOTE]
-> Si se usa la interfaz de XBP 3.0, la solución de Microsoft Sentinel para SAP usa servicios *no publicados*. Estos servicios no afectan al comportamiento del conector ni del sistema back-end.
->
-> Para "publicar" estos servicios, implemente las [funciones XBP sin publicar que encontrará en SAP Note 2910263](https://launchpad.support.sap.com/#/notes/2910263).
-
-> [!IMPORTANT]
-> La solución Microsoft Sentinel para SAP está actualmente en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
->
 
 ## <a name="abap-application-log"></a>Registro de aplicaciones de ABAP
 
@@ -41,7 +36,6 @@ Este artículo está destinado a usuarios de SAP avanzados.
 - **Fin del registro**: registra el progreso de la ejecución de una aplicación para que pueda reconstruirla más adelante si fuera necesario.
 
     Disponible mediante RFC con un servicio personalizado basado en servicios estándar de la interfaz de XBP. Este registro se genera por cliente.
-
 
 ### <a name="abapapplog_cl-log-schema"></a>Esquema del registro ABAPAppLog_CL
 
@@ -166,6 +160,8 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="abap-db-table-data-log"></a>Registro de datos de tabla de base de datos de ABAP
 
+Para que este registro se envíe a Microsoft Sentinel, es preciso [agregarlo manualmente al archivo **systemconfig.ini**](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+
 - **Nombre en Microsoft Sentinel**: `ABAPTableDataLog_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcd2f36611d3a6510000e835363f.html)
@@ -198,6 +194,9 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="abap-gateway-log"></a>Registro de puerta de enlace de ABAP
 
+Para que este registro se envíe a Microsoft Sentinel, es preciso [agregarlo manualmente al archivo **systemconfig.ini**](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+
+
 - **Nombre en Microsoft Sentinel**: `ABAPOS_GW_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/62b4de4187cb43668d15dac48fc00732/7.5.7/en-US/48b2a710ca1c3079e10000000a42189b.html)
@@ -217,6 +216,9 @@ Este artículo está destinado a usuarios de SAP avanzados.
 | | |
 
 ## <a name="abap-icm-log"></a>Registro de ICM de ABAP
+
+Para que este registro se envíe a Microsoft Sentinel, es preciso [agregarlo manualmente al archivo **systemconfig.ini**](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+
 
 - **Nombre en Microsoft Sentinel**: `ABAPOS_ICM_CL`
 
@@ -444,6 +446,9 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="abap-syslog"></a>Syslog ABAP
 
+Para que este registro se envíe a Microsoft Sentinel, es preciso [agregarlo manualmente al archivo **systemconfig.ini**](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+
+
 - **Nombre en Microsoft Sentinel**: `ABAPOS_Syslog_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcbaf36611d3a6510000e835363f.html)
@@ -528,6 +533,9 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="abap-workprocess-log"></a>Registro de proceso de trabajo de ABAP
 
+Para que este registro se envíe a Microsoft Sentinel, es preciso [agregarlo manualmente al archivo **systemconfig.ini**](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+
+
 - **Nombre en Microsoft Sentinel**: `ABAPOS_WP_CL`
 
 - **Documentación de SAP relacionada**: [portal de ayuda de SAP](https://help.sap.com/viewer/d0739d980ecf42ae9f3b4c19e21a4b6e/7.3.15/en-US/46fb763b6d4c5515e10000000a1553f6.html)
@@ -553,6 +561,9 @@ Este artículo está destinado a usuarios de SAP avanzados.
 
 ## <a name="hana-db-audit-trail"></a>Registro de auditoría de base de datos de HANA
 
+Para que este registro se envíe a Microsoft Sentinel, es preciso [agregarlo manualmente al archivo **systemconfig.ini**](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+
+
 - **Nombre en Microsoft Sentinel**: `Syslog`
 
 - **Documentación de SAP relacionada**: [General](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/48fd6586304c4f859bf92d64d0cd8b08.html) |  [Registro de auditoría](https://help.sap.com/viewer/b3ee5778bc2e4a089d3299b82ec762a7/2.0.03/en-US/0a57444d217649bf94a19c0b68b470cc.html)
@@ -576,6 +587,9 @@ Este artículo está destinado a usuarios de SAP avanzados.
 | | |
 
 ## <a name="java-files"></a>Archivos JAVA
+
+Para que este registro se envíe a Microsoft Sentinel, es preciso [agregarlo manualmente al archivo **systemconfig.ini**](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+
 
 - **Nombre en Microsoft Sentinel**: `JavaFilesLogsCL`
 

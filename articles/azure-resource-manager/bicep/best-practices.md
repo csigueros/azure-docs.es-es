@@ -5,12 +5,12 @@ author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.openlocfilehash: 65f55208f0a2e09db39cedc8e5074b622b232834
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: d9639e3aab33df9fdc6e27ed3650f252d5dc1789
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132057677"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716894"
 ---
 # <a name="best-practices-for-bicep"></a>Procedimientos recomendados para Bicep
 
@@ -98,7 +98,7 @@ Para obtener más información sobre las variables de Bicep, consulte [Variables
 
 * Asegúrese de que no crea salidas para datos confidenciales. Cualquier persona que tenga acceso al historial de implementación puede acceder a los valores de salida. Estas personas no son aptas para la administración de los secretos.
 
-* En lugar de pasar valores de propiedad a través de salidas, use la palabra clave `[existing` (resource-declaration.md#existing-resources) para buscar propiedades de recursos que ya existen. Es un procedimiento recomendado buscar claves de otros recursos de esta manera en lugar de pasarlas por las salidas. Siempre se obtienen los datos más actualizados.
+* En lugar de pasar valores de propiedad a través de salidas, use la [palabra clave existente](resource-declaration.md#existing-resources) para buscar propiedades de recursos que ya existen. Es un procedimiento recomendado buscar claves de otros recursos de esta manera en lugar de pasarlas por las salidas. Siempre se obtienen los datos más actualizados.
 
 Para obtener más información sobre las salidas de Bicep, consulte [Salidas en Bicep](outputs.md).
 

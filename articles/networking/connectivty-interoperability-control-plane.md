@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7a777208563e13945bd0bdd0aac43560143d0a49
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8afa833549f840f30e52cf58eda0ff05f37d840c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131005069"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714682"
 ---
 # <a name="interoperability-in-azure--control-plane-analysis"></a>Interoperabilidad en Azure: Análisis del plano de control
 
@@ -86,7 +86,7 @@ Para más información, consulte [¿Qué es VPN Gateway?][VPN] e [Implementació
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información acerca del [análisis del plano de datos][Data-Analysis] de la configuración de prueba y de las vistas de las características de supervisión de red de Azure.
+Obtenga información acerca del [análisis del plano de datos][Data-Analysis] de la configuración de prueba y de las vistas de las características de supervisión de red de Azure.
 
 Consulte las [preguntas más frecuentes de ExpressRoute][ExR-FAQ] para información acerca de:
 -   Cuántos circuitos de ExpressRoute puede conectar a una puerta de enlace de ExpressRoute.
@@ -108,7 +108,7 @@ Consulte las [preguntas más frecuentes de ExpressRoute][ExR-FAQ] para informaci
 [VPN]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
 [VNet]: ../virtual-network/tutorial-connect-virtual-networks-portal.md
 [Configuration]: ./connectivty-interoperability-configuration.md
-[Control-Analysis]: /azure/networking/connectivty-interoperability-control-plane
+[Control-Analysis]: 
 [Data-Analysis]: ./connectivty-interoperability-data-plane.md
 [ExR-FAQ]: ../expressroute/expressroute-faqs.md
 [S2S-Over-ExR]: ../expressroute/site-to-site-vpn-over-microsoft-peering.md

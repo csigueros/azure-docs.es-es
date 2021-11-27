@@ -6,12 +6,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 9faa9ff9c0635c84ebc5c56a343db0426873f945
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7714b743c29d0fe48a8d2b62e2e5176fdf7b63ba
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735836"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714948"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer"></a>Consulta de datos en Azure Monitor mediante Azure Data Explorer
 
@@ -29,15 +29,18 @@ Flujo de consultas entre servicios de Azure Data Explorer: :::image type="conten
 
 2. En la ventana **Agregar clúster**, agregue la dirección URL al clúster de LA o AI.
 
-    * Para LA: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
-    * Para AI: `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
+    * Para LA: `https://adx.monitor.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
+    * Para AI: `https://adx.monitor.azure.com//subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
 
     * Seleccione **Agregar**.
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="Agregue el clúster.":::
  
 >[!NOTE]
->Si agrega una conexión a más de un área de trabajo de Log Analytics/Application Insights, asigne a cada una un nombre diferente. En caso contrario, todos tendrán el mismo nombre en el panel izquierdo.
+>* Hay diferentes puntos de conexión para lo siguiente:
+>* Azure Government: `adx.monitor.azure.us/`
+>*  Azure China: `adx.monitor.azure.cn/`
+>* Si agrega una conexión a más de un área de trabajo de Log Analytics/Application Insights, asigne a cada una un nombre diferente. En caso contrario, todos tendrán el mismo nombre en el panel izquierdo.
 
  Una vez que se establece la conexión, el área de trabajo de Log Analytics o de Application Insights aparecerá en el panel de la izquierda con el clúster nativo de Azure Data Explorer.
 
@@ -74,12 +77,12 @@ Perf | take 10 // Demonstrate cross service query on the Log Analytics workspace
 Al ejecutar consultas de servicios entre clústeres, compruebe que el clúster nativo de Azure Data Explorer está seleccionado en el panel izquierdo. En los ejemplos siguientes se muestra cómo combinar tablas de clúster de Azure Data Explorer mediante el operador [union](/azure/data-explorer/kusto/query/unionoperator) con un área de trabajo de Log Analytics.
 
 ```kusto
-union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>').Perf
+union StormEvents, cluster('https://adx.monitor.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>').Perf
 | take 10
 ```
 
 ```kusto
-let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>';
+let CL1 = 'https://adx.monitor.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>';
 union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
 
@@ -99,7 +102,7 @@ Si el recurso de Azure Data Explorer está en el inquilino "A" y el área de tra
 2. Use [Lighthouse](../../lighthouse/index.yml) para proyectar el recurso de Azure Monitor en el inquilino "A".
 ### <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>Conexión a clústeres de Azure Data Explorer desde otros inquilinos
 
-Kusto Explorer inicia sesión automáticamente en el inquilino al que pertenece originalmente la cuenta de usuario. Para acceder a los recursos de otros inquilinos con la misma cuenta de usuario, se tiene que especificar explícitamente el valor de `tenantId` en la cadena de conexión: `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=`**TenantId**
+Kusto Explorer inicia sesión automáticamente en el inquilino al que pertenece originalmente la cuenta de usuario. Para acceder a los recursos de otros inquilinos con la misma cuenta de usuario, se tiene que especificar explícitamente el valor de `tenantId` en la cadena de conexión: `Data Source=https://adx.monitor.azure.com/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=`**TenantId**
 
 ## <a name="function-supportability"></a>Compatibilidad con funciones
 
@@ -122,12 +125,15 @@ Las opciones de sintaxis siguientes están disponibles cuando se llama a los cl�
 
 |Descripción de la sintaxis  |Application Insights  |Log Analytics  |
 |----------------|---------|---------|
-| Base de datos dentro de un clúster que contiene solo el recurso definido en esta suscripción (**recomendado para las consultas entre clústeres**) |   clúster (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>`) | clúster (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>`)     |
-| Clúster que contiene todas las aplicaciones o áreas de trabajo en esta suscripción    |     clúster (`https://ade.applicationinsights.io/subscriptions/<subscription-id>`)    |    clúster (`https://ade.loganalytics.io/subscriptions/<subscription-id>`)     |
-|Clúster que contiene todas las aplicaciones o áreas de trabajo de la suscripción y que son miembros de este grupo de recursos    |   clúster (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |    clúster (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |
-|Clúster que contiene solo el recurso definido en esta suscripción      |    clúster (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`)    |  clúster (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`)     |
+| Base de datos dentro de un clúster que contiene solo el recurso definido en esta suscripción (**recomendado para las consultas entre clústeres**) |   clúster (`https://adx.monitor.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>`) | clúster (`https://adx.monitor.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>`)     |
+| Clúster que contiene todas las aplicaciones o áreas de trabajo en esta suscripción    |     clúster (`https://adx.monitor.azure.com/subscriptions/<subscription-id>`)    |    clúster (`https://adx.monitor.azure.com/subscriptions/<subscription-id>`)     |
+|Clúster que contiene todas las aplicaciones o áreas de trabajo de la suscripción y que son miembros de este grupo de recursos    |   clúster (`https://adx.monitor.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |    clúster (`https://adx.monitor.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |
+|Clúster que contiene solo el recurso definido en esta suscripción      |    clúster (`https://adx.monitor.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`)    |  clúster (`https://adx.monitor.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`)     |
+|Para puntos de conexión en UsGov      |    clúster (`https://adx.monitor.azure.us/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`)|
+ |Para puntos de conexión en China (21Vianet)      |    clúster (`https://adx.monitor.azure.us/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Lea más sobre la [estructura de datos de las áreas de trabajo de Log Analytics y Application Insights](data-platform-logs.md).
 - Aprenda a [escribir consultas en Azure Data Explorer](/azure/data-explorer/write-queries).
+- 

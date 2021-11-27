@@ -8,12 +8,12 @@ ms.subservice: mlops
 ms.date: 10/21/2021
 ms.topic: conceptual
 ms.custom: how-to, devplatv2
-ms.openlocfilehash: c704af7d5249ca1a24da554e7789d3c92a360861
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: f6bc7355df16d705705026b817ac1e0b69719b35
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132519465"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132723482"
 ---
 # <a name="monitor-managed-online-endpoints-preview"></a>Supervisión de puntos de conexión en línea administrados (versión preliminar)
 
@@ -58,7 +58,8 @@ En función del recurso que seleccione, las métricas que vea serán diferentes.
 - Recuento de conexiones activas
 - Bytes de red
 
-> ![NOTA] El ancho de banda se limita si se superan los límites (vea la sección Puntos de conexión en línea administrados de [Administración y aumento de las cuotas de los recursos con Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)). Para determinar si las solicitudes están limitadas:
+> [!NOTE]
+> El ancho de banda se limita si se superan los límites (vea la sección Puntos de conexión en línea administrados de [Administración y aumento de las cuotas de los recursos con Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)). Para determinar si las solicitudes están limitadas:
 > - Supervise la métrica "Bytes de red".
 > - Los encabezados de respuesta tendrán los campos: `ms-azureml-bandwidth-request-delay-ms` y `ms-azureml-bandwidth-response-delay-ms`. Los valores de los campos son los retrasos, en milisegundos, del límite de ancho de banda.
 

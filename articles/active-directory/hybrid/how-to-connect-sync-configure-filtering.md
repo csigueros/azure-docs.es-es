@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 595cf2c1dbc105634d33b426c67e5123b9751e6e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3164d9f4aa5820e4debcbe322113599c8a63acdc
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95996549"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717811"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronización de Azure AD Connect: Configuración del filtrado
 Con el filtrado puede controlar qué objetos aparecen en Azure Active Directory (Azure AD) desde el directorio local. La configuración predeterminada aceptará todos los objetos en todos los dominios de los bosques configurados. Por lo general, esta configuración es la recomendada. Los usuarios con cargas de trabajo de Microsoft 365, como Exchange Online y Skype Empresarial, se benefician de una lista global de direcciones completa para poder enviar correo electrónico y llamar a todos los integrantes. Con la configuración predeterminada, obtendrían la misma experiencia que con una implementación local de Exchange o Lync.
@@ -213,6 +213,8 @@ Se puede aplicar filtrado [entrante](#inbound-filtering), desde Active Directory
 
 ### <a name="inbound-filtering"></a>Filtrado entrante
 El filtrado entrante utiliza la configuración predeterminada en la que los objetos que se dirigen a Azure AD no tienen el atributo de metaverso cloudFiltered establecido en ningún valor que se vaya a sincronizar. Si el valor de este atributo está establecido en **True**, el objeto no se sincroniza. No debería estar establecido en **False**, por diseño. Para asegurarse de que otras reglas tengan la capacidad de aportar un valor, este atributo solo debería tener los valores **True** o **NULL** (ausente).
+
+Tenga en cuenta que Azure AD Connect está diseñado para limpiar los objetos que debe aprovisionar en Azure AD. Si el sistema no ha aprovisionado el objeto en Azure AD en el pasado, pero obtiene el objeto de Azure AD durante un paso de importación, supone correctamente que otro sistema creó este objeto en Azure AD. Azure AD Connect no limpia estos tipos de objetos de Azure AD, incluso cuando el atributo de metaverso `cloudFiltered` está establecido en **True**.
 
 En el filtrado entrante se utilizará el **ámbito** para determinar qué objetos se sincronizan y cuáles no. Aquí realizará ajustes para satisfacer los requisitos de su organización. El módulo de ámbito cuenta con un **grupo** y una **cláusula** para determinar cuándo una regla de sincronización está dentro de él. Un grupo contiene una o varias cláusulas. Existe un operador lógico AND entre varias cláusulas y un operador lógico OR entre varios grupos.
 

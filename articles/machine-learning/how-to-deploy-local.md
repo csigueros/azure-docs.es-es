@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 11/20/2020
 ms.topic: how-to
 ms.custom: deploy
-ms.openlocfilehash: 14fb372a00621806ed4423813ee5e23b3c313688
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: 97b8d6f32b2e59dd2e19b1d41b4fa01f97158325
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132402435"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132547693"
 ---
 # <a name="deploy-models-trained-with-azure-machine-learning-on-your-local-machines"></a>Implementación de modelos entrenados con Azure Machine Learning en equipos locales 
 
@@ -250,5 +250,6 @@ Para más información sobre la carga y la actualización de modelos y entornos,
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Para obtener información sobre el uso de VS Code con Azure Machine Learning, consulte [Conexión a una instancia de proceso de Azure Machine Learning en Visual Studio Code](how-to-set-up-vs-code-remote.md)
 - Para más información sobre los entornos, consulte [Creación y uso de entornos de software en Azure Machine Learning](how-to-use-environments.md).
 - Para más información sobre el acceso a la información del almacén de datos, consulte [Conexión a los servicios de almacenamiento en Azure](how-to-access-data.md).

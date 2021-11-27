@@ -5,12 +5,12 @@ author: emaher
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.author: enewman
-ms.openlocfilehash: f7c92e4369491a5b371c2f99fbcbdc4609b376f7
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: b77f478e604366a455b4f7f3d3173dbc62eeba68
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130180977"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722608"
 ---
 # <a name="use-external-file-storage-in-lab-services"></a>Uso de almacenamiento de archivos externo en Lab Services
 
@@ -25,7 +25,7 @@ Cada solución tiene requisitos y capacidades diferentes. En la siguiente tabla 
 | [Recurso compartido de Azure Files con el punto de conexión público](#azure-files-share) | <ul><li>Todos tienen acceso de lectura y escritura.</li><li>No se requiere ningún emparejamiento de red virtual.</li><li>Accesible para todas las máquinas virtuales, no solo máquinas virtuales de laboratorio.</li><li>Si está usando Linux, los alumnos tendrán acceso a la clave de la cuenta de almacenamiento.</li></ul> |
 | [Recurso compartido de Azure Files con punto de conexión privado](#azure-files-share) | <ul><li>Todos tienen acceso de lectura y escritura.</li><li>Se requiere el emparejamiento de red virtual.</li><li>Accesible solo para las máquinas virtuales en la misma red que la cuenta de almacenamiento (o en una red emparejada a dicha cuenta).</li><li>Si está usando Linux, los alumnos tendrán acceso a la clave de la cuenta de almacenamiento.</li></ul> |
 | [Azure Files con autorización basada en identidades](#azure-files-with-identity-based-authorization) | <ul><li>Se pueden establecer permisos de acceso de lectura o de lectura y escritura para la carpeta o el archivo.</li><li>Se requiere el emparejamiento de red virtual.</li><li>La cuenta de almacenamiento debe estar conectada a Active Directory.</li><li>Los dispositivos deben estar unidos a un dominio.</li><li>La clave de la cuenta de almacenamiento no se utiliza para que los alumnos se conecten al recurso compartido de archivos.</li></ul> |
-| [Archivos de NetApp con volúmenes NFS](#netapp-files-with-nfs-volumes) | <ul><li>Se puede establecer el acceso de lectura o de lectura y escritura para los volúmenes.</li><li>Los permisos se configuran con la dirección IP de la máquina virtual de un alumno.</li><li>Se requiere el emparejamiento de red virtual.</li><li>Es posible que tenga que registrarse para usar el servicio NetApp Files.</li><li>Solo Linux.</li></ul>
+| [Azure NetApp Files con volúmenes de NFS](#azure-netapp-files-with-nfs-volumes) | <ul><li>Se puede establecer el acceso de lectura o de lectura y escritura para los volúmenes.</li><li>Los permisos se configuran con la dirección IP de la máquina virtual de un alumno.</li><li>Se requiere el emparejamiento de red virtual.</li><li>Es posible que tenga que registrarse para usar el servicio Azure NetApp Files.</li><li>Solo Linux.</li></ul>
 
 El costo de usar un almacenamiento externo no se incluye en el precio por usar Azure Lab Services.  Para obtener más información sobre los precios, consulte [Precios de Azure Files](https://azure.microsoft.com/pricing/details/storage/files/) y [Precios de Azure NetApp Files](https://azure.microsoft.com/pricing/details/netapp/).
 
@@ -176,7 +176,7 @@ Para crear un recurso compartido de Azure Files que esté habilitado para la aut
     > La máquina de plantilla no está unida a un dominio. Para ver los archivos en el recurso compartido, los instructores deben usar la máquina virtual de un alumno.
 11. Los alumnos que usan Windows pueden conectarse al recurso compartido de Azure Files mediante el [Explorador de archivos](../storage/files/storage-how-to-use-files-windows.md) con sus credenciales después de especificar la ruta de acceso al recurso compartido de archivos. Como alternativa, los alumnos pueden ejecutar el script anterior para conectarse a la unidad de red. En el caso de los alumnos que están usando Linux, ejecute el script anterior.
 
-## <a name="netapp-files-with-nfs-volumes"></a>NetApp Files con volúmenes NFS
+## <a name="azure-netapp-files-with-nfs-volumes"></a>Azure NetApp Files con volúmenes de NFS
 
 [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) es un servicio de almacenamiento de archivos de alto rendimiento, medido y de clase empresarial.
 
@@ -188,8 +188,8 @@ Para crear un recurso compartido de Azure Files que esté habilitado para la aut
 
 Para usar un recurso compartido de Azure NetApp Files en Azure Lab Services:
 
-1. Para crear un grupo de capacidad de NetApp Files y uno o varios volúmenes NFS, consulte [Configuración de Azure NetApp Files y un volumen NFS](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md). Para obtener información sobre los niveles de servicio, consulte [Niveles de servicio para Azure NetApp Files](../azure-netapp-files/azure-netapp-files-service-levels.md).
-2. [Emparejar la red virtual](how-to-connect-peer-virtual-network.md) del grupo de capacidad de NetApp Files con la cuenta de laboratorio.
+1. Para crear un grupo de capacidad de Azure NetApp Files y uno o varios volúmenes NFS, consulte [Configuración de Azure NetApp Files y un volumen NFS](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md). Para obtener información sobre los niveles de servicio, consulte [Niveles de servicio para Azure NetApp Files](../azure-netapp-files/azure-netapp-files-service-levels.md).
+2. [Emparejar la red virtual](how-to-connect-peer-virtual-network.md) del grupo de capacidad de Azure NetApp Files con la cuenta de laboratorio.
 3. [Cree el laboratorio de clase](how-to-manage-classroom-labs.md).
 4. En la plantilla de máquina virtual, instale los componentes necesarios para usar los recursos compartidos de archivos de NFS.
     - Ubuntu:
@@ -205,7 +205,7 @@ Para usar un recurso compartido de Azure NetApp Files en Azure Lab Services:
         sudo yum install nfs-utils
         ```
 
-5. En la plantilla de máquina virtual, guarde el siguiente script como `mount_fileshare.sh` para [montar el recurso compartido de NetApp Files](../azure-netapp-files/azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). Asigne `capacity_pool_ipaddress` a la variable la dirección IP de destino de montaje para el grupo de capacidad. Obtenga las instrucciones de montaje del volumen para encontrar el valor adecuado. El script espera la ruta de acceso o el nombre del volumen de NetApp Files. Para asegurarse de que los usuarios pueden ejecutar el script, ejecute `chmod u+x mount_fileshare.sh`.
+5. En la plantilla de máquina virtual, guarde el siguiente script como `mount_fileshare.sh` para [montar el recurso compartido de Azure NetApp Files](../azure-netapp-files/azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). Asigne `capacity_pool_ipaddress` a la variable la dirección IP de destino de montaje para el grupo de capacidad. Obtenga las instrucciones de montaje del volumen para encontrar el valor adecuado. El script espera la ruta de acceso o el nombre del volumen de Azure NetApp Files. Para asegurarse de que los usuarios pueden ejecutar el script, ejecute `chmod u+x mount_fileshare.sh`.
 
     ```bash
     #!/bin/bash
@@ -229,7 +229,7 @@ Para usar un recurso compartido de Azure NetApp Files en Azure Lab Services:
     sudo bash -c "echo ""$capacity_pool_ipaddress:/$volume_name /$mount_directory/$volume_name nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0"" >> /etc/fstab"
     ```
 
-6. Si todos los alumnos están compartiendo el acceso al mismo volumen de NetApp Files, puede ejecutar el script `mount_fileshare.sh` en la máquina de la plantilla antes de su publicación. Si cada alumno recibe su propio volumen, guarde el script para que el alumno lo ejecute más tarde.
+6. Si todos los alumnos están compartiendo el acceso al mismo volumen de Azure NetApp Files, puede ejecutar el script `mount_fileshare.sh` en la máquina de la plantilla antes de su publicación. Si cada alumno recibe su propio volumen, guarde el script para que el alumno lo ejecute más tarde.
 7. [Publicación](how-to-create-manage-template.md#publish-the-template-vm) de la plantilla de máquina virtual.
 8. [Configure la directiva](../azure-netapp-files/azure-netapp-files-configure-export-policy.md) para el recurso compartido de archivos. La directiva de exportación puede permitir que una sola máquina virtual o varias tengan acceso a un volumen. Puede conceder acceso de solo lectura o de lectura y escritura.
 9. Los alumnos deben iniciar su máquina virtual y ejecutar el script para montar el recurso compartido de archivos. Solo tendrán que ejecutar el script una vez. El comando tendrá un aspecto similar al siguiente: `./mount_fileshare.sh myvolumename`.

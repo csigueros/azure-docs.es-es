@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35dcb1125451e378d79aa7bab4c4e066ccab9acb
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 2ce298acdd7da89ce682148e043a5ce19afeaf38
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130044315"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717695"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>Migración a la autenticación en la nube mediante un lanzamiento almacenado preconfigurado
 
@@ -68,6 +68,8 @@ Se admiten estos escenarios en el lanzamiento preconfigurado: La característica
 
 - Adquisición de token de actualización principal de Unión híbrida a Windows 10 o Unión a Azure AD sin línea de visión con el servidor de federación para Windows 10 versión 1903 y posteriores, cuando el UPN del usuario se puede enrutar y el sufijo de dominio se comprueba en Azure AD.
 
+- La inscripción de Autopilot se admite en el lanzamiento por fases Windows 10 (versión 1909 o posterior). 
+
 ## <a name="unsupported-scenarios"></a>Escenarios no admitidos
 
 Los siguientes escenarios no se admiten en el lanzamiento preconfigurado:
@@ -96,8 +98,6 @@ Los siguientes escenarios no se admiten en el lanzamiento preconfigurado:
 - Si tiene una configuración de VDI no persistente con Windows 10 versión 1903 o posterior, debe permanecer en un dominio federado. No se admite el traslado a un dominio administrado en VDI no persistente. Para más información, consulte [Identidad de dispositivo y virtualización del escritorio](../devices/howto-device-identity-virtual-desktop-infrastructure.md).
 
 - Si tiene una relación de confianza de certificado híbrido de Windows Hello para empresas con certificados emitidos a través del servidor de federación que actúa como Autoridad de registro o usuarios de tarjeta inteligente, el escenario no es compatible con un lanzamiento preconfigurado. 
-
-- La inscripción de Autopilot no se admite en el lanzamiento preconfigurado. Los usuarios habilitados para el lanzamiento preconfigurado seguirán usando la autenticación federada en el momento de la inscripción de Autopilot. Si el dispositivo tiene Windows 10 versión 1903 o posterior, después de la inscripción de Autopilot, todas las solicitudes de autenticación pasarán por el lanzamiento preconfigurado. 
 
   >[!NOTE]
   >Sigue siendo necesario realizar el traslado final de la autenticación federada a la nube mediante Azure AD Connect o PowerShell. El lanzamiento preconfigurado no cambia de dominio federado a administrado.  Para más información sobre la migración de dominios, consulte [Migración de la federación a la sincronización de hash de contraseña](./migrate-from-federation-to-cloud-authentication.md) y [Migración de la federación a la autenticación de paso a través](./migrate-from-federation-to-cloud-authentication.md).

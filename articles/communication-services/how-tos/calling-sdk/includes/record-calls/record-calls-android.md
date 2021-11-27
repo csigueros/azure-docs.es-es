@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/08/2021
 ms.author: rifox
-ms.openlocfilehash: a12f5717d927e8358a503a50f314c6b80f577952
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 76c45ca0287a943235197a6316e7e371faf37af2
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129585354"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132590639"
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 
@@ -20,10 +20,10 @@ ms.locfileid: "129585354"
 > [!NOTE]
 > Esta API se ofrece a los desarrolladores como versión preliminar y puede cambiar en función de los comentarios que recibamos. No utilice esta API en un entorno de producción. Para usar esta API, utilice la versión "beta" del Android SDK de llamada de ACS.
 
-La grabación de llamadas es una característica extendida de la API `Call` principal. Primero debe obtener el objeto de API de la característica de grabación:
+La grabación de llamadas es una característica extendida del objeto `Call` principal. Primero debe obtener el objeto de la característica de grabación:
 
 ```java
-RecordingCallFeature callRecordingFeature = call.api(Features.RECORDING);
+RecordingCallFeature callRecordingFeature = call.feature(Features.RECORDING);
 ```
 
 Después, para comprobar si se está grabando la llamada, inspeccione la propiedad `isRecordingActive` de `callRecordingFeature`. Devuelve `boolean`.

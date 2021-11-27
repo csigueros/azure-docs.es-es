@@ -3,15 +3,15 @@ title: Autorización del acceso a Azure Web PubSub con Azure Active Directory
 description: En este artículo se proporciona información sobre cómo autorizar el acceso a recursos del servicio Azure Web PubSub mediante Azure Active Directory.
 author: terencefan
 ms.author: tefa
-ms.date: 09/06/2021
+ms.date: 11/08/2021
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.openlocfilehash: be8c2aa41f8680df9156d7b86dd8eb2bf24ca514
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 6682328d948d66085799ffe8f6df93adf732c04d
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131478200"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710432"
 ---
 # <a name="authorize-access-to-web-pubsub-resources-using-azure-active-directory"></a>Autorización del acceso a recursos de Web PubSub mediante Azure Active Directory
 El servicio Azure Web PubSub admite Azure Active Directory (Azure AD) para autorizar las solicitudes a recursos de Web PubSub. Con Azure AD, puede usar el control de acceso basado en rol (RBAC) para conceder permisos a una entidad de seguridad<sup>[<a href="#security-principal">1</a>]</sup>. Azure AD autentica la entidad de seguridad y devuelve un token de OAuth 2.0. El token se puede usar entonces para autorizar una solicitud en el recurso de Web PubSub.
@@ -30,7 +30,7 @@ Cuando una entidad de seguridad intenta acceder a un recurso de Web PubSub, se d
 
 ### <a name="client-side-authentication-while-using-azure-ad"></a>Autenticación en el lado cliente mientras se usa Azure AD
 
-Cuando se usa la clave de acceso, esta se comparte entre el servidor de negociación (o aplicación de funciones) y el recurso de Web PubSub, lo que significa que el servicio Web PubSub podría autenticar la solicitud de conexión de cliente con la clave compartida. Sin embargo, no hay ninguna clave compartida cuando se usa Azure AD para la autorización. 
+Cuando se usa la clave de acceso, esta se comparte entre el servidor de negociación (o aplicación de funciones) y el recurso de Web PubSub, lo que significa que el servicio Web PubSub podría autenticar la solicitud de conexión de cliente con la clave compartida. Sin embargo, no hay ninguna clave de acceso cuando se usa Azure AD para la autorización. 
 
 Para solucionar este problema, se proporciona una API REST para generar el token de cliente que se puede usar para conectarse al servicio Azure Web PubSub.
 

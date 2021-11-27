@@ -6,12 +6,12 @@ ms.author: tefa
 ms.date: 11/08/2021
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.openlocfilehash: 7f0b5cff34b74953970672d0d48c4f027f4811b0
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: bb27176e33d94db0c1bb6e0770ae45f765b0429a
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997749"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714226"
 ---
 # <a name="authorize-request-to-web-pubsub-resources-with-azure-ad-from-managed-identities"></a>Autorización de la solicitud a recursos de Web PubSub con Azure AD desde identidades administradas
 El servicio Azure Web PubSub admite la autorización de Azure Active Directory (Azure AD) desde [identidades administradas de recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md). 
@@ -96,41 +96,14 @@ Para obtener más información sobre cómo asignar y administrar asignaciones de
 - [Asignación de roles de Azure mediante la CLI de Azure](../role-based-access-control/role-assignments-cli.md)
 - [Asignación de roles de Azure mediante plantillas de Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 
-## <a name="sample-codes-while-configuring-your-server"></a>Códigos de ejemplo al configurar el servidor de aplicaciones
+## <a name="sample-codes"></a>Códigos de ejemplo
 
-### <a name="using-system-assigned-identity"></a>Uso de la identidad asignada por el sistema
+Oficialmente, se admiten 4 lenguajes de programación:
 
-Puede usar [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) o [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential) para configurar los puntos de conexión de Web PubSub mientras usa la identidad asignada por el sistema.
-
-Sin embargo, el procedimiento recomendado es usar directamente `ManagedIdentityCredential`.
-
-La identidad administrada asignada por el sistema se usará de forma predeterminada, pero **asegúrese de que no ha configurado ninguna variable de entorno** conservada por [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) si había usado `DefaultAzureCredential`. De lo contrario, se volverá a usar `EnvironmentCredential` para realizar la solicitud, lo que dará como resultado una respuesta `401 Unauthorized` en la mayoría de los casos.
-
-Estos son los códigos de ejemplo para C#.
-
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var client = new WebPubSubServiceClient(endpoint, "hub", new ManagedIdentityCredential());
-```
-
-Puede también ver los ejemplos para otros lenguajes admitidos, como [Java](), [JavaScript]() y [Python]().
-
-### <a name="using-user-assigned-identity"></a>Uso de la identidad asignada por el usuario
-
-Basta con que proporcione `ClientId` al crear el objeto `ManagedIdentityCredential`.
-
-> [!IMPORTANT]
-> Use **Id. de cliente**, no el identificador de objeto (entidad de seguridad), aunque tenga un aspecto similar.
-
-Estos son los códigos de ejemplo para C#.
-
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var clientId = "<your user-assigned identity client id>";
-var client = new WebPubSubServiceClient(endpoint, "hub", new ManagedIdentityCredential(clientId));
-```
-
-Puede también ver los ejemplos para otros lenguajes admitidos, como [Java](), [JavaScript]() y [Python]().
+- [C#](./howto-create-serviceclient-with-net-and-azure-identity.md)
+- [Python](./howto-create-serviceclient-with-python-and-azure-identity.md)
+- [Java](./howto-create-serviceclient-with-java-and-azure-identity.md)
+- [JavaScript](./howto-create-serviceclient-with-javascript-and-azure-identity.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

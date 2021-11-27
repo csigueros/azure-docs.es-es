@@ -7,21 +7,21 @@ ms.topic: article
 ms.date: 09/16/2021
 ms.author: madsd
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: d8896f9bbe7ee4429236eac7763d66b1efd4313c
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 6fbb79a06de67c7c493afe79e18968005c6b0bf0
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132523721"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707009"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueo de una instancia de App Service Environment
 
 > [!NOTE]
 > En este artículo se aborda App Service Environment v2, que se usa con planes de App Service aislados.
 
-App Service aislado tiene varias dependencias externas a las que requiere acceso para que funcionen correctamente. El plan de App Service aislado reside en la red de Azure Virtual Network (VNet) del cliente. Los clientes deben permitir el tráfico de dependencia de App Service aislado, que es un problema para aquellos que desean bloquear todo el tráfico de salida de su red virtual.
+Azure App Service Environment tiene muchas dependencias externas a las que tiene que acceder para que funcionen correctamente. Azure App Service Environment se encuentra en la red virtual de Azure del cliente. Los clientes deben permitir el tráfico de dependencias de Azure App Service Environment, lo que supone un problema para aquellos clientes que desean bloquear todo el tráfico de salida de su red virtual.
 
-Hay una serie de puntos de conexión de entrada que se usan para administrar una instancia de ASE. El tráfico entrante de administración no se puede enviar a través de un dispositivo de firewall. Las direcciones de origen de este tráfico se conocen y están publicadas en el documento [Direcciones de administración de App Service aislado](./management-addresses.md). También hay una etiqueta de servicio denominada AppServiceManagement que se puede usar con grupos de seguridad de red (NSG) para proteger el tráfico entrante.
+Hay una muchos puntos de conexión de entrada que se usan para administrar App Service Environment. El tráfico entrante de administración no se puede enviar a través de un dispositivo de firewall. Las direcciones de origen de este tráfico se conocen y están publicadas en el documento [Direcciones de administración de App Service aislado](./management-addresses.md). También hay una etiqueta de servicio, denominada AppServiceManagement, que se puede usar con grupos de seguridad de red (NSG) para proteger el tráfico entrante.
 
 Las dependencias de salida de App Service aislado se definen casi por completo con los FQDN, que no tienen direcciones estáticas tras ellos. La falta de direcciones estáticas significa que no se pueden usar grupos de seguridad de red para bloquear el tráfico saliente de una instancia de ASE. Las direcciones cambian con tal frecuencia que no se pueden configurar reglas en función de la resolución actual ni usarlas para crear grupos de seguridad de red.
 
@@ -58,7 +58,7 @@ A continuación, se indican los pasos para bloquear la salida de la instancia ex
 
    ![selección de puntos de conexión de servicio][2]
 
-1. Cree una subred denominada AzureFirewallSubnet en la red virtual donde exista su ASE. Siga las instrucciones de la [documentación de Azure Firewall](../../firewall/index.yml) para crear su instancia de Azure Firewall.
+1. Cree una subred llamada AzureFirewallSubnet en la red virtual en la que App Service Environment exista. Siga las instrucciones de la [documentación de Azure Firewall](../../firewall/index.yml) para crear su instancia de Azure Firewall.
 
 1. En la interfaz de usuario de Azure Firewall, vaya a Reglas > Recopilación de reglas de aplicación y seleccione Agregar una colección de reglas de aplicación. Proporcione un nombre y una prioridad y establezca Permitir. En la sección de etiquetas FQDN, proporcione un nombre, establezca las direcciones de origen en * y seleccione la etiqueta FQDN de App Service Environment y la actualización de Windows.
 
@@ -82,7 +82,7 @@ A continuación, se indican los pasos para bloquear la salida de la instancia ex
 
 Los pasos para implementar su ASE tras un firewall son iguales que los pasos para configurar el ASE existente con una instancia de Azure Firewall, con la salvedad de que necesitará crear una subred de ASE y, a continuación, seguir los pasos anteriores. Para crear su ASE en una subred existente, deberá usar una plantilla de Resource Manager, como se describe en el documento sobre cómo [crear su ASE con una plantilla de Resource Manager](./create-from-template.md).
 
-## <a name="application-traffic"></a>Tráfico de la aplicación
+### <a name="application-traffic"></a>Tráfico de la aplicación
 
 Los pasos anteriores permitirán que la instancia de App Service aislado funcione sin problemas. Deberá configurar todo para adaptarse a las necesidades de la aplicación. Hay dos problemas para las aplicaciones de una instancia de App Service aislado configurada con Azure Firewall.  
 
@@ -91,11 +91,11 @@ Los pasos anteriores permitirán que la instancia de App Service aislado funcion
 
 Si las aplicaciones tienen dependencias, deben agregarse a Azure Firewall. Crear reglas de aplicación para permitir el tráfico HTTP/HTTPS y reglas de red para todo lo demás.
 
-Si conoce el intervalo de direcciones del que provendrá el tráfico de la solicitud de la aplicación, puede agregarlo a la tabla de rutas asignada a la subred de App Service aislado. Si el intervalo de direcciones es grande o no se especifica, puede usar un dispositivo de red, como Application Gateway, para proporcionarle una dirección para agregar a la tabla de rutas. Para obtener más información sobre cómo configurar una instancia de Application Gateway con su instancia de App Service aislado con ILB, lea [Integración de App Service aislado con ILB con Azure Application Gateway](./integrate-with-application-gateway.md)
+Cuando conozca el intervalo de direcciones del que provendrá el tráfico de la solicitud de la aplicación, puede agregarlo a la tabla de rutas asignada a la subred de App Service Environment. Si el intervalo de direcciones es grande o no se especifica, puede usar un dispositivo de red, como Application Gateway, para proporcionarle una dirección para agregar a la tabla de rutas. Para obtener más información sobre cómo configurar una instancia de Application Gateway con su instancia de App Service aislado con ILB, lea [Integración de App Service aislado con ILB con Azure Application Gateway](./integrate-with-application-gateway.md)
 
 Este uso de Application Gateway es solo un ejemplo de cómo configurar el sistema. Si ha seguido este procedimiento, deberá agregar una ruta a la tabla de rutas de subred de ASE para que el tráfico de respuesta enviado a Application Gateway vaya allí directamente.
 
-## <a name="logging"></a>Registro
+### <a name="logging"></a>Registro
 
 Azure Firewall puede enviar registros a Azure Storage, Event Hub o a registros de Azure Monitor. Para integrar la aplicación con cualquier destino admitido, vaya al portal de Azure Firewall > Registros de diagnóstico y habilite los registros para el destino deseado. Si realiza la integración con los registros de Azure Monitor, podrá ver el registro de todo el tráfico enviado a Azure Firewall. Para ver el tráfico que se va a denegar, abra el portal del área de trabajo de Log Analytics > Registros y escriba una consulta como:
 
@@ -105,14 +105,17 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 La integración de Azure Firewall con los registros de Azure Monitor resulta útil la primera vez que se pone una aplicación en funcionamiento, cuando aún no se conocen todas las dependencias de la aplicación. Puede obtener más información acerca de los registros de Azure Monitor en [Análisis de datos de registro en Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
-## <a name="dependencies"></a>Dependencias
+<a name="dependencies"></a>
+## <a name="configuring-third-party-firewall-with-your-ase"></a>Configuración de un firewall de terceros con Azure App Service Environment
 
-La siguiente información solo es necesaria si desea configurar un dispositivo de firewall distinto a Azure Firewall.
+La siguiente información solo es necesaria si desea configurar un dispositivo de firewall distinto a Azure Firewall. Para Azure Firewall consulte [la sección anterior](#configuring-azure-firewall-with-your-ase).
+
+Tenga en cuenta las siguientes dependencias al implementar un firewall de terceros con Azure App Service Environment:
 
 - Los servicios compatibles con puntos de conexión de servicio deben configurarse con puntos de conexión de servicio.
 - Las dependencias de dirección IP son para tráfico que no sea HTTP/HTTPS (tráfico TCP y UDP).
 - Los puntos de conexión HTTP/HTTPS de FQDN se pueden colocar en el dispositivo de firewall.
-- Los puntos de conexión HTTP/HTTPS de carácter comodín son dependencias que pueden variar con App Service aislado en función del número de calificadores.
+- Los puntos de conexión HTTP/HTTPS de carácter comodín son dependencias que pueden variar con App Service Environment en función de varios calificadores.
 - Las dependencias de Linux solo son un problema si va a implementar aplicaciones de Linux en App Service aislado. No es necesario agregar estas direcciones al firewall si no va a implementar aplicaciones de Linux en App Service aislado.
 
 ### <a name="service-endpoint-capable-dependencies"></a>Dependencias compatibles con los puntos de conexión de servicio
@@ -237,7 +240,7 @@ Con una instancia de Azure Firewall, se configurará automáticamente todo lo si
 
 | Punto de conexión |
 |----------|
-|gr-Prod-\*.cloudapp.net:443 |
+|gr-prod-\*.cloudapp.net:443 |
 | \*.management.azure.com:443 |
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
@@ -280,15 +283,15 @@ Con una instancia de Azure Firewall, se configurará automáticamente todo lo si
 |40.76.35.62:11371 |
 |104.215.95.108:11371 |
 
-## <a name="us-gov-dependencies"></a>Dependencias de US Gov
+## <a name="configuring-a-firewall-with-ase-in-us-gov-regions"></a>Configuración de un firewall con Azure App Service Environment en regiones de US Gov
 
 En el caso de ASE de regiones Gov (US), siga las instrucciones de la sección [Configuración de Azure Firewall con el ASE](#configuring-azure-firewall-with-your-ase) de este documento para configurar una instancia de Azure Firewall con el ASE.
 
-Si desea usar un dispositivo que no sea Azure Firewall en Gov (US):
+Si desea usar un firewall de terceros en US Gov debe tener en cuenta las siguientes dependencias:
 
 - Los servicios compatibles con puntos de conexión de servicio deben configurarse con puntos de conexión de servicio.
 - Los puntos de conexión HTTP/HTTPS de FQDN se pueden colocar en el dispositivo de firewall.
-- Los puntos de conexión HTTP/HTTPS de carácter comodín son dependencias que pueden variar con App Service aislado en función del número de calificadores.
+- Los puntos de conexión HTTP/HTTPS de carácter comodín son dependencias que pueden variar con App Service Environment en función de varios calificadores.
 
 Linux no está disponible en regiones Gov (US) y, por tanto, no aparece como una configuración opcional.
 
@@ -315,13 +318,10 @@ Linux no está disponible en regiones Gov (US) y, por tanto, no aparece como una
 | 13.82.184.151:80 | Necesario para supervisar y alertar sobre problemas del ASE. |
 | 13.82.184.151:443 | Necesario para supervisar y alertar sobre problemas del ASE. |
 
-### <a name="dependencies"></a>Dependencias
+### <a name="fqdn-httphttps-dependencies"></a>Dependencias HTTP/HTTPS de FQDN
 
 | Punto de conexión |
 |----------|
-| \*.ctldl.windowsupdate.com:80 |
-| \*.management.usgovcloudapi.net:80 |
-| \*.update.microsoft.com:80 |
 |admin.core.usgovcloudapi.net:80 |
 |azperfmerges.blob.core.windows.net:80 |
 |azperfmerges.blob.core.windows.net:80 |
@@ -376,10 +376,6 @@ Linux no está disponible en regiones Gov (US) y, por tanto, no aparece como una
 |www.microsoft.com:80 |
 |www.msftconnecttest.com:80 |
 |www.thawte.com:80 |
-|\*ctldl.windowsupdate.com:443 |
-|\*.management.usgovcloudapi.net:443 |
-|\*.update.microsoft.com:443 |
-|\*.prod.microsoftmetrics.com:443 |
 |admin.core.usgovcloudapi.net:443 |
 |azperfmerges.blob.core.windows.net:443 |
 |azperfmerges.blob.core.windows.net:443 |
@@ -441,6 +437,18 @@ Linux no está disponible en regiones Gov (US) y, por tanto, no aparece como una
 |www.msftconnecttest.com:443 |
 |www.thawte.com:443 |
 |global-dsms.dsms.core.usgovcloudapi.net:443 |
+
+### <a name="wildcard-httphttps-dependencies"></a>Dependencias HTTP/HTTPS de carácter comodín
+
+| Punto de conexión |
+|----------|
+|\*.ctldl.windowsupdate.com:80 |
+|\*.management.usgovcloudapi.net:80 |
+|\*.update.microsoft.com:80 |
+|\*ctldl.windowsupdate.com:443 |
+|\*.management.usgovcloudapi.net:443 |
+|\*.update.microsoft.com:443 |
+|\*.prod.microsoftmetrics.com:443 |
 
 <!--Image references-->
 [1]: ./media/firewall-integration/firewall-apprule.png

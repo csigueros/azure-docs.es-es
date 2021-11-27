@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 4900e66afa994b97a479e377e300c13ff29ae8e4
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 7860384cdf905f481b9f003affa3eec4c3e38243
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131555122"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706637"
 ---
 # <a name="mlflow-and-azure-machine-learning"></a>MLflow y Azure Machine Learning
 
@@ -55,12 +55,13 @@ Con MLflow Tracking puede conectar Azure Machine Learning como back-end de los e
 
 Más información en [Seguimiento de modelos de Machine Learning con MLflow y Azure Machine Learning](how-to-use-mlflow.md). 
 
-## <a name="train-mlflow-projects"></a>Entrenamiento de proyectos de MLflow
+## <a name="train-mlflow-projects-preview"></a>Entrenamiento de proyectos de MLflow (versión preliminar)
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 Puede usar el URI de seguimiento y la API de registro de MLflow, que colectivamente se conocen como MLflow Tracking, para enviar trabajos de entrenamiento con [proyectos de MLflow](https://www.mlflow.org/docs/latest/projects.html) y compatibilidad de back-end con Azure Machine Learning (versión preliminar). Puede enviar trabajos localmente con el seguimiento de Azure Machine Learning o migrar las ejecuciones a la nube, por ejemplo, a través de un [Proceso de Azure Machine Learning](./how-to-create-attach-compute-cluster.md).
 
-Más información en [Entrenamiento de modelos de Machine Learning con proyectos de MLflow y Azure Machine Learning](how-to-train-mlflow-projects.md).
-
+Obtenga más información en [Entrenamiento de modelos de Machine Learning con proyectos de MLflow y Azure Machine Learning (versión preliminar)](how-to-train-mlflow-projects.md).
 
 ## <a name="deploy-mlflow-experiments"></a>Implementación de experimentos de MLflow
 
@@ -68,7 +69,7 @@ Puede [implementar el modelo de MLflow como servicio web de Azure](how-to-deploy
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Seguimiento de modelos de Machine Learning con MLflow y Azure Machine Learning](how-to-use-mlflow.md). 
-* [Entrenamiento de modelos de Machine Learning con proyectos de MLflow y Azure Machine Learning](how-to-train-mlflow-projects.md).
+* [Entrenamiento de modelos de Machine Learning con MLflow y Azure Machine Learning (versión preliminar)](how-to-train-mlflow-projects.md).
 * [Seguimiento de las ejecuciones de Azure Databricks con MLflow](how-to-use-mlflow-azure-databricks.md).
 * [Implementación de modelos con MLflow](how-to-deploy-mlflow-models.md).
 

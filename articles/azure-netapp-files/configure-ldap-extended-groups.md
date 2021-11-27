@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 11/11/2021
 ms.author: b-juche
-ms.openlocfilehash: 79bd8ca1855391365bfc33c7a259d1a984ce139c
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 1619ca5932e9be06261a273d640139b1a9c499be
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131447063"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709811"
 ---
 # <a name="configure-adds-ldap-with-extended-groups-for-nfs-volume-access"></a>Configuración de ADDS LDAP con grupos extendidos para el acceso a volúmenes NFS
 
@@ -97,11 +97,17 @@ En este artículo se explican las consideraciones y pasos para habilitar LDAP co
 
 5. Si quiere configurar un cliente Linux NFSv4.1 integrado con LDAP, consulte [Configuración de un cliente NFS para Azure NetApp Files](configure-nfs-clients.md).
 
-6.  Siga los pasos de [Creación de un volumen NFS para Azure NetApp Files](azure-netapp-files-create-volumes.md) para crear el volumen de NFS. Durante el proceso de creación del volumen, en la pestaña **Protocolo**, habilite la opción **LDAP**.   
+6. Si los volúmenes habilitados para LDAP usan NFSv4.1, siga las instrucciones de [Configuración del dominio NFSv4.1](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-domain) para configurar el archivo `/etc/idmapd.conf`.
+
+    Debe establecer `Domain` en `/etc/idmapd.conf` que está el dominio configurado en la conexión de Active Directory de la cuenta de NetApp. Por ejemplo, si `contoso.com` es el dominio configurado en la cuenta de NetApp, establezca `Domain = contoso.com`.
+
+    A continuación, debe reiniciar el servicio `rpcbind` en el host o reiniciarlo. 
+
+7.  Siga los pasos de [Creación de un volumen NFS para Azure NetApp Files](azure-netapp-files-create-volumes.md) para crear el volumen de NFS. Durante el proceso de creación del volumen, en la pestaña **Protocolo**, habilite la opción **LDAP**.   
 
     ![Captura de pantalla que muestra la página Crear un volumen con la opción LDAP.](../media/azure-netapp-files/create-nfs-ldap.png)  
 
-7. Opcional: puede habilitar usuarios del cliente NFS locales que no estén presentes en el servidor LDAP de Windows para que accedan a un volumen NFS que tenga habilitado LDAP con grupos extendidos. Para ello, habilite la opción **Permitir usuarios locales de NFS con LDAP** de la siguiente manera:
+8. Opcional: puede habilitar usuarios del cliente NFS locales que no estén presentes en el servidor LDAP de Windows para que accedan a un volumen NFS que tenga habilitado LDAP con grupos extendidos. Para ello, habilite la opción **Permitir usuarios locales de NFS con LDAP** de la siguiente manera:
     1. Haga clic en **Conexiones de Active Directory**.  En una conexión de Active Directory existente, haga clic en el menú contextual (los tres puntos `…`) y seleccione **Editar**.  
     2. En la ventana **Edit Active Directory settings** (Editar configuración de Active Directory) que aparece, seleccione la opción **Permitir usuarios locales de NFS con LDAP**.  
 
@@ -111,4 +117,5 @@ En este artículo se explican las consideraciones y pasos para habilitar LDAP co
 
 * [Creación de un volumen de NFS para Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Creación y administración de conexiones de Active Directory](create-active-directory-connections.md)
+* [Configuración del dominio de NFSv4.1](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-domain)
 * [Solución de errores de volúmenes de Azure NetApp Files](troubleshoot-volumes.md)

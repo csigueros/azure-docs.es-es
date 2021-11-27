@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/21/2021
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 94b3056f6766be37451a5d309243592eb31256dd
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: fc011db6e36ab3d9f6ae2c3e7dff0e08b6048172
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132488437"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132716602"
 ---
 # <a name="how-to-use-language-identification"></a>Uso de la identificación del idioma
 
@@ -342,7 +342,7 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 ::: zone-end
 
 
-## <a name="use-a-custom-model-for-language-identification"></a>Uso de un modelo personalizado para la identificación del idioma
+## <a name="use-language-detection-with-a-custom-speech-to-text-model"></a>Uso de la detección de idioma con un modelo personalizado de conversión de voz en texto
 
 Además de la identificación del idioma mediante los modelos base del servicio de Voz, puede especificar un modelo personalizado para mejor reconocimiento. Si no se proporciona un modelo personalizado, el servicio utilizará el modelo de lenguaje predeterminado.
 

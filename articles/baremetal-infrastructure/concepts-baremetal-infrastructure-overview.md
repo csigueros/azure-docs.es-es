@@ -4,12 +4,12 @@ description: Ofrece información general sobre BareMetal Infrastructure en Azure
 ms.custom: references_regions
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.openlocfilehash: 744378fc00bc443fdae3babefdf626eacbf486e7
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: cbbca3fa9a89a2eedd1951724bad81b88305932c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154876"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707467"
 ---
 #  <a name="what-is-baremetal-infrastructure-on-azure"></a>¿Qué es BareMetal Infrastructure en Azure?
 
@@ -21,7 +21,7 @@ BareMetal Infrastructure está formado por instancias de BareMetal dedicadas (in
  
 Este entorno también tiene VLAN especiales a las que puede acceder si ejecuta máquinas virtuales (VM) en una o varias redes virtuales (VNet) de Azure en su suscripción de Azure. Todo el entorno se representa como un grupo de recursos en la suscripción de Azure.
 
-BareMetal Infrastructure se ofrece en más de 30 SKU de servidores de 2 sockets a 24 sockets y en una memoria que oscila entre 1,5 TB y 24 TB. También hay disponible un gran conjunto de SKU con la memoria Octane. Azure ofrece la mayor variedad de instancias sin sistema operativo en una nube de hiperescala.
+BareMetal Infrastructure se ofrece en más de 30 SKU de servidores de 2 sockets a 24 sockets y en una memoria que oscila entre 1,5 TB y 24 TB. También hay disponible un gran conjunto de SKU con la memoria Optane. Azure ofrece la mayor variedad de instancias sin sistema operativo en una nube de hiperescala.
 
 ## <a name="why-baremetal-infrastructure"></a>Motivo para usar BareMetal Infrastructure  
 
@@ -74,7 +74,7 @@ BareMetal Infrastructure para cargas de trabajo especializadas está disponible 
 
 En función de sus necesidades, las topologías de aplicaciones de BareMetal Infrastructure pueden ser complejas. Puede implementar varias instancias en una o varias ubicaciones. Las instancias pueden tener almacenamiento compartido o dedicado, aparte de conexiones LAN y WAN especializadas. Por lo tanto, para BareMetal Infrastructure, Azure ofrece una consulta por un CSA o GBB en el campo para trabajar con usted. 
 
-Cuando se aprovisiona BareMetal Infrastructure, el sistema operativo, las redes, los volúmenes de almacenamiento, las ubicaciones en zonas y regiones y las conexiones WAN entre ubicaciones ya están preconfigurados. Puede registrar las licencias del sistema operativo (BYOL), configurar el sistema operativo e instalar el nivel de aplicación.
+Cuando se aprovisiona BareMetal Infrastructure, el sistema operativo, las redes, los volúmenes de almacenamiento, las ubicaciones en zonas y regiones y las conexiones WAN entre ubicaciones ya están configurados. Puede registrar las licencias del sistema operativo (BYOL), configurar el sistema operativo e instalar el nivel de aplicación.
 
 Podrá ver todos los recursos de BareMetal, así como su estado y sus atributos, en Azure Portal. Desde ahí, también puede operar las instancias y abrir solicitudes de servicio e incidencias de soporte técnico. 
 

@@ -8,12 +8,12 @@ ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/16/2021
-ms.openlocfilehash: 0a63e0f346fedac9b7178f25a19177a9908bc6a4
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: cf523879cd4bf5279d7c07d094ef6f24069c2c0b
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130223014"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709071"
 ---
 # <a name="create-a-snapshot-of-a-virtual-hard-disk"></a>Creación de una instantánea de un disco duro virtual
 
@@ -74,7 +74,7 @@ En primer lugar, usará el cmdlet [New-AzSnapshotConfig](/powershell/module/az.c
        -CreateOption copy
    ```
 
-   Si desea almacenar la instantánea en un almacenamiento resistente a zonas, debe crearla en una región que admita [zonas de disponibilidad](/azure/availability-zones/az-overview e incluir el parámetro `-SkuName Standard_ZRS`. Para obtener una lista de regiones que admiten zonas de disponibilidad, consulte [Regiones de Azure con Availability Zones](../availability-zones/az-region.md#azure-regions-with-availability-zones).
+   Si desea almacenar la instantánea en un almacenamiento resistente a zonas, debe crearla en una región que admita [zonas de disponibilidad](../availability-zones/az-overview.md e incluir el parámetro `-SkuName Standard_ZRS`. Para obtener una lista de regiones que admiten zonas de disponibilidad, consulte [Regiones de Azure con Availability Zones](../availability-zones/az-region.md#azure-regions-with-availability-zones).
 
 1. Tome la instantánea.
 

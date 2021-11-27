@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 41610bb956273fa69119d6b87a016072a5e4faa2
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f0447d886906bc1632f51ecaf1769de2d5679bd5
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749886"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704930"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Uso de funcionalidades sin conexión ampliadas en dispositivos, módulos y dispositivos secundarios IoT Edge
 
@@ -60,7 +60,7 @@ Los dispositivos de IoT Edge y los dispositivos secundarios asignados pueden fun
 
 ## <a name="set-up-parent-and-child-devices"></a>Configuración de dispositivos principales y secundarios
 
-Los dispositivos principales pueden tener varios dispositivos secundarios, pero un dispositivo secundario solo puede tener un dispositivo principal.
+De forma predeterminada, un dispositivo primario puede tener hasta 100 elementos secundarios. Puede cambiar este límite estableciendo la variable de entorno **MaxConnectedClients** en el módulo edgeHub. Un dispositivo secundario solo tiene un elemento primario.
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"

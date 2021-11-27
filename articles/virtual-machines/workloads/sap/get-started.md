@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/02/2021
+ms.date: 11/16/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c8d53392a48c821cb126e729f8e29bf7c686b3d
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 73e1f58073c92ba8a0631d4ee7136de3bac5e114
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131441084"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132549553"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso de Azure para hospedar y ejecutar escenarios de carga de trabajo de SAP
 
@@ -80,7 +80,7 @@ En esta sección encontrará información sobre cómo configurar el inicio de se
 En esta sección encontrará documentos sobre la integración de Microsoft Power BI en orígenes de datos de SAP, así como la integración de Azure Data Factory en SAP BW.
 
 ## <a name="change-log"></a>Registro de cambios
-- 
+- 16 de noviembre de 2021: publicación de guías de alta disponibilidad para SAP ASCS/ERS con NFS en archivos de Azure de[alta disponibilidad para SAP NW en SLES con NFS en Azure Files](./high-availability-guide-suse-nfs-azure-files.md) y [alta disponibilidad para SAP NW en RHEL con NFS en Azure Files](./high-availability-guide-rhel-nfs-azure-files.md). 
 - 2 de noviembre de 2021: se han cambiado los [tipos de Azure Storage para la carga de trabajo de SAP](./planning-guide-storage.md) y la [implementación de DBMS de Azure Virtual Machines de la instancia de ASE de SAP para la carga de trabajo de SAP](./dbms_guide_sapase.md) para declarar la compatibilidad de la instancia de ASE de SAP con NFS en Azure NetApp Files.
 - 2 de noviembre de 2021: se han cambiado las [configuraciones de la carga de trabajo de SAP con Azure Availability Zones](./sap-ha-availability-zones.md) para mover Singapur SouthEast a regiones para configuraciones activo/activo.
 - 2 de noviembre de 2021: cambio en la [alta disponibilidad de SAP HANA en máquinas virtuales de Azure en Red Hat Enterprise Linux](./sap-hana-high-availability-rhel.md) para actualizar las instrucciones para la configuración del escalado vertical activo/activo (lectura habilitada) de HANA.

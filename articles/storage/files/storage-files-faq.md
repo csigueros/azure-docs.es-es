@@ -7,12 +7,12 @@ ms.date: 11/5/2021
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 636fd6e0ee1a259d132c84a55cae078a3fbaa0c5
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: ae679f5f5f70b684a7b587babc3d1492170267c9
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/16/2021
-ms.locfileid: "132524367"
+ms.locfileid: "132554529"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) le ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede obtener acceso mediante el protocolo [Bloque de mensajes del servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) estándar y el protocolo [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System). Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -361,6 +361,17 @@ La sincronización inicial suele estar limitada por la velocidad de carga inicia
  **¿Puedo migrar datos existentes a un recurso compartido NFS?**
 
     Dentro de una región, puede usar herramientas estándar como scp, rsync o SSHFS para mover los datos. Dado que se puede tener acceso a NFS de Azure Files desde varias instancias de proceso al mismo tiempo, se pueden mejorar las velocidades de copia con cargas paralelas. Si desea traer datos de fuera de una región, use una VPN o Expressroute para montar en el sistema de archivos desde el centro de datos local.
+    
+* <a id=nfs-ibm-mq-support></a>
+ **¿Puede ejecutar IBM MQ (incluidas las instancias múltiples) en Azure Files NFS?**
+    * Los recursos compartidos de Azure Files NFS v4.1 cumplen los tres requisitos establecidos por IBM MQ
+       - https://www.ibm.com/docs/en/ibm-mq/9.2?topic=multiplatforms-requirements-shared-file-systems
+          + Integridad de escritura de datos
+          + Acceso exclusivo garantizado a los archivos
+          + Liberación de bloqueos en caso de error
+    * Los siguientes casos de prueba se ejecutan correctamente
+        1. https://www.ibm.com/docs/en/ibm-mq/9.2?topic=multiplatforms-verifying-shared-file-system-behavior
+        2. https://www.ibm.com/docs/en/ibm-mq/9.2?topic=multiplatforms-running-amqsfhac-test-message-integrity
 
 ## <a name="on-premises-access"></a>Acceso local
 

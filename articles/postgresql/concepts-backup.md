@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/29/2021
-ms.openlocfilehash: 585a2cf1a3dcbc1c45ae40b728b28ece505efee3
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 11/08/2021
+ms.openlocfilehash: 7c4508b8fc0ca1a62d550058ca7ff3a1616ec2db
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110788372"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132713504"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Copia de seguridad y restauración en Azure Database for PostgreSQL con un único servidor
 
@@ -110,7 +110,8 @@ Durante la restauración geográfica, las configuraciones de servidor que se pue
 
 Cuando efectúe la restauración con cualquiera de los mecanismos de recuperación, deberá realizar las siguientes tareas para que los usuarios y las aplicaciones vuelvan a conectarse:
 
-- Si el nuevo servidor está destinado a reemplazar al original, redirija a los clientes y las aplicaciones cliente al nuevo servidor. También puede cambiar también el nombre de usuario a `username@new-restored-server-name`.
+- Para acceder al servidor restaurado, dado que tiene un nombre diferente al servidor original, cambie el nombre del servidor por el nombre del servidor restaurado y el nombre de usuario por `username@new-restored-server-name` en la cadena de conexión.
+- Si el nuevo servidor está destinado a reemplazar al original, redirija a los clientes y las aplicaciones cliente al nuevo servidor. 
 - Asegúrese de aplicar reglas de red virtual y de firewall de nivel de servidor adecuadas para que se conecten los usuarios. Estas reglas no se copian desde el servidor original.
 - No se olvide de emplear los permisos de nivel de base de datos y los inicios de sesión apropiados.
 - Configure las alertas según corresponda.

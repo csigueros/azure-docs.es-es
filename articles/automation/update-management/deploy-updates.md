@@ -3,14 +3,14 @@ title: Creación de implementaciones de actualizaciones para Update Management e
 description: En este artículo se describe cómo programar implementaciones de actualizaciones y revisar su estado.
 services: automation
 ms.subservice: update-management
-ms.date: 08/25/2021
+ms.date: 11/05/2021
 ms.topic: conceptual
-ms.openlocfilehash: 993fcf45b983fef972a7201b4ffed60e8da99555
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 6830c06de1fc687f8c408d438086f6c08550d9f0
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715077"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551413"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Implementación de actualizaciones y revisión de los resultados
 
@@ -98,7 +98,7 @@ Para programar una implementación de actualizaciones nueva, siga estos pasos. E
 
    * Si solo quiere instalar una lista específica de actualizaciones, no debe seleccionar ninguna **clasificación de actualizaciones** y proporcionar una lista de las actualizaciones que se aplicarán mediante la opción **Incluir**.
 
-   * Si quiere instalar solo actualizaciones críticas y de seguridad, junto con una o varias actualizaciones de controladores opcionales, debe seleccionar **Seguridad** y **Crítica** en **Clasificaciones de actualizaciones**. A continuación, en la opción **Incluir**, especifique las actualizaciones del controlador.
+   * Si quiere instalar solo actualizaciones críticas y de seguridad, junto con una o varias actualizaciones opcionales, debe seleccionar **Seguridad** y **Crítica** en **Clasificaciones de actualizaciones**. A continuación, en la opción **Incluir**, especifique los KBID para las actualizaciones opcionales.
 
    * Si quiere instalar solo actualizaciones críticas y de seguridad, pero si quiere omitir una o varias actualizaciones para Python y así evitar que se rompa la aplicación heredada, debe seleccionar **Seguridad** y **Crítica** en **Clasificaciones de actualizaciones**. A continuación, para la opción **Excluir**, agregue los paquetes de Python que se omitirán.
 

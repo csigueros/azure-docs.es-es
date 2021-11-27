@@ -3,17 +3,17 @@ title: Creación de asignaciones de licencia de SQL Server para Ventaja híbrid
 description: En este artículo se explica cómo crear asignaciones de licencia de SQL Server para Ventaja híbrida de Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/30/2021
+ms.date: 11/11/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: ahb
 ms.reviewer: chrisri
-ms.openlocfilehash: e97c4a51366dbfd2c9016de4684129a91df0cbe9
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: e9ac5023807f435c20ddeceb097e5dce43316eae
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130218946"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132708508"
 ---
 # <a name="create-sql-server-license-assignments-for-azure-hybrid-benefit"></a>Creación de asignaciones de licencia de SQL Server para Ventaja híbrida de Azure
 
@@ -50,33 +50,34 @@ En el procedimiento siguiente, vaya de **Cost Management + Billing** a **Reserva
 
 1. Inicie sesión en Azure Portal y vaya a **Cost Management + Billing**.  
     :::image type="content" source="./media/create-sql-license-assignments/select-cost-management.png" alt-text="Captura de pantalla que muestra la navegación de Azure Portal a Cost Management + Billing." lightbox="./media/create-sql-license-assignments/select-cost-management.png" :::
- 2. Si tiene un Contrato Enterprise, seleccione un ámbito de facturación.  
-    :::image type="content" source="./media/create-sql-license-assignments/select-billing-scope.png" alt-text="Captura de pantalla que muestra la selección del ámbito de facturación de EA." lightbox="./media/create-sql-license-assignments/select-billing-scope.png" :::
- 3. Si tiene un Contrato de cliente de Microsoft, seleccione un perfil de facturación.  
-    :::image type="content" source="./media/create-sql-license-assignments/select-billing-profile.png" alt-text="Captura de pantalla que muestra la selección del perfil de facturación." lightbox="./media/create-sql-license-assignments/select-billing-profile.png" :::
- 4. En el menú izquierdo seleccione **Reservas + Ventaja híbrida**.  
+1. Use uno de los dos pasos siguientes, en función del tipo de contrato:
+    - Si tiene un Contrato Enterprise, seleccione un ámbito de facturación.  
+        :::image type="content" source="./media/create-sql-license-assignments/select-billing-scope.png" alt-text="Captura de pantalla que muestra la selección del ámbito de facturación de EA." lightbox="./media/create-sql-license-assignments/select-billing-scope.png" :::
+    - Si tiene un Contrato de cliente de Microsoft, seleccione un perfil de facturación.  
+        :::image type="content" source="./media/create-sql-license-assignments/select-billing-profile.png" alt-text="Captura de pantalla que muestra la selección del perfil de facturación." lightbox="./media/create-sql-license-assignments/select-billing-profile.png" :::
+1. En el menú izquierdo seleccione **Reservas + Ventaja híbrida**.  
     :::image type="content" source="./media/create-sql-license-assignments/select-reservations.png" alt-text="Captura de pantalla que muestra la selección de Reservas + Ventaja híbrida."  :::
- 5. Seleccione **Agregar** y, en la lista, seleccione **Ventaja híbrida de Azure (versión preliminar)** .  
+1. Seleccione **Agregar** y, en la lista, seleccione **Ventaja híbrida de Azure (versión preliminar)** .  
     :::image type="content" source="./media/create-sql-license-assignments/select-azure-hybrid-benefit.png" alt-text="Captura de pantalla que muestra la selección de Ventaja híbrida de Azure." lightbox="./media/create-sql-license-assignments/select-azure-hybrid-benefit.png" :::
- 6. En la siguiente pantalla seleccione **Begin to assign licenses** (Comenzar a asignar licencias).  
+1. En la siguiente pantalla seleccione **Begin to assign licenses** (Comenzar a asignar licencias).  
     :::image type="content" source="./media/create-sql-license-assignments/get-started-centralized.png" alt-text="Captura de pantalla que muestra la selección de Ventaja híbrida de SQL." lightbox="./media/create-sql-license-assignments/get-started-centralized.png" :::
- 7. Seleccione un ámbito y escriba el número de licencias que se va a usar para cada edición de SQL Server. Si no tiene licencias que asignar a una edición concreta, escriba cero.  
+1. Seleccione un ámbito y escriba el número de licencias que se va a usar para cada edición de SQL Server. Si no tiene licencias que asignar a una edición concreta, escriba cero.  
     > [!NOTE]
     > Es responsable de determinar que las entradas que realiza en la experiencia de licencia administrada de nivel de ámbito sean precisas y cumplan las obligaciones de licencia. Se muestra información de uso de licencias para ayudarle a realizar las asignaciones de licencia. Pero la información mostrada podría ser incompleta o inexacta debido a varios factores.
     >
     > Si el número de licencias que especifica es menor que el que está usando actualmente, se ve un mensaje de advertencia que indica que _ha especificado menos licencias de las que usa actualmente para Ventaja híbrida de Azure en este ámbito y la factura de este ámbito va a aumentar_.  
     
     :::image type="content" source="./media/create-sql-license-assignments/select-assignment-scope-edition.png" alt-text="Captura de pantalla que muestra la selección del ámbito y el número de licencias." lightbox="./media/create-sql-license-assignments/select-assignment-scope-edition.png" :::
- 8. Opcionalmente, seleccione la pestaña **Detalles de uso** para ver el uso de Ventaja híbrida de Azure actual habilitado en el ámbito del recurso.  
+1. Opcionalmente, seleccione la pestaña **Detalles de uso** para ver el uso de Ventaja híbrida de Azure actual habilitado en el ámbito del recurso.  
     :::image type="content" source="./media/create-sql-license-assignments/select-assignment-scope-edition-usage.png" alt-text="Captura de pantalla que muestra la pestaña Detalles de uso." lightbox="./media/create-sql-license-assignments/select-assignment-scope-edition-usage.png" :::
- 9. Seleccione **Agregar**.
-10. Opcionalmente, cambie el nombre predeterminado de asignación de licencia. La fecha de revisión se establece automáticamente en un año y no se puede cambiar. Su finalidad es recordarle que revise periódicamente las asignaciones de licencia.  
+1. Seleccione **Agregar**.
+1. Opcionalmente, cambie el nombre predeterminado de asignación de licencia. La fecha de revisión se establece automáticamente en un año y no se puede cambiar. Su finalidad es recordarle que revise periódicamente las asignaciones de licencia.  
     :::image type="content" source="./media/create-sql-license-assignments/license-assignment-commit.png" alt-text="Captura de pantalla que muestra el nombre de asignación de licencia predeterminado." lightbox="./media/create-sql-license-assignments/license-assignment-commit.png" :::
-11. Después de revisar las selecciones, seleccione **Siguiente: Revisar y aplicar**.
-12. Seleccione la opción de atestación **Al seleccionar &quot;Aplicar&quot;** para confirmar que tiene autoridad para aplicar Ventaja híbrida de Azure, suficientes licencias de SQL Server y que va a mantener las licencias mientras estén asignadas.  
+1. Después de revisar las selecciones, seleccione **Siguiente: Revisar y aplicar**.
+1. Seleccione la opción de atestación **Al seleccionar &quot;Aplicar&quot;** para confirmar que tiene autoridad para aplicar Ventaja híbrida de Azure, suficientes licencias de SQL Server y que va a mantener las licencias mientras estén asignadas.  
     :::image type="content" source="./media/create-sql-license-assignments/confirm-apply-attestation.png" alt-text="Captura de pantalla que muestra la opción de atestación." lightbox="./media/create-sql-license-assignments/confirm-apply-attestation.png" :::
-13. Seleccione **Aplicar** y luego **Sí**.
-14. Se muestra la lista de licencias asignadas.  
+1. Seleccione **Aplicar** y luego **Sí**.
+1. Se muestra la lista de licencias asignadas.  
     :::image type="content" source="./media/create-sql-license-assignments/assigned-licenses.png" alt-text="Captura de pantalla que muestra la lista de licencias asignadas." lightbox="./media/create-sql-license-assignments/assigned-licenses.png" ::: 
 
 ## <a name="track-assigned-license-use"></a>Seguimiento del uso de licencias asignadas

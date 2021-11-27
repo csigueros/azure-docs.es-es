@@ -9,21 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 11/05/2020
+ms.date: 11/16/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1b237e8347a6a9238dfef505993410413537324
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1a426859cd0450b54d71e277b54f64f41f14ecf5
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131057198"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714929"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Roles de administrador por tarea de administrador en Azure Active Directory
 
 En este artículo, puede encontrar la información necesaria para restringir los permisos de administrador de un usuario mediante la asignación de roles con privilegios mínimos en Azure Active Directory (Azure AD). Encontrará las tareas de administrador organizadas por área de características y el rol con privilegios mínimos necesario para realizar cada tarea, junto con roles de administrador no global que pueden realizar la tarea.
+
+Puede restringir aún más los permisos mediante la asignación de roles en ámbitos más pequeños o mediante la creación de sus propios roles personalizados. Para obtener más información, consulte [Asignación de roles de Azure AD en diferentes ámbitos](assign-roles-different-scopes.md) o [Creación y asignación un rol personalizado](custom-create.md).
 
 ## <a name="application-proxy"></a>Proxy de aplicación
 
@@ -101,17 +103,17 @@ En este artículo, puede encontrar la información necesaria para restringir los
 > | Tarea | Rol con privilegios mínimos | Roles adicionales |
 > | ---- | --------------------- | ---------------- |
 > | Agregar o eliminar servicios | Propietario ([consulte la documentación](../hybrid/how-to-connect-health-operations.md)) |  |
-> | Aplicar correcciones de errores de sincronización | Colaborador ([consulte la documentación](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Propietario |
-> | Configuración de notificaciones | Colaborador ([consulte la documentación](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Propietario |
+> | Aplicar correcciones de errores de sincronización | Colaborador ([consulte la documentación](../fundamentals/users-default-permissions.md)) | Propietario |
+> | Configuración de notificaciones | Colaborador ([consulte la documentación](../fundamentals/users-default-permissions.md)) | Propietario |
 > | Definición de configuración | Propietario ([consulte la documentación](../hybrid/how-to-connect-health-operations.md)) |  |
-> | Configurar notificaciones de sincronización | Colaborador ([consulte la documentación](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Propietario |
+> | Configurar notificaciones de sincronización | Colaborador ([consulte la documentación](../fundamentals/users-default-permissions.md)) | Propietario |
 > | Leer informes de seguridad de ADFS | Lector de seguridad | Colaborador<br/>Propietario
-> | Leer toda la configuración | Lector ([consulte la documentación](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Colaborador<br/>Propietario |
-> | Leer errores de sincronización | Lector ([consulte la documentación](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Colaborador<br/>Propietario |
-> | Leer servicios de sincronización | Lector ([consulte la documentación](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Colaborador<br/>Propietario |
-> | Ver métricas y alertas | Lector ([consulte la documentación](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Colaborador<br/>Propietario |
-> | Ver métricas y alertas | Lector ([consulte la documentación](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Colaborador<br/>Propietario |
-> | Ver métricas y alertas del servicio de sincronización | Lector ([consulte la documentación](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Colaborador<br/>Propietario |
+> | Leer toda la configuración | Lector ([consulte la documentación](../fundamentals/users-default-permissions.md)) | Colaborador<br/>Propietario |
+> | Leer errores de sincronización | Lector ([consulte la documentación](../fundamentals/users-default-permissions.md)) | Colaborador<br/>Propietario |
+> | Leer servicios de sincronización | Lector ([consulte la documentación](../fundamentals/users-default-permissions.md)) | Colaborador<br/>Propietario |
+> | Ver métricas y alertas | Lector ([consulte la documentación](../fundamentals/users-default-permissions.md)) | Colaborador<br/>Propietario |
+> | Ver métricas y alertas | Lector ([consulte la documentación](../fundamentals/users-default-permissions.md)) | Colaborador<br/>Propietario |
+> | Ver métricas y alertas del servicio de sincronización | Lector ([consulte la documentación](../fundamentals/users-default-permissions.md)) | Colaborador<br/>Propietario |
 
 ## <a name="custom-domain-names"></a>Nombres de dominio personalizados
 
@@ -392,5 +394,7 @@ En este artículo, puede encontrar la información necesaria para restringir los
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Asignación o eliminación de roles de administrador de Azure AD](manage-roles-portal.md)
-* [Roles integrados de Azure AD](permissions-reference.md)
+- [Asignación de roles de Azure AD a usuarios](manage-roles-portal.md)
+- [Asignación de roles de Azure AD en distintos ámbitos](assign-roles-different-scopes.md)
+- [Creación y asignación de un rol personalizado en Azure Active Directory](custom-create.md)
+- [Roles integrados de Azure AD](permissions-reference.md)

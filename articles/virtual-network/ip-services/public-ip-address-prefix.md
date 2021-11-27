@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 05/20/2021
 ms.author: allensu
-ms.openlocfilehash: eba531dd0fa0c2b417119e059f174e2807b3b341
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: b2daa54bb17c5eb455be739062c251ed14a0ad13
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130224994"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132707873"
 ---
 # <a name="public-ip-address-prefix"></a>Prefijo de dirección IP pública
 
@@ -53,7 +53,7 @@ Además, determinados recursos pueden usar directamente el recurso de prefijo de
 
 Resource|Escenario|Pasos|
 |---|---|---|
-|Conjuntos de escalado de máquinas virtuales | Puede usar un prefijo de dirección IP pública para generar direcciones IP de nivel de instancia en un conjunto de escalado de máquinas virtuales, aunque no se crearán recursos de IP pública individuales. | Use una [plantilla](https://azure.microsoft.com/resources/templates/vmms-with-public-ip-prefix/) con instrucciones para usar este prefijo para la configuración de IP públicas como parte de la creación del conjunto de escalado. |
+|Conjuntos de escalado de máquinas virtuales | Puede usar un prefijo de dirección IP pública para generar direcciones IP de nivel de instancia en un conjunto de escalado de máquinas virtuales, aunque no se crearán recursos de IP pública individuales. | Use una [plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-with-public-ip-prefix) con instrucciones para usar este prefijo para la configuración de IP públicas como parte de la creación del conjunto de escalado. (Tenga en cuenta que las propiedades zonales del prefijo se pasarán a las IP de instancia, aunque no se mostrarán en la salida; consulte [Redes para conjuntos de escalado de máquinas virtuales](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) para obtener más información). |
 | Equilibradores de carga estándar | Se puede usar un prefijo de dirección IP pública para escalar un equilibrador de carga [mediante todas las direcciones IP del intervalo para las conexiones salientes](../../load-balancer/outbound-rules.md#scale). | Para asociar un prefijo al equilibrador de carga: </br> 1. [Cree un prefijo.](manage-public-ip-address-prefix.md) </br> 2. Al crear el equilibrador de carga, seleccione el prefijo IP asociado al front-end del equilibrador de carga. |
 | NAT Gateway | Se puede usar un prefijo de IP pública para escalar una puerta de enlace NAT mediante las direcciones IP públicas del prefijo para las conexiones salientes. | Para asociar un prefijo a su instancia de NAT Gateway: </br> 1. [Cree un prefijo.](manage-public-ip-address-prefix.md) </br> 2. Al crear la instancia de NAT Gateway, seleccione el prefijo IP como IP saliente. |
 | VPN Gateway (AZ SKU) o Application Gateway v2 | Puede usar una dirección IP pública de un prefijo para su VPN con redundancia de zona o Application Gateway v2. | Para asociar una dirección IP de un prefijo a su puerta de enlace: </br> 1. [Cree un prefijo.](manage-public-ip-address-prefix.md) </br> 2. [Cree una dirección IP del prefijo.](manage-public-ip-address-prefix.md) </br> 3. Al implementar [VPN Gateway](../../vpn-gateway/tutorial-create-gateway-portal.md) o [Application Gateway](../../application-gateway/quick-create-portal.md#create-an-application-gateway), asegúrese de seleccionar la dirección IP que proporcionó anteriormente desde el prefijo.|

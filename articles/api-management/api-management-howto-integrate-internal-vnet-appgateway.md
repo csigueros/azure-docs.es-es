@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.author: danlep
 ms.date: 06/10/2021
 ms.custom: devx-track-azurepowershell,contperf-fy21q4
-ms.openlocfilehash: 05767ffb0487964780ab25ec56fd586451066ac3
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 793216ac8c411fbde6db5d044d345f1de98af17a
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129615360"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710351"
 ---
 # <a name="integrate-api-management-in-an-internal-virtual-network-with-application-gateway"></a>Integración de API Management en una red virtual interna con Application Gateway
 
@@ -438,6 +438,8 @@ $managementRule = New-AzApplicationGatewayRequestRoutingRule -Name "managementru
 
 Configuración del número de instancias y el tamaño de la puerta de enlace de aplicaciones En este ejemplo, usamos la [SKU WAF_v2](../web-application-firewall/ag/ag-overview.md) para aumentar la seguridad del recurso de API Management.
 
+Se recomienda usar un mínimo de dos instancias (_capacidad_) para las cargas de trabajo de producción. Sin embargo, es posible que quiera usar solo una instancia para escenarios que no sean de producción o para la experimentación general. Para obtener más información, consulte [Precios de Azure Application Gateway](../application-gateway/understanding-pricing.md#instance-count).
+
 ```powershell
 $sku = New-AzApplicationGatewaySku -Name "WAF_v2" -Tier "WAF_v2" -Capacity 2
 ```
@@ -448,6 +450,14 @@ Configuración de WAFS para que esté en modo "Prevención".
 
 ```powershell
 $config = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
+```
+
+### <a name="step-13"></a>Paso 13
+
+Dado que TLS 1.0 actualmente es el valor predeterminado, es una buena idea establecer la puerta de enlace de aplicaciones para que use la [directiva de TLS 1.2](../application-gateway/application-gateway-ssl-policy-overview.md#appgwsslpolicy20170401s) más reciente.
+
+```powershell
+$policy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
 ```
 
 ## <a name="create-application-gateway"></a>Creación de la puerta de enlace de aplicaciones
@@ -463,7 +473,8 @@ $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $resGroupN
   -HttpListeners $gatewayListener,$portalListener,$managementListener `
   -RequestRoutingRules $gatewayRule,$portalRule,$managementRule `
   -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $certGateway,$certPortal,$certManagement `
-  -TrustedRootCertificate $trustedRootCert -Probes $apimGatewayProbe,$apimPortalProbe,$apimManagementProbe
+  -TrustedRootCertificate $trustedRootCert -Probes $apimGatewayProbe,$apimPortalProbe,$apimManagementProbe `
+  -SslPolicy $policy
 ```
 
 Una vez completada la implementación de Application Gateway, confirme el estado de mantenimiento de los back-end de API Management en el portal o ejecute el siguiente comando:

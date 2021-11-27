@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2021
+ms.date: 11/16/2021
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee25c39514146ddf9e7489868c24b656211115a6
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: 232302ade2276ce12e1d4198d2955265b1d5ab6a
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132398428"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714416"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -68,7 +68,7 @@ Anteriormente, ya se ha anunciado que a partir del 31 de octubre de 2021, la [
 **Categoría del servicio:** Acceso condicional  
 **Funcionalidad del producto:** Experiencias de usuario final
  
-Si no hay ninguna relación de confianza entre un inquilino principal y un inquilino de recursos, se habría pedido previamente a un usuario invitado que volviera a registrar su dispositivo, lo que interrumpiría el registro anterior. Sin embargo, el usuario terminaría en un bucle de registro, ya que solo se admite el registro del dispositivo del inquilino principal. En este escenario concreto, en lugar de este bucle, hemos creado una página de bloqueo del acceso condicional. La página indica al usuario final que no puede obtener acceso a los recursos protegidos de acceso condicional como usuario invitado. [Más información](https://docs.microsoft.com/azure/active-directory/external-identities/b2b-quickstart-add-guest-users-portal#prerequisites).
+Si no hay ninguna relación de confianza entre un inquilino principal y un inquilino de recursos, se habría pedido previamente a un usuario invitado que volviera a registrar su dispositivo, lo que interrumpiría el registro anterior. Sin embargo, el usuario terminaría en un bucle de registro, ya que solo se admite el registro del dispositivo del inquilino principal. En este escenario concreto, en lugar de este bucle, hemos creado una página de bloqueo del acceso condicional. La página indica al usuario final que no puede obtener acceso a los recursos protegidos de acceso condicional como usuario invitado. [Más información](../external-identities/b2b-quickstart-add-guest-users-portal.md#prerequisites).
  
 ---
 
@@ -116,7 +116,7 @@ Los inicios de sesión marcados son una característica que aumentará la relaci
 **Categoría del servicio:** Administración y registro de dispositivos  
 **Funcionalidad del producto:** Administración del ciclo de vida de dispositivos
  
-La nueva característica Información general de dispositivos proporciona información útil sobre los dispositivos del inquilino. [Más información](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal).
+La nueva característica Información general de dispositivos proporciona información útil sobre los dispositivos del inquilino. [Más información](../devices/device-management-azure-portal.md).
  
 ---
 
@@ -175,7 +175,7 @@ Ahora se admite el inicio de sesión único (SSO) nativo y el acceso condicional
 **Categoría del servicio:** Mis aplicaciones  
 **Funcionalidad del producto:** Experiencias de usuario final
  
-Las aplicaciones que se han asignado recientemente al usuario se muestran con el indicador "nuevo". Cuando se inicia la aplicación o se actualiza la página, este indicador desaparece. [Más información](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+Las aplicaciones que se han asignado recientemente al usuario se muestran con el indicador "nuevo". Cuando se inicia la aplicación o se actualiza la página, este indicador desaparece. [Más información](/azure/active-directory/user-help/my-apps-portal-end-user-access).
  
 ---
 
@@ -185,7 +185,7 @@ Las aplicaciones que se han asignado recientemente al usuario se muestran con el
 **Categoría del servicio:** B2C: administración de identidades de consumidor  
 **Funcionalidad del producto:** B2B/B2C
  
-Los clientes de Azure AD B2C ahora pueden habilitar dominios personalizados para que sus usuarios finales se redirijan a un dominio de dirección URL personalizado para la autenticación. Esto se realiza a través de la integración con la funcionalidad de dominios personalizados de Azure Front Door. [Más información](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow).
+Los clientes de Azure AD B2C ahora pueden habilitar dominios personalizados para que sus usuarios finales se redirijan a un dominio de dirección URL personalizado para la autenticación. Esto se realiza a través de la integración con la funcionalidad de dominios personalizados de Azure Front Door. [Más información](../../active-directory-b2c/custom-domain.md?pivots=b2c-user-flow).
  
 ---
 
@@ -196,7 +196,7 @@ Los clientes de Azure AD B2C ahora pueden habilitar dominios personalizados par
 **Funcionalidad del producto:** Control de acceso
  
 
-Los usuarios con este rol pueden crear y administrar la lista de sitios de empresa necesaria para Internet Explorer en Microsoft Edge. Este rol concede permisos para crear, editar y publicar la lista de sitios y, además, permite el acceso para administrar incidencias de soporte técnico. [Más información](https://docs.microsoft.com/deployedge/edge-ie-mode-cloud-site-list-mgmt)
+Los usuarios con este rol pueden crear y administrar la lista de sitios de empresa necesaria para Internet Explorer en Microsoft Edge. Este rol concede permisos para crear, editar y publicar la lista de sitios y, además, permite el acceso para administrar incidencias de soporte técnico. [Más información](/deployedge/edge-ie-mode-cloud-site-list-mgmt)
  
 ---
 
@@ -655,15 +655,15 @@ Las directivas de métodos de autenticación de aplicaciones de MS Graph permite
  
 ---
 
-### <a name="public-preview----authentication-methods-nudge-to-download-microsoft-authenticator"></a>Versión preliminar pública: desplazamiento de los métodos de autenticación para descargar Microsoft Authenticator
+### <a name="public-preview----authentication-methods-registration-campaign-to-download-microsoft-authenticator"></a>Versión preliminar pública: campaña de registro de los métodos de autenticación para descargar Microsoft Authenticator
 
 **Tipo:** Nueva característica  
 **Categoría de servicio:** Aplicación Microsoft Authenticator  
 **Funcionalidad del producto:** Autenticación de usuarios
  
-La directiva de desplazamiento de Authenticator ayuda a los administradores a trasladar su organización a una posición más segura, al pedir a los usuarios que adopten la aplicación de Microsoft Authenticator. Antes de esta característica, los administradores no tenían forma de obligar a sus usuarios a configurar la aplicación. 
+La campaña de registro de Authenticator ayuda a los administradores a trasladar su organización a una posición más segura, al pedir a los usuarios que usen la aplicación Microsoft Authenticator. Antes de esta característica, los administradores no tenían forma de obligar a sus usuarios a configurar la aplicación. 
 
-El desplazamiento ofrece a los administradores la posibilidad de controlar el ámbito de los usuarios y grupos, incluyéndolos o excluyéndolos de la directiva con el fin de garantizar una adopción fluida en toda la organización. [Más información](../authentication/how-to-nudge-authenticator-app.md)
+La campaña de registro ofrece a los administradores la posibilidad de controlar el ámbito de los usuarios y grupos, incluyéndolos o excluyéndolos de la campaña de registro con el fin de garantizar una adopción fluida en toda la organización. [Más información](../authentication/how-to-mfa-registration-campaign.md)
  
 ---
 
@@ -1273,4 +1273,3 @@ La versión anterior de la API de PIM en `/privilegedaccess` seguirá funcionand
 Hace poco se ha introducido un nuevo rol: "Administrador de gobernanza de identidades". Este rol sustituirá a "Administrador de usuarios" a la hora de administrar catálogos y paquetes de acceso en la administración de derechos de Azure AD. Si ha asignado administradores al rol "Administrador de usuarios" o les ha hecho activar este rol para administrar paquetes de acceso en la administración de derechos de Azure AD, cambie al rol "Administrador de gobernanza de identidades". El rol Administrador de usuarios ya no proporciona derechos administrativos ni a los catálogos ni a los paquetes de acceso. [Más información](../governance/identity-governance-overview.md#appendix---least-privileged-roles-for-managing-in-identity-governance-features).
 
 ---
-

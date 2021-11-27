@@ -16,12 +16,12 @@ ms.date: 06/01/2021
 ms.author: pamela
 ms.custom: contperf-fy21q3
 ms.reviewer: mathoma
-ms.openlocfilehash: f698b4c9393d536152d7058115ab7d82ad29b151
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 54830fd4052e6121551d6246d6b325e6036b4800
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132298121"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551394"
 ---
 # <a name="checklist-best-practices-for-sql-server-on-azure-vms"></a>Lista de comprobación: Procedimientos recomendados de SQL Server en máquinas virtuales de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,6 +29,8 @@ ms.locfileid: "132298121"
 En este artículo se proporciona una lista de comprobación rápida como una serie de procedimientos recomendados e instrucciones para optimizar el rendimiento de SQL Server en máquinas virtuales (VM) de Azure. 
 
 Para obtener detalles completos, consulte otros artículos de esta serie: [Lista de comprobación](performance-guidelines-best-practices-checklist.md), [Tamaño de máquina virtual](performance-guidelines-best-practices-vm-size.md), [Almacenamiento](performance-guidelines-best-practices-storage.md), [Seguridad](security-considerations-best-practices.md), [Configuración de HADR](hadr-cluster-best-practices.md) y [Recopilación de la base de referencia](performance-guidelines-best-practices-collect-baseline.md). 
+
+Habilite [SQL Assessment para SQL Server en máquinas virtuales de Azure](sql-assessment-for-sql-vm.md) y SQL Server se evaluará con los procedimientos recomendados y los resultados conocidos que se muestran en la [página de administración de máquinas virtuales de SQL](manage-sql-vm-portal.md) de Azure Portal.
 
 
 ## <a name="overview"></a>Información general
@@ -173,5 +175,7 @@ Para obtener más información, vea los demás artículos de esta serie:
 - [Recopilación de la línea base](performance-guidelines-best-practices-collect-baseline.md)
 
 Para ver los procedimientos recomendados de seguridad, consulte [Consideraciones de seguridad para SQL Server en Azure Virtual Machines](security-considerations-best-practices.md).
+
+Considere la posibilidad de habilitar [SQL Assessment para SQL Server en máquinas virtuales de Azure](sql-assessment-for-sql-vm.md)
 
 Revise otros artículos sobre la máquina virtual de SQL Server en [Introducción a SQL Server en Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md). Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.yml).

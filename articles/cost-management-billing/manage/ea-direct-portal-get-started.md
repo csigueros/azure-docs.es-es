@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 11/16/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 731e311cc36c71c4a9b26e3aeb913ec67e342b37
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: bf238f43bca00a4f797f2acc65dc05a7e44030d4
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130270155"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718514"
 ---
 # <a name="get-started-with-the-azure-portal-for-direct-enterprise-agreement-customers"></a>Introducción a Azure Portal para clientes directos de Contrato Enterprise
 
@@ -24,6 +24,12 @@ Este artículo ayuda a los clientes directos de Contrato Enterprise de Azure (Az
 - Roles usados para administrar la cuenta de facturación Enterprise en Azure Portal.
 - La creación de suscripciones.
 - Análisis de costos en Azure Portal.
+
+Tenemos varios vídeos que le muestran cómo empezar a trabajar con Azure Portal para contratos Enterprise directos. Consulte la serie de vídeos [Experiencia de facturación del cliente de Enterprise directa en Azure Portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm).
+
+Este es el primer vídeo.
+
+>[!VIDEO https://www.youtube.com/embed/sfJyTZZ6RxQ]
 
 ## <a name="understanding-ea-user-roles-and-introduction-to-user-hierarchy"></a>Descripción de los roles de usuario de EA e introducción a la jerarquía de usuarios
 

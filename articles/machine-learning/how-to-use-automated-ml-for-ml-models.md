@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 11/15/2021
 ms.topic: how-to
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: d4c4188a04db444a153577ead82d79f32c9b137d
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 145a87800ee1f6f72e629f9e8e6ceace06889316
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132518260"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717868"
 ---
 # <a name="set-up-no-code-automl-training-with-the-studio-ui"></a>Configuración del entrenamiento de AutoML sin código con la interfaz de usuario de Estudio 
 
@@ -155,12 +155,12 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
     
         >[!IMPORTANT]
         > La característica para proporcionar un conjunto de datos de prueba con el fin de evaluar los modelos generados está en versión preliminar. Esta funcionalidad es una característica [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) en versión preliminar y puede cambiar en cualquier momento.
-
-        1. Los datos de prueba se consideran algo independiente del entrenamiento y la validación, con el fin de no sesgar los resultados de la serie de pruebas del modelo recomendado. [Obtenga más información sobre el sesgo durante la validación del modelo](concept-automated-ml.md#training-validation-and-test-data).
-        1. Puede proporcionar su propio conjunto de datos de prueba u optar por usar un porcentaje de su conjunto de datos de entrenamiento.          
-        1. El esquema del conjunto de datos de prueba debe coincidir con el conjunto de datos de entrenamiento. La columna de destino es opcional, pero, si no se indica, no se calcula ninguna métrica de prueba.
-        1. El conjunto de datos de prueba no debe ser el mismo que el conjunto de datos de entrenamiento o de validación.
-        1. La previsión de ejecuciones no admite la división entre entrenamiento y pruebas.
+        
+        * Los datos de prueba se consideran algo independiente del entrenamiento y la validación, con el fin de no sesgar los resultados de la serie de pruebas del modelo recomendado. [Obtenga más información sobre el sesgo durante la validación del modelo](concept-automated-ml.md#training-validation-and-test-data).
+        * Puede proporcionar su propio conjunto de datos de prueba u optar por usar un porcentaje de su conjunto de datos de entrenamiento. Los datos de prueba deben tener el formato de un objeto [TabularDataset de Azure Machine Learning](how-to-create-register-datasets.md#tabulardataset).         
+        * El esquema del conjunto de datos de prueba debe coincidir con el conjunto de datos de entrenamiento. La columna de destino es opcional, pero, si no se indica, no se calcula ninguna métrica de prueba.
+        * El conjunto de datos de prueba no debe ser el mismo que el conjunto de datos de entrenamiento o de validación.
+        * La previsión de ejecuciones no admite la división entre entrenamiento y pruebas.
         
         ![Captura de pantalla en la que se muestra el formulario donde se seleccionan los datos de validación y de prueba](media/how-to-use-automated-ml-for-ml-models/validate-test-form.png)
         
@@ -217,6 +217,13 @@ Si ha especificado un conjunto de datos de prueba o ha optado por una división 
 >[!IMPORTANT]
 > La característica para probar modelos con un conjunto de datos de prueba con el fin de evaluar los modelos generados está en versión preliminar. Esta funcionalidad es una característica [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) en versión preliminar y puede cambiar en cualquier momento.
 
+> [!WARNING]
+> Esta característica no está disponible para los siguientes escenarios de aprendizaje automático automatizado
+>  * [Tareas de Computer Vision (versión preliminar)](how-to-auto-train-image-models.md)
+>  * [Muchos modelos y entrenamiento de previsión de series temporales (versión preliminar)](how-to-auto-train-forecast.md)
+>  * [Tareas de previsión en las que están habilitadas las redes neuronales de aprendizaje profundo (DNN)](how-to-auto-train-forecast.md#enable-deep-learning)
+>  * [AutoML se ejecuta desde procesos locales o clústeres de Azure Databricks](how-to-configure-auto-train.md#compute-to-run-experiment)
+
 Para ver las métricas de la serie de pruebas del modelo recomendado, haga lo siguiente:
  
 1. Vaya a la página **Modelos** y seleccione el mejor modelo. 
@@ -231,7 +238,19 @@ Para ver las predicciones de prueba usadas para calcular las métricas de prueba
 
 El archivo de predicción también se puede ver o descargar desde la pestaña "Salidas y registros". Expanda la carpeta "Predicciones" para localizar el archivo "predictions.csv".
 
+La serie de pruebas del modelo genera el archivo predictions.csv, que se almacena en el almacén de datos predeterminado creado con el área de trabajo. Este almacén de datos pueden verlo todos los usuarios con la misma suscripción. Las series de pruebas no se recomiendan para ningún escenario si cualquier parte de la información usada para la serie de pruebas, o creada por esta, debe permanecer privada.
+
 ## <a name="test-an-existing-automated-ml-model-preview"></a>Prueba de un modelo de aprendizaje automático automatizado ya existente (versión preliminar)
+
+>[!IMPORTANT]
+> La característica para probar modelos con un conjunto de datos de prueba con el fin de evaluar los modelos generados es una característica en vista previa. Esta funcionalidad es una característica [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) en versión preliminar y puede cambiar en cualquier momento.
+
+> [!WARNING]
+> Esta característica no está disponible para los siguientes escenarios de aprendizaje automático automatizado
+>  * [Tareas de Computer Vision (versión preliminar)](how-to-auto-train-image-models.md)
+>  * [Muchos modelos y entrenamiento de previsión de series temporales (versión preliminar)](how-to-auto-train-forecast.md)
+>  * [Tareas de previsión en las que están habilitadas las redes neuronales de aprendizaje profundo (DNN)](how-to-auto-train-forecast.md#enable-deep-learning)
+>  * [AutoML se ejecuta desde procesos locales o clústeres de Azure Databricks](how-to-configure-auto-train.md#compute-to-run-experiment)
 
 Una vez completado el experimento, puede probar los modelos que el aprendizaje automático automatizado genera por usted. Si desea probar otro modelo generado por el aprendizaje automático automatizado que no sea el recomendado, puede hacerlo mediante los siguientes pasos: 
 
@@ -286,7 +305,7 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
 
 1. Rellene el panel **Implementar modelo**.
 
-    Campo| Valor
+    Campo| Value
     ----|----
     Nombre| Escriba un nombre único para la implementación.
     Descripción| Escriba una descripción para saber mejor para qué sirve esta implementación.

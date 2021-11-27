@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 08/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 00b6429e14dcb04a76abbc1a8d49a29b220c7c06
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fd667abab0802d6d11fc855a620bf51f8419b978
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128607085"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132555829"
 ---
 # <a name="elastic-data-map-in-azure-purview"></a>Mapa de datos elástico en Azure Purview
 
@@ -27,7 +27,7 @@ Todas las cuentas de Azure Purview tienen un servicio Mapa de datos que puede cr
 
 El servicio Mapa de datos elástico incluye componentes de almacenamiento y rendimiento de operación que se representan como unidad de capacidad (CU). De forma predeterminada, todas las cuentas de Azure Purview, se proporcionan con una unidad de capacidad y aumentan elásticamente en función del uso. Cada unidad de capacidad de Mapa de datos incluye un rendimiento de 25 operaciones por segundo y 2 GB de límite de almacenamiento de metadatos.  
 
-### <a name="operations"></a>Operations
+### <a name="operations"></a>Operaciones
 
 Las operaciones son la medida de rendimiento de Mapa de datos de Purview. Incluyen las operaciones Crear, Leer, Escribir, Actualizar y Eliminar en los metadatos almacenados en Mapa de datos. A continuación se enumeran algunos ejemplos de operaciones:
 
@@ -117,6 +117,38 @@ Seleccione **Límites de servicio y suscripción (cuotas)** y siga las instrucci
 :::image type="content" source="./media/concept-elastic-data-map/increase-limit.png" alt-text="Pantalla que muestra la creación de una incidencia de soporte técnico, con las opciones de aumento de límites seleccionadas.":::
 
 En la descripción proporcione tanta información relevante como pueda sobre el entorno y la capacidad adicional que le gustaría solicitar.
+
+## <a name="monitoring-the-elastic-data-map"></a>Supervisión del mapa de datos elásticos
+
+Las métricas de las _unidades de capacidad del mapa de datos_ y del _tamaño de almacenamiento del mapa de datos_ se pueden supervisar para comprender el tamaño del estado de los datos y la facturación.
+
+1. Vaya a [Azure Portal](https://portal.azure.com), vaya a la página **Cuentas de Purview** y seleccione su _cuenta de Purview_.
+
+2. Haga clic en **Información general** y desplácese hacia abajo para observar la sección **Supervisión** de las métricas de las _unidades de capacidad del mapa de datos_ y las del _tamaño de almacenamiento del mapa de datos_ en diferentes períodos de tiempo.
+
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-metrics.png" alt-text="Captura de pantalla del menú que muestra la página de información general de las métricas del mapa de datos elásticos.":::
+
+3. Para ver configuraciones adicionales, vaya a **Supervisión -> Métricas** para observar las **Unidades de capacidad del mapa de datos** y el **Tamaño de almacenamiento del mapa de datos**.
+
+    :::image type="content" source="./media/concept-elastic-data-map/elastic-data-map-metrics.png" alt-text="Captura de pantalla del menú que muestra las métricas.":::
+
+4. Haga clic en **Unidades de capacidad del mapa de datos** para ver el uso de la unidad de capacidad del mapa de datos durante las últimas 24 horas. Observe que al mantener el mouse sobre el gráfico de líneas, se indicarán las unidades de capacidad del mapa de datos consumidas a esa hora concreta en un día determinado.
+
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-default.png" alt-text="Captura de pantalla del menú que muestra las unidades de capacidad del mapa de datos consumidas durante 24 horas.":::
+
+5. Haga clic en **Hora local: últimas 24 horas (automático: 1 hora)** en la parte superior derecha de la pantalla para modificar el intervalo de tiempo que se muestra para el gráfico.
+
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-custom.png" alt-text="Captura de pantalla del menú que muestra las unidades de capacidad del mapa de datos consumidas durante un intervalo de tiempo personalizado.":::
+
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-time-range.png" alt-text="Captura de pantalla del menú que muestra las unidades de capacidad del mapa de datos consumidas durante un intervalo de tiempo de tres días.":::
+
+6. Para personalizar el tipo de gráfico, haga clic en la opción como se indica a continuación.
+
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-graph-type.png" alt-text="Captura de pantalla del menú que muestra las opciones para modificar el tipo de gráfico.":::
+
+7. Haga clic en el **gráfico nuevo** para agregar el gráfico del tamaño de almacenamiento del mapa de datos.
+
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-storage-size.png" alt-text="Captura de pantalla del menú que muestra el tamaño de almacenamiento del mapa de datos usado.":::
 
 ## <a name="summary"></a>Resumen
 

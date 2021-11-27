@@ -3,12 +3,12 @@ title: Creación de un registro privado para el módulo de Bicep
 description: Aprenda a configurar un registro de contenedor de Azure para módulos privados de Bicep.
 ms.topic: conceptual
 ms.date: 10/22/2021
-ms.openlocfilehash: f09b4d65c43cbd0f73543322488e56985a16aa9e
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: b667a80a155355ea206c4804d6eb98200491e3f8
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131470326"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551375"
 ---
 # <a name="create-private-registry-for-bicep-modules-preview"></a>Creación de un registro privado para módulos de Bicep (versión preliminar)
 
@@ -42,7 +42,7 @@ Un registro de Bicep se hospeda en [Azure Container Registry (ACR)](../../contai
 
 - Para publicar módulos en un registro, debe tener permiso para **insertar** una imagen. Para implementar un módulo desde un registro, debe tener permiso para **extraer** la imagen. Para obtener más información sobre los roles que conceden el acceso adecuado, consulte [Roles y permisos de Azure Container Registry](../../container-registry/container-registry-roles.md)
 
-- Según el tipo de cuenta que use para implementar el módulo, es posible que tenga que personalizar las credenciales que se usan. Estas credenciales son necesarias para obtener los módulos del registro. De forma predeterminada, las credenciales se obtienen de la CLI de Azure o de Azure PowerShell. Puede personalizar la precedencia para obtener las credenciales en el archivo **bicepconfig.json**. Para obtener más información, consulte [Credenciales para restaurar módulos](bicep-config.md#credentials-for-restoring-modules).
+- Según el tipo de cuenta que use para implementar el módulo, es posible que tenga que personalizar las credenciales que se usan. Estas credenciales son necesarias para obtener los módulos del registro. De forma predeterminada, las credenciales se obtienen de la CLI de Azure o de Azure PowerShell. Puede personalizar la precedencia para obtener las credenciales en el archivo **bicepconfig.json**. Para obtener más información, consulte [Credenciales para restaurar módulos](bicep-config-modules.md#credentials-for-restoring-modules).
 
 - Para mayor seguridad, puede requerir acceso mediante un punto de conexión privado. Para más información, consulte [Conexión privada a una instancia de Azure Container Registry mediante Azure Private Link](../../container-registry/container-registry-private-link.md).
 
@@ -73,5 +73,5 @@ Ya está listo para hacer referencia al archivo del registro desde un archivo de
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener más información sobre los módulos, consulte [Módulos de Bicep](modules.md).
-* Para configurar alias para un registro de módulo, consulte [Adición de una configuración personalizada en el archivo de configuración de Bicep](bicep-config.md).
+* Para configurar alias para un registro de módulo, consulte [Adición de una configuración de módulo en el archivo de configuración de Bicep](bicep-config-modules.md).
 * Para obtener más información sobre la publicación y la restauración de módulos, consulte los [comandos de la CLI de Bicep](bicep-cli.md).

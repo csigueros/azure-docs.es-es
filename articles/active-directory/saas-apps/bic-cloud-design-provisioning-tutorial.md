@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2021
 ms.author: Thwimmer
-ms.openlocfilehash: 12bdfb49c490593ecf348688477797045ed9b8f7
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 7f8f7a7be94df02e85c46c868255f666fa4373ef
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132495225"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720480"
 ---
 # <a name="tutorial-configure-bic-cloud-design-for-automatic-user-provisioning"></a>Tutorial: Configuración de BIC Cloud Design para el aprovisionamiento automático de usuarios
 
-En este tutorial, se describen los pasos que debe realizar en BIC Cloud Design y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura, Azure AD aprovisiona y desaprovisiona usuarios y grupos de manera automática en [BIC Cloud Design](https://www.gbtec.de/) mediante su servicio de aprovisionamiento. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
+En este tutorial, se describen los pasos que debe realizar en BIC Cloud Design y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura, Azure AD aprovisiona y desaprovisiona usuarios y grupos de manera automática en [BIC Cloud Design](https://www.gbtec.com/) mediante su servicio de aprovisionamiento. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funcionalidades admitidas
@@ -41,7 +41,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 * [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md). 
 * Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
-
+* Una suscripción habilitada para User Management API de BIC Cloud Design.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
 1. Obtenga información sobre [cómo funciona el servicio de aprovisionamiento](../app-provisioning/user-provisioning.md).
@@ -77,7 +77,7 @@ Esta sección lo guiará por los pasos necesarios para configurar el servicio de
 
 1. En la lista de aplicaciones, seleccione **BIC Cloud Design**.
 
-    ![Vínculo a Contoso en la lista de Aplicaciones](common/all-applications.png)
+    ![El vínculo BIC Cloud Design en la lista de aplicaciones](common/all-applications.png)
 
 1. Seleccione la pestaña **Aprovisionamiento**.
 
@@ -101,7 +101,7 @@ Esta sección lo guiará por los pasos necesarios para configurar el servicio de
 
 1. Revise los atributos de usuario que se sincronizan entre Azure AD y BIC Cloud Design en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de BIC Cloud Design a fin de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de BIC Cloud Design admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
-   |Atributo|Tipo|Compatible con el filtrado|Requerido por Real Links|
+   |Atributo|Tipo|Compatible con el filtrado|Requerido por BIC Cloud Design|
    |---|---|---|---|
     |userName|String|&check;|&check;
     |emails[type eq "work"].value|String|&check;|&check;
@@ -114,7 +114,7 @@ Esta sección lo guiará por los pasos necesarios para configurar el servicio de
 
 1. Revise los atributos de grupo que se sincronizan entre Azure AD y BIC Cloud Design en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con los grupos de BIC Cloud Design a fin de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-   |Atributo|Tipo|Compatible con el filtrado|Requerido por Real Links|
+   |Atributo|Tipo|Compatible con el filtrado|Requerido por BIC Cloud Design|
    |---|---|---|---|
       |DisplayName|String|&check;|&check;
       |externalId|String||&check;

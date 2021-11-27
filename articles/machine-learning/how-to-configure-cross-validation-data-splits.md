@@ -11,12 +11,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 11/15/2021
-ms.openlocfilehash: 69f5913b03db51561cde17117ef97ec3c9e50868
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: d8f94f4e6c7b6d94a2865d0a6a6c4454b1356210
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132520624"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722152"
 ---
 # <a name="configure-training-validation-cross-validation-and-test-data-in-automated-machine-learning"></a>Configuración de datos de entrenamiento, validación, validación cruzada y prueba en el aprendizaje automático automatizado
 
@@ -205,7 +205,14 @@ También puede proporcionar datos de prueba para evaluar el modelo recomendado q
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-Los conjuntos de datos de prueba deben tener el formato de un objeto [TabularDataset de Azure Machine Learning](how-to-create-register-datasets.md#tabulardataset). Puede especificar un conjunto de datos de prueba con los parámetros `test_data` y `test_size` en el objeto `AutoMLConfig`.  Estos parámetros son mutuamente excluyentes y no se pueden especificar al mismo tiempo. 
+> [!WARNING]
+> Esta característica no está disponible para los siguientes escenarios de aprendizaje automático automatizado
+>  * [Tareas de Computer Vision (versión preliminar)](how-to-auto-train-image-models.md)
+>  * [Muchos modelos y entrenamiento de previsión de series temporales (versión preliminar)](how-to-auto-train-forecast.md)
+>  * [Tareas de previsión en las que están habilitadas las redes neuronales de aprendizaje profundo (DNN)](how-to-auto-train-forecast.md#enable-deep-learning)
+>  * [AutoML se ejecuta desde procesos locales o clústeres de Azure Databricks](how-to-configure-auto-train.md#compute-to-run-experiment)
+
+Los conjuntos de datos de prueba deben tener el formato de un objeto [TabularDataset de Azure Machine Learning](how-to-create-register-datasets.md#tabulardataset). Puede especificar un conjunto de datos de prueba con los parámetros `test_data` y `test_size` en el objeto `AutoMLConfig`.  Estos parámetros son mutuamente excluyentes y no se pueden especificar al mismo tiempo ni con `cv_split_column_names` o `cv_splits_indices`.
 
 Con el parámetro `test_data`, especifique un conjunto de datos existente para pasarlo al objeto `AutoMLConfig`. 
 
@@ -231,7 +238,8 @@ automl_config = AutoMLConfig(task = 'regression',
 > [!Note]
 > En las tareas de regresión se usa el muestreo aleatorio.<br>
 > En las tareas de clasificación se usa el muestreo estratificado, aunque el muestreo aleatorio se usa como reversión cuando el muestreo estratificado no es factible. <br>
-> La previsión no admite actualmente la especificación de un conjunto de datos de prueba mediante una división de entrenamiento o prueba.
+> La previsión no admite actualmente la especificación de un conjunto de datos de prueba mediante una división de entrenamiento o prueba con el parámetro `test_size`.
+
 
 Al pasar los parámetros `test_data` o `test_size` a `AutoMLConfig`, se desencadena automáticamente una serie de pruebas remota tras la finalización del experimento. Esta serie de pruebas usa los datos de prueba proporcionados para evaluar el mejor modelo que el aprendizaje automático automatizado recomienda. Obtenga más información sobre [cómo obtener las predicciones de la serie de pruebas](how-to-configure-auto-train.md#test-models-preview).
 

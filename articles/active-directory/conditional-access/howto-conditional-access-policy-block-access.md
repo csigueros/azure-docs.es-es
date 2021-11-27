@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 11/05/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11191d1a0b3ec275184617a16b7dc2dce767d8d6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 74e711e1dddf4b5ba37a27fd2d0c474ab933af16
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128618141"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715518"
 ---
 # <a name="conditional-access-block-access"></a>Acceso condicional: Bloquear acceso
 
@@ -64,6 +64,8 @@ La primera directiva bloquea el acceso a todas las aplicaciones (menos las de Mi
 1. Confirme la configuración y establezca **Habilitar directiva** en **Solo informe**.
 1. Seleccione **Crear** para crear la directiva.
 
+Después de confirmar la configuración mediante el [modo de solo informe](howto-conditional-access-insights-reporting.md), un administrador puede mover el botón de alternancia **Habilitar directiva** de **Solo informe** a **Activar**.
+
 A continuación se crea una segunda directiva para requerir la autenticación multifactor o un dispositivo compatible para los usuarios de Microsoft 365.
 
 1. Seleccione **Nueva directiva**.
@@ -79,6 +81,8 @@ A continuación se crea una segunda directiva para requerir la autenticación mu
    1. Elija **Seleccionar**.
 1. Confirme la configuración y establezca **Habilitar directiva** en **Solo informe**.
 1. Seleccione **Crear** para crear la directiva.
+
+Después de confirmar la configuración mediante el [modo de solo informe](howto-conditional-access-insights-reporting.md), un administrador puede mover el botón de alternancia **Habilitar directiva** de **Solo informe** a **Activar**.
 
 > [!NOTE]
 > Las directivas de acceso condicional se aplican una vez que se completa la autenticación en una fase. El acceso condicional no pretende ser una primera línea de defensa de una organización en escenarios como los ataques por denegación de servicio (DoS), pero puede usar señales de estos eventos para determinar el acceso.

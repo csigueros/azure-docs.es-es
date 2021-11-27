@@ -11,12 +11,12 @@ ms.subservice: automl
 ms.date: 11/15/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1
-ms.openlocfilehash: 57d529d74d5e320c8a41fdcf71ddd61d11e4379e
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 8a9f31dc34e412521a9a74dfb113da13af66afa3
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132519389"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722646"
 ---
 # <a name="set-up-automl-training-with-python"></a>Configuración del entrenamiento de AutoML con Python
 
@@ -107,7 +107,7 @@ Si no especifica explícitamente un parámetro `validation_data` o `n_cross_vali
 > * [Pasar los datos de prueba al objeto AutoMLConfig](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
 > * [Probar los modelos que el aprendizaje automático automatizado ha generado para el experimento](#test-models-preview).
 >  
-> Si prefiere una experiencia sin código, consulte el [paso 11 en la configuración de AutoML con la interfaz de usuario de Estudio](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
+> Si prefiere no usar código, consulte el [paso 12 de Configuración de AutoML con la interfaz de usuario de Studio](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
 
 ### <a name="large-data"></a>Datos grandes 
@@ -521,11 +521,19 @@ RunDetails(run).show()
 >[!IMPORTANT]
 > La característica para probar modelos con un conjunto de datos de prueba con el fin de evaluar los modelos generados por AutoML está en versión preliminar. Esta funcionalidad es una característica [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) en versión preliminar y puede cambiar en cualquier momento.
 
+> [!WARNING]
+> Esta característica no está disponible para los siguientes escenarios de aprendizaje automático automatizado
+>  * [Tareas de Computer Vision (versión preliminar)](how-to-auto-train-image-models.md)
+>  * [Muchos modelos y entrenamiento de previsión de series temporales (versión preliminar)](how-to-auto-train-forecast.md)
+>  * [Tareas de previsión en las que están habilitadas las redes neuronales de aprendizaje profundo (DNN)](how-to-auto-train-forecast.md#enable-deep-learning)
+>  * [AutoML se ejecuta desde procesos locales o clústeres de Azure Databricks](how-to-configure-auto-train.md#compute-to-run-experiment)
+
 Al pasar los parámetros `test_data` o `test_size` a `AutoMLConfig`, se desencadena automáticamente una serie de pruebas remotas que usan los datos de prueba proporcionados para evaluar el mejor modelo que el aprendizaje automático automatizado recomienda tras la finalización del experimento. Esta serie de pruebas remotas se realiza al final del experimento, una vez que se determina el mejor modelo. Consulte cómo [pasar datos de prueba a `AutoMLConfig`](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
 
 ### <a name="get-test-run-results"></a>Obtención de los resultados de la serie de pruebas 
 
 Puede obtener las predicciones y métricas de la serie de pruebas remotas desde [Estudio de Azure Machine Learning](how-to-use-automated-ml-for-ml-models.md#view-remote-test-run-results-preview) o con el código siguiente. 
+
 
 ```python
 best_run, fitted_model = remote_run.get_output()
@@ -548,6 +556,8 @@ test_run.download_file("predictions/predictions.csv")
 predictions_df = pd.read_csv("predictions.csv")
 
 ```
+
+La serie de pruebas del modelo genera el archivo predictions.csv, que se almacena en el almacén de datos predeterminado creado con el área de trabajo. Este almacén de datos pueden verlo todos los usuarios con la misma suscripción. Las series de pruebas no se recomiendan para ningún escenario si cualquier parte de la información usada para la serie de pruebas, o creada por esta, debe permanecer privada.
 
 ### <a name="test-existing-automated-ml-model"></a>Prueba del modelo de ML automatizado existente
 

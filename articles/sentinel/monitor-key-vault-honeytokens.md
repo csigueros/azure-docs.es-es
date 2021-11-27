@@ -6,20 +6,18 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
-ms.openlocfilehash: 73d3c43e93dce030895291859acb723a94a0cadc
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 93b805a52b220d1b1fadf76782516b8aa7d8f5b5
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132301331"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132713086"
 ---
 # <a name="deploy-and-monitor-azure-key-vault-honeytokens-with-microsoft-sentinel-public-preview"></a>Implementación y supervisión de honeytoken de Azure Key Vault con Microsoft Sentinel (versión preliminar pública)
 
@@ -27,7 +25,7 @@ ms.locfileid: "132301331"
 > La solución Microsoft Sentinel Deception (Honey Tokens) está actualmente en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
 >
 
-En este artículo se explica cómo usar la solución **Microsoft Sentinel Deception (Honey Tokens)** para implementar claves y secretos señuelo de [Azure Key Vault](/azure/key-vault/), denominados *honeytoken*, en cargas de trabajo existentes.
+En este artículo se explica cómo usar la solución **Microsoft Sentinel Deception (Honey Tokens)** para implementar claves y secretos señuelo de [Azure Key Vault](../key-vault/index.yml), denominados *honeytoken*, en cargas de trabajo existentes.
 
 Use las [reglas de análisis](detect-threats-built-in.md), las [listas de control](watchlists.md) y los [libros](monitor-your-data.md) proporcionados por la solución para supervisar el acceso a los honeytoken implementados.
 
@@ -41,7 +39,7 @@ Para empezar a usar la solución **Microsoft Sentinel Deception (Honey Tokens)*
 
 - **Conectores de datos necesarios**: asegúrese de que ha implementado los conectores de datos de [Azure Key Vault](data-connectors-reference.md#azure-key-vault) y [Azure Activity](data-connectors-reference.md#azure-activity) en el área de trabajo y que están conectados.
 
-  Compruebe que el enrutamiento de datos se ha realizado correctamente y que los datos de **KeyVault** y **AzureActivity** fluyen a Microsoft Sentinel. Para más información, consulte:
+  Compruebe que el enrutamiento de datos se ha realizado correctamente y que los datos de **KeyVault** y **AzureActivity** fluyen a Microsoft Sentinel. Para obtener más información, consulte:
 
   - [Conexión de Microsoft Sentinel a servicios de Azure, Windows, Microsoft y Amazon](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)
   - [Búsqueda del conector de datos de Microsoft Sentinel](data-connectors-reference.md)
@@ -66,7 +64,7 @@ En los pasos siguientes se describen las acciones específicas necesarias para l
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/prerequisites.png" alt-text="Captura de pantalla de la pestaña de requisitos previos en la que se muestra el comando curl actualizado.":::
 
-1. Seleccione **Click here to open a cloud shell** (Haga clic aquí para abrir Cloud Shell) a fin de abrir una pestaña de Cloud Shell. Inicie sesión si se le solicita y, después, ejecute el comando que se muestra.
+1. <a name="secret"></a>Seleccione **Haga clic aquí para abrir Cloud Shell** a fin de abrir una pestaña de Cloud Shell. Inicie sesión si se le solicita y, después, ejecute el comando que se muestra.
 
     El script que ejecuta crea una aplicación de funciones de Azure AD (AAD), que implementará los honeytoken.    Por ejemplo:
 
@@ -102,7 +100,7 @@ En los pasos siguientes se describen las acciones específicas necesarias para l
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/grant-admin-access.png" alt-text="Captura de pantalla del botón para conceder consentimiento del administrador para el directorio.":::
 
-    Para más información, vea [Concesión del consentimiento del administrador en Registros de aplicaciones](/azure/active-directory/manage-apps/grant-admin-consent).
+    Para más información, vea [Concesión del consentimiento del administrador en Registros de aplicaciones](../active-directory/manage-apps/grant-admin-consent.md).
 
 1. De nuevo en Microsoft Sentinel, en las pestañas **Libros**, **Análisis**, **Listas de seguimiento** y **Cuadernos de estrategias**, observe el contenido de seguridad que se va a crear y modifique los nombres según sea necesario.
 
@@ -115,12 +113,12 @@ En los pasos siguientes se describen las acciones específicas necesarias para l
 
     |Campo  |Descripción  |
     |---------|---------|
-    | **Plan de servicio**     |   Seleccione si quiere usar un plan **Premium** o de **Consumo** para la aplicación de funciones. Para más información, vea [Hospedaje de plan de consumo de Azure Functions](/azure/azure-functions/consumption-plan) y [Plan Premium de Azure Functions](/azure/azure-functions/functions-premium-plan).      |
+    | **Plan de servicio**     |   Seleccione si quiere usar un plan **Premium** o de **Consumo** para la aplicación de funciones. Para más información, vea [Hospedaje de plan de consumo de Azure Functions](../azure-functions/consumption-plan.md) y [Plan Premium de Azure Functions](../azure-functions/functions-premium-plan.md).      |
     | **Si se crea un almacén de claves**     |    Seleccione **new** (nuevo) para crear un almacén de claves para el secreto de la aplicación o **existing** (existente) para usar uno ya existente.   |
     | **Nombre de KeyVault**     | Solo se muestra cuando ha seleccionado crear un almacén de claves. <br><br>Escriba el nombre del almacén de claves que quiera usar para almacenar el secreto de la aplicación. Este nombre debe ser único globalmente.     |
     | **KeyVault resource group** (Grupo de recursos de KeyVault)     |Solo se muestra cuando ha seleccionado crear un almacén de claves. <br><br> Seleccione el nombre del grupo de recursos donde quiera almacenar el almacén de claves para la clave de aplicación.      |
     | **Existing key vaults** (Almacenes de claves existentes) | Solo se muestra cuando ha seleccionado usar un almacén de claves existente. Seleccione el almacén de claves que quiera usar. |
-    | **Nombre de secreto de KeyVault**     |   Escriba el nombre del secreto usado para almacenar el secreto de cliente.      |
+    | **Nombre de secreto de KeyVault**     |  Escriba un nombre para el secreto donde quiere almacenar el secreto de la aplicación AAD. Creó esta aplicación de AAD en el [paso 3](#secret). |
 
     **Honeytoken configuration** (Configuración de honeytoken): los campos siguientes definen la configuración que se utiliza para las claves y los secretos usados en los honeytoken. Use convenciones de nomenclatura que se combinarán con los requisitos de nomenclatura de la organización para que los atacantes no los distingan.
 
@@ -208,7 +206,7 @@ Se recomienda compartir el libro **SOCHTManagement** con los propietarios del al
         - Seleccione **Click to add a honey token to the key-vault** (Haga clic para agregar un honeytoken al almacén de claves) para abrir Azure Key Vault. Agregue un nuevo honeytoken, como un secreto nuevo, al almacén de claves configurado.
         - Seleccione **Click to add monitoring in the SOC** (Haga clic para agregar supervisión en el SOC). Si se realiza correctamente, se muestra un mensaje de confirmación en una nueva pestaña: `Honey-token was successfully added to monitored list`.
 
-        Para más información, consulte la [documentación de Azure Key Vault](/azure/key-vault/secrets/about-secrets).
+        Para más información, consulte la [documentación de Azure Key Vault](../key-vault/secrets/about-secrets.md).
 
     > [!NOTE]
     > Asegúrese de el vínculo **Disable back your user in the key-vault's policy if needed** (Deshabilitar el usuario en la directiva del almacén de claves si es necesario) para quitar los derechos de concesión creados por la directiva de acceso para crear los honeytoken.
@@ -251,7 +249,7 @@ Es posible que tenga que esperar unos minutos mientras se rellenan los datos y s
 
     Por ejemplo, seleccione el honeytoken y después **Download public key** (Descargar clave pública). Esta acción crea un registro `KeyGet` o `SecretGet` que desencadena una alerta en Microsoft Sentinel.
 
-    Para más información, consulte la [documentación de Key Vault](/azure/key-vault/).
+    Para más información, consulte la [documentación de Key Vault](../key-vault/index.yml).
 
 1. De nuevo en Microsoft Sentinel, vaya a la página **Incidentes**. Es posible que tenga que esperar cinco minutos aproximadamente, pero debería ver un nuevo incidente, denominado por ejemplo **HoneyTokens: KeyVault HoneyTokens key accessed** (HoneyTokens: acceso a la clave HoneyTokens de KeyVault).
 
@@ -315,9 +313,9 @@ Siempre puede compartir el vínculo directo al libro. En este procedimiento tamb
 
         En la pestaña **Corrección**, asegúrese de seleccionar la opción **Crear una tarea de corrección** para aplicar la etiqueta a los almacenes de claves existentes.
 
-    Para más información, consulte la [documentación de Azure Policy](/azure/governance/policy/assign-policy-portal).
+    Para más información, consulte la [documentación de Azure Policy](../governance/policy/assign-policy-portal.md).
 
-1. En Azure **Security Center**, agregue una recomendación de auditoría a todos los almacenes de claves en el ámbito seleccionado:
+1. En **Microsoft Defender para la nube**, agregue una recomendación de auditoría a todos los almacenes de claves del ámbito seleccionado:
 
     1. Seleccione **Cumplimiento normativo > Administrar directivas de cumplimiento** y, después, seleccione el ámbito.
 
@@ -337,7 +335,7 @@ Para más información, consulte:
 - [Detección e implementación de soluciones de Microsoft Sentinel](sentinel-solutions-deploy.md)
 - [Catálogo de soluciones de Microsoft Sentinel](sentinel-solutions-catalog.md)
 - [Detección de amenazas integrada](detect-threats-built-in.md)
-- [Libros de Microsoft Sentinel que se usan comúnmente](top-workbooks.md)
+- [Libros de Microsoft Azure Sentinel de uso frecuente](top-workbooks.md)
 
 <!-- The following section is used to store references to external images and links to reduce maintenance overhead and enable tooltips -->
 
