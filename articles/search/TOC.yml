@@ -126,21 +126,26 @@
       href: samples-rest.md
 - name: Conceptos
   items:
-    - name: Índices de búsqueda
-      href: search-what-is-an-index.md
-    - name: Búsqueda de texto completo
-      href: search-lucene-query-architecture.md
-    - name: Analizadores
-      href: search-analyzers.md
-    - name: Búsqueda semántica
-      href: semantic-search-overview.md
-    - name: Puntuación de relevancia
-      href: index-similarity-and-scoring.md
-    - name: Indexadores
-      href: search-indexer-overview.md
-    - name: Enriquecimiento con inteligencia artificial
-      href: cognitive-search-concept-intro.md
+    - name: Buscar
       items:
+        - name: Búsqueda de texto completo
+          href: search-lucene-query-architecture.md
+        - name: Búsqueda semántica
+          href: semantic-search-overview.md
+        - name: Puntuación de relevancia
+          href: index-similarity-and-scoring.md
+    - name: Indización
+      items:
+        - name: Índices de búsqueda
+          href: search-what-is-an-index.md
+        - name: Analizadores
+          href: search-analyzers.md
+        - name: Indizadores
+          href: search-indexer-overview.md
+    - name: Enriquecimiento
+      items:
+        - name: Introducción al enriquecimiento
+          href: cognitive-search-concept-intro.md
         - name: Conjuntos de aptitudes
           href: cognitive-search-working-with-skillsets.md
         - name: Sesiones de depuración
@@ -308,7 +313,7 @@
               href: search-howto-managed-identities-data-sources.md
             - name: Azure Storage
               href: search-howto-managed-identities-storage.md
-            - name: Azure Cosmos DB
+            - name: "Azure Cosmos\_DB"
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
@@ -476,12 +481,10 @@
           href: performance-benchmarks.md
         - name: Sugerencias para mejorar el rendimiento
           href: search-performance-tips.md
-        - name: Registro de diagnóstico
-          href: search-monitor-logs.md
+        - name: Supervisión de Cognitive Search
+          href: monitor-azure-cognitive-search.md
         - name: Visualización de registros de diagnóstico
           href: search-monitor-logs-powerbi.md
-        - name: Información general de la supervisión
-          href: search-monitor-usage.md
         - name: Supervisión de consultas
           href: search-monitor-queries.md
         - name: Supervisión de la indexación realizada con indexador
@@ -490,12 +493,6 @@
           href: search-traffic-analytics.md
 - name: Referencia
   items:
-    - name: Azure CLI
-      href: /cli/azure/search
-    - name: Azure PowerShell
-      href: /powershell/module/az.search
-    - name: Plantilla de Resource Manager
-      href: /azure/templates/microsoft.search/searchservices
     - name: REST
       items:
         - name: API de búsqueda
@@ -526,6 +523,17 @@
           href: /python/api/overview/azure/search-documents-readme
         - name: API de administración
           href: /python/api/overview/azure/search/management
+    - name: Azure CLI
+      href: /cli/azure/search
+    - name: Azure PowerShell
+      href: /powershell/module/az.search
+    - name: Plantilla de Resource Manager
+      href: /azure/templates/microsoft.search/searchservices
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
+    - name: Referencia de datos de supervisión
+      href: monitor-azure-cognitive-search-data-reference.md
     - name: Referencia al lenguaje OData
       items:
         - name: Información general
@@ -603,9 +611,6 @@
               href: cognitive-search-skill-entity-recognition.md
             - name: Opinión
               href: cognitive-search-skill-sentiment.md
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Soporte técnico de la comunidad de Azure
