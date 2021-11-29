@@ -1,6 +1,6 @@
 ---
-title: Configuración del dominio predeterminado de NFSv4.1 para Azure NetApp Files | Microsoft Docs
-description: Se describe cómo configurar el cliente NFS para usar NFSv4.1 con Azure NetApp Files.
+title: Configuración del dominio de NFSv4.1 para Azure NetApp Files | Microsoft Docs
+description: Aquí se describe cómo configurar el dominio de NFS, versión 4.1, para usar NFSv4.1 con Azure NetApp Files.
 documentationcenter: ''
 author: b-juche
 manager: ''
@@ -11,16 +11,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 11/11/2021
 ms.author: b-juche
-ms.openlocfilehash: c3c853190d5f63bbe9012727d8b7b7ac91da135f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ebf6d8e51e3e0c46ae8bd4086afdb4cb28700d6e
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92072159"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714283"
 ---
-# <a name="configure-nfsv41-default-domain-for-azure-netapp-files"></a>Configuración del dominio predeterminado de NFS, versión 4.1, para Azure NetApp Files
+# <a name="configure-nfsv41-domain-for-azure-netapp-files"></a>Configuración del dominio de NFS, versión 4.1, para Azure NetApp Files
 
 NFSv4 introduce el concepto de dominio de autenticación. Actualmente, Azure NetApp Files admite la asignación de usuarios solo de raíz desde el servicio al cliente NFS. Para usar la funcionalidad de NFSv4.1 con Azure NetApp Files, debe actualizar el cliente NFS.
 
@@ -32,18 +32,56 @@ La asignación de raíz se establece de manera predeterminada en el usuario `nob
 
 Como se muestra en el ejemplo anterior, el usuario para `file1` debe ser `root`, pero se asigna a `nobody` de forma predeterminada.  En este artículo se muestra cómo establecer el usuario `file1` en `root` al cambiar la configuración `idmap Domain` a `defaultv4iddomain.com`.  
 
-## <a name="steps"></a>Pasos 
+## <a name="configure-nfsv41-domain"></a>Configuración del dominio de NFS, versión 4.1  
 
 1. Edite el archivo `/etc/idmapd.conf` en el cliente NFS.   
-    Quite la marca de comentario de la línea `#Domain` (es decir, quite `#` de la línea) y cambie el valor `localdomain` a `defaultv4iddomain.com`. 
+    Quite la marca de comentario de la línea `#Domain` (es decir, quite `#` de la línea) y cambie el valor `localdomain` tal como se indica a continuación:
 
-    Configuración inicial: 
-    
-    ![Configuración inicial para NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-initial-config.png)
+    * Si el volumen no está habilitado para LDAP, establezca `Domain = defaultv4iddomain.com`.
+    * Si el volumen está [habilitado para LDAP](configure-ldap-extended-groups.md), establezca `Domain` en el dominio que está configurado en la conexión de Active Directory de la cuenta de NetApp.
+        Por ejemplo, si `contoso.com` es el dominio configurado en la cuenta de NetApp, establezca `Domain = contoso.com`.
 
-    Configuración actualizada:
+    En los ejemplos siguientes se muestra la configuración inicial de `/etc/idmapd.conf` antes de los cambios:
+
+    ```
+    [General]
+    Verbosity = O 
+    Pipefs—Directory = /run/rpc_pipefs 
+    # set your own domain here, if it differs from FQDN minus hostname 
+    # Domain = localdomain 
+     
+    [Mapping] 
+    Nobody-User = nobody 
+    Nobody-Group = nogroup 
+    ```
+
+    El siguiente ejemplo muestra la configuración actualizada de volúmenes que *no son de LDAP* para NFSv4.1:
+
+    ```
+    [General]
+    Verbosity = O 
+    Pipefs—Directory = /run/rpc_pipefs 
+    # set your own domain here, if it differs from FQDN minus hostname 
+    Domain = defaultv4iddomain.com 
+ 
+    [Mapping] 
+    Nobody-User = nobody 
+    Nobody-Group = nogroup 
+    ```
+
+    El siguiente ejemplo muestra la configuración actualizada de volúmenes que *tienen LDAP habilitado* para NFSv4.1. En este ejemplo, `contoso.com` es el dominio configurado en la cuenta de NetApp:
+
+    ```
+    [General]
+    Verbosity = O 
+    Pipefs—Directory = /run/rpc_pipefs 
+    # set your own domain here, if it differs from FQDN minus hostname 
+    Domain = contoso.com
     
-    ![Configuración actualizada para NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-updated-config.png)
+    [Mapping] 
+    Nobody-User = nobody 
+    Nobody-Group = nogroup 
+    ```
 
 2. Desmonte los volúmenes NFS montados actualmente.
 3. Actualice el archivo `/etc/idmapd.conf`.
@@ -72,5 +110,6 @@ En `Host2`, observe que las cuentas de usuario de prueba no se han creado, pero 
 
 ## <a name="next-step"></a>Paso siguiente 
 
-[Montaje o desmontaje de un volumen para máquinas virtuales Windows o Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Montaje o desmontaje de un volumen para máquinas virtuales Windows o Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Configuración de ADDS LDAP con grupos extendidos para el acceso a volúmenes NFS](configure-ldap-extended-groups.md)
 

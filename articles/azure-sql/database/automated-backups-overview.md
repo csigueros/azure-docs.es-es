@@ -11,18 +11,21 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma, wiassaf, danil
 ms.date: 08/28/2021
-ms.openlocfilehash: 8eb49e4d17de5c546278f78e50454db02ee2cfbd
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: f93c03b6e3106ccd359493d8bae450dc0dadc100
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131458881"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132718360"
 ---
 # <a name="automated-backups---azure-sql-database--azure-sql-managed-instance"></a>Copias de seguridad automatizadas: Azure SQL Database y Azure SQL Managed Instance
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+> [!div class="nextstepaction"]
+> [Encuesta para mejorar Azure SQL](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="what-is-a-database-backup"></a>¿Qué es una copia de seguridad de base de datos?
 
@@ -50,7 +53,7 @@ En el caso de una instancia de SQL Database, la redundancia del almacenamiento d
 > El almacenamiento con redundancia de zona solo está disponible actualmente en [determinadas regiones](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> La redundancia del almacenamiento de copia de seguridad configurable de Azure SQL Database está disponible de momento en versión preliminar pública en todas las regiones de Azure y con carácter general solo en la región Sudeste de Asia de Azure. 
+> La redundancia de almacenamiento de copia de seguridad de SQL Database e Hiperescala se encuentra actualmente en versión preliminar. 
 
 ### <a name="backup-usage"></a>Uso de copia de seguridad
 
@@ -225,7 +228,10 @@ La redundancia del almacenamiento de copia de seguridad afecta a los costos de c
 Para más información sobre los precios de almacenamiento de copia de seguridad, visite la página de [Precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) y la página de [Precios de Azure SQL Managed Instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 > [!IMPORTANT]
-> La redundancia del almacenamiento de copia de seguridad configurable para SQL Managed Instance está disponible en todas las regiones de Azure; para SQL Database actualmente solo está disponible en la región Sudeste de Asia. En SQL Managed Instance, solo se puede especificar durante el proceso de creación de la instancia administrada. Una vez que se ha aprovisionado el recurso, no se puede cambiar la opción de redundancia del almacenamiento de copia de seguridad.
+> La redundancia de almacenamiento de copia de seguridad para Hiperescala y SQL Managed Instance solo se puede establecer durante la creación de la base de datos. Esta configuración no se puede modificar una vez aprovisionado el recurso. El proceso de [copia de la base de datos](database-copy.md) se puede usar para actualizar la configuración de redundancia del almacenamiento de copia de seguridad de una base de datos de Hiperescala existente. 
+
+> [!NOTE]
+> La redundancia de almacenamiento de copia de seguridad de SQL Database e Hiperescala se encuentra actualmente en versión preliminar. 
 
 ### <a name="monitor-costs"></a>Supervisión de costos
 
@@ -474,10 +480,7 @@ Para más información, consulte [API REST de retención de Backup](/rest/api/sq
 
 ## <a name="configure-backup-storage-redundancy"></a>Configuración de la redundancia del almacenamiento de copia de seguridad
 
-> [!NOTE]
-> La redundancia de almacenamiento configurable para copias de seguridad de SQL Managed Instance solo se puede especificar durante el proceso de creación de la instancia administrada. Una vez que se ha aprovisionado el recurso, no se puede cambiar la opción de redundancia del almacenamiento de copia de seguridad. En el caso de SQL Database, la versión preliminar pública de esta característica está disponible de momento en todas las regiones de Azure y con carácter general en la región Sudeste de Asia de Azure. 
-
-La redundancia del almacenamiento de copia de seguridad de una instancia administrada se puede configurar solo durante la creación de la instancia. En el caso de SQL Database se puede establecer al crear la base de datos o se puede actualizar para una base de datos existente. El valor predeterminado es el almacenamiento con redundancia geográfica. Para conocer las diferencias de precio entre el almacenamiento de copia de seguridad con redundancia local, con redundancia de zona y con redundancia geográfica, visite la [página de precios de Azure SQL Managed Instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+La redundancia de almacenamiento configurable para bases de datos SQL se puede configurar en el momento de crear la base de datos, o se puede actualizar para una base de datos existente; los cambios realizados en una base de datos existente solo se aplican a las copias de seguridad futuras. En cuanto a SQL Managed Instance y la redundancia de almacenamiento de copia de seguridad de Hiperescala solo se puede especificar durante el proceso de creación. Una vez que se ha aprovisionado el recurso, no se puede cambiar la opción de redundancia del almacenamiento de copia de seguridad. El valor predeterminado es el almacenamiento con redundancia geográfica. Para conocer las diferencias de precio entre el almacenamiento de copia de seguridad con redundancia local, con redundancia de zona y con redundancia geográfica, visite la [página de precios de Azure SQL Managed Instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 ### <a name="configure-backup-storage-redundancy-by-using-the-azure-portal"></a>Configuración de la redundancia del almacenamiento de copia de seguridad mediante Azure Portal
 

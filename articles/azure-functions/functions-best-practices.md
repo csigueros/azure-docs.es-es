@@ -4,12 +4,12 @@ description: Conozca los procedimientos recomendados para diseñar, implementar 
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/30/2021
-ms.openlocfilehash: f2efa490a9788f0e52b4dfb19b4359f247a671e9
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 620d3c27ae9f1df0b927119143a42e7f83730962
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057726"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132715423"
 ---
 # <a name="best-practices-for-reliable-azure-functions"></a>Procedimientos recomendados para la creación de funciones de Azure confiables
 
@@ -106,6 +106,8 @@ Para que la implementación se realice correctamente, tenga en cuenta lo siguien
 + Considere la posibilidad de usar la [implementación continua](functions-continuous-deployment.md) para conectar las implementaciones a la solución de control de código fuente. Las implementaciones continuas también permiten ejecutar las funciones desde el paquete de implementación.
 
 + En el [plan de hospedaje Premium](functions-premium-plan.md), considere la posibilidad de agregar un desencadenador de preparación para reducir la latencia cuando se agreguen nuevas instancias. Para más información, consulte [Desencadenador de preparación de Azure Functions](functions-bindings-warmup.md). 
+
++ Para minimizar el tiempo de inactividad de la implementación y poder revertir las implementaciones, considere la posibilidad de usar ranuras de implementación. Para OBTENER más información, consulte [Ranuras de implementación de Azure Functions](functions-deployment-slots.md).
 
 ## <a name="write-robust-functions"></a>Escritura de funciones sólidas
 

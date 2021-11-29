@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 11/05/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f20eb91d18c85b21bd9623fec2129fbbde787764
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 09510a64fdee1525ca18ee4985206faa18263b85
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128568295"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706900"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Acceso condicional: Bloqueo del acceso por ubicación
 
@@ -55,8 +55,10 @@ Para más información sobre la condición de ubicación en el acceso condiciona
    1. Seleccione la ubicación bloqueada que ha creado para su organización.
    1. Haga clic en **Seleccionar**.
 1. En **Controles de acceso** > seleccione **Bloquear acceso** y seleccione **Seleccionar**.
-1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
-1. Seleccione **Crear** para crear una directiva de acceso condicional.
+1. Confirme la configuración y establezca **Habilitar directiva** en **Solo informe**.
+1. Seleccione **Crear** para crear la directiva.
+
+Después de confirmar la configuración mediante el [modo de solo informe](howto-conditional-access-insights-reporting.md), un administrador puede mover el botón de alternancia **Habilitar directiva** de **Solo informe** a **Activar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

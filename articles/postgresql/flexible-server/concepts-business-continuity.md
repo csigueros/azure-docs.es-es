@@ -5,17 +5,18 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/24/2021
-ms.openlocfilehash: 571311d5d455bedc61bae06634324cc5a380f7ab
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/18/2021
+ms.openlocfilehash: 159a53f811aa443683735c96fd599ca31fd4504f
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128555986"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132713295"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---flexible-server"></a>Introducción a la continuidad empresarial con Azure Database for PostgreSQL: servidor flexible
 
-
+> [!IMPORTANT]
+> Azure Database for PostgreSQL: servidor flexible en versión preliminar
 
 En Azure Database for PostgreSQL: servidor flexible, la **continuidad empresarial** hace referencia a los mecanismos, directivas y procedimientos que permiten a la empresa seguir funcionando en caso de interrupciones, especialmente en lo que respecta a su infraestructura informática. En la mayoría de los casos, el servidor flexible controlará los eventos de interrupción que puedan ocurrir en el entorno en la nube y permitirá que se sigan ejecutando las aplicaciones y los procesos empresariales. No obstante, hay algunos eventos que no se pueden controlar automáticamente, por ejemplo:
 
@@ -37,6 +38,7 @@ En la siguiente tabla se muestran las características que ofrece un servidor fl
 | **Alta disponibilidad con redundancia de zona** | Un servidor flexible se puede implementar con configuración de alta disponibilidad (HA) redundante de zona. De este modo, los servidores principal y en espera se implementarán en dos zonas de disponibilidad diferentes dentro de una región. Esta configuración de alta disponibilidad protege sus bases de datos frente a errores de nivel de zona y además ayuda a reducir el tiempo de inactividad de la aplicación durante eventos de tiempo de inactividad planeados y no planeados. Los datos del servidor principal se replican de modo sincrónico en la réplica en espera. En caso de que se produzca una interrupción en el servidor principal, el servidor se conmuta por error automáticamente a la réplica en espera. Se espera que el RTO en la mayoría de los casos dure menos de 120 s. Se espera que el RPO sea cero (sin pérdida de datos). Para obtener más información, consulte [Conceptos: alta disponibilidad](./concepts-high-availability.md). | Compatible con los niveles de proceso de uso general y optimizado para memoria. Disponible únicamente en regiones con varias zonas disponibles. |
 | **Discos administrados premium** | Los archivos de la base de datos se guardan en un almacenamiento premium administrado de alta disponibilidad y muy duradero. Esto proporciona redundancia de datos con tres copias de réplicas almacenadas en una zona de disponibilidad con capacidades automáticas de recuperación de datos. Para obtener más información, consulte la [documentación de Managed Disks](../../virtual-machines/managed-disks-overview.md). | Datos almacenados en una zona de disponibilidad. |
 | **Copia de seguridad con redundancia de zona** | Las copias de seguridad de un servidor flexible se almacenan de forma automática y segura en un almacenamiento con redundancia de zona dentro de una región. Durante un error de nivel de zona en el que se ha aprovisionado el servidor, y si el servidor no está configurado con redundancia de zona, puede restaurar sin problemas la base de datos con el punto de restauración más reciente en otra zona. Para obtener más información, consulte [Conceptos: copias de seguridad y restauración](./concepts-backup-restore.md).| Aplicable únicamente a regiones con varias zonas disponibles.|
+| **Copia de seguridad con redundancia geográfica** | Las copias de seguridad flexibles del servidor se copian en una región remota. Esto es de ayuda con la situación de recuperación ante desastres en caso de que la región del servidor principal esté fuera de servicio. | Esta característica está habilitada actualmente en las regiones seleccionadas. Se tarda un RTO más largo y un RPO mayor en función del tamaño de los datos que se restaurarán y la cantidad de recuperación que se realizará.  |
 
 
 ## <a name="planned-downtime-events"></a>Eventos de tiempo de inactividad planeados
@@ -64,7 +66,7 @@ A continuación puede ver algunos escenarios de error no planeados y el proceso 
 | <B>Error de almacenamiento | Las aplicaciones no verán ningún impacto por los problemas relacionados con el almacenamiento, como un error de disco o un daño de bloque físico. Puesto que los datos se almacenan en tres copias, el almacenamiento sobreviviente proporciona la copia de los datos. El bloque de datos dañado se repara automáticamente y se crea una copia de los datos de manera automática. | En el caso de los errores poco frecuentes y no recuperables, como aquellos en los que no se puede acceder a todo el almacenamiento, el servidor flexible se conmuta por error a la réplica en espera para reducir el tiempo de inactividad. Para obtener más información, consulte la página de [Conceptos de alta disponibilidad](./concepts-high-availability.md). |
 | <b> Errores de usuario o lógicos | Para recuperarse de los errores de usuario, como las tablas eliminadas accidentalmente o los datos actualizados incorrectamente, debe realizar una [recuperación a un momento dado](../concepts-backup.md) (PITR). Al realizar la operación de restauración, especifica el punto de restauración personalizado, que es el momento justo antes de que se produjera el error.<br> <br>  Si quiere restaurar únicamente un subconjunto de bases de datos o tablas específicas en lugar de todas las bases de datos del servidor de bases de datos, puede restaurar el servidor de base de datos en una nueva instancia, exportar las tablas a través de [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html) y, a continuación, usar [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) para restaurar esas tablas en la base de datos. | Estos errores de usuario no están protegidos con alta disponibilidad, ya que todos los cambios se replican también de forma sincrónica en la réplica en espera. Tiene que realizar una restauración a un momento dado para recuperarse de estos errores. |
 | <b> Error de zona de disponibilidad | Para recuperarse de un error de nivel de zona, puede realizar una recuperación a un momento dado mediante la copia de seguridad y elegir un punto de restauración personalizado del último momento para restaurar los datos más recientes. Se implementa un nuevo servidor flexible en otra zona no afectada. El tiempo necesario para la restauración depende de la copia de seguridad anterior y del volumen de registros de transacciones que se van a recuperar. | El servidor flexible se conmuta por error automáticamente al servidor en espera en un plazo entre 60 y 120 s sin pérdida de datos. Para obtener más información, consulte la página de [Conceptos de alta disponibilidad](./concepts-high-availability.md). | 
-| <b> Error de región | La réplica de lectura entre regiones y las características de restauración geográfica de las copias de seguridad todavía no se admiten en la versión preliminar. | |
+| <b> Error de región | Si el servidor está configurado con copia de seguridad con redundancia geográfica, puede realizar la restauración geográfica en la región emparejada. Se aprovisionará un nuevo servidor y se recuperará en los últimos datos disponibles que se copiaron en esta región. | Mismo proceso. |
 
 
 > [!IMPORTANT]

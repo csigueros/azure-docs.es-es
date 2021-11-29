@@ -6,12 +6,12 @@ ms.author: tefa
 ms.date: 11/08/2021
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.openlocfilehash: 9c6b0c520fbde3f028e933d7eec05d390cb209e8
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: ef06bd1bc74b8065cb1f7d12cd6a21584feecbba
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997654"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132706919"
 ---
 # <a name="authorize-request-to-web-pubsub-resources-with-azure-ad-from-azure-applications"></a>Autorización de solicitudes a recursos de Web PubSub con Azure AD desde aplicaciones de Azure
 
@@ -111,55 +111,14 @@ Para obtener más información sobre cómo asignar y administrar asignaciones de
 - [Asignación de roles de Azure mediante la CLI de Azure](../role-based-access-control/role-assignments-cli.md)
 - [Asignación de roles de Azure mediante plantillas de Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 
-## <a name="configure-your-server"></a>Configuración del servidor
+## <a name="sample-codes"></a>Códigos de ejemplo
 
-Se recomienda configurar la identidad y las credenciales en las variables de entorno:
+Oficialmente, se admiten 4 lenguajes de programación:
 
-| Variable  | Descripción |
-|------|------
-| `AZURE_TENANT_ID` | Identificador de inquilino (directorio) de Azure Active Directory. |
-| `AZURE_CLIENT_ID` | Identificador de cliente (aplicación) de un registro de aplicación en el inquilino. |
-| `AZURE_CLIENT_SECRET` | Secreto de cliente generado para el registro de aplicación. |
-| `AZURE_CLIENT_CERTIFICATE_PATH` | Ruta al par de certificado y clave privada en formato PEM o PFX, que puede autenticar el registro de aplicación. |
-| `AZURE_USERNAME`  | Nombre de usuario, también conocido como UPN, de una cuenta de usuario de Azure Active Directory. |
-| `AZURE_PASSWORD`  | Contraseña de la cuenta de usuario de Azure Active Directory. Tenga en cuenta que no se admiten cuentas con MFA habilitado. |
-
-Si lo hace, podría usar [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) o [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) para configurar los puntos de conexión de Web PubSub.
-
-### <a name="sample-codes"></a>Códigos de ejemplo
-
-Estos son códigos de ejemplo para C#. Para ver otros lenguajes admitidos, consulte JavaScript, Python o Java.
-
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var client = new WebPubSubServiceClient(endpoint, "hub", new DefaultAzureCredential());
-```
-
-Para saber cómo funciona `DefaultAzureCredential`, consulte [DefaultAzureCredential (clase)](/dotnet/api/azure.identity.defaultazurecredential).
-
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var client = new WebPubSubServiceClient(endpoint, "hub", new EnvironmentCredential());
-```
-
-También puede usar [ClientSecretCredential](/dotnet/api/azure.identity.clientsecretcredential) o [ClientCertificateCredential](/dotnet/api/azure.identity.clientcertificatecredential) directamente si así lo prefiere.
-
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var credential = new ClientSecretCredential("tenantId", "clientId", "clientSecret");
-var client = new WebPubSubServiceClient(endpoint, "hub", credential);
-```
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var credential = new ClientCertificateCredential("tenantId", "clientId", "pathToCert");
-var client = new WebPubSubServiceClient(endpoint, "hub", credential);
-```
-
-Para más información sobre cómo crear `TokenCredential` para la autorización de Azure AD, consulte los artículos siguientes:
-
-- [DefaultAzureCredential (clase)](/dotnet/api/azure.identity.defaultazurecredential)
-- [ClientSecretCredential (constructores)](/dotnet/api/azure.identity.clientsecretcredential.-ctor)
-- [ClientCertificateCredential (constructores)](/dotnet/api/azure.identity.clientcertificatecredential.-ctor)
+- [C#](./howto-create-serviceclient-with-net-and-azure-identity.md)
+- [Python](./howto-create-serviceclient-with-python-and-azure-identity.md)
+- [Java](./howto-create-serviceclient-with-java-and-azure-identity.md)
+- [JavaScript](./howto-create-serviceclient-with-javascript-and-azure-identity.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

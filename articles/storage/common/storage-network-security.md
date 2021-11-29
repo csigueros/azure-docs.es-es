@@ -5,17 +5,17 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/09/2021
+ms.date: 11/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ffa380ec55dfcf96368782a3345ce3d13fe5f4f
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: f033ad2482977a32c197eb6e172bc0a043f71abc
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131474844"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720461"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -595,12 +595,16 @@ Puede usar la misma técnica para una cuenta que tenga la característica de esp
 | Servicio                        | Nombre del proveedor de recursos                 | Propósito            |
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Azure API Management           | Microsoft.ApiManagement/service        | Habilita el acceso del servicio API Management a las cuentas de almacenamiento detrás del firewall mediante directivas. [Más información](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
+| Azure Cache for Redis | Microsoft.Cache/Redis | Permite el acceso a las cuentas de almacenamiento a través de Azure Cache for Redis. | 
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Habilita los servicios de Cognitive Search para acceder a las cuentas de almacenamiento con fines de indexación, proceso y consulta. |
 | Azure Cognitive Services       | Microsoft.CognitiveService/accounts    | Habilita Cognitive Services para acceder a las cuentas de almacenamiento. [Más información](../..//cognitive-services/cognitive-services-virtual-networks.md).|
 | Tareas de Azure Container Registry | Microsoft.ContainerRegistry/registries | ACR Tasks puede acceder a las cuentas de almacenamiento al compilar imágenes de contenedor. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Permite el acceso a las cuentas de almacenamiento a través del tiempo de ejecución de ADF. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Permite el acceso a las cuentas de almacenamiento a través de Data Share. |
 | Azure DevTest Labs             | Microsoft.DevTestLab/labs              | Permite el acceso a las cuentas de almacenamiento a través de DevTest Labs. |
+| Azure Event Grid  | Microsoft.EventGrid/topics | Permite el acceso a las cuentas de almacenamiento a través de Azure Event Grid. |
+| Azure Healthcare API | Microsoft.HealthcareApis/services | Permite el acceso a las cuentas de almacenamiento a través de Azure Healthcare APIs. |
+| Aplicaciones de Azure IoT Central | Microsoft.IoTCentral/IoTApps | Permite el acceso a las cuentas de almacenamiento a través de las aplicaciones de Azure IoT Central. |
 | Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Permite que los datos de un centro de IoT se escriban en almacenamiento de blobs. [Más información](../../iot-hub/virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Permite a las aplicaciones lógicas acceder a las cuentas de almacenamiento. [Más información](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Servicio Azure Machine Learning | Microsoft.MachineLearningServices      | Las áreas de trabajo autorizadas de Azure Machine Learning escriben los resultados del experimento, los modelos y los registros en Blob Storage y leen los datos. [Más información](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |

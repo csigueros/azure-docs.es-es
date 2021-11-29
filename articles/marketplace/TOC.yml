@@ -243,7 +243,7 @@
       items:
         - name: Planeación de la oferta
           href: marketplace-dynamics-365.md
-        - name: Creación de una oferta de Customer Engagement y Power Apps
+        - name: Creación de una oferta de Customer Engagement y PowerApps
           items:
             - name: Crear la oferta
               href: dynamics-365-customer-engage-offer-setup.md

@@ -1,24 +1,24 @@
 ---
-title: 'Acceso condicional: Requerir dispositivos compatibles (Azure Active Directory)'
-description: Cree una directiva de acceso condicional personalizada para exigir el cumplimiento de los dispositivos.
+title: 'Acceso condicional: requiere dispositivos unidos compatibles o híbridos - Azure Active Directory'
+description: Cree una directiva de acceso condicional personalizada para exigir el cumplimiento de los dispositivos unidos compatibles o híbridos.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 11/05/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb, rogoya
+ms.reviewer: calebb, davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327d04109be26e14f8fedc46e88266e51e733455
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cf4638c452714eaae69188450892c131c2033310
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128615422"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710812"
 ---
-# <a name="conditional-access-require-compliant-devices"></a>Acceso condicional: Requerir dispositivos compatibles
+# <a name="conditional-access-require-compliant-or-hybrid-azure-ad-joined-device"></a>Acceso condicional: requerir un dispositivo unido a Azure AD híbrido o compatible
 
 Las organizaciones que han implementado Microsoft Intune pueden usar la información que devuelven sus dispositivos para identificar aquellos que satisfacen los requisitos de cumplimiento, por ejemplo:
 
@@ -28,6 +28,10 @@ Las organizaciones que han implementado Microsoft Intune pueden usar la informac
 * Exigir que un dispositivo no se haya liberado ni modificado
 
 Esta información del cumplimiento de las directivas se reenvía a Azure AD donde se pueden tomar decisiones mediante el acceso condicional para conceder o bloquear el acceso a los recursos. Para más información sobre las directivas de cumplimiento de dispositivos, consulte el artículo [Establecimiento de reglas en los dispositivos para permitir el acceso a recursos de su organización con Intune](/intune/protect/device-compliance-get-started).
+
+## <a name="template-deployment"></a>Implementación de plantilla
+
+Las organizaciones pueden optar por implementar esta directiva mediante los pasos descritos a continuación o mediante las [plantillas de acceso condicional (versión preliminar)](concept-conditional-access-policy-common.md#conditional-access-templates-preview). 
 
 ## <a name="create-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
@@ -44,11 +48,14 @@ Los pasos siguientes le ayudarán a crear una directiva de acceso condicional pa
 1. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Todas las aplicaciones en la nube**.
    1. Si debe excluir aplicaciones específicas de la directiva, puede seleccionarlas en la pestaña **Excluir** en **Seleccionar las aplicaciones en la nube excluidas** y elegir **Seleccionar**.
    1. Seleccione **Listo**.
-1. En **Condiciones** > **Aplicaciones cliente (versión preliminar)**  > **Seleccionar aplicaciones cliente a las que se aplicará la directiva** mantenga todos los valores seleccionados y haga clic en **Listo**.
-1. En **Controles de acceso** > **Conceder**, seleccione **Requerir que el dispositivo esté marcado como compatible**.
+1. En **Controles de acceso** > **Conceder**.
+   1. Seleccione **Require device to be marked as compliant** (Requerir que el dispositivo se marque como compatible) y **Require Hybrid Azure AD joined device** (Requerir un dispositivo de Azure AD híbrido unido).
+   1. **En el caso de controles múltiples**, seleccione **Requerir uno de los controles seleccionados**.
    1. Elija **Seleccionar**.
-1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
+1. Confirme la configuración y establezca **Habilitar directiva** en **Solo informe**.
 1. Seleccione **Crear** para crear la directiva.
+
+Después de confirmar la configuración mediante el [modo de solo informe](howto-conditional-access-insights-reporting.md), un administrador puede mover el botón de alternancia **Habilitar directiva** de **Solo informe** a **Activar**.
 
 > [!NOTE]
 > Puede inscribir sus nuevos dispositivos en Intune aunque seleccione **Requerir que el dispositivo esté marcado como compatible** para **Todos los usuarios** y **Todas las aplicaciones en la nube** mediante los pasos anteriores. El control **Requerir que el dispositivo esté marcado como compatible** no impide la inscripción a Intune. 

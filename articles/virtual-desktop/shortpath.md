@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 10/18/2021
 ms.author: denisgun
-ms.openlocfilehash: 43f4a8a1f467637f3a3703704361db525912f750
-ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
+ms.openlocfilehash: b6f41f52b224603d32586ca6e260eaae54466f80
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132179234"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132709330"
 ---
 # <a name="azure-virtual-desktop-rdp-shortpath-for-managed-networks"></a>RDP Shortpath de Azure Virtual Desktop para redes administradas
 

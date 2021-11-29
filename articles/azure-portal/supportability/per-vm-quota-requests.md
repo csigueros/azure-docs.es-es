@@ -1,154 +1,83 @@
 ---
-title: Solicitud de aumento de los límites de cuota de vCPU por serie de máquinas virtuales de Azure
-description: Cómo solicitar un aumento del límite de cuota de vCPU de una serie de máquinas virtuales en Azure Portal, que aumenta el límite de vCPU regional total en la misma cantidad.
-author: sowmyavenkat86
-ms.author: svenkat
-ms.date: 01/27/2020
+title: Aumento de las cuotas de vCPU de la familia de máquinas virtuales
+description: Aprenda a solicitar un aumento del límite de cuota de vCPU de una familia de VM en Azure Portal, que aumenta el límite de vCPU regional total en la misma cantidad.
+ms.date: 11/15/2021
 ms.topic: how-to
-ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 5db3e538a64e275313e1e0ab01f6cc6350eabb77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7941c19de7143bc794ffd6d197d31c6db6f0a0d5
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96745441"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714391"
 ---
-# <a name="standard-quota-increase-limits-by-vm-series"></a>Cuota estándar: Aumento de los límites por serie de máquinas virtuales
+# <a name="increase-vm-family-vcpu-quotas"></a>Aumento de las cuotas de vCPU de la familia de máquinas virtuales
 
 Azure Resource Manager admite dos tipos de cuotas de vCPU para las máquinas virtuales:
 
-* Las *máquinas virtuales de pago por uso* y las *instancias reservadas de máquina virtual* están sujetas a una *cuota de vCPU estándar*.
-* Las *máquinas virtuales al contado* están sujetas a una *cuota de vCPU al contado*.
+- cuotas de vCPU estándar
+- cuotas de vCPU de acceso puntual
 
-La cuota de vCPU estándar para las instancias reservadas de máquina virtual y de pago por uso se aplica en dos niveles para cada suscripción de cada región:
+Las cuotas de vCPU estándar se aplican a las VM de pago por uso y a las instancias de VM reservadas. Se aplican en dos niveles para cada suscripción, en cada región:
 
-* El primer nivel es el *límite de vCPU regionales totales*, en todas las series de máquinas virtuales.
-* El segundo nivel es el *límite de vCPU por serie de máquinas virtuales*; por ejemplo, las vCPU de la serie Dv3.
+- El primer nivel es la cuota total de vCPU regional.
+- El segundo nivel es la cuota de vCPU de la familia de VM, como las vCPU de la serie D.
 
-Cada vez que se implementa una nueva máquina virtual al contado, el total de uso de vCPU nuevo y existente para todas las instancias de máquina virtual al contado no debe superar el límite de cuota de vCPU al contado aprobado. Si se supera la cuota al contado, no se permite la implementación de máquinas virtuales al contado.
+En este artículo se muestra cómo solicitar aumentos para las cuotas de vCPU de la familia de VM. También puede solicitar aumentos para las [cuotas de vCPU por región](regional-quota-requests.md) o las [cuotas de vCPU de acceso puntual](spot-quota.md).
 
-Puede solicitar un aumento del límite de cuota de vCPU para la serie de máquinas virtuales a través de Azure Portal. Al aumentar la cuota de la serie de máquinas virtuales, se aumenta automáticamente el límite de vCPU regionales totales en la misma cantidad.
+## <a name="increase-a-vm-family-vcpu-quota"></a>Aumento de las cuotas de vCPU de la familia de VM
 
-Para más información sobre las cuotas de vCPU estándar, consulte los artículos [Cuotas de vCPU de máquinas virtuales](../../virtual-machines/windows/quotas.md) y [Suscripción a Azure y límites de servicio](./classic-deployment-model-quota-increase-requests.md).
+Para solicitar un aumento de la cuota de vCPU estándar por familia de VM de **Uso y cuotas**:
 
-Para información sobre cómo aumentar el límite de vCPU por región para la cuota estándar, consulte [Cuota estándar: aumento de los límites por región](regional-quota-requests.md).
+1. En Azure Portal, seleccione **Suscripciones**.
+1. Seleccione la suscripción cuya cuota quiere aumentar.
+1. En el panel izquierdo, seleccione **Uso y cuotas**.
+1. En el panel principal, busque la cuota de vCPU de la familia de VM que quiera aumentar y, a continuación, seleccione el icono del lápiz. En el ejemplo siguiente se muestran las vCPU de la familia DSv3 estándar implementadas en la región Este de EE. UU. La columna **Uso** muestra el uso y el límite de cuota actual.
+1. En **Detalles de la cuota**, escriba el nuevo límite de cuota y, a continuación, seleccione **Guardar y continuar**.
 
-Para más información sobre cómo aumentar los límites de vCPU de máquinas virtuales al contado, consulte el artículo [Cuota al contado: aumento de los límites para todas las series de máquinas virtuales](low-priority-quota.md).
+   :::image type="content" source="media/resource-manager-core-quotas-request/quota-increase-example.png" alt-text="Captura de pantalla del panel Uso y cuotas." lightbox="media/resource-manager-core-quotas-request/quota-increase-example.png":::
 
-Puede solicitar un aumento de los límites de cuota de vCPU estándar por serie de máquinas virtuales de dos maneras, tal como se describe en las secciones siguientes.
-
-## <a name="request-a-standard-quota-increase-from-help--support"></a>Solicitud de un aumento de la cuota estándar desde Ayuda y soporte técnico
-
-Para solicitar un aumento de cuota de vCPU estándar por serie de máquinas virtuales desde **Ayuda y soporte técnico**, haga lo siguiente:
+Se revisará la solicitud y se le notificará si esta se ha aprobado o rechazado. Esto suele ocurrir en cuestión de minutos. Si se rechaza la solicitud, verá un vínculo donde puede abrir una solicitud de soporte técnico para que un ingeniero pueda ayudarle con el aumento.
 
 > [!NOTE]
-> También puede solicitar un aumento del límite de cuota para varias regiones a través de un único caso de soporte técnico. Para más información, consulte el paso 8.
+> Si se aprueba la solicitud para aumentar la cuota de la familia de VM, Azure aumentará automáticamente la cuota de vCPU regional para la región donde se implementa la VM.
 
-1. En el menú de [Azure Portal](https://portal.azure.com), seleccione **Ayuda y soporte técnico**.
+> [!TIP]
+> Al crear o cambiar el tamaño de una máquina virtual y seleccionar el tamaño de esta, es posible que vea algunas opciones enumeradas en **Cuota insuficiente: límite de familia**. Si es así, puede solicitar un aumento de cuota directamente desde la página de creación de la VM seleccionando el vínculo **Solicitar cuota**.
 
-   ![El vínculo de Ayuda y soporte técnico](./media/resource-manager-core-quotas-request/help-plus-support.png)
+## <a name="increase-a-vm-family-vcpu-quota-from-help--support"></a>Aumento de una cuota de vCPU de la familia de VM desde Ayuda y soporte técnico
 
-1. Seleccione **Ayuda y soporte técnico** y **Nueva solicitud de soporte técnico**.
-
-    ![Creación de una solicitud de soporte técnico](./media/resource-manager-core-quotas-request/new-support-request.png)
+Para solicitar un aumento de la cuota de vCPU estándar por familia de VM desde **Ayuda y soporte técnico**, cree una nueva solicitud de soporte técnico en Azure Portal.
 
 1. En **Tipo de problema**, seleccione **Límites de servicio y suscripción (cuotas)** .
-
-   ![Selección de un tipo de problema](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
-
 1. En **Suscripción**, seleccione la suscripción cuya cuota quiere aumentar.
-
-   ![Selección de una suscripción para el aumento de cuota](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
-
 1. Seleccione **Tipo de cuota** y, luego, **Compute-VM (cores-vCPUs) subscription limit increases** (Aumento del límite de suscripción para VM de proceso [núcleos/vCPU]).
 
-   ![Selección de un tipo de cuota](./media/resource-manager-core-quotas-request/select-quota-type.png)
+   :::image type="content" source="media/resource-manager-core-quotas-request/new-per-vm-quota-request.png" alt-text="Captura de pantalla que muestra una solicitud de soporte técnico para aumentar una cuota de vCPU de la familia de VM en Azure Portal.":::
 
-1. Seleccione **Siguiente: Soluciones** para abrir **DETALLES DEL PROBLEMA**. Seleccione **Proporcionar detalles** para especificar información adicional.
+Desde allí, siga los pasos descritos anteriormente para completar la solicitud de aumento de cuota.
 
-   ![El vínculo "Proporcionar detalles"](./media/resource-manager-core-quotas-request/provide-details-link.png)
+## <a name="increase-multiple-vm-family-cpu-quotas-in-one-request"></a>Aumento de varias cuotas de CPU de la familia de VM en una solicitud
 
-1. En los **Detalles de la cuota**, realice los pasos siguientes:
+También puede solicitar varios aumentos al mismo tiempo (solicitud masiva). Tenga en cuenta que realizar un aumento de la cuota de solicitudes masivas puede tardar más que solicitar aumentar una sola cuota.
 
-   ![Proporcionar detalles adicionales de la cuota](./media/resource-manager-core-quotas-request/quota-details-deployment-rm-locations.png)
+Para solicitar varios aumentos juntos, vaya primero a la página **Uso y cuotas**, tal como se ha descrito anteriormente. A continuación, haga lo siguiente:
 
-   1. Para el **Modelo de implementación**, seleccione el adecuado.
-
-   1. Para las **Ubicaciones**, seleccione una. En la ubicación seleccionada, en **Tipos**, en **Seleccionar un tipo**, elija **Estándar**.
-
-      ![Detalles de la cuota: tipos de cuota](./media/resource-manager-core-quotas-request/quota-details-select-standard-type.png)
-
-      En **Tipos**, puede solicitar los dos tipos de cuota (Estándar y Al contado) desde una única solicitud de soporte técnico mediante la selección múltiple.
-
-      Para más información sobre cómo aumentar los límites de cuota al contado, consulte [Máquinas virtuales de Azure Spot para los conjuntos de escalado](../../virtual-machine-scale-sets/use-spot.md).
-
-   1. En **Estándar**, seleccione la serie de SKU para el aumento de cuotas.
-
-      ![Detalles de la cuota: serie de SKU](./media/resource-manager-core-quotas-request/quota-details-standard-select-series.png)
-
-   1. Escriba el nuevo límite de cuota que quiere para esta suscripción. Para quitar una SKU de la lista, desactive la casilla junto a la SKU o seleccione el icono de descarte "X".
-
-      ![Selección de un nuevo límite de vCPU](./media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png)
-
-1. Para solicitar un aumento de cuota en más de una ubicación, seleccione una ubicación adicional en **Ubicaciones** y, luego, seleccione un tipo de máquina virtual adecuado. Después, puede especificar el límite que se aplicará a la ubicación adicional.
-
-   ![Especificación de ubicaciones adicionales en los detalles de la cuota](./media/resource-manager-core-quotas-request/quota-details-multiple-locations.png)
-
-1. Seleccione **Guardar y continuar** para continuar con la creación de la solicitud de soporte técnico.
-
-## <a name="request-a-standard-quota-increase-from-subscriptions"></a>Solicitud de un aumento de la cuota estándar desde Suscripciones
-
-Para solicitar un aumento de cuota de vCPU estándar por serie de máquinas virtuales desde **Suscripciones**, haga lo siguiente:
-
-> [!NOTE]
-> También puede solicitar un aumento del límite de cuota para varias regiones a través de un único caso de soporte técnico. Para más información, consulte el paso 7.
-
-1. En [Azure Portal](https://portal.azure.com), busque y seleccione **Suscripciones**.
-
-   ![Suscripciones en la búsqueda de Azure Portal](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
-
-1. Seleccione la suscripción cuya cuota quiere aumentar.
-
-   ![Suscripciones que puede seleccionar para los cambios](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
-
-1. En el panel izquierdo, seleccione **Uso y cuotas**.
-
-   ![El vínculo "Uso y cuotas"](./media/resource-manager-core-quotas-request/select-usage-plus-quotas.png)
-
-1. En la parte superior derecha, seleccione **Solicitar aumento**.
-
-   ![Selección para aumentar la cuota](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
-
+1. Seleccione la pestaña **Solicitar aumento** situada junto a la parte superior de la pantalla.
 1. Seleccione **Tipo de cuota** y, luego, **Compute-VM (cores-vCPUs) subscription limit increases** (Aumento del límite de suscripción para VM de proceso [núcleos/vCPU]).
+1. Seleccione **Siguiente** para ir a la pantalla **Detalles adicionales** y, a continuación, seleccione **Escribir detalles**.
+1. En la pantalla **Detalles de la cuota**:
 
-   ![Selección de un tipo de cuota](./media/resource-manager-core-quotas-request/select-quota-type.png)
+   :::image type="content" source="media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png" alt-text="Captura de pantalla que muestra la pantalla detalles de la cuota y las selecciones.":::
 
-1. En los **Detalles de la cuota**, realice los pasos siguientes:
+   1. En el **Modelo de implementación**, asegúrese de que el **Administrador de recursos** esté seleccionado.
+   1. En **Ubicaciones**, seleccione todas las regiones en las que quiera aumentar las cuotas.
+   1. Para cada región seleccionada, seleccione una o varias series de VM en la lista desplegable **Cuotas**.
+   1. Para cada **serie de VM** que haya seleccionado, escriba el nuevo límite de vCPU que desee para esta suscripción.
+   1. Cuando haya terminado, seleccione **Guardar y continuar**.
+1. Escriba o confirme los detalles de contacto y, a continuación, seleccione **Siguiente**.
+1. Por último, asegúrese de que todo esté correcto en la página **Revisar y crear** y, a continuación, seleccione **Crear** para enviar la solicitud.
 
-   1. En **Modelo de implementación**, seleccione el modelo adecuado y, en **Ubicaciones**, seleccione una ubicación.
+## <a name="next-steps"></a>Pasos siguientes
 
-      ![Especificación de los detalles de la cuota](./media/resource-manager-core-quotas-request/quota-details-deployment-rm-locations.png)
-
-   1. En la ubicación seleccionada, en **Tipos**, seleccione **Seleccionar un tipo** y, a continuación, **Estándar**.
-
-      ![Selección del tipo estándar](./media/resource-manager-core-quotas-request/quota-details-select-standard-type.png)
-
-      En **Tipos**, puede solicitar los dos tipos de cuota (Estándar y Al contado) desde una única solicitud de soporte técnico mediante la selección múltiple.
-
-      Para más información sobre cómo aumentar los límites de cuota al contado, consulte [Máquinas virtuales de Azure Spot para los conjuntos de escalado](../../virtual-machine-scale-sets/use-spot.md).
-
-   1. Para **Estándar**, seleccione la serie de SKU cuyas cuotas quiere aumentar.
-
-      ![Detalles de la cuota: serie de SKU](./media/resource-manager-core-quotas-request/quota-details-standard-select-series.png)
-
-   1. Escriba el nuevo límite de cuota que quiere para esta suscripción. Para quitar una SKU de la lista, anule la selección de la casilla junto a la SKU o seleccione el icono de descarte "X".
-
-      ![Selección de un nuevo límite de vCPU](./media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png)
-
-1. Para solicitar un aumento de cuota en más de una ubicación, seleccione una ubicación adicional en **Ubicaciones** y, luego, seleccione un tipo de máquina virtual adecuado.
-
-   Este paso carga previamente la serie de SKU seleccionada para las ubicaciones anteriores. Escriba los límites de cuota que quiere aplicar a la serie adicional.
-
-   ![Selección de ubicaciones adicionales en los detalles de la cuota](./media/resource-manager-core-quotas-request/quota-details-multiple-locations.png)
-
-1. Seleccione **Guardar y continuar** para continuar con la creación de la solicitud de soporte técnico.
+- Obtenga más información acerca de las [cuotas de vCPU](/azure/virtual-machines/windows/quotas).
+- Conozca los [límites, las cuotas y las restricciones de suscripción y servicios de Azure](/azure/azure-resource-manager/management/azure-subscription-service-limits).

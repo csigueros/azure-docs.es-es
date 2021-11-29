@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/26/2021
-ms.openlocfilehash: 2f8aa4612d386995f39fccceebdaee67e4afe9dd
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 56b2ce9b8b392a25c50ff4ea2d47da0237363a53
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131848351"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132719251"
 ---
 # <a name="plan-a-virtual-machine-offer"></a>Planificación de una oferta de máquina virtual
 
@@ -58,7 +58,7 @@ Una VM contiene dos componentes:
     > [!NOTE]
     > Independientemente del sistema operativo que use, agregue solo el número mínimo de discos de datos necesarios para la solución. Los usuarios no pueden quitar los discos que formen parte de una imagen durante la implementación, pero siempre pueden agregar discos durante o después de la implementación.
 
-Para obtener instrucciones detalladas sobre la preparación de los activos técnicos, consulte [Creación de una máquina virtual con una base aprobada](azure-vm-create-using-approved-base.md) o [Creación de una máquina virtual con su propia imagen](azure-vm-create-using-own-image.md).
+Para obtener instrucciones detalladas sobre la preparación de los activos técnicos, consulte [Creación de una máquina virtual con una base aprobada](azure-vm-use-approved-base.md) o [Creación de una máquina virtual con su propia imagen](azure-vm-use-own-image.md).
 
 ## <a name="preview-audience"></a>Público preliminar
 
@@ -102,13 +102,13 @@ Para obtener más información, vea [Planes y precios de las ofertas del marketp
 
 ## <a name="test-drive"></a>Versión de prueba
 
-Se puede elegir habilitar una versión de prueba para la VM. Las versiones de prueba proporcionan a los clientes acceso a un entorno preconfigurado durante un número fijo de horas. Aunque puede habilitar las opciones de publicación en cualquier versión de prueba, esta característica conlleva requisitos adicionales. Para más información sobre las versiones de prueba, consulte [¿Qué es una versión de prueba?](what-is-test-drive.md). Para información sobre la configuración de diferentes tipos de versiones de prueba, consulte [Configuración técnica de la versión de prueba](test-drive-technical-configuration.md).
-
 [!INCLUDE [Test drives section](includes/test-drives.md)]
+
+Si quiere obtener más información sobre las unidades de prueba para las ofertas de VM, consulte [Configuración de una versión de prueba de VM](azure-vm-test-drive.md).
 
 ## <a name="customer-leads"></a>Clientes potenciales
 
-[!INCLUDE [Customer leads section](includes/customer-leads.md)]
+Al publicar una oferta en el marketplace comercial con el Centro de partners, conéctela a un sistema de administración de relaciones con clientes (CRM). Esto le permite recibir información de contacto del cliente en cuanto alguien expresa interés en el producto o lo usa. Es necesario conectarse a un CRM si desea habilitar una versión de prueba (consulte la sección anterior). De lo contrario, la conexión a CRM es opcional.
 
 ## <a name="legal-contracts"></a>Contratos legales
 
@@ -124,6 +124,6 @@ Al crear la oferta en el Centro de partners, verá la pestaña **Revender median
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de una oferta de máquina virtual en Azure Marketplace](azure-vm-create.md)
-- [Creación de una máquina virtual con una base aprobada](azure-vm-create-using-approved-base.md) o [Creación de una máquina virtual con su propia imagen](azure-vm-create-using-own-image.md).
+- [Creación de una oferta de máquina virtual en Azure Marketplace](azure-vm-offer-setup.md)
+- [Creación de una máquina virtual con una base aprobada](azure-vm-use-approved-base.md) o [Creación de una máquina virtual con su propia imagen](azure-vm-use-own-image.md).
 - [Procedimientos recomendados para la publicación de ofertas](gtm-offer-listing-best-practices.md)

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: cde36aaa5946519533d4e68eb31da48af08be689
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 3ab6ce9f955829cb3faf774c5b85c205f5841474
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546299"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132551356"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configuración de redes de Azure CNI en Azure Kubernetes Service (AKS)
 
@@ -209,7 +209,7 @@ az provider register --namespace Microsoft.ContainerService
 
 Al usar esta característica, la planeación es mucho más sencilla. Dado que los nodos y pods se escalan de manera independiente, los espacios de direcciones también se pueden planear por separado. Como las subredes de pod se pueden configurar en la granularidad de un grupo de nodos, los clientes siempre podrán agregar una nueva subred cuando agreguen un grupo de nodos. Los pods de sistema de un grupo de clústeres/nodos también reciben direcciones IP de la subred de pod, por lo que es necesario tener en cuenta este comportamiento.
 
-La planeación de las direcciones IP para los servicios K8S y el puente de Docker permanecen sin cambios.
+La planeación de las direcciones IP para los servicios Kubernetes y el puente de Docker permanecen sin cambios.
 
 ### <a name="maximum-pods-per-node-in-a-cluster-with-dynamic-allocation-of-ips-and-enhanced-subnet-support"></a>Máximo de pods por nodo en un clúster con asignación dinámica de direcciones IP y compatibilidad mejorada con subredes
 

@@ -5,58 +5,74 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/30/2021
-ms.openlocfilehash: 8c6f3ebaa72457d93e4b3e491656f494511bd994
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 11/18/2021
+ms.openlocfilehash: aaa08dfe349d2390c05a94ecdb49459dbb774657
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745152"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132713276"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---flexible-server"></a>Copia de seguridad y restauración en Azure Database for PostgreSQL: servidor flexible
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL: servidor flexible está en versión preliminar.
 
-Las copias de seguridad forman una parte esencial de cualquier estrategia de continuidad empresarial. Ayudan a proteger los datos en caso de daños o eliminaciones accidentales. Azure Database for PostgreSQL: servidor flexible realiza automáticamente una copia de seguridad del servidor y conserva las copias de seguridad durante un período de hasta 35 días. Durante la restauración, puede especificar la fecha y la hora en las que quiera realizar la restauración en el período de retención. El tiempo total de restauración y recuperación depende del tamaño de los archivos de la base de datos y de las dimensiones de la recuperación que se va a realizar. 
+Las copias de seguridad forman una parte esencial de cualquier estrategia de continuidad empresarial. Ayudan a proteger los datos en caso de daños o eliminaciones accidentales. Azure Database for PostgreSQL: el servidor flexible realiza automáticamente una copia de seguridad normal del servidor.  A continuación, puede realizar una recuperación a un momento dado dentro del período de retención, donde puede especificar la fecha y hora a la que quiera realizar la restauración. El tiempo total de restauración y recuperación depende normalmente del tamaño de los datos y la cantidad de recuperación que se va a realizar. 
 
-### <a name="backup-process-in-flexible-server"></a>Proceso de copia de seguridad en un servidor flexible
-La primera copia de seguridad de instantáneas completa se programa inmediatamente después de la creación del servidor flexible. Posteriormente, se realiza una copia de seguridad diaria de las instantáneas de los archivos de datos. Las copias de seguridad se almacenan en un almacenamiento con redundancia de zona dentro de una región. Los registros de transacciones (registros de escritura previa) también se archivan continuamente, por lo que podrá restaurar a la última transacción confirmada. Estas copias de seguridad de registros y datos permiten restaurar un servidor a un momento dado dentro del período de retención de copias de seguridad configurado. Todas las copias de seguridad se cifran mediante cifrado AES de 256 bits.
+## <a name="backup-overview"></a>Introducción a Backup
 
-Si la base de datos se configura con alta disponibilidad, las instantáneas diarias se realizarán desde el servidor principal, y las copias de seguridad continuas del registro, desde el modo de espera.
+El servidor flexible realiza copias de seguridad de instantáneas de los archivos de datos y las almacena de forma segura en un almacenamiento con redundancia local o en uno con redundancia local en función de la [región](overview.md#azure-regions). El servidor también realiza la copia de seguridad de los registros de transacciones cuando el archivo WAL esté listo para archivarse. Estas copias de seguridad permiten restaurar un servidor a un momento dado dentro del período de retención de copias de seguridad configurado. El período de retención de copias de seguridad predeterminado es de siete días y puede aumentar a 35 días. Todas las copias de seguridad se cifran mediante cifrado AES de 256 bits para los datos almacenados en reposo.
 
-> [!IMPORTANT]
->En los servidores detenidos no se realizan copias de seguridad. Sin embargo, las copias de seguridad se reanudan cuando la base de datos se inicia automáticamente transcurridos siete días o cuando lo hace el usuario.
+Estos archivos de copia de seguridad no se pueden exportar ni usar para crear servidores fuera del servidor flexible de Azure Database for PostgreSQL. Para ello, puede usar herramientas de PostgreSQL de tipo pg_dump y pg_restore/psql.
 
-Las copias de seguridad solo se pueden usar para operaciones de restauración en el servidor flexible. Si quiere exportar o importar datos al servidor flexible, use la metodología de [volcado y restauración](../howto-migrate-using-dump-and-restore.md).
+## <a name="backup-frequency"></a>Frecuencia de copia de seguridad
 
+Las copias de seguridad en servidores flexibles se basan en instantáneas. La primera copia de seguridad de instantáneas se programa inmediatamente después de la creación de un servidor. Las copias de seguridad de instantáneas se realizan una vez al día. Las copias de seguridad del registro de transacciones se realizan con una frecuencia variable en función de la carga de trabajo y cuando el archivo WAL se rellena para archivarse. En general, el retraso (RPO) puede ser de hasta 15 minutos.
+
+## <a name="backup-redundancy-options"></a>Opciones de redundancia de copia de seguridad
+
+Azure Database for PostgreSQL siempre almacena varias copias de las copias de seguridad, con el fin de proteger los datos de eventos planeados y no planeados, como errores transitorios del hardware, interrupciones del suministro eléctrico o cortes de la red, y desastres naturales de gran magnitud. Azure Database for PostgreSQL proporciona la flexibilidad de elegir entre una copia de seguridad local dentro de una región o una copia de seguridad con redundancia geográfica (versión preliminar). De forma predeterminada, la copia de seguridad del servidor de Azure Database for PostgreSQL usa el almacenamiento con redundancia de zona si está disponible en la región. Si no es así, usa un almacenamiento con redundancia local. Además, los clientes pueden elegir la copia de seguridad con redundancia geográfica, que se encuentra en versión preliminar, para la recuperación ante desastres en el momento de la creación del servidor. Consulte la lista de regiones en las que se admiten las copias de seguridad con redundancia geográfica. 
+
+La redundancia de copia de seguridad garantiza que la base de datos cumple con sus objetivos de disponibilidad y durabilidad incluso en caso de errores; para ello, Azure Database for PostgreSQL proporciona tres opciones a los usuarios: 
+
+- **Almacenamiento de copia de seguridad con redundancia de zona**: se elige automáticamente para las regiones que admiten zonas de disponibilidad. Cuando las copias de seguridad se guardan en el almacenamiento de copia de seguridad con redundancia de zona, no solo se almacenan varias copias dentro de la zona de disponibilidad en la que se hospeda el servidor, sino que también se replican en otra zona de disponibilidad de la misma región. Esta opción se puede aprovechar para escenarios que requieren alta disponibilidad o para restringir la replicación de datos a un país o una región a fin de cumplir los requisitos de residencia de datos. Además, proporciona una durabilidad mínima del 99,9999999999 % (12 nueves) de los objetos de copia de seguridad en un año determinado.  
+
+- **Almacenamiento de copias de seguridad con redundancia local**: esta opción se elige automáticamente para las regiones que aún no admiten zonas de disponibilidad. Cuando las copias de seguridad se almacenan en un almacenamiento de copia de seguridad con redundancia local, son varias las copias de seguridad que se almacenan en el mismo centro de datos. Esta opción protege los datos frente a errores en la estantería de servidores y en la unidad. Además, proporciona una durabilidad mínima del 99,999999999 % (11 nueves) de los objetos de copia de seguridad en un año determinado. De manera predeterminada, el almacenamiento de copia de seguridad para servidores con alta disponibilidad en la misma zona o sin configuración de alta disponibilidad se establece en redundancia local. 
+
+- **Almacenamiento de copias de seguridad con redundancia geográfica (versión preliminar)** : puede elegir esta opción en el momento de la creación del servidor. Cuando las copias de seguridad se guardan en un almacenamiento de copia de seguridad con redundancia geográfica, además de tres copias de los datos almacenados en la región en la que está alojado el servidor, también se replican en la región emparejada geográficamente. Esto proporciona una mejor protección y capacidad de restaurar el servidor en una región diferente en caso de desastre. Además, proporciona una durabilidad mínima del 99,99999999999999 % (16 nueves) de los objetos de copia de seguridad en un año determinado. Es posible habilitar la opción de redundancia geográfica en el momento de crear el servidor a fin de garantizar el almacenamiento de copia de seguridad con redundancia geográfica. La redundancia geográfica es compatible con los servidores hospedados en cualquiera de las [regiones emparejadas de Azure](../../best-practices-availability-paired-regions.md). 
+
+> [!NOTE]
+> La opción de copia de seguridad con redundancia geográfica solo se puede configurar en el momento en que se crea el servidor.
+
+## <a name="moving-from-other-backup-storage-options-to-geo-redundant-backup-storage"></a>Cambio de otras opciones de almacenamiento de copia de seguridad al almacenamiento de copia de seguridad con redundancia geográfica 
+
+La configuración de almacenamiento con redundancia geográfica para copia de seguridad solo se permite durante la creación del servidor. Una vez que se ha aprovisionado el servidor, no se puede cambiar la opción de redundancia del almacenamiento de copia de seguridad.  
 
 ### <a name="backup-retention"></a>Retención de copia de seguridad
 
-Las copias de seguridad se conservan según el valor del período de retención de copia de seguridad en el servidor. Puede seleccionar un período de retención de entre 7 y 35 días. El período de retención predeterminado es de siete días. Puede establecer el período de retención durante la creación del servidor, o bien puede actualizarlo más adelante. Las copias de seguridad de los servidores detenidos también se conservan.
+Las copias de seguridad se conservan según el valor del período de retención de copia de seguridad en el servidor. Puede seleccionar un período de retención de entre 7 y 35 días. El período de retención predeterminado es de siete días. Puede establecer el período de retención durante la creación del servidor, o bien puede cambiarlo más adelante. Las copias de seguridad de los servidores detenidos también se conservan.
 
-El período de retención de copia de seguridad rige durante cuánto tiempo se puede realizar una restauración a un momento dado, porque se basa en las copias de seguridad disponibles. El período de retención de copia de seguridad también se puede tratar como un período de recuperación desde una perspectiva de restauración. Todas las copias de seguridad que se necesitan para realizar una restauración a un momento dado dentro del período de retención de copia de seguridad se conservan en el almacenamiento de copia de seguridad. Por ejemplo, si el período de retención de la copia de seguridad se establece en siete días, el período de recuperación comprendería los últimos siete días. En este escenario, se conservan todos los datos y los registros necesarios para restaurar y recuperar el servidor en los últimos siete días. 
-
+El período de retención de copia de seguridad establece durante cuánto tiempo se puede realizar una restauración a un momento dado, porque se basa en las copias de seguridad disponibles. El período de retención de copia de seguridad también se puede tratar como un período de recuperación desde una perspectiva de restauración. Todas las copias de seguridad que se necesitan para realizar una restauración a un momento dado dentro del período de retención de copia de seguridad se conservan en el almacenamiento de copia de seguridad. Por ejemplo, si el período de retención de la copia de seguridad se establece en siete días, el período de recuperación comprendería los últimos siete días. En este escenario, se conservan todos los datos y los registros necesarios para restaurar y recuperar el servidor en los últimos siete días. 
 
 ### <a name="backup-storage-cost"></a>Costo del almacenamiento de copia de seguridad
 
-El Servidor flexible proporciona hasta un 100 % del almacenamiento del servidor aprovisionado como almacenamiento de copia de seguridad, sin costos adicionales. El cargo de cualquier almacenamiento de copia de seguridad adicional que se use se realizará por GB/mes. Por ejemplo, si ha aprovisionado un servidor con 250 GiB de almacenamiento, tendrá 250 GiB de capacidad para almacenar copias de seguridad sin costos adicionales. Si el uso de la copia de seguridad diaria es de 25 GiB, puede tener hasta diez días de almacenamiento de copia de seguridad. El consumo de almacenamiento de copia de seguridad que supere los 250 GiB se cobrará según el [modelo de precios](https://azure.microsoft.com/pricing/details/postgresql/).
+El Servidor flexible proporciona hasta un 100 % del almacenamiento del servidor aprovisionado como almacenamiento de copia de seguridad, sin costos adicionales. El cargo de cualquier almacenamiento de copia de seguridad adicional que se use se realizará por GB/mes. Por ejemplo, si ha aprovisionado un servidor con 250 GiB de almacenamiento, tendrá 250 GiB de capacidad para almacenar copias de seguridad sin costos adicionales. Si el uso de la copia de seguridad diaria es de 25 GiB, puede tener hasta diez días de almacenamiento de copia de seguridad. El consumo de almacenamiento de copia de seguridad que supere los 250 GiB se cobrará según el [modelo de precios](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/).
 
-Puede usar la métrica [Almacenamiento de copia de seguridad utilizado](../concepts-monitoring.md) en Azure Portal para supervisar el almacenamiento de copia de seguridad que usa un servidor. La métrica Almacenamiento de copia de seguridad utilizado representa la suma del almacenamiento consumido por todas las copias de seguridad de base de datos y copias de seguridad de registros, que se conservan durante el período de retención de copia de seguridad establecido para el servidor.  Una gran actividad transaccional en el servidor puede hacer que el uso del almacenamiento de copia de seguridad aumente, independientemente del tamaño total de la base de datos.
+Si configuró el servidor con copia de seguridad con redundancia geográfica, los datos de copia de seguridad también se copian en la región emparejada de Azure. Por lo tanto, el tamaño de la copia de seguridad será el doble de la copia de seguridad local. La facturación se calcula como ([2 x el tamaño de copia de seguridad local] - el tamaño de almacenamiento aprovisionado ) x el precio por GB al mes. 
+
+Puede usar la métrica [Almacenamiento de copia de seguridad utilizado](../concepts-monitoring.md) en Azure Portal para supervisar el almacenamiento de copia de seguridad que usa un servidor. La métrica Almacenamiento de copia de seguridad utilizado representa la suma del almacenamiento consumido por todas las copias de seguridad de base de datos y copias de seguridad de registros, que se conservan durante el período de retención de copia de seguridad establecido para el servidor. 
+
+>[!Note]
+> Independientemente del tamaño de la base de datos, la actividad transaccional intensa en el servidor genera más archivos WAL, lo que a su vez aumenta el almacenamiento de copia de seguridad.
 
 El medio principal para controlar el costo de almacenamiento de copia de seguridad es establecer el período de retención apropiado y elegir las opciones adecuadas de redundancia de copia de seguridad para satisfacer los objetivos de recuperación deseados.
 
-> [!IMPORTANT]
-> Las copias de seguridad con redundancia geográfica no se admiten actualmente en el servidor flexible.
-
 ## <a name="point-in-time-restore-overview"></a>Información general sobre la restauración a un momento dado
 
-En un servidor flexible, al realizar una restauración a un momento dado, se crea un nuevo servidor a partir de las copias de seguridad del servidor flexible en la misma región que el de origen. Se crea con la configuración del servidor de origen relativa al plan de tarifa, generación de procesos, número de núcleos virtuales, tamaño de almacenamiento, período de retención de copia de seguridad y opción de redundancia de copia de seguridad. Además, las etiquetas y configuraciones como la configuración de la red virtual y del firewall se heredan del servidor de origen. 
+En un servidor flexible, realizar una restauración a un momento dado crea un nuevo servidor en la misma región que el servidor de origen, pero puede elegir la zona de disponibilidad. Se crea con la configuración del servidor de origen relativa al plan de tarifa, generación de procesos, número de núcleos virtuales, tamaño de almacenamiento, período de retención de copia de seguridad y opción de redundancia de copia de seguridad. Además, las etiquetas y configuraciones como la configuración de la red virtual y del firewall se heredan del servidor de origen.
 
- > [!IMPORTANT]
-> Si va a restaurar un servidor flexible configurado con alta disponibilidad y redundancia geográfica, el servidor restaurado se configurará sin alta disponibilidad y en la misma región que el principal. 
-
- ### <a name="restore-process"></a>Proceso de restauración
+ ### <a name="point-in-time-restore-process"></a>Proceso de restauración a un momento dado
 
 Los archivos físicos de base de datos se restauran primero a partir de las copias de seguridad de instantáneas en la ubicación de datos del servidor. Se elige y restaura automáticamente la copia de seguridad pertinente, realizada antes del momento indicado. A continuación, se inicia un proceso de recuperación con archivos WAL para llevar la base de datos en un estado coherente. 
 
@@ -65,7 +81,7 @@ Los archivos físicos de base de datos se restauran primero a partir de las copi
  Siga [estos pasos](./how-to-restore-server-portal.md) para restaurar el servidor de base de datos.
 
 > [!IMPORTANT]
-> Las operaciones de restauración en un servidor flexible crean un nuevo servidor de base de datos y no sobrescriben el servidor de base de datos existente.
+> Las operaciones de restauración en el servidor flexible siempre crean un nuevo servidor de base de datos con el nombre que usted proporcione y no sobrescribe el servidor de base de datos existente.
 
 La restauración a un momento dado es útil en diversos escenarios. Por ejemplo, cuando un usuario elimina accidentalmente los datos, elimina una tabla importante o la base de datos, o si una aplicación sobrescribe accidentalmente los datos correctos con datos incorrectos debido a un defecto de la aplicación. Gracias a la copia de seguridad continua de los registros de transacciones, podrá restaurar el servidor a la última transacción.
 
@@ -75,19 +91,43 @@ Puede elegir entre el punto de restauración más reciente y uno personalizado.
 
 -   **Punto de restauración personalizado**: esta opción le permite elegir cualquier momento dentro del período de retención definido para este servidor flexible. De forma predeterminada, se selecciona automáticamente la última hora UTC, que resulta útil para realizar la restauración a la última transacción confirmada con fines de prueba. También puede elegir otros días y horas. 
 
-El tiempo estimado de recuperación depende de varios factores, como el tamaño de la base de datos, el volumen de los registros de transacciones que se van a procesar, el ancho de banda de red y el número total de bases de datos que se están recuperando en la misma región al mismo tiempo. Normalmente, el tiempo de recuperación general tarda entre unos minutos y unas horas.
+El tiempo estimado de recuperación depende de varios factores, incluido el volumen de registros de transacciones para procesar después del tiempo de copia de seguridad anterior y el número total de bases de datos que se recuperan en la misma región al mismo tiempo. Normalmente, el tiempo de recuperación general tarda entre unos minutos y unas horas.
 
-Si ha configurado el servidor dentro de una red virtual, puede restaurar a la misma red virtual o a otra. Sin embargo, no se puede restaurar a un acceso público. De forma similar, si ha configurado el servidor con acceso público, no podrá restaurar a un acceso privado.
-
+Si ha configurado el servidor dentro de una red virtual, puede restaurar a la misma red virtual o a otra. Sin embargo, no se puede restaurar a un acceso público. De forma similar, si ha configurado el servidor con acceso público, no podrá restaurar a un acceso privado de VNET.
 
 > [!IMPORTANT]
-> Los servidores eliminados **no se pueden** restaurar. Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. Para proteger los recursos del servidor, después de la implementación, de eliminaciones accidentales o cambios inesperados, los administradores pueden aprovechar los [bloqueos de administración](../../azure-resource-manager/management/lock-resources.md).
+> El usuario **no** puede restaurar los servidores eliminados. Si elimina el servidor, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. Para proteger los recursos del servidor, después de la implementación, de eliminaciones accidentales o cambios inesperados, los administradores pueden aprovechar los [bloqueos de administración](../../azure-resource-manager/management/lock-resources.md). Si eliminó accidentalmente el servidor, póngase en contacto con el soporte técnico. En algunos casos, el servidor se puede restaurar con o sin pérdida de datos.
+
+## <a name="geo-restore-preview-process"></a>Proceso de restauración geográfica (versión preliminar)
+
+Si configuró el servidor con copia de seguridad con redundancia geográfica, puede restaurarlo en una [región emparejada geográficamente](../../best-practices-availability-paired-regions.md). Consulte las [regiones](overview.md#azure-regions) admitidas de copia de seguridad con redundancia geográfica.
+
+Cuando el servidor se configura con copia de seguridad con redundancia geográfica, los datos de copia de seguridad se copian en la región emparejada de forma asincrónica mediante la replicación de almacenamiento. Esto incluye la copia de seguridad de datos y también los registros de transacciones. Después de la creación del servidor, espere al menos una hora antes de iniciar una restauración geográfica. Esto permitirá que el primer conjunto de datos de copia de seguridad se replique en la región emparejada. Posteriormente, los registros de transacciones y las copias de seguridad diarias se copian asincrónicamente en la región emparejada; recuerde que podría haber hasta una hora de retraso en la transmisión de datos. Por lo tanto, puede esperar hasta una hora de RPO al restaurar. Solo puede restaurar los últimos datos de copia de seguridad disponibles en la región emparejada. Actualmente, la restauración a un momento dado de la copia de seguridad geográfica no está disponible.
+
+El tiempo estimado para recuperar el servidor (RTO) depende de factores como el tamaño de la base de datos, la hora de la última copia de seguridad de la base de datos y la cantidad de WAL que se procesará hasta la última vez que se recibieron los datos de copia de seguridad. Normalmente, el tiempo de recuperación general tarda entre unos minutos y unas horas.
+
+Durante la restauración geográfica, las configuraciones de servidor que se pueden cambiar incluyen la configuración de red virtual y la capacidad de quitar la copia de seguridad con redundancia geográfica del servidor restaurado.  No se admite el cambio de otras configuraciones de servidor, como el proceso, el almacenamiento o el plan de tarifa (Ampliable, De uso general u Optimizado para memoria) durante la restauración geográfica.
+
+> [!IMPORTANT]
+> Cuando la región primaria está fuera de servicio, no se pueden crear servidores con redundancia geográfica en la región emparejada geográficamente correspondiente, ya que el almacenamiento no se puede aprovisionar en la región primaria. Hay que esperar a que la región primaria esté lista para aprovisionar servidores con redundancia geográfica en la región emparejada geográficamente. Con la región primaria fuera de servicio, de todos modos se puede restaurar geográficamente el servidor de origen en la región emparejada geográficamente. Para ello, se debe deshabilitar la opción de redundancia geográfica en la configuración Configurar servidor de Proceso y almacenamiento en la experiencia del portal de restauración y restaurar como un servidor con redundancia local para garantizar la continuidad empresarial.  
+
+## <a name="restore-and-networking"></a>Restauración y redes
+
+### <a name="point-in-time-restore"></a>Restauración a un momento dado
+
+- Si el servidor de origen está configurado con una red de **acceso público**, solo puede restaurar a un **acceso público**. 
+- Si el servidor de origen está configurado con una red virtual de **acceso privado**, puede restaurar en la misma red virtual o en otra red virtual. No se puede realizar una restauración a un momento dado en el acceso público y privado.
+
+### <a name="geo-restore"></a>Geo-restore
+
+- Si el servidor de origen está configurado con una red de **acceso público**, solo puede restaurar a un **acceso público**. Además, tendría que aplicar reglas de firewall una vez completada la operación de restauración. 
+- Si el servidor de origen está configurado con una red virtual de **acceso privado**, solo puede restaurar a otra red virtual, ya que la red virtual no se puede ampliar entre regiones. No se puede realizar la restauración geográfica en el acceso público y privado.
 
 ## <a name="perform-post-restore-tasks"></a>Tareas posteriores a la restauración
 
 Después de restaurar la base de datos, puede realizar las siguientes tareas para que los usuarios y las aplicaciones vuelvan a conectarse:
 
--   Si el nuevo servidor está destinado a reemplazar al original, redirija a los clientes y las aplicaciones cliente al nuevo servidor.
+-   Si el nuevo servidor está destinado a reemplazar al original, redirija a los clientes y las aplicaciones cliente al nuevo servidor. Cambie el nombre del servidor de la cadena de conexión para que apunte al nuevo servidor restaurado.
 
 -   Asegúrese de aplicar reglas de red virtual y de firewall de nivel de servidor adecuadas para que se conecten los usuarios. Estas reglas no se copian desde el servidor original.
   
@@ -136,7 +176,15 @@ Después de restaurar la base de datos, puede realizar las siguientes tareas par
 
 * **¿Dónde se almacenan mis copias de seguridad automatizadas y cómo se administra su retención?**
   
-    Azure Database for PostgreSQL crea automáticamente copias de seguridad del servidor y las almacena automáticamente en almacenamiento con redundancia de zona en regiones donde se admiten varias zonas o en almacenamiento con redundancia local en regiones que aún no admiten varias zonas. Estos archivos de copia de seguridad no se pueden exportar. Puede utilizar copias de seguridad solo para restaurar el servidor a un momento dado. El período de retención predeterminado es siete días. Opcionalmente, puede configurar la retención de copia de seguridad hasta 35 días.
+    Azure Database for PostgreSQL crea automáticamente copias de seguridad del servidor y las almacena automáticamente en almacenamiento con redundancia de zona en regiones donde se admiten varias zonas o en almacenamiento con redundancia local en regiones que aún no admiten varias zonas. Estos archivos de copia de seguridad no se pueden exportar. Puede utilizar copias de seguridad solo para restaurar el servidor a un momento dado. El período de retención predeterminado es siete días. Opcionalmente, puede configurar la retención de copia de seguridad hasta 35 días. Si configuró con copia de seguridad con redundancia geográfica, la copia de seguridad también se copiará en la región emparejada.
+
+* **Con la copia de seguridad con redundancia geográfica, ¿con qué frecuencia se copia la copia de seguridad en la región emparejada?**  
+
+    Cuando el servidor se configura con copia de seguridad con redundancia geográfica, los datos de la copia de seguridad se almacenan en una cuenta de almacenamiento con redundancia geográfica que realiza la copia de datos en la región emparejada. Los archivos de datos se copian en la región emparejada cuando se realiza la copia de seguridad diaria en el servidor principal. Se hace una copia de seguridad de los archivos WAL como y cuando los archivos WAL están listos para archivarse. Estos datos de copia de seguridad se copian de forma asincrónica y continua en la región emparejada. Puede esperar hasta 1 hora de retraso en la recepción de datos de copia de seguridad.
+
+* **¿Puedo realizar PITR en la región remota?**
+  
+    No. Los datos se recuperan en los últimos datos de copia de seguridad disponibles en la región remota.
 
 * **¿Cómo se realizan las copias de seguridad en servidores habilitados para alta disponibilidad?**
   

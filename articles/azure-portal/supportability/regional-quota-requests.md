@@ -1,106 +1,74 @@
 ---
-title: Solicitud de aumento del límite de cuota regional para vCPU de Azure
-description: Cómo solicitar un aumento del límite de cuota de vCPU para una región en Azure Portal.
-author: sowmyavenkat86
-ms.author: svenkat
-ms.date: 01/27/2020
+title: Aumento de las cuotas de vCPU regionales
+description: Aprenda a solicitar un aumento del límite de cuota de vCPU para una región en Azure Portal.
+ms.date: 11/15/2021
 ms.topic: how-to
-ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: eadf740c6b5caccbf678a1238f993d4ec0b34095
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: references-regions
+ms.openlocfilehash: 45337a6ce029fe3bf8442ac5343ce9145faf904f
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96745424"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132717099"
 ---
-# <a name="standard-quota-increase-limits-by-region"></a>Cuota estándar: Aumento de los límites por región
+# <a name="increase-regional-vcpu-quotas"></a>Aumento de las cuotas de vCPU regionales
 
 Azure Resource Manager admite dos tipos de cuotas de vCPU para las máquinas virtuales:
 
-* Las *máquinas virtuales de pago por uso* y las *instancias reservadas de máquina virtual* están sujetas a una *cuota de vCPU estándar*.
-* Las *máquinas virtuales al contado* están sujetas a una *cuota de vCPU al contado*.
+- cuotas de vCPU estándar
+- cuotas de vCPU de acceso puntual
 
-La cuota de vCPU estándar para las instancias reservadas de máquina virtual y de pago por uso se aplica en dos niveles para cada suscripción de cada región:
+Las cuotas de vCPU estándar se aplican a las VM de pago por uso y a las instancias de VM reservadas. Se aplican en dos niveles para cada suscripción, en cada región:
 
-* El primer nivel es el *límite de vCPU regionales totales*, en todas las series de máquinas virtuales.
-* El segundo nivel es el *límite de vCPU por serie de máquinas virtuales*; por ejemplo, las vCPU de la serie D.
+- El primer nivel es la cuota total de vCPU regional.
+- El segundo nivel es la cuota de vCPU de la familia de VM, como las vCPU de la serie D.
 
-Cada vez implemente una nueva máquina virtual al contado, el uso total de las vCPU nuevas y existentes de esa serie de máquinas virtuales no debe superar la cuota de vCPU aprobada para esa serie. Además, el número total de vCPU nuevas y existentes que se implementan en todas las series de máquinas virtuales no debe superar la cuota de vCPU regionales totales aprobada para la suscripción. Si se supera alguna de estas cuotas, no se permitirá la implementación de la máquina virtual.
+En este artículo se muestra cómo solicitar aumentos de cuota de vCPU regionales para todas las VM de una región determinada. También puede solicitar aumentos para las [cuotas de vCPU de la familia de VM ](per-vm-quota-requests.md) o las [cuotas de vCPU de acceso puntual](spot-quota.md).
 
-Puede solicitar un aumento del límite de cuota de vCPU para la serie de máquinas virtuales a través de Azure Portal. Al aumentar la cuota de la serie de máquinas virtuales, se aumenta automáticamente el límite de vCPU regionales totales en la misma cantidad.
+## <a name="special-considerations"></a>Consideraciones especiales
 
-Cuando crea una nueva suscripción, el número total predeterminado de vCPU regionales no puede ser igual a la suma de las cuotas de vCPU predeterminadas para todas las series individuales de máquinas virtuales. Esta discrepancia puede dar lugar a una suscripción con suficiente cuota para cada serie individual de máquinas virtuales que quiera implementar. Pero es posible que no haya cuota suficiente para el total de vCPU regionales de todas las implementaciones. En este caso, debe enviar una solicitud para aumentar explícitamente el límite del total de vCPU regionales. El límite de vCPU regionales totales no puede superar el total de la cuota aprobada en todas las series de máquinas virtuales de la región.
+Al considerar las necesidades de vCPU entre regiones, tenga en cuenta lo siguiente:
 
-Para más información sobre las cuotas de vCPU estándar, consulte [Cuotas de vCPU de máquina virtual](../../virtual-machines/windows/quotas.md) y [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+- Las cuotas de vCPU regionales se aplican en todas las series de VM de una región determinada. Como resultado, decida cuántas vCPU necesita en cada región de la suscripción. Si no tiene suficiente cuota de vCPU en cada región, envíe una solicitud para aumentar la cuota de vCPU en esa región. Por ejemplo, si necesita 30 vCPU en el Oeste de Europa y no tiene suficiente cuota, solicite específicamente una cuota para 30 vCPU en el Oeste de Europa. Al hacerlo, las cuotas de vCPU de la suscripción en otras regiones no aumentan. Solo el límite de cuota de vCPU del Oeste de Europa se incrementa a 30 vCPU.
 
-Para más información sobre cómo aumentar los límites de vCPU de máquinas virtuales al contado, consulte el artículo [Cuota al contado: aumento de los límites para todas las series de máquinas virtuales](low-priority-quota.md).
+- Cuando se solicita un aumento en la cuota de vCPU para una serie de VM, Azure aumenta el límite de cuota de vCPU regional en la misma cantidad.
 
-Puede solicitar un aumento del límite de cuota de vCPU estándar por región de dos maneras.
+- Cuando crea una nueva suscripción, es posible que el valor predeterminado para la cantidad total de vCPU en una región no sea igual a la cuota de vCPU predeterminada total para todas las series de VM individuales. Esta discrepancia puede dar lugar a una suscripción con suficiente cuota para cada serie individual de máquinas virtuales que quiera implementar. Sin embargo, es posible que no haya cuota suficiente para el total de vCPU regionales de todas las implementaciones. En este caso, debe enviar una solicitud para aumentar explícitamente el límite de cuota de las cuotas de vCPU regionales.
 
-## <a name="request-a-quota-increase-by-region-from-help--support"></a>Solicitud de un aumento de la cuota por región desde Ayuda y soporte técnico
+## <a name="increase-a-regional-vcpu-quota"></a>Aumento de las cuotas de vCPU regionales
 
-Para solicitar un aumento de la cuota de vCPU por región desde **Ayuda y soporte técnico**, haga lo siguiente:
+Para solicitar una cuota de vCPU regional de **Uso y cuotas**:
 
-1. En el menú de [Azure Portal](https://portal.azure.com), seleccione **Ayuda y soporte técnico**.
-
-   ![El vínculo de "Ayuda y soporte técnico"](./media/resource-manager-core-quotas-request/help-plus-support.png)
-
-1. Seleccione **Ayuda y soporte técnico** y **Nueva solicitud de soporte técnico**.
-
-    ![Nueva solicitud de soporte](./media/resource-manager-core-quotas-request/new-support-request.png)
-
-1. En **Tipo de problema**, seleccione **Límites de servicio y suscripción (cuotas)** .
-
-   ![Selección de un tipo de problema](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
-
-1. En **Suscripción**, seleccione la suscripción cuya cuota quiere aumentar.
-
-   ![Selección de una suscripción](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
-
-1. En **Tipo de cuota**, seleccione **Otras solicitudes**.
-
-   ![Selección de un tipo de cuota](./media/resource-manager-core-quotas-request/regional-quotatype.png)
-
-1. Seleccione **Siguiente: Soluciones** para abrir **DETALLES DEL PROBLEMA**. En **Descripción**, proporcione la siguiente información:
-
-    1. Especifique el **modelo de implementación**, en este caso **Resource Manager**.  
-    1. Especifique la **región** que corresponda, por ejemplo, **Este de EE. UU. 2**.  
-    1. Especifique el **nuevo límite** de vCPU para la región. Este valor no debería superar la suma de las cuotas aprobadas para las series de SKU individuales de esta suscripción.
-
-    ![Escritura de los detalles de la solicitud de cuota](./media/resource-manager-core-quotas-request/regional-details.png)
-
-1. Seleccione **Revisar y crear** para continuar con la creación de la solicitud de soporte técnico.
-
-## <a name="request-a-quota-increase-by-region-from-subscriptions"></a>Solicitud de aumento de la cuota por región desde Suscripciones
-
-Para solicitar un aumento de la cuota de vCPU por región desde **Suscripciones**, haga lo siguiente:
-
-1. En [Azure Portal](https://portal.azure.com), busque y seleccione **Suscripciones**.
-
-   ![Navegación a Suscripciones en Azure Portal](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
+1. En Azure Portal, seleccione **Suscripciones**.
 
 1. Seleccione la suscripción cuya cuota quiere aumentar.
 
-   ![Selección de la suscripción que se va a modificar](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
+1. En el panel izquierdo, seleccione **Uso y cuotas**. Use los filtros para ver la cuota por uso.
 
-1. En el panel izquierdo, seleccione **Uso y cuotas**.
+1. En el panel principal, seleccione **Total Regional vCPUs** (Total de vCPU regionales) y, a continuación, seleccione el icono de lápiz. En el ejemplo siguiente se muestra la cuota de vCPU regional para la región Noroeste de EE. UU.
 
-   ![Uso del vínculo Uso y cuotas](./media/resource-manager-core-quotas-request/select-usage-plus-quotas.png)
+   :::image type="content" source="media/resource-manager-core-quotas-request/regional-quota-total.png" alt-text="Captura de pantalla de la pantalla Uso y cuotas en la que se muestran las vCPU regionales totales en Azure Portal." lightbox="media/resource-manager-core-quotas-request/regional-quota-total.png":::
 
-1. En la parte superior derecha, seleccione **Solicitar aumento**.
+1. En **Detalles de la cuota**, escriba el nuevo límite de cuota y, a continuación, seleccione **Guardar y continuar**.
 
-   ![Selección para aumentar la cuota](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
+   Se revisará la solicitud y se le notificará si esta se ha aprobado o rechazado. Esto suele ocurrir en cuestión de minutos. Si se rechaza la solicitud, verá un vínculo donde puede abrir una solicitud de soporte técnico para que un ingeniero pueda ayudarle con el aumento.
 
-1. En la lista **Tipo de cuota**, seleccione **Otras solicitudes**.
+> [!TIP]
+> También puede solicitar varios aumentos al mismo tiempo. Para obtener más información, consulte [Aumento de varias cuotas de CPU de la familia de máquinas virtuales en una solicitud](per-vm-quota-requests.md#increase-multiple-vm-family-cpu-quotas-in-one-request).
 
-   ![Selección del tipo de cuota](./media/resource-manager-core-quotas-request/regional-quotatype.png)
+## <a name="increase-a-regional-quota-from-help--support"></a>Aumento de una cuota regional de Ayuda y soporte técnico
 
-1. Seleccione **Siguiente: Soluciones** para abrir **DETALLES DEL PROBLEMA**. En el cuadro **Descripción**, proporcione la siguiente información adicional:
+Para solicitar un aumento de la cuota de vCPU estándar por familia de VM desde **Ayuda y soporte técnico**, cree una nueva solicitud de soporte técnico en Azure Portal.
 
-    1. Especifique el **modelo de implementación**, en este caso **Resource Manager**.  
-    1. Especifique la **región** que corresponda, por ejemplo, **Este de EE. UU. 2**.  
-    1. Especifique el **nuevo límite** de vCPU para la región. Este valor no debería superar la suma de las cuotas aprobadas para las series de SKU individuales de esta suscripción.
+1. En **Tipo de problema**, seleccione **Límites de servicio y suscripción (cuotas)** .
+1. En **Suscripción**, seleccione la suscripción cuya cuota quiere aumentar.
+1. Seleccione **Tipo de cuota** y, luego, **Compute-VM (cores-vCPUs) subscription limit increases** (Aumento del límite de suscripción para VM de proceso [núcleos/vCPU]).
 
-    ![Escritura de información en la sección de detalles](./media/resource-manager-core-quotas-request/regional-details.png)
+   :::image type="content" source="media/resource-manager-core-quotas-request/new-per-vm-quota-request.png" alt-text="Captura de pantalla que muestra una solicitud de soporte técnico para aumentar una cuota de vCPU de la familia de VM en Azure Portal.":::
 
-1. Seleccione **Revisar y crear** para continuar con la creación de la solicitud de soporte técnico.
+Desde allí, siga los pasos descritos anteriormente para completar la solicitud de aumento de cuota regional.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Revise la [lista de regiones de Azure y sus ubicaciones](https://azure.microsoft.com/regions/).
+- Obtenga información general sobre las [regiones de Azure para máquinas virtuales](../../virtual-machines/regions.md) y cómo maximizar el rendimiento, la disponibilidad y la redundancia de una VM en una región determinada.

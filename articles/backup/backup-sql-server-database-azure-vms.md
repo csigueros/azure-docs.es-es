@@ -6,12 +6,12 @@ ms.date: 11/02/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
-ms.openlocfilehash: 970c352bcb7f04d04cddaaa24769eb4a26896605
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 9cb45718d9e54e54d1154de5d3b19daeb707c52f
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131431900"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714511"
 ---
 # <a name="back-up-multiple-sql-server-vms-from-the-recovery-services-vault"></a>Copia de seguridad de varias VM con SQL Server desde el almacén de Recovery Services
 
@@ -98,6 +98,9 @@ También puede usar los siguientes FQDN para permitir el acceso a los servicios 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>Empleo de un servidor proxy HTTP para enrutar el tráfico
 
 Cuando hace copia de seguridad de una base de datos de SQL Server en una máquina virtual de Azure, la extensión de copia de seguridad en la máquina virtual usa las API HTTPS para enviar comandos de administración a Azure Backup y datos a Azure Storage. La extensión de copia de seguridad también usa Azure AD para la autenticación. Enrute el tráfico de extensión de copia de seguridad de estos tres servicios a través del proxy HTTP. Use la lista de direcciones IP y FQDN mencionada anteriormente para permitir el acceso a los servicios necesarios. No se admiten servidores proxy autenticados.
+
+> [!NOTE]
+> Deshabilite el proxy para las comunicaciones de localhost dentro de la VM. El proxy se respetará para las comunicaciones salientes desde la VM de SQL.
 
 ### <a name="database-naming-guidelines-for-azure-backup"></a>Instrucciones de nomenclatura de la base de datos para Azure Backup
 

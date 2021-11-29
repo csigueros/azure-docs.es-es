@@ -6,16 +6,16 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 11/01/2021
-ms.openlocfilehash: e004e32235330509051d635774b0ff685fb2eb4d
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: f0e1017cacf2d556ed9b61a90a9881653a7ca336
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132493073"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714796"
 ---
 # <a name="azure-web-pubsub-service-client-library-for-java"></a>Biblioteca cliente del servicio Azure Web PubSub para Java
 
-[Azure Web PubSub](https://aka.ms/awps/doc) es un servicio administrado de Azure que ayuda a los desarrolladores a compilar fácilmente aplicaciones web con características en tiempo real y patrón de publicación-suscripción. Cualquier escenario que requiera mensajería de publicación y suscripción en tiempo real entre el servidor y los clientes o entre clientes, puede usar el servicio Azure Web PubSub. Las características tradicionales en tiempo real que a menudo requieren tener que sondear desde el servidor o enviar solicitudes HTTP, también pueden usar el servicio Azure Web PubSub.
+[Azure Web PubSub](./index.yml) es un servicio administrado de Azure que ayuda a los desarrolladores a compilar fácilmente aplicaciones web con características en tiempo real y patrón de publicación-suscripción. Cualquier escenario que requiera mensajería de publicación y suscripción en tiempo real entre el servidor y los clientes o entre clientes, puede usar el servicio Azure Web PubSub. Las características tradicionales en tiempo real que a menudo requieren tener que sondear desde el servidor o enviar solicitudes HTTP, también pueden usar el servicio Azure Web PubSub.
 
 Puede usar esta biblioteca en el lado del servidor de aplicaciones para administrar las conexiones de cliente de WebSocket, como se muestra en el diagrama siguiente:
 
@@ -30,7 +30,7 @@ Use esta biblioteca para:
 
 (Los detalles sobre los términos usados aquí se describen en la sección [Conceptos clave](#key-concepts)):
 
-[Código fuente][source_code] | [Documentación de referencia de API][api] | [Documentación del producto][product_documentation] | [Ejemplos][samples_readme]
+[Código fuente][source_code] | [Documentación de referencia de API][api] | [Documentación de producto][product_documentation] | [Ejemplos][samples_readme]
 
 ## <a name="getting-started"></a>Introducción
 
@@ -157,7 +157,7 @@ De forma predeterminada, todas las bibliotecas cliente usan la biblioteca Boring
 [azure_subscription]: https://azure.microsoft.com/free
 [jdk_link]: /java/azure/jdk
 [source_code]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/webpubsub/azure-messaging-webpubsub/src
-[product_documentation]: https://aka.ms/awps/doc
+[product_documentation]: ./index.yml
 [samples_readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/webpubsub/azure-messaging-webpubsub/src/samples/README.md
 [log_levels]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core/src/main/java/com/azure/core/util/logging/ClientLogger.java
 [performance_tuning]: https://github.com/Azure/azure-sdk-for-java/wiki/Performance-Tuning
@@ -165,4 +165,4 @@ De forma predeterminada, todas las bibliotecas cliente usan la biblioteca Boring
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 [coc_contact]: mailto:opencode@microsoft.com
-[api]: https://aka.ms/awps/sdk/java
+[api]::

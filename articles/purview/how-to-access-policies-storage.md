@@ -6,14 +6,14 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 11/15/2021
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: 0a20f0a420387fe70ccc41481c29fa698920ec25
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: eab2c720aafe2cfd5a1ca46f2549b42d6f644b25
+ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132324710"
+ms.lasthandoff: 11/16/2021
+ms.locfileid: "132555724"
 ---
 # <a name="dataset-provisioning-by-data-owner-for-azure-storage"></a>Aprovisionamiento de conjuntos de datos por propietario de datos para Azure Storage
 
@@ -90,10 +90,13 @@ Ejecute este paso solo si la cuenta de Storage cuyo acceso quiere administrar es
 [Tipos y proveedores de recursos de Azure](../azure-resource-manager/management/resource-providers-and-types.md)
 
 #### <a name="configure-permissions-for-policy-management-actions"></a>Configuración de permisos para acciones de administración de directivas
--   Un usuario debe formar parte del rol Creador de directivas de Purview en el nivel de colección raíz para realizar acciones de creación o administración de directivas.
--   Un usuario debe formar parte del rol Administrador de orígenes de datos de Purview en el nivel de colección raíz para publicar la directiva.
+- El usuario debe ser propietario y administrador del origen de datos de Purview para registrar un origen para la gobernanza del uso de datos. Sin embargo, cualquiera de esos roles de forma independiente puede quitar el registro del origen para la gobernanza del uso de datos.
+- El usuario debe formar parte del rol Creador de directivas de Purview en el nivel de colección raíz para realizar acciones de creación o administración de directivas.
+- El usuario debe formar parte del rol Administrador de orígenes de datos de Purview en el nivel de colección raíz para publicar la directiva.
 
 Vea la sección sobre la administración de asignaciones de roles en esta guía: [Procedimientos para crear y administrar colecciones](how-to-create-and-manage-collections.md).
+
+Además de estos, consulte la sección "Problemas conocidos" en la parte inferior de este documento.
 
 #### <a name="register-and-scan-data-sources-in-purview"></a>Registro y examen de orígenes de datos en Purview
 Registre y examine cada origen de datos con Purview para más adelante definir directivas de acceso. Siga las guías de registro de Purview para registrar la cuenta de almacenamiento:
@@ -195,23 +198,28 @@ Los pasos necesarios para publicar una directiva son los siguientes:
 
 Esta sección contiene una referencia de cómo las acciones de las directivas de datos de Azure Purview se asignan a acciones específicas de Azure Storage.
 
-| **Acción de directiva de Purview** | **Acciones específicas del origen de datos**                                                                |
-|---------------------------|-------------------------------------------------------------------------------------------------|
+| **Acción de directiva de Purview** | **Acciones específicas del origen de datos**                                                        |
+|---------------------------|-----------------------------------------------------------------------------------------|
 |||
-| *Lectura*                      |<sub>Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read                        |
-|                           |<sub>Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery                      |
-|                           |<sub>Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed                    |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                            |
+| *Lectura*                    |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/read                      |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                |
 |||
-| *Modificar*                    |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                            |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write                           |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action                      |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action                     |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete                          |
+| *Modificar*                  |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write               |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action          |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action         |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete              |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/read                      |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/write                     |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/delete                    |
 |||
+
+## <a name="known-issues"></a>Problemas conocidos
+Estos son los problemas conocidos de esta versión
+1. Además del rol de autor de directivas, el usuario requiere el permiso Lector de directorios de Azure Active Directory (AAD) para crear la directiva de propietario de datos.
+1. El rol del autor de directivas no es suficiente para crear directivas. También requiere el rol de administrador del origen de datos de Purview.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 Vea el blog y la demostración relacionados con las capacidades mencionadas en esta guía paso a paso
 
 * [Novedades de Azure Purview en Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)

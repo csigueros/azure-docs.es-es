@@ -7,12 +7,12 @@ ms.date: 11/02/2021
 ms.author: helohr
 manager: femila
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: d91722247e44016695154912277a0e1e2370fed6
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: ce89ec45e9c4f59107b205f04ce2c3d83afc8ce2
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131452136"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132704028"
 ---
 # <a name="set-up-azure-virtual-desktop-for-azure-stack-hci-preview"></a>Configuración de Azure Virtual Desktop para Azure Stack HCI (versión preliminar)
 
@@ -33,6 +33,8 @@ A fin de usar Azure Virtual Desktop para Azure Stack HCI, necesitará lo siguien
 - [Una instancia local de Active Directory (Azure AD) sincronizada con Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad).
 
 - Una conexión estable a Azure desde la red local.
+
+- Acceso desde la red local a todas las direcciones URL necesarias enumeradas en la [lista de direcciones URL necesarias](safe-url-list.md) de Azure Virtual Desktop para máquinas virtuales.
 
 ## <a name="configure-azure-virtual-desktop-for-azure-stack-hci"></a>Configuración de Azure Virtual Desktop para Azure Stack HCI
 

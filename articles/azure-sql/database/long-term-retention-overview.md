@@ -12,12 +12,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma
 ms.date: 07/13/2021
-ms.openlocfilehash: e5e980878091145770f98cff952374e76f08180d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 703a6daa7edc5b8a8ef8cf7963b0ee720041ab4c
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124775652"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132710489"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Retención a largo plazo: Azure SQL Database y Azure SQL Managed Instance
 
@@ -56,13 +56,13 @@ Ejemplos de la directiva LTR:
 
    Cada copia de seguridad completa semanal se conservará durante 12 semanas.
 
-- W=6, M=12, Y=10, WeekOfYear=16
+- W=6, M=12, Y=10, WeekOfYear=20
 
-   Cada copia de seguridad completa semanal se conservará durante seis semanas. Excepto la primera copia de seguridad completa de cada mes, que se conservará durante 12 meses. Excepto la copia de seguridad completa realizada en la 16ª semana del año, que se conservará durante 10 años. 
+   Cada copia de seguridad completa semanal se conservará durante seis semanas. Excepto la primera copia de seguridad completa de cada mes, que se conservará durante 12 meses. Excepto la copia de seguridad completa realizada en la 20ª semana del año, que se conservará durante 10 años. 
 
 En la tabla siguiente se muestra la cadencia y caducidad de las copias de seguridad a largo plazo para la siguiente directiva:
 
-W=12 semanas (84 días), M=12 meses (365 días), Y=10 años (3650 días), WeekOfYear=15 (semana posterior al 15 de abril)
+W=12 semanas (84 días), M=12 meses (365 días), Y=10 años (3650 días), WeekOfYear=20 (semana posterior al 13 de mayo)
 
    ![Ejemplo de LTR](./media/long-term-retention-overview/ltr-example.png)
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/04/2021
+ms.date: 11/05/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb, rogoya
+ms.reviewer: calebb, davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9eb7caebf2e2b8bc122e9e1a42d4bc008580396
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 88c653634b445b83a8d89b93fb91830ac64fffd1
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128619734"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132720043"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Acceso condicional: Acceso condicional basado en el riesgo del inicio de sesión
 
@@ -25,6 +25,10 @@ La mayoría de los usuarios tienen un comportamiento normal que puede seguirse, 
 Un riesgo de inicio de sesión representa la probabilidad de que el propietario de la identidad no haya autorizado una solicitud de autenticación determinada. Las organizaciones con licencias de Azure AD Premium P2 pueden crear directivas de acceso condicional que incorporen [detecciones de riesgo de inicio de sesión de Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md#sign-in-risk).
 
 Hay dos ubicaciones donde se puede configurar esta directiva: Acceso condicional e Identity Protection. La configuración mediante una directiva de acceso condicional es el método preferido que proporciona más contexto, incluidos datos de diagnóstico mejorados, integración con el modo de solo informe, compatibilidad con Graph API y la posibilidad de utilizar otros atributos de acceso condicional en la directiva.
+
+## <a name="template-deployment"></a>Implementación de plantilla
+
+Las organizaciones pueden optar por implementar esta directiva mediante los pasos descritos a continuación o mediante las [plantillas de acceso condicional (versión preliminar)](concept-conditional-access-policy-common.md#conditional-access-templates-preview). 
 
 ## <a name="enable-with-conditional-access-policy"></a>Habilitar la directiva de acceso condicional
 
@@ -41,8 +45,10 @@ Hay dos ubicaciones donde se puede configurar esta directiva: Acceso condicional
    1. Seleccione **Alto** y **Medio**.
    1. Seleccione **Listo**.
 1. En **Controles de acceso** > **Conceder**, seleccione **Conceder acceso**, **Requerir autenticación multifactor** y **Seleccionar**.
-1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
+1. Confirme la configuración y establezca **Habilitar directiva** en **Solo informe**.
 1. Seleccione **Crear** para crear la directiva.
+
+Después de confirmar la configuración mediante el [modo de solo informe](howto-conditional-access-insights-reporting.md), un administrador puede mover el botón de alternancia **Habilitar directiva** de **Solo informe** a **Activar**.
 
 ## <a name="enable-through-identity-protection"></a>Habilitar a través de Identity Protection
 

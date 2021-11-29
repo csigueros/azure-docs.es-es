@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 11/02/2021
-ms.openlocfilehash: 716c425958a457b45736835029b90567c090d4a9
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/15/2021
+ms.openlocfilehash: 0192b9ce0e0d32b53ce8b99e9e8d16ce104c0056
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131446987"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132705348"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Niveles de servicio de Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -46,9 +46,9 @@ En la tabla siguiente se describen las diferencias principales entre los niveles
 | | Grupos de Instancia administrada de SQL | 2, 4, 8, 16, 24, 32, 40, 64 y 80 núcleos virtuales | N/D | N/D |
 | **Tipo de almacenamiento** | All | Almacenamiento remoto | Almacenamiento local de SSD y remoto en niveles | Almacenamiento local de SSD |
 | **Tamaño de la base de datos** | SQL Database | 1 GB a 4 TB | 40 GB a 100 TB | 1 GB a 4 TB |
-| | Instancia administrada de SQL  | 32 GB–8 TB </br> 16 TB (versión preliminar), según el número de núcleos; solo Gen5| N/D | 32 GB – 4 TB |
+| | Instancia administrada de SQL  | 32 GB – 16 TB| N/D | 32 GB – 16 TB |
 | **Tamaño de almacenamiento** | SQL Database | 1 GB a 4 TB | 40 GB a 100 TB | 1 GB a 4 TB |
-| | Instancia administrada de SQL  | 32 GB–8 TB | N/D | 32 GB – 4 TB |
+| | Instancia administrada de SQL  | 32 GB – 16 TB | N/D | 32 GB – 16 TB |
 | **Tamaño de TEMPDB** | SQL Database | [32 GB por núcleo virtual](resource-limits-vcore-single-databases.md) | [32 GB por núcleo virtual](resource-limits-vcore-single-databases.md) | [32 GB por núcleo virtual](resource-limits-vcore-single-databases.md) |
 | | Instancia administrada de SQL  | [24 GB por núcleo virtual](../managed-instance/resource-limits.md#service-tier-characteristics) | N/D | Hasta 4 TB: [limitado en función del tamaño de almacenamiento](../managed-instance/resource-limits.md#service-tier-characteristics) |
 | **Rendimiento de escritura de registros** | SQL Database | Bases de datos únicas: [4,5 MB/s por núcleo virtual (máximo 50 MB/s)](resource-limits-vcore-single-databases.md) <br> Grupos elásticos: [6 MB/s por núcleo virtual (máximo 62,5 MB/s)](resource-limits-vcore-elastic-pools.md)| 100 MB/s | Bases de datos únicas: [12 MB/s por núcleo virtual (máximo 96 MB/s)](resource-limits-vcore-single-databases.md) <br> Grupos elásticos: [15 MB/s por núcleo virtual (máximo 120 MB/s)](resource-limits-vcore-elastic-pools.md)|
@@ -71,7 +71,7 @@ Para más información sobre los límites de recursos, vea lo siguiente:
 
  - [Azure SQL Database (núcleo virtual)](resource-limits-vcore-single-databases.md)
  - [Base de datos única: Azure SQL Database (DTU)](resource-limits-dtu-single-databases.md)
- - [Base de datos agrupada: Azure SQL Database (DTU)](resource-limits-dtu-single-databases.md)
+ - [Base de datos agrupada: Azure SQL Database (DTU)](resource-limits-dtu-elastic-pools.md)
  - [Instancia administrada de Azure SQL](../managed-instance/resource-limits.md)
 
 ## <a name="data-and-log-storage"></a>Almacenamiento de datos y de registro

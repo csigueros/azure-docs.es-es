@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: fryu
-ms.openlocfilehash: 304ca8f96d2b8973bd4f7f394bc0d2fbff541a61
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: bde25454692e470a6ae679de0ee1ca6854d471f2
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131421995"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132724280"
 ---
 # <a name="hot-cool-and-archive-access-tiers-for-blob-data"></a>Niveles de acceso frecuente, esporádico y de archivo para los datos de blobs
 
@@ -192,12 +192,12 @@ Cambiar el nivel de acceso de un blob cuando el control de versiones está habil
 
 En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento | Blob Storage (compatibilidad predeterminada) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> |
-|--|--|--|--|
-| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
-| Blobs en bloques Premium | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Tipo de cuenta de almacenamiento | Blob Storage (compatibilidad predeterminada) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
+| Blobs en bloques Premium | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
-<sup>1</sup> Tanto Data Lake Storage Gen2 como el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
+<sup>1</sup> La compatibilidad de Data Lake Storage Gen2, el protocolo Network File System (NFS) 3.0 y el protocolo Secure File Transfer (SFTP) requieren una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
 
 Para obtener información sobre la compatibilidad con características por región, consulte [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 

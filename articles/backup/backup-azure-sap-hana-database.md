@@ -6,12 +6,12 @@ ms.date: 11/02/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
-ms.openlocfilehash: 5c92daa02a98e87f440bc76c114f5b6839eadd08
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 4a903db39405ff930dd3433cb6188e6d5d2aa69e
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131439710"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132714454"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -90,10 +90,8 @@ También puede usar los siguientes FQDN para permitir el acceso a los servicios 
 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>Empleo de un servidor proxy HTTP para enrutar el tráfico
 
-Al hacer una copia de seguridad de una base de datos SAP HANA que se ejecuta en una máquina virtual de Azure, la extensión de copia de seguridad de la máquina virtual usa las API HTTPS para enviar comandos de administración a Azure Backup y datos a Azure Storage. La extensión de copia de seguridad también usa Azure AD para la autenticación. Enrute el tráfico de extensión de copia de seguridad de estos tres servicios a través del proxy HTTP. Use la lista de direcciones IP y FQDN mencionada anteriormente para permitir el acceso a los servicios necesarios. No se admiten servidores proxy autenticados.
-
 > [!NOTE]
-> No hay compatibilidad con el proxy de nivel de servicio. Es decir, no se admite el tráfico a través del proxy solo desde algunos servicios o desde los seleccionados (servicios de Azure Backup). Todos los datos o el tráfico se pueden enrutar por proxy o no.
+> Actualmente, no hay compatibilidad de proxy para SAP HANA. Tenga en cuenta otras opciones, como los puntos de conexión privados, si desea quitar los requisitos de conectividad de salida para las copias de seguridad de bases de datos a través de Azure Backup en VM de HANA.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

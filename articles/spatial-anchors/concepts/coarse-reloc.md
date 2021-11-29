@@ -9,12 +9,12 @@ ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d2737f58fa95d1aa45d9952e8b501c1b9be4d1b0
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 51c7be1a2ce16b4725bc5aa8e294f8b91a71fa0a
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600359"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132722665"
 ---
 # <a name="coarse-relocalization"></a>Relocalización general
 
@@ -66,7 +66,7 @@ En esta tabla se resume la disponibilidad de los datos del sensor en las platafo
 | **Balizas de BLE** | Sí<sup>6</sup> | Sí<sup>6</sup> | Sí<sup>6</sup>|
 
 
-<sup>1</sup> Se puede asociar un dispositivo GPS externo a HoloLens. Póngase en contacto con [nuestro soporte técnico](../spatial-anchor-support.md) si quiere usar HoloLens con un dispositivo de seguimiento GPS.<br/>
+<sup>1</sup> Se puede asociar un dispositivo GPS externo a HoloLens. Controle el evento [UpdatedSensorFiprintprintRequired](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.updatedsensorfingerprintrequired) para enviar lecturas de [GeoLocation](/dotnet/api/microsoft.azure.spatialanchors.geolocation) si usa HoloLens con un rastreador GPS externo.<br/>
 <sup>2</sup> Compatible con las API [LocationManager][3] (tanto GPS como NETWORK).<br/>
 <sup>3</sup> Compatible con las API [CLLocationManager][4].<br/>
 <sup>4</sup> Compatible con una frecuencia de aproximadamente un examen cada 3 segundos. <br/>
