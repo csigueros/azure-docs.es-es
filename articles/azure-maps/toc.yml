@@ -13,7 +13,7 @@ items:
       - name: Creación de una aplicación de Android
         href: quick-android-map.md
       - name: Creación de una aplicación iOS
-        href: quick-iOS-app.md
+        href: quick-ios-app.md
   - name: Tutoriales
     items:
       - name: Tutoriales de SDK web
@@ -281,6 +281,38 @@ items:
         items:
           - name: Introducción al control de mapa iOS
             href: how-to-use-ios-map-control-library.md
+          - name: Cambiar el estilo de un mapa
+            href: set-map-style-ios-sdk.md
+          - name: Incorporación de controles a un mapa
+            href: add-controls-map-ios.md
+          - name: Creación de un origen de datos
+            href: create-data-source-ios-sdk.md
+          - name: Adición de una capa de símbolo
+            href: add-symbol-layer-ios.md
+          - name: Adición de una capa de burbuja
+            href: add-bubble-layer-map-ios.md
+          - name: Mostrar información de características
+            href: display-feature-information-ios-sdk.md
+          - name: Adición de una capa de línea
+            href: add-line-layer-map-ios.md
+          - name: Adición de una capa de polígono
+            href: add-polygon-layer-map-ios.md
+          - name: Adición de una capa de extrusión de polígono
+            href: add-polygon-extrusion-layer-map-ios.md
+          - name: Adición de capa de mapa térmico
+            href: add-heat-map-layer-ios.md
+          - name: Adición de una capa de imagen
+            href: add-image-layer-map-ios.md
+          - name: Adición de una capa de icono
+            href: add-tile-layer-map-ios.md
+          - name: Mostrar datos del tráfico
+            href: show-traffic-data-map-ios-sdk.md
+          - name: Agrupación en clústeres de datos de punto
+            href: clustering-point-data-ios-sdk.md
+          - name: Uso de expresiones controladas por datos
+            href: data-driven-style-expressions-ios-sdk.md
+          - name: React a eventos
+            href: interact-map-ios-sdk.md
           - name: Uso del módulo de mapas de interiores de Azure Maps
             href: how-to-use-indoor-module-ios.md
       - name: "Uso de Azure Maps en Power\_BI"
@@ -338,7 +370,7 @@ items:
           - name: Render Service
             href: /rest/api/maps/render
           - name: Render Service v2
-            href: /rest/api/maps/renderv2
+            href: /rest/api/maps/render-v2
           - name: Route Service
             href: /rest/api/maps/route
           - name: Servicio de búsqueda
@@ -366,11 +398,11 @@ items:
               - name: Servicio WFS
                 href: /rest/api/maps/v2/wfs
           - name: Administración de cuentas de Maps
-            href: /rest/api/maps-management
+            href: /rest/api/maps-management/
       - name: JavaScript
         items:
           - name: Control de mapa
-            href: /javascript/api/azure-maps-javascript/
+            href: /javascript/api/azure-maps-control/
           - name: Diseño de herramientas
             href: /javascript/api/azure-maps-drawing-tools/
           - name: Módulo de servicio
@@ -396,7 +428,7 @@ items:
           - name: IoT Hub Device Provisioning Service
             href: ../iot-dps/index.yml
           - name: IoT Central
-            href: /microsoft-iot-central/
+            href: /azure/iot-central/
           - name: IoT Edge
             href: ../iot-edge/index.yml
           - name: IoT Plug and Play
@@ -414,7 +446,7 @@ items:
       - name: Condiciones de uso de Azure Maps
         href: 'https://azure.microsoft.com/support/legal/'
       - name: Precios de Azure Maps
-        href: 'https://azure.microsoft.com/pricing/details/azure-maps'
+        href: 'https://azure.microsoft.com/pricing/details/azure-maps/'
       - name: Calculadora de precios
         href: 'https://azure.microsoft.com/pricing/calculator/'
       - name: Vídeos de Azure Maps
@@ -426,9 +458,9 @@ items:
       - name: Glosario de Azure Maps
         href: glossary.md
       - name: Actualizaciones del servicio
-        href: 'https://azure.microsoft.com/updates'
+        href: 'https://azure.microsoft.com/updates/'
       - name: Centro para desarrolladores de Azure
-        href: 'https://azure.microsoft.com/develop/iot/'
+        href: 'https://azure.microsoft.com/overview/iot/'
       - name: Azure Roadmap
         href: 'https://azure.microsoft.com/roadmap/?category=iot'
       - name: Casos prácticos técnicos

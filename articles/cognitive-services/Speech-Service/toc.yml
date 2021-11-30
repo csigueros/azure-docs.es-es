@@ -529,10 +529,14 @@ items:
                     href: windows-voice-assistants-faq.yml
   - name: Guías paso a paso
     items:
-      - name: Habilitar registro
-        href: how-to-use-logging.md
-      - name: Seguimiento de uso de la memoria
-        href: how-to-track-speech-sdk-memory-usage.md
+      - name: Registros y diagnósticos
+        items:
+          - name: Habilitación del registro en el SDK
+            href: how-to-use-logging.md
+          - name: Obtener el identificador de sesión de voz a texto
+            href: how-to-get-speech-session-id.md
+          - name: Seguimiento de uso de la memoria
+            href: how-to-track-speech-sdk-memory-usage.md
       - name: Habilitación de punto de conexión privado
         href: speech-services-private-link.md
       - name: Habilitación de un punto de conexión de servicio de una red virtual

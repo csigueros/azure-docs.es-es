@@ -1,22 +1,22 @@
 ### YamlMime:Landing
-title: Documentación de un servidor flexible (versión preliminar)
-summary: Azure Database for PostgreSQL (servidor flexible) (versión preliminar) es una oferta de base de datos como servicio PostgreSQL totalmente administrada que puede controlar cargas de trabajo críticas con un rendimiento predecible y una escalabilidad dinámica. Desarrolle aplicaciones con Azure Database for PostgreSQL para aprovechar las herramientas y plataformas de código abierto de su elección. Obtenga información sobre cómo usar servidores flexibles con nuestros inicios rápidos, tutoriales y ejemplos.
+title: Documentación de un servidor flexible
+summary: 'Azure Database for PostgreSQL: servidor flexible es una oferta de servicio de base de datos PostgreSQL totalmente administrada que puede controlar cargas de trabajo críticas con rendimiento predecible y escalabilidad dinámica. Desarrolle aplicaciones con Azure Database for PostgreSQL para aprovechar las herramientas y plataformas de código abierto de su elección. Obtenga información sobre cómo usar servidores flexibles con nuestros inicios rápidos, tutoriales y ejemplos.'
 metadata:
-  title: Azure Database for PostgreSQL (servidor flexible) (versión preliminar)
-  description: Azure Database for PostgreSQL (servidor flexible) (versión preliminar) es un servicio de base de datos relacional que se encuentra en la nube de Microsoft, que se ha creado para los desarrolladores y que tiene la tecnología PostgreSQL Community Edition.
+  title: Azure Database for PostgreSQL con la opción Servidor flexible
+  description: 'Azure Database for PostgreSQL: servidor flexible es un servicio de base de datos relacional en la nube de Microsoft creado para desarrolladores y con tecnología de la edición de la comunidad de PostgreSQL.'
   author: sunilagarwal
   ms.author: sunila
-  ms.date: 09/22/2020
+  ms.date: 11/30/2021
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: bb3b8d336eb79991c3c4eb1b379e5d3b60b315cd
-  ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+  ms.openlocfilehash: a9f0d9faf5ff1f1d9a6db416363f86c779c64ae5
+  ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/18/2021
-  ms.locfileid: "132754545"
+  ms.lasthandoff: 11/30/2021
+  ms.locfileid: "133268665"
 landingContent:
-- title: Acerca de un servidor flexible (versión preliminar)
+- title: Acerca del servidor flexible
   linkLists:
   - linkListType: overview
     links:

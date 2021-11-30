@@ -67,6 +67,12 @@
               href: azure-netapp-files-smb-performance.md
             - name: Procedimientos recomendados de SKU de máquinas virtuales de Azure
               href: performance-virtual-machine-sku.md
+    - name: Grupos de volúmenes de aplicaciones
+      items:
+        - name: Información sobre el grupo de volúmenes de aplicaciones para SAP HANA
+          href: application-volume-group-introduction.md
+        - name: Requisitos y consideraciones para el grupo de volúmenes de aplicaciones para SAP HANA
+          href: application-volume-group-considerations.md
     - name: Protección de los datos
       items:
         - name: Funcionamiento de las instantáneas de Azure NetApp Files
@@ -115,6 +121,8 @@
           href: faq-application-resilience.md
         - name: Preguntas frecuentes sobre migración y protección de datos
           href: faq-data-migration-protection.md
+        - name: Preguntas más frecuentes sobre el grupo de volúmenes de aplicaciones
+          href: faq-application-volume-group.md
         - name: Preguntas frecuentes sobre la copia de seguridad de archivos de Azure NetApp Files
           href: faq-backup.md
         - name: Preguntas más frecuentes de seguridad
@@ -191,6 +199,20 @@
               href: azure-netapp-files-resize-capacity-pools-or-volumes.md
             - name: Cambio dinámico del nivel de servicio de un volumen
               href: dynamic-change-volume-service-level.md
+    - name: Administración de grupos de volúmenes de aplicaciones
+      items:
+        - name: Implementación del primer SAP HANA host
+          href: application-volume-group-deploy-first-host.md
+        - name: Adición de hosts a un sistema de SAP HANA varios hosts
+          href: application-volume-group-add-hosts.md
+        - name: Agregar volúmenes para un SAP HANA como base de datos secundaria en HSR
+          href: application-volume-group-add-volume-secondary.md
+        - name: Agregar volúmenes para un SAP HANA como sistema de recuperación ante desastres
+          href: application-volume-group-disaster-recovery.md
+        - name: Administración de volúmenes en un grupo de volúmenes de aplicación
+          href: application-volume-group-manage-volumes.md
+        - name: Eliminación de un grupo de volúmenes de aplicación
+          href: application-volume-group-delete.md
     - name: Administración de la protección de datos
       items:
         - name: Administración de instantáneas de volúmenes
@@ -251,6 +273,8 @@
           href: troubleshoot-capacity-pools.md
         - name: Solución de problemas de volúmenes
           href: troubleshoot-volumes.md
+        - name: Solución de problemas de errores del grupo de volúmenes de aplicaciones
+          href: troubleshoot-application-volume-groups.md
         - name: Solución de errores de directivas de instantáneas
           href: troubleshoot-snapshot-policies.md
         - name: Solución de errores de replicación entre regiones

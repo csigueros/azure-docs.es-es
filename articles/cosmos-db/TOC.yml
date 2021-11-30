@@ -150,7 +150,7 @@
       items:
         - name: Recursos de Cosmos DB
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: sql/create-cosmosdb-resources-portal.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -1030,6 +1030,8 @@
               href: cassandra/oracle-migrate-cosmos-db-blitzz.md
             - name: Migración de Apache Cassandra a Cassandra API mediante Blitzz
               href: cassandra/migrate-data-blitzz.md
+            - name: 'Migración: Apache Cassandra a Cassandra API proxy de doble escritura'
+              href: cassandra/migrate-data-dual-write-proxy.md
             - name: Migración de Apache Cassandra a Cassandra API mediante Databricks
               href: cassandra/migrate-data-databricks.md
             - name: Migración de PostgreSQL a Cassandra API mediante Apache Kafka
@@ -1089,6 +1091,8 @@
           href: cassandra/glowroot-cassandra.md
         - name: Definiciones de códigos de error
           href: cassandra/error-codes-solution.md
+        - name: Transacciones ligeras en Cassandra API
+          href: cassandra/lwt-cassandra-api.md
     - name: Referencia
       items:
         - name: Proveedor de recursos de REST

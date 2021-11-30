@@ -9,7 +9,9 @@ items:
   - name: Guías de inicio rápido
     expanded: true
     items:
-      - name: Implemente servicios DICOM mediante el Azure Portal
+      - name: Introducción al servicio DICOM
+        href: get-started-with-dicom.md
+      - name: Implemente el servicio DICOM mediante el Azure Portal
         href: deploy-dicom-services-in-azure.md
   - name: Tutoriales
     expanded: true

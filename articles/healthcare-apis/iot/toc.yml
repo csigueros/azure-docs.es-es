@@ -9,6 +9,8 @@ items:
   - name: Guías de inicio rápido
     expanded: true
     items:
+      - name: Introducción al conector de IoT
+        href: get-started-with-iot.md
       - name: Implementación del conector de IoT
         expanded: true
         items:

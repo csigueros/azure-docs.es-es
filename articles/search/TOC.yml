@@ -132,6 +132,8 @@
           href: search-lucene-query-architecture.md
         - name: Búsqueda semántica
           href: semantic-search-overview.md
+        - name: Tipos de consulta y composición
+          href: search-query-overview.md
         - name: Puntuación de relevancia
           href: index-similarity-and-scoring.md
     - name: Indización
@@ -313,7 +315,7 @@
               href: search-howto-managed-identities-data-sources.md
             - name: Azure Storage
               href: search-howto-managed-identities-storage.md
-            - name: "Azure Cosmos\_DB"
+            - name: Azure Cosmos DB
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
@@ -427,8 +429,8 @@
           href: semantic-answers.md
         - name: Adición de la corrección ortográfica a las consultas
           href: speller-how-to-add.md
-        - name: Tipos de consulta y composición
-          href: search-query-overview.md
+        - name: Paginación y formato de los resultados de la búsqueda
+          href: search-pagination-page-layout.md
         - name: Uso de sintaxis simple (ejemplos)
           href: search-query-simple-examples.md
         - name: Uso de la sintaxis completa de Lucene (ejemplos)
@@ -443,16 +445,6 @@
               href: index-add-suggesters.md
             - name: Incorporación de autocompletar y sugerencias
               href: search-add-autocomplete-suggestions.md
-        - name: Paginación y recuentos
-          href: search-pagination-page-layout.md
-        - name: Referencia de sintaxis
-          items:
-            - name: Sintaxis de consulta simplificada
-              href: query-simple-syntax.md
-            - name: Sintaxis de consulta completa de Lucene
-              href: query-lucene-syntax.md
-            - name: moreLikeThis (versión preliminar)
-              href: search-more-like-this.md
     - name: Filtros
       items:
         - name: Introducción sobre los filtros
@@ -527,7 +519,7 @@
       href: /cli/azure/search
     - name: Azure PowerShell
       href: /powershell/module/az.search
-    - name: Plantilla de Resource Manager
+    - name: Plantilla del Administrador de recursos de Azure
       href: /azure/templates/microsoft.search/searchservices
     - name: Elementos integrados de Azure Policy
       displayName: 'samples, policies, definitions'
@@ -560,6 +552,14 @@
           href: search-query-odata-search-score-function.md
         - name: Gramática del lenguaje OData
           href: search-query-odata-syntax-reference.md
+    - name: Referencia de sintaxis de consulta
+      items:
+        - name: Sintaxis de consulta simplificada
+          href: query-simple-syntax.md
+        - name: Sintaxis de consulta completa de Lucene
+          href: query-lucene-syntax.md
+        - name: moreLikeThis (versión preliminar)
+          href: search-more-like-this.md
     - name: Referencia sobre aptitudes
       items:
         - name: Aptitudes integradas

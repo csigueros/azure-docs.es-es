@@ -8,6 +8,8 @@ items:
   - name: Guías de inicio rápido
     expanded: true
     items:
+      - name: Introducción al servicio FHIR
+        href: get-started-with-fhir.md
       - name: Implementación de un servicio de FHIR en Azure Healthcare APIs mediante el portal
         expanded: true
         items:
