@@ -225,7 +225,7 @@
           items:
             - name: Crear un área de trabajo
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: logs/quick-create-workspace.md
                 - name: PowerShell
                   href: logs/powershell-workspace-configuration.md
@@ -1125,6 +1125,8 @@
               href: containers/container-insights-agent-config.md
             - name: Actualización para habilitar las métricas
               href: containers/container-insights-update-metrics.md
+            - name: Migración de Red Hat OpenShift en Azure v4.x a Azure Arc clúster habilitado
+              href: containers/container-insights-transition-hybrid.md
         - name: Supervisión
           items:
             - name: Supervisión del rendimiento

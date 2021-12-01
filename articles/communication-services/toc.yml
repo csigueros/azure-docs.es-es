@@ -101,7 +101,7 @@ items:
             href: concepts/analytics/insights.md
       - name: Eventos de servicio (EventGrid)
         items:
-          - name: Introducción
+          - name: Información general
             href: ../event-grid/event-schema-communication-services.md
             maintainContext: true
           - name: Eventos de chat
@@ -166,6 +166,8 @@ items:
             href: concepts/detailed-call-flows.md
           - name: Diagnósticos orientados al usuario
             href: concepts/voice-video-calling/user-facing-diagnostics.md
+          - name: Estadísticas de calidad de los medios
+            href: concepts/voice-video-calling/media-quality-sdk.md
           - name: Procedimientos web recomendados
             href: concepts/best-practices.md
           - name: Problemas conocidos
@@ -192,6 +194,8 @@ items:
         href: concepts/metrics.md
       - name: Azure Advisor
         href: concepts/advisor-overview.md
+      - name: Límites de servicio
+        href: concepts/service-limits.md
       - name: Solución de problemas
         href: concepts/troubleshooting-info.md
   - name: Guías paso a paso
