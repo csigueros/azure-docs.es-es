@@ -1,18 +1,18 @@
 ---
 title: Introducción a la búsqueda de FHIR en las API de Azure Healthcare
-description: En este artículo se describe una introducción a la búsqueda de FHIR que se implementa en las API de Azure Healthcare.
+description: En este artículo se describe información general sobre la búsqueda de FHIR que se implementa en las API de Azure Healthcare.
 author: CaitlinV39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/25/2021
+ms.date: 11/24/2021
 ms.author: cavoeg
-ms.openlocfilehash: c95123adc8962df5fdd20b766ffe72f5aec72ca0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: dfdde4bb53624777d4e11cbd6652f749a6f3a394
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131040460"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133368851"
 ---
 # <a name="overview-of-fhir-search"></a>Introducción a la búsqueda de FHIR
 
@@ -31,7 +31,7 @@ También puede buscar mediante `POST`, lo que resulta útil si la cadena de cons
 
 Si la solicitud de búsqueda se realiza correctamente, recibirá una respuesta de agrupación de FHIR con el tipo `searchset`. Si se produce un error en la búsqueda, encontrará los detalles del error en `OperationOutcome` para ayudarle a entender por qué se ha producido.
 
-En las secciones siguientes, se describirán los distintos aspectos implicados en la búsqueda. Una vez que haya revisado estos [](search-samples.md) detalles, consulte nuestra página de ejemplos que contiene ejemplos de búsquedas que puede realizar en el servicio FHIR en las API de Atención sanitaria de Azure.
+En las secciones siguientes, se describirán los distintos aspectos implicados en la búsqueda. Una vez que haya revisado estos [](search-samples.md) detalles, consulte nuestra página de ejemplos que contiene ejemplos de búsquedas que puede realizar en el servicio FHIR en las API de Azure Healthcare.
 
 ## <a name="search-parameters"></a>Parámetros de búsqueda
 
@@ -64,7 +64,7 @@ Hay [parámetros de búsqueda comunes](https://www.hl7.org/fhir/search.html#all)
 | _type                       | Sí                  | Sí                       |
 | _security                   | Sí                  | Sí                       |
 | _profile                    | Sí                  | Sí                       |
-| _has                        | Sí.                 | Yes                       |  |
+| _has                        | Sí.                 | Sí                       |  |
 | _query                      | No                   | No                        |
 | _filter                     | No                   | No                        |
 | _list                       | No                   | No                        |
@@ -73,7 +73,7 @@ Hay [parámetros de búsqueda comunes](https://www.hl7.org/fhir/search.html#all)
 
 ### <a name="resource-specific-parameters"></a>Parámetros específicos del recurso
 
-Con el servicio FHIR en las API de [](https://www.hl7.org/fhir/searchparameter-registry.html) Azure Healthcare, se admiten casi todos los parámetros de búsqueda específicos del recurso definidos por la especificación de FHIR. Los únicos parámetros de búsqueda que no se admiten están disponibles en los vínculos siguientes:
+Con el servicio FHIR en las API de [](https://www.hl7.org/fhir/searchparameter-registry.html) Azure Healthcare, se admiten casi todos los parámetros de búsqueda específicos de recursos definidos por la especificación de FHIR. Los únicos parámetros de búsqueda que no se admiten están disponibles en los vínculos siguientes:
 
 * [Parámetros de búsqueda no admitidos en STU3](https://github.com/microsoft/fhir-server/blob/main/src/Microsoft.Health.Fhir.Core/Data/Stu3/unsupported-search-parameters.json)
 
@@ -139,7 +139,7 @@ Para facilitar la administración de los recursos devueltos, puede usar parámet
 | _revinclude                   | Sí                  | Sí                       |Los elementos incluidos se limitan a 100. _revinclude en PaaS y OSS en Cosmos DB no incluyen compatibilidad con :iterate [(nº 2137)](https://github.com/microsoft/fhir-server/issues/2137). También hay un código de estado incorrecto para una solicitud incorrecta [nº 1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
 | _summary                      | Sí             | Sí                   |
 | _total                        | Parcial              | Parcial                   | _total=none y _total=accurate                               |
-| _sort                         | Parcial              | Parcial                   | sort=_lastUpdated se admite en Azure API for FHIR y el servicio FHIR. Para el servicio FHIR y los servidores de FHIR SQL OSS db, se admite la ordenación por cadenas y campos dateTime. Para Azure API for FHIR bases de datos de Azure API for FHIR y OSS Cosmos creadas después del 20 de abril de 2021, la ordenación se admite en el nombre, el apellido y la fecha de la hospital.             |
+| _sort                         | Parcial              | Parcial                   | sort=_lastUpdated se admite en Azure API for FHIR y el servicio FHIR. Para el servicio FHIR y los servidores de FHIR SQL OSS DB, se admite la ordenación por cadenas y campos dateTime. Para las bases de datos de Azure API for FHIR y OSS Cosmos creadas después del 20 de abril de 2021, se admite la ordenación por nombre, apellido, fecha de nacimiento y fecha de nacimiento.             |
 | _contained                    | No                   | No                        |
 | _containedType                | No                   | No                        |
 | _score                        | No                   | No                        |

@@ -5,14 +5,14 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 11/12/2021
+ms.date: 11/29/2021
 ms.author: cavoeg
-ms.openlocfilehash: a1bb41b9e3272297cb49f42ee3a6e20137a57d46
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: b8fc847edc18e9103534961051d550340dac9e98
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132491722"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133366032"
 ---
 # <a name="overview-of-search-in-azure-api-for-fhir"></a>Información general de la búsqueda en Azure API for FHIR
 
@@ -37,7 +37,7 @@ Cuando realice una búsqueda, lo hará en función de varios atributos del recur
 Cada parámetro de búsqueda tiene un [tipo de datos](https://www.hl7.org/fhir/search.html#ptypes) definido. A continuación se describe la compatibilidad con los distintos tipos de datos:
 
 > [!WARNING]
-> Actualmente hay un problema al usar _sort en la Azure API for FHIR con búsqueda encadenada. Para obtener más información, vea el problema de código abierto [n.º 2344.](https://github.com/microsoft/fhir-server/issues/2344) Esto se resolverá durante una versión en diciembre de 2021. 
+> Actualmente hay un problema al usar _sort en el Azure API for FHIR con búsqueda encadenada. Para obtener más información, vea el problema de código abierto [n.º 2344.](https://github.com/microsoft/fhir-server/issues/2344) Esto se resolverá durante una versión de diciembre de 2021. 
 
 | **Tipo de parámetro de búsqueda**  | **Azure API for FHIR** | **Servicio FHIR en Azure Healthcare APIs** | **Comment**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
@@ -138,13 +138,13 @@ Para facilitar la administración de los recursos devueltos, puede usar parámet
 | _revinclude                   | Sí                  | Sí                       |Los elementos incluidos se limitan a 100. _revinclude en PaaS y OSS en Cosmos DB no incluyen compatibilidad con :iterate [(nº 2137)](https://github.com/microsoft/fhir-server/issues/2137).  También hay un código de estado incorrecto para una solicitud incorrecta [nº 1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
 | _summary                      | Sí             | Sí                   |
 | _total                        | Parcial              | Parcial                   | _total=none y _total=accurate                               |
-| _sort                         | Parcial              | Parcial                   | sort=_lastUpdated se admite en Azure API for FHIR y el servicio FHIR. Para las bases de datos de Azure API for FHIR y OSS Cosmos creadas después del 20 de abril de 2021, se admite la ordenación por nombre, apellido, fecha de nacimiento y fecha de nacimiento. Tenga en cuenta que hay un problema abierto al usar _sort búsqueda encadenada, que se documenta en el problema de código abierto [n.º 2344.](https://github.com/microsoft/fhir-server/issues/2344)          |
+| _sort                         | Parcial              | Parcial                   | sort=_lastUpdated se admite en Azure API for FHIR y el servicio FHIR. Para las bases de datos de Azure API for FHIR y OSS Cosmos creadas después del 20 de abril de 2021, la ordenación se admite en el nombre, el apellido, la fecha de nacimiento y la fecha de nacimiento. Tenga en cuenta que hay un problema abierto al usar _sort búsqueda encadenada que se documenta en el problema de código abierto [n.º 2344.](https://github.com/microsoft/fhir-server/issues/2344)         |
 | _contained                    | No                   | No                        |
 | _containedType                | No                   | No                        |
 | _score                        | No                   | No                        |
 
 > [!NOTE]
-> De forma `_sort` predeterminada, ordena el registro en orden ascendente. Puede usar el prefijo para `'-'` ordenar en orden descendente. Además, el servicio FHIR y el Azure API for FHIR solo le permiten ordenar en un solo campo a la vez.
+> De forma `_sort` predeterminada, ordena el registro en orden ascendente. Puede usar el prefijo para `'-'` ordenar en orden descendente. Además, el servicio FHIR y la Azure API for FHIR solo le permiten ordenar en un solo campo a la vez.
 
 De manera predeterminada, Azure API for FHIR se establece en control sensible. Esto significa que el servidor omitirá los parámetros desconocidos o no admitidos. Si quiere usar un control estricto, puede usar el encabezado **Prefer** y establecer `handling=strict`.
 
@@ -157,7 +157,7 @@ Una [búsqueda encadenada](https://www.hl7.org/fhir/search.html#chaining) permit
 De forma similar, puede realizar una búsqueda encadenada inversa. Esto le permite obtener recursos donde se especifican criterios en otros recursos que hacen referencia a ellos. Para obtener más ejemplos de búsqueda encadenada e inversa, consulte la página de [ejemplos de búsqueda de FHIR](search-samples.md). 
 
 > [!NOTE]
-> En Azure API for FHIR y el código abierto con respaldo de Cosmos DB, hay una limitación por la que cada subconsulta necesaria para las búsquedas encadenadas y encadenadas inversas solo devolverá 100 elementos. Si se encuentran más de 100 elementos, recibirá el siguiente mensaje de error: "Las subconsultas en una expresión encadenada no pueden devolver más de 100 resultados, use un criterio más selectivo". Para obtener una consulta correcta, debe ser más específico en lo que busca.
+> En el Azure API for FHIR y el código abierto con el respaldo de Cosmos DB, hay una limitación por la que cada subconsulta necesaria para las búsquedas encadenadas y encadenadas inversas solo devolverá 1000 elementos. Si se encuentran más de 1000 elementos, recibirá el siguiente mensaje de error: "Las subconsecciones en una expresión encadenada no pueden devolver más de 1000 resultados, use un criterio más selectivo". Para obtener una consulta correcta, debe ser más específico en lo que busca.
 
 ## <a name="pagination"></a>Paginación
 
