@@ -1,0 +1,59 @@
+### YamlMime:Hub
+title: Documentación de Azure Load Testing
+summary: 'Obtenga información sobre cómo generar cargas a gran escala, identificar cuellos de botella de rendimiento de aplicaciones y automatizar las pruebas de regresión con el servicio Azure Load Testing. Tutoriales, ejemplos de código, GitHub acciones, Azure Pipelines, etc.'
+metadata:
+  title: Documentación de Azure Load Testing
+  description: 'Obtenga información sobre cómo generar cargas a gran escala, identificar cuellos de botella de rendimiento de aplicaciones y automatizar las pruebas de regresión con el servicio Azure Load Testing. Tutoriales, ejemplos de código, GitHub acciones, Azure Pipelines, etc.'
+  services: load-testing
+  ms.service: load-testing
+  ms.topic: hub-page
+  ms.collection: collection
+  ms.author: jmartens
+  author: j-martens
+  ms.date: 11/30/2021
+highlightedContent:
+  items:
+    - title: ¿Qué es Azure Load Testing?
+      itemType: overview
+      url: overview-what-is-azure-load-testing.md
+    - title: Identificación de cuellos de botella de rendimiento
+      itemType: tutorial
+      url: tutorial-identify-bottlenecks-azure-portal.md
+    - title: Configuración de pruebas de regresión continua
+      itemType: tutorial
+      url: tutorial-cicd-azure-pipelines.md
+conceptualContent:
+  items:
+    - title: Configurar pruebas de carga
+      links:
+        - url: how-to-high-scale-load.md
+          itemType: how-to-guide
+          text: Configuración para alta escala
+        - url: how-to-parameterize-load-tests.md
+          itemType: how-to-guide
+          text: Parametrización de pruebas de carga
+        - url: how-to-update-rerun-test.md
+          itemType: how-to-guide
+          text: Actualización de & volver a ejecutar pruebas de carga
+    - title: Analizar los resultados de pruebas
+      links:
+        - url: how-to-compare-multiple-test-runs.md
+          itemType: how-to-guide
+          text: Análisis del rendimiento mediante la comparación de ejecuciones
+        - url: how-to-find-download-logs.md
+          itemType: how-to-guide
+          text: Buscar & registros de pruebas de carga
+        - url: how-to-appservice-insights.md
+          itemType: how-to-guide
+          text: Obtener información de las cargas de trabajo de AppService
+        - url: how-to-export-test-results.md
+          itemType: how-to-guide
+          text: Exportar resultados
+    - title: Automatización de pruebas de carga
+      links:
+        - url: tutorial-cicd-azure-pipelines.md
+          itemType: tutorial
+          text: Flujos de trabajo de CI/CD en Azure Pipelines
+        - url: tutorial-cicd-github-actions.md
+          itemType: tutorial
+          text: Flujos de trabajo de CI/CD en GitHub acciones

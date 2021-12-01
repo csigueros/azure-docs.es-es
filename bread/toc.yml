@@ -1042,3 +1042,6 @@
     - name: Conector de servicio
       tocHref: /azure/service-connector/
       topicHref: /azure/service-connector/
+    - name: Pruebas de carga
+      tocHref: /azure/load-testing/
+      topicHref: /azure/load-testing/overview-what-is-azure-load-testing

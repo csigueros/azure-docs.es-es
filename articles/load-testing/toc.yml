@@ -1,0 +1,58 @@
+- name: Documentos de Azure Load Testing
+  href: index.yml
+- name: Información general
+  expanded: true
+  items:
+    - name: ¿Qué es Azure Load Testing?
+      displayName: 'ALT, load, MALT'
+      href: overview-what-is-azure-load-testing.md
+- name: Guías de inicio rápido
+  expanded: true
+  items:
+    - name: Creación & ejecutar una prueba de carga
+      href: quickstart-create-and-run-load-test.md
+- name: Tutoriales
+  expanded: true
+  items:
+    - name: Identificación de cuellos de botella de rendimiento
+      href: tutorial-identify-bottlenecks-azure-portal.md
+    - name: Pruebas de regresión continua (CI/CD)
+      expanded: true
+      items:
+        - name: Automatización con GitHub acciones
+          href: tutorial-cicd-github-actions.md
+        - name: Automatización con Azure Pipelines
+          href: tutorial-cicd-azure-pipelines.md
+- name: Temas procedimentales
+  expanded: true
+  items:
+    - name: Comparación de ejecuciones de pruebas
+      href: how-to-compare-multiple-test-runs.md
+    - name: Configuración de la supervisión del lado servidor
+      href: how-to-update-rerun-test.md
+    - name: Configuración para cargas de gran escala
+      href: how-to-high-scale-load.md
+    - name: Solución de errores de ejecución de pruebas
+      href: how-to-find-download-logs.md
+    - name: Definición de criterios de prueba
+      href: how-to-define-test-criteria.md
+    - name: Parametrización de pruebas de carga
+      href: how-to-parameterize-load-tests.md
+    - name: Obtener información de App Service Diagnostics
+      href: how-to-appservice-insights.md
+    - name: Exportación de resultados de pruebas
+      href: how-to-export-test-results.md
+    - name: Uso de una identidad administrada
+      href: how-to-use-a-managed-identity.md
+- name: Referencia
+  items:
+    - name: Prueba de la configuración de YAML
+      href: reference-test-config-yaml.md
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/load-testing-service/'
+    - name: Disponibilidad regional
+      href: 'https://azure.microsoft.com/regions/services/'

@@ -184,18 +184,28 @@
       items:
         - name: Información general
           href: backup-azure-sql-database.md
-        - name: Copia de seguridad
+        - name: Desde Azure Portal
           items:
-            - name: Copia de seguridad de varias máquinas virtuales con SQL Server desde el almacén
-              href: backup-sql-server-database-azure-vms.md
-            - name: Copia de seguridad de un grupo de disponibilidad de SQL Server
-              href: backup-sql-server-on-availability-groups.md
-            - name: Copia de seguridad de una máquina virtual con SQL Server desde el panel de la máquina virtual
-              href: backup-sql-server-vm-from-vm-pane.md
-        - name: Restauración
-          href: restore-sql-database-azure-vm.md
-        - name: Administrar
-          href: manage-monitor-sql-database-backup.md
+            - name: Copia de seguridad
+              items:
+                - name: Copia de seguridad de varias máquinas virtuales con SQL Server desde el almacén
+                  href: backup-sql-server-database-azure-vms.md
+                - name: Copia de seguridad de un grupo de disponibilidad de SQL Server
+                  href: backup-sql-server-on-availability-groups.md
+                - name: Copia de seguridad de una máquina virtual con SQL Server desde el panel de la máquina virtual
+                  href: backup-sql-server-vm-from-vm-pane.md
+            - name: Restauración
+              href: restore-sql-database-azure-vm.md
+            - name: Administrar
+              href: manage-monitor-sql-database-backup.md
+        - name: Con API REST
+          items:
+            - name: Copia de seguridad
+              href: backup-azure-sql-vm-rest-api.md
+            - name: Restauración
+              href: restore-azure-sql-vm-rest-api.md
+            - name: Administrar
+              href: manage-azure-sql-vm-rest-api.md
     - name: Copia de seguridad de Azure Database for PostgreSQL
       items:
         - name: Información general

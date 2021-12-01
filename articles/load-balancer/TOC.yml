@@ -73,18 +73,18 @@
   items:
     - name: Configuración del portal
       href: manage.md
-    - name: Equilibrador de carga entre regiones
-      href: cross-region-overview.md
-    - name: Equilibrador de carga de puerta de enlace
-      href: gateway-overview.md
     - name: Novedades
       href: whats-new.md
     - name: Componentes
       href: components.md
     - name: Algoritmo de equilibrio de carga
       href: concepts.md
+    - name: Modos de distribución
+      href: distribution-mode-concepts.md
     - name: SKU
       href: skus.md
+    - name: Configuración de IP flotante
+      href: load-balancer-floating-ip.md
     - name: Supervisión del estado
       items:
         - name: Supervisión del equilibrador de carga
@@ -109,12 +109,12 @@
       href: outbound-rules.md
     - name: Restablecimiento de TCP en tiempo de espera de inactividad
       href: load-balancer-tcp-reset.md
-    - name: Load Balancer Estándar y zonas de disponibilidad
+    - name: Zonas de disponibilidad
       href: load-balancer-standard-availability-zones.md
-    - name: Configuración de IP flotante
-      href: load-balancer-floating-ip.md
-    - name: Modos de distribución
-      href: distribution-mode-concepts.md
+    - name: Equilibrador de carga entre regiones
+      href: cross-region-overview.md
+    - name: Equilibrador de carga de puerta de enlace
+      href: gateway-overview.md
     - name: Seguridad
       items:
         - name: Línea de base de seguridad

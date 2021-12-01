@@ -597,7 +597,7 @@ productDirectory:
         - hybrid
         - databases
       url: azure-sql/index.yml
-    - title: "Azure\_SQL\_Database"
+    - title: Azure SQL Database
       summary: SQL administrado e inteligente en la nube
       imageSrc: 'https://static.docs.com/ui/media/product/azure/sql-database.svg'
       azureCategories:
@@ -712,6 +712,12 @@ productDirectory:
       azureCategories:
         - devops
       url: /azure/devops/test/
+    - title: Pruebas de carga de Azure
+      summary: Generación de una carga a gran escala e identificación de cuellos de botella de rendimiento de aplicaciones
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/load-testing.svg'
+      azureCategories:
+        - devops
+      url: load-testing/index.yml
     - title: Acciones de GitHub para Azure
       summary: 'Compile, pruebe e implementar cualquier aplicación de GitHub en Azure'
       imageSrc: ./media/index/github-actions-icon.svg
