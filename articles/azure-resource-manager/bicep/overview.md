@@ -49,7 +49,7 @@ Bicep proporciona las siguientes ventajas con respecto a otras opciones:
 - **Modularidad:** puede dividir el código de Bicep en elementos administrables mediante los [módulos](./modules.md). El módulo implementa un conjunto de recursos relacionados. Los módulos permiten reutilizar el código y simplificar el desarrollo. Agregue el módulo a un archivo de Bicep cada vez que necesite implementar esos recursos.
 - **Integración con los servicios de Azure:** Bicep se integra con los servicios de Azure como Azure Policy, las especificaciones de plantilla y los planos técnicos.
 - **No hay archivos de estado ni estado que administrar**: todo el estado se almacena en Azure. Los usuarios pueden colaborar y tener la confianza de que sus actualizaciones se controlan según lo previsto. Use la [operación what-if](./deploy-what-if.md) para obtener una versión preliminar de los cambios antes de implementar la plantilla.
-- **Sin costo ni código abierto**: Bicep es completamente gratuito. No tiene que pagar por las funcionalidades prémium. Asimismo, también es compatible con el Soporte técnico de Microsoft.
+- **Sin costo y código abierto**: Bicep es completamente gratuito. No tiene que pagar por las funcionalidades prémium. Asimismo, también es compatible con el Soporte técnico de Microsoft.
 
 ## <a name="bicep-improvements"></a>Mejoras de Bicep
 
